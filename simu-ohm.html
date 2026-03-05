@@ -17,7 +17,7 @@
             --secondary: #2563eb;
             --bg: #f8fafc;
             --card: #ffffff;
-            --ai: #8b5cf6;
+            --text-muted: #64748b;
             --wire: #334155;
         }
 
@@ -35,6 +35,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Style du bouton retour harmonisé */
+        .btn-retour {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-retour:hover {
+            color: var(--primary);
         }
 
         .container {
@@ -103,8 +121,7 @@
             gap: 10px;
         }
 
-        .btn-save { background: var(--secondary); }
-        .btn-ai { background: var(--ai); }
+        .btn-save { background: var(--secondary); width: 100%; }
         .btn-save:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
         .table-container {
@@ -136,22 +153,13 @@
             border-radius: 50%;
             margin-right: 5px;
         }
-
-        #aiResponse {
-            background: #f5f3ff;
-            border-left: 4px solid var(--ai);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            display: none;
-            line-height: 1.5;
-        }
     </style>
 </head>
 <body>
 
-    <h1 style="color: var(--primary); margin-bottom: 20px;">⚡ Labo Ohm : Comparaison de Résistances</h1>
+    <a href="simulations.html" class="btn-retour">← Retour au labo de simulations</a>
+
+    <h1 style="color: var(--primary); margin-bottom: 20px; text-align: center;">⚡ Labo Ohm : Caractéristiques U = f(I)</h1>
 
     <div class="container">
         
@@ -200,20 +208,14 @@
                 </div>
 
                 <button class="btn-action btn-save" onclick="saveMeasure()">
-                    <span>📥 Enregistrer la mesure</span>
+                    <span>📥 Enregistrer cette mesure</span>
                 </button>
-                
-                <button class="btn-action btn-ai" onclick="analyserAI()">
-                    <span>✨ Analyse Pédagogique (AI)</span>
-                </button>
-                
-                <div id="aiResponse"></div>
             </div>
         </div>
 
         <!-- Panneau de Droite : Graphique & Table -->
         <div class="card" style="border-top-color: var(--secondary);">
-            <h2>Caractéristique \( U = f(I) \)</h2>
+            <h2>Graphique dynamique</h2>
             <canvas id="ohmChart" height="180"></canvas>
             
             <h2 style="margin-top:20px; font-size: 1.1rem;">Registre des mesures</h2>
@@ -231,14 +233,13 @@
                 </table>
             </div>
             <div style="display: flex; gap: 10px; margin-top: 10px;">
-                <button class="btn-action" style="background:#64748b; font-size:0.8rem; padding: 8px;" onclick="clearMeasures()">Réinitialiser le labo</button>
+                <button class="btn-action" style="background:#64748b; font-size:0.8rem; padding: 8px; width: auto;" onclick="clearMeasures()">Réinitialiser le labo</button>
             </div>
         </div>
 
     </div>
 
     <script>
-        const apiKey = "";
         let chart;
         const colors = ['#e91e63', '#2563eb', '#16a34a', '#8b5cf6', '#f59e0b', '#06b6d4'];
         let colorIndex = 0;
@@ -334,34 +335,6 @@
             colorIndex = 0;
             chart.update();
             document.querySelector('#measureTable tbody').innerHTML = "";
-        }
-
-        async function analyserAI() {
-            const respBox = document.getElementById('aiResponse');
-            if (chart.data.datasets.length === 0) {
-                respBox.style.display = "block";
-                respBox.innerText = "Ajoutez d'abord quelques points de mesure pour que je puisse les analyser !";
-                return;
-            }
-
-            respBox.style.display = "block";
-            respBox.innerHTML = "<em>L'IA analyse vos graphiques...</em>";
-
-            const infoSeries = chart.data.datasets.map(ds => ds.label).join(", ");
-            const prompt = `L'élève utilise un simulateur de loi d'Ohm. Il a tracé les séries suivantes : ${infoSeries}. 
-            Explique-lui brièvement (3 phrases max) comment la pente de la droite change quand la résistance augmente, et ce que cela signifie physiquement pour le passage du courant.`;
-
-            try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                });
-                const data = await response.json();
-                respBox.innerText = data.candidates[0].content.parts[0].text;
-            } catch (e) {
-                respBox.innerText = "Désolé, l'analyseur est momentanément indisponible.";
-            }
         }
 
         window.onload = () => {
