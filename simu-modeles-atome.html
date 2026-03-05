@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation - Histoire du Modèle de l'Atome</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .sim-container { max-width: 700px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .view-area { height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #1a1a1a; border-radius: 10px; margin: 20px 0; color: white; position: relative; overflow: hidden; }
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn-model { padding: 12px; border: none; border-radius: 6px; background: #6f42c1; color: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-model:hover { background: #5632a1; }
+        .btn-model.active { background: #ffb000; color: #333; }
+        .desc-box { background: #eef2ff; padding: 15px; border-radius: 8px; text-align: left; min-height: 80px; margin-top: 15px; }
+        
+        /* Objets graphiques */
+        .sphere { width: 100px; height: 100px; background: radial-gradient(circle, #888, #333); border-radius: 50%; }
+        .thomson { width: 120px; height: 120px; background: rgba(255, 100, 100, 0.5); border-radius: 50%; position: relative; border: 2px dashed #ff4d4d; }
+        .electron { position: absolute; width: 10px; height: 10px; background: #007bff; border-radius: 50%; box-shadow: 0 0 5px #007bff; }
+        .nucleus { width: 15px; height: 15px; background: #ff4d4d; border-radius: 50%; box-shadow: 0 0 10px #ff4d4d; }
+        .orbit { position: absolute; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; }
+        
+        .btn-retour { display: inline-block; margin-top: 20px; text-decoration: none; color: #6f42c1; font-weight: bold; border: 2px solid #6f42c1; padding: 8px 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="sim-container">
+        <h2>🔬 Évolution des Modèles de l'Atome</h2>
+        <p>Cliquez sur un modèle pour visualiser sa structure théorique.</p>
+
+        <div class="view-area" id="view-area">
+            </div>
+
+        <div class="controls">
+            <button class="btn-model" onclick="showModel('dalton', this)">Dalton (1808)</button>
+            <button class="btn-model" onclick="showModel('thomson', this)">Thomson (1904)</button>
+            <button class="btn-model" onclick="showModel('rutherford', this)">Rutherford (1911)</button>
+            <button class="btn-model" onclick="showModel('bohr', this)">Bohr (1913)</button>
+        </div>
+
+        <div class="desc-box" id="desc-box">
+            Sélectionnez un modèle pour voir sa description scientifique.
+        </div>
+
+        <a href="simulations.html" class="btn-retour">← Retour au Labo</a>
+    </div>
+
+    <script>
+        function showModel(model, btn) {
+            const area = document.getElementById('view-area');
+            const desc = document.getElementById('desc-box');
+            
+            // Gestion de l'état actif des boutons
+            document.querySelectorAll('.btn-model').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            area.innerHTML = ''; // Nettoyage
+
+            if (model === 'dalton') {
+                area.innerHTML = '<div class="sphere"></div>';
+                desc.innerHTML = "<strong>Modèle de Dalton :</strong> L'atome est une sphère pleine, indivisible et sans charge électrique.";
+            } 
+            else if (model === 'thomson') {
+                let html = '<div class="thomson">';
+                for(let i=0; i<8; i++) {
+                    let x = Math.random() * 80 + 10;
+                    let y = Math.random() * 80 + 10;
+                    html += `<div class="electron" style="left:${x}px; top:${y}px"></div>`;
+                }
+                html += '</div>';
+                area.innerHTML = html;
+                desc.innerHTML = "<strong>Modèle de Thomson :</strong> L'atome est une 'pâte' positive parsemée d'électrons négatifs (modèle du Plum Pudding).";
+            }
+            else if (model === 'rutherford') {
+                area.innerHTML = '<div class="nucleus"></div>';
+                // Simulation du vide
+                for(let i=0; i<4; i++) {
+                    let e = document.createElement('div');
+                    e.className = 'electron';
+                    e.style.position = 'absolute';
+                    // Animation simplifiée
+                    animateElectron(e, 80 + i*20);
+                    area.appendChild(e);
+                }
+                desc.innerHTML = "<strong>Modèle de Rutherford :</strong> L'atome est composé d'un noyau central positif très petit, entouré de vide, avec des électrons qui gravitent autour.";
+            }
+            else if (model === 'bohr') {
+                area.innerHTML = '<div class="nucleus"></div>';
+                // Dessin des orbites fixes
+                createOrbit(area, 100, 2); // Couche K
+                createOrbit(area, 180, 4); // Couche L
+                desc.innerHTML = "<strong>Modèle de Bohr :</strong> Les électrons circulent sur des orbites circulaires précises (niveaux d'énergie) autour du noyau.";
+            }
+        }
+
+        function createOrbit(parent, size, electrons) {
+            let o = document.createElement('div');
+            o.className = 'orbit';
+            o.style.width = size + 'px';
+            o.style.height = size + 'px';
+            parent.appendChild(o);
+            for(let i=0; i<electrons; i++) {
+                let e = document.createElement('div');
+                e.className = 'electron';
+                let angle = (i * 2 * Math.PI) / electrons;
+                e.style.left = (size/2 + (size/2) * Math.cos(angle) - 5) + 'px';
+                e.style.top = (size/2 + (size/2) * Math.sin(angle) - 5) + 'px';
+                o.appendChild(e);
+            }
+        }
+
+        function animateElectron(el, radius) {
+            let angle = Math.random() * Math.PI * 2;
+            setInterval(() => {
+                angle += 0.05;
+                let x = 350 + radius * Math.cos(angle) - 5; // Centré sur zone
+                let y = 175 + radius * Math.sin(angle) - 5;
+                el.style.left = x + 'px';
+                el.style.top = y + 'px';
+            }, 30);
+        }
+
+        // Modèle par défaut
+        showModel('dalton', document.querySelector('.btn-model'));
+    </script>
+</body>
+</html>
