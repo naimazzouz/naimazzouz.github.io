@@ -1,23 +1,229 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours — Ch09 Décrire un fluide en mouvement</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; text-align: center; padding: 80px 20px; }
-        .back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #6f42c1; }
-        h1 { font-size: 1.4em; font-weight: 600; margin-bottom: 8px; }
-        p { color: #6e7781; font-size: 0.95em; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Ch09 – Décrire un fluide en mouvement – Cours</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+    body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+    .sous-titre{color:#718096;font-size:.95em;margin:0}
+    h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+    .def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+    .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+    .label-def{background:#ede9fe;color:#5b21b6}
+    .label-prop{background:#d1fae5;color:#065f46}
+    .label-att{background:#fee2e2;color:#991b1b}
+    .label-meth{background:#fef3c7;color:#92400e}
+    .label-ex{background:#e2e8f0;color:#4a5568}
+    table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+    th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+    th{background:#eef2f7;font-weight:600}
+    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+    .formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+    .formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+    .svg-wrap{text-align:center;margin:18px 0}
+    .objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+    .objectifs ul{margin:6px 0 0 0;padding-left:20px}
+  </style>
 </head>
 <body>
-<div class="container">
-    <a href="pc-term-iccer.html" class="back">← Retour</a>
-    <h1>Cours — Décrire un fluide en mouvement</h1>
-    <p>Page en construction.</p>
+<div class="c">
+  <a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+  <header>
+    <h1>Chapitre 9 – Décrire un fluide en mouvement</h1>
+    <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique – Mécanique des fluides</p>
+  </header>
+  <div class="objectifs">
+    <strong>Je vais apprendre à :</strong>
+    <ul>
+      <li>Calculer le débit volumique et massique d’un fluide en mouvement</li>
+      <li>Appliquer la conservation du débit (tube de courant)</li>
+      <li>Utiliser l’équation de Bernoulli pour les écoulements</li>
+      <li>Analyser les pertes de charge dans une installation</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>1. Types d’écoulement</h2>
+  <div class="def">
+    <span class="label label-def">Fluide parfait et fluide réel</span><br>
+    <ul>
+      <li><strong>Fluide parfait (idéal)</strong> : incompressible et sans viscosité (sans frottement interne). Modèle simplifié.</li>
+      <li><strong>Fluide réel</strong> : possède une viscosité η (en Pa·s) qui cause des frottements et des pertes d’énergie.</li>
+    </ul>
+  </div>
+  <div class="prop">
+    <span class="label label-prop">Nombre de Reynolds – type d’écoulement</span><br>
+    Le <strong>nombre de Reynolds Re</strong> caractérise le type d’écoulement :
+    <div class="formule-box" style="margin-top:10px">
+      \[ Re = \frac{\rho \times v \times D}{\eta} \]
+      <small>ρ : masse volumique (kg/m³) &nbsp;|&nbsp; v : vitesse (m/s) &nbsp;|&nbsp; D : diamètre (m) &nbsp;|&nbsp; η : viscosité dynamique (Pa·s)</small>
+    </div>
+    <table>
+      <tr><th>Type d’écoulement</th><th>Nombre de Reynolds</th><th>Caractéristique</th></tr>
+      <tr><td>Laminaire</td><td>Re &lt; 2 000</td><td>Filets fluides parallèles et réguliers</td></tr>
+      <tr><td>Transitoire</td><td>2 000 &lt; Re &lt; 4 000</td><td>Écoulement instable</td></tr>
+      <tr><td>Turbulent</td><td>Re &gt; 4 000</td><td>Tourbillons, mélange</td></tr>
+    </table>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>2. Débit volumique</h2>
+  <div class="def">
+    <span class="label label-def">Débit volumique Q<sub>v</sub></span><br>
+    Le <strong>débit volumique</strong> est le volume de fluide qui traverse une section par unité de temps.
+    <div class="formule-box" style="margin-top:10px">
+      \[ Q_v = S \times v \]
+      <small>Q<sub>v</sub> en m³/s &nbsp;|&nbsp; S : surface de la section (m²) &nbsp;|&nbsp; v : vitesse du fluide (m/s)</small>
+    </div>
+    Aussi noté Q<sub>v</sub> = V / t, avec V le volume en m³ et t le temps en s.<br>
+    <strong>Conversions courantes :</strong> 1 m³/s = 1 000 L/s = 3 600 m³/h
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    Eau circulant dans une conduite de diamètre D = 40 mm à la vitesse v = 2 m/s.<br>
+    Section : \(S = \pi \times \left(\dfrac{D}{2}\right)^2 = \pi \times (0{,}02)^2 \approx 1{,}257 \times 10^{-3}\text{ m}^2\)<br>
+    \(Q_v = S \times v = 1{,}257 \times 10^{-3} \times 2 \approx \mathbf{2{,}51 \times 10^{-3}\text{ m}^3/\text{s}} \approx 9{,}05\text{ m}^3/\text{h}\)
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>3. Débit massique</h2>
+  <div class="def">
+    <span class="label label-def">Débit massique Q<sub>m</sub></span><br>
+    Le <strong>débit massique</strong> est la masse de fluide qui traverse une section par unité de temps.
+    <div class="formule-box" style="margin-top:10px">
+      \[ Q_m = \rho \times Q_v = \rho \times S \times v \]
+      <small>Q<sub>m</sub> en kg/s &nbsp;|&nbsp; ρ : masse volumique (kg/m³)</small>
+    </div>
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple (suite)</span><br>
+    Avec Q<sub>v</sub> = 2,51 × 10<sup>−3</sup> m³/s et ρ<sub>eau</sub> = 1 000 kg/m³ :<br>
+    \(Q_m = 1\,000 \times 2{,}51 \times 10^{-3} = \mathbf{2{,}51\text{ kg/s}}\)
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>4. Conservation du débit (loi de continuité)</h2>
+  <div class="prop">
+    <span class="label label-prop">Loi de continuité</span><br>
+    Pour un <strong>fluide incompressible</strong> circulant dans un tube de courant fermé, le débit volumique est <strong>constant</strong> tout au long du circuit :
+    <div class="formule-box" style="margin-top:10px">
+      \[ Q_v = S_1 \times v_1 = S_2 \times v_2 = \text{constante} \]
+      <small>S en m² &nbsp;|&nbsp; v en m/s</small>
+    </div>
+    <strong>Conséquence :</strong> quand la section diminue, la vitesse augmente (et vice-versa).
+  </div>
+  <div class="svg-wrap">
+    <svg width="400" height="130" viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,0 7,3.5 0,7" fill="#6f42c1"/></marker>
+      </defs>
+      <!-- Conduite large -->
+      <rect x="20" y="35" width="140" height="60" fill="#dbeeff" stroke="#3b82f6" stroke-width="2" rx="4"/>
+      <!-- Conduite étroite -->
+      <rect x="240" y="50" width="140" height="30" fill="#dbeeff" stroke="#3b82f6" stroke-width="2" rx="4"/>
+      <!-- Réduction -->
+      <polygon points="160,35 240,50 240,80 160,95" fill="#dbeeff" stroke="#3b82f6" stroke-width="2"/>
+      <!-- Labels S1 v1 -->
+      <text x="55" y="20" font-size="13" fill="#3b82f6" font-family="Segoe UI,sans-serif" font-weight="600">S₁ (grande)</text>
+      <text x="75" y="115" font-size="12" fill="#6f42c1" font-family="Segoe UI,sans-serif">v₁ (lente)</text>
+      <line x1="100" y1="65" x2="145" y2="65" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr)"/>
+      <!-- Labels S2 v2 -->
+      <text x="255" y="43" font-size="13" fill="#3b82f6" font-family="Segoe UI,sans-serif" font-weight="600">S₂ (petite)</text>
+      <text x="270" y="100" font-size="12" fill="#6f42c1" font-family="Segoe UI,sans-serif">v₂ (rapide)</text>
+      <line x1="270" y1="65" x2="340" y2="65" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arr)"/>
+    </svg>
+    <p style="font-size:.85em;color:#718096;margin-top:4px">Si S<sub>2</sub> &lt; S<sub>1</sub>, alors v<sub>2</sub> &gt; v<sub>1</sub> : le fluide accélère dans la partie étroite.</p>
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    Tuyau : S<sub>1</sub> = 10 cm², v<sub>1</sub> = 0,5 m/s. La conduite se réduit à S<sub>2</sub> = 2 cm². Quelle est la vitesse v<sub>2</sub> ?<br>
+    \[ Q_v = S_1 \times v_1 = 10 \times 10^{-4} \times 0{,}5 = 5 \times 10^{-4}\text{ m}^3/\text{s} \]
+    \[ v_2 = \frac{Q_v}{S_2} = \frac{5 \times 10^{-4}}{2 \times 10^{-4}} = \mathbf{2{,}5\text{ m/s}} \]
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>5. Équation de Bernoulli (fluide parfait)</h2>
+  <div class="def">
+    <span class="label label-def">Équation de Bernoulli</span><br>
+    Pour un <strong>fluide parfait incompressible en écoulement permanent</strong>, la somme des énergies est conservée le long d’une ligne de courant :
+    <div class="formule-box" style="margin-top:10px">
+      \[ P + \frac{1}{2}\rho v^2 + \rho g z = \text{constante} \]
+      <small>P : pression (Pa) &nbsp;|&nbsp; ρ : masse volumique (kg/m³) &nbsp;|&nbsp; v : vitesse (m/s) &nbsp;|&nbsp; g : 9,81 m/s² &nbsp;|&nbsp; z : hauteur (m)</small>
+    </div>
+    Entre deux points A et B :
+    <div class="formule-box" style="margin-top:6px">
+      \[ P_A + \frac{1}{2}\rho v_A^2 + \rho g z_A = P_B + \frac{1}{2}\rho v_B^2 + \rho g z_B \]
+    </div>
+  </div>
+  <div class="prop">
+    <span class="label label-prop">Signification physique des termes</span>
+    <table>
+      <tr><th>Terme</th><th>Signification</th><th>Unité</th></tr>
+      <tr><td>P</td><td>Énergie de pression (pression statique)</td><td>Pa (= J/m³)</td></tr>
+      <tr><td>½ρv²</td><td>Énergie cinétique (pression dynamique)</td><td>Pa</td></tr>
+      <tr><td>ρgz</td><td>Énergie potentielle de pesanteur</td><td>Pa</td></tr>
+    </table>
+  </div>
+  <div class="att">
+    <span class="label label-att">Application importante</span><br>
+    Si z<sub>A</sub> = z<sub>B</sub> (même altitude), l’équation se simplifie : quand la vitesse augmente (rétrécissement), la pression <strong>diminue</strong>. C’est l’<strong>effet Venturi</strong>.
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple – tube de Venturi</span><br>
+    Eau (ρ = 1 000 kg/m³) circulant horizontalement : v<sub>A</sub> = 1 m/s, P<sub>A</sub> = 200 000 Pa, v<sub>B</sub> = 4 m/s (rétrécissement). Calculer P<sub>B</sub>.<br>
+    \[ P_B = P_A + \frac{1}{2}\rho(v_A^2 - v_B^2) = 200\,000 + \frac{1}{2} \times 1\,000 \times (1^2 - 4^2) \]
+    \[ P_B = 200\,000 + 500 \times (1 - 16) = 200\,000 - 7\,500 = \mathbf{192\,500\text{ Pa}} \]
+    La pression a <strong>diminué</strong> au rétrécissement.
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>6. Pertes de charge (fluide réel)</h2>
+  <div class="def">
+    <span class="label label-def">Pertes de charge</span><br>
+    Dans un fluide réel, les frottements (viscosité) et les obstacles (coudes, vannes, filtres) provoquent des <strong>pertes d’énergie</strong>. On les appelle <strong>pertes de charge J</strong>, exprimées en Pa ou en mètres de colonne d’eau (mCE).
+    <ul>
+      <li><strong>Pertes de charge régulières (linéaires)</strong> : dues aux frottements dans les conduites droites</li>
+      <li><strong>Pertes de charge singulières</strong> : dues aux changements de direction, sections, accessoires</li>
+    </ul>
+  </div>
+  <div class="prop">
+    <span class="label label-prop">Équation de Bernoulli réelle</span><br>
+    Pour un fluide réel avec pertes de charge J (en Pa), l’équation devient :
+    <div class="formule-box" style="margin-top:8px">
+      \[ P_A + \frac{1}{2}\rho v_A^2 + \rho g z_A = P_B + \frac{1}{2}\rho v_B^2 + \rho g z_B + J \]
+    </div>
+    J représente l’énergie perdue par frottements entre A et B.
+  </div>
+  <div class="meth">
+    <span class="label label-meth">Conversion : Pa ↔ m de colonne d’eau</span><br>
+    <div class="formule-box" style="margin-top:8px">
+      \[ h = \frac{J}{\rho \times g} \]
+      <small>h en mètres &nbsp;|&nbsp; J en Pa &nbsp;|&nbsp; ρ en kg/m³ &nbsp;|&nbsp; g = 9,81 m/s²</small>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>7. Tableau récapitulatif</h2>
+  <table>
+    <tr><th>Grandeur</th><th>Symbole</th><th>Unité</th><th>Formule</th></tr>
+    <tr><td>Débit volumique</td><td>Q<sub>v</sub></td><td>m³/s</td><td>\(Q_v = S \times v\)</td></tr>
+    <tr><td>Débit massique</td><td>Q<sub>m</sub></td><td>kg/s</td><td>\(Q_m = \rho \times Q_v\)</td></tr>
+    <tr><td>Conservation du débit</td><td>—</td><td>—</td><td>\(S_1 v_1 = S_2 v_2\)</td></tr>
+    <tr><td>Nombre de Reynolds</td><td>Re</td><td>sans unité</td><td>\(Re = \rho v D / \eta\)</td></tr>
+    <tr><td>Bernoulli (parfait)</td><td>—</td><td>Pa</td><td>\(P + \tfrac{1}{2}\rho v^2 + \rho gz = \text{cste}\)</td></tr>
+    <tr><td>Perte de charge (hauteur)</td><td>h</td><td>m</td><td>\(h = J / (\rho g)\)</td></tr>
+  </table>
 </div>
 </body>
 </html>
