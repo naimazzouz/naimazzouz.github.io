@@ -1,23 +1,758 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours — Ch03 Suites numériques</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; text-align: center; padding: 80px 20px; }
-        .back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #0969da; }
-        h1 { font-size: 1.4em; font-weight: 600; margin-bottom: 8px; }
-        p { color: #6e7781; font-size: 0.95em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Suites numériques – Cours</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--p:#0969da;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+.c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+.sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px}
+.def{background:#ebf5ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+.biv{background:#fdf4ff;border-left:5px solid #9333ea;padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.label-def{background:#dbeafe;color:#1e40af}
+.label-prop{background:#d1fae5;color:#065f46}
+.label-att{background:#fee2e2;color:#991b1b}
+.label-meth{background:#fef3c7;color:#92400e}
+.label-ex{background:#e2e8f0;color:#4a5568}
+.label-biv{background:#f3e8ff;color:#7c3aed}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
+.nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+.retenir{background:#dbeafe;border:2px solid var(--p);border-radius:8px;padding:16px 20px;margin:18px 0}
+.retenir strong{color:var(--p)}
+.objectifs{background:#ebf5ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #93c5fd}
+.objectifs ul{margin:6px 0 0 0;padding-left:20px}
+.exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
+details summary{cursor:pointer;font-weight:600;color:var(--p);margin-top:8px}
+details p{margin:6px 0 0 0;color:#4a5568}
+.anim-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:18px 0;text-align:center}
+.anim-wrap button{background:var(--p);color:#fff;border:none;padding:6px 16px;border-radius:6px;cursor:pointer;margin:6px 4px;font-size:.85em}
+.anim-wrap button:hover{opacity:.85}
+.chart-wrap{max-width:620px;margin:18px auto}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.input-row{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+.input-row label{font-size:.9em;font-weight:600;color:var(--t)}
+.input-row input{width:80px;padding:4px 8px;border:1px solid #cbd5e0;border-radius:6px;font-size:.9em}
+</style>
 </head>
 <body>
-<div class="container">
-    <a href="maths-term-iccer.html" class="back">← Retour</a>
-    <h1>Cours — Suites numériques</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="maths-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Chapitre 3 – Suites numériques</h1>
+  <p class="sous-titre">Terminale Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ERA · TMA · ICCER &nbsp;|&nbsp; Groupements 1 et 3</p>
+</header>
+
+<div class="objectifs">
+  <strong>Je vais apprendre à :</strong>
+  <ul>
+    <li>Reconnaître et définir une suite numérique (terme général \(u_n\), rang \(n\))</li>
+    <li>Identifier une suite <strong>arithmétique</strong> (raison \(r\)) et calculer ses termes et sa somme</li>
+    <li>Identifier une suite <strong>géométrique</strong> (raison \(q\)) et calculer ses termes et sa somme</li>
+    <li>Déterminer le sens de variation d'une suite</li>
+    <li>Représenter une suite par un nuage de points \((n,\,u_n)\)</li>
+    <li>Appliquer les suites à des problèmes professionnels : dépréciation, capitalisation, tarification</li>
+  </ul>
 </div>
+
+<!-- ==================== 1. DÉFINITION ==================== -->
+<h2>1. Définition d'une suite numérique</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Une <strong>suite numérique</strong> est une liste ordonnée de nombres réels. Chaque nombre est appelé un <strong>terme</strong> de la suite.<br>
+  On note la suite \((u_n)\) où \(n\) est le <strong>rang</strong> (indice entier, en général \(n \geq 0\) ou \(n \geq 1\)), et \(u_n\) est le <strong>terme de rang \(n\)</strong> (ou terme général).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple introductif</span>
+  <p>Un technicien ICCER relève la consommation mensuelle d'énergie (en kWh) d'un logement après isolation :</p>
+  <p>\(u_1 = 620\), \(u_2 = 598\), \(u_3 = 576\), \(u_4 = 554\), \(u_5 = 532\), \(\ldots\)</p>
+  <p>On observe que chaque terme est obtenu en <strong>retirant 22 au terme précédent</strong>. C'est une suite <strong>arithmétique</strong> de raison \(-22\).</p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Deux façons de définir une suite</span><br>
+  <ul>
+    <li><strong>Par une formule explicite</strong> (terme général) : \(u_n = f(n)\). On calcule directement \(u_n\) à partir de \(n\).</li>
+    <li><strong>Par une relation de récurrence</strong> : on exprime \(u_{n+1}\) en fonction de \(u_n\) (et éventuellement de \(n\)). Il faut alors connaître le premier terme \(u_0\) ou \(u_1\).</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple ERA/TMA</span>
+  <p>Le stock de planches d'une menuiserie est modélisé par \(u_n = 800 - 35n\) (en m³, \(n\) = nombre de semaines écoulées).</p>
+  <ul>
+    <li>Stock initial (\(n=0\)) : \(u_0 = 800\) m³</li>
+    <li>Après 3 semaines (\(n=3\)) : \(u_3 = 800 - 35 \times 3 = 800 - 105 = 695\) m³</li>
+    <li>Après 10 semaines : \(u_{10} = 800 - 350 = 450\) m³</li>
+  </ul>
+</div>
+
+<!-- ==================== 2. SUITES ARITHMÉTIQUES ==================== -->
+<h2>2. Suites arithmétiques</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Une suite \((u_n)\) est <strong>arithmétique</strong> si chaque terme s'obtient en ajoutant un nombre constant au terme précédent :<br>
+  \[\boxed{u_{n+1} = u_n + r}\]
+  Le nombre \(r\) s'appelle la <strong>raison</strong> de la suite. Il peut être positif, négatif ou nul.
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Terme général</span><br>
+  Si \((u_n)\) est arithmétique de premier terme \(u_0\) et de raison \(r\), alors :
+  \[\boxed{u_n = u_0 + n \times r}\]
+  Si la suite commence au rang 1 : \(\displaystyle u_n = u_1 + (n-1) \times r\)
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Identifier une suite arithmétique</span><br>
+  Pour vérifier qu'une suite est arithmétique, calculer les différences entre termes consécutifs :
+  \[u_2 - u_1,\quad u_3 - u_2,\quad u_4 - u_3,\,\ldots\]
+  Si toutes ces différences sont <strong>égales</strong>, la suite est arithmétique et leur valeur commune est la raison \(r\).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple ICCER — Tarif de maintenance</span>
+  <p>Un technicien propose un contrat de maintenance pour une pompe à chaleur. Le tarif annuel évolue de la façon suivante :</p>
+  <ul>
+    <li>Année 1 : 450 €, Année 2 : 465 €, Année 3 : 480 €, Année 4 : 495 €</li>
+  </ul>
+  <p>Différences : \(465-450=15\), \(480-465=15\), \(495-480=15\). La suite est arithmétique de raison \(r=15\).</p>
+  <p>Terme général : \(u_n = 450 + (n-1) \times 15 = 435 + 15n\) (pour \(n \geq 1\))</p>
+  <p>Tarif à la 10e année : \(u_{10} = 435 + 150 = \mathbf{585\,€}\)</p>
+</div>
+
+<h3>Somme des termes d'une suite arithmétique</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Somme</span><br>
+  La somme des \((n+1)\) premiers termes (du rang 0 au rang \(n\)) d'une suite arithmétique est :
+  \[\boxed{S = \frac{(u_0 + u_n)\times(n+1)}{2}}\]
+  Autrement dit : \(S = \dfrac{\text{(premier terme + dernier terme)} \times \text{nombre de termes}}{2}\)
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple ICCER — Économies cumulées</span>
+  <p>Grâce à une nouvelle chaudière à condensation, un technicien estime des économies mensuelles de 180 € sur les factures d'énergie (suite arithmétique avec \(u_1 = 180\), \(r = 0\) — les économies mensuelles sont constantes).</p>
+  <p><strong>Économies cumulées après 36 mois :</strong></p>
+  <p>\(S = \dfrac{(180 + 180) \times 36}{2} = \dfrac{360 \times 36}{2} = \dfrac{12\,960}{2} = \mathbf{6\,480\,€}\)</p>
+  <p>Ici tous les termes sont égaux à 180, donc \(S = 180 \times 36 = 6\,480\,€\).</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Ne pas confondre le <strong>nombre de termes</strong> et le rang du dernier terme. Si on somme de \(u_1\) à \(u_n\), il y a \(n\) termes. Si on somme de \(u_0\) à \(u_n\), il y a \(n+1\) termes.
+</div>
+
+<!-- ==================== 3. SUITES GÉOMÉTRIQUES ==================== -->
+<h2>3. Suites géométriques</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Une suite \((u_n)\) est <strong>géométrique</strong> si chaque terme s'obtient en multipliant le terme précédent par un nombre constant :<br>
+  \[\boxed{u_{n+1} = u_n \times q}\]
+  Le nombre \(q\) s'appelle la <strong>raison</strong> de la suite (avec \(q \neq 0\) et \(u_0 \neq 0\)).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Terme général</span><br>
+  Si \((u_n)\) est géométrique de premier terme \(u_0\) et de raison \(q\), alors :
+  \[\boxed{u_n = u_0 \times q^n}\]
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Identifier une suite géométrique</span><br>
+  Pour vérifier qu'une suite est géométrique, calculer les quotients de termes consécutifs :
+  \[\frac{u_2}{u_1},\quad \frac{u_3}{u_2},\quad \frac{u_4}{u_3},\,\ldots\]
+  Si tous ces quotients sont <strong>égaux</strong>, la suite est géométrique et leur valeur commune est la raison \(q\).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple ERA/TMA — Dépréciation d'une machine</span>
+  <p>Une machine à commande numérique est achetée <strong>45 000 €</strong>. Elle perd <strong>12 % de sa valeur</strong> chaque année.</p>
+  <ul>
+    <li>Après chaque année, elle vaut \(100\% - 12\% = 88\%\) de sa valeur précédente, donc raison \(q = 0{,}88\).</li>
+    <li>Terme général : \(u_n = 45\,000 \times 0{,}88^n\)</li>
+  </ul>
+  <p><strong>Valeur après 5 ans :</strong> \(u_5 = 45\,000 \times 0{,}88^5 = 45\,000 \times 0{,}5277 \approx \mathbf{23\,748\,€}\)</p>
+  <table>
+    <tr><th>Année \(n\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>Valeur \(u_n\) (€)</td><td>45 000</td><td>39 600</td><td>34 848</td><td>30 666</td><td>26 986</td><td>23 748</td></tr>
+  </table>
+</div>
+
+<h3>Somme des termes d'une suite géométrique</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Somme</span><br>
+  La somme des \((n+1)\) premiers termes (du rang 0 au rang \(n\)) d'une suite géométrique de raison \(q \neq 1\) est :
+  \[\boxed{S = u_0 \times \frac{1 - q^{n+1}}{1 - q}}\]
+  Si \(q = 1\), tous les termes sont égaux à \(u_0\) et \(S = (n+1) \times u_0\).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple ICCER — Capitalisation</span>
+  <p>Un technicien place 1 200 € en début d'année, chaque année, sur un livret à 2 % par an pendant 5 ans. Le capital placé (sans les intérêts) suit une suite géométrique si on considère la valeur capitalisée :</p>
+  <p>\(u_0 = 1\,200\), \(q = 1{,}02\)</p>
+  <p>Capital total après 5 versements (fin de la 5e année) :</p>
+  <p>\(S = 1\,200 \times \dfrac{1 - 1{,}02^5}{1 - 1{,}02} = 1\,200 \times \dfrac{1 - 1{,}1041}{-0{,}02} = 1\,200 \times \dfrac{-0{,}1041}{-0{,}02} \approx 1\,200 \times 5{,}204 \approx \mathbf{6\,245\,€}\)</p>
+</div>
+
+<!-- ==================== 4. SENS DE VARIATION ==================== -->
+<h2>4. Sens de variation d'une suite</h2>
+
+<div class="def">
+  <span class="label label-def">Définitions</span><br>
+  <ul>
+    <li>Une suite \((u_n)\) est <strong>croissante</strong> si \(u_{n+1} > u_n\) pour tout \(n\) (chaque terme est plus grand que le précédent).</li>
+    <li>Une suite \((u_n)\) est <strong>décroissante</strong> si \(u_{n+1} < u_n\) pour tout \(n\).</li>
+    <li>Une suite est <strong>constante</strong> si \(u_{n+1} = u_n\) pour tout \(n\).</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Suite arithmétique — Variation selon le signe de \(r\)</span><br>
+  <table>
+    <tr><th>Signe de la raison \(r\)</th><th>Sens de variation</th><th>Exemple professionnel</th></tr>
+    <tr><td>\(r > 0\)</td><td>Suite <strong>croissante</strong></td><td>Augmentation annuelle du CA d'une menuiserie</td></tr>
+    <tr><td>\(r = 0\)</td><td>Suite <strong>constante</strong></td><td>Tarif mensuel fixe d'un abonnement</td></tr>
+    <tr><td>\(r < 0\)</td><td>Suite <strong>décroissante</strong></td><td>Diminution du stock de bois</td></tr>
+  </table>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Suite géométrique — Variation selon \(q\) et le signe de \(u_0\)</span><br>
+  Si \(u_0 > 0\) :
+  <table>
+    <tr><th>Valeur de la raison \(q\)</th><th>Sens de variation</th><th>Exemple professionnel</th></tr>
+    <tr><td>\(q > 1\)</td><td>Suite <strong>croissante</strong></td><td>Capital placé avec intérêts composés</td></tr>
+    <tr><td>\(0 < q < 1\)</td><td>Suite <strong>décroissante</strong></td><td>Dépréciation d'une machine (\(q = 0{,}88\))</td></tr>
+    <tr><td>\(q = 1\)</td><td>Suite <strong>constante</strong></td><td>Tarif inchangé</td></tr>
+    <tr><td>\(q < 0\)</td><td>Suite qui <strong>alterne</strong> (ni croissante ni décroissante)</td><td>Cas rare en contexte professionnel</td></tr>
+  </table>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Pour une suite géométrique, si \(u_0 < 0\), les sens de variation sont <strong>inversés</strong> : pour \(0 < q < 1\), la suite sera croissante (elle tend vers 0 par valeurs négatives). Dans les problèmes professionnels, \(u_0 > 0\) presque toujours (valeur, capital, quantité…).
+</div>
+
+<!-- ==================== 5. REPRÉSENTATION GRAPHIQUE ==================== -->
+<h2>5. Représentation graphique — Nuage de points \((n, u_n)\)</h2>
+
+<p>
+  Une suite se représente par un <strong>nuage de points</strong> dans un repère orthogonal où l'axe des abscisses est le rang \(n\) (entier) et l'axe des ordonnées est \(u_n\). Les points <strong>ne sont pas reliés</strong> : le rang \(n\) est discret (entier).
+</p>
+
+<div class="two-col">
+  <div>
+    <div class="chart-wrap" style="max-width:100%">
+      <canvas id="chartArith"></canvas>
+    </div>
+    <p style="text-align:center;font-size:.82em;color:#718096">Suite arithmétique : \(u_n = 100 + 50n\) (r = 50)</p>
+  </div>
+  <div>
+    <div class="chart-wrap" style="max-width:100%">
+      <canvas id="chartGeo"></canvas>
+    </div>
+    <p style="text-align:center;font-size:.82em;color:#718096">Suite géométrique : \(u_n = 45\,000 \times 0{,}88^n\) (dépréciation)</p>
+  </div>
+</div>
+
+<!-- ==================== 6. SIMULATION INTERACTIVE ==================== -->
+<h2>6. Simulation interactive — Construire une suite</h2>
+
+<div class="anim-wrap">
+  <p><strong>Choisir les paramètres et visualiser les 10 premiers termes</strong></p>
+  <div class="input-row">
+    <label>Premier terme \(u_0\) :</label>
+    <input type="number" id="inputU0" value="1000" step="100">
+    <label>Raison :</label>
+    <input type="number" id="inputR" value="0.9" step="0.05">
+  </div>
+  <canvas id="canvasSim" width="600" height="300"></canvas>
+  <br>
+  <button onclick="lancerSimulation('arith')">Suite arithmétique</button>
+  <button onclick="lancerSimulation('geo')">Suite géométrique</button>
+  <p id="infoSim" style="color:var(--p);font-weight:600;font-size:.9em;margin-top:8px;min-height:1.4em"></p>
+  <div id="tableauSim" style="overflow-x:auto;margin-top:10px"></div>
+</div>
+
+<!-- ==================== 7. TABLEAU COMPARATIF ==================== -->
+<h2>7. Tableau comparatif — Arithmétique vs Géométrique</h2>
+
+<table>
+  <tr>
+    <th>Caractéristique</th>
+    <th>Suite arithmétique</th>
+    <th>Suite géométrique</th>
+  </tr>
+  <tr>
+    <td><strong>Relation de récurrence</strong></td>
+    <td>\(u_{n+1} = u_n + r\)</td>
+    <td>\(u_{n+1} = u_n \times q\)</td>
+  </tr>
+  <tr>
+    <td><strong>Terme général</strong></td>
+    <td>\(u_n = u_0 + n \times r\)</td>
+    <td>\(u_n = u_0 \times q^n\)</td>
+  </tr>
+  <tr>
+    <td><strong>Somme (rang 0 à \(n\))</strong></td>
+    <td>\(\dfrac{(u_0 + u_n)(n+1)}{2}\)</td>
+    <td>\(u_0 \times \dfrac{1 - q^{n+1}}{1 - q}\) &nbsp; (\(q \neq 1\))</td>
+  </tr>
+  <tr>
+    <td><strong>Variation (si \(u_0 > 0\))</strong></td>
+    <td>\(r > 0\) : croissante<br>\(r < 0\) : décroissante</td>
+    <td>\(q > 1\) : croissante<br>\(0 < q < 1\) : décroissante</td>
+  </tr>
+  <tr>
+    <td><strong>Forme du graphe</strong></td>
+    <td>Points alignés (linéaire)</td>
+    <td>Points sur une courbe exponentielle</td>
+  </tr>
+  <tr>
+    <td><strong>Contexte ERA/TMA</strong></td>
+    <td>Augmentation régulière du CA, stock diminuant</td>
+    <td>Dépréciation d'une machine, intérêts composés</td>
+  </tr>
+  <tr>
+    <td><strong>Contexte ICCER</strong></td>
+    <td>Économies cumulées régulières, tarif évoluant par paliers</td>
+    <td>Amortissement d'une chaudière, rendement croissant</td>
+  </tr>
+</table>
+
+<!-- ==================== 8. EXEMPLES DÉTAILLÉS ==================== -->
+<h2>8. Exemples professionnels détaillés</h2>
+
+<h3>8.1 ERA/TMA — Dépréciation d'une machine à commande numérique</h3>
+
+<div class="ex">
+  <span class="label label-ex">Situation ERA/TMA</span>
+  <p>Une menuiserie achète une machine à commande numérique (CNC) à <strong>45 000 €</strong>. D'après le constructeur, cette machine perd <strong>12 % de sa valeur</strong> chaque année par rapport à sa valeur de l'année précédente.</p>
+
+  <p><strong>Modélisation :</strong></p>
+  <p>On note \(u_n\) la valeur de la machine (en €) après \(n\) années. On a :</p>
+  <p>\(u_0 = 45\,000\) et \(u_{n+1} = u_n \times 0{,}88\)</p>
+  <p>C'est une suite <strong>géométrique</strong> de raison \(q = 0{,}88\) et de premier terme \(u_0 = 45\,000\).</p>
+  <p><strong>Terme général :</strong> \(u_n = 45\,000 \times 0{,}88^n\)</p>
+
+  <p><strong>Tableau des valeurs :</strong></p>
+  <table>
+    <tr>
+      <th>Année \(n\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+    </tr>
+    <tr>
+      <td>\(0{,}88^n\)</td><td>1</td><td>0,880 0</td><td>0,774 4</td><td>0,681 5</td><td>0,599 7</td><td>0,527 7</td>
+    </tr>
+    <tr>
+      <td>Valeur \(u_n\) (€)</td><td>45 000</td><td>39 600</td><td>34 848</td><td>30 666</td><td>26 986</td><td>23 748</td>
+    </tr>
+  </table>
+
+  <p><strong>Questions et réponses :</strong></p>
+  <ol>
+    <li><strong>Valeur après 5 ans :</strong> \(u_5 = 45\,000 \times 0{,}88^5 \approx 45\,000 \times 0{,}5277 \approx \mathbf{23\,748\,€}\)</li>
+    <li><strong>Perte de valeur sur 5 ans :</strong> \(45\,000 - 23\,748 = \mathbf{21\,252\,€}\) soit environ 47 % de sa valeur initiale.</li>
+    <li><strong>À partir de quelle année la machine vaut-elle moins de 10 000 € ?</strong><br>
+      On cherche \(n\) tel que \(45\,000 \times 0{,}88^n < 10\,000\), soit \(0{,}88^n < 0{,}222\).<br>
+      \(n=12\) : \(0{,}88^{12} \approx 0{,}222\). La machine vaut moins de 10 000 € à partir de l'année \(\mathbf{n = 13}\).
+    </li>
+  </ol>
+
+  <div class="chart-wrap">
+    <canvas id="chartDeprec"></canvas>
+  </div>
+  <p style="text-align:center;font-size:.82em;color:#718096">Dépréciation de la machine CNC sur 10 ans</p>
+</div>
+
+<h3>8.2 ICCER — Économies d'énergie après installation d'une chaudière</h3>
+
+<div class="ex">
+  <span class="label label-ex">Situation ICCER</span>
+  <p>Un technicien installe une nouvelle chaudière à condensation. D'après les mesures, le client économise <strong>180 € par mois</strong> sur ses factures d'énergie. Le coût d'installation est de <strong>4 000 €</strong>.</p>
+
+  <p><strong>Modélisation :</strong></p>
+  <p>On note \(E_n\) l'économie cumulée (en €) après \(n\) mois. Les économies mensuelles sont constantes :</p>
+  <p>\(E_0 = 0\), \(E_1 = 180\), \(E_2 = 360\), \(E_3 = 540\), …</p>
+  <p>On a \(E_n = 180 \times n\) (suite arithmétique de raison \(r = 180\), premier terme \(E_0 = 0\)).</p>
+
+  <p><strong>Questions et réponses :</strong></p>
+  <ol>
+    <li>
+      <strong>Économies cumulées après 36 mois (3 ans) :</strong><br>
+      \(E_{36} = 180 \times 36 = \mathbf{6\,480\,€}\)
+    </li>
+    <li>
+      <strong>À partir de quel mois les économies dépassent-elles le coût d'installation (4 000 €) ?</strong><br>
+      On cherche \(n\) tel que \(180 \times n > 4\,000\), soit \(n > \dfrac{4\,000}{180} \approx 22{,}2\).<br>
+      Donc à partir du mois \(\mathbf{n = 23}\), les économies cumulées dépassent le coût d'installation.<br>
+      Vérification : \(E_{22} = 180 \times 22 = 3\,960\,€ < 4\,000\,€\) et \(E_{23} = 180 \times 23 = 4\,140\,€ > 4\,000\,€\). ✓
+    </li>
+    <li>
+      <strong>Économies cumulées après 5 ans (60 mois) :</strong><br>
+      \(E_{60} = 180 \times 60 = \mathbf{10\,800\,€}\)
+    </li>
+  </ol>
+</div>
+
+<!-- ==================== 9. SUITES PAR RÉCURRENCE ==================== -->
+<h2>9. Suites définies par récurrence</h2>
+
+<div class="def">
+  <span class="label label-def">Définition</span><br>
+  Une suite est définie <strong>par récurrence</strong> lorsqu'on connaît le premier terme et une relation donnant \(u_{n+1}\) en fonction de \(u_n\) (et parfois de \(n\)).
+  <br>Pour calculer \(u_n\), il faut calculer successivement tous les termes précédents.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple ERA/TMA — Évolution du chiffre d'affaires</span>
+  <p>Le chiffre d'affaires d'une menuiserie vaut 120 000 € la première année. Chaque année, il augmente de 8 % par rapport à l'année précédente.</p>
+  <p>On a \(u_1 = 120\,000\) et \(u_{n+1} = u_n \times 1{,}08\).</p>
+  <p>Terme général : \(u_n = 120\,000 \times 1{,}08^{n-1}\)</p>
+  <p>CA à la 5e année : \(u_5 = 120\,000 \times 1{,}08^4 \approx 120\,000 \times 1{,}360 \approx \mathbf{163\,200\,€}\)</p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple ICCER — Amortissement d'une chaudière</span>
+  <p>Une chaudière neuve vaut 8 500 €. Elle perd 15 % de sa valeur chaque année.</p>
+  <p>\(u_0 = 8\,500\), \(u_{n+1} = u_n \times 0{,}85\), terme général : \(u_n = 8\,500 \times 0{,}85^n\)</p>
+  <table>
+    <tr><th>Année</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>Valeur (€)</td><td>8 500</td><td>7 225</td><td>6 141</td><td>5 220</td><td>4 437</td><td>3 771</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 10. LIEN AVEC LES ENSEIGNEMENTS PRO ==================== -->
+<h2>10. Liens avec les enseignements professionnels</h2>
+
+<div class="biv">
+  <span class="label label-biv">Bivalence — Liens avec les spécialités</span><br>
+  <ul>
+    <li><strong>ERA / TMA (Groupement 3) :</strong>
+      <ul>
+        <li>Dépréciation d'une machine CNC, d'un outil ou d'un véhicule de livraison (suite géométrique)</li>
+        <li>Évolution du stock de matières premières (bois, panneaux, quincaillerie) semaine par semaine (suite arithmétique)</li>
+        <li>Augmentation du chiffre d'affaires d'un atelier de menuiserie (suite géométrique à raison > 1)</li>
+        <li>Calcul du nombre de pièces usinées cumulées (suite arithmétique)</li>
+      </ul>
+    </li>
+    <li><strong>ICCER (Groupement 1) :</strong>
+      <ul>
+        <li>Amortissement d'une chaudière, d'une pompe à chaleur ou d'un système solaire (suite géométrique)</li>
+        <li>Évolution du tarif d'un contrat de maintenance annuel (suite arithmétique)</li>
+        <li>Économies d'énergie cumulées après isolation ou remplacement d'équipement (suite arithmétique)</li>
+        <li>Capitalisation d'une épargne professionnelle avec intérêts composés (suite géométrique)</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- ==================== À RETENIR ==================== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li>Une suite arithmétique vérifie \(u_{n+1} = u_n + r\) et \(u_n = u_0 + n \times r\).</li>
+    <li>Une suite géométrique vérifie \(u_{n+1} = u_n \times q\) et \(u_n = u_0 \times q^n\).</li>
+    <li>Somme arithmétique : \(S = \dfrac{(u_0 + u_n)(n+1)}{2}\)</li>
+    <li>Somme géométrique : \(S = u_0 \times \dfrac{1 - q^{n+1}}{1 - q}\) (si \(q \neq 1\))</li>
+    <li>Suite arithmétique croissante \(\Leftrightarrow r > 0\) ; décroissante \(\Leftrightarrow r < 0\)</li>
+    <li>Suite géométrique à \(u_0 > 0\) : croissante \(\Leftrightarrow q > 1\) ; décroissante \(\Leftrightarrow 0 < q < 1\)</li>
+    <li>La représentation graphique d'une suite est un <strong>nuage de points</strong> (pas de courbe continue).</li>
+  </ul>
+</div>
+
+<!-- ==================== MINI EXERCICES ==================== -->
+<h2>Mini exercices corrigés</h2>
+
+<div class="exo">
+  <strong>Exercice 1 — ERA/TMA : Dépréciation d'un outil</strong>
+  <p>Un agenceur achète une défonceuse à commande numérique pour 12 000 €. Elle perd 10 % de sa valeur chaque année.</p>
+  <ol>
+    <li>Montrer que la suite des valeurs est géométrique. Donner sa raison et son premier terme.</li>
+    <li>Écrire le terme général \(u_n\).</li>
+    <li>Calculer la valeur de la machine après 4 ans.</li>
+    <li>À partir de quelle année la machine vaut-elle moins de 5 000 € ?</li>
+  </ol>
+  <details>
+    <summary>Voir la correction</summary>
+    <p>1. Chaque année, on multiplie par \(1 - 0{,}10 = 0{,}90\). Donc \(u_{n+1} = u_n \times 0{,}90\). Suite géométrique de raison \(q = 0{,}90\) et premier terme \(u_0 = 12\,000\).</p>
+    <p>2. \(u_n = 12\,000 \times 0{,}90^n\)</p>
+    <p>3. \(u_4 = 12\,000 \times 0{,}90^4 = 12\,000 \times 0{,}6561 \approx \mathbf{7\,873\,€}\)</p>
+    <p>4. On cherche \(n\) tel que \(12\,000 \times 0{,}90^n < 5\,000\), soit \(0{,}90^n < 0{,}4167\).</p>
+    <p>Par calcul successif : \(0{,}90^8 \approx 0{,}430\) et \(0{,}90^9 \approx 0{,}387\). La machine vaut moins de 5 000 € à partir de l'<strong>année 9</strong>.</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 — ICCER : Tarif de maintenance progressif</strong>
+  <p>Un technicien propose un contrat de maintenance pour une installation de climatisation. Le tarif annuel est de 320 € la première année et augmente de 18 € chaque année.</p>
+  <ol>
+    <li>Montrer que la suite est arithmétique. Donner sa raison et son premier terme.</li>
+    <li>Calculer le tarif la 8e année.</li>
+    <li>Calculer le montant total des cotisations sur 8 ans.</li>
+  </ol>
+  <details>
+    <summary>Voir la correction</summary>
+    <p>1. \(u_{n+1} = u_n + 18\). Suite arithmétique de raison \(r = 18\) et premier terme \(u_1 = 320\).</p>
+    <p>2. \(u_8 = 320 + (8-1) \times 18 = 320 + 126 = \mathbf{446\,€}\)</p>
+    <p>3. \(S = \dfrac{(u_1 + u_8) \times 8}{2} = \dfrac{(320 + 446) \times 8}{2} = \dfrac{766 \times 8}{2} = \dfrac{6\,128}{2} = \mathbf{3\,064\,€}\)</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3 — ICCER : Retour sur investissement d'une isolation</strong>
+  <p>Des travaux d'isolation thermique coûtent 5 400 €. Ils permettent d'économiser <strong>150 € par mois</strong> sur les factures de chauffage.</p>
+  <ol>
+    <li>Exprimer les économies cumulées \(E_n\) après \(n\) mois.</li>
+    <li>Calculer les économies après 2 ans (24 mois).</li>
+    <li>Au bout de combien de mois les économies dépassent-elles le coût des travaux ?</li>
+  </ol>
+  <details>
+    <summary>Voir la correction</summary>
+    <p>1. \(E_n = 150 \times n\) (suite arithmétique de premier terme \(E_0 = 0\) et raison 150).</p>
+    <p>2. \(E_{24} = 150 \times 24 = \mathbf{3\,600\,€}\)</p>
+    <p>3. On cherche \(n\) tel que \(150n > 5\,400\), soit \(n > 36\). Au bout de <strong>37 mois</strong>, \(E_{37} = 150 \times 37 = 5\,550\,€ > 5\,400\,€\). ✓</p>
+  </details>
+</div>
+
+<div class="exo">
+  <strong>Exercice 4 — ERA/TMA : Augmentation du chiffre d'affaires</strong>
+  <p>Une entreprise d'agencement réalise un chiffre d'affaires de 180 000 € la première année. Elle prévoit une augmentation de 5 % par an.</p>
+  <ol>
+    <li>La suite est-elle arithmétique ou géométrique ? Justifier.</li>
+    <li>Calculer le chiffre d'affaires prévu la 6e année.</li>
+    <li>Calculer le chiffre d'affaires cumulé sur les 6 premières années.</li>
+  </ol>
+  <details>
+    <summary>Voir la correction</summary>
+    <p>1. Chaque terme est multiplié par \(1{,}05\) : \(u_{n+1} = u_n \times 1{,}05\). C'est une suite <strong>géométrique</strong> de raison \(q = 1{,}05\) et de premier terme \(u_1 = 180\,000\).</p>
+    <p>2. \(u_6 = 180\,000 \times 1{,}05^5 = 180\,000 \times 1{,}2763 \approx \mathbf{229\,734\,€}\)</p>
+    <p>3. \(S = 180\,000 \times \dfrac{1 - 1{,}05^6}{1 - 1{,}05} = 180\,000 \times \dfrac{1 - 1{,}3401}{-0{,}05} = 180\,000 \times \dfrac{-0{,}3401}{-0{,}05} = 180\,000 \times 6{,}802 \approx \mathbf{1\,224\,360\,€}\)</p>
+  </details>
+</div>
+
+</div><!-- fin .c -->
+
+<script>
+// ==================== GRAPHIQUE SUITE ARITHMÉTIQUE ====================
+(function() {
+  const n = Array.from({length:11}, (_,i) => i);
+  const vals = n.map(i => 100 + 50*i);
+  const ctx = document.getElementById('chartArith').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'u_n = 100 + 50n',
+        data: n.map((x,i) => ({x, y: vals[i]})),
+        backgroundColor: '#0969da',
+        pointRadius: 7,
+        pointHoverRadius: 9
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {position:'bottom'},
+        title: {display:true, text:'Suite arithmétique (r = 50)'}
+      },
+      scales: {
+        x: {title:{display:true,text:'Rang n'}, ticks:{stepSize:1}, min:-0.5, max:10.5},
+        y: {title:{display:true,text:'u_n'}, min:50, max:620}
+      }
+    }
+  });
+})();
+
+// ==================== GRAPHIQUE SUITE GÉOMÉTRIQUE (DÉPRÉCIATION) ====================
+(function() {
+  const n = Array.from({length:11}, (_,i) => i);
+  const vals = n.map(i => Math.round(45000 * Math.pow(0.88, i)));
+  const ctx = document.getElementById('chartGeo').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'u_n = 45 000 × 0,88ⁿ',
+        data: n.map((x,i) => ({x, y: vals[i]})),
+        backgroundColor: '#c53030',
+        pointRadius: 7,
+        pointHoverRadius: 9
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {position:'bottom'},
+        title: {display:true, text:'Dépréciation machine CNC (q = 0,88)'}
+      },
+      scales: {
+        x: {title:{display:true,text:'Année n'}, ticks:{stepSize:1}, min:-0.5, max:10.5},
+        y: {title:{display:true,text:'Valeur (€)'}, min:0, max:50000}
+      }
+    }
+  });
+})();
+
+// ==================== GRAPHIQUE DÉPRÉCIATION DÉTAILLÉ ====================
+(function() {
+  const n = Array.from({length:11}, (_,i) => i);
+  const vals = n.map(i => Math.round(45000 * Math.pow(0.88, i)));
+  const ctx = document.getElementById('chartDeprec').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Valeur machine CNC (€)',
+          data: n.map((x,i) => ({x, y: vals[i]})),
+          backgroundColor: '#c53030',
+          pointRadius: 8,
+          pointHoverRadius: 10
+        },
+        {
+          label: 'Valeur résiduelle 10 000 €',
+          data: [{x:-0.5, y:10000},{x:10.5, y:10000}],
+          type: 'line',
+          borderColor: '#d97706',
+          borderDash: [6,4],
+          backgroundColor: 'transparent',
+          pointRadius: 0,
+          borderWidth: 2
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        legend: {position:'bottom'},
+        title: {display:true, text:'Dépréciation machine CNC — 45 000 € × 0,88ⁿ'}
+      },
+      scales: {
+        x: {title:{display:true,text:'Année n'}, ticks:{stepSize:1}, min:-0.5, max:10.5},
+        y: {title:{display:true,text:'Valeur (€)'}, min:0, max:50000}
+      }
+    }
+  });
+})();
+
+// ==================== SIMULATION INTERACTIVE ====================
+const canvasSim = document.getElementById('canvasSim');
+const ctxSim = canvasSim.getContext('2d');
+
+function lancerSimulation(type) {
+  const u0 = parseFloat(document.getElementById('inputU0').value) || 1000;
+  const r  = parseFloat(document.getElementById('inputR').value);
+
+  const N = 10;
+  const termes = [u0];
+  for (let i = 1; i <= N; i++) {
+    if (type === 'arith') {
+      termes.push(termes[i-1] + r);
+    } else {
+      termes.push(termes[i-1] * r);
+    }
+  }
+
+  const label = type === 'arith'
+    ? `Suite arithmétique : u₀ = ${u0}, r = ${r}`
+    : `Suite géométrique : u₀ = ${u0}, q = ${r}`;
+  document.getElementById('infoSim').textContent = label;
+
+  // Dessiner le canvas
+  ctxSim.clearRect(0, 0, canvasSim.width, canvasSim.height);
+  const mx = 60, my = 20, W = canvasSim.width - mx - 20, H = canvasSim.height - my - 50;
+  const xMin = 0, xMax = N;
+
+  const validTermes = termes.filter(v => isFinite(v));
+  const yMin = Math.min(...validTermes);
+  const yMax = Math.max(...validTermes);
+  const yRange = yMax - yMin || 1;
+  const yPad = yRange * 0.1;
+  const yA = yMin - yPad;
+  const yB = yMax + yPad;
+
+  const toX = x => mx + (x - xMin) / (xMax - xMin) * W;
+  const toY = y => my + H - (y - yA) / (yB - yA) * H;
+
+  // Grille
+  ctxSim.strokeStyle = '#f0f0f0'; ctxSim.lineWidth = 1;
+  for (let i = 0; i <= 5; i++) {
+    const yg = toY(yA + i * (yB - yA) / 5);
+    ctxSim.beginPath(); ctxSim.moveTo(mx, yg); ctxSim.lineTo(mx + W, yg); ctxSim.stroke();
+  }
+
+  // Axes
+  ctxSim.strokeStyle = '#cbd5e0'; ctxSim.lineWidth = 1.5;
+  ctxSim.beginPath(); ctxSim.moveTo(mx, my); ctxSim.lineTo(mx, my + H); ctxSim.stroke();
+  ctxSim.beginPath(); ctxSim.moveTo(mx, my + H); ctxSim.lineTo(mx + W, my + H); ctxSim.stroke();
+
+  // Axe zéro si visible
+  if (yA < 0 && yB > 0) {
+    const y0 = toY(0);
+    ctxSim.strokeStyle = '#a0aec0'; ctxSim.lineWidth = 1; ctxSim.setLineDash([4,3]);
+    ctxSim.beginPath(); ctxSim.moveTo(mx, y0); ctxSim.lineTo(mx + W, y0); ctxSim.stroke();
+    ctxSim.setLineDash([]);
+  }
+
+  // Labels axes
+  ctxSim.fillStyle = '#718096'; ctxSim.font = '11px Segoe UI'; ctxSim.textAlign = 'center';
+  for (let i = 0; i <= N; i++) {
+    ctxSim.fillText(i, toX(i), my + H + 16);
+  }
+  ctxSim.textAlign = 'right';
+  for (let i = 0; i <= 4; i++) {
+    const v = yA + i * (yB - yA) / 4;
+    ctxSim.fillText(v.toFixed(0), mx - 5, toY(v) + 4);
+  }
+  ctxSim.textAlign = 'center';
+  ctxSim.fillText('Rang n', mx + W / 2, my + H + 34);
+
+  // Lignes verticales (tiges) et points
+  const color = type === 'arith' ? '#0969da' : '#c53030';
+  termes.forEach((v, i) => {
+    if (!isFinite(v)) return;
+    const px = toX(i), py = toY(v), py0 = toY(Math.max(yA, 0));
+    ctxSim.strokeStyle = color + '44'; ctxSim.lineWidth = 1.5;
+    ctxSim.beginPath(); ctxSim.moveTo(px, Math.min(py, py0)); ctxSim.lineTo(px, Math.max(py, py0)); ctxSim.stroke();
+    ctxSim.beginPath(); ctxSim.arc(px, py, 6, 0, 2 * Math.PI);
+    ctxSim.fillStyle = color; ctxSim.fill();
+    ctxSim.strokeStyle = '#fff'; ctxSim.lineWidth = 2; ctxSim.stroke();
+    // Valeur au-dessus
+    ctxSim.fillStyle = color; ctxSim.font = 'bold 10px Segoe UI'; ctxSim.textAlign = 'center';
+    ctxSim.fillText(v.toFixed(0), px, py - 10);
+  });
+
+  // Tableau des termes
+  let html = '<table style="font-size:.82em;margin-top:8px"><tr><th>Rang \u00a0n</th>';
+  for (let i = 0; i <= N; i++) html += `<th>${i}</th>`;
+  html += '</tr><tr><td><strong>u<sub>n</sub></strong></td>';
+  termes.forEach(v => { html += `<td>${isFinite(v) ? v.toFixed(1) : '—'}</td>`; });
+  html += '</tr></table>';
+  document.getElementById('tableauSim').innerHTML = html;
+}
+
+// Lancement initial
+lancerSimulation('arith');
+</script>
 </body>
 </html>
