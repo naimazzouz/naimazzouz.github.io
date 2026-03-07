@@ -1,23 +1,164 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours — Ch08 Caractériser la pression dans un fluide immobile</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f6f8fa; color: #1f2328; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; text-align: center; padding: 80px 20px; }
-        .back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #6f42c1; }
-        h1 { font-size: 1.4em; font-weight: 600; margin-bottom: 8px; }
-        p { color: #6e7781; font-size: 0.95em; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Ch08 – Caractériser la pression dans un fluide immobile – Cours</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
+    body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+    .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
+    h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
+    .sous-titre{color:#718096;font-size:.95em;margin:0}
+    h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:34px;margin-bottom:12px}
+    .def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+    .ex{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:14px 0}
+    .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px}
+    .label-def{background:#ede9fe;color:#5b21b6}
+    .label-prop{background:#d1fae5;color:#065f46}
+    .label-att{background:#fee2e2;color:#991b1b}
+    .label-meth{background:#fef3c7;color:#92400e}
+    .label-ex{background:#e2e8f0;color:#4a5568}
+    table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+    th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+    th{background:#eef2f7;font-weight:600}
+    .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
+    .formule-box{text-align:center;background:#f5f0ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
+    .formule-box small{display:block;margin-top:4px;color:#718096;font-size:.82em}
+    .objectifs{background:#f5f0ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #ddd6fe}
+    .objectifs ul{margin:6px 0 0 0;padding-left:20px}
+  </style>
 </head>
 <body>
-<div class="container">
-    <a href="pc-term-iccer.html" class="back">← Retour</a>
-    <h1>Cours — Caractériser la pression dans un fluide immobile</h1>
-    <p>Page en construction.</p>
+<div class="c">
+  <a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+  <header>
+    <h1>Chapitre 8 – Caractériser la pression dans un fluide immobile</h1>
+    <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique – Mécanique des fluides</p>
+  </header>
+  <div class="objectifs">
+    <strong>Je vais apprendre à :</strong>
+    <ul>
+      <li>Définir la pression et l’exprimer en pascals</li>
+      <li>Appliquer la loi fondamentale de la statique des fluides</li>
+      <li>Utiliser le principe de Pascal et ses applications industrielles</li>
+      <li>Calculer la poussée d’Archimède et déterminer la flottabilité d’un objet</li>
+    </ul>
+  </div>
+  <h2>1. Notion de pression</h2>
+  <div class="def">
+    <span class="label label-def">Définition – Pression</span><br>
+    La <strong>pression</strong> est la force exercée perpendicularly à une surface, rapportée à l’aire de cette surface.
+    <div class="formule-box" style="margin-top:10px">
+      \[ P = \frac{F}{S} \]
+      <small>P en pascals (Pa) &nbsp;|&nbsp; F en newtons (N) &nbsp;|&nbsp; S en mètres carrés (m²)</small>
+    </div>
+    Équivalences : <strong>1 bar = 10<sup>5</sup> Pa</strong> &nbsp;|&nbsp; <strong>1 atm ≈ 1,013 bar ≈ 101 325 Pa</strong>
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    Force F = 500 N sur une surface S = 0,025 m².<br>
+    \[ P = \frac{500}{0{,}025} = \mathbf{20\,000 \text{ Pa}} = 0{,}2 \text{ bar} \]
+  </div>
+  <h2>2. Pression atmosphérique et pression relative</h2>
+  <div class="def">
+    <span class="label label-def">Pression atmosphérique</span><br>
+    P<sub>atm</sub> = 101 325 Pa ≈ 1 bar. Elle est mesurée avec un <strong>baromètre</strong> et diminue avec l’altitude.
+  </div>
+  <div class="prop">
+    <span class="label label-prop">Pression absolue et pression relative</span>
+    <ul>
+      <li><strong>Pression absolue P<sub>abs</sub></strong> : mesurée par rapport au vide parfait</li>
+      <li><strong>Pression relative P<sub>rel</sub></strong> : mesurée par rapport à P<sub>atm</sub> (affichée par les manomètres)</li>
+    </ul>
+    <div class="formule-box" style="margin-top:8px">\[ P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}} \]</div>
+  </div>
+  <h2>3. Loi fondamentale de la statique des fluides</h2>
+  <div class="def">
+    <span class="label label-def">Loi fondamentale</span><br>
+    Dans un fluide <strong>incompressible au repos</strong>, la pression augmente avec la profondeur :
+    <div class="formule-box" style="margin-top:10px">
+      \[ P_B - P_A = \rho \times g \times h \]
+      <small>P en Pa &nbsp;|&nbsp; ρ en kg/m³ &nbsp;|&nbsp; g = 9,81 m/s² &nbsp;|&nbsp; h = différence de hauteur en m</small>
+    </div>
+    B est plus bas que A, donc P<sub>B</sub> &gt; P<sub>A</sub>.
+  </div>
+  <div class="prop">
+    <span class="label label-prop">Masses volumiques usuelles</span>
+    <table>
+      <tr><th>Fluide</th><th>Masse volumique ρ (kg/m³)</th></tr>
+      <tr><td>Eau douce</td><td>1 000</td></tr>
+      <tr><td>Eau de mer</td><td>1 025</td></tr>
+      <tr><td>Huile hydraulique</td><td>870 – 900</td></tr>
+      <tr><td>Mercure</td><td>13 600</td></tr>
+      <tr><td>Air (20 °C)</td><td>1,2</td></tr>
+    </table>
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple – pression au fond d’un réservoir</span><br>
+    Réservoir d’eau rempli à h = 3 m ; surface libre à P<sub>atm</sub> = 101 325 Pa.<br>
+    \[ P_B = 101\,325 + 1\,000 \times 9{,}81 \times 3 = 101\,325 + 29\,430 = \mathbf{130\,755 \text{ Pa}} \]
+  </div>
+  <h2>4. Principe de Pascal</h2>
+  <div class="prop">
+    <span class="label label-prop">Principe de Pascal</span><br>
+    Toute variation de pression appliquée en un point d’un fluide incompressible au repos se transmet <strong>intégralement et instantanément</strong> en tout point du fluide.
+  </div>
+  <div class="meth">
+    <span class="label label-meth">Application : le vérin hydraulique</span><br>
+    La même pression règne sur les deux pistons :
+    <div class="formule-box" style="margin-top:10px">
+      \[ \frac{F_1}{S_1} = \frac{F_2}{S_2} \quad \Rightarrow \quad F_2 = F_1 \times \frac{S_2}{S_1} \]
+      <small>F en N &nbsp;|&nbsp; S en m²</small>
+    </div>
+    Si S<sub>2</sub> &gt; S<sub>1</sub>, alors F<sub>2</sub> &gt; F<sub>1</sub> : <strong>multiplication de la force</strong>.<br>
+    Applications : cric hydraulique, frein hydraulique, presse industrielle.
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple – cric hydraulique</span><br>
+    S<sub>1</sub> = 2 cm² = 2×10<sup>−4</sup> m², S<sub>2</sub> = 100 cm² = 10<sup>−2</sup> m², F<sub>1</sub> = 150 N.<br>
+    \[ F_2 = 150 \times \frac{10^{-2}}{2 \times 10^{-4}} = 150 \times 50 = \mathbf{7\,500 \text{ N}} \]
+  </div>
+  <h2>5. Poussée d’Archimède</h2>
+  <div class="def">
+    <span class="label label-def">Poussée d’Archimède</span><br>
+    Tout corps immergé dans un fluide subit une <strong>force verticale vers le haut</strong> égale au poids du fluide déplacé :
+    <div class="formule-box" style="margin-top:10px">
+      \[ \Pi = \rho_{\text{fluide}} \times g \times V_{\text{immergé}} \]
+      <small>Π en N &nbsp;|&nbsp; ρ<sub>fluide</sub> en kg/m³ &nbsp;|&nbsp; V<sub>immergé</sub> en m³</small>
+    </div>
+  </div>
+  <div class="prop">
+    <span class="label label-prop">Flottabilité</span>
+    <table>
+      <tr><th>Condition</th><th>Comportement</th></tr>
+      <tr><td>ρ<sub>objet</sub> &lt; ρ<sub>fluide</sub></td><td>Flotte (Π &gt; Poids)</td></tr>
+      <tr><td>ρ<sub>objet</sub> = ρ<sub>fluide</sub></td><td>Flottaison (Π = Poids)</td></tr>
+      <tr><td>ρ<sub>objet</sub> &gt; ρ<sub>fluide</sub></td><td>Coule (Π &lt; Poids)</td></tr>
+    </table>
+  </div>
+  <div class="ex">
+    <span class="label label-ex">Exemple</span><br>
+    Bloc d’aluminium (ρ = 2 700 kg/m³), V = 5×10<sup>−4</sup> m³, immergé dans l’eau.<br>
+    \[ \Pi = 1\,000 \times 9{,}81 \times 5 \times 10^{-4} \approx 4{,}9 \text{ N} \]
+    \[ P_{\text{poids}} = 2\,700 \times 9{,}81 \times 5 \times 10^{-4} \approx 13{,}2 \text{ N} \]
+    Π &lt; Poids → le bloc <strong>coule</strong>.
+  </div>
+  <h2>6. Tableau récapitulatif</h2>
+  <table>
+    <tr><th>Grandeur</th><th>Symbole</th><th>Unité</th><th>Formule</th></tr>
+    <tr><td>Pression</td><td>P</td><td>pascal (Pa)</td><td>\(P = F/S\)</td></tr>
+    <tr><td>Pression absolue</td><td>P<sub>abs</sub></td><td>pascal (Pa)</td><td>\(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}}\)</td></tr>
+    <tr><td>Loi statique des fluides</td><td>ΔP</td><td>pascal (Pa)</td><td>\(P_B - P_A = \rho g h\)</td></tr>
+    <tr><td>Force hydraulique</td><td>F<sub>2</sub></td><td>newton (N)</td><td>\(F_2 = F_1 \times S_2/S_1\)</td></tr>
+    <tr><td>Poussée d’Archimède</td><td>Π</td><td>newton (N)</td><td>\(\Pi = \rho_{\text{fl}} \times g \times V\)</td></tr>
+  </table>
 </div>
 </body>
 </html>
