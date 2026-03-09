@@ -289,6 +289,165 @@ canvas.anim{display:block;margin:12px auto;border-radius:10px;border:1px solid #
 })();
 </script>
 
+<!-- ══════════════════════════════════════════════════════ -->
+<h2>7. Preuve visuelle — La démonstration par l'eau</h2>
+
+<div class="anim-box">
+  <h3>💧 Animation — Le carré de l'hypoténuse = somme des deux autres carrés</h3>
+  <p style="font-size:.9em;margin:0 0 8px;color:#718096">
+    On construit un carré sur chaque côté du triangle. Clique sur <strong>Lancer</strong> : l'eau remplit le grand carré BC² = 25, puis se déverse exactement dans les deux petits carrés AB² = 9 et AC² = 16.
+  </p>
+  <div class="ctrl-vis" style="margin-bottom:4px">
+    <button id="btnWater" style="background:var(--p);color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:.9em;font-weight:600">▶ Lancer l'animation</button>
+  </div>
+  <canvas id="canvasWater" class="anim" width="540" height="340"></canvas>
+  <div class="anim-result" id="resuWater" style="font-size:.9em;min-height:1.4em"></div>
+</div>
+
+<script>
+(function(){
+  const cv=document.getElementById('canvasWater'),
+        ctx=cv.getContext('2d'),
+        btn=document.getElementById('btnWater'),
+        res=document.getElementById('resuWater');
+  const W=cv.width, H=cv.height;
+  const sc=28; // px per unit (triangle 3-4-5)
+  // Sommets du triangle rectangle en A
+  const ax=200, ay=250;
+  const bx=ax+3*sc, by=ay;       // B — côté AB=3
+  const cx_=ax,    cy_=ay-4*sc;  // C — côté AC=4
+  // Carrés
+  const sAB=[[ax,ay],[bx,by],[bx,by+3*sc],[ax,ay+3*sc]];                         // dessous
+  const sAC=[[ax,ay],[cx_,cy_],[cx_-4*sc,cy_],[ax-4*sc,ay]];                     // gauche
+  const nx=0.8,ny=-0.6, sbc=5*sc; // normale sortante, hypoténuse
+  const sBCfull=[
+    [bx,by],
+    [cx_,cy_],
+    [cx_+nx*sbc, cy_+ny*sbc],
+    [bx+nx*sbc,  by+ny*sbc]
+  ];
+
+  // Clip à un polygone puis remplir un sous-polygone
+  function fillPoly(poly, subPoly, color){
+    ctx.save();
+    ctx.beginPath();
+    poly.forEach((p,i)=>i===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+    ctx.closePath(); ctx.clip();
+    ctx.fillStyle=color;
+    ctx.beginPath();
+    subPoly.forEach((p,i)=>i===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  function drawScene(bcL, abL, acL, msg){
+    ctx.clearRect(0,0,W,H);
+    // Fond
+    ctx.fillStyle='#f8fafc'; ctx.fillRect(0,0,W,H);
+
+    // Ombres des carrés vides
+    [[sAB,'#bfdbfe'],[sAC,'#bbf7d0'],[sBCfull,'#fecaca']].forEach(([sq,bg])=>{
+      ctx.beginPath(); sq.forEach((p,i)=>i===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+      ctx.closePath(); ctx.fillStyle=bg+'88'; ctx.fill();
+    });
+
+    // Eau dans chaque carré
+    const wc='rgba(37,99,235,0.55)';
+    // BC² : remplit du bord BC vers l'extérieur (direction nx,ny)
+    if(bcL>0){
+      const L=bcL*sbc;
+      fillPoly(sBCfull,[
+        [bx,by],[cx_,cy_],
+        [cx_+nx*L, cy_+ny*L],
+        [bx+nx*L,  by+ny*L]
+      ], wc);
+    }
+    // AB² : remplit du bas vers le haut
+    if(abL>0){
+      const h=abL*3*sc;
+      fillPoly(sAB,[
+        [ax,ay+3*sc-h],[bx,ay+3*sc-h],[bx,ay+3*sc],[ax,ay+3*sc]
+      ], wc);
+    }
+    // AC² : remplit depuis le bord gauche vers la droite
+    if(acL>0){
+      const w=acL*4*sc;
+      fillPoly(sAC,[
+        [ax-w,ay],[cx_-w,cy_],[cx_,cy_],[ax,ay]
+      ], wc);
+    }
+
+    // Contours des carrés
+    const sq_styles=[[sAB,'#0056b3'],[sAC,'#2f855a'],[sBCfull,'#c53030']];
+    sq_styles.forEach(([sq,c])=>{
+      ctx.beginPath(); sq.forEach((p,i)=>i===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+      ctx.closePath(); ctx.strokeStyle=c; ctx.lineWidth=2; ctx.stroke();
+    });
+
+    // Triangle
+    ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(bx,by); ctx.lineTo(cx_,cy_); ctx.closePath();
+    ctx.fillStyle='rgba(255,255,255,0.9)'; ctx.fill();
+    ctx.strokeStyle='#2d3748'; ctx.lineWidth=2.5; ctx.stroke();
+    // Angle droit
+    ctx.strokeStyle='#c53030'; ctx.lineWidth=1.5;
+    ctx.strokeRect(ax, ay-8, 8, 8);
+
+    // Labels sommets
+    const font='bold 13px Segoe UI';
+    ctx.font=font; ctx.textAlign='center';
+    [[ax-14,ay+6,'A','#2d3748'],[bx+14,by+6,'B','#2d3748'],[cx_-14,cy_-4,'C','#2d3748']].forEach(([x,y,t,c])=>{
+      ctx.fillStyle=c; ctx.fillText(t,x,y);
+    });
+    // Labels carrés
+    ctx.font='12px Segoe UI';
+    ctx.fillStyle='#0056b3'; ctx.fillText('AB²=9',  ax+42, ay+70);
+    ctx.fillStyle='#2f855a'; ctx.fillText('AC²=16', ax-68, ay-55);
+    ctx.fillStyle='#c53030';
+    const bcmx=(bx+cx_+sBCfull[2][0]+sBCfull[3][0])/4+5;
+    const bcmy=(by+cy_+sBCfull[2][1]+sBCfull[3][1])/4;
+    ctx.fillText('BC²=25', bcmx, bcmy);
+
+    res.textContent = msg||'';
+  }
+
+  function ease(t){ return t<0.5?2*t*t:-1+(4-2*t)*t; }
+
+  let frame=null, phase=0, t=0;
+  const SPEED=0.008;
+
+  function step(){
+    t+=SPEED;
+    let bcL=0,abL=0,acL=0,msg='';
+    if(phase===1){
+      bcL=ease(Math.min(t,1)); msg='Le grand carré BC² se remplit d\'eau…';
+      if(t>=1.8){ phase=2; t=0; }
+    } else if(phase===2){
+      bcL=1; msg='BC² = 25 unités² — plein !';
+      if(t>=0.9){ phase=3; t=0; }
+    } else if(phase===3){
+      const e=ease(Math.min(t,1));
+      bcL=1-e; abL=e; acL=e;
+      msg='L\'eau se déverse : AB²='+Math.round(e*9)+'/9  AC²='+Math.round(e*16)+'/16  BC²='+Math.round((1-e)*25)+'/25';
+      if(t>=1.5){ phase=4; t=0; }
+    } else if(phase===4){
+      bcL=0; abL=1; acL=1;
+      msg='✅  AB²(9) + AC²(16) = BC²(25)  — Théorème de Pythagore démontré !';
+      if(t>=2.0){ phase=0; cancelAnimationFrame(frame); frame=null; btn.textContent='▶ Rejouer'; drawScene(0,0,0,'Clique sur Lancer pour démarrer.'); return; }
+    }
+    drawScene(bcL,abL,acL,msg);
+    frame=requestAnimationFrame(step);
+  }
+
+  btn.addEventListener('click',()=>{
+    if(frame){ cancelAnimationFrame(frame); frame=null; phase=0; drawScene(0,0,0,''); btn.textContent='▶ Lancer l\'animation'; return; }
+    phase=1; t=0; btn.textContent='⏹ Arrêter';
+    frame=requestAnimationFrame(step);
+  });
+
+  drawScene(0,0,0,'Clique sur ▶ pour voir la preuve par l\'eau.');
+})();
+</script>
+
 <div class="retenir">
   <h3>📌 L'essentiel du chapitre</h3>
   <p><strong>Théorème de Pythagore</strong> (triangle rectangle en A) :</p>
