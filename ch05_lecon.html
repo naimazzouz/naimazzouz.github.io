@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch05 – Résolution d'un problème du premier degré – 2nde MAMA</title>
+<title>Ch05 – Équations du premier degré – 2nde MAMA</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#0056b3;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748;--mama:#6b5c00}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
@@ -16,7 +17,6 @@ h1{margin:0 0 6px;color:var(--p);font-size:1.65em}
 h2{font-size:1.18em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:36px;margin-bottom:12px}
 h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700}
 
-/* Boîtes pédagogiques */
 .def{background:#ebf5ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
 .prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
 .att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
@@ -25,7 +25,6 @@ h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700
 .retenir{background:#dbeafe;border:2px solid var(--p);border-radius:10px;padding:16px 22px;margin:22px 0}
 .exo{background:#fafafa;border:1px dashed #cbd5e0;border-radius:8px;padding:16px;margin:14px 0}
 
-/* Labels */
 .label{display:inline-block;font-size:.75em;font-weight:700;text-transform:uppercase;padding:2px 9px;border-radius:4px;margin-bottom:6px;letter-spacing:.03em}
 .label-def{background:#dbeafe;color:#1e40af}
 .label-prop{background:#d1fae5;color:#065f46}
@@ -33,68 +32,56 @@ h3{font-size:1em;color:#4a5568;margin-top:20px;margin-bottom:8px;font-weight:700
 .label-meth{background:#fef3c7;color:#92400e}
 .label-ex{background:#e2e8f0;color:#4a5568}
 .label-ret{background:#bfdbfe;color:#1e3a8a}
-.label-mama{background:#fef9c3;color:#78350f}
 
-/* Situation professionnelle */
 .situation-pro{background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);border:2px solid #d97706;border-radius:10px;padding:18px 22px;margin:20px 0}
 .situation-pro::before{content:"🪵 Situation professionnelle MAMA";display:block;font-weight:700;color:#92400e;font-size:.93em;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em}
 .sp-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92em;margin-bottom:12px}
 .sp-label{font-weight:600;color:#4a5568;white-space:nowrap}
 
-/* Objectifs */
 .objectifs{background:#ebf5ff;border-radius:8px;padding:14px 18px;margin-bottom:28px;border:1px solid #93c5fd}
 .objectifs ul{margin:6px 0 0;padding-left:20px}
 .objectifs li{margin:4px 0}
 
-/* Formules */
 .formule-box{text-align:center;background:#ebf5ff;border:2px solid var(--p);border-radius:8px;padding:14px 20px;margin:14px 0;font-size:1.05em}
 .formule-box small{display:block;margin-top:5px;color:#718096;font-size:.82em}
 
-/* Étapes numérotées */
 ol.steps{list-style:none;counter-reset:step;padding:0;margin:10px 0}
 .step{counter-increment:step;padding:8px 10px 8px 2.4em;position:relative;margin:5px 0;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0}
 .step::before{content:counter(step);position:absolute;left:.6em;font-weight:700;color:#fff;background:var(--p);width:1.3em;height:1.3em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;top:50%;transform:translateY(-50%)}
 
-/* Tableau */
 table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
 th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
 th{background:#eef2f7;font-weight:600}
 td.tl{text-align:left}
 
-/* SVG droite graduée */
-.svg-wrap{text-align:center;margin:18px 0;overflow-x:auto}
-svg{max-width:100%}
-
-/* Grille 2 colonnes */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
-@media(max-width:600px){.two-col{grid-template-columns:1fr}}
-
-/* Nav */
 .nb{margin-bottom:16px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
 .nav-footer{display:flex;justify-content:space-between;margin-top:36px;padding-top:16px;border-top:1px solid #e2e8f0;flex-wrap:wrap;gap:10px}
 .nav-btn{text-decoration:none;font-size:.85em;font-weight:600;padding:8px 16px;border-radius:6px;color:var(--p);border:1px solid var(--p);transition:.2s}
 .nav-btn:hover{background:var(--p);color:#fff}
 
-/* Interactif */
 details summary{cursor:pointer;font-weight:600;color:var(--p);padding:6px 0;margin-top:8px}
 details summary:hover{text-decoration:underline}
 details[open] summary{margin-bottom:6px}
 
-/* Mise à jour */
 .maj{font-size:.78em;color:#a0aec0;text-align:center;margin-top:4px}
 
-/* Erreurs */
 .erreur-item{display:flex;gap:12px;align-items:flex-start;margin:10px 0;background:#fff5f5;border-radius:6px;padding:12px}
 .erreur-item .ico{font-size:1.3em;flex-shrink:0;margin-top:1px}
 .erreur-item .txt{flex:1}
 .erreur-item .txt strong{color:var(--d)}
 
-/* Hors programme */
 .hors-prog{background:#faf5ff;border:2px dashed #9f7aea;border-radius:8px;padding:16px 20px;margin:18px 0}
 .hors-prog::before{content:"⭐ Pour aller plus loin (hors programme)";display:block;font-weight:700;color:#6d28d9;font-size:.9em;margin-bottom:10px;text-transform:uppercase;letter-spacing:.03em}
+.chart-wrapper{max-width:580px;margin:16px auto;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px}
+canvas.anim{display:block;margin:12px auto;border-radius:10px;border:1px solid #e2e8f0;background:#fff}
+.ctrl-vis{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0;align-items:center;font-size:.9em}
+.ctrl-vis input[type=range]{width:130px;accent-color:var(--p)}
+.anim-result{text-align:center;font-size:1em;font-weight:700;color:var(--p);min-height:1.5em;margin-top:6px}
 
-/* Réponse correcte dans exo */
 .correct{background:#d1fae5;color:#065f46;font-weight:600;padding:8px 12px;border-radius:6px;border-left:4px solid var(--s);margin-top:8px}
+
+.simu-link{display:inline-flex;align-items:center;gap:8px;background:#ebf5ff;border:1px solid #93c5fd;border-radius:8px;padding:10px 16px;text-decoration:none;color:var(--p);font-weight:600;font-size:.9em;transition:.2s;margin:4px}
+.simu-link:hover{background:var(--p);color:#fff}
 </style>
 </head>
 <body>
@@ -102,7 +89,7 @@ details[open] summary{margin-bottom:6px}
 <a href="maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
 
 <header>
-  <h1>Chapitre 5 – Résolution d'un problème du premier degré</h1>
+  <h1>Chapitre 5 – Équations du premier degré</h1>
   <p class="sous-titre">Seconde Bac Pro MAMA &nbsp;|&nbsp; Agencement · Menuiserie · Ameublement &nbsp;|&nbsp; Mathématiques</p>
   <p class="maj">Dernière mise à jour : 9 mars 2026</p>
 </header>
@@ -111,11 +98,10 @@ details[open] summary{margin-bottom:6px}
 <div class="objectifs">
   <strong>Ce que tu vas savoir faire à la fin de ce chapitre :</strong>
   <ul>
-    <li>Traduire une situation concrète par une équation ou une inéquation du premier degré</li>
     <li>Résoudre une équation de la forme \(ax = b\) ou \(ax + b = c\)</li>
-    <li>Résoudre une inéquation du premier degré et exprimer le résultat avec un intervalle</li>
-    <li>Interpréter une solution dans son contexte professionnel</li>
-    <li>Utiliser une calculatrice, un tableur ou un grapheur pour vérifier une solution</li>
+    <li>Traduire une situation concrète par une équation du premier degré</li>
+    <li>Vérifier une solution et conclure dans le contexte professionnel</li>
+    <li>Utiliser une calculatrice ou un grapheur pour vérifier une solution</li>
   </ul>
 </div>
 
@@ -145,7 +131,7 @@ details[open] summary{margin-bottom:6px}
   Par exemple : combien de planches peut-on découper ? Quel prix de vente faut-il fixer ? Quelle longueur de tasseaux commander ?
 </p>
 <p>
-  Les <strong>équations et inéquations du premier degré</strong> sont les outils mathématiques qui permettent de répondre à ces questions de façon rigoureuse.
+  Les <strong>équations du premier degré</strong> sont les outils mathématiques qui permettent de répondre à ces questions de façon rigoureuse.
 </p>
 
 <div class="ex">
@@ -159,7 +145,7 @@ details[open] summary{margin-bottom:6px}
 
 
 <!-- ======================= PARTIE 2 ======================= -->
-<h2>2. Rappels – L'équation du premier degré</h2>
+<h2>2. Définition – L'équation du premier degré</h2>
 
 <div class="def">
   <span class="label label-def">Définition</span><br>
@@ -237,8 +223,7 @@ details[open] summary{margin-bottom:6px}
   \[ 8{,}50x + 12 = 63{,}50 \]
   <br>
   <strong>Étape 3 – Résolution :</strong>
-  \[ 8{,}50x = 63{,}50 - 12 \]
-  \[ 8{,}50x = 51{,}50 \]
+  \[ 8{,}50x = 63{,}50 - 12 = 51{,}50 \]
   \[ x = \frac{51{,}50}{8{,}50} = 6{,}06\ldots \approx 6 \]
   <br>
   <strong>Étape 4 – Vérification :</strong>
@@ -247,9 +232,8 @@ details[open] summary{margin-bottom:6px}
   <strong>Étape 5 – Conclusion :</strong> L'artisan a acheté <strong>6 planches</strong>.
 </div>
 
-<h3>Règles de calcul à retenir</h3>
 <div class="prop">
-  <span class="label label-prop">Propriétés</span>
+  <span class="label label-prop">Propriétés – règles de calcul</span>
   <ul style="margin:6px 0;padding-left:18px">
     <li>On peut <strong>ajouter ou soustraire</strong> un même nombre des deux membres sans changer la solution.</li>
     <li>On peut <strong>multiplier ou diviser</strong> les deux membres par un même nombre <em>non nul</em> sans changer la solution.</li>
@@ -337,261 +321,7 @@ details[open] summary{margin-bottom:6px}
 
 
 <!-- ======================= PARTIE 5 ======================= -->
-<h2>5. Inéquations du premier degré</h2>
-
-<div class="def">
-  <span class="label label-def">Définition</span><br>
-  Une <strong>inéquation</strong> est comme une équation, mais au lieu du signe « = », on utilise un signe d'inégalité :
-  <br><br>
-  <div class="two-col" style="margin:8px 0">
-    <div style="text-align:center">\( ax &lt; b \) &nbsp;(strictement inférieur)</div>
-    <div style="text-align:center">\( ax &gt; b \) &nbsp;(strictement supérieur)</div>
-    <div style="text-align:center">\( ax \leq b \) &nbsp;(inférieur ou égal)</div>
-    <div style="text-align:center">\( ax \geq b \) &nbsp;(supérieur ou égal)</div>
-  </div>
-  La <strong>solution</strong> n'est plus un nombre unique, mais un <strong>ensemble de valeurs</strong>.
-</div>
-
-<h3>Comment résoudre une inéquation ?</h3>
-
-<p>On suit les mêmes étapes que pour une équation, avec <strong>une règle importante à ne pas oublier</strong> :</p>
-
-<div class="att">
-  <span class="label label-att">Règle d'or !</span><br>
-  Si on <strong>multiplie ou divise</strong> les deux membres par un nombre <strong>négatif</strong>,
-  le sens de l'inégalité <strong>s'inverse</strong> !
-  <br><br>
-  Exemple : si \(-2x \leq 10\), on divise par \(-2\) (négatif) :
-  \[ x \geq \frac{10}{-2} \implies x \geq -5 \]
-  Le symbole ≤ est devenu ≥.
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple 8 – Inéquation simple</span><br>
-  Résoudre \(3x - 6 &gt; 9\)
-  <br><br>
-  \[ 3x - 6 > 9 \]
-  \[ 3x > 9 + 6 \]
-  \[ 3x > 15 \]
-  \[ x > 5 \]
-  Solution : l'ensemble des valeurs \(x\) telles que \(x > 5\), soit l'intervalle \(]5 ; +\infty[\).
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple 9 – Avec nombre négatif</span><br>
-  Résoudre \(-4x + 8 \leq 20\)
-  <br><br>
-  \[ -4x + 8 \leq 20 \]
-  \[ -4x \leq 12 \]
-  \[ x \geq \frac{12}{-4} \quad \text{(on divise par −4, le symbole s'inverse !)} \]
-  \[ x \geq -3 \]
-  Solution : \([-3 ; +\infty[\)
-</div>
-
-
-<!-- ======================= PARTIE 6 ======================= -->
-<h2>6. Les intervalles de ℝ</h2>
-
-<p>
-  La solution d'une inéquation est un ensemble de nombres réels, qu'on exprime avec la notation <strong>intervalle</strong>.
-</p>
-
-<table>
-  <tr>
-    <th>Inéquation</th>
-    <th>Lecture</th>
-    <th>Intervalle</th>
-    <th>Crochet</th>
-  </tr>
-  <tr>
-    <td>\(x > a\)</td>
-    <td class="tl">x strictement supérieur à a</td>
-    <td>\(]a ; +\infty[\)</td>
-    <td>Ouvert ≠ inclus</td>
-  </tr>
-  <tr>
-    <td>\(x \geq a\)</td>
-    <td class="tl">x supérieur ou égal à a</td>
-    <td>\([a ; +\infty[\)</td>
-    <td>Fermé = inclus</td>
-  </tr>
-  <tr>
-    <td>\(x &lt; b\)</td>
-    <td class="tl">x strictement inférieur à b</td>
-    <td>\(]-\infty ; b[\)</td>
-    <td>Ouvert ≠ inclus</td>
-  </tr>
-  <tr>
-    <td>\(x \leq b\)</td>
-    <td class="tl">x inférieur ou égal à b</td>
-    <td>\(]-\infty ; b]\)</td>
-    <td>Fermé = inclus</td>
-  </tr>
-  <tr>
-    <td>\(a \leq x \leq b\)</td>
-    <td class="tl">x compris entre a et b inclus</td>
-    <td>\([a ; b]\)</td>
-    <td>Fermé des deux côtés</td>
-  </tr>
-  <tr>
-    <td>\(a &lt; x \leq b\)</td>
-    <td class="tl">x entre a exclu et b inclus</td>
-    <td>\(]a ; b]\)</td>
-    <td>Ouvert à gauche, fermé à droite</td>
-  </tr>
-</table>
-
-<div class="prop">
-  <span class="label label-prop">Astuce pour les crochets</span><br>
-  <ul style="margin:6px 0;padding-left:18px">
-    <li>Le crochet <strong>fermé [</strong> signifie que la valeur est <strong>incluse</strong> (on l'atteint, on l'égale).</li>
-    <li>Le crochet <strong>ouvert ]</strong> signifie que la valeur est <strong>exclue</strong> (on ne l'atteint pas).</li>
-    <li>Les infinis \(+\infty\) et \(-\infty\) sont toujours avec des crochets <strong>ouverts</strong> (on n'atteint jamais l'infini).</li>
-  </ul>
-</div>
-
-
-<!-- ======================= PARTIE 7 ======================= -->
-<h2>7. Représentation sur une droite graduée</h2>
-
-<p>On peut visualiser la solution d'une inéquation sur une droite graduée :</p>
-<ul>
-  <li>Un <strong>point plein ●</strong> (ou crochet fermé) indique que la valeur est incluse.</li>
-  <li>Un <strong>point vide ○</strong> (ou crochet ouvert) indique que la valeur est exclue.</li>
-  <li>On <strong>colorie</strong> la partie de la droite qui correspond à la solution.</li>
-</ul>
-
-<h3>Exemple : \(x \geq 3\) → solution \([3 ; +\infty[\)</h3>
-<div class="svg-wrap">
-<svg width="560" height="70" viewBox="0 0 560 70">
-  <!-- Axe -->
-  <line x1="30" y1="35" x2="530" y2="35" stroke="#4a5568" stroke-width="2"/>
-  <!-- Flèche droite -->
-  <polygon points="530,35 520,30 520,40" fill="#4a5568"/>
-  <!-- Graduations -->
-  <line x1="130" y1="28" x2="130" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="230" y1="28" x2="230" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="330" y1="28" x2="330" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="430" y1="28" x2="430" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="80" y1="31" x2="80" y2="39" stroke="#a0aec0" stroke-width="1"/>
-  <line x1="180" y1="31" x2="180" y2="39" stroke="#a0aec0" stroke-width="1"/>
-  <line x1="280" y1="31" x2="280" y2="39" stroke="#a0aec0" stroke-width="1"/>
-  <line x1="380" y1="31" x2="380" y2="39" stroke="#a0aec0" stroke-width="1"/>
-  <line x1="480" y1="31" x2="480" y2="39" stroke="#a0aec0" stroke-width="1"/>
-  <!-- Labels -->
-  <text x="125" y="58" text-anchor="middle" font-size="13" fill="#4a5568">0</text>
-  <text x="225" y="58" text-anchor="middle" font-size="13" fill="#4a5568">1</text>
-  <text x="325" y="58" text-anchor="middle" font-size="13" fill="#4a5568">2</text>
-  <text x="328" y="58" text-anchor="middle" font-size="13" fill="#4a5568"></text>
-  <text x="425" y="58" text-anchor="middle" font-size="13" fill="#4a5568">3</text>
-  <!-- Solution colorée à partir de 3 -->
-  <line x1="425" y1="35" x2="522" y2="35" stroke="#0056b3" stroke-width="6" stroke-linecap="round"/>
-  <!-- Point plein en 3 (inclus) -->
-  <circle cx="425" cy="35" r="6" fill="#0056b3"/>
-  <!-- Étiquette -->
-  <text x="430" y="20" font-size="11" fill="#0056b3" font-weight="bold">x ≥ 3 → [3 ; +∞[</text>
-</svg>
-</div>
-
-<h3>Exemple : \(x &lt; 1\) → solution \(]-\infty ; 1[\)</h3>
-<div class="svg-wrap">
-<svg width="560" height="70" viewBox="0 0 560 70">
-  <line x1="30" y1="35" x2="530" y2="35" stroke="#4a5568" stroke-width="2"/>
-  <polygon points="530,35 520,30 520,40" fill="#4a5568"/>
-  <line x1="130" y1="28" x2="130" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="230" y1="28" x2="230" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="330" y1="28" x2="330" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="430" y1="28" x2="430" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <text x="125" y="58" text-anchor="middle" font-size="13" fill="#4a5568">−1</text>
-  <text x="225" y="58" text-anchor="middle" font-size="13" fill="#4a5568">0</text>
-  <text x="325" y="58" text-anchor="middle" font-size="13" fill="#4a5568">1</text>
-  <text x="425" y="58" text-anchor="middle" font-size="13" fill="#4a5568">2</text>
-  <!-- Solution à gauche de 1 (exclu) -->
-  <line x1="40" y1="35" x2="325" y2="35" stroke="#c53030" stroke-width="6" stroke-linecap="round"/>
-  <!-- Point vide en 1 (exclu) -->
-  <circle cx="325" cy="35" r="6" fill="white" stroke="#c53030" stroke-width="2.5"/>
-  <text x="260" y="20" font-size="11" fill="#c53030" font-weight="bold">x &lt; 1 → ]−∞ ; 1[</text>
-</svg>
-</div>
-
-<h3>Exemple : \(-2 \leq x &lt; 4\) → solution \([-2 ; 4[\)</h3>
-<div class="svg-wrap">
-<svg width="560" height="70" viewBox="0 0 560 70">
-  <line x1="30" y1="35" x2="530" y2="35" stroke="#4a5568" stroke-width="2"/>
-  <polygon points="530,35 520,30 520,40" fill="#4a5568"/>
-  <line x1="80" y1="28" x2="80" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="180" y1="28" x2="180" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="280" y1="28" x2="280" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="380" y1="28" x2="380" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <line x1="480" y1="28" x2="480" y2="42" stroke="#4a5568" stroke-width="1.5"/>
-  <text x="75" y="58" text-anchor="middle" font-size="13" fill="#4a5568">−2</text>
-  <text x="175" y="58" text-anchor="middle" font-size="13" fill="#4a5568">−1</text>
-  <text x="275" y="58" text-anchor="middle" font-size="13" fill="#4a5568">0</text>
-  <text x="375" y="58" text-anchor="middle" font-size="13" fill="#4a5568">2</text>
-  <text x="475" y="58" text-anchor="middle" font-size="13" fill="#4a5568">4</text>
-  <!-- Solution entre -2 (inclus) et 4 (exclu) -->
-  <line x1="80" y1="35" x2="480" y2="35" stroke="#2f855a" stroke-width="6" stroke-linecap="butt"/>
-  <circle cx="80" cy="35" r="6" fill="#2f855a"/>
-  <circle cx="480" cy="35" r="6" fill="white" stroke="#2f855a" stroke-width="2.5"/>
-  <text x="230" y="20" font-size="11" fill="#2f855a" font-weight="bold">−2 ≤ x &lt; 4 → [−2 ; 4[</text>
-</svg>
-</div>
-
-
-<!-- ======================= PARTIE 8 ======================= -->
-<h2>8. Applications concrètes MAMA</h2>
-
-<p>Les inéquations permettent d'exprimer des <strong>contraintes</strong> dans les métiers de l'agencement, de la menuiserie et de l'ameublement.</p>
-
-<div class="ex">
-  <span class="label label-ex">Exemple 10 – Contrainte de budget</span><br>
-  Un artisan dispose d'un budget de 500 € pour acheter des lames de parquet à 12 € le m².
-  Combien de m² peut-il commander au maximum ?
-  <br><br>
-  Inéquation : \(12x \leq 500\)
-  \[ x \leq \frac{500}{12} \approx 41{,}7 \]
-  Il peut commander au maximum <strong>41 m²</strong> (on arrondit à l'entier inférieur car on ne peut pas commander de fraction de m²).
-  <br>
-  Solution : \(]0 ; 41{,}7]\) — en pratique : entre 0 et 41 m².
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple 11 – Contrainte de dimension</span><br>
-  Une étagère doit avoir une longueur d'au moins 80 cm mais ne pas dépasser 120 cm pour tenir dans l'espace disponible.
-  On note \(x\) sa longueur (en cm).
-  <br><br>
-  Condition : \(80 \leq x \leq 120\)
-  <br>
-  La longueur de l'étagère doit appartenir à l'intervalle \([80 ; 120]\).
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple 12 – Rentabilité minimale</span><br>
-  Un menuisier fabrique des chaises. Ses coûts fixes sont 180 € et chaque chaise lui coûte 25 € en matériaux.
-  Il les vend 65 € pièce. À partir de combien de chaises réalise-t-il un bénéfice ?
-  <br><br>
-  Bénéfice = recettes − coûts : \(65x - (180 + 25x) > 0\)
-  \[ 65x - 180 - 25x > 0 \]
-  \[ 40x > 180 \]
-  \[ x > 4{,}5 \]
-  Il doit vendre au minimum <strong>5 chaises</strong> pour être bénéficiaire.
-</div>
-
-<div class="ex">
-  <span class="label label-ex">Exemple 13 – Quantité minimale de matériau</span><br>
-  Pour isoler une pièce, il faut poser au moins 12 m² de panneau isolant.
-  Chaque panneau fait 1,20 m × 0,60 m. Combien de panneaux faut-il commander au minimum ?
-  <br><br>
-  Surface d'un panneau : \(1{,}20 \times 0{,}60 = 0{,}72 \text{ m}^2\)
-  <br>
-  Inéquation : \(0{,}72x \geq 12\)
-  \[ x \geq \frac{12}{0{,}72} \approx 16{,}7 \]
-  Il faut commander au minimum <strong>17 panneaux</strong>.
-</div>
-
-
-<!-- ======================= PARTIE 9 ======================= -->
-<h2>9. À retenir</h2>
+<h2>5. À retenir</h2>
 
 <div class="retenir">
   <span class="label label-ret">Récapitulatif du chapitre</span>
@@ -603,26 +333,10 @@ details[open] summary{margin-bottom:6px}
     <li>Toujours vérifier et conclure en phrase avec unité</li>
   </ul>
 
-  <h3 style="margin-top:14px;color:#1e3a8a">Inéquation du premier degré</h3>
-  <ul style="padding-left:18px;margin:4px 0">
-    <li>Formes : \(ax + b &lt; c\) &nbsp;/ &nbsp;\(ax + b \geq c\) &nbsp;etc.</li>
-    <li>Se résout comme une équation <strong>mais :</strong> si on divise/multiplie par un négatif → on inverse le signe</li>
-    <li>La solution est un <strong>intervalle</strong></li>
-  </ul>
-
-  <h3 style="margin-top:14px;color:#1e3a8a">Intervalles — aide-mémoire</h3>
-  <table style="margin:6px 0">
-    <tr><th>Signe</th><th>Intervalle</th><th>Crochet</th></tr>
-    <tr><td>\(x \geq a\)</td><td>\([a ; +\infty[\)</td><td>Fermé à gauche</td></tr>
-    <tr><td>\(x > a\)</td><td>\(]a ; +\infty[\)</td><td>Ouvert à gauche</td></tr>
-    <tr><td>\(x \leq b\)</td><td>\(]-\infty ; b]\)</td><td>Fermé à droite</td></tr>
-    <tr><td>\(x < b\)</td><td>\(]-\infty ; b[\)</td><td>Ouvert à droite</td></tr>
-  </table>
-
   <h3 style="margin-top:14px;color:#1e3a8a">Les 5 étapes pour résoudre un problème</h3>
   <ol style="padding-left:18px;margin:4px 0">
     <li>Choisir et nommer l'inconnue</li>
-    <li>Écrire l'équation (ou inéquation)</li>
+    <li>Écrire l'équation</li>
     <li>Résoudre</li>
     <li>Vérifier</li>
     <li>Conclure en phrase avec l'unité</li>
@@ -630,8 +344,8 @@ details[open] summary{margin-bottom:6px}
 </div>
 
 
-<!-- ======================= PARTIE 10 ======================= -->
-<h2>10. Erreurs fréquentes à éviter</h2>
+<!-- ======================= PARTIE 6 ======================= -->
+<h2>6. Erreurs fréquentes à éviter</h2>
 
 <div class="erreur-item">
   <div class="ico">❌</div>
@@ -639,15 +353,6 @@ details[open] summary{margin-bottom:6px}
     <strong>Mauvaise traduction du problème</strong><br>
     Lire l'énoncé trop vite et poser une équation qui ne correspond pas à la situation.
     <br><em>Conseil : relire l'énoncé phrase par phrase et vérifier que chaque terme de l'équation a bien un sens concret.</em>
-  </div>
-</div>
-
-<div class="erreur-item">
-  <div class="ico">❌</div>
-  <div class="txt">
-    <strong>Oublier d'inverser le signe dans une inéquation</strong><br>
-    Quand on divise par un nombre négatif, le sens de l'inégalité s'inverse. C'est l'erreur la plus courante !
-    <br><em>Exemple : \(-3x > 9\) → \(x &lt; -3\) et non \(x > -3\).</em>
   </div>
 </div>
 
@@ -663,15 +368,6 @@ details[open] summary{margin-bottom:6px}
 <div class="erreur-item">
   <div class="ico">❌</div>
   <div class="txt">
-    <strong>Confondre crochet ouvert et crochet fermé</strong><br>
-    Écrire \([3 ; +\infty[\) quand on a \(x > 3\) au lieu de \(]3 ; +\infty[\).
-    <br><em>Règle : crochet fermé [ ] = valeur incluse (≤ ou ≥) ; crochet ouvert ] [ = valeur exclue (&lt; ou &gt;).</em>
-  </div>
-</div>
-
-<div class="erreur-item">
-  <div class="ico">❌</div>
-  <div class="txt">
     <strong>Ne pas conclure dans le contexte</strong><br>
     Donner \(x = 4{,}7\) comme réponse quand on cherche un nombre de planches (forcément entier).
     <br><em>Conseil : toujours interpréter la solution selon la situation (arrondir à l'entier, vérifier la cohérence).</em>
@@ -681,8 +377,9 @@ details[open] summary{margin-bottom:6px}
 <div class="erreur-item">
   <div class="ico">❌</div>
   <div class="txt">
-    <strong>Confondre équation et inéquation</strong><br>
-    Une équation (=) donne une valeur unique ; une inéquation (&lt;, &gt;, ≤, ≥) donne un intervalle de valeurs.
+    <strong>Signe moins perdu lors de la résolution</strong><br>
+    Exemple : \(5x + 3 = -12\) → on oublie le signe négatif → \(5x = 3 + 12\) au lieu de \(5x = -12 - 3\).
+    <br><em>Conseil : réécrire chaque étape clairement et conserver les signes négatifs.</em>
   </div>
 </div>
 
@@ -714,60 +411,27 @@ details[open] summary{margin-bottom:6px}
       Équation : \(3{,}50x + 8 = 57{,}50\)<br>
       \(3{,}50x = 49{,}50\)<br>
       \(x = \dfrac{49{,}50}{3{,}50} = 14{,}14\ldots\)<br>
-      Comme le nombre de poignées est entier, on cherche : \(3{,}50 \times 14 + 8 = 49 + 8 = 57\) et \(3{,}50 \times 15 + 8 = 60{,}50\).<br>
-      La commande correspond à <strong>14 poignées</strong> (avec arrondi de prix ou erreur dans le total).
+      Comme le nombre de poignées est entier : <strong>14 poignées</strong>.
     </div>
   </details>
 </div>
 
 <div class="exo">
-  <strong>Exercice 3 – Inéquation</strong><br>
-  Résoudre \(-5x + 10 \geq 25\) et représenter la solution sur une droite graduée.
+  <strong>Exercice 3 – Avec membres de chaque côté</strong><br>
+  Résoudre : \(4x - 7 = x + 8\)
   <details>
     <summary>Voir la solution</summary>
     <div class="correct">
-      \(-5x \geq 25 - 10\)<br>
-      \(-5x \geq 15\)<br>
-      On divise par −5 (négatif → on inverse !) :<br>
-      \(x \leq \dfrac{15}{-5} = -3\)<br>
-      Solution : \(]-\infty ; -3]\)
-    </div>
-  </details>
-</div>
-
-<div class="exo">
-  <strong>Exercice 4 – Contrainte professionnelle</strong><br>
-  Un atelier dispose de 180 € pour acheter du vernis. Un bidon de 1 L coûte 14,50 €.
-  Combien de bidons peut-il acheter au maximum ?
-  <details>
-    <summary>Voir la solution</summary>
-    <div class="correct">
-      Inéquation : \(14{,}50x \leq 180\)<br>
-      \(x \leq \dfrac{180}{14{,}50} \approx 12{,}4\)<br>
-      Il peut acheter au maximum <strong>12 bidons</strong>.
-    </div>
-  </details>
-</div>
-
-<div class="exo">
-  <strong>Exercice 5 – Problème de fabrication</strong><br>
-  Un ébéniste fabrique des tables et des chaises. Une table rapporte 120 € de bénéfice, une chaise 35 €.
-  Il veut réaliser au minimum 700 € de bénéfice. S'il fabrique 3 tables, combien de chaises doit-il faire au minimum ?
-  <details>
-    <summary>Voir la solution</summary>
-    <div class="correct">
-      Inéquation (x = nombre de chaises) :<br>
-      \(3 \times 120 + 35x \geq 700\)<br>
-      \(360 + 35x \geq 700\)<br>
-      \(35x \geq 340\)<br>
-      \(x \geq \dfrac{340}{35} \approx 9{,}7\)<br>
-      Il doit fabriquer au minimum <strong>10 chaises</strong>.
+      \(4x - x = 8 + 7\)<br>
+      \(3x = 15\)<br>
+      \(x = 5\)<br>
+      Vérification : \(4 \times 5 - 7 = 13\) et \(5 + 8 = 13\) ✔
     </div>
   </details>
 </div>
 
 
-<!-- ======================= POUR ALLER PLUS LOIN ======================= -->
+<!-- POUR ALLER PLUS LOIN -->
 <div class="hors-prog">
   <h3 style="margin:0 0 10px;color:#6d28d9">Résolution graphique</h3>
   <p>
@@ -775,13 +439,106 @@ details[open] summary{margin-bottom:6px}
     La solution est l'abscisse du point d'intersection des deux droites.
   </p>
   <p>
-    Pour une inéquation \(ax + b &lt; c\), on cherche les valeurs de \(x\) pour lesquelles la droite \(y = ax + b\)
-    est <em>en dessous</em> de la droite \(y = c\).
-  </p>
-  <p>
     <strong>Outils :</strong> GeoGebra (gratuit en ligne), Desmos, ou la calculatrice (mode grapheur).
-    Le solveur de la calculatrice peut aussi donner directement la solution numérique.
   </p>
+</div>
+
+<!-- GRAPHIQUES ET ANIMATIONS -->
+<h2>Visualiser la résolution graphique</h2>
+
+<p>
+  Résoudre \(2x - 5 = 0\) revient à trouver l'abscisse du point où la droite \(f(x) = 2x - 5\) coupe l'axe des abscisses (\(y = 0\)).
+</p>
+
+<div class="chart-wrapper">
+  <canvas id="chartEq"></canvas>
+</div>
+
+<script>
+(function(){
+  const xs=[-3,-2,-1,0,1,2,3,4];
+  new Chart(document.getElementById('chartEq'),{
+    type:'line',
+    data:{
+      labels:xs,
+      datasets:[
+        {label:'f(x) = 2x − 5',data:xs.map(x=>2*x-5),borderColor:'#0056b3',backgroundColor:'rgba(0,86,179,.08)',borderWidth:2.5,pointRadius:4,tension:.1},
+        {label:'y = 0',data:xs.map(()=>0),borderColor:'#c53030',backgroundColor:'transparent',borderWidth:1.5,borderDash:[6,3],pointRadius:0,tension:0}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{font:{size:12}}},
+        title:{display:true,text:'Résolution graphique de 2x − 5 = 0 → solution : x = 2,5',font:{size:12}}
+      },
+      scales:{
+        x:{title:{display:true,text:'x'},grid:{color:'#f0f0f0'}},
+        y:{title:{display:true,text:'f(x)'},grid:{color:'#f0f0f0'}}
+      }
+    }
+  });
+})();
+</script>
+
+<p style="font-size:.9em;color:#718096;text-align:center">La droite bleue coupe l'axe rouge (\(y=0\)) en \(x = 2{,}5\), confirmant la solution algébrique.</p>
+
+<h2>Animation — Résoudre une équation étape par étape</h2>
+
+<p style="font-size:.9em;color:#718096">Choisis les coefficients d'une équation \(ax + b = c\) et observe les étapes de résolution.</p>
+
+<div class="ctrl-vis">
+  <label>a = <input type="range" id="sa" min="1" max="6" step="1" value="2"> <strong id="la">2</strong></label>
+  <label>b = <input type="range" id="sb" min="-10" max="10" step="1" value="-5"> <strong id="lb">-5</strong></label>
+  <label>c = <input type="range" id="sc" min="-10" max="10" step="1" value="3"> <strong id="lc">3</strong></label>
+</div>
+<canvas id="canvasEq" class="anim" width="560" height="200"></canvas>
+<div class="anim-result" id="resuEq"></div>
+
+<script>
+(function(){
+  const cv=document.getElementById('canvasEq'),ctx=cv.getContext('2d');
+  const sa=document.getElementById('sa'),sb=document.getElementById('sb'),sc=document.getElementById('sc');
+  const la=document.getElementById('la'),lb=document.getElementById('lb'),lc=document.getElementById('lc');
+  function fmtN(n){return n>=0?'+'+n:''+n;}
+  function draw(){
+    const a=+sa.value,b=+sb.value,c=+sc.value;
+    la.textContent=a; lb.textContent=b; lc.textContent=c;
+    const sol=(c-b)/a;
+    const solStr=Number.isInteger(sol)?sol.toString():(Math.round(sol*100)/100).toString();
+    ctx.clearRect(0,0,cv.width,cv.height);
+    const W=cv.width,H=cv.height;
+    ctx.fillStyle='#f8fafc'; ctx.fillRect(0,0,W,H);
+    // Boîtes étapes
+    const steps=[
+      {txt:`Équation : ${a}x ${fmtN(b)} = ${c}`, bg:'#ebf5ff',bd:'#0056b3'},
+      {txt:`On isole les x : ${a}x = ${c} − (${b}) = ${c-b}`, bg:'#fffbeb',bd:'#d97706'},
+      {txt:`On divise par ${a} : x = ${c-b} ÷ ${a} = ${solStr}`, bg:'#f0fff4',bd:'#2f855a'},
+      {txt:`✔ Vérification : ${a}×(${solStr}) ${fmtN(b)} = ${Math.round(a*sol+b*10)/10}`, bg:'#dbeafe',bd:'#1e40af'}
+    ];
+    const boxH=38, pad=8, startY=12;
+    steps.forEach((s,i)=>{
+      const y=startY+i*(boxH+6);
+      ctx.fillStyle=s.bg; ctx.strokeStyle=s.bd; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.roundRect(10,y,W-20,boxH,6); ctx.fill(); ctx.stroke();
+      ctx.fillStyle='#2d3748'; ctx.font=`${i===0?'700':'500'} 13px Segoe UI,system-ui,sans-serif`;
+      ctx.textAlign='left'; ctx.fillText(s.txt,20,y+24);
+    });
+    document.getElementById('resuEq').textContent=`Solution : x = ${solStr}`;
+  }
+  [sa,sb,sc].forEach(el=>el.addEventListener('input',draw));
+  draw();
+})();
+</script>
+
+<!-- SIMULATIONS -->
+<h2>Simulations interactives</h2>
+<p>Entraîne-toi avec les outils interactifs de ce chapitre :</p>
+<div>
+  <a href="simu-balance.html" class="simu-link">⚖️ Balance d'équation</a>
+  <a href="simu-graphe-equation.html" class="simu-link">📈 Résolution graphique</a>
+  <a href="simu-entrainement.html" class="simu-link">🎯 Générateur d'équations</a>
+  <a href="ch05_simulation.html" class="simu-link">🔗 Toutes les simulations Ch05</a>
 </div>
 
 <!-- NAV -->
