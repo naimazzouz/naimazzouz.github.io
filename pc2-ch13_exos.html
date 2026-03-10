@@ -524,15 +524,66 @@ tr:nth-child(even) td{background:#f8fafc}
   </div>
 </div>
 
+<!-- ============================================================ SECTION BONUS -->
+<h2>Pour aller plus loin</h2>
+
+<!-- EXO 10 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Prisme de carrosserie &mdash; D&eacute;viation d&rsquo;un rayon</span>
+    <span class="diff diff-3">&#9733;&#9733;&#9733; Avanc&eacute;</span>
+  </div>
+
+  <p>Un prisme triangulaire en verre (\(n = 1{,}50\)) &agrave; angle au sommet \(A = 30°\) est utilis&eacute; dans un appareil de contr&ocirc;le de peinture pour analyser la couleur de carrosserie. Un rayon lumineux p&eacute;n&egrave;tre dans la premi&egrave;re face du prisme avec un angle d&rsquo;incidence \(\theta_1 = 45°\).</p>
+
+  <div class="q"><strong>1.</strong> Calculer l&rsquo;angle de r&eacute;fraction \(\theta_2\) &agrave; l&rsquo;entr&eacute;e du prisme (passage air &rarr; verre).</div>
+  <div class="q"><strong>2.</strong> Dans le prisme, le rayon frappe la deuxi&egrave;me face avec un angle d&rsquo;incidence \(\theta_3 = A - \theta_2\). Calculer \(\theta_3\).</div>
+  <div class="q"><strong>3.</strong> Calculer l&rsquo;angle \(\theta_4\) de sortie du prisme (passage verre &rarr; air) &agrave; la deuxi&egrave;me face.</div>
+  <div class="q"><strong>4.</strong> L&rsquo;angle de d&eacute;viation total est \(D = (\theta_1 - \theta_2) + (\theta_4 - \theta_3)\). Calculer \(D\).</div>
+  <div class="q"><strong>5.</strong> Application concr&egrave;te : un spectrophotom&egrave;tre en carrosserie utilise un prisme pour s&eacute;parer les couleurs et mesurer pr&eacute;cis&eacute;ment la teinte d&rsquo;une carrosserie avant de m&eacute;langer la peinture. Quel ph&eacute;nom&egrave;ne permet cette s&eacute;paration des couleurs (dispersion) ?</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Entr&eacute;e air &rarr; verre :
+      \(n_{air} \sin\theta_1 = n_v \sin\theta_2\)
+      <br>\(\sin\theta_2 = \dfrac{1{,}00 \times \sin 45°}{1{,}50} = \dfrac{0{,}707}{1{,}50} = 0{,}471\)
+      <br>\(\theta_2 = \arcsin(0{,}471) \approx \mathbf{28{,}1°}\)
+    </p>
+    <p><strong>2.</strong> \(\theta_3 = A - \theta_2 = 30° - 28{,}1° = \mathbf{1{,}9°}\)</p>
+    <p><strong>3.</strong> Sortie verre &rarr; air :
+      \(n_v \sin\theta_3 = n_{air} \sin\theta_4\)
+      <br>\(\sin\theta_4 = 1{,}50 \times \sin(1{,}9°) = 1{,}50 \times 0{,}0332 = 0{,}0498\)
+      <br>\(\theta_4 = \arcsin(0{,}0498) \approx \mathbf{2{,}85°}\)
+    </p>
+    <p><strong>4.</strong>
+      \(D = (45° - 28{,}1°) + (2{,}85° - 1{,}9°) = 16{,}9° + 0{,}95° \approx \mathbf{17{,}9°}\)
+    </p>
+    <p><strong>5.</strong> La <strong>dispersion</strong> : l&rsquo;indice de r&eacute;fraction \(n\) varie avec la longueur d&rsquo;onde de la lumi&egrave;re. Le rouge est moins d&eacute;vi&eacute; que le violet, ce qui &eacute;tale les couleurs comme dans un arc-en-ciel. Le spectrophotom&egrave;tre mesure l&rsquo;intensit&eacute; de chaque longueur d&rsquo;onde s&eacute;par&eacute;e par le prisme pour reproduire exactement la teinte d&rsquo;une carrosserie.</p>
+  </div>
+</div>
+
 <!-- ============================================================ CHART.JS -->
 <h2>Comparaison des indices de r&eacute;fraction</h2>
-<p style="font-size:.93em;color:#718096">Le graphique suivant permet de comparer visuellement les indices de r&eacute;fraction de plusieurs milieux courants. Plus l&rsquo;indice est &eacute;lev&eacute;, plus la lumi&egrave;re est ralentie et r&eacute;fract&eacute;e fortement.</p>
+<p style="font-size:.93em;color:#718096">Le graphique suivant permet de comparer visuellement les indices de r&eacute;fraction de plusieurs milieux courants. Plus l&rsquo;indice est &eacute;lev&eacute;, plus la lumi&egrave;re est ralentie et r&eacute;fract&eacute;e fortement. On remarque que l&rsquo;indice du vide (et de l&rsquo;air) vaut exactement 1 par d&eacute;finition, et que le diamant, avec \(n = 2{,}42\), est un des milieux les plus r&eacute;fractants rencontr&eacute;s dans la vie courante.</p>
 <div class="chart-wrap">
   <canvas id="chartIndices" width="600" height="370"></canvas>
 </div>
 
+<!-- ============================================================ SYNTHÈSE ERREURS CLASSIQUES -->
+<div class="attention" style="margin-top:28px">
+  <strong>Erreurs fr&eacute;quentes &agrave; &eacute;viter</strong>
+  <ul style="margin:8px 0 0 18px">
+    <li><strong>Angle par rapport &agrave; la surface :</strong> toujours mesurer \(\theta\) par rapport &agrave; la <em>normale</em>, jamais par rapport &agrave; la surface. Si l&rsquo;&eacute;nonc&eacute; donne un angle par rapport &agrave; la surface, soustraire &agrave; 90° avant de calculer.</li>
+    <li><strong>Sens du passage :</strong> bien identifier le milieu 1 (o&ugrave; est le rayon incident) et le milieu 2 (o&ugrave; va le rayon r&eacute;fract&eacute;) avant d&rsquo;&eacute;crire Snell-Descartes.</li>
+    <li><strong>R&eacute;flexion totale interne :</strong> n&rsquo;est possible que si on va d&rsquo;un milieu <em>plus dense</em> vers un milieu <em>moins dense</em> (\(n_1 > n_2\)).</li>
+    <li><strong>Utilisation de la calculatrice :</strong> v&eacute;rifier que la calculatrice est en mode degr&eacute;s (DEG) et non en radians (RAD) quand on calcule \(\arcsin\).</li>
+    <li><strong>Indice de l&rsquo;air :</strong> on prend \(n_{air} \approx 1{,}00\) sauf indication contraire (l&rsquo;indice exact est 1,0003, n&eacute;gligeable en 2nde Pro).</li>
+  </ul>
+</div>
+
 <!-- ============================================================ ENCADRÉ FINAL -->
-<div class="retenir" style="margin-top:30px">
+<div class="retenir" style="margin-top:22px">
   <strong>R&eacute;cap complet &mdash; Ce qu&rsquo;il faut savoir faire</strong>
   <ul style="margin:8px 0 0 18px">
     <li>Appliquer \(\theta_r = \theta_i\) pour la r&eacute;flexion sur un miroir.</li>
@@ -541,7 +592,25 @@ tr:nth-child(even) td{background:#f8fafc}
     <li>Calculer \(\theta_c = \arcsin(n_2/n_1)\) et conclure sur la r&eacute;flexion totale interne.</li>
     <li>Relier le principe de la fibre optique &agrave; la r&eacute;flexion totale interne.</li>
     <li>Calculer \(v = c/n\) et une dur&eacute;e de trajet.</li>
+    <li>Lire et interpr&eacute;ter un sch&eacute;ma avec rayons, normale et angles.</li>
   </ul>
+  <p style="margin:10px 0 0;font-size:.9em;color:#0369a1">
+    <strong>Formules &agrave; retenir :</strong>
+    &nbsp;&nbsp;\(n = c/v\)
+    &nbsp;&nbsp;|&nbsp;&nbsp;\(n_1 \sin\theta_1 = n_2 \sin\theta_2\)
+    &nbsp;&nbsp;|&nbsp;&nbsp;\(\sin\theta_c = n_2/n_1\) (avec \(n_1 > n_2\))
+    &nbsp;&nbsp;|&nbsp;&nbsp;\(\theta_r = \theta_i\) (r&eacute;flexion)
+  </p>
+</div>
+
+<div class="methode" style="margin-top:20px">
+  <strong>Aide m&eacute;moire &mdash; Utiliser sa calculatrice scientifique</strong>
+  <ol style="margin:8px 0 0 18px">
+    <li>V&eacute;rifier : mode <kbd>DEG</kbd> (degr&eacute;s).</li>
+    <li>Calculer \(\sin 30°\) : touche <kbd>SIN</kbd> puis <kbd>30</kbd> puis <kbd>=</kbd> &rarr; 0,5.</li>
+    <li>Calculer \(\arcsin(0{,}667)\) : touche <kbd>SHIFT</kbd> (ou <kbd>2nd</kbd>) puis <kbd>SIN</kbd> puis <kbd>0.667</kbd> puis <kbd>=</kbd> &rarr; 41,8°.</li>
+    <li>Si le r&eacute;sultat de \(\arcsin\) semble en radians (ex : 0,73 rad au lieu de 41,8°), changer le mode de la calculatrice.</li>
+  </ol>
 </div>
 
 </div><!-- /.c -->
@@ -620,5 +689,20 @@ function toggle(btn) {
 })();
 </script>
 <script src="nav.js"></script>
+<!--
+  Chapitre 13 – Réflexion et réfraction de la lumière
+  2nde Pro MAMA – Physique-Chimie
+  Exercices couvrant :
+    - Loi de la réflexion (miroir plan)
+    - Vocabulaire optique (rayon incident, réfracté, normale, interface)
+    - Tableau des indices de réfraction
+    - Application de Snell-Descartes (air→verre, verre→air)
+    - Angle critique et réflexion totale interne
+    - Fibre optique (principe, confinement, durée de trajet)
+    - Rétroviseur de voiture (MAMA)
+    - Fibre optique OBD en atelier carrosserie (MAMA)
+    - Prisme et dispersion (MAMA – spectrophotomètre de carrosserie)
+  Ressources : MathJax 3, Chart.js, SVG inline
+-->
 </body>
 </html>
