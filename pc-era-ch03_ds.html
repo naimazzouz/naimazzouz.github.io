@@ -46,6 +46,10 @@ tr:nth-child(even) td{background:#f8fafc}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
 @media print{.nb{display:none}.rep-zone{background:#fff}}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:6px;margin-bottom:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:4px}
+.bc:hover{opacity:.85}
 </style>
 </head>
 <body><div class="c">
@@ -101,6 +105,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(P = \varepsilon \times \sigma \times S \times T^4\)</p>
+    <p>\(P\) : puissance rayonnée (W) — \(\varepsilon\) : émissivité (sans unité, 0 à 1) — \(\sigma = 5{,}67 \times 10^{-8}\,\text{W/(m²·K⁴)}\) (constante de Stefan-Boltzmann) — \(S\) : surface rayonnante (m²) — \(T\) : température absolue (K)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -109,6 +118,12 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(T(\text{K}) = T(°\text{C}) + 273\)</p>
+    <p>\(T_s = 85 + 273 = 358\,\text{K}\)</p>
+    <p>\(T_{amb} = 25 + 273 = 298\,\text{K}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -119,6 +134,13 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(S = 10\,\text{cm}^2 = 10 \times 10^{-4}\,\text{m}^2 = 10^{-3}\,\text{m}^2\)</p>
+    <p>\(P = 0{,}9 \times 5{,}67 \times 10^{-8} \times 10^{-3} \times (358)^4\)</p>
+    <p>\((358)^4 = 1{,}642 \times 10^{10}\)</p>
+    <p>\(P = 0{,}9 \times 5{,}67 \times 10^{-8} \times 10^{-3} \times 1{,}642 \times 10^{10} \approx 0{,}84\,\text{W}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -129,6 +151,13 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Échauffement réel : \(\Delta T = T_s - T_{amb} = 85 - 25 = 60\,°\text{C}\)</p>
+    <p>La norme autorise 40°C max d'échauffement.</p>
+    <p>60°C &gt; 40°C → Le contacteur dépasse la limite autorisée → <strong>NON CONFORME</strong>.</p>
+    <p>Action : remplacer ou vérifier le serrage des connexions, contrôler la charge.</p>
+  </div>
 </div>
 
 <!-- EXERCICE 2 -->
@@ -150,6 +179,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:75px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Corps noir :</strong> objet théorique qui absorbe et émet le maximum possible de rayonnement (\(\varepsilon = 1\)).</p>
+    <p><strong>Acier poli :</strong> \(\varepsilon \approx 0{,}1\) (très réfléchissant, peu émissif). Il rayonne 10 fois moins qu'un corps noir à même température.</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -158,6 +192,13 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(P_1 = 0{,}1 \times 5{,}67 \times 10^{-8} \times 0{,}05 \times (500)^4\)</p>
+    <p>\((500)^4 = 6{,}25 \times 10^{10}\)</p>
+    <p>\(P_1 = 0{,}1 \times 5{,}67 \times 10^{-8} \times 0{,}05 \times 6{,}25 \times 10^{10}\)</p>
+    <p>\(P_1 = 0{,}1 \times 5{,}67 \times 0{,}05 \times 6{,}25 \times 10^{2} = 0{,}1 \times 177{,}2 \approx 17{,}7\,\text{W}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -166,6 +207,12 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(P_2 = 0{,}95 \times 5{,}67 \times 10^{-8} \times 0{,}05 \times (500)^4\)</p>
+    <p>\(P_2 = 0{,}95 \times 177{,}2 \approx 168\,\text{W}\)</p>
+    <p>\(\dfrac{P_2}{P_1} = \dfrac{0{,}95}{0{,}1} = 9{,}5\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -174,9 +221,15 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La plaque noire rayonne ≈ 9,5 fois plus que la plaque en acier poli (\(0{,}95/0{,}1 = 9{,}5\)).</p>
+    <p>Peindre un dissipateur thermique en noir augmente fortement son émissivité → il évacue mieux la chaleur par rayonnement. Cela améliore significativement le refroidissement des composants électroniques.</p>
+  </div>
 </div>
 
 </div>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
 <script src="nav.js"></script>
 </body>
 </html>

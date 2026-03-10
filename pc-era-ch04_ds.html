@@ -46,6 +46,10 @@ tr:nth-child(even) td{background:#f8fafc}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
 @media print{.nb{display:none}.rep-zone{background:#fff}}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:6px;margin-bottom:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:4px}
+.bc:hover{opacity:.85}
 </style>
 </head>
 <body><div class="c">
@@ -99,6 +103,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \dfrac{d}{t}\) &nbsp; avec \(v\) en m/s, \(d\) en m, \(t\) en s</p>
+    <p>\(a = \dfrac{\Delta v}{\Delta t}\) &nbsp; avec \(a\) en m/s², \(\Delta v\) en m/s, \(\Delta t\) en s</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -107,6 +116,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:75px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \dfrac{d}{t} = \dfrac{12}{8} = 1{,}5\,\text{m/s}\)</p>
+    <p>Conversion : \(1{,}5 \times 3{,}6 = 5{,}4\,\text{km/h}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -115,6 +129,10 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(a = \dfrac{\Delta v}{\Delta t} = \dfrac{1{,}5 - 0}{3} = 0{,}5\,\text{m/s}^2\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -123,6 +141,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(a\) calculée \(= 0{,}5\,\text{m/s}^2 &lt; a_{max} = 0{,}6\,\text{m/s}^2\)</p>
+    <p>La valeur est inférieure à la limite → le convoyeur est <strong>conforme</strong>. Les caisses ne risquent pas de tomber lors du démarrage.</p>
+  </div>
 </div>
 
 <!-- EXERCICE 2 -->
@@ -145,6 +168,10 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\omega = \dfrac{2\pi n}{60}\) &nbsp; avec \(\omega\) en rad/s, \(n\) en tr/min</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -153,6 +180,10 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\omega = \dfrac{2\pi \times 1\,450}{60} = \dfrac{2\pi \times 1\,450}{60} \approx 151{,}8\,\text{rad/s} \approx 152\,\text{rad/s}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -161,6 +192,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \omega \times r\) &nbsp; avec \(v\) en m/s, \(\omega\) en rad/s, \(r\) en m (rayon de la roue)</p>
+    <p>La courroie est entraînée par la périphérie de la poulie → la vitesse du tapis est égale à la vitesse linéaire en périphérie de la poulie.</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -169,6 +205,10 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(v = \omega \times r = 152 \times 0{,}12 \approx 18{,}2\,\text{m/s}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">5.</span>
@@ -177,9 +217,15 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">1 pt</span>
   </p>
   <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Un variateur de fréquence permet de modifier la fréquence du courant alternatif alimentant le moteur, ce qui change sa vitesse de rotation.</p>
+    <p><strong>Avantages :</strong> démarrage progressif (réduit les à-coups mécaniques et les chutes de caisses), économies d'énergie, adaptation de la vitesse à la production.</p>
+  </div>
 </div>
 
 </div>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
 <script src="nav.js"></script>
 </body>
 </html>
