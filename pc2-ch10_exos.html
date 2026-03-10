@@ -2,402 +2,382 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch10 PC – Exercices – Éclairement et photocomposants</title>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercices – Ch.10 Température et capteurs thermiques</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
-body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
 .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
 h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
-h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
 .sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
 .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
-.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
-.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0;background:#fff}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
-.exo-title{font-weight:600;flex:1}
+.exo-title{font-weight:600;font-size:1.05em;color:var(--t)}
 .diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
 .diff-1{background:#d1fae5;color:#065f46}
 .diff-2{background:#fef3c7;color:#92400e}
 .diff-3{background:#fee2e2;color:#991b1b}
 .q{margin:10px 0 6px;padding-left:4px}
-.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none;font-size:.95em}
 .corr p{margin:6px 0}
 .bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
 .bc:hover{background:#5a32a3}
 .intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
-.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
-.methode strong{color:#d97706}
-.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-.attention strong{color:#be123c}
-.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
-.retenir strong{color:#0369a1}
-.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
-.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
-table{width:100%;border-collapse:collapse;margin:14px 0}
-th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
-td{border:1px solid #e2e8f0;padding:8px 12px}
-tr:nth-child(even) td{background:#f8fafc}
-.svg-wrap{text-align:center;margin:20px 0}
-.chart-wrap{max-width:580px;margin:20px auto}
+.chart-container{max-width:600px;margin:20px auto;padding:10px}
+svg text{font-family:'Segoe UI',sans-serif}
 </style>
 </head>
 <body>
 <div class="c">
-<a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 <header>
-  <h1>Chapitre 10 – Exercices</h1>
-  <p class="sous-titre">Éclairement et photocomposants &nbsp;|&nbsp; 2<sup>de</sup> Pro</p>
+  <div class="mama-tag">PC2 - Chapitre 10</div>
+  <h1>Température et capteurs thermiques</h1>
+  <p class="sous-titre">Exercices – Terminale Bac Pro MAMA | CTN, thermocouple, conversions °C/K</p>
+  <a class="nb" href="pc2-ch10.html">← Retour au cours</a>
 </header>
 
 <div class="intro-box">
-  <strong>Compétences travaillées :</strong> Calculer flux lumineux, éclairement et surface (\(E = \Phi / S\)), identifier les photocomposants (LDR, photodiode, phototransistor) et leurs utilisations, comparer les sources lumineuses, appliquer les normes d'éclairage.
+  <strong>Rappel des relations clés :</strong><br>
+  Conversion : \( T(\text{K}) = T(°\text{C}) + 273 \) &nbsp;|&nbsp;
+  CTN : Coefficient de Température <strong>Négatif</strong> → R <strong>diminue</strong> quand T augmente &nbsp;|&nbsp;
+  Lecture sur courbe R(T) : T → R ou R → T
 </div>
 
-<!-- SVG pédagogique : lampe éclairant une surface -->
-<div class="svg-wrap">
-<svg width="460" height="260" viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" aria-label="Flux lumineux et surface éclairée">
-  <!-- Lampe -->
-  <ellipse cx="230" cy="40" rx="22" ry="16" fill="#fef08a" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="230" cy="40" r="12" fill="#fde047"/>
-  <text x="260" y="44" font-family="Segoe UI" font-size="12" fill="#d97706" font-weight="bold">Lampe (Φ lm)</text>
-  <!-- Rayons lumineux (flux) -->
-  <line x1="220" y1="56" x2="160" y2="200" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <line x1="225" y1="56" x2="190" y2="200" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <line x1="230" y1="56" x2="230" y2="200" stroke="#fbbf24" stroke-width="2" stroke-dasharray="5,3"/>
-  <line x1="235" y1="56" x2="270" y2="200" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <line x1="240" y1="56" x2="300" y2="200" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <!-- Surface éclairée -->
-  <rect x="140" y="200" width="180" height="14" fill="#ddd6fe" stroke="#6f42c1" stroke-width="1.5" rx="2"/>
-  <text x="230" y="211" font-family="Segoe UI" font-size="11" fill="#4a1d96" text-anchor="middle" font-weight="bold">Surface S (m²)</text>
-  <!-- Flèche de hauteur -->
-  <line x1="330" y1="56" x2="330" y2="200" stroke="#6f42c1" stroke-width="1.5" marker-end="url(#arrH)"/>
-  <text x="338" y="130" font-family="Segoe UI" font-size="11" fill="#6f42c1">hauteur h</text>
-  <!-- Formule -->
-  <rect x="10" y="228" width="440" height="28" fill="#f5f0ff" rx="6"/>
-  <text x="230" y="246" font-family="Segoe UI" font-size="13" fill="#4a1d96" text-anchor="middle" font-weight="bold">
-    E = Φ / S   (lux = lumen / m²)   —   Plus S est grand, plus E est faible
-  </text>
-  <!-- Légende flux -->
-  <text x="60" y="140" font-family="Segoe UI" font-size="11" fill="#d97706" font-style="italic">flux Φ (lm)</text>
-  <defs>
-    <marker id="arrH" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#6f42c1"/>
-    </marker>
-  </defs>
-</svg>
-</div>
+<!-- ===== SECTION 1 ===== -->
+<h2>Exercices de base</h2>
+<div class="section-intro">Maîtriser les conversions de température et identifier les types de capteurs.</div>
 
-<!-- SECTION 1 : BASE -->
-<h2>Section 1 – Calculs d'éclairement E = Φ / S</h2>
-<div class="section-intro">
-  L'éclairement \(E\) (en lux, lx) est le flux lumineux \(\Phi\) (en lumens, lm) reçu par unité de surface \(S\) (en m²).
-  \[E = \frac{\Phi}{S} \quad \Leftrightarrow \quad \Phi = E \times S \quad \Leftrightarrow \quad S = \frac{\Phi}{E}\]
-</div>
-
-<!-- Exercice 1 -->
+<!-- EXO 1 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Calculs directs E = Φ / S</span>
-    <span class="diff diff-1">&#9733; Facile</span>
+    <span class="exo-title">Conversions °C ↔ K</span>
+    <span class="diff diff-1">Facile</span>
   </div>
-  <p>Appliquer la formule \(E = \Phi / S\) dans les trois sens possibles.</p>
-  <div class="q"><strong>1.</strong> Une lampe émet un flux \(\Phi = 800\) lm sur une surface \(S = 4\) m². Calculer l'éclairement \(E\).</div>
-  <div class="q"><strong>2.</strong> Un bureau reçoit un éclairement \(E = 300\) lx sur une surface \(S = 6\) m². Calculer le flux lumineux \(\Phi\) total nécessaire.</div>
-  <div class="q"><strong>3.</strong> Un luminaire délivre \(\Phi = 2400\) lm. On veut un éclairement de \(E = 400\) lx. Quelle surface \(S\) peut-on éclairer ?</div>
-  <div class="q"><strong>4.</strong> Un couloir de 12 m² reçoit un flux de 960 lm. Calculer l'éclairement. Est-ce suffisant pour circuler (norme : 100 lx minimum) ?</div>
-  <div class="methode">
-    <strong>Triangle magique :</strong><br>
-    \(\Phi\) en haut, \(E \times S\) en bas. Pour trouver E : couvrir E → Φ/S. Pour Φ : E×S. Pour S : Φ/E.
-  </div>
+  <div class="def"><strong>Rappel :</strong> \( T(\text{K}) = T(°\text{C}) + 273 \) &nbsp;et&nbsp; \( T(°\text{C}) = T(\text{K}) - 273 \)<br>Le zéro absolu (0 K = −273 °C) est la température la plus basse possible.</div>
+  <p class="q"><strong>a)</strong> Compléter le tableau de conversions :</p>
+  <table>
+    <tr><th>Température (°C)</th><th>Température (K)</th><th>Situation</th></tr>
+    <tr><td>20 °C</td><td>?</td><td>Température ambiante</td></tr>
+    <tr><td>?</td><td>373 K</td><td>Ébullition de l'eau</td></tr>
+    <tr><td>−40 °C</td><td>?</td><td>Grand froid / Antigel</td></tr>
+    <tr><td>?</td><td>0 K</td><td>Zéro absolu</td></tr>
+    <tr><td>87 °C</td><td>?</td><td>Ouverture thermostat moteur</td></tr>
+  </table>
+  <p class="q"><strong>b)</strong> Pourquoi les ingénieurs utilisent-ils parfois l'échelle Kelvin plutôt que Celsius ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(E = \dfrac{\Phi}{S} = \dfrac{800}{4} = 200\) lx</p>
-    <p><strong>2.</strong> \(\Phi = E \times S = 300 \times 6 = 1800\) lm</p>
-    <p><strong>3.</strong> \(S = \dfrac{\Phi}{E} = \dfrac{2400}{400} = 6\) m²</p>
-    <p><strong>4.</strong> \(E = \dfrac{960}{12} = 80\) lx. Non conforme : 80 lx &lt; 100 lx. Il faut augmenter le flux (changer la lampe) ou diminuer la hauteur d'installation.</p>
+    <p><strong>a)</strong></p>
+    <p>- 20 °C → <strong>293 K</strong></p>
+    <p>- 373 K → <strong>100 °C</strong> (ébullition eau)</p>
+    <p>- −40 °C → <strong>233 K</strong></p>
+    <p>- 0 K → <strong>−273 °C</strong> (zéro absolu)</p>
+    <p>- 87 °C → <strong>360 K</strong></p>
+    <p><strong>b)</strong> L'échelle Kelvin est une échelle absolue qui commence à zéro (pas de valeurs négatives). Elle est pratique en physique et en thermodynamique (lois des gaz parfaits, calculs de rendement) car elle simplifie les formules.</p>
   </div>
 </div>
 
-<!-- Exercice 2 -->
+<!-- EXO 2 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Identifier les photocomposants et leurs usages</span>
-    <span class="diff diff-1">&#9733; Facile</span>
+    <span class="exo-title">Choisir le bon capteur de température</span>
+    <span class="diff diff-1">Facile</span>
   </div>
-  <p>Les photocomposants sont des composants électroniques dont le comportement change en fonction de la lumière reçue.</p>
+  <div class="def">
+    <strong>Types de capteurs :</strong><br>
+    - <strong>Thermomètre à liquide</strong> : précis, lecture directe, fragile, pas de signal électrique.<br>
+    - <strong>Thermocouple</strong> : plage étendue (−200 à +2000 °C), robuste, signal électrique (mV).<br>
+    - <strong>CTN (Coefficient de Température Négatif)</strong> : résistance diminue quand T augmente, précis pour 0–200 °C, utilisé en électronique automobile.
+  </div>
+  <p class="q">Pour chaque application, choisir le capteur le plus adapté et justifier :</p>
   <table>
-    <tr><th>Composant</th><th>Symbole / Description</th><th>Comportement selon l'éclairement</th></tr>
-    <tr><td><strong>LDR</strong> (photorésistance)</td><td>Résistance variable à lumière</td><td>Résistance diminue quand lumière augmente</td></tr>
-    <tr><td><strong>Photodiode</strong></td><td>Diode sensible à la lumière</td><td>Génère un courant proportionnel à la lumière</td></tr>
-    <tr><td><strong>Phototransistor</strong></td><td>Transistor commandé par la lumière</td><td>Courant collecteur amplifié par la lumière</td></tr>
-    <tr><td><strong>Cellule solaire</strong></td><td>Grande photodiode</td><td>Génère une tension (effet photovoltaïque)</td></tr>
+    <tr><th>Application</th><th>Plage T</th><th>Capteur choisi</th><th>Justification</th></tr>
+    <tr><td>Sonde eau moteur (tableau de bord)</td><td>−40 à 150 °C</td><td>?</td><td>?</td></tr>
+    <tr><td>Thermomètre de laboratoire</td><td>0 à 100 °C</td><td>?</td><td>?</td></tr>
+    <tr><td>Température gaz d'échappement</td><td>200 à 900 °C</td><td>?</td><td>?</td></tr>
+    <tr><td>Capteur climatisation habitacle</td><td>−10 à 50 °C</td><td>?</td><td>?</td></tr>
   </table>
-  <div class="q"><strong>1.</strong> Quelle est la résistance d'une LDR dans l'obscurité totale : très grande ou très petite ?</div>
-  <div class="q"><strong>2.</strong> Citer un usage concret d'une LDR dans la vie courante (en dehors du cours).</div>
-  <div class="q"><strong>3.</strong> Quel photocomposant est utilisé dans les panneaux solaires photovoltaïques ? Pourquoi ?</div>
-  <div class="q"><strong>4.</strong> Un phototransistor est utilisé dans un capteur de présence par barrière lumineuse. Expliquer le principe.</div>
-  <div class="q"><strong>5.</strong> On dispose d'une LDR de 10 kΩ à l'obscurité et 500 Ω en pleine lumière, alimentée par 5 V. Calculer le courant dans les deux cas.</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Dans l'obscurité, la LDR a une résistance très grande (peut atteindre 1 MΩ).</p>
-    <p><strong>2.</strong> Exemples : allumage automatique des lampadaires à la tombée de la nuit ; capteur d'ambiance dans un smartphone pour adapter la luminosité de l'écran.</p>
-    <p><strong>3.</strong> Cellule solaire (photodiode grande surface). Elle convertit directement la lumière en énergie électrique par effet photovoltaïque.</p>
-    <p><strong>4.</strong> Une LED émet un faisceau infrarouge. Un phototransistor le reçoit en face. Quand un objet (ou personne) passe, il coupe le faisceau → le phototransistor ne reçoit plus de lumière → il se bloque → le circuit détecte l'interruption.</p>
-    <p><strong>5.</strong> Loi d'Ohm \(I = U/R\) :<br>
-    Obscurité : \(I = 5/10000 = 0{,}5\) mA<br>
-    Pleine lumière : \(I = 5/500 = 10\) mA (20 fois plus grand)</p>
+    <p>- Sonde eau moteur : <strong>CTN</strong> → signal électrique intégrable dans le calculateur, plage adaptée, faible coût.</p>
+    <p>- Thermomètre de laboratoire : <strong>Thermomètre à liquide</strong> → simple, précis pour usage courant, pas besoin de signal électrique.</p>
+    <p>- Gaz d'échappement (haute température) : <strong>Thermocouple</strong> → seul capteur résistant aux très hautes températures.</p>
+    <p>- Climatisation habitacle : <strong>CTN</strong> → signal électrique pour le calculateur climatisation, plage adaptée à la température intérieure.</p>
   </div>
 </div>
 
-<!-- Exercice 3 -->
+<!-- EXO 3 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Comparer ampoule incandescente et LED</span>
-    <span class="diff diff-1">&#9733; Facile</span>
+    <span class="exo-title">Lecture de valeurs sur un tableau R(T) de CTN</span>
+    <span class="diff diff-1">Facile</span>
   </div>
-  <p>Deux ampoules produisent le même flux lumineux mais avec des puissances différentes.</p>
+  <div class="prop"><strong>Caractéristique CTN :</strong> La résistance <em>diminue</em> quand la température augmente. C'est le signe d'un Coefficient de Température Négatif.</div>
+  <p>Voici le tableau de caractéristiques d'une CTN de sonde eau moteur :</p>
   <table>
-    <tr><th>Caractéristique</th><th>Ampoule incandescente</th><th>Ampoule LED équivalente</th></tr>
-    <tr><td>Flux lumineux</td><td>800 lm</td><td>800 lm</td></tr>
-    <tr><td>Puissance électrique</td><td>60 W</td><td>9 W</td></tr>
-    <tr><td>Durée de vie</td><td>1 000 h</td><td>15 000 h</td></tr>
-    <tr><td>Prix unitaire</td><td>1,50 €</td><td>5,00 €</td></tr>
+    <tr><th>Température T (°C)</th><th>20</th><th>40</th><th>60</th><th>80</th><th>100</th></tr>
+    <tr><th>Résistance R (kΩ)</th><td>10</td><td>6</td><td>3,5</td><td>2</td><td>0,8</td></tr>
   </table>
-  <div class="q"><strong>1.</strong> Ces deux ampoules éclairent-elles pareil ? Justifier en utilisant la notion de flux lumineux.</div>
-  <div class="q"><strong>2.</strong> Calculer l'efficacité lumineuse (en lm/W) de chaque ampoule. Laquelle est plus efficace ?</div>
-  <div class="q"><strong>3.</strong> Quelle quantité d'énergie (en kWh) consomme chaque ampoule pendant 1000 heures ?</div>
-  <div class="q"><strong>4.</strong> À 0,20 €/kWh, calculer le coût en électricité sur 1 000 h pour chaque ampoule. En déduire les économies réalisées avec la LED sur cette période.</div>
+
+  <!-- SVG R(T) CTN schéma -->
+  <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;margin:16px auto;display:block;background:#fafafa;border:1px solid #e2e8f0;border-radius:8px">
+    <text x="200" y="18" text-anchor="middle" font-size="13" fill="#4a1d96" font-weight="bold">Courbe R(T) – CTN (schéma)</text>
+    <!-- Axes -->
+    <line x1="50" y1="185" x2="370" y2="185" stroke="#555" stroke-width="2"/>
+    <line x1="50" y1="30" x2="50" y2="185" stroke="#555" stroke-width="2"/>
+    <!-- Axis labels -->
+    <text x="210" y="205" text-anchor="middle" font-size="11" fill="#555">T (°C) →</text>
+    <text x="15" y="110" font-size="11" fill="#555" transform="rotate(-90,15,110)">R (kΩ) →</text>
+    <!-- T axis ticks -->
+    <text x="75" y="198" text-anchor="middle" font-size="10" fill="#666">0</text>
+    <text x="130" y="198" text-anchor="middle" font-size="10" fill="#666">20</text>
+    <text x="185" y="198" text-anchor="middle" font-size="10" fill="#666">40</text>
+    <text x="240" y="198" text-anchor="middle" font-size="10" fill="#666">60</text>
+    <text x="295" y="198" text-anchor="middle" font-size="10" fill="#666">80</text>
+    <text x="350" y="198" text-anchor="middle" font-size="10" fill="#666">100</text>
+    <!-- R axis ticks -->
+    <text x="42" y="183" text-anchor="end" font-size="10" fill="#666">0</text>
+    <text x="42" y="150" text-anchor="end" font-size="10" fill="#666">2</text>
+    <text x="42" y="118" text-anchor="end" font-size="10" fill="#666">4</text>
+    <text x="42" y="86" text-anchor="end" font-size="10" fill="#666">8</text>
+    <text x="42" y="54" text-anchor="end" font-size="10" fill="#666">12</text>
+    <!-- CTN curve (decreasing) -->
+    <path d="M75,38 C100,42 120,55 130,72 C150,105 175,125 185,135 C210,148 240,155 295,162 C320,165 340,170 350,172"
+          stroke="#6f42c1" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Points marqués -->
+    <circle cx="130" cy="72" r="5" fill="#e11d48"/>
+    <text x="135" y="68" font-size="10" fill="#e11d48">20°C / 10kΩ</text>
+    <circle cx="185" cy="135" r="5" fill="#e11d48"/>
+    <text x="190" y="131" font-size="10" fill="#e11d48">60°C / 3,5kΩ</text>
+    <circle cx="295" cy="162" r="5" fill="#e11d48"/>
+    <text x="300" y="158" font-size="10" fill="#e11d48">100°C / 0,8kΩ</text>
+    <!-- Arrow showing decrease -->
+    <path d="M 320 55 L 340 75" stroke="#d97706" stroke-width="2" marker-end="url(#arr2)"/>
+    <text x="310" y="50" font-size="10" fill="#d97706" font-weight="bold">R diminue</text>
+    <defs>
+      <marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
+      </marker>
+    </defs>
+  </svg>
+
+  <p class="q"><strong>a)</strong> Cette sonde est-elle bien une CTN ? Justifier à partir du tableau.</p>
+  <p class="q"><strong>b)</strong> Par interpolation linéaire, estimer la résistance à T = 70 °C.</p>
+  <p class="q"><strong>c)</strong> Un calculateur lit R = 3,5 kΩ. Quelle est la température correspondante ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Oui, l'éclairage est identique : même flux lumineux (800 lm), donc même éclairement \(E\) pour une même surface. La puissance électrique ne mesure pas la quantité de lumière produite.</p>
-    <p><strong>2.</strong> Efficacité lumineuse = Φ/P<br>
-    Incandescente : 800/60 ≈ <strong>13 lm/W</strong><br>
-    LED : 800/9 ≈ <strong>89 lm/W</strong> (7 fois plus efficace)</p>
-    <p><strong>3.</strong> Énergie = P × t (en W·h)<br>
-    Incandescente : 60 W × 1000 h = 60 000 Wh = <strong>60 kWh</strong><br>
-    LED : 9 W × 1000 h = 9 000 Wh = <strong>9 kWh</strong></p>
-    <p><strong>4.</strong> Coût = énergie × prix unitaire<br>
-    Incandescente : 60 × 0,20 = <strong>12,00 €</strong><br>
-    LED : 9 × 0,20 = <strong>1,80 €</strong><br>
-    Économie en électricité : 12,00 − 1,80 = <strong>10,20 €</strong> sur 1000 h (sans compter le remplacement des ampoules).</p>
+    <p><strong>a)</strong> Oui, c'est bien une CTN : quand T passe de 20 à 100 °C (augmentation), R passe de 10 à 0,8 kΩ (diminution). Coefficient de Température Négatif confirmé.</p>
+    <p><strong>b)</strong> Entre 60 °C (R = 3,5 kΩ) et 80 °C (R = 2 kΩ) : interpolation à mi-chemin (70 °C) → \( R \approx \dfrac{3{,}5 + 2}{2} = \mathbf{2{,}75 \text{ kΩ}} \)</p>
+    <p><strong>c)</strong> R = 3,5 kΩ correspond à T = <strong>60 °C</strong> (lecture directe dans le tableau).</p>
   </div>
 </div>
 
-<!-- SECTION 2 : GUIDÉ -->
-<h2>Section 2 – Dimensionnement d'éclairage et LDR (guidé)</h2>
-<div class="section-intro">On applique les formules pour dimensionner un éclairage adapté à un local et pour comprendre le fonctionnement d'un circuit à LDR.</div>
+<!-- ===== SECTION 2 ===== -->
+<h2>Exercices guidés</h2>
+<div class="section-intro">Applications guidées sur le thermostat moteur et l'interprétation de la courbe CTN.</div>
 
-<!-- Exercice 4 -->
+<!-- EXO 4 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Choisir la puissance d'éclairage pour un atelier</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+    <span class="exo-title">Thermostat moteur – Conversion et CTN</span>
+    <span class="diff diff-2">Guidé</span>
   </div>
-  <p>Un responsable d'atelier souhaite équiper un local de 8 m × 6 m = 48 m². Les normes recommandent 300 lx pour un atelier de montage. Les luminaires LED disponibles émettent 4 000 lm par unité, avec un rendement d'utilisation \(\eta = 0{,}65\) (tient compte des réflexions et pertes).</p>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Le thermostat d'un moteur essence s'ouvre à T = 87 °C pour permettre la circulation dans le grand circuit de refroidissement. La CTN du circuit eau a les valeurs suivantes :</p>
+  <table>
+    <tr><th>T (°C)</th><th>20</th><th>50</th><th>87</th><th>100</th></tr>
+    <tr><th>R (kΩ)</th><td>10</td><td>4</td><td>2,5</td><td>0,8</td></tr>
+  </table>
+
   <div class="methode">
-    <strong>Méthode :</strong> Flux total nécessaire = E × S. Flux réellement utile d'un luminaire = Φ × η. Nombre de luminaires = Flux total / Flux utile par luminaire.
+    <strong>Méthode guidée :</strong><br>
+    Étape 1 : Convertir T en Kelvin avec \( T(\text{K}) = T(°\text{C}) + 273 \).<br>
+    Étape 2 : Repérer les valeurs R aux points clés du tableau.<br>
+    Étape 3 : Calculer la variation de R entre deux températures.
   </div>
-  <div class="q"><strong>1.</strong> Calculer le flux lumineux total \(\Phi_{total}\) nécessaire pour atteindre 300 lx dans cet atelier.</div>
-  <div class="q"><strong>2.</strong> Calculer le flux utile de chaque luminaire (en tenant compte de η = 0,65).</div>
-  <div class="q"><strong>3.</strong> Calculer le nombre de luminaires nécessaires. Arrondir au supérieur.</div>
-  <div class="q"><strong>4.</strong> Si chaque luminaire consomme 40 W, calculer la puissance électrique totale installée.</div>
-  <div class="q"><strong>5.</strong> Ces luminaires fonctionnent 8 h/jour, 220 jours/an. Calculer la consommation annuelle en kWh.</div>
+
+  <p class="q"><strong>a)</strong> Convertir T = 87 °C en Kelvin.</p>
+  <p class="q"><strong>b)</strong> Quelle est la résistance de la CTN à 87 °C ? À 20 °C ?</p>
+  <p class="q"><strong>c)</strong> Calculer la variation de résistance \( \Delta R = R(20°C) - R(87°C) \). Commenter le signe.</p>
+  <p class="q"><strong>d)</strong> Le calculateur moteur surveille R : si R &gt; 8 kΩ, le moteur est considéré "froid". Est-ce le cas à 20 °C ? Expliquer la conséquence sur l'injection.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Surface : S = 8 × 6 = 48 m². \(\Phi_{total} = E \times S = 300 \times 48 = 14\,400\) lm</p>
-    <p><strong>2.</strong> Flux utile par luminaire : \(\Phi_{utile} = 4000 \times 0{,}65 = 2600\) lm</p>
-    <p><strong>3.</strong> Nombre = \(\dfrac{14\,400}{2600} = 5{,}54\) → arrondi à <strong>6 luminaires</strong></p>
-    <p><strong>4.</strong> Puissance totale : 6 × 40 = <strong>240 W</strong></p>
-    <p><strong>5.</strong> Durée annuelle : 8 × 220 = 1760 h/an. Consommation : 240 W × 1760 h = 422 400 Wh = <strong>422 kWh/an</strong></p>
+    <p><strong>a)</strong> \( T(\text{K}) = 87 + 273 = \mathbf{360 \text{ K}} \)</p>
+    <p><strong>b)</strong> R(87 °C) = <strong>2,5 kΩ</strong> &nbsp;; R(20 °C) = <strong>10 kΩ</strong>.</p>
+    <p><strong>c)</strong> \( \Delta R = 10 - 2{,}5 = \mathbf{+7{,}5 \text{ kΩ}} \). Le signe positif confirme que R <em>diminue</em> quand T augmente → comportement CTN confirmé.</p>
+    <p><strong>d)</strong> À 20 °C, R = 10 kΩ &gt; 8 kΩ → calculateur considère le moteur <strong>froid</strong> → il enrichit le mélange (plus d'essence) et augmente le régime de ralenti pour faciliter le démarrage à froid. C'est la phase de <em>réchauffage</em>.</p>
   </div>
 </div>
 
-<!-- Exercice 5 -->
+<!-- EXO 5 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">LDR — variation de résistance et circuit simple</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+    <span class="exo-title">Interprétation de la courbe R(T) – Température réelle</span>
+    <span class="diff diff-2">Guidé</span>
   </div>
-  <p>Une LDR (photorésistance) est montée en série avec une résistance fixe \(R_0 = 2\,200\) Ω dans un circuit alimenté sous \(U = 9\) V. On note \(R_{LDR}\) la résistance de la LDR.</p>
-  <table>
-    <tr><th>Éclairement (lx)</th><th>\(R_{LDR}\) (Ω)</th><th>Courant I (mA)</th><th>Tension \(U_{LDR}\) (V)</th></tr>
-    <tr><td>0 (obscurité)</td><td>50 000</td><td>…</td><td>…</td></tr>
-    <tr><td>100</td><td>10 000</td><td>…</td><td>…</td></tr>
-    <tr><td>500</td><td>2 000</td><td>…</td><td>…</td></tr>
-    <tr><td>1000</td><td>500</td><td>…</td><td>…</td></tr>
-  </table>
-  <div class="q"><strong>1.</strong> Rappeler la formule du courant dans un circuit série : \(I = U / (R_0 + R_{LDR})\).</div>
-  <div class="q"><strong>2.</strong> Compléter le tableau (calculer I en mA et \(U_{LDR}\) en V pour chaque ligne).</div>
-  <div class="q"><strong>3.</strong> Quand l'éclairement augmente, que se passe-t-il à la tension \(U_{LDR}\) ? Et à la tension \(U_{R0}\) ?</div>
-  <div class="q"><strong>4.</strong> On connecte un relais (seuil 6 V) aux bornes de \(R_0\). À quel éclairement environ le relais se déclenche-t-il ? (Trouver quand \(U_{R0} \geq 6\) V)</div>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Utiliser le tableau CTN de l'exercice 4. Le mécanicien mesure à l'ohmmètre la résistance de la sonde eau : R = 500 Ω = 0,5 kΩ.</p>
+
+  <!-- Chart CTN -->
+  <div class="chart-container">
+    <canvas id="chartCTN"></canvas>
+  </div>
+  <p style="font-size:.85em;color:#555;text-align:center">Courbe R(T) d'une CTN – Sonde eau moteur (valeurs réalistes)</p>
+
+  <p class="q"><strong>a)</strong> D'après le graphique, à quelle température correspond R = 0,5 kΩ ? Le moteur est-il chaud ou froid ?</p>
+  <p class="q"><strong>b)</strong> La plage normale de fonctionnement est 80–120 °C. R = 0,5 kΩ correspond-il à une situation normale ?</p>
+  <p class="q"><strong>c)</strong> Que doit faire le technicien face à cette valeur de résistance ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(I = \dfrac{U}{R_0 + R_{LDR}} = \dfrac{9}{2200 + R_{LDR}}\)</p>
-    <p><strong>2.</strong> Calculs :</p>
-    <p>Obscurité : \(I = 9/(2200+50000) = 9/52200 \approx 0{,}172\) mA ; \(U_{LDR} = 0{,}172 \times 10^{-3} \times 50000 \approx 8{,}63\) V</p>
-    <p>100 lx : \(I = 9/12200 \approx 0{,}738\) mA ; \(U_{LDR} = 0{,}738 \times 10^{-3} \times 10000 \approx 7{,}38\) V</p>
-    <p>500 lx : \(I = 9/4200 \approx 2{,}14\) mA ; \(U_{LDR} = 2{,}14 \times 10^{-3} \times 2000 \approx 4{,}29\) V</p>
-    <p>1000 lx : \(I = 9/2700 \approx 3{,}33\) mA ; \(U_{LDR} = 3{,}33 \times 10^{-3} \times 500 \approx 1{,}67\) V</p>
-    <p><strong>3.</strong> Quand l'éclairement augmente : \(R_{LDR}\) diminue → \(U_{LDR}\) diminue. À l'inverse, \(U_{R0} = U - U_{LDR}\) augmente.</p>
-    <p><strong>4.</strong> On veut \(U_{R0} \geq 6\) V, soit \(U_{LDR} \leq 3\) V. Entre 500 lx (\(U_{LDR} \approx 4{,}3\) V) et 1000 lx (\(U_{LDR} \approx 1{,}7\) V), le relais se déclenche vers 700-800 lx environ.</p>
+    <p><strong>a)</strong> D'après la courbe, R = 0,5 kΩ ≈ 0,7 kΩ à 120 °C → T est <strong>supérieure à 120 °C</strong> (environ 125–130 °C). Le moteur est <strong>très chaud</strong>, potentiellement en surchauffe.</p>
+    <p><strong>b)</strong> R = 0,5 kΩ est en dehors de la plage normale → situation <strong>anormale</strong>. Le voyant de température doit être allumé ou le ventilateur de refroidissement actif.</p>
+    <p><strong>c)</strong> Le technicien doit : 1) Arrêter immédiatement le moteur pour éviter la casse. 2) Attendre le refroidissement avant toute intervention. 3) Vérifier le niveau de liquide de refroidissement, l'étanchéité du circuit, le fonctionnement du thermostat et du radiateur.</p>
   </div>
 </div>
 
-<!-- SECTION 3 : APPLICATION -->
-<h2>Section 3 – Applications</h2>
-<div class="section-intro">Calculs d'économies d'énergie sur une année, conformité aux normes d'éclairage pour différents locaux.</div>
+<!-- ===== SECTION 3 ===== -->
+<h2>Exercices d'application</h2>
+<div class="section-intro">Situations de diagnostic intégrant plusieurs notions.</div>
 
-<!-- Exercice 6 -->
+<!-- EXO 6 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Économies d'énergie — calcul sur 1 an, coût et bilan</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+    <span class="exo-title">Climatisation automobile – Régulation par CTN</span>
+    <span class="diff diff-2">Application</span>
   </div>
-  <p>Une entreprise souhaite remplacer ses 20 tubes fluorescents de 58 W (1 800 lm chacun) par des tubes LED de 22 W (2 200 lm chacun). Fonctionnement : 10 h/jour, 250 jours/an. Prix de l'électricité : 0,22 €/kWh. Coût d'un tube LED : 12 €.</p>
-  <div class="q"><strong>1.</strong> Calculer la puissance totale installée avant et après remplacement.</div>
-  <div class="q"><strong>2.</strong> Calculer la consommation annuelle (en kWh) avant et après.</div>
-  <div class="q"><strong>3.</strong> Calculer le coût annuel en électricité avant et après. Déduire l'économie annuelle.</div>
-  <div class="q"><strong>4.</strong> Calculer le coût total du remplacement (20 tubes LED). En déduire le temps de retour sur investissement (en mois).</div>
-  <div class="q"><strong>5.</strong> Comparer l'efficacité lumineuse (lm/W) des deux types de tubes. Quelle technologie est la plus efficace ?</div>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Le capteur de température habitacle d'une voiture est une CTN. Caractéristiques :</p>
+  <table>
+    <tr><th>T (°C)</th><th>10</th><th>15</th><th>21</th><th>25</th><th>30</th></tr>
+    <tr><th>R (kΩ)</th><td>12</td><td>8</td><td>5</td><td>3,5</td><td>2,5</td></tr>
+  </table>
+  <p>La consigne du conducteur est réglée à 21 °C → R_consigne = 5 kΩ.</p>
+  <p class="q"><strong>a)</strong> Le calculateur lit R_mesurée = 10 kΩ. D'après le tableau, quelle est la température réelle dans l'habitacle ?</p>
+  <p class="q"><strong>b)</strong> La température réelle est-elle supérieure ou inférieure à la consigne (21 °C) ?</p>
+  <p class="q"><strong>c)</strong> Le compresseur de climatisation doit-il se mettre en marche (ON) ou rester à l'arrêt (OFF) ? Justifier.</p>
+  <p class="q"><strong>d)</strong> Si R_mesurée = 2,5 kΩ, que fait le calculateur ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Avant : 20 × 58 = <strong>1 160 W</strong>. Après : 20 × 22 = <strong>440 W</strong>.</p>
-    <p><strong>2.</strong> Durée annuelle : 10 × 250 = 2 500 h/an.<br>
-    Avant : 1160 W × 2500 h = 2 900 000 Wh = <strong>2 900 kWh/an</strong><br>
-    Après : 440 W × 2500 h = 1 100 000 Wh = <strong>1 100 kWh/an</strong></p>
-    <p><strong>3.</strong> Coût avant : 2900 × 0,22 = <strong>638 €/an</strong>. Coût après : 1100 × 0,22 = <strong>242 €/an</strong>.<br>
-    Économie annuelle : 638 − 242 = <strong>396 €/an</strong></p>
-    <p><strong>4.</strong> Investissement : 20 × 12 = <strong>240 €</strong>.<br>
-    Retour sur investissement : 240 / 396 × 12 = <strong>7,3 mois</strong> ≈ moins d'un an.</p>
-    <p><strong>5.</strong> Fluorescent : 1800/58 ≈ 31 lm/W. LED : 2200/22 = <strong>100 lm/W</strong>. La LED est 3 fois plus efficace et produit plus de lumière pour moins d'énergie.</p>
+    <p><strong>a)</strong> R = 10 kΩ : cette valeur n'est pas dans le tableau mais est supérieure à 12 kΩ (10 °C) → par interpolation, T est inférieure à 10 °C. Environ <strong>7–8 °C</strong>.</p>
+    <p><strong>b)</strong> T_réelle ≈ 8 °C &lt; 21 °C → la température réelle est <strong>inférieure</strong> à la consigne. Il fait trop froid dans l'habitacle.</p>
+    <p><strong>c)</strong> Le compresseur doit rester <strong>OFF</strong> (pas besoin de refroidir). Le calculateur va plutôt activer le chauffage (résistance ou circuit eau chaude).</p>
+    <p><strong>d)</strong> R = 2,5 kΩ → T = 30 °C &gt; 21 °C → il fait trop chaud. Le calculateur met le compresseur <strong>ON</strong> pour refroidir l'habitacle.</p>
   </div>
 </div>
 
-<!-- Exercice 7 -->
+<!-- EXO 7 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Conformité à la norme NF EN 12464-1</span>
-    <span class="diff diff-3">&#9733;&#9733;&#9733; Difficile</span>
+    <span class="exo-title">Alarme température huile moteur</span>
+    <span class="diff diff-2">Application</span>
   </div>
-  <p>La norme NF EN 12464-1 définit les niveaux d'éclairement minimum selon le type de local et d'activité.</p>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>La sonde de température d'huile moteur est une CTN avec le tableau suivant :</p>
   <table>
-    <tr><th>Type de local / Activité</th><th>Éclairement minimum (lux)</th></tr>
-    <tr><td>Couloir, escalier, zone de passage</td><td>100 lx</td></tr>
-    <tr><td>Bureau, lecture, travail de bureau</td><td>500 lx</td></tr>
-    <tr><td>Atelier de montage (tâches peu précises)</td><td>300 lx</td></tr>
-    <tr><td>Atelier de montage fin, électronique</td><td>500 lx</td></tr>
-    <tr><td>Dessin technique, contrôle qualité</td><td>750 lx</td></tr>
-    <tr><td>Chirurgie, microélectronique</td><td>1 000 lx</td></tr>
+    <tr><th>T (°C)</th><th>80</th><th>100</th><th>120</th><th>140</th><th>160</th></tr>
+    <tr><th>R (Ω)</th><td>1200</td><td>700</td><td>400</td><td>200</td><td>100</td></tr>
   </table>
-  <p>Un technicien mesure les éclairements suivants dans différentes zones d'un lycée professionnel :</p>
-  <table>
-    <tr><th>Zone</th><th>Surface</th><th>Flux installé (lm)</th><th>E mesuré (lx)</th><th>Conforme ?</th></tr>
-    <tr><td>Couloir</td><td>30 m²</td><td>3 600 lm</td><td>120 lx</td><td>…</td></tr>
-    <tr><td>Salle de classe</td><td>50 m²</td><td>20 000 lm</td><td>400 lx</td><td>…</td></tr>
-    <tr><td>Atelier montage</td><td>80 m²</td><td>28 000 lm</td><td>350 lx</td><td>…</td></tr>
-    <tr><td>Salle de dessin</td><td>40 m²</td><td>28 000 lm</td><td>700 lx</td><td>…</td></tr>
-  </table>
-  <div class="q"><strong>1.</strong> Vérifier (en calculant E = Φ/S) les éclairements mesurés. Les valeurs sont-elles cohérentes ?</div>
-  <div class="q"><strong>2.</strong> Compléter la colonne "Conforme ?" pour chaque zone.</div>
-  <div class="q"><strong>3.</strong> Pour la salle de classe non conforme, calculer le flux total à installer pour atteindre 500 lx.</div>
-  <div class="q"><strong>4.</strong> Pour la salle de dessin, l'éclairement est insuffisant. Calculer le flux manquant.</div>
+  <p>L'alarme de surchauffe s'allume quand T &gt; 140 °C.</p>
+  <p class="q"><strong>a)</strong> Quelle est la résistance R_alarme correspondant à T = 140 °C ?</p>
+  <p class="q"><strong>b)</strong> Le calculateur surveille R. L'alarme doit s'allumer quand R &lt; R_alarme ou quand R &gt; R_alarme ? Expliquer.</p>
+  <p class="q"><strong>c)</strong> En roulage normal, T = 100 °C. Calculer R. Le voyant est-il allumé ?</p>
+  <p class="q"><strong>d)</strong> Lors d'un essai, R tombe à 150 Ω. Quel est l'état du voyant ? Que faire ?</p>
+  <div class="attention"><strong>Attention :</strong> Une surchauffe d'huile moteur peut provoquer une dégradation de la lubrification et entraîner la destruction du moteur. Ne jamais ignorer ce voyant.</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Vérification :<br>
-    Couloir : E = 3600/30 = 120 lx ✓<br>
-    Salle classe : E = 20000/50 = 400 lx ✓<br>
-    Atelier montage : E = 28000/80 = 350 lx ✓<br>
-    Salle dessin : E = 28000/40 = 700 lx ✓</p>
-    <p><strong>2.</strong> Conformité :<br>
-    Couloir : 120 lx ≥ 100 lx → <strong>Conforme ✓</strong><br>
-    Salle classe : 400 lx &lt; 500 lx → <strong>Non conforme ✗</strong><br>
-    Atelier montage : 350 lx ≥ 300 lx → <strong>Conforme ✓</strong><br>
-    Salle dessin : 700 lx &lt; 750 lx → <strong>Non conforme ✗</strong></p>
-    <p><strong>3.</strong> Salle classe (50 m², besoin 500 lx) : Φ = E × S = 500 × 50 = <strong>25 000 lm</strong>. Flux manquant : 25 000 − 20 000 = 5 000 lm supplémentaires.</p>
-    <p><strong>4.</strong> Salle dessin (40 m², besoin 750 lx) : Φ = 750 × 40 = 30 000 lm. Flux manquant : 30 000 − 28 000 = <strong>2 000 lm</strong> à ajouter.</p>
+    <p><strong>a)</strong> R_alarme = <strong>200 Ω</strong> (à 140 °C, d'après le tableau).</p>
+    <p><strong>b)</strong> La CTN : R diminue quand T augmente. Si T &gt; 140 °C alors R &lt; 200 Ω. L'alarme s'allume quand <strong>R &lt; R_alarme = 200 Ω</strong>.</p>
+    <p><strong>c)</strong> T = 100 °C → R = <strong>700 Ω</strong>. 700 Ω &gt; 200 Ω → voyant <strong>éteint</strong>. Situation normale.</p>
+    <p><strong>d)</strong> R = 150 Ω &lt; 200 Ω → T &gt; 140 °C → voyant <strong>allumé</strong>. Action : arrêter immédiatement le véhicule en lieu sûr, couper le moteur, attendre refroidissement, vérifier niveau et qualité d'huile, circuit de refroidissement.</p>
   </div>
 </div>
 
-<!-- SECTION 4 : MAMA -->
-<h2>Section 4 – Contexte professionnel MAMA</h2>
-<div class="section-intro">Ces exercices appliquent les notions d'éclairement et de photocomposants dans des contextes de maintenance automobile et industrielle.</div>
+<!-- ===== SECTION 4 ===== -->
+<h2>Contexte MAMA</h2>
+<div class="section-intro">Diagnostics avancés de pannes liées aux capteurs thermiques.</div>
 
-<!-- Exercice 8 -->
+<!-- EXO 8 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Dimensionner l'éclairage d'un atelier MAMA de 40 m²</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
-    <div class="mama-tag">MAMA</div>
+    <span class="exo-title">Diagnostic sonde eau moteur défectueuse</span>
+    <span class="diff diff-3">MAMA Avancé</span>
   </div>
-  <p>Un atelier de maintenance automobile (MAMA) de <strong>40 m²</strong> doit être éclairé selon la norme NF EN 12464-1 avec <strong>E = 300 lx minimum</strong>. La hauteur sous plafond est 4 m. On dispose de luminaires LED industriels de 5 000 lm chacun (consommation 50 W). Coefficient d'utilisation η = 0,60 (tient compte de la hauteur et des réflexions).</p>
-  <div class="q"><strong>1.</strong> Calculer le flux lumineux total nécessaire pour 300 lx sur 40 m².</div>
-  <div class="q"><strong>2.</strong> En tenant compte de η = 0,60, calculer le flux réellement utilisable par luminaire.</div>
-  <div class="q"><strong>3.</strong> Calculer le nombre de luminaires et la puissance totale installée.</div>
-  <div class="q"><strong>4.</strong> Les luminaires sont disposés en rangées de 2. Combien de rangées ? Quelle disposition optimale sur 8 m × 5 m ?</div>
-  <div class="q"><strong>5.</strong> Le chef d'atelier souhaite un éclairage d'appoint de 500 lx sur un poste de contrôle de 4 m². Quel flux supplémentaire doit-on ajouter sur ce poste ?</div>
-  <div class="q"><strong>6.</strong> Estimer le surcoût mensuel en électricité du poste de contrôle (LED 30 W, 8 h/j, 22 j/mois, 0,22 €/kWh).</div>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Un client se plaint de consommation excessive d'essence et du ventilateur de refroidissement qui tourne <em>en permanence</em>, même moteur froid. La sonde CTN eau moteur est suspectée.</p>
+  <p class="q"><strong>a)</strong> Rappeler comment le calculateur interprète une valeur R très élevée (proche de l'infini) de la CTN. Quel défaut cela simule-t-il ?</p>
+  <p class="q"><strong>b)</strong> Si la CTN est <em>débranchée</em> (circuit ouvert), quelle résistance lit le calculateur ? (R = 0 Ω ou R → ∞ ?) Comment réagit-il sur l'injection ?</p>
+  <p class="q"><strong>c)</strong> Si la CTN est en <em>court-circuit</em> (fils qui se touchent), quelle résistance lit le calculateur ? (R = 0 Ω) Quelle température cela simule-t-il ? Comment réagit-il ?</p>
+  <p class="q"><strong>d)</strong> D'après les symptômes (ventilateur toujours ON + surconsommation), quel défaut est le plus probable : court-circuit ou circuit ouvert ? Expliquer.</p>
+
+  <div class="methode">
+    <strong>Pour le diagnostic :</strong><br>
+    - R → ∞ : circuit ouvert (fil coupé, connecteur mal enfiché) → T simulée très froide<br>
+    - R = 0 Ω : court-circuit → T simulée très chaude<br>
+    Mesurer R à l'ohmmètre (moteur froid, calculateur débranché).
+  </div>
+
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(\Phi_{total} = E \times S = 300 \times 40 = 12\,000\) lm</p>
-    <p><strong>2.</strong> Flux utile par luminaire : \(5000 \times 0{,}60 = 3000\) lm</p>
-    <p><strong>3.</strong> Nombre = \(12000 / 3000 = 4\) luminaires. Puissance totale : \(4 \times 50 = 200\) W</p>
-    <p><strong>4.</strong> 4 luminaires en 2 rangées de 2. Sur 8 m × 5 m : 2 rangées espacées de ~2,5 m dans la largeur (5/2), 2 luminaires par rangée espacés de ~4 m (8/2). Disposition équilibrée ✓</p>
-    <p><strong>5.</strong> Poste de contrôle : besoin 500 lx sur 4 m² = 2 000 lm. L'éclairage général apporte déjà 300 lx sur ce poste. Flux supplémentaire : \((500-300) \times 4 = 200 \times 4 = 800\) lm supplémentaires.</p>
-    <p><strong>6.</strong> Énergie mensuelle : 30 W × 8 h × 22 j = 5 280 Wh = 5,28 kWh. Coût : \(5{,}28 \times 0{,}22 \approx 1{,}16\) €/mois — très faible grâce à la LED.</p>
+    <p><strong>a)</strong> R → ∞ signifie que le calculateur lit une résistance très grande. D'après la courbe CTN, une grande R correspond à une température très <em>basse</em>. Cela simule un moteur <strong>toujours froid</strong>.</p>
+    <p><strong>b)</strong> CTN débranchée → circuit ouvert → R → <strong>∞</strong> (infini). Calculateur croit que le moteur est extrêmement froid → il enrichit le mélange en permanence (surconsommation) et maintient le régime de ralenti élevé.</p>
+    <p><strong>c)</strong> Court-circuit (R = 0 Ω) → calculateur lit R très faible → T simulée très <strong>élevée</strong> (moteur chaud/surchauffe). Il active le ventilateur en permanence et peut couper l'alimentation ou afficher un code défaut moteur chaud.</p>
+    <p><strong>d)</strong> Ventilateur toujours ON → T simulée élevée → R faible → <strong>court-circuit probable</strong>. Surconsommation + ventilateur toujours ON peut aussi indiquer circuit ouvert (T simulée froide → enrichissement + ventilateur préventif). À confirmer par mesure à l'ohmmètre. Code défaut P0115/P0117/P0118 à lire avec valise diagnostique.</p>
   </div>
 </div>
 
-<!-- Exercice 9 -->
+<!-- EXO 9 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Capteur photoélectrique sur ligne de production — choix et câblage</span>
-    <span class="diff diff-3">&#9733;&#9733;&#9733; Difficile</span>
-    <div class="mama-tag">MAMA</div>
+    <span class="exo-title">Capteur climatisation dérivé – Plainte client</span>
+    <span class="diff diff-3">MAMA Avancé</span>
   </div>
-  <p>Sur une ligne d'assemblage automobile, on doit détecter la présence de pièces (boîtes de vitesses) défilant sur un convoyeur. La distance entre émetteur et récepteur est de 80 cm. On dispose de plusieurs technologies :</p>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Un client se plaint que sa climatisation chauffe trop : il règle 19 °C mais il fait chaud dans l'habitacle. La CTN du capteur habitacle a les valeurs suivantes :</p>
   <table>
-    <tr><th>Type de capteur</th><th>Principe</th><th>Portée max</th><th>Avantages</th><th>Inconvénients</th></tr>
-    <tr><td>Barrière réflexion directe</td><td>Émetteur face récepteur</td><td>10 m</td><td>Très fiable, longue portée</td><td>Câblage des deux côtés</td></tr>
-    <tr><td>Réflexion sur cible</td><td>Émetteur+récepteur côté, renvoi sur cible</td><td>3 m</td><td>Câblage un seul côté</td><td>Dépend de la réflectivité</td></tr>
-    <tr><td>Diffusion (proximité)</td><td>Réflexion sur l'objet détecté</td><td>0,5 m</td><td>Simple, pas de cible</td><td>Portée limitée, sensible à la couleur</td></tr>
+    <tr><th>T (°C)</th><th>10</th><th>12</th><th>15</th><th>19</th><th>21</th><th>25</th></tr>
+    <tr><th>R (kΩ)</th><td>14</td><td>12</td><td>9</td><td>6</td><td>5</td><td>3,5</td></tr>
   </table>
-  <div class="q"><strong>1.</strong> La distance est 80 cm. Quel(s) type(s) de capteur(s) peuvent couvrir cette portée ?</div>
-  <div class="q"><strong>2.</strong> La ligne est difficile d'accès du côté opposé au convoyeur. Quel capteur choisir ? Justifier.</div>
-  <div class="q"><strong>3.</strong> Le capteur retenu est à sortie NPN (transistor de sortie côté 0 V). Sur le schéma de câblage, entre quelles bornes branche-t-on la charge (relais ou automate) ? (bornes : Vcc, sortie, 0 V)</div>
-  <div class="q"><strong>4.</strong> Ce capteur a un temps de réponse de 2 ms. La ligne produit 30 pièces/minute. Chaque pièce a une longueur de 20 cm et une vitesse de défilement de 0,5 m/s. Calculer le temps de passage de chaque pièce devant le capteur. Ce temps est-il compatible avec le temps de réponse ?</div>
-  <div class="q"><strong>5.</strong> Le capteur utilise une LED infrarouge (λ = 940 nm) comme émetteur. Pourquoi l'infrarouge plutôt que le visible ?</div>
+  <p>Le technicien mesure la résistance du capteur : R_mesurée = 15 kΩ.</p>
+  <p class="q"><strong>a)</strong> La consigne est 19 °C → R_consigne = 6 kΩ. Le calculateur compare R_mesurée à R_consigne. Quelle action déclenche R_mesurée = 15 kΩ (plus grand ou plus petit que R_consigne) ?</p>
+  <p class="q"><strong>b)</strong> D'après le tableau, à quelle température correspond R = 15 kΩ ? La température affichée (19 °C) correspond-elle à la réalité ?</p>
+  <p class="q"><strong>c)</strong> Expliquer la plainte du client : pourquoi fait-il trop chaud alors qu'il a réglé 19 °C ?</p>
+  <p class="q"><strong>d)</strong> Quelle est la solution pour le technicien ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> 80 cm = 0,8 m. La barrière réflexion directe (10 m) et la réflexion sur cible (3 m) couvrent cette portée. La diffusion (0,5 m max) est insuffisante.</p>
-    <p><strong>2.</strong> Choisir <strong>réflexion sur cible (réflex)</strong> : émetteur et récepteur sont du même côté, un réflecteur passif (catadioptrique) est placé en face. Câblage un seul côté = solution adaptée à l'accès difficile.</p>
-    <p><strong>3.</strong> En sortie NPN : la charge est branchée entre <strong>Vcc et la borne de sortie</strong>. La sortie tire vers 0 V quand le capteur est activé. (Vcc → charge → sortie NPN → 0 V)</p>
-    <p><strong>4.</strong> Temps de passage = longueur / vitesse = 0,20 m / 0,5 m·s⁻¹ = <strong>0,4 s = 400 ms</strong>. Le temps de réponse est 2 ms &lt;&lt; 400 ms : largement compatible, la détection est fiable.</p>
-    <p><strong>5.</strong> L'infrarouge (940 nm, invisible à l'œil) n'est pas perturbé par les éclairages ambiants visibles (lumière industrielle, projecteurs). Il est insensible aux fréquences secteur (50 Hz) car les capteurs utilisent une modulation de l'IR à haute fréquence. Plus discret et plus robuste en milieu industriel.</p>
+    <p><strong>a)</strong> R_mesurée = 15 kΩ &gt; R_consigne = 6 kΩ. D'après la CTN, R élevée → T basse. Le calculateur croit qu'il fait <strong>froid</strong> dans l'habitacle → il active le <strong>chauffage</strong>.</p>
+    <p><strong>b)</strong> R = 15 kΩ est supérieure à 14 kΩ (T = 10 °C) → T_réelle &lt; 10 °C selon le capteur. Mais la valeur mesurée ne correspond pas à la réalité (le capteur est dérivé). La température affichée de 19 °C est <strong>fausse</strong>.</p>
+    <p><strong>c)</strong> Le capteur CTN a vieilli et dérivé : il affiche une résistance correspondant à une température plus froide que la réalité. Le calculateur croit que l'habitacle est froid et chauffe → il fait trop chaud → plainte du client.</p>
+    <p><strong>d)</strong> Solution : <strong>remplacer le capteur CTN</strong> de l'habitacle. C'est une pièce d'usure peu coûteuse. Après remplacement, vérifier la cohérence entre T affichée et T réelle mesurée avec un thermomètre étalonné.</p>
   </div>
 </div>
 
-<!-- Graphique Chart.js : efficacité lumineuse comparée -->
-<h2>Graphique — Efficacité lumineuse comparée (lm/W)</h2>
-<p>Ce graphique compare l'efficacité lumineuse (lumen par watt) des principales technologies d'éclairage.</p>
-<div class="chart-wrap">
-  <canvas id="efficaciteChart"></canvas>
 </div>
-
-</div><!-- fin .c -->
 
 <script>
 function toggle(btn){
@@ -406,37 +386,53 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 
-// Graphique efficacité lumineuse
-(function(){
-  var ctx=document.getElementById('efficaciteChart').getContext('2d');
-  new Chart(ctx,{
-    type:'bar',
-    data:{
-      labels:['Incandescente','Halogène','Fluorescente\n(tube)','LED standard','LED haute\nefficacité'],
-      datasets:[{
-        label:'Efficacité lumineuse (lm/W)',
-        data:[13,20,60,90,150],
-        backgroundColor:['#f87171','#fb923c','#fbbf24','#60a5fa','#6f42c1'],
-        borderColor:['#dc2626','#ea580c','#d97706','#2563eb','#4a1d96'],
-        borderWidth:2,
-        borderRadius:6
-      }]
-    },
-    options:{
-      responsive:true,
-      plugins:{
-        title:{display:true,text:'Comparaison des efficacités lumineuses (lm/W)',font:{size:14}},
-        legend:{display:false},
-        tooltip:{callbacks:{label:function(c){return c.raw+' lm/W';}}}
+// Chart.js – Courbe R(T) CTN
+const ctx = document.getElementById('chartCTN').getContext('2d');
+const tempData = [0, 20, 40, 60, 80, 100, 120];
+const resData   = [14, 10, 6, 3.5, 2, 1.2, 0.7];
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: tempData.map(t => t + ' °C'),
+    datasets: [{
+      label: 'R (kΩ) – CTN sonde eau moteur',
+      data: resData,
+      borderColor: '#6f42c1',
+      backgroundColor: 'rgba(111,66,193,0.08)',
+      borderWidth: 2.5,
+      pointBackgroundColor: '#e11d48',
+      pointRadius: 6,
+      tension: 0.35,
+      fill: true
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top' },
+      title: {
+        display: true,
+        text: 'Caractéristique R(T) d\'une CTN – Sonde eau moteur',
+        font: { size: 14 }
       },
-      scales:{
-        x:{title:{display:true,text:'Technologie'}},
-        y:{title:{display:true,text:'Efficacité lumineuse (lm/W)'},min:0,max:170,
-           ticks:{callback:function(v){return v+' lm/W';}}}
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            return 'R = ' + ctx.raw + ' kΩ à ' + tempData[ctx.dataIndex] + ' °C';
+          }
+        }
+      }
+    },
+    scales: {
+      x: { title: { display: true, text: 'Température T (°C)' } },
+      y: {
+        title: { display: true, text: 'Résistance R (kΩ)' },
+        beginAtZero: true,
+        max: 16
       }
     }
-  });
-})();
+  }
+});
 </script>
 <script src="nav.js"></script>
 </body>

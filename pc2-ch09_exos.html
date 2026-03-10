@@ -2,369 +2,346 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch09 PC – Exercices – Composition de la lumière</title>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercices – Ch.9 Caractéristiques d'un son</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
-body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
 .c{max-width:860px;margin:auto;background:#fff;padding:35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:30px;padding-bottom:18px}
 h1{margin:0 0 6px;color:var(--p);font-size:1.7em}
-h2{color:var(--p);border-left:4px solid var(--p);padding-left:10px;margin-top:36px}
 .sous-titre{color:#718096;font-size:.95em;margin:0}
+h2{font-size:1.15em;color:var(--p);border-left:4px solid var(--p);padding-left:12px;margin-top:30px;margin-bottom:12px}
+.def{background:#f5f0ff;border-left:5px solid var(--p);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.prop{background:#f0fff4;border-left:5px solid var(--s);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.att{background:#fff5f5;border-left:5px solid var(--d);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.meth{background:#fffbeb;border-left:5px solid var(--o);padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
+.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
+.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
+.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92em}
+th,td{border:1px solid #e2e8f0;padding:10px 12px;text-align:center}
+th{background:#eef2f7;font-weight:600}
 .nb{margin-bottom:20px;display:block;text-decoration:none;color:var(--p);font-size:.85em;font-weight:700}
-.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
-.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.exo{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0;background:#fff}
+.exo-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .exo-num{background:var(--p);color:#fff;font-weight:700;font-size:.9em;padding:4px 12px;border-radius:20px}
-.exo-title{font-weight:600;flex:1}
+.exo-title{font-weight:600;font-size:1.05em;color:var(--t)}
 .diff{font-size:.8em;padding:2px 8px;border-radius:4px;font-weight:600}
 .diff-1{background:#d1fae5;color:#065f46}
 .diff-2{background:#fef3c7;color:#92400e}
 .diff-3{background:#fee2e2;color:#991b1b}
 .q{margin:10px 0 6px;padding-left:4px}
-.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:14px;border-radius:0 10px 10px 0;display:none;font-size:.95em}
 .corr p{margin:6px 0}
 .bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:10px}
 .bc:hover{background:#5a32a3}
 .intro-box{background:#f5f0ff;border:1px solid #ddd6fe;border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:.93em}
-.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
-.methode strong{color:#d97706}
-.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-.attention strong{color:#be123c}
-.retenir{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:8px;padding:14px;margin:16px 0}
-.retenir strong{color:#0369a1}
-.section-intro{background:#f8f4ff;border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:.92em;color:#4a1d96;border:1px solid #ddd6fe}
-.mama-tag{display:inline-block;background:#e6f0ff;border:1px solid #bfdbfe;border-radius:4px;font-size:.75em;font-weight:700;color:#1a4a8a;padding:2px 8px;margin-bottom:6px;text-transform:uppercase}
-table{width:100%;border-collapse:collapse;margin:14px 0}
-th{background:var(--p);color:#fff;padding:8px 12px;text-align:left}
-td{border:1px solid #e2e8f0;padding:8px 12px}
-tr:nth-child(even) td{background:#f8fafc}
-.svg-wrap{text-align:center;margin:20px 0}
-.chart-wrap{max-width:580px;margin:20px auto}
+.chart-container{max-width:640px;margin:20px auto;padding:10px}
+svg text{font-family:'Segoe UI',sans-serif}
 </style>
 </head>
 <body>
 <div class="c">
-<a href="pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 <header>
-  <h1>Chapitre 9 – Exercices</h1>
-  <p class="sous-titre">Composition de la lumière &nbsp;|&nbsp; 2<sup>de</sup> Pro</p>
+  <div class="mama-tag">PC2 - Chapitre 9</div>
+  <h1>Caractéristiques d'un son</h1>
+  <p class="sous-titre">Exercices – Terminale Bac Pro MAMA | Fréquence, célérité, longueur d'onde, niveau sonore</p>
+  <a class="nb" href="pc2-ch09.html">← Retour au cours</a>
 </header>
 
 <div class="intro-box">
-  <strong>Compétences travaillées :</strong> Identifier les couleurs du spectre visible et leur longueur d'onde, maîtriser la synthèse additive (RVB) et soustractive (CMJ), expliquer la couleur des objets par absorption/réflexion, calculer fréquence et longueur d'onde.
+  <strong>Rappel des formules clés :</strong><br>
+  Célérité du son : \( v = 340 \text{ m/s} \) (dans l'air à 20°C) &nbsp;|&nbsp;
+  Longueur d'onde : \( \lambda = \dfrac{v}{f} \) &nbsp;|&nbsp;
+  Distance : \( d = v \times t \) &nbsp;|&nbsp;
+  Domaines : infra &lt; 20 Hz ; audible 20–20 000 Hz ; ultra &gt; 20 000 Hz
 </div>
 
-<!-- SVG pédagogique : cercle synthèse additive -->
-<div class="svg-wrap">
-<svg width="380" height="320" viewBox="0 0 380 320" xmlns="http://www.w3.org/2000/svg" aria-label="Cercle de synthèse additive RVB">
-  <text x="190" y="22" font-family="Segoe UI" font-size="14" font-weight="bold" fill="#2d3748" text-anchor="middle">Synthèse additive — RVB</text>
-  <!-- Cercle Rouge -->
-  <circle cx="155" cy="130" r="70" fill="red" opacity="0.55"/>
-  <!-- Cercle Vert -->
-  <circle cx="225" cy="130" r="70" fill="lime" opacity="0.55"/>
-  <!-- Cercle Bleu -->
-  <circle cx="190" cy="195" r="70" fill="blue" opacity="0.55"/>
-  <!-- Labels primaires -->
-  <text x="100" y="108" font-family="Segoe UI" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Rouge</text>
-  <text x="280" y="108" font-family="Segoe UI" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Vert</text>
-  <text x="190" y="265" font-family="Segoe UI" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Bleu</text>
-  <!-- Labels secondaires -->
-  <text x="190" y="118" font-family="Segoe UI" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Jaune</text>
-  <text x="140" y="198" font-family="Segoe UI" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">Magenta</text>
-  <text x="240" y="198" font-family="Segoe UI" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">Cyan</text>
-  <!-- Blanc au centre -->
-  <text x="190" y="162" font-family="Segoe UI" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Blanc</text>
-  <!-- Légende -->
-  <rect x="10" y="295" width="360" height="20" fill="#f5f0ff" rx="4"/>
-  <text x="190" y="309" font-family="Segoe UI" font-size="11" fill="#4a1d96" text-anchor="middle">R+V+B = Blanc · R+V = Jaune · R+B = Magenta · V+B = Cyan</text>
-</svg>
-</div>
+<!-- ===== SECTION 1 ===== -->
+<h2>Exercices de base</h2>
+<div class="section-intro">Maîtriser les notions de fréquence, hauteur et domaines du son.</div>
 
-<!-- SECTION 1 : BASE -->
-<h2>Section 1 – Spectre visible et notions de base</h2>
-<div class="section-intro">Le spectre visible s'étend de 400 nm (violet) à 700 nm (rouge). Les couleurs primaires additives sont le Rouge, le Vert et le Bleu (RVB).</div>
-
-<!-- Exercice 1 -->
+<!-- EXO 1 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Classer les couleurs du spectre visible</span>
-    <span class="diff diff-1">&#9733; Facile</span>
+    <span class="exo-title">Hauteur et fréquence – Grave ou aigu ?</span>
+    <span class="diff diff-1">Facile</span>
   </div>
-  <p>Le spectre visible est la partie du rayonnement électromagnétique perceptible par l'œil humain.</p>
-  <div class="q"><strong>1.</strong> Classer ces couleurs par longueur d'onde croissante : Orange, Violet, Vert, Rouge, Bleu, Jaune, Indigo.</div>
-  <div class="q"><strong>2.</strong> Donner la plage de longueurs d'onde du spectre visible (en nm).</div>
-  <div class="q"><strong>3.</strong> Une radiation a une longueur d'onde de 550 nm. De quelle couleur s'agit-il ?</div>
-  <div class="q"><strong>4.</strong> Le rayonnement UV (ultraviolet) est-il visible ? Et l'infrarouge (IR) ? Justifier.</div>
+  <div class="def"><strong>Rappel :</strong> Plus la fréquence est élevée, plus le son est <em>aigu</em>. Plus elle est basse, plus le son est <em>grave</em>.</div>
+  <p class="q"><strong>a)</strong> Classer les sons suivants du plus grave au plus aigu : 1 000 Hz, 80 Hz, 18 000 Hz, 250 Hz.</p>
+  <p class="q"><strong>b)</strong> Pour chaque fréquence, indiquer si le son est dans le domaine infrason, audible ou ultrason :</p>
   <table>
-    <tr><th>Couleur</th><th>Longueur d'onde approximative</th></tr>
-    <tr><td>Violet</td><td>380 – 450 nm</td></tr>
-    <tr><td>Bleu</td><td>450 – 490 nm</td></tr>
-    <tr><td>Vert</td><td>490 – 560 nm</td></tr>
-    <tr><td>Jaune</td><td>560 – 590 nm</td></tr>
-    <tr><td>Orange</td><td>590 – 620 nm</td></tr>
-    <tr><td>Rouge</td><td>620 – 700 nm</td></tr>
+    <tr><th>Son</th><th>Fréquence</th><th>Domaine</th><th>Grave / Aigu</th></tr>
+    <tr><td>Battement de cœur fœtal</td><td>2 Hz</td><td>?</td><td>–</td></tr>
+    <tr><td>Bruit grave moteur diesel</td><td>80 Hz</td><td>?</td><td>?</td></tr>
+    <tr><td>Voix humaine</td><td>250 Hz</td><td>?</td><td>?</td></tr>
+    <tr><td>Sifflet à ultrasons</td><td>25 000 Hz</td><td>?</td><td>–</td></tr>
   </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Violet &lt; Indigo &lt; Bleu &lt; Vert &lt; Jaune &lt; Orange &lt; Rouge (longueur d'onde croissante).</p>
-    <p><strong>2.</strong> De 380-400 nm (violet) à 700 nm (rouge).</p>
-    <p><strong>3.</strong> 550 nm correspond au vert (dans la plage 490-560 nm, proche du jaune-vert).</p>
-    <p><strong>4.</strong> UV : λ &lt; 380 nm, non visible (mais peut bronzer la peau). IR : λ &gt; 700 nm, non visible (perçu comme chaleur). L'œil ne détecte que 380-700 nm environ.</p>
+    <p><strong>a)</strong> Du plus grave au plus aigu : 80 Hz → 250 Hz → 1 000 Hz → 18 000 Hz.</p>
+    <p><strong>b)</strong></p>
+    <p>- Battement de cœur (2 Hz) : <strong>infrason</strong> (non audible par l'oreille humaine).</p>
+    <p>- Moteur diesel (80 Hz) : <strong>audible</strong> – son <strong>grave</strong>.</p>
+    <p>- Voix humaine (250 Hz) : <strong>audible</strong> – son <strong>grave à médium</strong>.</p>
+    <p>- Sifflet à ultrasons (25 000 Hz) : <strong>ultrason</strong> (inaudible pour l'homme, mais perçu par les chiens).</p>
   </div>
 </div>
 
-<!-- Exercice 2 -->
+<!-- EXO 2 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Synthèse additive — tableau des mélanges RVB</span>
-    <span class="diff diff-1">&#9733; Facile</span>
+    <span class="exo-title">Célérité et distance – Tonnerre et sonar</span>
+    <span class="diff diff-1">Facile</span>
   </div>
-  <p>En synthèse additive, on superpose des lumières colorées. Les trois couleurs primaires sont le <strong>Rouge (R)</strong>, le <strong>Vert (V)</strong> et le <strong>Bleu (B)</strong>.</p>
-  <div class="q"><strong>1.</strong> Compléter le tableau des mélanges en synthèse additive :</div>
-  <table>
-    <tr><th>Mélange</th><th>Couleur obtenue</th></tr>
-    <tr><td>Rouge + Vert</td><td>…</td></tr>
-    <tr><td>Rouge + Bleu</td><td>…</td></tr>
-    <tr><td>Vert + Bleu</td><td>…</td></tr>
-    <tr><td>Rouge + Vert + Bleu</td><td>…</td></tr>
-    <tr><td>Aucune lumière</td><td>…</td></tr>
-  </table>
-  <div class="q"><strong>2.</strong> Comment s'appelle la couleur opposée au Rouge dans le cercle chromatique additif ? Et au Vert ? Et au Bleu ?</div>
-  <div class="q"><strong>3.</strong> Un écran de téléphone utilise la synthèse additive. Comment reproduit-il la couleur blanche ? Et le noir ?</div>
+  <div class="meth"><strong>Formule :</strong> \( d = v \times t \) avec v = 340 m/s dans l'air ; \( d = \dfrac{v \times t}{2} \) pour un aller-retour (écho).</div>
+  <p class="q"><strong>a)</strong> Un orage : on voit l'éclair puis on entend le tonnerre 3 secondes plus tard. Quelle est la distance de l'orage ?</p>
+  <p class="q"><strong>b)</strong> Un sonar envoie une impulsion et reçoit l'écho du fond marin après t = 0,6 s. La célérité du son dans l'eau est v = 1 500 m/s. Quelle est la profondeur ?</p>
+
+  <!-- SVG onde sonore -->
+  <svg viewBox="0 0 660 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:660px;margin:18px 0;display:block;background:#f8f4ff;border-radius:8px;padding:8px">
+    <text x="330" y="18" text-anchor="middle" font-size="13" fill="#4a1d96" font-weight="bold">Représentation d'une onde sonore</text>
+    <!-- Axis -->
+    <line x1="30" y1="90" x2="630" y2="90" stroke="#888" stroke-width="1.5"/>
+    <line x1="30" y1="30" x2="30" y2="150" stroke="#888" stroke-width="1.5"/>
+    <text x="635" y="93" font-size="11" fill="#555">t (s)</text>
+    <text x="10" y="25" font-size="11" fill="#555">y</text>
+    <!-- Sine wave -->
+    <path d="M30,90 C60,30 100,30 130,90 S200,150 230,90 S300,30 330,90 S400,150 430,90 S500,30 530,90 S600,150 630,90"
+          stroke="#6f42c1" stroke-width="2.5" fill="none"/>
+    <!-- Period T annotation -->
+    <line x1="30" y1="20" x2="230" y2="20" stroke="#e11d48" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+    <text x="130" y="15" text-anchor="middle" font-size="11" fill="#e11d48" font-weight="bold">T (période)</text>
+    <!-- Amplitude annotation -->
+    <line x1="620" y1="90" x2="620" y2="30" stroke="#2f855a" stroke-width="1.5"/>
+    <text x="625" y="65" font-size="10" fill="#2f855a" transform="rotate(-90,625,65)">Amplitude</text>
+    <!-- Lambda annotation -->
+    <line x1="130" y1="148" x2="330" y2="148" stroke="#d97706" stroke-width="1.5"/>
+    <text x="230" y="158" text-anchor="middle" font-size="11" fill="#d97706" font-weight="bold">λ</text>
+    <!-- Direction arrow -->
+    <text x="400" y="108" font-size="11" fill="#4a1d96">→ propagation</text>
+    <!-- Arrowhead markers -->
+    <defs>
+      <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#e11d48"/>
+      </marker>
+    </defs>
+  </svg>
+
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> R+V = <strong>Jaune</strong> ; R+B = <strong>Magenta</strong> ; V+B = <strong>Cyan</strong> ; R+V+B = <strong>Blanc</strong> ; Aucune = <strong>Noir</strong>.</p>
-    <p><strong>2.</strong> Couleur complémentaire du Rouge = Cyan ; du Vert = Magenta ; du Bleu = Jaune.</p>
-    <p><strong>3.</strong> Blanc : les trois sous-pixels (R, V, B) sont allumés au maximum. Noir : les trois sous-pixels sont éteints (aucune lumière émise).</p>
+    <p><strong>a)</strong> \( d = v \times t = 340 \times 3 = \mathbf{1020 \text{ m} \approx 1 \text{ km}} \) de l'orage.</p>
+    <p><strong>b)</strong> Le son fait un aller-retour → \( d = \dfrac{v \times t}{2} = \dfrac{1500 \times 0{,}6}{2} = \dfrac{900}{2} = \mathbf{450 \text{ m}} \) de profondeur.</p>
   </div>
 </div>
 
-<!-- Exercice 3 -->
+<!-- EXO 3 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Couleur des objets — absorption et réflexion</span>
-    <span class="diff diff-1">&#9733; Facile</span>
+    <span class="exo-title">Domaines de fréquences et applications</span>
+    <span class="diff diff-1">Facile</span>
   </div>
-  <p>La couleur d'un objet dépend des radiations qu'il <strong>absorbe</strong> et de celles qu'il <strong>réfléchit</strong> (ou transmet). L'objet réfléchit les couleurs qu'on voit.</p>
-  <div class="q"><strong>1.</strong> Sous lumière blanche, un objet paraît rouge. Quelles couleurs absorbe-t-il ? Laquelle réfléchit-il ?</div>
-  <div class="q"><strong>2.</strong> Un objet paraît noir sous lumière blanche. Que fait-il avec toute la lumière ?</div>
-  <div class="q"><strong>3.</strong> Un objet paraît blanc sous lumière blanche. Que fait-il avec toute la lumière ?</div>
-  <div class="q"><strong>4.</strong> Un tissu vert est éclairé uniquement en rouge. De quelle couleur apparaît-il ?</div>
-  <div class="q"><strong>5.</strong> Un tissu jaune est éclairé uniquement en vert. De quelle couleur apparaît-il ? Justifier.</div>
-  <div class="methode"><strong>Méthode :</strong> Un objet ne peut réfléchir QUE les couleurs présentes dans la lumière qui l'éclaire ET qu'il est capable de réfléchir (selon sa pigmentation).</div>
+  <p class="q">Compléter le tableau en associant chaque application à son domaine fréquentiel :</p>
+  <table>
+    <tr><th>Application</th><th>Fréquence typique</th><th>Domaine</th><th>Contexte</th></tr>
+    <tr><td>Détection défauts soudures (CND)</td><td>2 MHz</td><td>?</td><td>Industrie / MAMA</td></tr>
+    <tr><td>Echolocation chauve-souris</td><td>50 000 Hz</td><td>?</td><td>Nature</td></tr>
+    <tr><td>Vibration moteur diesel au ralenti</td><td>25 Hz</td><td>?</td><td>MAMA</td></tr>
+    <tr><td>Alarme sonore atelier</td><td>1 000 Hz</td><td>?</td><td>Sécurité</td></tr>
+    <tr><td>Infrasons séismes</td><td>0,5 Hz</td><td>?</td><td>Géophysique</td></tr>
+  </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Absorbe : violet, bleu, vert, jaune, orange. Réfléchit : rouge.</p>
-    <p><strong>2.</strong> Il absorbe toutes les longueurs d'onde : aucune lumière n'est réfléchie vers l'œil.</p>
-    <p><strong>3.</strong> Il réfléchit toutes les longueurs d'onde : toute la lumière blanche est renvoyée.</p>
-    <p><strong>4.</strong> Le tissu vert réfléchit le vert mais absorbe le rouge. Éclairé en rouge, il n'a rien à réfléchir → il paraît <strong>noir</strong>.</p>
-    <p><strong>5.</strong> Le jaune = R+V. Le tissu jaune réfléchit R et V. Éclairé uniquement en vert, il peut réfléchir le vert (présent dans sa réflexion). Il paraît <strong>vert</strong>.</p>
+    <p>- CND (2 MHz = 2 000 000 Hz) : <strong>ultrason</strong>.</p>
+    <p>- Chauve-souris (50 000 Hz) : <strong>ultrason</strong>.</p>
+    <p>- Moteur diesel (25 Hz) : <strong>audible</strong> (juste au-dessus de 20 Hz) – son très grave perçu comme une vibration.</p>
+    <p>- Alarme (1 000 Hz) : <strong>audible</strong> – fréquence à laquelle l'oreille est très sensible.</p>
+    <p>- Infrasons séismes (0,5 Hz) : <strong>infrason</strong> – non perçu auditivement mais ressenti physiquement.</p>
   </div>
 </div>
 
-<!-- SECTION 2 : GUIDÉ -->
-<h2>Section 2 – Filtres et éclairage coloré (guidé)</h2>
-<div class="section-intro">Un filtre coloré laisse passer les radiations de sa propre couleur et absorbe les autres. On peut déduire ce que l'œil perçoit en combinant filtre et objet.</div>
+<!-- ===== SECTION 2 ===== -->
+<h2>Exercices guidés</h2>
+<div class="section-intro">Calcul de longueur d'onde et analyse du niveau sonore en atelier.</div>
 
-<!-- Exercice 4 -->
+<!-- EXO 4 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Filtres colorés — ce qui passe et ce qui est bloqué</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+    <span class="exo-title">Longueur d'onde – Calcul guidé</span>
+    <span class="diff diff-2">Guidé</span>
   </div>
-  <p>Lumière blanche (contient R, V, B) passe à travers différents filtres.</p>
+  <div class="retenir"><strong>Relation :</strong> \( \lambda = \dfrac{v}{f} \) où \( \lambda \) est en mètres, v en m/s, f en Hz.</div>
+
   <div class="methode">
-    <strong>Règle :</strong> Un filtre de couleur X laisse passer uniquement les radiations de la couleur X (et les couleurs proches). Il absorbe toutes les autres.
+    <strong>Méthode guidée :</strong><br>
+    Étape 1 : Identifier v (milieu de propagation) et f.<br>
+    Étape 2 : Appliquer \( \lambda = \dfrac{v}{f} \).<br>
+    Étape 3 : Exprimer le résultat avec les bonnes unités.
   </div>
-  <div class="q"><strong>1.</strong> Qu'obtient-on après un filtre rouge ? Après un filtre bleu ?</div>
-  <div class="q"><strong>2.</strong> Un filtre cyan laisse passer V et B (pas R). Qu'obtient-on après un filtre cyan sur lumière blanche ?</div>
-  <div class="q"><strong>3.</strong> Lumière blanche → filtre rouge → filtre bleu. Quelle couleur sort ?</div>
-  <div class="q"><strong>4.</strong> Lumière blanche → filtre jaune → filtre cyan. Quelle couleur sort ? (Rappel : jaune laisse R+V ; cyan laisse V+B)</div>
-  <div class="q"><strong>5.</strong> On superpose un filtre magenta (laisse R+B) et un filtre vert. Que sort-il ?</div>
+
+  <p class="q"><strong>a)</strong> Le La musical a une fréquence f = 440 Hz. Dans l'air (v = 340 m/s), calculer la longueur d'onde λ.</p>
+  <p class="q"><strong>b)</strong> Ce même son se propage dans l'eau (v = 1 500 m/s). Calculer la nouvelle longueur d'onde. Commenter.</p>
+  <p class="q"><strong>c)</strong> Quelle est la longueur d'onde d'un ultrason à 40 000 Hz dans l'air ?</p>
+
+  <!-- Chart.js – Spectre fréquences -->
+  <div class="chart-container">
+    <canvas id="chartSpectre"></canvas>
+  </div>
+  <p style="font-size:.85em;color:#555;text-align:center">Domaines du spectre sonore avec applications MAMA</p>
+
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Filtre rouge → lumière rouge (R). Filtre bleu → lumière bleue (B).</p>
-    <p><strong>2.</strong> Filtre cyan sur blanc : R est bloqué, V et B passent → lumière <strong>cyan</strong>.</p>
-    <p><strong>3.</strong> Après filtre rouge : R seulement. Après filtre bleu : le rouge est bloqué par le filtre bleu. Rien ne sort → <strong>noir</strong>.</p>
-    <p><strong>4.</strong> Filtre jaune laisse R+V. Filtre cyan laisse V+B. L'intersection : seul V passe les deux → <strong>vert</strong>.</p>
-    <p><strong>5.</strong> Filtre magenta laisse R+B. Filtre vert laisse V. Intersection : aucune couleur n'est commune → <strong>noir</strong>.</p>
+    <p><strong>a)</strong> \( \lambda = \dfrac{v}{f} = \dfrac{340}{440} \approx \mathbf{0{,}77 \text{ m} = 77 \text{ cm}} \)</p>
+    <p><strong>b)</strong> \( \lambda = \dfrac{1500}{440} \approx \mathbf{3{,}4 \text{ m}} \) → La longueur d'onde est plus grande dans l'eau car le son y va plus vite, mais la fréquence reste la même. Le son est plus grave à percevoir en terme de longueur d'onde physique.</p>
+    <p><strong>c)</strong> \( \lambda = \dfrac{340}{40000} = \mathbf{8{,}5 \times 10^{-3} \text{ m} = 8{,}5 \text{ mm}} \) → Les ultrasons ont de très petites longueurs d'onde, ce qui permet de détecter de petits défauts.</p>
   </div>
 </div>
 
-<!-- Exercice 5 -->
+<!-- EXO 5 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Objet éclairé par une lumière colorée</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+    <span class="exo-title">Niveau sonore – Risques en atelier</span>
+    <span class="diff diff-2">Guidé</span>
   </div>
-  <p>Des objets colorés sont éclairés par des sources de lumière non blanches. Déterminer la couleur perçue par l'œil dans chaque cas.</p>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Niveaux sonores mesurés dans un atelier MAMA :</p>
   <table>
-    <tr><th>Objet (couleur sous blanc)</th><th>Éclairage</th><th>Couleur perçue ?</th></tr>
-    <tr><td>Rouge</td><td>Lumière verte</td><td>…</td></tr>
-    <tr><td>Bleu</td><td>Lumière bleue</td><td>…</td></tr>
-    <tr><td>Jaune (réfléchit R+V)</td><td>Lumière rouge</td><td>…</td></tr>
-    <tr><td>Blanc</td><td>Lumière rouge</td><td>…</td></tr>
-    <tr><td>Cyan (réfléchit V+B)</td><td>Lumière bleue</td><td>…</td></tr>
+    <tr><th>Source sonore</th><th>Niveau (dB)</th><th>Risque auditif</th></tr>
+    <tr><td>Conversation normale</td><td>60 dB</td><td>?</td></tr>
+    <tr><td>Compresseur d'air</td><td>100 dB</td><td>?</td></tr>
+    <tr><td>Meuleuse angulaire</td><td>110 dB</td><td>?</td></tr>
+    <tr><td>Seuil de douleur</td><td>120 dB</td><td>Danger immédiat</td></tr>
   </table>
-  <div class="q"><strong>1.</strong> Compléter le tableau en justifiant chaque réponse.</div>
-  <div class="q"><strong>2.</strong> Pourquoi les éclairages à vapeur de sodium (jaune) dans certains parkings rendaient-ils les voitures de couleurs indistinctes ?</div>
+  <div class="retenir">Selon le Code du Travail : exposition &gt; 85 dB → EPI obligatoires. Exposition &gt; 87 dB (8h/jour) → valeur limite déclenchant l'action.</div>
+  <p class="q"><strong>a)</strong> Quels équipements de l'atelier nécessitent le port de protections auditives ?</p>
+  <p class="q"><strong>b)</strong> Un technicien utilise la meuleuse (110 dB) sans protections. À quelle durée maximale d'exposition est-il limité (règle générale : +3 dB = durée ÷ 2, base 8h à 85 dB) ?</p>
+  <p class="q"><strong>c)</strong> Des bouchons d'oreilles offrent une atténuation de 30 dB. Quel niveau sonore le technicien reçoit-il avec ces bouchons sous la meuleuse ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong></p>
-    <p>Rouge éclairé en vert : l'objet n'a que du vert à absorber ou réfléchir. L'objet rouge absorbe le vert → <strong>noir</strong>.</p>
-    <p>Bleu éclairé en bleu : l'objet réfléchit le bleu, qui est présent → <strong>bleu</strong>.</p>
-    <p>Jaune éclairé en rouge : le jaune réfléchit R+V. Le rouge est présent, il est réfléchi → <strong>rouge</strong>.</p>
-    <p>Blanc éclairé en rouge : le blanc réfléchit tout, donc réfléchit le rouge → <strong>rouge</strong>.</p>
-    <p>Cyan éclairé en bleu : le cyan réfléchit V+B. Le bleu est présent et réfléchi → <strong>bleu</strong>.</p>
-    <p><strong>2.</strong> La lampe à vapeur de sodium n'émet qu'un jaune quasi-monochromatique. Les objets ne peuvent réfléchir que du jaune, quelle que soit leur vraie couleur → tout paraît jaune ou noir. Les couleurs réelles sont perdues (IRC très bas).</p>
+    <p><strong>a)</strong> Compresseur (100 dB &gt; 85 dB) et meuleuse (110 dB &gt; 85 dB) → <strong>EPI obligatoires</strong> pour ces deux équipements.</p>
+    <p><strong>b)</strong> Base : 8h à 85 dB. La meuleuse est à 110 dB, soit 25 dB de plus que 85 dB. Chaque +3 dB divise la durée par 2 → 25/3 ≈ 8 divisions par 2 → 8h ÷ 2⁸ ≈ 8/256 ≈ <strong>2 minutes maximum</strong>.</p>
+    <p><strong>c)</strong> Niveau reçu = 110 − 30 = <strong>80 dB</strong> → inférieur à 85 dB → acceptable pour une journée de travail.</p>
   </div>
 </div>
 
-<!-- SECTION 3 : APPLICATION -->
-<h2>Section 3 – Applications</h2>
-<div class="section-intro">Synthèse soustractive pour l'impression, calcul fréquence/longueur d'onde.</div>
+<!-- ===== SECTION 3 ===== -->
+<h2>Exercices d'application</h2>
+<div class="section-intro">Applications plus complexes faisant appel à plusieurs notions du chapitre.</div>
 
-<!-- Exercice 6 -->
+<!-- EXO 6 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Synthèse soustractive CMJ pour l'impression</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
+    <span class="exo-title">Timbre – Même note, sons différents</span>
+    <span class="diff diff-2">Application</span>
   </div>
-  <p>L'imprimerie utilise la synthèse <strong>soustractive</strong> avec les encres <strong>Cyan (C)</strong>, <strong>Magenta (M)</strong> et <strong>Jaune (J)</strong>. Chaque encre absorbe (soustrait) une couleur primaire de la lumière blanche réfléchie par le papier.</p>
-  <div class="retenir">
-    <strong>Rappel :</strong><br>
-    Cyan absorbe le Rouge · Magenta absorbe le Vert · Jaune absorbe le Bleu<br>
-    C+M+J = toutes absorbées → Noir théorique
-  </div>
-  <div class="q"><strong>1.</strong> Quelle encre (C, M ou J) utilise-t-on pour imprimer du rouge ? Expliquer.</div>
-  <div class="q"><strong>2.</strong> Quelles encres mélange-t-on pour obtenir du vert à l'impression ?</div>
-  <div class="q"><strong>3.</strong> Pourquoi les imprimantes ont-elles souvent une cartouche noire (K) séparée, bien que C+M+J donne théoriquement du noir ?</div>
-  <div class="q"><strong>4.</strong> Compléter le tableau des mélanges soustractifs :</div>
-  <table>
-    <tr><th>Mélange d'encres</th><th>Couleur produite</th></tr>
-    <tr><td>Cyan + Magenta</td><td>…</td></tr>
-    <tr><td>Cyan + Jaune</td><td>…</td></tr>
-    <tr><td>Magenta + Jaune</td><td>…</td></tr>
-    <tr><td>Cyan + Magenta + Jaune</td><td>…</td></tr>
-    <tr><td>Aucune encre (papier blanc)</td><td>…</td></tr>
-  </table>
+  <p>Un violon et une trompette jouent la même note La à 440 Hz. On analyse les deux sons à l'oscilloscope.</p>
+  <p class="q"><strong>a)</strong> Ces deux sons ont-ils la même hauteur ? Justifier.</p>
+  <p class="q"><strong>b)</strong> Comment explique-t-on qu'on les distingue facilement à l'oreille ?</p>
+  <p class="q"><strong>c)</strong> Qu'est-ce que le <em>timbre</em> d'un son et comment apparaît-il sur l'oscilloscope ?</p>
+  <p class="q"><strong>d)</strong> Application MAMA : deux moteurs tournent au même régime (même fréquence de rotation). Peut-on les distinguer au son ? Qu'est-ce que cela implique pour le diagnostic ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Pour du rouge : on veut que seul le rouge soit réfléchi. Il faut absorber V et B. Cyan absorbe R (non voulu ici). On utilise Magenta (absorbe V) + Jaune (absorbe B) → ne reste que R → rouge imprimé.</p>
-    <p><strong>2.</strong> Vert : absorber R et B. Cyan (absorbe R) + Magenta (absorbe V)... non. Cyan + Jaune : Cyan absorbe R, Jaune absorbe B → reste V → <strong>vert</strong>. ✓</p>
-    <p><strong>3.</strong> En pratique, C+M+J donne un brun-gris foncé (les encres ne sont pas parfaites). La cartouche noire donne un noir plus profond, et économise les encres couleur pour les zones noires.</p>
-    <p><strong>4.</strong> C+M = Bleu · C+J = Vert · M+J = Rouge · C+M+J = Noir · Aucune = Blanc.</p>
+    <p><strong>a)</strong> Oui, même hauteur car même fréquence fondamentale f = 440 Hz. La hauteur ne dépend que de la fréquence.</p>
+    <p><strong>b)</strong> On les distingue grâce au <em>timbre</em> : chaque instrument produit des harmoniques (multiples de f₀) d'amplitudes différentes, ce qui donne une "couleur" sonore unique.</p>
+    <p><strong>c)</strong> Le timbre correspond à la forme de la courbe sur l'oscilloscope. Un son pur est une sinusoïde parfaite. Un son riche en harmoniques a une forme plus complexe (somme de sinusoïdes).</p>
+    <p><strong>d)</strong> Oui, deux moteurs différents peuvent avoir des timbres sonores différents même à même régime. En diagnostic, on écoute la <em>texture sonore</em> et les <em>fréquences des harmoniques</em> pour identifier des anomalies (cliquetis, bruit de soupape).</p>
   </div>
 </div>
 
-<!-- Exercice 7 -->
+<!-- EXO 7 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Longueur d'onde, fréquence et vitesse — calculs</span>
-    <span class="diff diff-3">&#9733;&#9733;&#9733; Difficile</span>
+    <span class="exo-title">Ultrason – Contrôle non destructif</span>
+    <span class="diff diff-2">Application</span>
   </div>
-  <p>La relation entre la vitesse de la lumière, la longueur d'onde \(\lambda\) et la fréquence \(f\) est : \(c = \lambda \times f\), avec \(c = 3 \times 10^8\) m/s.</p>
-  <div class="q"><strong>1.</strong> Calculer la fréquence d'une radiation rouge (\(\lambda = 650\) nm).</div>
-  <div class="q"><strong>2.</strong> Calculer la fréquence d'une radiation violette (\(\lambda = 400\) nm).</div>
-  <div class="q"><strong>3.</strong> Un laser émet à \(f = 5{,}09 \times 10^{14}\) Hz. Calculer \(\lambda\) et déterminer la couleur.</div>
-  <div class="q"><strong>4.</strong> Laquelle a la plus grande énergie : une radiation rouge ou une radiation violette ? (Rappel : \(E = h \cdot f\) avec \(h = 6{,}63 \times 10^{-34}\) J·s)</div>
-  <div class="methode">
-    <strong>Méthode pour 1 nm → m :</strong> \(1 \text{ nm} = 10^{-9}\) m. Donc 650 nm = \(650 \times 10^{-9}\) m = \(6{,}50 \times 10^{-7}\) m.
-  </div>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Une sonde à ultrasons de fréquence f = 4 MHz est utilisée pour contrôler l'épaisseur d'une paroi métallique (acier). La célérité du son dans l'acier est v = 5 000 m/s.</p>
+  <p class="q"><strong>a)</strong> Convertir f = 4 MHz en Hz.</p>
+  <p class="q"><strong>b)</strong> Calculer la longueur d'onde λ de l'ultrason dans l'acier.</p>
+  <p class="q"><strong>c)</strong> L'écho revient après t = 4 μs (microsecondes). Calculer l'épaisseur e de la paroi.</p>
+  <p class="q"><strong>d)</strong> Cette technique de contrôle est-elle destructive pour la pièce ? Quel avantage en atelier ?</p>
+  <div class="methode"><strong>Rappel :</strong> 1 MHz = 10⁶ Hz &nbsp;|&nbsp; 1 μs = 10⁻⁶ s &nbsp;|&nbsp; aller-retour donc \( e = \dfrac{v \times t}{2} \)</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Rouge \(\lambda = 650 \times 10^{-9}\) m : \(f = \dfrac{c}{\lambda} = \dfrac{3 \times 10^8}{650 \times 10^{-9}} = \dfrac{3 \times 10^8}{6{,}5 \times 10^{-7}} \approx 4{,}62 \times 10^{14}\) Hz</p>
-    <p><strong>2.</strong> Violet \(\lambda = 400 \times 10^{-9}\) m : \(f = \dfrac{3 \times 10^8}{4 \times 10^{-7}} = 7{,}50 \times 10^{14}\) Hz</p>
-    <p><strong>3.</strong> \(\lambda = \dfrac{c}{f} = \dfrac{3 \times 10^8}{5{,}09 \times 10^{14}} \approx 5{,}89 \times 10^{-7}\) m = 589 nm → couleur <strong>jaune-orange</strong> (raie du sodium).</p>
-    <p><strong>4.</strong> \(E = hf\) : plus la fréquence est grande, plus l'énergie est grande. Le violet (\(f \approx 7{,}5 \times 10^{14}\) Hz) a une énergie plus grande que le rouge (\(f \approx 4{,}6 \times 10^{14}\) Hz).</p>
+    <p><strong>a)</strong> f = 4 MHz = 4 × 10⁶ Hz = <strong>4 000 000 Hz</strong>.</p>
+    <p><strong>b)</strong> \( \lambda = \dfrac{v}{f} = \dfrac{5000}{4 \times 10^6} = 1{,}25 \times 10^{-3} \text{ m} = \mathbf{1{,}25 \text{ mm}} \)</p>
+    <p><strong>c)</strong> t = 4 μs = 4 × 10⁻⁶ s &nbsp;→&nbsp; \( e = \dfrac{v \times t}{2} = \dfrac{5000 \times 4 \times 10^{-6}}{2} = \mathbf{0{,}01 \text{ m} = 10 \text{ mm}} \)</p>
+    <p><strong>d)</strong> Technique <strong>non destructive</strong> (CND) : la pièce n'est pas endommagée. Avantage : contrôle d'une pièce montée sans démontage complet, gain de temps, pas de mise à la ferraille si la pièce est bonne.</p>
   </div>
 </div>
 
-<!-- SECTION 4 : MAMA -->
-<h2>Section 4 – Contexte professionnel MAMA</h2>
-<div class="section-intro">Ces exercices situent la lumière colorée dans des contextes professionnels : cabine de peinture et tableau de bord.</div>
+<!-- ===== SECTION 4 ===== -->
+<h2>Contexte MAMA</h2>
+<div class="section-intro">Diagnostic et sécurité en atelier automobile – problèmes avancés.</div>
 
-<!-- Exercice 8 -->
+<!-- EXO 8 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Cabine de peinture — IRC élevé pour correspondance de teinte</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
-    <div class="mama-tag">MAMA</div>
+    <span class="exo-title">Diagnostic bruit moteur – Stéthoscope mécanique</span>
+    <span class="diff diff-3">MAMA Avancé</span>
   </div>
-  <p>Dans une carrosserie automobile, la cabine de peinture doit être équipée de sources lumineuses à <strong>IRC (Indice de Rendu des Couleurs)</strong> élevé pour que le peintre puisse assortir correctement la teinte du véhicule.</p>
-  <div class="retenir"><strong>IRC (Ra) :</strong> valeur de 0 à 100. Plus il est élevé, mieux les couleurs sont restituées. IRC &gt; 90 recommandé pour la peinture carrosserie. Lumière du jour : IRC = 100.</div>
-  <table>
-    <tr><th>Source lumineuse</th><th>IRC (Ra)</th><th>Commentaire</th></tr>
-    <tr><td>Vapeur de sodium (ancienne)</td><td>25</td><td>Très mauvais rendu</td></tr>
-    <tr><td>Fluorescent standard</td><td>70</td><td>Rendu moyen</td></tr>
-    <tr><td>LED IRC standard</td><td>80</td><td>Acceptable</td></tr>
-    <tr><td>LED IRC+ (Ra90)</td><td>92</td><td>Excellent</td></tr>
-    <tr><td>Lumière du jour</td><td>100</td><td>Référence</td></tr>
-  </table>
-  <div class="q"><strong>1.</strong> Pourquoi un éclairage à vapeur de sodium (IRC=25) est-il totalement inadapté à la cabine de peinture ?</div>
-  <div class="q"><strong>2.</strong> Un peintre assortit la teinte d'une carrosserie rouge bordeaux sous un éclairage fluorescent standard (IRC=70). Il constate une différence de teinte en plein soleil. Expliquer ce phénomène (métamérisme).</div>
-  <div class="q"><strong>3.</strong> Quelle source recommander pour la cabine ? Justifier.</div>
-  <div class="q"><strong>4.</strong> La norme AFNOR NF X 08-010 recommande un IRC ≥ 90 pour les postes de contrôle de teinte. L'atelier utilise des tubes LED Ra80. Est-il conforme ?</div>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Un mécanicien détecte avec un stéthoscope une vibration anormale de fréquence f = 120 Hz sur un moteur 4 cylindres tournant à 3 600 tr/min.</p>
+  <p class="q"><strong>a)</strong> Convertir 3 600 tr/min en tr/s (tours par seconde).</p>
+  <p class="q"><strong>b)</strong> Sur un moteur 4 temps 4 cylindres, chaque cylindre s'allume une fois tous les 2 tours. Quelle est la fréquence des allumages (fréquence fondamentale moteur) ?</p>
+  <p class="q"><strong>c)</strong> Le signal à 120 Hz est-il un harmonique de la fréquence moteur ? Quel ordre ?</p>
+  <p class="q"><strong>d)</strong> Proposer des sources mécaniques possibles produisant ce signal (déséquilibre, jeu, usure).</p>
+  <div class="retenir"><strong>Rappel :</strong> La fréquence de rotation en tr/s = (tr/min) ÷ 60. Un harmonique de rang n a pour fréquence \( f_n = n \times f_0 \).</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> La lampe à sodium émet presque uniquement dans le jaune. Elle ne restitue pas les autres couleurs du spectre : un rouge bordeaux paraîtra brun-jaune indistinct. Impossibilité de comparer correctement les teintes.</p>
-    <p><strong>2.</strong> Le <em>métamérisme</em> : deux peintures peuvent paraître identiques sous un éclairage (IRC=70 qui déforme le spectre) mais différentes sous un autre éclairage (soleil, IRC=100 spectre complet). Les spectres de réflexion des peintures ne sont pas identiques même si le rendu est visuellement proche sous lumière pauvre en couleurs.</p>
-    <p><strong>3.</strong> LED IRC+ (Ra ≥ 90), idéalement Ra92 ou plus. Elle restitue fidèlement le spectre, proche de la lumière du jour, pour une comparaison de teinte fiable.</p>
-    <p><strong>4.</strong> Non conforme : Ra80 &lt; Ra90 requis par la norme. L'atelier doit remplacer par des sources Ra ≥ 90.</p>
+    <p><strong>a)</strong> 3 600 tr/min ÷ 60 = <strong>60 tr/s</strong>.</p>
+    <p><strong>b)</strong> Sur un 4 cylindres 4 temps : il y a 2 allumages par tour (4 cylindres / 2 = 2 explosions/tour). Fréquence d'allumage = 60 × 2 = <strong>120 Hz</strong>.</p>
+    <p><strong>c)</strong> f = 120 Hz est exactement la fréquence fondamentale d'allumage → harmonique de rang 1 (fréquence fondamentale). Ce n'est pas une anomalie en soi, c'est la fréquence normale du moteur à ce régime.</p>
+    <p><strong>d)</strong> Si l'amplitude de cette vibration est excessive : déséquilibre de vilebrequin ou d'arbre d'équilibrage, jeu excessif dans les paliers, usure des coussinets de bielle. Il faut comparer le niveau d'amplitude à un moteur de référence.</p>
   </div>
 </div>
 
-<!-- Exercice 9 -->
+<!-- EXO 9 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Voyants de tableau de bord — couleurs et signification</span>
-    <span class="diff diff-2">&#9733;&#9733; Intermédiaire</span>
-    <div class="mama-tag">MAMA</div>
+    <span class="exo-title">Protection acoustique atelier – Réglementation</span>
+    <span class="diff diff-3">MAMA Avancé</span>
   </div>
-  <p>Les voyants du tableau de bord d'un véhicule utilisent un code couleur standardisé pour communiquer l'état du véhicule au conducteur. Ce code est défini par la norme ISO 2575.</p>
+  <div class="mama-tag">Contexte MAMA</div>
+  <p>Un compresseur d'atelier produit un niveau sonore de 104 dB à 1 m. La réglementation (Directive européenne bruit 2003/10/CE) fixe :</p>
   <table>
-    <tr><th>Couleur</th><th>Signification normalisée</th><th>Exemples de voyants</th></tr>
-    <tr><td style="background:#ef4444;color:#fff;font-weight:bold">Rouge</td><td>Danger immédiat — arrêt nécessaire</td><td>Température moteur, pression huile, charge batterie</td></tr>
-    <tr><td style="background:#f59e0b;color:#fff;font-weight:bold">Jaune/Orange</td><td>Attention — intervention à prévoir</td><td>Moteur (check engine), pression pneus</td></tr>
-    <tr><td style="background:#22c55e;color:#fff;font-weight:bold">Vert</td><td>Système en fonctionnement normal</td><td>Clignotants, feux de croisement allumés</td></tr>
-    <tr><td style="background:#3b82f6;color:#fff;font-weight:bold">Bleu</td><td>Information — feux de route</td><td>Feux de route (pleins phares)</td></tr>
+    <tr><th>Valeur déclenchante</th><th>Niveau d'exposition (8h)</th><th>Obligation</th></tr>
+    <tr><td>Inférieure</td><td>&lt; 80 dB</td><td>Aucune</td></tr>
+    <tr><td>1ère valeur d'action</td><td>80 dB</td><td>Mise à disposition EPI</td></tr>
+    <tr><td>2ème valeur d'action</td><td>85 dB</td><td>EPI obligatoires + formation</td></tr>
+    <tr><td>Valeur limite</td><td>87 dB</td><td>Ne jamais dépasser (avec EPI)</td></tr>
   </table>
-  <div class="q"><strong>1.</strong> Un technicien voit le voyant de température moteur (rouge) s'allumer. Quelle décision doit-il prendre immédiatement ?</div>
-  <div class="q"><strong>2.</strong> En lien avec la synthèse additive, comment l'électronique du tableau de bord produit-elle différentes couleurs avec des LED ou un afficheur LCD ?</div>
-  <div class="q"><strong>3.</strong> Le voyant "check engine" est jaune sur certains véhicules, orange sur d'autres. Sont-ils perçus différemment ? Pourquoi utilise-t-on la même couleur famille ?</div>
-  <div class="q"><strong>4.</strong> Un nouveau véhicule hybride possède un voyant blanc (READY) qui s'allume quand le moteur électrique est prêt. D'après vos connaissances sur la synthèse additive, comment obtient-on du blanc avec des LED RVB ?</div>
-  <div class="q"><strong>5.</strong> Expliquer pourquoi le rouge est utilisé pour les alertes critiques en faisant référence à la longueur d'onde et à la visibilité humaine.</div>
+  <p class="q"><strong>a)</strong> À 104 dB, quelle valeur déclenchante est franchie ?</p>
+  <p class="q"><strong>b)</strong> Des bouchons d'oreilles SNR = 32 dB sont disponibles. Quelle atténuation efficace faut-il appliquer (règle pratique : efficacité réelle ≈ SNR – 7 dB) ?</p>
+  <p class="q"><strong>c)</strong> Avec ces bouchons, quel niveau sonore le technicien reçoit-il ? Est-ce conforme à la valeur limite de 87 dB ?</p>
+  <p class="q"><strong>d)</strong> Rédiger une procédure courte de 3 règles à afficher dans l'atelier concernant le bruit.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Arrêter le moteur immédiatement et en toute sécurité. Un voyant rouge de température signale un risque de surchauffe grave (casse moteur possible en moins d'une minute).</p>
-    <p><strong>2.</strong> Les écrans LCD et afficheurs utilisent des pixels RVB (Rouge, Vert, Bleu). En modulant l'intensité de chaque sous-pixel, on mélange les lumières par synthèse additive pour obtenir n'importe quelle couleur : R+V = jaune, R seul = rouge, etc.</p>
-    <p><strong>3.</strong> Jaune et orange sont proches dans le spectre (560-620 nm). Les deux signalent "attention" selon la norme ISO. La perception est similaire : couleur chaude, intermédiaire entre le vert rassurant et le rouge d'alerte. La famille "ambre" est reconnue universellement comme signal de vigilance.</p>
-    <p><strong>4.</strong> Blanc par synthèse additive : allumer simultanément les LED Rouge, Verte et Bleue à intensité maximale. R+V+B = blanc.</p>
-    <p><strong>5.</strong> Le rouge a la plus grande longueur d'onde visible (~620-700 nm). Il est très visible dans la vision périphérique, traverse mieux la brume et les conditions de faible visibilité. De plus, il est culturellement associé au danger (stop, interdiction), ce qui renforce la réaction d'alerte.</p>
+    <p><strong>a)</strong> 104 dB dépasse toutes les valeurs déclenchantes. On est bien au-delà de 85 dB → <strong>EPI obligatoires + formation</strong>, et le niveau dépasse largement 87 dB.</p>
+    <p><strong>b)</strong> Atténuation efficace = SNR – 7 = 32 – 7 = <strong>25 dB</strong> d'atténuation réelle.</p>
+    <p><strong>c)</strong> Niveau reçu = 104 – 25 = <strong>79 dB</strong> → inférieur à la valeur limite de 87 dB → <strong>conforme</strong>. ✓</p>
+    <p><strong>d)</strong> Règles à afficher :<br>
+    1. <strong>Port des bouchons d'oreilles obligatoire</strong> lors de l'utilisation du compresseur, de la meuleuse ou de tout outil bruyant.<br>
+    2. <strong>Limiter la durée d'exposition</strong> aux sources &gt; 85 dB ; alterner les postes si possible.<br>
+    3. <strong>Signaler toute gêne auditive</strong> (acouphènes, baisse d'acuité) au responsable et consulter un médecin du travail.</p>
   </div>
 </div>
 
-<!-- Graphique Chart.js : spectre visible -->
-<h2>Graphique — Spectre visible et longueurs d'onde</h2>
-<p>Ce graphique montre les longueurs d'onde caractéristiques des principales couleurs du spectre visible (400–700 nm).</p>
-<div class="chart-wrap">
-  <canvas id="spectrumChart"></canvas>
 </div>
-
-</div><!-- fin .c -->
 
 <script>
 function toggle(btn){
@@ -373,34 +350,58 @@ function toggle(btn){
   else{c.style.display='block';btn.textContent='Masquer la correction';}
 }
 
-// Graphique spectre visible
-(function(){
-  var ctx=document.getElementById('spectrumChart').getContext('2d');
-  new Chart(ctx,{
-    type:'bar',
-    data:{
-      labels:['Violet\n400 nm','Indigo\n430 nm','Bleu\n470 nm','Cyan\n500 nm','Vert\n530 nm','Jaune-Vert\n560 nm','Jaune\n580 nm','Orange\n610 nm','Rouge\n650 nm'],
-      datasets:[{
-        label:'Longueur d\'onde (nm)',
-        data:[400,430,470,500,530,560,580,610,650],
-        backgroundColor:['#8b00ff','#4b0082','#0000ff','#00bfff','#00c800','#adff2f','#ffff00','#ff8000','#ff0000'],
-        borderColor:'#2d3748',
-        borderWidth:1
-      }]
-    },
-    options:{
-      responsive:true,
-      plugins:{
-        title:{display:true,text:'Longueurs d\'onde des couleurs du spectre visible',font:{size:14}},
-        legend:{display:false}
+// Chart.js – Spectre fréquences sonores
+const ctx = document.getElementById('chartSpectre').getContext('2d');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Infra-sons\n< 20 Hz', 'Audible grave\n20-300 Hz', 'Audible médium\n300-3000 Hz', 'Audible aigu\n3-20 kHz', 'Ultra-sons\n> 20 kHz'],
+    datasets: [{
+      label: 'Domaines sonores',
+      data: [10, 40, 50, 35, 25],
+      backgroundColor: [
+        'rgba(59,130,246,0.7)',
+        'rgba(16,185,129,0.7)',
+        'rgba(111,66,193,0.7)',
+        'rgba(245,158,11,0.7)',
+        'rgba(239,68,68,0.7)'
+      ],
+      borderColor: [
+        '#3b82f6','#10b981','#6f42c1','#f59e0b','#ef4444'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Domaines du spectre sonore (représentation schématique)',
+        font: { size: 13 }
       },
-      scales:{
-        x:{title:{display:true,text:'Couleur'}},
-        y:{title:{display:true,text:'Longueur d\'onde (nm)'},min:350,max:700}
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            const apps = [
+              'Séismes, infrasons animaux',
+              'Moteur diesel, basses musicales',
+              'Voix humaine, alarmes',
+              'Sifflements, cymbales',
+              'CND, sonde ultrasons, chauves-souris'
+            ];
+            return apps[ctx.dataIndex];
+          }
+        }
       }
+    },
+    scales: {
+      x: { title: { display: true, text: 'Domaine fréquentiel' } },
+      y: { display: false }
     }
-  });
-})();
+  }
+});
 </script>
 <script src="nav.js"></script>
 </body>
