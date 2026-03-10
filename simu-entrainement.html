@@ -351,14 +351,14 @@ function genEq(lv) {
     const a = rnd([3,4,5,6]);
     const c = rnd([1,2]);
     const d = rand(1,8);
-    const b = (a-c)*x + d;
+    const b = d - (a-c)*x;
     eq = fmt(a,b) + ' = ' + fmt(c,d);
     sol = x;
-    const da = a-c, nb = b-d;
+    const da = a-c, nb = d-b;
     steps = [
       {eq: fmt(a,b)+' = '+fmt(c,d), why:'Équation de départ'},
-      {eq: da+'x + '+b+' = '+d, why:'On soustrait '+c+'x des deux membres'},
-      {eq: da+'x = '+(d-b), why:'On soustrait '+b+' des deux membres'},
+      {eq: fmt(da,b)+' = '+d, why:'On soustrait '+c+'x des deux membres'},
+      {eq: da+'x = '+nb, why:'On soustrait '+(b>=0?b:'('+b+')')+' des deux membres'},
       {eq: 'x = '+x, why:'On divise par '+da, hi:true},
     ];
   }
