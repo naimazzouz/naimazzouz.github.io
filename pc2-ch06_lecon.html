@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch06 &ndash; Forces et &eacute;quilibre &ndash; Cours</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
@@ -40,6 +41,14 @@ th{background:#f3f0ff;font-weight:600;color:var(--p)}
 details.corr summary{cursor:pointer;font-weight:600;color:#2f855a;font-size:.88em;margin-top:10px;padding:4px 0}
 details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
 .svg-center{text-align:center;margin:18px 0}
+.svg-wrap{text-align:center;margin:22px 0}
+.chart-wrap{max-width:560px;margin:22px auto}
+.anim-wrap{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:20px;margin:22px 0;text-align:center}
+.anim-wrap canvas{border-radius:8px;max-width:100%}
+.anim-controls{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.anim-btn{background:#15803d;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.88em;font-weight:600}
+.anim-btn:hover{opacity:.85}
+.anim-label{font-size:.88em;color:#4a5568;margin-top:8px}
 </style>
 </head>
 <body><div class="c">
@@ -104,6 +113,72 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 
 <p>L&rsquo;unit&eacute; de force est le <strong>Newton</strong>, symbole <strong>N</strong> (du nom d&rsquo;Isaac Newton).</p>
 
+<!-- SVG schéma vectoriel des forces -->
+<h3>Repr&eacute;sentation des forces sur un objet : poids, r&eacute;action normale et frottement</h3>
+<div class="svg-wrap">
+  <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;ma vectoriel des forces P, N et f sur un objet">
+    <title>Forces sur un objet : P, N et frottement f</title>
+    <defs>
+      <marker id="arr-red" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#c53030"/>
+      </marker>
+      <marker id="arr-blue" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#1d4ed8"/>
+      </marker>
+      <marker id="arr-orange" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#d97706"/>
+      </marker>
+    </defs>
+    <!-- Sol -->
+    <rect x="100" y="148" width="400" height="10" fill="#e2e8f0" rx="2"/>
+    <line x1="100" y1="148" x2="500" y2="148" stroke="#4a5568" stroke-width="1.5"/>
+    <!-- Hachures sol -->
+    <line x1="116" y1="148" x2="104" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="136" y1="148" x2="124" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="156" y1="148" x2="144" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="176" y1="148" x2="164" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="196" y1="148" x2="184" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="216" y1="148" x2="204" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="236" y1="148" x2="224" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="256" y1="148" x2="244" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="276" y1="148" x2="264" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="296" y1="148" x2="284" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="316" y1="148" x2="304" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="336" y1="148" x2="324" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="356" y1="148" x2="344" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="376" y1="148" x2="364" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="396" y1="148" x2="384" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="416" y1="148" x2="404" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="436" y1="148" x2="424" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="456" y1="148" x2="444" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="476" y1="148" x2="464" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="496" y1="148" x2="484" y2="162" stroke="#94a3b8" stroke-width="1"/>
+    <!-- Objet (rectangle) -->
+    <rect x="220" y="88" width="160" height="60" fill="#f3f0ff" stroke="#6f42c1" stroke-width="2.5" rx="5"/>
+    <text x="300" y="124" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#4a5568" font-weight="600">Objet</text>
+    <!-- Point d'application au centre -->
+    <circle cx="300" cy="118" r="4" fill="#6f42c1"/>
+    <!-- Fleche Poids P vers le bas (rouge, epaisse) -->
+    <line x1="300" y1="122" x2="300" y2="188" stroke="#c53030" stroke-width="3.5" marker-end="url(#arr-red)"/>
+    <text x="312" y="172" font-size="14" font-family="Segoe UI,sans-serif" font-weight="bold" fill="#c53030">P&#x20D7;</text>
+    <text x="312" y="186" font-size="10" font-family="Segoe UI,sans-serif" fill="#c53030">(poids, vers le bas)</text>
+    <!-- Fleche Reaction N vers le haut (bleu) -->
+    <line x1="300" y1="114" x2="300" y2="44" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+    <text x="308" y="70" font-size="14" font-family="Segoe UI,sans-serif" font-weight="bold" fill="#1d4ed8">N&#x20D7;</text>
+    <text x="308" y="84" font-size="10" font-family="Segoe UI,sans-serif" fill="#1d4ed8">(r&eacute;action, vers le haut)</text>
+    <!-- Fleche frottement f vers la droite (orange, horizontale) -->
+    <line x1="304" y1="118" x2="420" y2="118" stroke="#d97706" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+    <text x="430" y="114" font-size="14" font-family="Segoe UI,sans-serif" font-weight="bold" fill="#d97706">f&#x20D7;</text>
+    <text x="430" y="128" font-size="10" font-family="Segoe UI,sans-serif" fill="#d97706">(frottement)</text>
+    <!-- Legende en haut -->
+    <rect x="5" y="4" width="590" height="24" fill="#fffbeb" rx="4" stroke="#d97706" stroke-width="1"/>
+    <text x="300" y="20" text-anchor="middle" font-size="11" font-family="Segoe UI,sans-serif" fill="#92400e" font-weight="600">
+      3 forces sur l&rsquo;objet : P&#x20D7; (poids, rouge) &mdash; N&#x20D7; (r&eacute;action normale, bleu) &mdash; f&#x20D7; (frottement, orange)
+    </text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:6px;">Le poids \(\vec{P}\) est vertical vers le bas (rouge). La r&eacute;action normale \(\vec{N}\) est perpendiculaire au support (bleu, vers le haut). Le frottement \(\vec{f}\) est parall&egrave;le au support (orange, horizontal).</p>
+</div>
+
 <!-- ===== 2. LE POIDS ===== -->
 <h2>2. Le poids</h2>
 
@@ -131,7 +206,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 
 <div class="prop">
   <span class="label label-prop">Valeur de g sur Terre</span><br>
-  \(g = 9{,}8 \text{ N/kg}\) (valeur pr&eacute;cise) &nbsp; ou &nbsp; \(g \approx 10 \text{ N/kg}\) (valeur approch&eacute;e utilis&eacute;e en exercice).<br>
+  \(g = 9{,}81 \text{ N/kg}\) (valeur pr&eacute;cise) &nbsp; ou &nbsp; \(g \approx 10 \text{ N/kg}\) (valeur approch&eacute;e utilis&eacute;e en exercice).<br>
   Sur la Lune : \(g_{\text{Lune}} \approx 1{,}6 \text{ N/kg}\) (le poids y est environ 6 fois plus faible).
 </div>
 
@@ -151,6 +226,13 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
     <li>Un plateau de h&ecirc;tre de masse \(m = 15 \text{ kg}\) : \(P = 15 \times 10 = 150 \text{ N}\)</li>
   </ul>
 </div>
+
+<!-- Graphique Chart.js Poids vs Masse -->
+<h3>Graphique &mdash; Relation Poids / Masse (\(P = m \times g\), avec \(g = 9{,}81 \text{ N/kg}\))</h3>
+<div class="chart-wrap">
+  <canvas id="chartPoids" height="320"></canvas>
+</div>
+<p style="font-size:.85em;color:#718096;text-align:center;margin-top:4px;">La droite passe par l&rsquo;origine : plus la masse est grande, plus le poids est important. Pente = \(g = 9{,}81 \text{ N/kg}\).</p>
 
 <!-- ===== 3. RÉACTION DU SUPPORT ===== -->
 <h2>3. La r&eacute;action du support</h2>
@@ -300,43 +382,61 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   Pour que l&rsquo;&eacute;tag&egrave;re soit en &eacute;quilibre, ces 3 droites d&rsquo;action doivent se croiser en un m&ecirc;me point.
 </div>
 
-<!-- ===== 7. APPLICATION MAMA ===== -->
-<h2>7. Applications MAMA</h2>
+<!-- ===== 7. PLAN INCLINÉ — ANIMATION CANVAS ===== -->
+<h2>7. &Eacute;quilibre sur un plan inclin&eacute; &mdash; Animation interactive</h2>
 
-<h3>Calcul du poids d&rsquo;une pi&egrave;ce de bois</h3>
+<p>Un objet pos&eacute; sur un plan inclin&eacute; est soumis &agrave; trois forces : le poids \(\vec{P}\) (vertical vers le bas), la r&eacute;action normale \(\vec{N}\) (perpendiculaire au plan) et la force de frottement \(\vec{f}\) (parall&egrave;le au plan). Si l&rsquo;angle est trop grand, l&rsquo;objet glisse.</p>
+
+<div class="anim-wrap">
+  <canvas id="canvasIncline" width="500" height="180"></canvas>
+  <div class="anim-controls">
+    <button class="anim-btn" id="btnMoins">&#8722; Diminuer l&rsquo;angle</button>
+    <button class="anim-btn" id="btnPlus">&#43; Augmenter l&rsquo;angle</button>
+  </div>
+  <div class="anim-label" id="labelAngle">Angle : <strong>20&deg;</strong> &mdash; Statut : <strong style="color:#15803d">En &eacute;quilibre</strong></div>
+</div>
+<p style="font-size:.85em;color:#718096;text-align:center;">
+  L&rsquo;angle limite d&rsquo;&eacute;quilibre d&eacute;pend du coefficient de frottement (&mu; = 0,4 dans cet exemple, soit un angle limite de 21,8&deg;).
+  Au-del&agrave;, la composante du poids parall&egrave;le au plan d&eacute;passe la force de frottement maximale et l&rsquo;objet glisse.
+</p>
+
+<!-- ===== 8. APPLICATIONS MAMA ===== -->
+<h2>8. Applications en atelier MAMA</h2>
+
+<p>Les notions de forces et d&rsquo;&eacute;quilibre s&rsquo;appliquent directement aux situations rencontr&eacute;es en menuiserie et agencement. En voici trois exemples concrets.</p>
+
+<h3>Exemple 1 &mdash; Poids d&rsquo;un panneau de bois</h3>
 <div class="ex">
   <span class="label label-ex">Probl&egrave;me r&eacute;solu</span><br>
-  Un plateau de h&ecirc;tre massif a une masse de \(m = 15 \text{ kg}\). Calculer son poids.<br><br>
-  <strong>Donn&eacute;es :</strong> \(m = 15 \text{ kg}\) ; \(g = 10 \text{ N/kg}\)<br>
+  Un panneau de m&eacute;lamin&eacute; a une masse de \(m = 25 \text{ kg}\). Calculer son poids avec \(g = 9{,}81 \text{ N/kg}\).<br><br>
   <strong>Formule :</strong> \(P = m \times g\)<br>
-  <strong>Application num&eacute;rique :</strong> \(P = 15 \times 10 = 150 \text{ N}\)<br>
-  <strong>R&eacute;sultat :</strong> Le plateau a un poids de <strong>150 N</strong>.
+  <strong>Application num&eacute;rique :</strong> \(P = 25 \times 9{,}81 = 245{,}25 \approx \mathbf{245 \text{ N}}\)<br><br>
+  <strong>Conclusion :</strong> Le panneau exerce une force de <strong>245 N</strong> sur ses supports. Il faut des fixations capables de supporter cette charge. Deux supports &eacute;gaux supportent chacun \(245 / 2 \approx 123 \text{ N}\).
 </div>
 
-<h3>V&eacute;rification de l&rsquo;&eacute;quilibre d&rsquo;une &eacute;tag&egrave;re murale</h3>
+<h3>Exemple 2 &mdash; &Eacute;quilibre d&rsquo;une &eacute;tag&egrave;re fix&eacute;e au mur</h3>
 <div class="meth">
-  <span class="label label-meth">D&eacute;marche pratique</span>
+  <span class="label label-meth">D&eacute;marche de v&eacute;rification</span>
+  <p>Une &eacute;tag&egrave;re de masse \(m_{\text{&eacute;tag}} = 4 \text{ kg}\) supporte des livres de masse totale \(m_{\text{livres}} = 12 \text{ kg}\).</p>
   <ol>
-    <li>Calculer le poids total des objets pos&eacute;s sur l&rsquo;&eacute;tag&egrave;re (poids propre + poids des objets).</li>
-    <li>V&eacute;rifier que les fixations (vis, chevilles) peuvent supporter ce poids total.</li>
-    <li>V&eacute;rifier que la somme de toutes les forces est nulle (conditions d&rsquo;&eacute;quilibre).</li>
+    <li><strong>Poids total :</strong> \(P_{\text{total}} = (m_{\text{&eacute;tag}} + m_{\text{livres}}) \times g = (4 + 12) \times 10 = 160 \text{ N}\)</li>
+    <li><strong>Condition d&rsquo;&eacute;quilibre :</strong> La somme des r&eacute;actions des supports doit &eacute;galer le poids total : \(R_1 + R_2 = 160 \text{ N}\).</li>
+    <li><strong>Avec 2 supports identiques :</strong> \(R_1 = R_2 = 80 \text{ N}\) &mdash; chaque support doit r&eacute;sister &agrave; <strong>80 N</strong> minimum.</li>
+    <li><strong>Fixations :</strong> Choisir des vis et chevilles dont la r&eacute;sistance au cisaillement est sup&eacute;rieure &agrave; 80 N (avec un coefficient de s&eacute;curit&eacute;, on prend au moins le double, soit 160 N par vis).</li>
   </ol>
 </div>
 
-<h3>For&ccedil;ages dans une structure menuiserie</h3>
-<p>
-  Dans une menuiserie, les structures (ch&acirc;ssis, cloisons, assemblages) transmettent des forces. Comprendre l&rsquo;&eacute;quilibre des forces permet de dimensionner correctement les assemblages (tenons-mortaises, tourillons, vis, agrafes) pour qu&rsquo;ils r&eacute;sistent aux charges pr&eacute;vues sans se rompre.
-</p>
-<div class="ex">
-  <span class="label label-ex">Exemple num&eacute;rique</span><br>
-  Une &eacute;tag&egrave;re supporte des panneaux de masse totale \(m = 30 \text{ kg}\). Elle poss&egrave;de 4 vis de fixation.<br>
-  Poids total : \(P = 30 \times 10 = 300 \text{ N}\)<br>
-  Chaque vis supporte : \(F = \dfrac{300}{4} = 75 \text{ N}\)<br>
-  Il faut choisir des vis capables de r&eacute;sister &agrave; une force minimale de 75 N chacune.
+<h3>Exemple 3 &mdash; Soulever une pi&egrave;ce lourde &mdash; Pourquoi un engin de levage est indispensable</h3>
+<div class="att">
+  <span class="label label-att">S&eacute;curit&eacute; en atelier</span><br>
+  Un plateau de ch&ecirc;ne massif a une masse de \(m = 80 \text{ kg}\).<br><br>
+  <strong>Poids :</strong> \(P = 80 \times 9{,}81 \approx \mathbf{784 \text{ N}}\)<br><br>
+  La norme europ&eacute;enne fixe &agrave; environ <strong>25 kg</strong> la charge maximale pouvant &ecirc;tre soulevee manuellement par une personne. Pour 80 kg, le soulever manuellement serait dangereux et ill&eacute;gal en milieu professionnel.<br><br>
+  <strong>Solution :</strong> Utiliser un <em>diable, un transpalette, une potence ou un pont roulant</em> en atelier. Ces engins transmettent la force &agrave; une structure m&eacute;canique en &eacute;quilibre et permettent de manipuler la pi&egrave;ce en toute s&eacute;curit&eacute;.
 </div>
 
-<!-- ===== 8. TABLEAU DE SYNTHÈSE ===== -->
-<h2>8. Tableau de synth&egrave;se</h2>
+<!-- ===== 9. TABLEAU DE SYNTHÈSE ===== -->
+<h2>9. Tableau de synth&egrave;se</h2>
 
 <table>
   <tr>
@@ -367,7 +467,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
     <td>Intensit&eacute; de la pesanteur</td>
     <td>\(g\)</td>
     <td>N/kg</td>
-    <td>\(g = 9{,}8 \approx 10 \text{ N/kg}\) sur Terre</td>
+    <td>\(g = 9{,}81 \approx 10 \text{ N/kg}\) sur Terre</td>
   </tr>
   <tr>
     <td>R&eacute;action du support</td>
@@ -375,24 +475,32 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
     <td>Newton (N)</td>
     <td>Perpendiculaire &agrave; la surface de contact ; verticale vers le haut sur un plan horizontal</td>
   </tr>
+  <tr>
+    <td>Frottement</td>
+    <td>\(\vec{f}\)</td>
+    <td>Newton (N)</td>
+    <td>Parall&egrave;le &agrave; la surface de contact ; s&rsquo;oppose au mouvement relatif ou &agrave; la tendance au glissement</td>
+  </tr>
 </table>
 
-<!-- ===== 9. À RETENIR ===== -->
-<h2>9. &Agrave; retenir</h2>
+<!-- ===== 10. À RETENIR ===== -->
+<h2>10. &Agrave; retenir</h2>
 
 <div class="retenir">
   <span class="label label-ret">&Agrave; retenir</span>
   <ol>
     <li>Une force est caract&eacute;ris&eacute;e par 4 &eacute;l&eacute;ments : <strong>point d&rsquo;application, direction, sens, valeur</strong>. Elle se repr&eacute;sente par un vecteur \(\vec{F}\). L&rsquo;unit&eacute; est le Newton (N).</li>
-    <li>Le <strong>poids</strong> se calcule par \(P = m \times g\) ; sur Terre \(g \approx 10 \text{ N/kg}\). Il est dirig&eacute; verticalement vers le bas.</li>
+    <li>Le <strong>poids</strong> se calcule par \(P = m \times g\) ; sur Terre \(g = 9{,}81 \text{ N/kg} \approx 10 \text{ N/kg}\). Il est dirig&eacute; verticalement vers le bas.</li>
     <li><strong>Masse (kg) &ne; Poids (N)</strong> : la masse est constante, le poids varie selon l&rsquo;endroit (Terre, Lune&hellip;).</li>
     <li>Un objet est en <strong>&eacute;quilibre</strong> si \(\sum \vec{F} = \vec{0}\). Pour 2 forces : m&ecirc;me droite d&rsquo;action, m&ecirc;me valeur, sens oppos&eacute;s.</li>
     <li>La <strong>3<sup>e</sup> loi de Newton</strong> : les forces d&rsquo;interaction entre deux objets sont &eacute;gales en valeur, de m&ecirc;me direction et de sens oppos&eacute;s.</li>
+    <li>Sur un <strong>plan inclin&eacute;</strong>, l&rsquo;objet glisse si la composante du poids parall&egrave;le au plan d&eacute;passe la force de frottement maximale. Plus l&rsquo;angle est grand, plus le risque de glissement est &eacute;lev&eacute;.</li>
+    <li>En atelier MAMA, toujours v&eacute;rifier que les <strong>fixations et supports</strong> peuvent r&eacute;sister aux forces exerc&eacute;es. Pour les charges lourdes (&gt; 25 kg), utiliser un <strong>engin de levage</strong>.</li>
   </ol>
 </div>
 
-<!-- ===== 10. MINI-EXERCICES ===== -->
-<h2>10. Mini-exercices</h2>
+<!-- ===== 11. MINI-EXERCICES ===== -->
+<h2>11. Mini-exercices</h2>
 
 <div class="exo">
   <div class="exo-num">Exercice 1 &mdash; Calculer le poids d&rsquo;une armoire</div>
@@ -453,7 +561,294 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   </details>
 </div>
 
+<div class="exo">
+  <div class="exo-num">Exercice 4 &mdash; Poids sur plan inclin&eacute;</div>
+  <p>Un bloc de bois de masse \(m = 5 \text{ kg}\) est pos&eacute; sur un plan inclin&eacute; &agrave; \(\theta = 30°\). On donne \(g = 10 \text{ N/kg}\).</p>
+  <ol>
+    <li>Calculer le poids \(P\) du bloc.</li>
+    <li>Calculer la composante du poids perpendiculaire au plan : \(P_\perp = P \cos\theta\).</li>
+    <li>Calculer la composante du poids parall&egrave;le au plan : \(P_\parallel = P \sin\theta\).</li>
+    <li>Sachant que la force de frottement maximale vaut \(f_{\max} = \mu \times P_\perp\) avec \(\mu = 0{,}4\), le bloc est-il en &eacute;quilibre ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> \(P = 5 \times 10 = 50 \text{ N}\)<br>
+      <strong>2.</strong> \(P_\perp = 50 \times \cos 30° = 50 \times 0{,}866 \approx 43{,}3 \text{ N}\)<br>
+      <strong>3.</strong> \(P_\parallel = 50 \times \sin 30° = 50 \times 0{,}5 = 25 \text{ N}\)<br>
+      <strong>4.</strong> \(f_{\max} = 0{,}4 \times 43{,}3 \approx 17{,}3 \text{ N}\)<br>
+      Comme \(P_\parallel = 25 \text{ N} > f_{\max} = 17{,}3 \text{ N}\), la force de frottement ne suffit pas &agrave; retenir le bloc : <strong>le bloc glisse</strong>.
+    </div>
+  </details>
 </div>
+
+</div>
+
+<script>
+/* ================================================================
+   1. GRAPHIQUE CHART.JS — Poids vs Masse (P = m × g, g = 9,81)
+   ================================================================ */
+(function() {
+  var g = 9.81;
+  var masses = [0, 0.5, 1, 2, 5, 10, 20, 50];
+  var poids = masses.map(function(m) { return +(m * g).toFixed(2); });
+
+  var dataPoints = masses.map(function(m, i) {
+    return { x: m, y: poids[i] };
+  });
+
+  var ctx = document.getElementById('chartPoids').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Poids P (N)',
+          data: dataPoints,
+          backgroundColor: '#15803d',
+          borderColor: '#15803d',
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          showLine: true,
+          borderWidth: 2.5,
+          tension: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Poids en fonction de la masse  (P = m \u00d7 g,  g = 9,81 N/kg)',
+          font: { size: 14, weight: '600' },
+          color: '#15803d',
+          padding: { bottom: 12 }
+        },
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return 'Masse : ' + ctx.parsed.x + ' kg  \u2192  Poids : ' + ctx.parsed.y + ' N';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Masse (kg)',
+            font: { size: 13, weight: '600' },
+            color: '#2d3748'
+          },
+          beginAtZero: true,
+          grid: { color: '#e2e8f0' }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Poids (N)',
+            font: { size: 13, weight: '600' },
+            color: '#2d3748'
+          },
+          beginAtZero: true,
+          grid: { color: '#e2e8f0' }
+        }
+      }
+    }
+  });
+})();
+
+/* ================================================================
+   2. ANIMATION CANVAS — Equilibre sur plan incliné
+   ================================================================ */
+(function() {
+  var canvas = document.getElementById('canvasIncline');
+  var ctx = canvas.getContext('2d');
+  var angleDeg = 20;
+  var MU = 0.4; // coefficient de frottement statique
+  var angleLimit = Math.atan(MU) * 180 / Math.PI; // ~21.8 deg
+
+  function drawArrow(ctx, x1, y1, x2, y2, color, label, labelSide) {
+    var dx = x2 - x1;
+    var dy = y2 - y1;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    if (len < 1) return;
+    var ux = dx / len;
+    var uy = dy / len;
+    var headLen = 10;
+
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+
+    // Pointe de la flèche
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(
+      x2 - headLen * (ux - 0.4 * uy),
+      y2 - headLen * (uy + 0.4 * ux)
+    );
+    ctx.lineTo(
+      x2 - headLen * (ux + 0.4 * uy),
+      y2 - headLen * (uy - 0.4 * ux)
+    );
+    ctx.closePath();
+    ctx.fill();
+
+    if (label) {
+      ctx.font = 'bold 12px Segoe UI, sans-serif';
+      ctx.fillStyle = color;
+      var mx = (x1 + x2) / 2;
+      var my = (y1 + y2) / 2;
+      var ox = labelSide === 'right' ? 8 : -8;
+      var oy = labelSide === 'above' ? -8 : (labelSide === 'below' ? 14 : 0);
+      ctx.fillText(label, mx + ox, my + oy);
+    }
+    ctx.restore();
+  }
+
+  function draw() {
+    var W = canvas.width;
+    var H = canvas.height;
+    var angleRad = angleDeg * Math.PI / 180;
+    var isEquilibre = angleDeg <= angleLimit;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Fond
+    ctx.fillStyle = '#f0fdf4';
+    ctx.fillRect(0, 0, W, H);
+
+    // Dimensions du plan incliné
+    var baseX = 30;
+    var baseY = H - 24;
+    var planLen = 320;
+    var planEndX = baseX + planLen * Math.cos(angleRad);
+    var planEndY = baseY - planLen * Math.sin(angleRad);
+
+    // Triangle du plan incliné
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(baseX, baseY);
+    ctx.lineTo(planEndX, planEndY);
+    ctx.lineTo(planEndX, baseY);
+    ctx.closePath();
+    ctx.fillStyle = '#dbeafe';
+    ctx.fill();
+    ctx.strokeStyle = '#1d4ed8';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+
+    // Sol
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(baseX - 10, baseY);
+    ctx.lineTo(W - 10, baseY);
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.restore();
+
+    // Angle arc
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(baseX, baseY, 36, -angleRad, 0);
+    ctx.strokeStyle = '#1d4ed8';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.font = '11px Segoe UI, sans-serif';
+    ctx.fillStyle = '#1d4ed8';
+    ctx.fillText('\u03b8=' + angleDeg + '\u00b0', baseX + 38, baseY - 6);
+    ctx.restore();
+
+    // Position du cube sur le plan (à 40% de la longueur)
+    var t = 0.4;
+    var cubeSize = 28;
+    // Centre du cube sur la surface du plan
+    var cx0 = baseX + t * planLen * Math.cos(angleRad);
+    var cy0 = baseY - t * planLen * Math.sin(angleRad);
+    // Décaler perpendiculairement pour que la base du cube soit sur le plan
+    var nx = -Math.sin(angleRad); // normale au plan (vers le haut par rapport au plan)
+    var ny = -Math.cos(angleRad);
+    var cubeCx = cx0 + nx * cubeSize / 2;
+    var cubeCy = cy0 + ny * cubeSize / 2;
+
+    // Dessin du cube (transformé)
+    ctx.save();
+    ctx.translate(cubeCx, cubeCy);
+    ctx.rotate(-angleRad);
+    ctx.fillStyle = isEquilibre ? '#bbf7d0' : '#fee2e2';
+    ctx.strokeStyle = isEquilibre ? '#15803d' : '#c53030';
+    ctx.lineWidth = 2;
+    ctx.fillRect(-cubeSize / 2, -cubeSize / 2, cubeSize, cubeSize);
+    ctx.strokeRect(-cubeSize / 2, -cubeSize / 2, cubeSize, cubeSize);
+    ctx.restore();
+
+    // Longueurs des flèches de forces
+    var arrowScale = 55;
+
+    // Force P (poids) — verticalement vers le bas
+    var Px = cubeCx;
+    var Py = cubeCy;
+    drawArrow(ctx, Px, Py, Px, Py + arrowScale, '#c53030', 'P\u20D7', 'right');
+
+    // Force N (réaction normale) — perpendiculaire au plan vers le haut
+    var Nx = cubeCx;
+    var Ny = cubeCy;
+    // normale = perpendiculaire au plan = direction (-sin(theta), -cos(theta)) dans le repere ecran
+    var nScale = arrowScale * 0.85;
+    drawArrow(ctx, Nx, Ny, Nx + (-Math.sin(angleRad)) * nScale, Ny + (-Math.cos(angleRad)) * nScale, '#1d4ed8', 'N\u20D7', 'right');
+
+    // Force f (frottement) — parallèle au plan
+    // Si equilibre : f remonte le long du plan (oppose au glissement potentiel vers le bas du plan)
+    // Si glisse : f est quand même vers le haut du plan mais insuffisante
+    var fScale = isEquilibre ? arrowScale * 0.6 : arrowScale * 0.35;
+    var fColor = isEquilibre ? '#d97706' : '#f87171';
+    // Direction montant le long du plan
+    var fDirX = -Math.cos(angleRad);
+    var fDirY = Math.sin(angleRad);
+    drawArrow(ctx, cubeCx, cubeCy, cubeCx + fDirX * fScale, cubeCy + fDirY * fScale, fColor, 'f\u20D7', 'above');
+
+    // Texte statut
+    ctx.save();
+    ctx.font = 'bold 14px Segoe UI, sans-serif';
+    if (isEquilibre) {
+      ctx.fillStyle = '#15803d';
+      ctx.fillText('En \u00e9quilibre', W - 160, 28);
+    } else {
+      ctx.fillStyle = '#c53030';
+      ctx.fillText('L\'objet glisse !', W - 160, 28);
+    }
+    ctx.restore();
+
+    // Mise à jour du label
+    var label = document.getElementById('labelAngle');
+    if (isEquilibre) {
+      label.innerHTML = 'Angle : <strong>' + angleDeg + '&deg;</strong> &mdash; Statut : <strong style="color:#15803d">En &eacute;quilibre</strong>';
+    } else {
+      label.innerHTML = 'Angle : <strong>' + angleDeg + '&deg;</strong> &mdash; Statut : <strong style="color:#c53030">L\'objet glisse !</strong> (angle limit : ~' + angleLimit.toFixed(1) + '&deg;)';
+    }
+  }
+
+  document.getElementById('btnPlus').addEventListener('click', function() {
+    if (angleDeg < 60) { angleDeg += 5; draw(); }
+  });
+  document.getElementById('btnMoins').addEventListener('click', function() {
+    if (angleDeg > 5) { angleDeg -= 5; draw(); }
+  });
+
+  draw();
+})();
+</script>
+
 <script src="nav.js"></script>
 </body>
 </html>

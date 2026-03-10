@@ -46,6 +46,10 @@ tr:nth-child(even) td{background:#f8fafc}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
 @media print{.nb{display:none}.rep-zone{background:#fff}}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:6px;margin-bottom:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:4px}
+.bc:hover{opacity:.85}
 </style>
 </head>
 <body><div class="c">
@@ -98,6 +102,10 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(E = \dfrac{\Phi}{S}\) &nbsp; avec \(E\) en lux (lx), \(\Phi\) flux lumineux en lumens (lm), \(S\) surface éclairée en m²</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -106,6 +114,10 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(E = \dfrac{\Phi}{S} = \dfrac{4\,000}{20} = 200\,\text{lux}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -114,6 +126,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(E\) obtenu = 200 lux &lt; 500 lux (norme EN 12464-1 pour atelier de précision)</p>
+    <p>L'éclairage est insuffisant. Il faut augmenter le nombre de luminaires.</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -122,6 +139,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Flux total nécessaire : \(\Phi_{total} = E \times S = 500 \times 80 = 40\,000\,\text{lm}\)</p>
+    <p>Nombre de luminaires : \(N = \dfrac{40\,000}{4\,000} = 10\,\text{luminaires}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">5.</span>
@@ -130,6 +152,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">1 pt</span>
   </p>
   <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Vérification : 10 luminaires × 4 000 lm = 40 000 lm</p>
+    <p>\(E = \dfrac{40\,000}{80} = 500\,\text{lux}\) ✓ Résultat conforme à la norme.</p>
+  </div>
 </div>
 
 <!-- EXERCICE 2 -->
@@ -151,6 +178,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:65px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\eta = \dfrac{\Phi}{P}\) &nbsp; avec \(\eta\) en lm/W, \(\Phi\) en lm, \(P\) en W</p>
+    <p>Plus \(\eta\) est élevé, plus la source lumineuse est efficace (elle produit plus de lumière pour la même énergie).</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -162,6 +194,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>LED : \(\eta = \dfrac{8\,000}{60} \approx 133\,\text{lm/W}\)</p>
+    <p>Halogène : \(\eta = \dfrac{1\,200}{100} = 12\,\text{lm/W}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -170,6 +207,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La LED est ≈ 11 fois plus efficace que l'halogène (\(133/12 \approx 11\)).</p>
+    <p>La LED consomme beaucoup moins d'énergie pour produire la même quantité de lumière.</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -181,9 +223,17 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:100px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Consommation halogènes : \(50 \times 100\,\text{W} = 5\,000\,\text{W} = 5\,\text{kW}\)</p>
+    <p>Consommation LED : \(50 \times 60\,\text{W} = 3\,000\,\text{W} = 3\,\text{kW}\)</p>
+    <p>Économie puissance : \(\Delta P = 2\,000\,\text{W} = 2\,\text{kW}\)</p>
+    <p>Économie annuelle : \(2\,\text{kW} \times 2\,000\,\text{h} \times 0{,}15\,\text{€/kWh} = 600\,\text{€/an}\)</p>
+  </div>
 </div>
 
 </div>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
 <script src="nav.js"></script>
 </body>
 </html>

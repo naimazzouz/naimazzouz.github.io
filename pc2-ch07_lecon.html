@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch07 &ndash; Structure de la mati&egrave;re &ndash; Cours</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
@@ -47,6 +48,25 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
 .el-nm{background:#f3f0ff;border-color:#c4b5fd;color:#5b21b6}
 .el-m{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
 .el-h{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+/* Chart & Canvas */
+.chart-wrap{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin:18px 0}
+.chart-wrap h4{margin:0 0 12px;color:var(--p);font-size:.95em}
+.anim-wrap{background:#1e1e2e;border-radius:10px;padding:14px;margin:18px 0;text-align:center}
+.anim-wrap canvas{border-radius:6px;display:block;margin:0 auto}
+.anim-btns{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.anim-btns button{padding:6px 18px;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:.9em;transition:opacity .2s}
+.btn-solid{background:#6f42c1;color:#fff}
+.btn-liquid{background:#2f855a;color:#fff}
+.btn-gaz{background:#d97706;color:#fff}
+.anim-btns button:hover{opacity:.82}
+/* Applications MAMA extra */
+.mama-section{background:#f0f4ff;border:1px solid #c4b5fd;border-radius:10px;padding:18px 20px;margin:18px 0}
+.mama-section h4{margin:0 0 10px;color:#3730a3;font-size:1em}
+.mat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.mat-card{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px}
+.mat-card .mat-title{font-weight:700;color:var(--p);font-size:.92em;margin-bottom:4px}
+.mat-card .mat-form{font-family:monospace;font-size:.85em;color:#065f46;background:#f0fff4;border-radius:4px;padding:2px 6px;display:inline-block;margin:3px 0}
+.mat-card p{margin:4px 0 0;font-size:.83em;color:#4a5568}
 </style>
 </head>
 <body><div class="c">
@@ -164,6 +184,64 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
     <text x="23" y="134" font-size="9" font-family="Segoe UI,sans-serif" fill="#c53030">Electron</text>
   </svg>
   <p style="font-size:.85em;color:#718096;margin-top:4px;">Mod&egrave;le plan&eacute;taire simplifi&eacute; d&rsquo;un atome de carbone (C) : noyau central avec 6 protons et 6 neutrons, entour&eacute; de 6 &eacute;lectrons.</p>
+</div>
+
+<!-- SVG PÉDAGOGIQUE : Modèle de l'atome avec couches électroniques -->
+<h3>Mod&egrave;le g&eacute;n&eacute;ral d&rsquo;un atome &mdash; couches &eacute;lectroniques</h3>
+<div class="svg-center">
+  <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mod&egrave;le d&rsquo;un atome avec couches &eacute;lectroniques">
+    <title>Mod&egrave;le de l&rsquo;atome avec couches &eacute;lectroniques K, L, M</title>
+    <!-- Fond -->
+    <rect width="600" height="200" rx="10" fill="#f5f0ff"/>
+    <!-- Couche M (externe) -->
+    <circle cx="300" cy="100" r="90" fill="none" stroke="#c4b5fd" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <text x="394" y="54" font-size="11" font-family="Segoe UI,sans-serif" fill="#7c3aed" font-weight="700">Couche M</text>
+    <!-- Couche L -->
+    <circle cx="300" cy="100" r="60" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <text x="362" y="72" font-size="11" font-family="Segoe UI,sans-serif" fill="#6d28d9" font-weight="700">Couche L</text>
+    <!-- Couche K (interne) -->
+    <circle cx="300" cy="100" r="30" fill="none" stroke="#8b5cf6" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <text x="332" y="88" font-size="11" font-family="Segoe UI,sans-serif" fill="#5b21b6" font-weight="700">Couche K</text>
+    <!-- Noyau -->
+    <circle cx="300" cy="100" r="16" fill="#6f42c1"/>
+    <text x="300" y="97" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">Z p&#x207A;</text>
+    <text x="300" y="108" text-anchor="middle" font-size="9" font-family="Segoe UI,sans-serif" fill="#e9d5ff" font-weight="700">N n&#x2070;</text>
+    <!-- Electrons couche K (max 2) -->
+    <circle cx="300" cy="70" r="7" fill="#c53030"/>
+    <text x="300" y="74" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="300" cy="130" r="7" fill="#c53030"/>
+    <text x="300" y="134" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <!-- Electrons couche L (max 8, on en montre 4) -->
+    <circle cx="240" cy="100" r="7" fill="#d97706"/>
+    <text x="240" y="104" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="360" cy="100" r="7" fill="#d97706"/>
+    <text x="360" y="104" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="258" cy="58" r="7" fill="#d97706"/>
+    <text x="258" y="62" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="342" cy="142" r="7" fill="#d97706"/>
+    <text x="342" y="146" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <!-- Electrons couche M (on en montre 3) -->
+    <circle cx="210" cy="100" r="7" fill="#2f855a"/>
+    <text x="210" y="104" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="340" cy="18" r="7" fill="#2f855a"/>
+    <text x="340" y="22" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <circle cx="260" cy="182" r="7" fill="#2f855a"/>
+    <text x="260" y="186" text-anchor="middle" font-size="8" font-family="Segoe UI,sans-serif" fill="#fff" font-weight="700">e&#x207B;</text>
+    <!-- Légende droite -->
+    <rect x="418" y="110" width="175" height="80" rx="6" fill="#fff" stroke="#e2e8f0"/>
+    <text x="428" y="126" font-size="10" font-family="Segoe UI,sans-serif" fill="#5b21b6" font-weight="700">L&eacute;gende</text>
+    <circle cx="436" cy="140" r="6" fill="#6f42c1"/>
+    <text x="447" y="144" font-size="10" font-family="Segoe UI,sans-serif" fill="#4a5568">Noyau (p&#x207A; + n&#x2070;)</text>
+    <circle cx="436" cy="157" r="6" fill="#c53030"/>
+    <text x="447" y="161" font-size="10" font-family="Segoe UI,sans-serif" fill="#4a5568">e&#x207B; couche K (max 2)</text>
+    <circle cx="436" cy="174" r="6" fill="#d97706"/>
+    <text x="447" y="178" font-size="10" font-family="Segoe UI,sans-serif" fill="#4a5568">e&#x207B; couche L (max 8)</text>
+    <circle cx="436" cy="191" r="6" fill="#2f855a"/>
+    <text x="447" y="195" font-size="10" font-family="Segoe UI,sans-serif" fill="#4a5568">e&#x207B; couche M (max 18)</text>
+    <!-- Titre -->
+    <text x="10" y="16" font-size="11" font-family="Segoe UI,sans-serif" fill="#5b21b6" font-weight="700">Couches &eacute;lectroniques : r&egrave;gle de remplissage K(2) &rarr; L(8) &rarr; M(18)</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px;">Les &eacute;lectrons se r&eacute;partissent sur des <strong>couches &eacute;lectroniques</strong> successives autour du noyau. La couche K (la plus proche) se remplit en premier (max 2 e&#x207B;), puis L (max 8 e&#x207B;), puis M.</p>
 </div>
 
 <!-- ===== 2. LES ÉLÉMENTS CHIMIQUES ===== -->
@@ -376,12 +454,119 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   </tr>
 </table>
 
+<!-- SVG PÉDAGOGIQUE : Les 3 états de la matière avec particules -->
+<div class="svg-center">
+  <svg width="700" height="200" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sch&eacute;ma des trois &eacute;tats de la mati&egrave;re">
+    <title>Les trois &eacute;tats de la mati&egrave;re : solide, liquide, gaz</title>
+    <rect width="700" height="200" rx="10" fill="#f8fafc"/>
+    <!-- === SOLIDE === -->
+    <rect x="10" y="30" width="200" height="145" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="110" y="22" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#5b21b6" font-weight="700">SOLIDE</text>
+    <!-- grille ordonnée de particules -->
+    <circle cx="50" cy="68" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="80" cy="68" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="110" cy="68" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="140" cy="68" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="170" cy="68" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="50" cy="98" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="80" cy="98" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="110" cy="98" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="140" cy="98" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="170" cy="98" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="50" cy="128" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="80" cy="128" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="110" cy="128" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="140" cy="128" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="170" cy="128" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="50" cy="158" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="80" cy="158" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="110" cy="158" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="140" cy="158" r="10" fill="#6f42c1" opacity=".8"/>
+    <circle cx="170" cy="158" r="10" fill="#6f42c1" opacity=".8"/>
+    <text x="110" y="193" text-anchor="middle" font-size="10" font-family="Segoe UI,sans-serif" fill="#5b21b6">Ordonn&eacute;, vibrations sur place</text>
+    <!-- === LIQUIDE === -->
+    <rect x="245" y="30" width="200" height="145" rx="8" fill="#f0fff4" stroke="#2f855a" stroke-width="2"/>
+    <text x="345" y="22" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#065f46" font-weight="700">LIQUIDE</text>
+    <!-- particules proches mais désordonnées -->
+    <circle cx="278" cy="72" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="310" cy="65" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="338" cy="78" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="368" cy="62" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="398" cy="75" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="265" cy="102" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="295" cy="96" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="325" cy="108" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="355" cy="98" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="385" cy="105" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="415" cy="98" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="275" cy="132" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="308" cy="125" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="340" cy="138" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="372" cy="128" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="402" cy="135" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="290" cy="160" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="322" cy="155" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="356" cy="162" r="10" fill="#2f855a" opacity=".8"/>
+    <circle cx="388" cy="157" r="10" fill="#2f855a" opacity=".8"/>
+    <text x="345" y="193" text-anchor="middle" font-size="10" font-family="Segoe UI,sans-serif" fill="#065f46">D&eacute;sordonn&eacute;, mobile, proche</text>
+    <!-- === GAZ === -->
+    <rect x="480" y="30" width="210" height="145" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+    <text x="585" y="22" text-anchor="middle" font-size="13" font-family="Segoe UI,sans-serif" fill="#92400e" font-weight="700">GAZ</text>
+    <!-- particules très espacées et aléatoires -->
+    <circle cx="510" cy="58" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="570" cy="48" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="650" cy="65" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="498" cy="105" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="600" cy="95" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="672" cy="110" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="535" cy="148" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="620" cy="160" r="9" fill="#d97706" opacity=".8"/>
+    <circle cx="686" cy="148" r="9" fill="#d97706" opacity=".8"/>
+    <!-- flèches de mouvement -->
+    <line x1="510" y1="58" x2="524" y2="48" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="570" y1="48" x2="556" y2="62" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="498" y1="105" x2="514" y2="118" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="600" y1="95" x2="585" y2="82" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr)"/>
+    <defs>
+      <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
+      </marker>
+    </defs>
+    <text x="585" y="193" text-anchor="middle" font-size="10" font-family="Segoe UI,sans-serif" fill="#92400e">D&eacute;sordonn&eacute;, rapide, espac&eacute;</text>
+  </svg>
+  <p style="font-size:.85em;color:#718096;margin-top:4px;">Repr&eacute;sentation microscopique des <strong>trois &eacute;tats de la mati&egrave;re</strong> : solide (r&eacute;seau ordonn&eacute;), liquide (proche mais mobile), gaz (tr&egrave;s espac&eacute; et agit&eacute;).</p>
+</div>
+
 <div class="prop">
   <span class="label label-prop">Changements d&rsquo;&eacute;tat</span><br>
   En chauffant un solide, on augmente l&rsquo;agitation thermique des particules :<br>
   &bull; Les particules vibrent de plus en plus fort (solide).<br>
   &bull; Les liaisons entre particules se rompent &rarr; <strong>fusion</strong> (passage &agrave; l&rsquo;&eacute;tat liquide).<br>
   &bull; Les particules s&rsquo;&eacute;chappent dans l&rsquo;air &rarr; <strong>vaporisation</strong> (passage &agrave; l&rsquo;&eacute;tat gazeux).
+</div>
+
+<!-- ===== CHART.JS : Masses atomiques ===== -->
+<h2>5 bis. Masses atomiques des &eacute;l&eacute;ments courants en MAMA</h2>
+<p>La <strong>masse atomique</strong> (en u.m.a., unit&eacute;s de masse atomique) repr&eacute;sente la masse relative d&rsquo;un atome par rapport au carbone-12. Plus un atome est lourd, plus les mat&eacute;riaux qui le contiennent sont denses.</p>
+
+<div class="chart-wrap">
+  <h4>Masses atomiques des &eacute;l&eacute;ments fr&eacute;quents en MAMA (en u.m.a.)</h4>
+  <canvas id="chartMasses" height="90"></canvas>
+  <p style="font-size:.8em;color:#718096;margin-top:8px;text-align:center">Source : tableau p&eacute;riodique &mdash; H=1, C=12, N=14, O=16, Al=27, Si=28, Fe=56, Cu=64, Zn=65</p>
+</div>
+
+<!-- ===== ANIMATION CANVAS : États de la matière ===== -->
+<h2>5 ter. Animation &mdash; Particules et &eacute;tats physiques</h2>
+<p>Observe le comportement des particules selon l&rsquo;&eacute;tat physique : utilise les boutons ci-dessous pour changer d&rsquo;&eacute;tat.</p>
+
+<div class="anim-wrap">
+  <canvas id="animEtats" width="500" height="160"></canvas>
+  <div class="anim-btns">
+    <button class="btn-solid" onclick="setEtat('solide')">Solide</button>
+    <button class="btn-liquid" onclick="setEtat('liquide')">Liquide</button>
+    <button class="btn-gaz" onclick="setEtat('gaz')">Gaz</button>
+  </div>
+  <p style="color:#a0aec0;font-size:.82em;margin-top:8px" id="animLabel">&#x25CF; &Eacute;tat actuel : <strong style="color:#c4b5fd">Solide</strong> &mdash; particules fix&eacute;es en r&eacute;seau, vibrations infimes</p>
 </div>
 
 <!-- ===== 6. APPLICATION MAMA ===== -->
@@ -416,6 +601,108 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   <span class="label label-att">Attention &mdash; S&eacute;curit&eacute;</span><br>
   Certains produits de traitement du bois contiennent des ions toxiques (Cu<sup>2+</sup>, Cr<sup>6+</sup>&hellip;). Il est obligatoire de consulter la <strong>Fiche de Donn&eacute;es de S&eacute;curit&eacute; (FDS)</strong> et de porter les &Eacute;quipements de Protection Individuelle (EPI) adapt&eacute;s.
 </div>
+
+<!-- ===== 6 bis. MATÉRIAUX MAMA AVANCÉ ===== -->
+<h3>Mat&eacute;riaux MAMA : composition chimique d&eacute;taill&eacute;e</h3>
+
+<div class="mama-section">
+  <h4>Le bois &mdash; un mat&eacute;riau organique complexe</h4>
+  <p>Le bois est constitu&eacute; principalement de <strong>trois bio-polym&egrave;res</strong> :</p>
+  <div class="mat-grid">
+    <div class="mat-card">
+      <div class="mat-title">Cellulose</div>
+      <span class="mat-form">(C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub></span>
+      <p>Polym&egrave;re de glucose. Constitue les fibres du bois (40&ndash;50 %). Donne la rigidit&eacute; m&eacute;canique.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Lignine</div>
+      <span class="mat-form">C<sub>9</sub>H<sub>10</sub>O<sub>2</sub>&hellip;</span>
+      <p>Polym&egrave;re aromatique complexe (20&ndash;30 %). Cimente les fibres de cellulose. Donne la duret&eacute; au bois.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">H&eacute;micellulose</div>
+      <span class="mat-form">C<sub>5</sub>H<sub>8</sub>O<sub>4</sub>&hellip;</span>
+      <p>Polym&egrave;res de sucres en C5 (xyloses). R&eacute;le la cellulose et la lignine (15&ndash;25 %).</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Eau (H<sub>2</sub>O)</div>
+      <span class="mat-form">H<sub>2</sub>O</span>
+      <p>Bois vert : 30&ndash;60 % d&rsquo;eau. Bois sec : &lt;15 %. L&rsquo;humidit&eacute; influe sur les dimensions (gonflement).</p>
+    </div>
+  </div>
+  <p style="font-size:.85em;color:#4a5568">La cellulose et la lignine sont des <strong>polym&egrave;res</strong> : de tr&egrave;s longues mol&eacute;cules form&eacute;es de la r&eacute;p&eacute;tition d&rsquo;une unit&eacute; de base (monom&egrave;re).</p>
+</div>
+
+<div class="mama-section">
+  <h4>M&eacute;taux &mdash; Fer et aluminium</h4>
+  <div class="mat-grid">
+    <div class="mat-card">
+      <div class="mat-title">Fer / Acier</div>
+      <span class="mat-form">Fe &nbsp; Z=26, A=56</span>
+      <p>Quincaillerie, clous, vis. L&rsquo;acier est un alliage Fe&thinsp;+&thinsp;C (carbone). Se corrode (rouille : Fe<sub>2</sub>O<sub>3</sub>&middot;nH<sub>2</sub>O).</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Aluminium</div>
+      <span class="mat-form">Al &nbsp; Z=13, A=27</span>
+      <p>Profil&eacute;s, ferrures, menuiseries alu. L&eacute;ger (densit&eacute; 2,7 g/cm&sup3;), ne rouille pas (couche Al<sub>2</sub>O<sub>3</sub> protectrice).</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Zinc</div>
+      <span class="mat-form">Zn &nbsp; Z=30, A=65</span>
+      <p>Galvanisation de l&rsquo;acier, gouttni&egrave;res. Prot&egrave;ge le fer par &eacute;lectrolyse de sacrifice.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Cuivre</div>
+      <span class="mat-form">Cu &nbsp; Z=29, A=64</span>
+      <p>C&acirc;bles &eacute;lectriques, tuyauterie. Bonne conductivit&eacute; &eacute;lectrique et thermique.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mama-section">
+  <h4>Peintures, vernis et colles</h4>
+  <div class="mat-grid">
+    <div class="mat-card">
+      <div class="mat-title">Peinture glyc&eacute;rophtalique</div>
+      <span class="mat-form">R&eacute;sine + solvant</span>
+      <p>Solvant : hydrocarbures (white-spirit, C<sub>9</sub>H<sub>20</sub>&hellip;). Pigments min&eacute;raux (TiO<sub>2</sub>, oxydes Fe). Liant : r&eacute;sine polym&egrave;re.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Colle vinylique</div>
+      <span class="mat-form">PVA &mdash; (C<sub>4</sub>H<sub>6</sub>O<sub>2</sub>)<sub>n</sub></span>
+      <p>Poly(ac&eacute;tate de vinyle) en &eacute;mulsion aqueuse. Polym&egrave;re thermoplastique. S&egrave;che par &eacute;vaporation de l&rsquo;eau.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Vernis polyur&eacute;thane</div>
+      <span class="mat-form">R&eacute;sine PU</span>
+      <p>Polym&egrave;re retic&ucirc;l&eacute; (polyure&thinsp;thane). Deux composants : polyol + isocyanate. Tr&egrave;s r&eacute;sistant.</p>
+    </div>
+    <div class="mat-card">
+      <div class="mat-title">Silicone</div>
+      <span class="mat-form">[Si(CH<sub>3</sub>)<sub>2</sub>O]<sub>n</sub></span>
+      <p>Polym&egrave;re organosilici&eacute;. Mastic d&rsquo;&eacute;tanchit&eacute;. Tr&egrave;s bonne tenue aux UV et &agrave; l&rsquo;eau.</p>
+    </div>
+  </div>
+</div>
+
+<h3>Tableau des mat&eacute;riaux courants &mdash; Formules et propri&eacute;t&eacute;s</h3>
+<table>
+  <tr>
+    <th>Mat&eacute;riau</th>
+    <th>Formule / Composition</th>
+    <th>Type d&rsquo;entit&eacute; principale</th>
+    <th>Propri&eacute;t&eacute; cl&eacute;</th>
+    <th>Usage MAMA</th>
+  </tr>
+  <tr><td>Eau</td><td>H<sub>2</sub>O</td><td>Mol&eacute;cule</td><td>Solvant universel</td><td>Nettoyage, colles aqueuses</td></tr>
+  <tr><td>Cellulose</td><td>(C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub></td><td>Polym&egrave;re</td><td>Rigidit&eacute;, fibre</td><td>Structure du bois</td></tr>
+  <tr><td>Fer</td><td>Fe (Z=26)</td><td>M&eacute;tal (atomes)</td><td>R&eacute;sistance, magn&eacute;tisme</td><td>Vis, clous, charnires</td></tr>
+  <tr><td>Aluminium</td><td>Al (Z=13)</td><td>M&eacute;tal (atomes)</td><td>L&eacute;g&egrave;ret&eacute;, anticorrosion</td><td>Profil&eacute;s, menuiseries</td></tr>
+  <tr><td>Dioxyde de titane</td><td>TiO<sub>2</sub></td><td>Solide ionique</td><td>Pigment blanc opaque</td><td>Peintures, enduits</td></tr>
+  <tr><td>Colle vinylique (PVA)</td><td>(C<sub>4</sub>H<sub>6</sub>O<sub>2</sub>)<sub>n</sub></td><td>Polym&egrave;re</td><td>Adh&eacute;sion sur bois</td><td>Assemblage, placage</td></tr>
+  <tr><td>White-spirit</td><td>M&eacute;lange C<sub>9</sub>&ndash;C<sub>14</sub></td><td>Mol&eacute;cules organiques</td><td>Solvant peintures glyc.</td><td>Nettoyage pinceaux</td></tr>
+  <tr><td>Pl&acirc;tre</td><td>CaSO<sub>4</sub>&middot;&frac12;H<sub>2</sub>O</td><td>Solide ionique</td><td>Prise par hydratation</td><td;>Enduits, plaques</td></tr>
+</table>
 
 <!-- ===== 7. TABLEAU DE SYNTHÈSE ===== -->
 <h2>7. Tableau de synth&egrave;se</h2>
@@ -540,7 +827,243 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid #2f855a;padding
   </details>
 </div>
 
+
+<!-- ===== MINI-EXERCICES SUPPLÉMENTAIRES ===== -->
+<h2>10. Mini-exercices &mdash; Contexte MAMA</h2>
+
+<div class="exo">
+  <div class="exo-num">Exercice 4 &mdash; Structure du fer et de l&rsquo;aluminium</div>
+  <p>Le fer a pour symbole <strong>Fe</strong>, num&eacute;ro atomique \(Z = 26\) et nombre de masse \(A = 56\).<br>
+  L&rsquo;aluminium a pour symbole <strong>Al</strong>, \(Z = 13\) et \(A = 27\).</p>
+  <ol>
+    <li>Donner la notation symbolique \({}^{A}_{Z}\text{X}\) pour le fer et pour l&rsquo;aluminium.</li>
+    <li>Combien de neutrons poss&egrave;de un atome de fer ? Un atome d&rsquo;aluminium ?</li>
+    <li>Dans la quincaillerie, on trouve des vis en acier (alliage de fer). Pourquoi faut-il les prot&eacute;ger contre la corrosion ? Quel ion est responsable de la rouille ?</li>
+    <li>L&rsquo;aluminium ne rouille pas. Quel est le nom de la couche protectrice qui se forme naturellement ? Quelle est sa formule chimique ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> Fer : \({}^{56}_{26}\text{Fe}\) &nbsp;|&nbsp; Aluminium : \({}^{27}_{13}\text{Al}\)<br><br>
+      <strong>2.</strong> Neutrons du fer : \(N = A - Z = 56 - 26 = \mathbf{30}\) neutrons.<br>
+      Neutrons de l&rsquo;aluminium : \(N = 27 - 13 = \mathbf{14}\) neutrons.<br><br>
+      <strong>3.</strong> Le fer se corrode car il r&eacute;agit avec l&rsquo;eau et l&rsquo;oxyg&egrave;ne de l&rsquo;air. La rouille est un oxyde de fer hydrat&eacute; (Fe<sub>2</sub>O<sub>3</sub>&middot;nH<sub>2</sub>O). L&rsquo;ion responsable lors de la corrosion est <strong>Fe<sup>2+</sup></strong> (ion fer II) ou <strong>Fe<sup>3+</sup></strong> (ion fer III).<br><br>
+      <strong>4.</strong> L&rsquo;aluminium se recouvre spontan&eacute;ment d&rsquo;une couche d&rsquo;<strong>alumine</strong>, de formule <strong>Al<sub>2</sub>O<sub>3</sub></strong>. Cette couche tr&egrave;s fine est adh&eacute;rente et emp&ecirc;che l&rsquo;oxyg&egrave;ne d&rsquo;atteindre le m&eacute;tal en dessous.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 5 &mdash; &Eacute;tats de la mati&egrave;re dans l&rsquo;atelier</div>
+  <p>Dans un atelier de menuiserie, on observe les mat&eacute;riaux et substances suivants :</p>
+  <p><strong>A.</strong> Une planche de chêne &nbsp;|&nbsp; <strong>B.</strong> De la colle vinylique dans un pot &nbsp;|&nbsp; <strong>C.</strong> De la vapeur d&rsquo;eau au-dessus d&rsquo;une marmite &nbsp;|&nbsp; <strong>D.</strong> Du white-spirit dans un r&eacute;cipient &nbsp;|&nbsp; <strong>E.</strong> De l&rsquo;air ambiant &nbsp;|&nbsp; <strong>F.</strong> Un clou en acier</p>
+  <ol>
+    <li>Classer chaque substance dans son &eacute;tat physique (solide / liquide / gaz).</li>
+    <li>Pour l&rsquo;&eacute;tat solide : d&eacute;crire l&rsquo;organisation microscopique des particules.</li>
+    <li>Le white-spirit s&rsquo;&eacute;vapore rapidement. Quel changement d&rsquo;&eacute;tat se produit ? Comment appelle-t-on ce ph&eacute;nom&egrave;ne ?</li>
+    <li>Quel est le risque li&eacute; &agrave; la pr&eacute;sence de vapeurs de white-spirit dans l&rsquo;atelier ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong>
+      <ul>
+        <li><strong>Solides :</strong> A (planche de ch&ecirc;ne), F (clou en acier)</li>
+        <li><strong>Liquides :</strong> B (colle vinylique), D (white-spirit)</li>
+        <li><strong>Gaz :</strong> C (vapeur d&rsquo;eau), E (air ambiant)</li>
+      </ul>
+      <strong>2.</strong> Dans un solide, les particules sont <em>tr&egrave;s proches les unes des autres</em>, organis&eacute;es en r&eacute;seau r&eacute;gulier (pour un m&eacute;tal) ou en structure ordonn&eacute;e. Elles vibrent sur place mais ne se d&eacute;placent pas librement.<br><br>
+      <strong>3.</strong> Le white-spirit passe de l&rsquo;&eacute;tat <em>liquide</em> &agrave; l&rsquo;&eacute;tat <em>gazeux</em> : c&rsquo;est une <strong>&eacute;vaporation</strong> (ou vaporisation). Les mol&eacute;cules de solvant ont assez d&rsquo;&eacute;nergie pour quitter la surface du liquide.<br><br>
+      <strong>4.</strong> Les vapeurs de white-spirit sont <em>inflammables</em> et peuvent former un m&eacute;lange explosif avec l&rsquo;air. Risque d&rsquo;incendie ou d&rsquo;explosion si une source d&rsquo;ignition est pr&eacute;sente. L&rsquo;atelier doit &ecirc;tre ventil&eacute; et les sources d&rsquo;&eacute;tincelles &eacute;vit&eacute;es.
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 6 &mdash; Cellulose et polym&egrave;res du bois</div>
+  <p>La cellulose, polym&egrave;re principal du bois, a la formule : <strong>(C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)<sub>n</sub></strong> o&ugrave; <em>n</em> est un grand nombre entier (plusieurs milliers).</p>
+  <ol>
+    <li>Quels &eacute;l&eacute;ments chimiques composent la cellulose ?</li>
+    <li>L&rsquo;unit&eacute; de base (monom&egrave;re) a pour formule C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>. Combien d&rsquo;atomes comporte une unit&eacute; de base ?</li>
+    <li>Si une longue cha&icirc;ne de cellulose comporte <em>n</em> = 5 000 unit&eacute;s, combien y a-t-il d&rsquo;atomes de carbone au total ?</li>
+    <li>La cellulose est-elle un atome, un ion, une mol&eacute;cule ou un polym&egrave;re ? Expliquer.</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> La cellulose contient trois &eacute;l&eacute;ments : <strong>carbone (C)</strong>, <strong>hydrog&egrave;ne (H)</strong> et <strong>oxyg&egrave;ne (O)</strong>.<br><br>
+      <strong>2.</strong> Une unit&eacute; de base C<sub>6</sub>H<sub>10</sub>O<sub>5</sub> comporte : \(6 + 10 + 5 = \mathbf{21}\) atomes.<br><br>
+      <strong>3.</strong> Pour <em>n</em> = 5 000 unit&eacute;s : nombre d&rsquo;atomes de carbone \(= 6 \times 5\,000 = \mathbf{30\,000}\) atomes de C.<br><br>
+      <strong>4.</strong> La cellulose est un <strong>polym&egrave;re</strong> (macromol&eacute;cule). C&rsquo;est une tr&egrave;s longue mol&eacute;cule form&eacute;e par la r&eacute;p&eacute;tition d&rsquo;une unit&eacute; de base (le monom&egrave;re glucose). Elle est &eacute;lectriquement neutre (pas d&rsquo;ion).
+    </div>
+  </details>
+</div>
+
+<div class="exo">
+  <div class="exo-num">Exercice 7 &mdash; Masses atomiques et choix de mat&eacute;riaux</div>
+  <p>Le tableau ci-dessous rappelle les masses atomiques de quelques &eacute;l&eacute;ments :</p>
+  <table>
+    <tr><th>&Eacute;l&eacute;ment</th><th>H</th><th>C</th><th>O</th><th>Al</th><th>Fe</th><th>Cu</th><th>Zn</th></tr>
+    <tr><td>Masse atomique (u.m.a.)</td><td>1</td><td>12</td><td>16</td><td>27</td><td>56</td><td>64</td><td>65</td></tr>
+  </table>
+  <ol>
+    <li>Calculer la masse mol&eacute;culaire de l&rsquo;eau H<sub>2</sub>O. (On rappelle : masse mol&eacute;culaire = somme des masses atomiques des atomes de la mol&eacute;cule.)</li>
+    <li>Calculer la masse mol&eacute;culaire du CO<sub>2</sub>.</li>
+    <li>Le fer (A=56) est bien plus lourd que l&rsquo;aluminium (A=27). Quel m&eacute;tal choisira-t-on pour des huisseries de fen&ecirc;tres afin de r&eacute;duire le poids ? Quel autre avantage ce m&eacute;tal pr&eacute;sente-t-il ?</li>
+    <li>Un menuisier utilise des vis en acier zingu&eacute; (acier recouvert de zinc). Quel est le r&ocirc;le du zinc ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>1.</strong> H<sub>2</sub>O : \(M = 2 \times 1 + 1 \times 16 = 2 + 16 = \mathbf{18 \text{ g/mol}}\).<br><br>
+      <strong>2.</strong> CO<sub>2</sub> : \(M = 1 \times 12 + 2 \times 16 = 12 + 32 = \mathbf{44 \text{ g/mol}}\).<br><br>
+      <strong>3.</strong> On choisira l&rsquo;<strong>aluminium</strong> (A=27, densit&eacute; 2,7 g/cm&sup3;) plutôt que le fer (A=56, densit&eacute; 7,8 g/cm&sup3;) car il est environ 3 fois plus l&eacute;ger. De plus, l&rsquo;aluminium est naturellement <em>anticorrosion</em> gr&acirc;ce &agrave; sa couche d&rsquo;alumine protectrice &mdash; tr&egrave;s important pour les fen&ecirc;tres expos&eacute;es aux intemp&eacute;ries.<br><br>
+      <strong>4.</strong> Le zinc prot&egrave;ge l&rsquo;acier contre la corrosion par deux m&eacute;canismes : il forme une barrière physique contre l&rsquo;humidit&eacute; et agit en <em>anode sacrificielle</em> (le zinc se corrode en priorit&eacute; &agrave; la place du fer).
+    </div>
+  </details>
+</div>
+
 </div>
 <script src="nav.js"></script>
+<script>
+// ===== CHART.JS : Masses atomiques =====
+(function(){
+  const ctx = document.getElementById('chartMasses');
+  if(!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['H (1)','C (12)','N (14)','O (16)','Al (27)','Si (28)','Fe (56)','Cu (64)','Zn (65)'],
+      datasets: [{
+        label: 'Masse atomique (u.m.a.)',
+        data: [1, 12, 14, 16, 27, 28, 56, 64, 65],
+        backgroundColor: [
+          '#a78bfa','#6f42c1','#5b21b6','#7c3aed',
+          '#2f855a','#065f46',
+          '#c53030','#d97706','#b45309'
+        ],
+        borderRadius: 6,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' Masse : ' + ctx.parsed.y + ' u.m.a.'
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Masse atomique (u.m.a.)', font: { size: 12 } },
+          grid: { color: '#f0f0f0' }
+        },
+        x: {
+          title: { display: true, text: 'Élément (masse)', font: { size: 12 } },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+})();
+
+// ===== ANIMATION CANVAS : États de la matière =====
+(function(){
+  const canvas = document.getElementById('animEtats');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const N_PART = 40;
+  let etat = 'solide';
+  let particles = [];
+
+  function initParticles(){
+    particles = [];
+    if(etat === 'solide'){
+      const cols = 10, rows = 4;
+      const dx = W/(cols+1), dy = H/(rows+1);
+      for(let r=0;r<rows;r++){
+        for(let c=0;c<cols;c++){
+          particles.push({
+            x: dx*(c+1), y: dy*(r+1),
+            bx: dx*(c+1), by: dy*(r+1),
+            vx: 0, vy: 0, r: 7
+          });
+        }
+      }
+    } else if(etat === 'liquide'){
+      for(let i=0;i<N_PART;i++){
+        particles.push({
+          x: 14+Math.random()*(W-28),
+          y: 14+Math.random()*(H-28),
+          vx: (Math.random()-.5)*1.2,
+          vy: (Math.random()-.5)*1.2,
+          r: 7
+        });
+      }
+    } else {
+      for(let i=0;i<N_PART;i++){
+        particles.push({
+          x: 14+Math.random()*(W-28),
+          y: 14+Math.random()*(H-28),
+          vx: (Math.random()-.5)*4,
+          vy: (Math.random()-.5)*4,
+          r: 6
+        });
+      }
+    }
+  }
+
+  function colorPart(){
+    if(etat==='solide') return '#8b5cf6';
+    if(etat==='liquide') return '#2f855a';
+    return '#d97706';
+  }
+
+  function step(){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#1e1e2e';
+    ctx.fillRect(0,0,W,H);
+
+    for(let p of particles){
+      if(etat === 'solide'){
+        // petite vibration aléatoire autour de la position de base
+        p.x = p.bx + (Math.random()-.5)*2;
+        p.y = p.by + (Math.random()-.5)*2;
+      } else {
+        p.x += p.vx;
+        p.y += p.vy;
+        if(p.x < p.r){ p.x = p.r; p.vx = Math.abs(p.vx); }
+        if(p.x > W-p.r){ p.x = W-p.r; p.vx = -Math.abs(p.vx); }
+        if(p.y < p.r){ p.y = p.r; p.vy = Math.abs(p.vy); }
+        if(p.y > H-p.r){ p.y = H-p.r; p.vy = -Math.abs(p.vy); }
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = colorPart();
+      ctx.fill();
+    }
+    requestAnimationFrame(step);
+  }
+
+  initParticles();
+  step();
+
+  window.setEtat = function(e){
+    etat = e;
+    initParticles();
+    const labels = {
+      solide: '&#x25CF; &Eacute;tat actuel : <strong style="color:#c4b5fd">Solide</strong> &mdash; particules fix&eacute;es en r&eacute;seau, vibrations infimes',
+      liquide: '&#x25CF; &Eacute;tat actuel : <strong style="color:#6ee7b7">Liquide</strong> &mdash; particules proches, mouvements locaux mod&eacute;r&eacute;s',
+      gaz: '&#x25CF; &Eacute;tat actuel : <strong style="color:#fcd34d">Gaz</strong> &mdash; particules tr&egrave;s espac&eacute;es, agitation rapide al&eacute;atoire'
+    };
+    document.getElementById('animLabel').innerHTML = labels[e];
+  };
+})();
+</script>
 </body>
 </html>

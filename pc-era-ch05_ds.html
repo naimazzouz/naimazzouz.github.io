@@ -47,6 +47,10 @@ tr:nth-child(even) td{background:#f8fafc}
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
 @media print{.nb{display:none}.rep-zone{background:#fff}}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:14px 18px;margin-top:6px;margin-bottom:14px;border-radius:0 10px 10px 0;display:none}
+.corr p{margin:6px 0}
+.bc{background:var(--p);color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:.85em;margin-top:4px}
+.bc:hover{opacity:.85}
 </style>
 </head>
 <body><div class="c">
@@ -100,6 +104,12 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\)</p>
+    <p><strong>Réducteur (s'oxyde, perd des e⁻) :</strong> Fe (fer) — il cède 2 électrons</p>
+    <p><strong>Oxydant (se réduit, gagne des e⁻) :</strong> H⁺ (ions hydrogène/protons) — ils gagnent des électrons</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -111,6 +121,12 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Oxydation du fer (anode) :</strong> \(\text{Fe} \rightarrow \text{Fe}^{2+} + 2e^-\)</p>
+    <p><strong>Réduction des protons (cathode) :</strong> \(2\text{H}^+ + 2e^- \rightarrow \text{H}_2\)</p>
+    <p>Somme : \(\text{Fe} + 2\text{H}^+ \rightarrow \text{Fe}^{2+} + \text{H}_2\) ✓</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -121,6 +137,14 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Vérification atome par atome :</strong></p>
+    <p>Fe : gauche = 4, droite = 4 ✓</p>
+    <p>O : gauche = 3×2 + 6×1 = 6 + 6 = 12, droite = 4×3 = 12 ✓</p>
+    <p>H : gauche = 6×2 = 12, droite = 4×3 = 12 ✓</p>
+    <p>L'équation est bien équilibrée.</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -131,6 +155,13 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:80px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La phénolphtaléine devient rose en milieu basique (pH &gt; 8,2).</p>
+    <p>La présence de rose autour de la pièce en acier indique une zone basique → présence d'ions OH⁻.</p>
+    <p>Ces ions OH⁻ sont produits par la réduction de l'eau (\(\text{O}_2 + 2\text{H}_2\text{O} + 4e^- \rightarrow 4\text{OH}^-\)) à la cathode.</p>
+    <p>Cela confirme qu'une réaction d'oxydoréduction (corrosion) est en cours.</p>
+  </div>
 </div>
 
 <!-- EXERCICE 2 -->
@@ -186,6 +217,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Schéma attendu :</strong> générateur (+ et −), anode reliée au + du générateur, cathode reliée au −, bain électrolytique entre les deux électrodes.</p>
+    <p>Anode (+) : plaque de zinc (Zn) — Cathode (−) : pièce en acier — Électrolyte : ZnSO₄(aq)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">2.</span>
@@ -194,6 +230,12 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">2 pts</span>
   </p>
   <div class="rep-zone" style="min-height:70px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Dans la galvanisation au zinc : le zinc se dépose sur la <strong>cathode</strong> (électrode reliée au pôle − du générateur).</p>
+    <p>Les ions Zn²⁺ du bain gagnent 2 électrons et se déposent en zinc solide : \(\text{Zn}^{2+} + 2e^- \rightarrow \text{Zn}\)</p>
+    <p>Il s'agit d'une <strong>réduction</strong> (gain d'électrons).</p>
+  </div>
 
   <p class="q">
     <span class="q-num">3.</span>
@@ -204,6 +246,11 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:90px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(t = 30\,\text{min} = 1\,800\,\text{s}\)</p>
+    <p>\(m = \dfrac{M \times I \times t}{n \times F} = \dfrac{65{,}4 \times 5 \times 1\,800}{2 \times 96\,500} = \dfrac{588\,600}{193\,000} \approx 3{,}05\,\text{g}\)</p>
+  </div>
 
   <p class="q">
     <span class="q-num">4.</span>
@@ -212,9 +259,17 @@ tr:nth-child(even) td{background:#f8fafc}
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:85px">…</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>La galvanisation dépose une couche de zinc à la surface de l'acier.</p>
+    <p>Le zinc est plus réducteur que le fer (il s'oxyde en priorité).</p>
+    <p>Même si la couche est rayée, le zinc se sacrifie à la place du fer (protection cathodique ou sacrificielle).</p>
+    <p>L'acier est ainsi protégé de la corrosion même en milieu humide.</p>
+  </div>
 </div>
 
 </div>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
 <script src="nav.js"></script>
 </body>
 </html>
