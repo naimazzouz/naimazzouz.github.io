@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ch.5 &mdash; Mouvement et trajectoire &mdash; Physique-Chimie 2nde Pro MAMA</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--p:#6f42c1;--s:#2f855a;--d:#c53030;--o:#d97706;--t:#2d3748}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--t);line-height:1.7;margin:0;padding:20px}
@@ -42,6 +43,14 @@ details.corr summary{cursor:pointer;font-weight:600;color:var(--s);font-size:.88
 details.corr summary:hover{text-decoration:underline}
 details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
 @media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.svg-wrap{text-align:center;margin:22px 0}
+.chart-wrap{max-width:580px;margin:22px auto}
+.anim-wrap{background:#f0f9ff;border:1px solid #7dd3fc;border-radius:10px;padding:20px;margin:22px 0;text-align:center}
+.anim-wrap canvas{border-radius:8px;max-width:100%}
+.anim-controls{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.anim-btn{background:#0369a1;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.88em;font-weight:600}
+.anim-btn:hover{opacity:.85}
+.anim-label{font-size:.88em;color:#4a5568;margin-top:8px}
 </style>
 </head>
 <body>
@@ -150,70 +159,83 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
   </tbody>
 </table>
 
-<!-- SVG Trajectoires -->
-<figure style="margin:18px 0;text-align:center">
-  <svg width="100%" viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg" style="max-width:640px;font-family:sans-serif">
-    <rect width="640" height="180" fill="#f8fafc" rx="8"/>
+<!-- SVG Trajectoires enrichi -->
+<div class="svg-wrap">
+  <svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="max-width:680px;font-family:sans-serif">
+    <rect width="680" height="220" fill="#f0f9ff" rx="10" stroke="#7dd3fc" stroke-width="1.5"/>
 
-    <!-- TRAJECTOIRE RECTILIGNE -->
-    <text x="107" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#6f42c1">Rectiligne</text>
-    <!-- fl&egrave;che direction -->
+    <!-- Titre -->
+    <text x="340" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#0369a1">Les trois types de trajectoires</text>
+
+    <!-- === TRAJECTOIRE RECTILIGNE === -->
     <defs>
-      <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-        <path d="M0,0 L6,3 L0,6 Z" fill="#6f42c1"/>
+      <marker id="arrR" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#6f42c1"/>
       </marker>
     </defs>
-    <line x1="20" y1="90" x2="190" y2="90" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr1)"/>
-    <!-- Points de position -->
-    <circle cx="40"  cy="90" r="5" fill="#6f42c1"/>
-    <circle cx="75"  cy="90" r="5" fill="#6f42c1"/>
-    <circle cx="110" cy="90" r="5" fill="#6f42c1"/>
-    <circle cx="145" cy="90" r="5" fill="#6f42c1"/>
-    <circle cx="180" cy="90" r="5" fill="#6f42c1"/>
-    <text x="107" y="120" text-anchor="middle" font-size="10" fill="#718096">Chariot sur rail</text>
-    <text x="107" y="134" text-anchor="middle" font-size="10" fill="#718096">d&rsquo;atelier</text>
+    <!-- Fond zone -->
+    <rect x="15" y="35" width="200" height="170" rx="7" fill="#f5f0ff" stroke="#c4b5fd" stroke-width="1"/>
+    <text x="115" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#6f42c1">Rectiligne</text>
+    <!-- Droite avec flèche -->
+    <line x1="30" y1="120" x2="195" y2="120" stroke="#6f42c1" stroke-width="2.5" marker-end="url(#arrR)"/>
+    <!-- Points de position équidistants -->
+    <circle cx="45"  cy="120" r="6" fill="#6f42c1"/>
+    <circle cx="80"  cy="120" r="6" fill="#6f42c1"/>
+    <circle cx="115" cy="120" r="6" fill="#6f42c1"/>
+    <circle cx="150" cy="120" r="6" fill="#6f42c1"/>
+    <circle cx="183" cy="120" r="6" fill="#6f42c1"/>
+    <!-- Annotation -->
+    <text x="115" y="150" text-anchor="middle" font-size="10" fill="#6f42c1">Positions &eacute;quidistantes</text>
+    <text x="115" y="164" text-anchor="middle" font-size="10" fill="#718096">Chariot sur rail,</text>
+    <text x="115" y="177" text-anchor="middle" font-size="10" fill="#718096">pi&egrave;ce sur toupie &agrave; guide</text>
 
-    <!-- TRAJECTOIRE CIRCULAIRE -->
-    <text x="320" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#2f855a">Circulaire</text>
+    <!-- === TRAJECTOIRE CIRCULAIRE === -->
     <defs>
-      <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-        <path d="M0,0 L6,3 L0,6 Z" fill="#2f855a"/>
+      <marker id="arrC" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#2f855a"/>
       </marker>
     </defs>
-    <circle cx="320" cy="85" r="50" fill="none" stroke="#2f855a" stroke-width="2" stroke-dasharray="5,3"/>
-    <!-- Points circulaires -->
-    <circle cx="370" cy="85"  r="5" fill="#2f855a"/>
-    <circle cx="355" cy="42"  r="5" fill="#2f855a"/>
-    <circle cx="320" cy="35"  r="5" fill="#2f855a"/>
-    <circle cx="285" cy="42"  r="5" fill="#2f855a"/>
-    <circle cx="270" cy="85"  r="5" fill="#2f855a"/>
-    <circle cx="285" cy="128" r="5" fill="#2f855a"/>
-    <!-- fl&egrave;che tangente -->
-    <path d="M370,85 A1,1 0 0,1 355,42" fill="none" stroke="#2f855a" stroke-width="1.5" marker-end="url(#arr2)"/>
-    <text x="320" y="150" text-anchor="middle" font-size="10" fill="#718096">Dent de scie circulaire</text>
-    <text x="320" y="164" text-anchor="middle" font-size="10" fill="#718096">(en rotation)</text>
+    <rect x="240" y="35" width="200" height="170" rx="7" fill="#f0fff4" stroke="#9ae6b4" stroke-width="1"/>
+    <text x="340" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#2f855a">Circulaire</text>
+    <!-- Cercle -->
+    <circle cx="340" cy="110" r="48" fill="none" stroke="#2f855a" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <!-- Points sur le cercle -->
+    <circle cx="388" cy="110" r="6" fill="#2f855a"/>
+    <circle cx="374" cy="70"  r="6" fill="#2f855a"/>
+    <circle cx="340" cy="62"  r="6" fill="#2f855a"/>
+    <circle cx="306" cy="70"  r="6" fill="#2f855a"/>
+    <circle cx="292" cy="110" r="6" fill="#2f855a"/>
+    <circle cx="306" cy="150" r="6" fill="#2f855a"/>
+    <!-- Flèche arc -->
+    <path d="M388,110 A48,48 0 0,1 374,70" fill="none" stroke="#2f855a" stroke-width="2" marker-end="url(#arrC)"/>
+    <!-- Annotation -->
+    <text x="340" y="174" text-anchor="middle" font-size="10" fill="#718096">Dent de scie circulaire,</text>
+    <text x="340" y="187" text-anchor="middle" font-size="10" fill="#718096">fraise en rotation</text>
 
-    <!-- TRAJECTOIRE CURVILIGNE -->
-    <text x="533" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#d97706">Curviligne</text>
+    <!-- === TRAJECTOIRE CURVILIGNE === -->
     <defs>
-      <marker id="arr3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-        <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
+      <marker id="arrV" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#d97706"/>
       </marker>
     </defs>
-    <path d="M430,130 C450,130 455,50 490,50 C525,50 530,110 560,80 C580,65 600,60 620,55"
-          fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr3)"/>
-    <!-- Points curvilignes -->
-    <circle cx="433" cy="129" r="5" fill="#d97706"/>
-    <circle cx="460" cy="95"  r="5" fill="#d97706"/>
-    <circle cx="490" cy="50"  r="5" fill="#d97706"/>
-    <circle cx="520" cy="80"  r="5" fill="#d97706"/>
-    <circle cx="555" cy="82"  r="5" fill="#d97706"/>
-    <circle cx="615" cy="57"  r="5" fill="#d97706"/>
-    <text x="533" y="150" text-anchor="middle" font-size="10" fill="#718096">Balle lanc&eacute;e,</text>
-    <text x="533" y="164" text-anchor="middle" font-size="10" fill="#718096">profil CNC courbe</text>
+    <rect x="465" y="35" width="200" height="170" rx="7" fill="#fffbeb" stroke="#fde68a" stroke-width="1"/>
+    <text x="565" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#d97706">Curviligne</text>
+    <!-- Courbe sinusoïdale / parabolique -->
+    <path d="M478,145 C495,145 500,70 530,70 C560,70 565,130 595,100 C615,82 645,75 658,70"
+          fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrV)"/>
+    <!-- Points sur la courbe -->
+    <circle cx="480" cy="144" r="6" fill="#d97706"/>
+    <circle cx="505" cy="105" r="6" fill="#d97706"/>
+    <circle cx="530" cy="70"  r="6" fill="#d97706"/>
+    <circle cx="560" cy="105" r="6" fill="#d97706"/>
+    <circle cx="595" cy="100" r="6" fill="#d97706"/>
+    <circle cx="652" cy="72"  r="6" fill="#d97706"/>
+    <!-- Annotation -->
+    <text x="565" y="174" text-anchor="middle" font-size="10" fill="#718096">Balle lanc&eacute;e,</text>
+    <text x="565" y="187" text-anchor="middle" font-size="10" fill="#718096">profil CNC courbe</text>
   </svg>
-  <figcaption style="font-size:.82em;color:#718096;margin-top:4px">Les trois types de trajectoires (les points repr&eacute;sentent les positions successives de l&rsquo;objet)</figcaption>
-</figure>
+  <p style="font-size:.82em;color:#718096;margin-top:6px">Les trois types de trajectoires &mdash; les points repr&eacute;sentent les positions successives de l&rsquo;objet dans le temps</p>
+</div>
 
 <!-- ==================== SECTION 3 ==================== -->
 <h2>3. La vitesse moyenne</h2>
@@ -242,6 +264,29 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
   <br>
   <strong>Exemple 2 &mdash; Avance d&rsquo;outil :</strong> lors d&rsquo;un passage de raboteuse, la pi&egrave;ce parcourt 2,5 m en 5 s.<br>
   \[ v = \frac{2{,}5}{5} = 0{,}5\ \text{m/s} = 0{,}5 \times 3{,}6 = 1{,}8\ \text{km/h} \]
+</div>
+
+<!-- ===== GRAPHIQUE Chart.js distance-temps ===== -->
+<h3>3.2 Graphique distance-temps : comparaison de deux mobiles</h3>
+<div class="chart-wrap">
+  <canvas id="chartDT" height="260"></canvas>
+</div>
+<p style="font-size:.85em;color:#718096;text-align:center;margin-top:4px">
+  Mobile A (MRU, v&nbsp;=&nbsp;2&nbsp;m/s) : droite &mdash; Mobile B (mouvement d&eacute;c&eacute;l&eacute;r&eacute;) : courbe
+</p>
+
+<!-- ===== ANIMATION CANVAS bille ===== -->
+<h3>3.3 Animation : mobile en mouvement rectiligne</h3>
+<div class="anim-wrap">
+  <canvas id="animCanvas" width="500" height="120"></canvas>
+  <div class="anim-controls">
+    <button class="anim-btn" id="btnStartPause">&#9654; D&eacute;marrer</button>
+    <button class="anim-btn" id="btnReset" style="background:#64748b;">&#8635; R&eacute;initialiser</button>
+    <button class="anim-btn" id="btnPlus" style="background:#0d9488;">+ Rapide</button>
+    <button class="anim-btn" id="btnMinus" style="background:#7c3aed;">&#8722; Lent</button>
+  </div>
+  <p class="anim-label" id="animInfo">v = 2,0 m/s &nbsp;|&nbsp; d = 0,0 m &nbsp;|&nbsp; t = 0,0 s</p>
+  <p style="font-size:.8em;color:#718096;margin-top:4px">La bille laisse une trace bleue (trajectoire rectiligne). Ajustez la vitesse avec les boutons.</p>
 </div>
 
 <!-- ==================== SECTION 4 ==================== -->
@@ -325,7 +370,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <text x="310" y="24" text-anchor="middle" font-size="11" font-weight="bold" fill="#2f855a">Mouvement UNIFORME (vitesse constante)</text>
     <!-- Rail -->
     <line x1="30" y1="55" x2="590" y2="55" stroke="#cbd5e0" stroke-width="1.5"/>
-    <!-- Points &eacute;quidistants : 7 points espac&eacute;s de 80px -->
+    <!-- Points équidistants : 7 points espacés de 80px -->
     <circle cx="70"  cy="55" r="8" fill="#2f855a"/>
     <circle cx="150" cy="55" r="8" fill="#2f855a"/>
     <circle cx="230" cy="55" r="8" fill="#2f855a"/>
@@ -346,7 +391,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <!-- MOUVEMENT ACCELERE -->
     <text x="310" y="110" text-anchor="middle" font-size="11" font-weight="bold" fill="#6f42c1">Mouvement ACCELERE (vitesse croissante)</text>
     <line x1="30" y1="140" x2="590" y2="140" stroke="#cbd5e0" stroke-width="1.5"/>
-    <!-- Points de plus en plus espac&eacute;s : 10, 30, 55, 85, 120, 160 -->
+    <!-- Points de plus en plus espacés : 10, 30, 55, 85, 120, 160 -->
     <circle cx="50"  cy="140" r="8" fill="#6f42c1"/>
     <circle cx="80"  cy="140" r="8" fill="#6f42c1"/>
     <circle cx="135" cy="140" r="8" fill="#6f42c1"/>
@@ -365,7 +410,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <!-- MOUVEMENT DECELERE -->
     <text x="310" y="195" text-anchor="middle" font-size="11" font-weight="bold" fill="#c53030">Mouvement DECELERE (vitesse d&eacute;croissante)</text>
     <line x1="30" y1="225" x2="590" y2="225" stroke="#cbd5e0" stroke-width="1.5"/>
-    <!-- Points de plus en plus rapproch&eacute;s : 150, 110, 75, 45, 25 -->
+    <!-- Points de plus en plus rapprochés : 150, 110, 75, 45, 25 -->
     <circle cx="50"  cy="225" r="8" fill="#c53030"/>
     <circle cx="200" cy="225" r="8" fill="#c53030"/>
     <circle cx="310" cy="225" r="8" fill="#c53030"/>
@@ -451,8 +496,99 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
   </tbody>
 </table>
 
-<!-- ==================== SECTION 7 ==================== -->
-<h2>7. &Agrave; retenir</h2>
+<!-- ==================== SECTION 7 — APPLICATIONS MAMA ==================== -->
+<h2>7. Applications en atelier MAMA</h2>
+
+<p style="margin-bottom:14px;font-size:.95em;color:#4a5568">
+  Les notions de mouvement, trajectoire et vitesse s&rsquo;appliquent directement aux machines et aux op&eacute;rations de l&rsquo;atelier Menuiserie &ndash; Agencement &ndash; Ameublement. Voici trois exemples concrets avec calcul num&eacute;rique complet.
+</p>
+
+<!-- Application 1 : Scie à ruban -->
+<div class="meth">
+  <span class="label label-meth">Application 1 &mdash; Vitesse d&rsquo;avance d&rsquo;une scie &agrave; ruban</span>
+  <h3 style="margin-top:10px;color:#92400e">Contexte</h3>
+  <p>
+    Lors du d&eacute;bit de planches, l&rsquo;op&eacute;rateur pousse la pi&egrave;ce de bois contre la lame de la scie &agrave; ruban.
+    La <strong>vitesse d&rsquo;avance</strong> de la pi&egrave;ce est v = <strong>30 m/min</strong>.
+    On veut conna&icirc;tre la distance parcourue par la pi&egrave;ce en <strong>5 minutes</strong> de travail continu.
+  </p>
+  <h3 style="color:#92400e">Donn&eacute;es</h3>
+  <ul>
+    <li>Vitesse d&rsquo;avance : v = 30 m/min</li>
+    <li>Dur&eacute;e : &Delta;t = 5 min</li>
+    <li>Trajectoire de la pi&egrave;ce : <strong>rectiligne</strong> (guide droit)</li>
+  </ul>
+  <h3 style="color:#92400e">Calcul</h3>
+  <p>On applique la formule fondamentale :</p>
+  \[ d = v \times \Delta t = 30 \times 5 = \mathbf{150\ \text{m}} \]
+  <p>
+    En 5 minutes, la pi&egrave;ce a parcouru <strong>150 m</strong> par rapport &agrave; la lame.
+    Si chaque planche fait 2,5 m, cela correspond &agrave; \( 150 \div 2{,}5 = \mathbf{60\ \text{planches}} \) d&eacute;bit&eacute;es.
+  </p>
+  <div class="att" style="margin-top:10px">
+    <span class="label label-att">Conversion utile</span><br>
+    \( 30\ \text{m/min} = \dfrac{30}{60}\ \text{m/s} = 0{,}5\ \text{m/s} = 0{,}5 \times 3{,}6 = 1{,}8\ \text{km/h} \)
+  </div>
+</div>
+
+<!-- Application 2 : Fraise CNC -->
+<div class="prop">
+  <span class="label label-prop">Application 2 &mdash; Trajectoire d&rsquo;une fraise de CNC</span>
+  <h3 style="margin-top:10px;color:#065f46">Contexte</h3>
+  <p>
+    Sur une fraiseuse CNC (commande num&eacute;rique), l&rsquo;outil r&eacute;alise un profil compos&eacute; de deux phases :
+  </p>
+  <ol>
+    <li>
+      <strong>Passe rectiligne :</strong> l&rsquo;outil se d&eacute;place en ligne droite sur la longueur de la pi&egrave;ce
+      (trajectoire <strong>rectiligne</strong>). Vitesse d&rsquo;avance : v = 0,6 m/min. Longueur de la passe : L = 1,8 m.
+    </li>
+    <li>
+      <strong>Cong&eacute; (raccordement arrondi) :</strong> l&rsquo;outil suit un arc de cercle pour adoucir un angle
+      (trajectoire <strong>circulaire</strong>). Rayon du cong&eacute; : r = 15 mm = 0,015 m.
+    </li>
+  </ol>
+  <h3 style="color:#065f46">Calcul &mdash; Dur&eacute;e de la passe rectiligne</h3>
+  \[ \Delta t = \frac{d}{v} = \frac{1{,}8}{0{,}6} = \mathbf{3\ \text{min}} \]
+  <h3 style="color:#065f46">Calcul &mdash; Longueur du cong&eacute; (quart de cercle)</h3>
+  \[ \ell = \frac{2\pi r}{4} = \frac{2 \times \pi \times 0{,}015}{4} \approx \mathbf{0{,}024\ \text{m}} = 2{,}4\ \text{cm} \]
+  <p>
+    Le programme CNC combine donc des <strong>mouvements G01</strong> (interpolation lin&eacute;aire = rectiligne)
+    et des <strong>mouvements G02/G03</strong> (interpolation circulaire = arc de cercle) pour obtenir le profil final.
+  </p>
+</div>
+
+<!-- Application 3 : Tapis convoyeur -->
+<div class="ex">
+  <span class="label label-ex">Application 3 &mdash; Tapis convoyeur d&rsquo;atelier</span>
+  <h3 style="margin-top:10px">Contexte</h3>
+  <p>
+    Un tapis convoyeur transporte des panneaux de bois du poste de d&eacute;coupe au poste de finition.
+    La vitesse du tapis est v = <strong>0,5 m/s</strong>.
+    La distance entre les deux postes est d = <strong>8 m</strong>.
+    On veut calculer le temps n&eacute;cessaire pour qu&rsquo;un panneau parcoure toute la longueur du convoyeur.
+  </p>
+  <h3>Donn&eacute;es</h3>
+  <ul>
+    <li>Vitesse du convoyeur : v = 0,5 m/s</li>
+    <li>Distance &agrave; parcourir : d = 8 m</li>
+    <li>Trajectoire du panneau : <strong>rectiligne</strong> (tapis droit)</li>
+  </ul>
+  <h3>Calcul</h3>
+  \[ \Delta t = \frac{d}{v} = \frac{8}{0{,}5} = \mathbf{16\ \text{s}} \]
+  <p>
+    Un panneau met <strong>16 secondes</strong> pour traverser les 8 m du convoyeur.
+  </p>
+  <h3>Conversion de la vitesse</h3>
+  \[ v = 0{,}5\ \text{m/s} = 0{,}5 \times 60 = 30\ \text{m/min} = 0{,}5 \times 3{,}6 = \mathbf{1{,}8\ \text{km/h}} \]
+  <p style="font-size:.9em;color:#4a5568;margin-top:8px">
+    <em>Remarque industrielle :</em> si l&rsquo;op&eacute;rateur produit un panneau toutes les 16 s, la cadence horaire est
+    \( 3600 \div 16 = 225\ \text{panneaux/h} \). La vitesse du convoyeur est un param&egrave;tre cl&eacute; de la productivit&eacute; de l&rsquo;atelier.
+  </p>
+</div>
+
+<!-- ==================== SECTION 8 ==================== -->
+<h2>8. &Agrave; retenir</h2>
 
 <div class="retenir">
   <span class="label label-ret">&Agrave; retenir</span>
@@ -462,11 +598,12 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <li>La <strong>vitesse moyenne</strong> se calcule par \( v = d / \Delta t \). Les unit&eacute;s sont m/s (SI) ou km/h. Conversion : 1 m/s = 3,6 km/h.</li>
     <li>Un mouvement est <strong>uniforme</strong> (v constante), <strong>acc&eacute;l&eacute;r&eacute;</strong> (v croissante) ou <strong>d&eacute;c&eacute;l&eacute;r&eacute;</strong> (v d&eacute;croissante).</li>
     <li>En <strong>chronophotographie</strong> : positions &eacute;quidistantes = mouvement uniforme ; espaces croissants = acc&eacute;l&eacute;ration ; espaces d&eacute;croissants = d&eacute;c&eacute;l&eacute;ration.</li>
+    <li>En atelier MAMA : la scie &agrave; ruban, le convoyeur et la CNC illustrent directement les notions de vitesse, trajectoire et calcul de distance ou de dur&eacute;e.</li>
   </ol>
 </div>
 
-<!-- ==================== SECTION 8 ==================== -->
-<h2>8. Mini-exercices</h2>
+<!-- ==================== SECTION 9 ==================== -->
+<h2>9. Mini-exercices</h2>
 
 <div class="exo">
   <div class="exo-num">Exercice 1 &mdash; Conversion de vitesse</div>
@@ -544,7 +681,305 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
   </details>
 </div>
 
+<div class="exo">
+  <div class="exo-num">Exercice 4 &mdash; Applications MAMA : scie &agrave; ruban et convoyeur</div>
+  <p>
+    <strong>Partie A &mdash; Scie &agrave; ruban :</strong> la vitesse d&rsquo;avance de la pi&egrave;ce est v = 24 m/min.
+  </p>
+  <ol>
+    <li>Convertir cette vitesse en m/s.</li>
+    <li>Calculer la distance parcourue en 3 min de d&eacute;bit continu.</li>
+    <li>Si chaque planche fait 2 m, combien de planches sont d&eacute;bit&eacute;es en 3 min ?</li>
+  </ol>
+  <p style="margin-top:10px">
+    <strong>Partie B &mdash; Convoyeur :</strong> un tapis roule &agrave; v = 0,3 m/s. La distance entre deux postes est 12 m.
+  </p>
+  <ol>
+    <li>Calculer la dur&eacute;e de transport d&rsquo;un panneau.</li>
+    <li>Combien de panneaux peuvent &ecirc;tre transport&eacute;s en 1 heure ?</li>
+  </ol>
+  <details class="corr">
+    <summary>Voir la correction</summary>
+    <div class="corr-body">
+      <strong>Partie A</strong>
+      <ol>
+        <li>\( v = \dfrac{24}{60} = \mathbf{0{,}4\ \text{m/s}} \)</li>
+        <li>\( d = 0{,}4 \times (3 \times 60) = 0{,}4 \times 180 = \mathbf{72\ \text{m}} \)</li>
+        <li>\( n = \dfrac{72}{2} = \mathbf{36\ \text{planches}} \)</li>
+      </ol>
+      <strong>Partie B</strong>
+      <ol>
+        <li>\( \Delta t = \dfrac{12}{0{,}3} = \mathbf{40\ \text{s}} \)</li>
+        <li>En 1 h = 3600 s : \( n = \dfrac{3600}{40} = \mathbf{90\ \text{panneaux/h}} \)</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
 </div><!-- fin .c -->
+
+<!-- ===== JAVASCRIPT : Chart.js + Animation Canvas ===== -->
+<script>
+/* -------------------------------------------------------
+   1. GRAPHIQUE CHART.JS — distance en fonction du temps
+------------------------------------------------------- */
+(function () {
+  var ctx = document.getElementById('chartDT');
+  if (!ctx) return;
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [0, 1, 2, 3, 4, 5],
+      datasets: [
+        {
+          label: 'Mobile A — MRU (v = 2 m/s)',
+          data: [0, 2, 4, 6, 8, 10],
+          borderColor: '#0369a1',
+          backgroundColor: 'rgba(3,105,161,0.08)',
+          borderWidth: 2.5,
+          pointRadius: 5,
+          pointBackgroundColor: '#0369a1',
+          tension: 0
+        },
+        {
+          label: 'Mobile B — D\u00e9c\u00e9l\u00e9rant',
+          data: [0, 3, 5, 6.5, 7.5, 8],
+          borderColor: '#d97706',
+          backgroundColor: 'rgba(217,119,6,0.08)',
+          borderWidth: 2.5,
+          pointRadius: 5,
+          pointBackgroundColor: '#d97706',
+          tension: 0.35
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Distance parcourue en fonction du temps',
+          font: { size: 14, weight: 'bold' },
+          color: '#2d3748',
+          padding: { bottom: 12 }
+        },
+        legend: {
+          position: 'bottom',
+          labels: { font: { size: 12 }, padding: 14 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.dataset.label + ' : d = ' + ctx.parsed.y + ' m';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Temps t (s)',
+            font: { size: 12, weight: '600' },
+            color: '#4a5568'
+          },
+          grid: { color: 'rgba(0,0,0,0.06)' }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Distance d (m)',
+            font: { size: 12, weight: '600' },
+            color: '#4a5568'
+          },
+          beginAtZero: true,
+          grid: { color: 'rgba(0,0,0,0.06)' }
+        }
+      }
+    }
+  });
+})();
+
+/* -------------------------------------------------------
+   2. ANIMATION CANVAS — bille en mouvement rectiligne
+------------------------------------------------------- */
+(function () {
+  var canvas = document.getElementById('animCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  /* Paramètres physiques */
+  var SCALE = 40;        /* pixels par mètre */
+  var BALL_R = 14;       /* rayon bille en px */
+  var TRACK_Y = 60;      /* ordonnée axiale */
+  var MAX_X_M = (canvas.width - BALL_R * 2 - 10) / SCALE; /* distance max en m */
+
+  var vitesse = 2.0;     /* m/s */
+  var x_m = 0;           /* position en m */
+  var t_s = 0;           /* temps en s */
+  var running = false;
+  var rafId = null;
+  var lastTime = null;
+
+  /* Trace */
+  var tracePoints = [];
+
+  /* Boutons */
+  var btnSP   = document.getElementById('btnStartPause');
+  var btnReset= document.getElementById('btnReset');
+  var btnPlus = document.getElementById('btnPlus');
+  var btnMinus= document.getElementById('btnMinus');
+  var infoEl  = document.getElementById('animInfo');
+
+  function updateInfo() {
+    infoEl.textContent =
+      'v\u00a0=\u00a0' + vitesse.toFixed(1) + '\u00a0m/s\u00a0\u00a0|\u00a0\u00a0' +
+      'd\u00a0=\u00a0' + x_m.toFixed(2) + '\u00a0m\u00a0\u00a0|\u00a0\u00a0' +
+      't\u00a0=\u00a0' + t_s.toFixed(1) + '\u00a0s';
+  }
+
+  function draw() {
+    var W = canvas.width;
+    var H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+
+    /* Fond */
+    ctx.fillStyle = '#f0f9ff';
+    ctx.fillRect(0, 0, W, H);
+
+    /* Rail */
+    ctx.strokeStyle = '#93c5fd';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(10, TRACK_Y);
+    ctx.lineTo(W - 10, TRACK_Y);
+    ctx.stroke();
+
+    /* Repères de distance */
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    for (var m = 0; m <= Math.floor(MAX_X_M); m++) {
+      var px = BALL_R + m * SCALE;
+      ctx.beginPath();
+      ctx.moveTo(px, TRACK_Y - 6);
+      ctx.lineTo(px, TRACK_Y + 6);
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.fillText(m + ' m', px, TRACK_Y + 20);
+    }
+
+    /* Trace de la bille */
+    if (tracePoints.length > 1) {
+      ctx.beginPath();
+      ctx.moveTo(tracePoints[0], TRACK_Y);
+      for (var i = 1; i < tracePoints.length; i++) {
+        ctx.lineTo(tracePoints[i], TRACK_Y);
+      }
+      ctx.strokeStyle = 'rgba(3,105,161,0.35)';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+
+    /* Bille */
+    var bx = BALL_R + x_m * SCALE;
+    var grad = ctx.createRadialGradient(bx - 4, TRACK_Y - 4, 2, bx, TRACK_Y, BALL_R);
+    grad.addColorStop(0, '#93c5fd');
+    grad.addColorStop(1, '#0369a1');
+    ctx.beginPath();
+    ctx.arc(bx, TRACK_Y, BALL_R, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.strokeStyle = '#0369a1';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    /* Légende vitesse sur la bille */
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 9px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(vitesse.toFixed(1), bx, TRACK_Y + 3);
+
+    /* Label axe */
+    ctx.fillStyle = '#64748b';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Trajectoire rectiligne \u2192', 12, 18);
+  }
+
+  function step(ts) {
+    if (!running) return;
+    if (lastTime === null) lastTime = ts;
+    var dt = (ts - lastTime) / 1000; /* en secondes */
+    lastTime = ts;
+
+    x_m += vitesse * dt;
+    t_s += dt;
+
+    /* Position en pixels */
+    var bx = BALL_R + x_m * SCALE;
+    tracePoints.push(bx);
+
+    /* Arrêt si bord atteint */
+    if (x_m >= MAX_X_M) {
+      x_m = MAX_X_M;
+      running = false;
+      btnSP.textContent = '\u25B6 D\u00e9marrer';
+    }
+
+    draw();
+    updateInfo();
+
+    if (running) rafId = requestAnimationFrame(step);
+  }
+
+  function reset() {
+    running = false;
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+    lastTime = null;
+    x_m = 0;
+    t_s = 0;
+    tracePoints = [];
+    btnSP.textContent = '\u25B6 D\u00e9marrer';
+    draw();
+    updateInfo();
+  }
+
+  btnSP.addEventListener('click', function () {
+    if (x_m >= MAX_X_M) { reset(); return; }
+    running = !running;
+    if (running) {
+      lastTime = null;
+      btnSP.textContent = '\u23F8 Pause';
+      rafId = requestAnimationFrame(step);
+    } else {
+      btnSP.textContent = '\u25B6 D\u00e9marrer';
+      if (rafId) cancelAnimationFrame(rafId);
+    }
+  });
+
+  btnReset.addEventListener('click', reset);
+
+  btnPlus.addEventListener('click', function () {
+    vitesse = Math.min(vitesse + 0.5, 8.0);
+    updateInfo();
+  });
+
+  btnMinus.addEventListener('click', function () {
+    vitesse = Math.max(vitesse - 0.5, 0.5);
+    updateInfo();
+  });
+
+  /* Dessin initial */
+  draw();
+  updateInfo();
+})();
+</script>
+
 <script src="nav.js"></script>
 </body>
 </html>
