@@ -98,11 +98,11 @@
         { id: '01', title: 'Évaluer la puissance consommée' },
         { id: '02', title: 'Obtenir un courant continu à partir d\'un courant alternatif et inversement' },
         { id: '03', title: 'Obtenir de l\'énergie mécanique à l\'aide d\'un moteur électrique' },
-        { id: '07', title: 'Utiliser le rayonnement thermique et comprendre l\'effet de serre' },
-        { id: '08', title: 'Caractériser la pression dans un fluide immobile' },
-        { id: '09', title: 'Décrire le transport de masse et de volume par un fluide en mouvement' },
-        { id: '10', title: 'Oxydoréduction et protection des métaux contre la corrosion' },
-        { id: '11', title: 'Caractériser la propagation d\'un signal sonore' }
+        { id: '04', title: 'Utiliser le rayonnement thermique et comprendre l\'effet de serre' },
+        { id: '05', title: 'Caractériser la pression dans un fluide immobile' },
+        { id: '06', title: 'Décrire le transport de masse et de volume par un fluide en mouvement' },
+        { id: '07', title: 'Oxydoréduction et protection des métaux contre la corrosion' },
+        { id: '08', title: 'Caractériser la propagation d\'un signal sonore' }
       ]
     },
 
