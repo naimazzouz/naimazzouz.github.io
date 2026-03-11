@@ -1,22 +1,158 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devoir surveillé — Ch02 Probabilités</title>
-    <link rel="stylesheet" href="../../../styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – DS – Probabilités</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #0969da; }
-
-        p { color: #6e7781; font-size: 0.95em; }</style>
-  <link rel="stylesheet" href="/nav.css">
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.q strong{color:var(--t)}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}</style>
+<link rel="stylesheet" href="/nav.css">
 </head>
 <body>
-<div class="container">
-    <a href="maths-term-iccer.html" class="back">← Retour</a>
-    <h1>Devoir surveillé — Probabilités</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="maths-term-iccer.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 2</h1>
+  <p class="sous-titre">Probabilités &nbsp;|&nbsp; T<sup>le</sup> Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Contrôle qualité</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Une entreprise fabrique des pièces métalliques pour des systèmes de chauffage. Le contrôle qualité révèle que \(4\,\%\) des pièces produites présentent un défaut.</p>
+  <p>On note \(D\) l'événement « la pièce présente un défaut ».</p>
+
+  <div class="q"><strong>1. (1 pt)</strong> Donner la probabilité \(P(D)\).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Définir l'événement contraire \(\overline{D}\) par une phrase, puis calculer \(P(\overline{D})\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (3 pts)</strong> On prélève au hasard \(3\) pièces successivement (avec remise). On suppose les tirages indépendants. Calculer la probabilité que les \(3\) pièces soient sans défaut. Arrondir au millième.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> En déduire la probabilité qu'au moins une pièce sur les \(3\) présente un défaut. Arrondir au millième.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> L'entreprise considère qu'un lot est acceptable si la probabilité d'avoir au moins une pièce défectueuse sur \(3\) est inférieure à \(15\,\%\). Le lot est-il acceptable ? Justifier.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(D) = 0{,}04\).</p>
+    <p><strong>2.</strong> \(\overline{D}\) : « la pièce ne présente pas de défaut ».<br>
+    \(P(\overline{D}) = 1 - P(D) = 1 - 0{,}04 = 0{,}96\).</p>
+    <p><strong>3.</strong> Les tirages sont indépendants, donc :<br>
+    \(P(\text{3 pièces sans défaut}) = P(\overline{D})^3 = 0{,}96^3 = 0{,}884736 \approx 0{,}885\).</p>
+    <p><strong>4.</strong> « Au moins une pièce défectueuse » est l'événement contraire de « les 3 pièces sont sans défaut » :<br>
+    \(P(\text{au moins 1 défaut}) = 1 - 0{,}96^3 = 1 - 0{,}884736 \approx 0{,}115\).</p>
+    <p><strong>5.</strong> On a \(P(\text{au moins 1 défaut}) \approx 0{,}115 = 11{,}5\,\%\).<br>
+    Comme \(11{,}5\,\% < 15\,\%\), le lot est acceptable.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Enquête de satisfaction</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Une entreprise de menuiserie réalise une enquête de satisfaction auprès de ses clients. Elle distingue deux catégories : les clients « particuliers » (P) et les clients « professionnels » (R). On sait que :</p>
+  <ul>
+    <li>\(60\,\%\) des clients sont des particuliers ;</li>
+    <li>parmi les particuliers, \(85\,\%\) se déclarent satisfaits ;</li>
+    <li>parmi les professionnels, \(72\,\%\) se déclarent satisfaits.</li>
+  </ul>
+  <p>On note \(S\) l'événement « le client est satisfait ».</p>
+
+  <div class="q"><strong>1. (2 pts)</strong> Traduire la situation par un arbre pondéré complet.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer \(P(P \cap S)\), la probabilité qu'un client choisi au hasard soit un particulier satisfait.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer \(P(R \cap S)\), la probabilité qu'un client choisi au hasard soit un professionnel satisfait.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> En déduire la probabilité totale \(P(S)\) qu'un client choisi au hasard soit satisfait.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> L'entreprise souhaite atteindre un taux de satisfaction global de \(82\,\%\). L'objectif est-il atteint ? Justifier. Proposer une piste d'amélioration.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Arbre pondéré :</p>
+    <ul>
+      <li>\(P(P) = 0{,}6\)
+        <ul>
+          <li>\(P_P(S) = 0{,}85\)</li>
+          <li>\(P_P(\overline{S}) = 0{,}15\)</li>
+        </ul>
+      </li>
+      <li>\(P(R) = 0{,}4\)
+        <ul>
+          <li>\(P_R(S) = 0{,}72\)</li>
+          <li>\(P_R(\overline{S}) = 0{,}28\)</li>
+        </ul>
+      </li>
+    </ul>
+    <p><strong>2.</strong> \(P(P \cap S) = P(P) \times P_P(S) = 0{,}6 \times 0{,}85 = 0{,}51\).</p>
+    <p><strong>3.</strong> \(P(R \cap S) = P(R) \times P_R(S) = 0{,}4 \times 0{,}72 = 0{,}288\).</p>
+    <p><strong>4.</strong> D'après la formule des probabilités totales :<br>
+    \(P(S) = P(P \cap S) + P(R \cap S) = 0{,}51 + 0{,}288 = 0{,}798\).<br>
+    La probabilité qu'un client soit satisfait est de \(79{,}8\,\%\).</p>
+    <p><strong>5.</strong> \(79{,}8\,\% < 82\,\%\) : l'objectif n'est pas atteint.<br>
+    Piste d'amélioration : augmenter la satisfaction des clients professionnels (actuellement \(72\,\%\)) par un meilleur suivi de chantier ou un service après-vente dédié.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="/nav.js"></script>
 </body>

@@ -1,23 +1,503 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercices — Ch05 Fonctions exponentielles et logarithme décimal</title>
-    <link rel="stylesheet" href="../../../styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Exercices – Fonctions exponentielles et logarithme décimal</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #0969da; }
-
-        p { color: #6e7781; font-size: 0.95em; }</style>
+.situation strong{color:#16a34a}</style>
   <link rel="stylesheet" href="/nav.css">
 </head>
 <body>
-<div class="container">
-    <a href="maths-term-iccer.html" class="back">← Retour</a>
-    <h1>Exercices — Fonctions exponentielles et logarithme décimal</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="maths-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Exercices – Chapitre 5</h1>
+  <p class="sous-titre">Fonctions exponentielles et logarithme décimal &nbsp;|&nbsp; Terminale Bac Pro &nbsp;|&nbsp; ERA · TMA · ICCER</p>
+  <p class="maj">Dernière mise à jour : 11 mars 2026</p>
+</header>
+
+<div class="objectifs">
+  <strong>Compétences travaillées :</strong>
+  <ul>
+    <li>Calculer des images par une fonction exponentielle \(f(x) = a^x\)</li>
+    <li>Lire et interpréter un graphique représentant une croissance ou décroissance exponentielle</li>
+    <li>Passer de la forme exponentielle à la forme logarithmique et réciproquement</li>
+    <li>Résoudre une équation du type \(a^x = b\) à l'aide du logarithme décimal</li>
+    <li>Modéliser une situation de croissance ou décroissance exponentielle en contexte professionnel</li>
+  </ul>
 </div>
+
+<!-- NIVEAU 1 -->
+<div class="section-titre">
+  <span class="niveau n1">Niveau 1 — Vérifier les bases</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- EX 1 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">1</span>Calculer des puissances et lire une courbe exponentielle</div>
+  <p>Soit la fonction \(f(x) = 2^x\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Compléter le tableau de valeurs suivant :<br>
+  </div>
+  <table>
+    <tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><th>\(f(x) = 2^x\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="consigne">
+    <strong>2.</strong> Le graphique ci-dessous représente la fonction \(f(x) = 2^x\). Lire graphiquement les valeurs de \(f(1{,}5)\) et \(f(3{,}5)\).<br>
+    <strong>3.</strong> La fonction \(f\) est-elle croissante ou décroissante ? Justifier.
+  </div>
+  <div class="chart-wrap"><canvas id="chartEx1" height="220"></canvas></div>
+  <p class="chart-label">\(x\) / \(f(x) = 2^x\)</p>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> Tableau complété :</p>
+      <table>
+        <tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        <tr><th>\(f(x)\)</th><td><span class="reponse">1</span></td><td><span class="reponse">2</span></td><td><span class="reponse">4</span></td><td><span class="reponse">8</span></td><td><span class="reponse">16</span></td><td><span class="reponse">32</span></td></tr>
+      </table>
+      <p><strong>2.</strong> Lecture graphique : <span class="reponse">\(f(1{,}5) \approx 2{,}8\)</span> et <span class="reponse">\(f(3{,}5) \approx 11{,}3\)</span>.</p>
+      <p><strong>3.</strong> La fonction \(f\) est <span class="reponse">croissante</span> car quand \(x\) augmente, \(2^x\) augmente. C'est une croissance exponentielle : la base 2 est supérieure à 1.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 2 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">2</span>Comparer croissance et décroissance exponentielle</div>
+  <p>On considère les fonctions \(f(x) = 3^x\) et \(g(x) = 0{,}5^x\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Compléter les deux tableaux de valeurs :<br>
+  </div>
+  <table>
+    <tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th>\(f(x) = 3^x\)</th><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <table>
+    <tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+    <tr><th>\(g(x) = 0{,}5^x\)</th><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="consigne">
+    <strong>2.</strong> Quel est le sens de variation de \(f\) ? de \(g\) ?<br>
+    <strong>3.</strong> Observer les courbes ci-dessous. Quelle propriété partagent les deux courbes en \(x = 0\) ?
+  </div>
+  <div class="chart-wrap"><canvas id="chartEx2" height="220"></canvas></div>
+  <p class="chart-label">\(f(x) = 3^x\) (bleu) et \(g(x) = 0{,}5^x\) (rouge)</p>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong></p>
+      <table>
+        <tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+        <tr><th>\(f(x) = 3^x\)</th><td><span class="reponse">1</span></td><td><span class="reponse">3</span></td><td><span class="reponse">9</span></td><td><span class="reponse">27</span></td><td><span class="reponse">81</span></td></tr>
+      </table>
+      <table>
+        <tr><th>\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+        <tr><th>\(g(x) = 0{,}5^x\)</th><td><span class="reponse">1</span></td><td><span class="reponse">0,5</span></td><td><span class="reponse">0,25</span></td><td><span class="reponse">0,125</span></td><td><span class="reponse">0,0625</span></td></tr>
+      </table>
+      <p><strong>2.</strong> <span class="reponse">\(f\) est croissante</span> car \(a = 3 > 1\). <span class="reponse">\(g\) est décroissante</span> car \(a = 0{,}5 < 1\).</p>
+      <p><strong>3.</strong> En \(x = 0\), les deux courbes passent par le point \((0\,;\,1)\) car <span class="reponse">\(a^0 = 1\) pour tout \(a > 0\)</span>.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 3 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">3</span>Passer de la forme exponentielle à la forme logarithmique</div>
+  <p>Compléter le tableau en utilisant la relation : si \(a^x = b\) alors \(x = \log(b) / \log(a)\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Écrire sous forme logarithmique :<br>
+    <strong>a)</strong> \(10^3 = 1\,000\) &nbsp;→&nbsp; \(\log(…) = …\)<br>
+    <strong>b)</strong> \(10^{-2} = 0{,}01\) &nbsp;→&nbsp; \(\log(…) = …\)<br>
+    <strong>c)</strong> \(2^{10} = 1\,024\) &nbsp;→&nbsp; \(\dfrac{\log(…)}{\log(…)} = …\)<br><br>
+    <strong>2.</strong> Écrire sous forme exponentielle :<br>
+    <strong>a)</strong> \(\log(100) = 2\) &nbsp;→&nbsp; \(10^{…} = …\)<br>
+    <strong>b)</strong> \(\log(0{,}001) = -3\) &nbsp;→&nbsp; \(10^{…} = …\)<br><br>
+    <strong>3.</strong> Calculer à la calculatrice (arrondir au centième) :<br>
+    <strong>a)</strong> \(\log(50)\) &nbsp;&nbsp; <strong>b)</strong> \(\log(3\,000)\) &nbsp;&nbsp; <strong>c)</strong> \(\log(0{,}2)\)
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.a)</strong> \(10^3 = 1\,000\) → <span class="reponse">\(\log(1\,000) = 3\)</span></p>
+      <p><strong>1.b)</strong> \(10^{-2} = 0{,}01\) → <span class="reponse">\(\log(0{,}01) = -2\)</span></p>
+      <p><strong>1.c)</strong> \(2^{10} = 1\,024\) → <span class="reponse">\(\dfrac{\log(1\,024)}{\log(2)} = 10\)</span></p>
+      <p><strong>2.a)</strong> \(\log(100) = 2\) → <span class="reponse">\(10^2 = 100\)</span></p>
+      <p><strong>2.b)</strong> \(\log(0{,}001) = -3\) → <span class="reponse">\(10^{-3} = 0{,}001\)</span></p>
+      <p><strong>3.a)</strong> <span class="reponse">\(\log(50) \approx 1{,}70\)</span> &nbsp; <strong>b)</strong> <span class="reponse">\(\log(3\,000) \approx 3{,}48\)</span> &nbsp; <strong>c)</strong> <span class="reponse">\(\log(0{,}2) \approx -0{,}70\)</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- NIVEAU 2 -->
+<div class="section-titre">
+  <span class="niveau n2">Niveau 2 — Application directe</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- EX 4 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">4</span>Résoudre des équations exponentielles</div>
+  <p>Résoudre chaque équation en utilisant le logarithme décimal. Arrondir au centième.</p>
+  <div class="consigne">
+    <strong>a)</strong> \(2^x = 64\)<br>
+    <strong>b)</strong> \(3^x = 50\)<br>
+    <strong>c)</strong> \(10^x = 500\)<br>
+    <strong>d)</strong> \(1{,}05^x = 2\)
+  </div>
+  <div class="reponse-box" style="min-height:90px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>a)</strong> \(2^x = 64\) → \(x = \dfrac{\log(64)}{\log(2)} = \dfrac{\log(2^6)}{\log(2)} = \) <span class="reponse">\(x = 6\)</span></p>
+      <p><strong>b)</strong> \(3^x = 50\) → \(x = \dfrac{\log(50)}{\log(3)} = \dfrac{1{,}699}{0{,}477} \approx\) <span class="reponse">\(x \approx 3{,}56\)</span></p>
+      <p><strong>c)</strong> \(10^x = 500\) → \(x = \log(500) \approx\) <span class="reponse">\(x \approx 2{,}70\)</span></p>
+      <p><strong>d)</strong> \(1{,}05^x = 2\) → \(x = \dfrac{\log(2)}{\log(1{,}05)} = \dfrac{0{,}301}{0{,}0212} \approx\) <span class="reponse">\(x \approx 14{,}21\)</span></p>
+      <div class="meth">
+        <span class="label-meth">Méthode</span>
+        Pour résoudre \(a^x = b\), on applique : \(x = \dfrac{\log(b)}{\log(a)}\).
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- EX 5 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">5</span>Appliquer les propriétés du logarithme décimal</div>
+  <p>On rappelle que \(\log(a \times b) = \log(a) + \log(b)\) et \(\log(a^n) = n \times \log(a)\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Simplifier sans calculatrice :<br>
+    <strong>a)</strong> \(\log(2) + \log(5)\)<br>
+    <strong>b)</strong> \(\log(4) + \log(25)\)<br>
+    <strong>c)</strong> \(3 \times \log(10)\)<br><br>
+    <strong>2.</strong> Exprimer en fonction de \(\log(2)\) :<br>
+    <strong>a)</strong> \(\log(8)\) &nbsp;&nbsp; <strong>b)</strong> \(\log(32)\) &nbsp;&nbsp; <strong>c)</strong> \(\log(0{,}5)\)<br><br>
+    <strong>3.</strong> Sachant que \(\log(2) \approx 0{,}301\) et \(\log(3) \approx 0{,}477\), calculer sans calculatrice :<br>
+    <strong>a)</strong> \(\log(6)\) &nbsp;&nbsp; <strong>b)</strong> \(\log(9)\) &nbsp;&nbsp; <strong>c)</strong> \(\log(12)\)
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.a)</strong> \(\log(2) + \log(5) = \log(2 \times 5) = \log(10) =\) <span class="reponse">1</span></p>
+      <p><strong>1.b)</strong> \(\log(4) + \log(25) = \log(4 \times 25) = \log(100) =\) <span class="reponse">2</span></p>
+      <p><strong>1.c)</strong> \(3 \times \log(10) = 3 \times 1 =\) <span class="reponse">3</span></p>
+      <p><strong>2.a)</strong> \(\log(8) = \log(2^3) =\) <span class="reponse">\(3\log(2)\)</span></p>
+      <p><strong>2.b)</strong> \(\log(32) = \log(2^5) =\) <span class="reponse">\(5\log(2)\)</span></p>
+      <p><strong>2.c)</strong> \(\log(0{,}5) = \log\!\left(\dfrac{1}{2}\right) = \log(2^{-1}) =\) <span class="reponse">\(-\log(2)\)</span></p>
+      <p><strong>3.a)</strong> \(\log(6) = \log(2 \times 3) = \log(2) + \log(3) \approx 0{,}301 + 0{,}477 =\) <span class="reponse">\(0{,}778\)</span></p>
+      <p><strong>3.b)</strong> \(\log(9) = \log(3^2) = 2\log(3) \approx 2 \times 0{,}477 =\) <span class="reponse">\(0{,}954\)</span></p>
+      <p><strong>3.c)</strong> \(\log(12) = \log(4 \times 3) = 2\log(2) + \log(3) \approx 0{,}602 + 0{,}477 =\) <span class="reponse">\(1{,}079\)</span></p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 6 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">6</span>Modéliser une croissance et une décroissance <span class="ticcer-badge">ICCER</span></div>
+  <p>Le niveau sonore \(L\) (en décibels) est lié à l'intensité sonore \(I\) par la relation :</p>
+  <p style="text-align:center;font-weight:700;font-size:1.05em">\[L = 10 \times \log\!\left(\frac{I}{I_0}\right) \quad \text{avec } I_0 = 10^{-12} \text{ W/m}^2\]</p>
+  <div class="consigne">
+    <strong>1.</strong> Un technicien chauffagiste mesure une intensité \(I = 10^{-5}\) W/m² près d'une chaudière. Calculer le niveau sonore \(L\).<br>
+    <strong>2.</strong> La réglementation impose un niveau maximal de 85 dB dans un local technique. Quelle intensité maximale cela représente-t-il ?<br>
+    <strong>3.</strong> Vérifier que doubler l'intensité sonore augmente le niveau de seulement 3 dB environ.
+  </div>
+  <div class="reponse-box" style="min-height:90px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(L = 10 \times \log\!\left(\dfrac{10^{-5}}{10^{-12}}\right) = 10 \times \log(10^7) = 10 \times 7 =\) <span class="reponse">70 dB</span></p>
+      <p><strong>2.</strong> \(85 = 10 \times \log\!\left(\dfrac{I}{10^{-12}}\right)\) → \(\log\!\left(\dfrac{I}{10^{-12}}\right) = 8{,}5\) → \(\dfrac{I}{10^{-12}} = 10^{8{,}5}\) → <span class="reponse">\(I = 10^{-3{,}5} \approx 3{,}16 \times 10^{-4}\) W/m²</span></p>
+      <p><strong>3.</strong> Si l'intensité passe de \(I\) à \(2I\) :<br>
+      \(\Delta L = 10\log\!\left(\dfrac{2I}{I_0}\right) - 10\log\!\left(\dfrac{I}{I_0}\right) = 10\log(2) \approx 10 \times 0{,}301 \approx\) <span class="reponse">3 dB</span>.<br>
+      Doubler l'intensité n'ajoute que 3 dB : l'échelle logarithmique « compresse » les grands nombres.</p>
+    </div>
+  </details>
+</div>
+
+<!-- NIVEAU 3 -->
+<div class="section-titre">
+  <span class="niveau n3">Niveau 3 — Raisonnement</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- EX 7 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">7</span>Temps de doublement et demi-vie</div>
+  <p>On modélise l'évolution d'une grandeur par \(f(t) = V_0 \times a^t\), où \(t\) est en années.</p>
+  <div class="consigne">
+    <strong>1.</strong> Un placement financier rapporte 3 % par an. On modélise le capital par \(C(t) = 1\,000 \times 1{,}03^t\).<br>
+    <strong>a)</strong> Calculer le capital après 5 ans, puis après 10 ans.<br>
+    <strong>b)</strong> Au bout de combien d'années le capital aura-t-il doublé ? (Résoudre \(1{,}03^t = 2\))<br><br>
+    <strong>2.</strong> Un matériau radioactif a une demi-vie de 8 jours. Sa masse est modélisée par \(m(t) = 100 \times 0{,}5^{t/8}\) (en grammes, \(t\) en jours).<br>
+    <strong>a)</strong> Calculer la masse restante après 8 jours, puis après 24 jours.<br>
+    <strong>b)</strong> Au bout de combien de jours la masse sera-t-elle inférieure à 10 g ?
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.a)</strong> \(C(5) = 1\,000 \times 1{,}03^5 \approx 1\,000 \times 1{,}159 \approx\) <span class="reponse">1 159 €</span><br>
+      \(C(10) = 1\,000 \times 1{,}03^{10} \approx 1\,000 \times 1{,}344 \approx\) <span class="reponse">1 344 €</span></p>
+      <p><strong>1.b)</strong> \(1{,}03^t = 2\) → \(t = \dfrac{\log(2)}{\log(1{,}03)} = \dfrac{0{,}301}{0{,}01284} \approx\) <span class="reponse">\(t \approx 23{,}4\) ans</span>.<br>
+      Le capital double en environ 23 ans et demi.</p>
+      <p><strong>2.a)</strong> \(m(8) = 100 \times 0{,}5^{8/8} = 100 \times 0{,}5 =\) <span class="reponse">50 g</span> (logique : une demi-vie).<br>
+      \(m(24) = 100 \times 0{,}5^{24/8} = 100 \times 0{,}5^3 = 100 \times 0{,}125 =\) <span class="reponse">12,5 g</span></p>
+      <p><strong>2.b)</strong> \(100 \times 0{,}5^{t/8} < 10\) → \(0{,}5^{t/8} < 0{,}1\) → \(\dfrac{t}{8} > \dfrac{\log(0{,}1)}{\log(0{,}5)} = \dfrac{-1}{-0{,}301} \approx 3{,}32\)<br>
+      → \(t > 8 \times 3{,}32 \approx\) <span class="reponse">\(t > 26{,}6\) jours</span>, soit à partir du 27e jour.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 8 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">8</span>Interpréter les coefficients d'un modèle exponentiel <span class="ticcer-badge">ICCER</span></div>
+  <p>Le rendement d'une chaudière ancienne diminue au fil du temps. On modélise ce rendement par :</p>
+  <p style="text-align:center;font-weight:700;font-size:1.05em">\[R(t) = 92 \times 0{,}97^t\]</p>
+  <p>où \(R\) est le rendement (en %) et \(t\) le nombre d'années d'utilisation.</p>
+  <div class="chart-wrap"><canvas id="chartEx8" height="220"></canvas></div>
+  <p class="chart-label">Années d'utilisation / Rendement (%)</p>
+  <div class="consigne">
+    <strong>1.</strong> Quel est le rendement initial de la chaudière (à \(t = 0\)) ?<br>
+    <strong>2.</strong> Calculer le rendement après 5 ans, puis après 10 ans.<br>
+    <strong>3.</strong> Que signifie le coefficient \(0{,}97\) en termes de perte annuelle ?<br>
+    <strong>4.</strong> La chaudière est considérée obsolète quand \(R < 75\) %. Après combien d'années ?
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(R(0) = 92 \times 0{,}97^0 = 92 \times 1 =\) <span class="reponse">92 %</span></p>
+      <p><strong>2.</strong> \(R(5) = 92 \times 0{,}97^5 \approx 92 \times 0{,}859 \approx\) <span class="reponse">79,0 %</span><br>
+      \(R(10) = 92 \times 0{,}97^{10} \approx 92 \times 0{,}737 \approx\) <span class="reponse">67,8 %</span></p>
+      <p><strong>3.</strong> Le coefficient \(0{,}97 = 1 - 0{,}03\) signifie que <span class="reponse">le rendement perd 3 % de sa valeur chaque année</span>. C'est le facteur multiplicatif annuel.</p>
+      <p><strong>4.</strong> \(92 \times 0{,}97^t < 75\) → \(0{,}97^t < \dfrac{75}{92} \approx 0{,}8152\)<br>
+      → \(t > \dfrac{\log(0{,}8152)}{\log(0{,}97)} = \dfrac{-0{,}0888}{-0{,}01323} \approx\) <span class="reponse">\(t \approx 6{,}7\) ans</span>.<br>
+      La chaudière sera obsolète au bout d'environ 7 ans.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 9 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">9</span>Comparer deux modèles : linéaire vs exponentiel</div>
+  <p>Un menuisier compare deux hypothèses pour l'évolution du prix d'un type de bois :</p>
+  <ul>
+    <li><strong>Modèle A (linéaire) :</strong> \(P_A(t) = 50 + 3t\) (prix en €/m³, \(t\) en années)</li>
+    <li><strong>Modèle B (exponentiel) :</strong> \(P_B(t) = 50 \times 1{,}04^t\)</li>
+  </ul>
+  <div class="consigne">
+    <strong>1.</strong> Compléter le tableau comparatif :<br>
+  </div>
+  <table>
+    <tr><th>\(t\) (années)</th><td>0</td><td>5</td><td>10</td><td>15</td><td>20</td></tr>
+    <tr><th>\(P_A(t)\) (€)</th><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><th>\(P_B(t)\) (€)</th><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="consigne">
+    <strong>2.</strong> À partir de quelle année le modèle exponentiel dépasse-t-il le modèle linéaire ?<br>
+    <strong>3.</strong> Observer les courbes ci-dessous. Lequel des deux modèles semble le plus réaliste à long terme ?
+  </div>
+  <div class="chart-wrap"><canvas id="chartEx9" height="240"></canvas></div>
+  <p class="chart-label">Années / Prix (€/m³) — Modèle A (linéaire) et Modèle B (exponentiel)</p>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………………………………………</div>
+  <details>
+    <summary>Voir la correction</summary>
+    <div class="corr">
+      <table>
+        <tr><th>\(t\)</th><td>0</td><td>5</td><td>10</td><td>15</td><td>20</td></tr>
+        <tr><th>\(P_A(t)\)</th><td><span class="reponse">50</span></td><td><span class="reponse">65</span></td><td><span class="reponse">80</span></td><td><span class="reponse">95</span></td><td><span class="reponse">110</span></td></tr>
+        <tr><th>\(P_B(t)\)</th><td><span class="reponse">50</span></td><td><span class="reponse">60,8</span></td><td><span class="reponse">74,0</span></td><td><span class="reponse">90,0</span></td><td><span class="reponse">109,6</span></td></tr>
+      </table>
+      <p><strong>2.</strong> Jusqu'à \(t = 20\), les deux modèles donnent des résultats proches. Le modèle B dépasse le modèle A <span class="reponse">aux alentours de \(t = 20\) ans</span>. Au-delà, l'exponentielle croît de plus en plus vite.</p>
+      <p><strong>3.</strong> <span class="reponse">Le modèle exponentiel est souvent plus réaliste</span> pour les prix à long terme car une augmentation de 4 % par an est un pourcentage fixe (comme l'inflation), tandis que le modèle linéaire suppose une augmentation constante en euros.</p>
+    </div>
+  </details>
+</div>
+
+<!-- NIVEAU 4 -->
+<div class="section-titre">
+  <span class="niveau n4">Niveau 4 — Problèmes contextualisés</span>
+  <div class="section-ligne"></div>
+</div>
+
+<!-- EX 10 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">10</span>Refroidissement d'un circuit de chauffage <span class="ticcer-badge">ICCER</span></div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste effectue la maintenance d'un circuit de chauffage central. Après l'arrêt de la chaudière, la température de l'eau dans le circuit diminue selon un modèle exponentiel.
+  </div>
+  <p>La température \(T\) (en °C) de l'eau dans le circuit est modélisée par :</p>
+  <p style="text-align:center;font-weight:700;font-size:1.05em">\[T(t) = 70 \times 0{,}85^t + 18\]</p>
+  <p>où \(t\) est le temps écoulé (en heures) après l'arrêt de la chaudière. Le terme \(+18\) correspond à la température ambiante du local.</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la température de l'eau au moment de l'arrêt (\(t = 0\)).<br>
+    <strong>2.</strong> Compléter le tableau de valeurs (arrondir au dixième) :<br>
+  </div>
+  <table>
+    <tr><th>\(t\) (h)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>5</td><td>8</td><td>12</td></tr>
+    <tr><th>\(T(t)\) (°C)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="consigne">
+    <strong>3.</strong> Tracer la courbe sur le graphique ci-dessous. Que constate-t-on ?<br>
+    <strong>4.</strong> Le technicien ne peut intervenir que lorsque l'eau est en dessous de 35 °C. Au bout de combien de temps peut-il intervenir ?<br>
+    <strong>5.</strong> Vers quelle température la courbe se stabilise-t-elle ? Interpréter.
+  </div>
+  <div class="chart-wrap"><canvas id="chartEx10" height="240"></canvas></div>
+  <p class="chart-label">Temps (h) / Température (°C) — Refroidissement du circuit</p>
+  <div class="reponse-box" style="min-height:120px">Réponses : ……………………………</div>
+  <details>
+    <summary>Voir la correction complète</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(T(0) = 70 \times 0{,}85^0 + 18 = 70 + 18 =\) <span class="reponse">88 °C</span></p>
+      <p><strong>2.</strong></p>
+      <table>
+        <tr><th>\(t\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>5</td><td>8</td><td>12</td></tr>
+        <tr><th>\(T(t)\)</th><td><span class="reponse">88,0</span></td><td><span class="reponse">77,5</span></td><td><span class="reponse">68,6</span></td><td><span class="reponse">61,0</span></td><td><span class="reponse">49,1</span></td><td><span class="reponse">35,8</span></td><td><span class="reponse">25,3</span></td></tr>
+      </table>
+      <p><strong>3.</strong> La courbe décroît de plus en plus lentement et tend vers la température ambiante.</p>
+      <p><strong>4.</strong> \(T(t) < 35\) → \(70 \times 0{,}85^t + 18 < 35\) → \(0{,}85^t < \dfrac{17}{70} \approx 0{,}2429\)<br>
+      → \(t > \dfrac{\log(0{,}2429)}{\log(0{,}85)} = \dfrac{-0{,}6146}{-0{,}07058} \approx 8{,}7\)<br>
+      <span class="reponse">Le technicien peut intervenir après environ 8 h 45 min.</span></p>
+      <p><strong>5.</strong> La courbe se stabilise vers <span class="reponse">18 °C</span>, la température ambiante. Quand \(t\) est très grand, \(0{,}85^t \to 0\) donc \(T(t) \to 18\). C'est l'asymptote horizontale du modèle.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 11 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">11</span>Séchage du bois en atelier <span class="erama-badge">ERA-MA</span></div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur prépare des planches de chêne pour un agencement intérieur. Le taux d'humidité du bois diminue de façon exponentielle dans le séchoir de l'atelier.
+  </div>
+  <p>Le taux d'humidité \(H\) (en %) est modélisé par :</p>
+  <p style="text-align:center;font-weight:700;font-size:1.05em">\[H(t) = 45 \times \text{e}^{-0{,}12\,t}\]</p>
+  <p>où \(t\) est le temps en jours et \(\text{e} \approx 2{,}718\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Quel est le taux d'humidité initial du bois ?<br>
+    <strong>2.</strong> Calculer le taux d'humidité après 5 jours, 10 jours et 20 jours.<br>
+    <strong>3.</strong> Le bois est considéré prêt pour l'agencement lorsque \(H < 12\) %. Après combien de jours ?<br>
+    <strong>4.</strong> On souhaite que le bois atteigne 8 % d'humidité. Combien de jours supplémentaires faut-il après avoir atteint 12 % ?<br>
+    <strong>5.</strong> Commenter la forme de la courbe : pourquoi le séchage ralentit-il avec le temps ?
+  </div>
+  <div class="chart-wrap"><canvas id="chartEx11" height="240"></canvas></div>
+  <p class="chart-label">Temps (jours) / Taux d'humidité H (%)</p>
+  <div class="reponse-box" style="min-height:120px">Réponses : ……………………………</div>
+  <details>
+    <summary>Voir la correction complète</summary>
+    <div class="corr">
+      <p><strong>1.</strong> \(H(0) = 45 \times \text{e}^{0} = 45 \times 1 =\) <span class="reponse">45 %</span></p>
+      <p><strong>2.</strong><br>
+      \(H(5) = 45 \times \text{e}^{-0{,}6} \approx 45 \times 0{,}549 \approx\) <span class="reponse">24,7 %</span><br>
+      \(H(10) = 45 \times \text{e}^{-1{,}2} \approx 45 \times 0{,}301 \approx\) <span class="reponse">13,5 %</span><br>
+      \(H(20) = 45 \times \text{e}^{-2{,}4} \approx 45 \times 0{,}0907 \approx\) <span class="reponse">4,1 %</span></p>
+      <p><strong>3.</strong> \(45 \times \text{e}^{-0{,}12t} < 12\) → \(\text{e}^{-0{,}12t} < \dfrac{12}{45} \approx 0{,}2667\)<br>
+      → \(-0{,}12t < \ln(0{,}2667) \approx -1{,}322\) → \(t > \dfrac{1{,}322}{0{,}12} \approx\) <span class="reponse">\(t \approx 11{,}0\) jours</span></p>
+      <p><strong>4.</strong> \(45 \times \text{e}^{-0{,}12t} < 8\) → \(\text{e}^{-0{,}12t} < \dfrac{8}{45} \approx 0{,}1778\)<br>
+      → \(t > \dfrac{-\ln(0{,}1778)}{0{,}12} = \dfrac{1{,}727}{0{,}12} \approx\) <span class="reponse">\(t \approx 14{,}4\) jours</span>.<br>
+      Jours supplémentaires après 11 jours : environ <span class="reponse">3,4 jours</span>.</p>
+      <p><strong>5.</strong> <span class="reponse">Le séchage ralentit car l'écart d'humidité entre le bois et l'air ambiant diminue.</span> Plus le bois est sec, plus il est difficile d'en extraire l'eau restante : c'est caractéristique d'une décroissance exponentielle.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EX 12 -->
+<div class="exo">
+  <div class="exo-titre"><span class="num">12</span>Dépréciation d'un équipement professionnel <span class="erama-badge">ERA-MA</span> <span class="ticcer-badge">ICCER</span></div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un atelier de menuiserie et un bureau d'études ICCER achètent chacun un équipement neuf. La valeur de revente de ces équipements diminue chaque année selon un modèle exponentiel.
+  </div>
+  <p>Les deux équipements sont modélisés par :</p>
+  <ul>
+    <li><strong>Scie à panneaux (ERA-MA) :</strong> \(V_S(t) = 12\,000 \times 0{,}85^t\) (en €)</li>
+    <li><strong>Caméra thermique (ICCER) :</strong> \(V_C(t) = 8\,000 \times 0{,}80^t\) (en €)</li>
+  </ul>
+  <div class="consigne">
+    <strong>1.</strong> Quel est le prix d'achat de chaque équipement ?<br>
+    <strong>2.</strong> Compléter le tableau de dépréciation :<br>
+  </div>
+  <table>
+    <tr><th>\(t\) (années)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>5</td><td>8</td></tr>
+    <tr><th>\(V_S(t)\) (€)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><th>\(V_C(t)\) (€)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="consigne">
+    <strong>3.</strong> Quel est le taux de dépréciation annuel de chaque équipement ?<br>
+    <strong>4.</strong> Au bout de combien d'années la scie à panneaux vaudra-t-elle moins de 3 000 € ?<br>
+    <strong>5.</strong> Au bout de combien d'années la caméra thermique vaudra-t-elle moins de 1 000 € ?<br>
+    <strong>6.</strong> Observer les courbes. Les deux équipements auront-ils un jour la même valeur de revente ? Estimer graphiquement quand.
+  </div>
+  <div class="chart-wrap"><canvas id="chartEx12" height="260"></canvas></div>
+  <p class="chart-label">Années / Valeur de revente (€) — Scie à panneaux et Caméra thermique</p>
+  <div class="reponse-box" style="min-height:120px">Réponses : ……………………………</div>
+  <details>
+    <summary>Voir la correction complète</summary>
+    <div class="corr">
+      <p><strong>1.</strong> Prix d'achat : <span class="reponse">Scie = 12 000 €</span>, <span class="reponse">Caméra = 8 000 €</span> (valeur à \(t = 0\)).</p>
+      <p><strong>2.</strong></p>
+      <table>
+        <tr><th>\(t\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>5</td><td>8</td></tr>
+        <tr><th>\(V_S(t)\)</th><td><span class="reponse">12 000</span></td><td><span class="reponse">10 200</span></td><td><span class="reponse">8 670</span></td><td><span class="reponse">7 370</span></td><td><span class="reponse">5 325</span></td><td><span class="reponse">3 269</span></td></tr>
+        <tr><th>\(V_C(t)\)</th><td><span class="reponse">8 000</span></td><td><span class="reponse">6 400</span></td><td><span class="reponse">5 120</span></td><td><span class="reponse">4 096</span></td><td><span class="reponse">2 621</span></td><td><span class="reponse">1 342</span></td></tr>
+      </table>
+      <p><strong>3.</strong> Scie : coefficient \(0{,}85 = 1 - 0{,}15\) → <span class="reponse">dépréciation de 15 % par an</span>.<br>
+      Caméra : coefficient \(0{,}80 = 1 - 0{,}20\) → <span class="reponse">dépréciation de 20 % par an</span>.</p>
+      <p><strong>4.</strong> \(12\,000 \times 0{,}85^t < 3\,000\) → \(0{,}85^t < 0{,}25\)<br>
+      → \(t > \dfrac{\log(0{,}25)}{\log(0{,}85)} = \dfrac{-0{,}602}{-0{,}0706} \approx\) <span class="reponse">\(t \approx 8{,}5\) ans</span>.</p>
+      <p><strong>5.</strong> \(8\,000 \times 0{,}80^t < 1\,000\) → \(0{,}80^t < 0{,}125\)<br>
+      → \(t > \dfrac{\log(0{,}125)}{\log(0{,}80)} = \dfrac{-0{,}903}{-0{,}0969} \approx\) <span class="reponse">\(t \approx 9{,}3\) ans</span>.</p>
+      <p><strong>6.</strong> Les deux courbes se croisent vers <span class="reponse">\(t \approx 7\) ans</span>. À ce moment, les deux équipements ont approximativement la même valeur (environ 4 000 €). Avant ce point, la scie vaut plus ; après, la caméra vaut plus (car elle se déprécie plus vite, elle part de plus bas mais la scie la « rattrape »).</p>
+    </div>
+  </details>
+</div>
+
+<div class="nav-footer">
+  <a href="lecon.html">📖 Cours Ch05</a>
+  <a href="ds.html">📝 Devoir Ch05</a>
+  <a href="maths-term-iccer.html">📚 Sommaire</a>
+</div>
+
+</div>
+
+<script>
+const BLEU='rgba(9,105,218,0.8)',VERT='rgba(47,133,90,0.85)',ROUGE='rgba(197,48,48,0.8)',ORANGE='rgba(217,119,6,0.85)',VIOLET='rgba(124,58,237,0.8)';
+const scOpts=(xl,yl)=>({responsive:true,plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:xl,font:{size:11}}},y:{title:{display:true,text:yl,font:{size:11}}}}});
+const linOpts=(xl,yl)=>({responsive:true,plugins:{legend:{display:true,labels:{boxWidth:12,font:{size:11}}}},scales:{x:{type:'linear',title:{display:true,text:xl,font:{size:11}}},y:{title:{display:true,text:yl,font:{size:11}}}}});
+function expData(a,b,c,x0,x1,n){const r=[];const s=(x1-x0)/(n-1);for(let i=0;i<n;i++){const x=x0+i*s;r.push({x,y:a*Math.pow(b,x)+c});}return r;}
+function linData(a,b,x0,x1,n){const r=[];const s=(x1-x0)/(n-1);for(let i=0;i<n;i++){const x=x0+i*s;r.push({x,y:a*x+b});}return r;}
+
+// Ex 1 — f(x) = 2^x
+new Chart(document.getElementById('chartEx1'),{type:'scatter',data:{datasets:[{type:'scatter',label:'Points',data:[{x:0,y:1},{x:1,y:2},{x:2,y:4},{x:3,y:8},{x:4,y:16},{x:5,y:32}],backgroundColor:BLEU,pointRadius:6},{type:'line',label:'f(x) = 2^x',data:expData(1,2,0,-0.5,5.5,60),borderColor:BLEU,borderWidth:2,pointRadius:0,backgroundColor:'transparent'}]},options:linOpts('x','f(x) = 2^x')});
+
+// Ex 2 — f(x) = 3^x et g(x) = 0.5^x
+new Chart(document.getElementById('chartEx2'),{type:'scatter',data:{datasets:[{type:'line',label:'f(x) = 3^x',data:expData(1,3,0,-0.5,4,50),borderColor:BLEU,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent'},{type:'line',label:'g(x) = 0,5^x',data:expData(1,0.5,0,-0.5,4,50),borderColor:ROUGE,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent'}]},options:linOpts('x','y')});
+
+// Ex 8 — Rendement chaudière R(t) = 92 × 0.97^t
+new Chart(document.getElementById('chartEx8'),{type:'scatter',data:{datasets:[{type:'scatter',label:'Valeurs',data:[{x:0,y:92},{x:2,y:86.6},{x:5,y:79.0},{x:7,y:74.3},{x:10,y:67.8},{x:15,y:57.5},{x:20,y:48.7}],backgroundColor:BLEU,pointRadius:6},{type:'line',label:'R(t) = 92 × 0,97^t',data:expData(92,0.97,0,0,25,60),borderColor:ROUGE,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent',borderDash:[5,3]}]},options:linOpts('Années','Rendement (%)')});
+
+// Ex 9 — Comparaison linéaire vs exponentiel
+new Chart(document.getElementById('chartEx9'),{type:'scatter',data:{datasets:[{type:'line',label:'Modèle A : P = 50 + 3t',data:linData(3,50,0,25,50),borderColor:BLEU,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent'},{type:'line',label:'Modèle B : P = 50 × 1,04^t',data:expData(50,1.04,0,0,25,50),borderColor:ORANGE,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent'}]},options:linOpts('Années','Prix (€/m³)')});
+
+// Ex 10 — Refroidissement T(t) = 70 × 0.85^t + 18
+new Chart(document.getElementById('chartEx10'),{type:'scatter',data:{datasets:[{type:'scatter',label:'Valeurs calculées',data:[{x:0,y:88},{x:1,y:77.5},{x:2,y:68.6},{x:3,y:61.0},{x:5,y:49.1},{x:8,y:35.8},{x:12,y:25.3}],backgroundColor:BLEU,pointRadius:6},{type:'line',label:'T(t) = 70 × 0,85^t + 18',data:expData(70,0.85,18,0,15,60),borderColor:ROUGE,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent',borderDash:[5,3]},{type:'line',label:'T = 18 °C (ambiante)',data:[{x:0,y:18},{x:15,y:18}],borderColor:'rgba(100,100,100,0.4)',borderWidth:1.5,pointRadius:0,backgroundColor:'transparent',borderDash:[3,3]}]},options:linOpts('Temps (h)','Température (°C)')});
+
+// Ex 11 — Séchage H(t) = 45 × e^(-0.12t)
+new Chart(document.getElementById('chartEx11'),{type:'scatter',data:{datasets:[{type:'scatter',label:'Valeurs calculées',data:[{x:0,y:45},{x:5,y:24.7},{x:10,y:13.5},{x:15,y:7.4},{x:20,y:4.1},{x:25,y:2.2}],backgroundColor:VERT,pointRadius:6},{type:'line',label:'H(t) = 45 × e^(−0,12t)',data:expData(45,Math.exp(-0.12),0,0,30,60),borderColor:VERT,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent',borderDash:[5,3]},{type:'line',label:'H = 12 % (seuil)',data:[{x:0,y:12},{x:30,y:12}],borderColor:'rgba(197,48,48,0.5)',borderWidth:1.5,pointRadius:0,backgroundColor:'transparent',borderDash:[3,3]}]},options:linOpts('Temps (jours)','Humidité H (%)')});
+
+// Ex 12 — Dépréciation scie vs caméra
+new Chart(document.getElementById('chartEx12'),{type:'scatter',data:{datasets:[{type:'line',label:'Scie : V = 12 000 × 0,85^t',data:expData(12000,0.85,0,0,12,50),borderColor:ORANGE,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent'},{type:'line',label:'Caméra : V = 8 000 × 0,80^t',data:expData(8000,0.80,0,0,12,50),borderColor:BLEU,borderWidth:2.5,pointRadius:0,backgroundColor:'transparent'},{type:'line',label:'Seuil 3 000 €',data:[{x:0,y:3000},{x:12,y:3000}],borderColor:'rgba(100,100,100,0.35)',borderWidth:1.5,pointRadius:0,backgroundColor:'transparent',borderDash:[3,3]}]},options:linOpts('Années','Valeur (€)')});
+</script>
 <script src="/nav.js"></script>
 </body>
 </html>

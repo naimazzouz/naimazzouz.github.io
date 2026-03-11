@@ -1,22 +1,176 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devoir surveillé — Ch09 Fonctions logarithme népérien et exponentielle</title>
-    <link rel="stylesheet" href="../../../styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch09 – DS – Fonctions ln et exponentielle</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #0969da; }
-
-        p { color: #6e7781; font-size: 0.95em; }</style>
-  <link rel="stylesheet" href="/nav.css">
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}</style>
+<link rel="stylesheet" href="/nav.css">
 </head>
 <body>
-<div class="container">
-    <a href="maths-term-iccer.html" class="back">← Retour</a>
-    <h1>Devoir surveillé — Fonctions logarithme népérien et exponentielle</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="maths-term-iccer.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 9</h1>
+  <p class="sous-titre">Fonctions ln et exponentielle &nbsp;|&nbsp; T<sup>le</sup> Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Calculs et d&eacute;rivation</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p><strong>Partie A &ndash; Simplifications</strong> <span class="bareme">(3 pts &ndash; 1 pt par question)</span></p>
+
+  <div class="q"><strong>1.</strong> Simplifier \(\mathrm{e}^{\ln 3}\).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Simplifier \(\ln\!\left(\mathrm{e}^{5}\right)\).</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> Calculer \(\mathrm{e}^{0}\).</div>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie B &ndash; &Eacute;quations</strong> <span class="bareme">(2 pts &ndash; 1 pt par question)</span></p>
+
+  <div class="q"><strong>4.</strong> R&eacute;soudre \(\mathrm{e}^{x} = 7\). Donner la valeur exacte puis une valeur approch&eacute;e au centi&egrave;me.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> R&eacute;soudre \(\ln(x) = 3\). Donner la valeur exacte puis une valeur approch&eacute;e au centi&egrave;me.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie C &ndash; D&eacute;rivation</strong> <span class="bareme">(3 pts)</span></p>
+
+  <div class="q"><strong>6. (1,5 pt)</strong> Calculer la d&eacute;riv&eacute;e de \(f(x) = \mathrm{e}^{2x}\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>7. (1,5 pt)</strong> Calculer la d&eacute;riv&eacute;e de \(g(x) = \ln(3x)\) pour \(x > 0\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie D &ndash; &Eacute;tude de variations</strong> <span class="bareme">(2 pts)</span></p>
+
+  <div class="q"><strong>8.</strong> Soit \(h(x) = x\,\mathrm{e}^{-x}\) d&eacute;finie sur \(\mathbb{R}\).<br>
+  a) Montrer que \(h'(x) = (1 - x)\,\mathrm{e}^{-x}\). <span class="bareme">(1 pt)</span><br>
+  b) &Eacute;tudier le signe de \(h'(x)\) et dresser le tableau de variations de \(h\). <span class="bareme">(1 pt)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\mathrm{e}^{\ln 3} = 3\) car \(\mathrm{e}^{\ln a} = a\) pour tout \(a > 0\).</p>
+    <p><strong>2.</strong> \(\ln\!\left(\mathrm{e}^{5}\right) = 5\) car \(\ln(\mathrm{e}^{n}) = n\).</p>
+    <p><strong>3.</strong> \(\mathrm{e}^{0} = 1\).</p>
+    <p><strong>4.</strong> \(\mathrm{e}^{x} = 7 \Leftrightarrow x = \ln 7\). Valeur approch&eacute;e : \(x \approx 1{,}95\).</p>
+    <p><strong>5.</strong> \(\ln(x) = 3 \Leftrightarrow x = \mathrm{e}^{3}\). Valeur approch&eacute;e : \(x \approx 20{,}09\).</p>
+    <p><strong>6.</strong> On pose \(u(x) = 2x\), donc \(u'(x) = 2\). On a \(f(x) = \mathrm{e}^{u}\), donc \(f'(x) = u' \cdot \mathrm{e}^{u} = 2\,\mathrm{e}^{2x}\).</p>
+    <p><strong>7.</strong> On pose \(u(x) = 3x\), donc \(u'(x) = 3\). On a \(g(x) = \ln(u)\), donc \(g'(x) = \dfrac{u'}{u} = \dfrac{3}{3x} = \dfrac{1}{x}\).</p>
+    <p><strong>8a.</strong> \(h(x) = x \cdot \mathrm{e}^{-x}\). On applique la r&egrave;gle du produit : \(h'(x) = 1 \cdot \mathrm{e}^{-x} + x \cdot (-1)\,\mathrm{e}^{-x} = \mathrm{e}^{-x}(1 - x) = (1 - x)\,\mathrm{e}^{-x}\). &#10003;</p>
+    <p><strong>8b.</strong> \(\mathrm{e}^{-x} > 0\) pour tout \(x\), donc le signe de \(h'(x)\) d&eacute;pend de \((1 - x)\) :<br>
+    &bull; Si \(x < 1\) : \(h'(x) > 0\), \(h\) est croissante.<br>
+    &bull; Si \(x = 1\) : \(h'(x) = 0\).<br>
+    &bull; Si \(x > 1\) : \(h'(x) < 0\), \(h\) est d&eacute;croissante.<br>
+    \(h\) admet un maximum en \(x = 1\) : \(h(1) = 1 \cdot \mathrm{e}^{-1} = \dfrac{1}{\mathrm{e}} \approx 0{,}37\).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Refroidissement d'un radiateur</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un technicien chauffagiste arr&ecirc;te un radiateur pour effectuer une maintenance. La temp&eacute;rature du radiateur suit la <strong>loi de refroidissement de Newton</strong> :
+    \[T(t) = 20 + 160\,\mathrm{e}^{-0{,}05\,t}\]
+    o&ugrave; \(T\) est la temp&eacute;rature en &deg;C et \(t\) le temps en minutes apr&egrave;s l'arr&ecirc;t.
+  </div>
+
+  <div class="q"><strong>1. (1 pt)</strong> Quelle est la temp&eacute;rature du radiateur &agrave; l'instant \(t = 0\) (au moment de l'arr&ecirc;t) ?</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Vers quelle temp&eacute;rature tend le radiateur quand \(t \to +\infty\) ? Interpr&eacute;ter physiquement.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer la temp&eacute;rature du radiateur apr&egrave;s 10 minutes, puis apr&egrave;s 30 minutes. Arrondir au dixi&egrave;me.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (3 pts)</strong> D&eacute;terminer le temps n&eacute;cessaire pour que la temp&eacute;rature atteigne 50 &deg;C. Arrondir &agrave; la minute pr&egrave;s.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (1,5 pt)</strong> Calculer \(T'(t)\) et v&eacute;rifier que \(T'(t) < 0\) pour tout \(t\). Qu'est-ce que cela signifie physiquement ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>6. (1,5 pt)</strong> La constante de temps \(\tau\) de ce syst&egrave;me est d&eacute;finie par \(\tau = \dfrac{1}{0{,}05}\). Calculer \(\tau\) et expliquer sa signification : quelle fraction de l'&eacute;cart initial de temp&eacute;rature reste-t-il apr&egrave;s un temps &eacute;gal &agrave; \(\tau\) ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(T(0) = 20 + 160\,\mathrm{e}^{0} = 20 + 160 \times 1 = 180\) &deg;C.</p>
+    <p><strong>2.</strong> Quand \(t \to +\infty\), \(\mathrm{e}^{-0{,}05\,t} \to 0\), donc \(T(t) \to 20\) &deg;C. C'est la temp&eacute;rature ambiante de la pi&egrave;ce : le radiateur refroidit jusqu'&agrave; atteindre l'&eacute;quilibre thermique avec son environnement.</p>
+    <p><strong>3.</strong><br>
+    \(T(10) = 20 + 160\,\mathrm{e}^{-0{,}5} = 20 + 160 \times 0{,}6065 \approx 20 + 97{,}0 = 117{,}0\) &deg;C.<br>
+    \(T(30) = 20 + 160\,\mathrm{e}^{-1{,}5} = 20 + 160 \times 0{,}2231 \approx 20 + 35{,}7 = 55{,}7\) &deg;C.</p>
+    <p><strong>4.</strong> On r&eacute;sout \(T(t) = 50\) :
+    \[20 + 160\,\mathrm{e}^{-0{,}05\,t} = 50\]
+    \[160\,\mathrm{e}^{-0{,}05\,t} = 30\]
+    \[\mathrm{e}^{-0{,}05\,t} = \frac{30}{160} = 0{,}1875\]
+    \[-0{,}05\,t = \ln(0{,}1875)\]
+    \[t = \frac{-\ln(0{,}1875)}{0{,}05} = \frac{\ln\!\left(\frac{160}{30}\right)}{0{,}05} \approx \frac{1{,}6740}{0{,}05} \approx 33\text{ min.}\]
+    Le radiateur atteint 50 &deg;C apr&egrave;s environ <strong>33 minutes</strong>.</p>
+    <p><strong>5.</strong> \(T'(t) = 160 \times (-0{,}05)\,\mathrm{e}^{-0{,}05\,t} = -8\,\mathrm{e}^{-0{,}05\,t}\).<br>
+    Comme \(\mathrm{e}^{-0{,}05\,t} > 0\) pour tout \(t\), on a \(T'(t) = -8\,\mathrm{e}^{-0{,}05\,t} < 0\).<br>
+    Physiquement, cela signifie que la temp&eacute;rature du radiateur est toujours <strong>d&eacute;croissante</strong> : il ne cesse de refroidir.</p>
+    <p><strong>6.</strong> \(\tau = \dfrac{1}{0{,}05} = 20\) minutes.<br>
+    Apr&egrave;s un temps \(\tau = 20\) min : \(T(20) = 20 + 160\,\mathrm{e}^{-1} \approx 20 + 58{,}9 = 78{,}9\) &deg;C.<br>
+    L'&eacute;cart initial &eacute;tait \(180 - 20 = 160\) &deg;C. Apr&egrave;s \(\tau\), l'&eacute;cart est \(78{,}9 - 20 = 58{,}9\) &deg;C, soit \(\dfrac{58{,}9}{160} \approx 0{,}368 = \dfrac{1}{\mathrm{e}} \approx 36{,}8\,\%\) de l'&eacute;cart initial. Il reste environ <strong>37 %</strong> de l'&eacute;cart initial de temp&eacute;rature apr&egrave;s un temps \(\tau\).</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="/nav.js"></script>
 </body>

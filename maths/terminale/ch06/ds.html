@@ -1,22 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devoir surveillé — Ch06 Vecteurs</title>
-    <link rel="stylesheet" href="../../../styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch06 – DS – Vecteurs</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #0969da; }
-
-        p { color: #6e7781; font-size: 0.95em; }</style>
-  <link rel="stylesheet" href="/nav.css">
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}</style>
+<link rel="stylesheet" href="/nav.css">
 </head>
 <body>
-<div class="container">
-    <a href="maths-term-iccer.html" class="back">← Retour</a>
-    <h1>Devoir surveillé — Vecteurs</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 6</h1>
+  <p class="sous-titre">Vecteurs &nbsp;|&nbsp; T<sup>le</sup> Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Coordonn&eacute;es, normes et collin&eacute;arit&eacute;</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p class="bareme">2 pts par question.</p>
+
+  <p>On consid&egrave;re les points \(A(1\,;\,3)\), \(B(4\,;\,7)\), \(C(-2\,;\,5)\) et \(D(1\,;\,9)\).</p>
+
+  <div class="q"><strong>1.</strong> Calculer les coordonn&eacute;es des vecteurs \(\vec{AB}\) et \(\vec{CD}\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> Calculer la norme \(\|\vec{AB}\|\). Arrondir au centi&egrave;me.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> V&eacute;rifier par le calcul du d&eacute;terminant si les vecteurs \(\vec{AB}\) et \(\vec{CD}\) sont colin&eacute;aires.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> Calculer les coordonn&eacute;es du milieu \(M\) du segment \([AB]\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> On donne \(E(5\,;\,1)\). Calculer les coordonn&eacute;es du vecteur \(\vec{AE}\) et v&eacute;rifier si \(\vec{AE}\) et \(\vec{AB}\) sont colin&eacute;aires.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\vec{AB} = \begin{pmatrix} 4-1 \\ 7-3 \end{pmatrix} = \begin{pmatrix} 3 \\ 4 \end{pmatrix}\) &emsp; \(\vec{CD} = \begin{pmatrix} 1-(-2) \\ 9-5 \end{pmatrix} = \begin{pmatrix} 3 \\ 4 \end{pmatrix}\)</p>
+    <p><strong>2.</strong> \(\|\vec{AB}\| = \sqrt{3^2 + 4^2} = \sqrt{9+16} = \sqrt{25} = 5\).</p>
+    <p><strong>3.</strong> \(\det(\vec{AB},\,\vec{CD}) = 3 \times 4 - 4 \times 3 = 12 - 12 = 0\). Le d&eacute;terminant est nul, donc les vecteurs \(\vec{AB}\) et \(\vec{CD}\) sont colin&eacute;aires.</p>
+    <p><strong>4.</strong> \(M = \left(\dfrac{1+4}{2}\,;\,\dfrac{3+7}{2}\right) = \left(\dfrac{5}{2}\,;\,5\right) = (2{,}5\,;\,5)\).</p>
+    <p><strong>5.</strong> \(\vec{AE} = \begin{pmatrix} 5-1 \\ 1-3 \end{pmatrix} = \begin{pmatrix} 4 \\ -2 \end{pmatrix}\). &emsp; \(\det(\vec{AB},\,\vec{AE}) = 3 \times (-2) - 4 \times 4 = -6 - 16 = -22 \neq 0\). Les vecteurs ne sont pas colin&eacute;aires.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Plan d'agencement (contexte ERA)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un agenceur d'espace pr&eacute;pare le plan d'am&eacute;nagement d'un bureau. Sur le rep&egrave;re (en m&egrave;tres), les coins de la pi&egrave;ce sont : \(P(0\,;\,0)\), \(Q(6\,;\,0)\), \(R(6\,;\,4)\) et \(S(0\,;\,4)\). Une cloison int&eacute;rieure va du point \(A(2\,;\,0)\) au point \(B(2\,;\,3)\).</p>
+
+  <p class="bareme">Bar&egrave;me d&eacute;taill&eacute; ci-dessous.</p>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer les coordonn&eacute;es du vecteur \(\vec{PQ}\) (mur du bas) et du vecteur \(\vec{AB}\) (cloison).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> V&eacute;rifier que la cloison \(\vec{AB}\) est perpendiculaire au mur \(\vec{PQ}\) en calculant le produit scalaire \(\vec{PQ} \cdot \vec{AB}\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer la longueur de la cloison \(AB\) et la diagonale \(PR\) de la pi&egrave;ce. Arrondir au centi&egrave;me.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Un meuble doit &ecirc;tre plac&eacute; au milieu du mur \([QR]\). D&eacute;terminer les coordonn&eacute;es du point \(M\), milieu de \([QR]\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> &Eacute;crire l'&eacute;quation de la droite passant par \(A\) et \(B\) (la cloison). En d&eacute;duire si le point \(C(2\,;\,5)\) appartient au prolongement de cette cloison.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\vec{PQ} = \begin{pmatrix} 6-0 \\ 0-0 \end{pmatrix} = \begin{pmatrix} 6 \\ 0 \end{pmatrix}\) &emsp; \(\vec{AB} = \begin{pmatrix} 2-2 \\ 3-0 \end{pmatrix} = \begin{pmatrix} 0 \\ 3 \end{pmatrix}\)</p>
+    <p><strong>2.</strong> \(\vec{PQ} \cdot \vec{AB} = 6 \times 0 + 0 \times 3 = 0\). Le produit scalaire est nul, donc \(\vec{PQ} \perp \vec{AB}\) : la cloison est bien perpendiculaire au mur.</p>
+    <p><strong>3.</strong> \(AB = \|\vec{AB}\| = \sqrt{0^2 + 3^2} = 3\) m. &emsp; \(PR = \sqrt{(6-0)^2 + (4-0)^2} = \sqrt{36+16} = \sqrt{52} \approx 7{,}21\) m.</p>
+    <p><strong>4.</strong> \(M = \left(\dfrac{6+6}{2}\,;\,\dfrac{0+4}{2}\right) = (6\,;\,2)\).</p>
+    <p><strong>5.</strong> La droite \((AB)\) passe par \(A(2\,;\,0)\) et \(B(2\,;\,3)\). Les abscisses sont &eacute;gales, c'est une droite verticale d'&eacute;quation \(x = 2\). Le point \(C(2\,;\,5)\) v&eacute;rifie \(x = 2\), donc \(C\) appartient au prolongement de la cloison.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="/nav.js"></script>
 </body>
