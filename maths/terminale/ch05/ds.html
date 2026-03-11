@@ -1,22 +1,137 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devoir surveillé — Ch05 Fonctions exponentielles et logarithme décimal</title>
-    <link rel="stylesheet" href="../../../styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – DS – Fonctions exponentielles et logarithme décimal</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #0969da; }
-
-        p { color: #6e7781; font-size: 0.95em; }</style>
-  <link rel="stylesheet" href="/nav.css">
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}</style>
+<link rel="stylesheet" href="/nav.css">
 </head>
 <body>
-<div class="container">
-    <a href="maths-term-iccer.html" class="back">← Retour</a>
-    <h1>Devoir surveillé — Fonctions exponentielles et logarithme décimal</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="../../../maths-term-iccer.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 5</h1>
+  <p class="sous-titre">Fonctions exponentielles et logarithme d&eacute;cimal &nbsp;|&nbsp; T<sup>le</sup> Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Calculs et propri&eacute;t&eacute;s</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q"><strong>1.</strong> Calculer les valeurs suivantes sans calculatrice :
+    <br>\(2^5 = \dots\) &emsp; \(10^{-2} = \dots\) &emsp; \(3^0 = \dots\) &emsp; \(5^{-1} = \dots\)</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> R&eacute;soudre l'&eacute;quation \(2^x = 32\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> R&eacute;soudre l'&eacute;quation \(3^x = \dfrac{1}{27}\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> En utilisant la propri&eacute;t&eacute; \(\log(a \times b) = \log(a) + \log(b)\), calculer \(\log(200)\) sachant que \(\log(2) \approx 0{,}301\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> R&eacute;soudre l'&eacute;quation \(\log(x) = 2{,}5\). Arrondir au dixi&egrave;me.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(2^5 = 32\) &emsp; \(10^{-2} = 0{,}01\) &emsp; \(3^0 = 1\) &emsp; \(5^{-1} = \dfrac{1}{5} = 0{,}2\)</p>
+    <p><strong>2.</strong> \(2^x = 32\). Or \(32 = 2^5\), donc \(2^x = 2^5\), d'o&ugrave; \(x = 5\).</p>
+    <p><strong>3.</strong> \(3^x = \dfrac{1}{27}\). Or \(\dfrac{1}{27} = \dfrac{1}{3^3} = 3^{-3}\), donc \(3^x = 3^{-3}\), d'o&ugrave; \(x = -3\).</p>
+    <p><strong>4.</strong> \(\log(200) = \log(2 \times 100) = \log(2) + \log(100) = 0{,}301 + 2 = 2{,}301\).</p>
+    <p><strong>5.</strong> \(\log(x) = 2{,}5 \Rightarrow x = 10^{2{,}5} = 10^2 \times 10^{0{,}5} = 100\sqrt{10} \approx 316{,}2\).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Att&eacute;nuation d'un signal (contexte ICCER)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un technicien en installation climatique mesure l'intensit&eacute; d'un signal transmis par un capteur de temp&eacute;rature &agrave; travers une s&eacute;rie de connecteurs. L'intensit&eacute; initiale est \(I_0 = 50\) mA. Apr&egrave;s chaque connecteur, le signal est att&eacute;nu&eacute; : l'intensit&eacute; est multipli&eacute;e par \(0{,}8\).</p>
+  <p>On mod&eacute;lise l'intensit&eacute; apr&egrave;s \(n\) connecteurs par : \(I(n) = I_0 \times 0{,}8^n\).</p>
+
+  <p class="bareme">Bar&egrave;me d&eacute;taill&eacute; ci-dessous.</p>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer \(I(1)\), \(I(2)\) et \(I(3)\). Arrondir au dixi&egrave;me.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (2 pts)</strong> Compl&eacute;ter le tableau ci-dessous (arrondir au dixi&egrave;me) :</div>
+  <table>
+    <tr><th>\(n\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>\(I(n)\) (mA)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="q"><strong>3. (2 pts)</strong> Le capteur ne fonctionne plus si le signal descend en dessous de \(20\) mA. &Agrave; partir de combien de connecteurs le signal est-il trop faible ? Justifier.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> On d&eacute;finit l'att&eacute;nuation en d&eacute;cibels par \(A(n) = 10 \times \log\!\left(\dfrac{I(n)}{I_0}\right)\). Montrer que \(A(n) = 10\,n\,\log(0{,}8)\).</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> Calculer \(A(5)\). Arrondir au dixi&egrave;me. Interpr&eacute;ter le signe du r&eacute;sultat.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(I(1) = 50 \times 0{,}8 = 40\) mA &emsp; \(I(2) = 50 \times 0{,}8^2 = 50 \times 0{,}64 = 32\) mA &emsp; \(I(3) = 50 \times 0{,}8^3 = 50 \times 0{,}512 = 25{,}6\) mA.</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      <tr><td>\(I(n)\)</td><td>50</td><td>40</td><td>32</td><td>25,6</td><td>20,5</td><td>16,4</td></tr>
+    </table>
+    <p><strong>3.</strong> On cherche \(n\) tel que \(I(n) &lt; 20\), soit \(50 \times 0{,}8^n &lt; 20\), donc \(0{,}8^n &lt; 0{,}4\). D'apr&egrave;s le tableau, \(I(4) = 20{,}5 &gt; 20\) et \(I(5) = 16{,}4 &lt; 20\). Le signal est trop faible &agrave; partir de \(n = 5\) connecteurs.</p>
+    <p><strong>4.</strong> \(A(n) = 10\,\log\!\left(\dfrac{I(n)}{I_0}\right) = 10\,\log\!\left(\dfrac{I_0 \times 0{,}8^n}{I_0}\right) = 10\,\log(0{,}8^n) = 10\,n\,\log(0{,}8)\).</p>
+    <p><strong>5.</strong> \(A(5) = 10 \times 5 \times \log(0{,}8) = 50 \times (-0{,}0969) \approx -4{,}8\) dB. Le signe n&eacute;gatif indique une perte (att&eacute;nuation) du signal.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="/nav.js"></script>
 </body>

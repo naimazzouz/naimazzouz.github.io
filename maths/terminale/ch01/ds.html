@@ -1,22 +1,157 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devoir surveillé — Ch01 Statistiques à deux variables</title>
-    <link rel="stylesheet" href="../../../styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – DS – Statistiques à deux variables</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.back { display: inline-block; margin-bottom: 40px; text-decoration: none; color: #6e7781; font-size: 0.9em; }
-        .back:hover { color: #0969da; }
-
-        p { color: #6e7781; font-size: 0.95em; }</style>
-  <link rel="stylesheet" href="/nav.css">
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.q strong{color:var(--t)}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}</style>
+<link rel="stylesheet" href="/nav.css">
 </head>
 <body>
-<div class="container">
-    <a href="maths-term-iccer.html" class="back">← Retour</a>
-    <h1>Devoir surveillé — Statistiques à deux variables</h1>
-    <p>Page en construction.</p>
+<div class="c">
+<a href="maths-term-iccer.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 1</h1>
+  <p class="sous-titre">Statistiques à deux variables &nbsp;|&nbsp; T<sup>le</sup> Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Consommation de chauffage</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un technicien chauffagiste relève la consommation mensuelle de gaz \(C\) (en m³) d'un immeuble en fonction de la température extérieure moyenne \(T\) (en °C). Il obtient les données suivantes :</p>
+
+  <table>
+    <tr><th>\(T\) (°C)</th><th>2</th><th>5</th><th>8</th><th>10</th><th>13</th><th>17</th><th>20</th></tr>
+    <tr><td>\(C\) (m³)</td><td>85</td><td>73</td><td>62</td><td>55</td><td>43</td><td>28</td><td>17</td></tr>
+  </table>
+
+  <div class="q"><strong>1. (2 pts)</strong> Placer le nuage de points \((T\,;\,C)\) dans un repère adapté.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> Décrire la tendance observée. Le lien entre \(T\) et \(C\) semble-t-il linéaire ? Justifier.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> On admet que la droite d'ajustement a pour équation \(C = -3{,}8T + 92{,}7\). Tracer cette droite dans le repère précédent.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Estimer la consommation pour une température de \(12\)°C. S'agit-il d'une interpolation ou d'une extrapolation ? Justifier.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> Estimer la consommation pour une température de \(25\)°C. S'agit-il d'une interpolation ou d'une extrapolation ? Justifier. Ce résultat est-il fiable ?</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>6. (1 pt)</strong> À partir de quelle température la consommation estimée devient-elle nulle ? Interpréter ce résultat.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le nuage de points est placé dans un repère avec \(T\) en abscisse (de 0 à 22) et \(C\) en ordonnée (de 0 à 90). Les 7 points sont placés selon le tableau.</p>
+    <p><strong>2.</strong> Lorsque la température augmente, la consommation diminue : la tendance est décroissante. Les points sont approximativement alignés, le lien semble linéaire.</p>
+    <p><strong>3.</strong> On trace la droite passant par exemple par \(T=0 \Rightarrow C=92{,}7\) et \(T=20 \Rightarrow C=-3{,}8\times 20+92{,}7=16{,}7\).</p>
+    <p><strong>4.</strong> Pour \(T=12\) : \(C = -3{,}8 \times 12 + 92{,}7 = -45{,}6 + 92{,}7 = 47{,}1\) m³.<br>
+    C'est une <strong>interpolation</strong> car \(12\) est compris entre les valeurs extrêmes de \(T\) (entre 2 et 20).</p>
+    <p><strong>5.</strong> Pour \(T=25\) : \(C = -3{,}8 \times 25 + 92{,}7 = -95 + 92{,}7 = -2{,}3\) m³.<br>
+    C'est une <strong>extrapolation</strong> car \(25\) est en dehors de la plage des données (au-delà de 20). Ce résultat n'est pas fiable car une consommation négative n'a pas de sens physique.</p>
+    <p><strong>6.</strong> On résout \(-3{,}8T + 92{,}7 = 0\), soit \(T = \dfrac{92{,}7}{3{,}8} \approx 24{,}4\)°C. Au-delà d'environ 24°C, le modèle prédit une consommation nulle (plus besoin de chauffage).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Coût de fabrication de panneaux</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un agenceur d'intérieur étudie le coût de fabrication \(C\) (en €) de panneaux décoratifs en fonction de leur surface \(S\) (en m²). Il dispose des relevés suivants :</p>
+
+  <table>
+    <tr><th>\(S\) (m²)</th><th>1</th><th>2</th><th>3</th><th>5</th><th>7</th><th>10</th></tr>
+    <tr><td>\(C\) (€)</td><td>45</td><td>78</td><td>115</td><th>185</th><th>260</th><th>375</th></tr>
+  </table>
+
+  <div class="q"><strong>1. (2 pts)</strong> Placer le nuage de points \((S\,;\,C)\) dans un repère adapté.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2. (1 pt)</strong> La droite d'ajustement obtenue par la calculatrice a pour équation \(C = 36{,}5S + 12{,}3\). Tracer cette droite.</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3. (2 pts)</strong> Estimer le coût d'un panneau de \(4\) m². Préciser s'il s'agit d'une interpolation ou d'une extrapolation.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> Estimer le coût d'un panneau de \(12\) m². Discuter de la fiabilité de cette estimation.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> Le budget maximal du client est de \(300\) €. Quelle surface maximale de panneau peut-il commander ? Détailler le calcul.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>6. (1 pt)</strong> Interpréter le coefficient \(36{,}5\) dans l'équation \(C = 36{,}5S + 12{,}3\) dans le contexte du problème.</div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le nuage de points est placé dans un repère avec \(S\) en abscisse (de 0 à 11) et \(C\) en ordonnée (de 0 à 400). Les 6 points sont placés selon le tableau.</p>
+    <p><strong>2.</strong> On trace la droite en calculant deux points : pour \(S=0\), \(C=12{,}3\) et pour \(S=10\), \(C=36{,}5 \times 10 + 12{,}3 = 377{,}3\).</p>
+    <p><strong>3.</strong> Pour \(S=4\) : \(C = 36{,}5 \times 4 + 12{,}3 = 146 + 12{,}3 = 158{,}3\) €.<br>
+    C'est une <strong>interpolation</strong> car \(4\) est compris entre les valeurs extrêmes de \(S\) (entre 1 et 10).</p>
+    <p><strong>4.</strong> Pour \(S=12\) : \(C = 36{,}5 \times 12 + 12{,}3 = 438 + 12{,}3 = 450{,}3\) €.<br>
+    C'est une <strong>extrapolation</strong> car \(12\) dépasse la plage des données (au-delà de 10). L'estimation est moins fiable car le modèle linéaire n'est pas forcément valable au-delà des données observées.</p>
+    <p><strong>5.</strong> On résout \(36{,}5S + 12{,}3 = 300\) :<br>
+    \(36{,}5S = 300 - 12{,}3 = 287{,}7\)<br>
+    \(S = \dfrac{287{,}7}{36{,}5} \approx 7{,}88\) m².<br>
+    Le client peut commander un panneau d'environ \(7{,}9\) m² maximum.</p>
+    <p><strong>6.</strong> Le coefficient \(36{,}5\) représente le coût supplémentaire par m² de panneau. Chaque m² supplémentaire coûte environ \(36{,}50\) € de plus.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="/nav.js"></script>
 </body>
