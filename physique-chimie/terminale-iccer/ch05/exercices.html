@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Exercices – Pression dans un fluide immobile | ICCER Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
+.methode strong{color:#d97706}
+</style>
+</head>
+<body><div class="c">
+<a href="../../../physique-chimie/terminale-iccer/pc-term-iccer.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch05 – Caractériser la pression dans un fluide immobile</h1>
+  <p class="sous-titre">Exercices | Terminale Bac Pro ICCER – Fluides statiques</p>
+</header>
+
+<!-- ===== INTRODUCTION ===== -->
+<div class="intro-box">
+  <strong>Rappels du cours</strong>
+  <p>La pression est la force exercée par unité de surface. Dans un fluide immobile, elle varie avec la profondeur selon la statique des fluides.</p>
+  <ul>
+    <li><strong>Pression exercée par une force :</strong> \(P = \dfrac{F}{S}\) (Pa)</li>
+    <li><strong>Statique des fluides :</strong> \(P = P_0 + \rho \cdot g \cdot h\) avec \(\rho\) en kg/m³, \(g = 9{,}81\ \text{m/s}^2\), \(h\) en m</li>
+    <li><strong>Pression absolue / relative :</strong> \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}}\) — une pression relative négative est une dépression</li>
+    <li><strong>Loi de Boyle-Mariotte (T = cste) :</strong> \(P_1 \cdot V_1 = P_2 \cdot V_2\)</li>
+    <li><strong>Unités :</strong> 1 bar = 10⁵ Pa = 1 000 mbar ; \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\) ; \(P_{\text{atm}} \approx 1{,}013\ \text{bar}\)</li>
+  </ul>
+</div>
+
+<!-- ===== EXERCICES DE BASE ===== -->
+<h2>Exercices de base</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Pression exercée par une force sur une surface</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Une soupape de sécurité est soumise à une force \(F = 200\ \text{N}\) sur une surface \(S = 0{,}02\ \text{m}^2\).</p>
+  <p class="q"><strong>1.</strong> Écrire la formule reliant pression, force et surface.</p>
+  <p class="q"><strong>2.</strong> Calculer la pression \(P\) exercée en Pa.</p>
+  <p class="q"><strong>3.</strong> Convertir ce résultat en bar, puis en mbar.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = \dfrac{F}{S}\)</p>
+    <p><strong>2.</strong> \(P = \dfrac{200}{0{,}02} = \mathbf{10\,000\ \text{Pa}}\)</p>
+    <p><strong>3.</strong> \(P = \dfrac{10\,000}{10^5} = \mathbf{0{,}1\ \text{bar}}\) &nbsp;et&nbsp; \(P = 0{,}1 \times 1\,000 = \mathbf{100\ \text{mbar}}\)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Pression au fond d'un réservoir d'eau</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Un réservoir d'eau est soumis en surface à la pression atmosphérique \(P_0 = 1\ \text{bar} = 10^5\ \text{Pa}\). La profondeur vaut \(h = 5\ \text{m}\). On prend \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\) et \(g = 9{,}81\ \text{m/s}^2\).</p>
+  <p class="q"><strong>1.</strong> Écrire la formule de la statique des fluides.</p>
+  <p class="q"><strong>2.</strong> Calculer la pression \(P\) au fond du réservoir en Pa.</p>
+  <p class="q"><strong>3.</strong> Exprimer ce résultat en bar.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = P_0 + \rho \cdot g \cdot h\)</p>
+    <p><strong>2.</strong> \(P = 10^5 + 1\,000 \times 9{,}81 \times 5 = 100\,000 + 49\,050 = \mathbf{149\,050\ \text{Pa}}\)</p>
+    <p><strong>3.</strong> \(P = \dfrac{149\,050}{10^5} \approx \mathbf{1{,}49\ \text{bar}}\)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">Conversions d'unités de pression</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Effectuer les conversions suivantes (rappel : 1 bar = 10⁵ Pa = 1 000 mbar) :</p>
+  <p class="q"><strong>1.</strong> Convertir \(2{,}5\ \text{bar}\) en Pa.</p>
+  <p class="q"><strong>2.</strong> Convertir \(150\,000\ \text{Pa}\) en bar.</p>
+  <p class="q"><strong>3.</strong> Convertir \(3\ \text{bar}\) en mbar.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(2{,}5\ \text{bar} \times 10^5 = \mathbf{250\,000\ \text{Pa}}\)</p>
+    <p><strong>2.</strong> \(\dfrac{150\,000}{10^5} = \mathbf{1{,}5\ \text{bar}}\)</p>
+    <p><strong>3.</strong> \(3\ \text{bar} \times 1\,000 = \mathbf{3\,000\ \text{mbar}}\)</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES GUIDÉS ===== -->
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Loi de Boyle-Mariotte — compression et détente d'un gaz</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un ballon contient un gaz à \(P_1 = 2\ \text{bar}\) et \(V_1 = 10\ \text{L}\). La température reste constante tout au long des transformations.</p>
+  <div class="methode">
+    <strong>Méthode :</strong> La loi de Boyle-Mariotte s'applique à température constante : \(P_1 V_1 = P_2 V_2\). Pour trouver \(P_2\) ou \(V_2\) inconnu, isoler la grandeur recherchée avant de substituer les valeurs numériques.
+  </div>
+  <p class="q"><strong>1.</strong> On comprime le gaz jusqu'à \(V_2 = 4\ \text{L}\). Calculer la nouvelle pression \(P_2\).</p>
+  <p class="q"><strong>2.</strong> On détend le gaz (depuis l'état initial) jusqu'à \(V_2 = 20\ \text{L}\). Calculer la pression \(P_2\) dans ce cas.</p>
+  <p class="q"><strong>3.</strong> Dans quel cas la pression est-elle la plus élevée ? Justifier physiquement.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_1 V_1 = P_2 V_2 \Rightarrow P_2 = \dfrac{P_1 \cdot V_1}{V_2} = \dfrac{2 \times 10}{4} = \mathbf{5\ \text{bar}}\)</p>
+    <p>Le volume est divisé par 2,5 ; la pression est multipliée par 2,5.</p>
+    <p><strong>2.</strong> \(P_2 = \dfrac{P_1 \cdot V_1}{V_2} = \dfrac{2 \times 10}{20} = \mathbf{1\ \text{bar}}\)</p>
+    <p>Le volume double ; la pression est divisée par 2.</p>
+    <p><strong>3.</strong> La pression est maximale lors de la compression (\(P_2 = 5\ \text{bar}\)). Physiquement, un volume réduit contraint les molécules de gaz dans un espace plus petit : la fréquence des chocs sur les parois augmente, donc la pression augmente.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Différence de pression dans une colonne d'eau</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Dans un circuit de chauffage vertical, on calcule la différence de pression entre le bas et le haut d'une colonne d'eau de hauteur \(h = 8\ \text{m}\). On prend \(\rho = 1\,000\ \text{kg/m}^3\) et \(g = 9{,}81\ \text{m/s}^2\).</p>
+  <div class="methode">
+    <strong>Méthode :</strong> La pression en bas est supérieure à la pression en haut. La différence vaut \(\Delta P = \rho \cdot g \cdot h\). C'est cette différence de pression hydrostatique que la pompe de circulation doit vaincre dans un circuit vertical.
+  </div>
+  <p class="q"><strong>1.</strong> Calculer \(\Delta P = P_{\text{bas}} - P_{\text{haut}}\) en Pa.</p>
+  <p class="q"><strong>2.</strong> Exprimer \(\Delta P\) en bar.</p>
+  <p class="q"><strong>3.</strong> Si la pression en haut du circuit est \(P_{\text{haut}} = 1{,}5\ \text{bar}\), quelle est la pression en bas ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\Delta P = \rho \cdot g \cdot h = 1\,000 \times 9{,}81 \times 8 = \mathbf{78\,480\ \text{Pa}}\)</p>
+    <p><strong>2.</strong> \(\Delta P = \dfrac{78\,480}{10^5} \approx \mathbf{0{,}785\ \text{bar}}\)</p>
+    <p><strong>3.</strong> \(P_{\text{bas}} = P_{\text{haut}} + \Delta P = 1{,}5 + 0{,}785 = \mathbf{2{,}285\ \text{bar}}\)</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES D'APPLICATION ===== -->
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Vases communicants — eau et huile</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Deux réservoirs sont reliés par le bas. Le premier contient de l'eau (\(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\)) avec une hauteur \(h_{\text{eau}} = 50\ \text{cm} = 0{,}50\ \text{m}\). Le second contient de l'huile (\(\rho_{\text{huile}} = 900\ \text{kg/m}^3\)). À l'équilibre, les pressions au niveau de la jonction sont égales. La pression atmosphérique \(P_0\) est la même en surface des deux côtés.</p>
+  <p class="q"><strong>1.</strong> Écrire la condition d'équilibre des pressions au niveau de la jonction.</p>
+  <p class="q"><strong>2.</strong> En déduire l'expression de \(h_{\text{huile}}\), puis calculer sa valeur.</p>
+  <p class="q"><strong>3.</strong> Expliquer pourquoi la hauteur d'huile est supérieure à la hauteur d'eau.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Avec \(P_0\) identique en surface des deux côtés :</p>
+    <p>\(P_0 + \rho_{\text{eau}} \cdot g \cdot h_{\text{eau}} = P_0 + \rho_{\text{huile}} \cdot g \cdot h_{\text{huile}}\)</p>
+    <p>Soit, après simplification : \(\rho_{\text{eau}} \cdot h_{\text{eau}} = \rho_{\text{huile}} \cdot h_{\text{huile}}\)</p>
+    <p><strong>2.</strong> \(h_{\text{huile}} = \dfrac{\rho_{\text{eau}} \cdot h_{\text{eau}}}{\rho_{\text{huile}}} = \dfrac{1\,000 \times 0{,}50}{900} \approx \mathbf{0{,}556\ \text{m} \approx 55{,}6\ \text{cm}}\)</p>
+    <p><strong>3.</strong> L'huile est moins dense que l'eau (\(\rho_{\text{huile}} < \rho_{\text{eau}}\)). Pour exercer la même pression au niveau de la jonction, il faut une colonne d'huile plus haute : un fluide léger doit « compenser » sa faible densité par une hauteur plus grande.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Pression absolue et pression relative (manométrique)</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un manomètre mesure la pression relative par rapport à la pression atmosphérique. La pression atmosphérique est \(P_{\text{atm}} = 1{,}013\ \text{bar}\). La relation est : \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}}\).</p>
+  <p class="q"><strong>1.</strong> Un manomètre indique \(P_{\text{rel}} = +1{,}5\ \text{bar}\). Calculer la pression absolue \(P_{\text{abs}}\).</p>
+  <p class="q"><strong>2.</strong> Un autre manomètre indique \(P_{\text{rel}} = -0{,}3\ \text{bar}\) (dépression). Calculer la pression absolue correspondante.</p>
+  <p class="q"><strong>3.</strong> Une pression absolue peut-elle être négative ? Quelle est la pression absolue minimale possible ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}} = 1{,}013 + 1{,}5 = \mathbf{2{,}513\ \text{bar}}\)</p>
+    <p><strong>2.</strong> \(P_{\text{abs}} = 1{,}013 + (-0{,}3) = 1{,}013 - 0{,}3 = \mathbf{0{,}713\ \text{bar}}\)</p>
+    <p>Malgré une pression relative négative, la pression absolue reste positive : on est en dépression (pression inférieure à l'atmosphérique), mais pas en vide parfait.</p>
+    <p><strong>3.</strong> Non, une pression absolue ne peut pas être négative. La valeur minimale est le vide parfait : \(P_{\text{abs}} = 0\). La pression relative minimale est donc \(P_{\text{rel,min}} = -P_{\text{atm}} = -1{,}013\ \text{bar}\).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICES CONTEXTUALISÉS ICCER ===== -->
+<h2>Exercices contextualisés ICCER</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Contrôle de pression d'un circuit de chauffage central</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un plombier chauffagiste contrôle la pression d'un circuit de chauffage central. Le manomètre installé en bas de l'installation indique \(P_{\text{bas}} = 2{,}5\ \text{bar}\). Le circuit monte verticalement sur une hauteur \(h = 8\ \text{m}\). On prend \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\), \(g = 9{,}81\ \text{m/s}^2\).</p>
+  <p class="q"><strong>1.</strong> Calculer la différence de pression hydrostatique \(\Delta P = \rho \cdot g \cdot h\) en Pa, puis en bar.</p>
+  <p class="q"><strong>2.</strong> Calculer la pression en haut du circuit : \(P_{\text{haut}} = P_{\text{bas}} - \Delta P\).</p>
+  <p class="q"><strong>3.</strong> La pression minimale de fonctionnement est \(P_{\text{min}} = 0{,}5\ \text{bar}\). Le système est-il conforme ? Justifier.</p>
+  <p class="q"><strong>4.</strong> Quelle pression minimale doit-on imposer en bas pour que \(P_{\text{haut}} \geq 0{,}5\ \text{bar}\) soit respectée ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\Delta P = 1\,000 \times 9{,}81 \times 8 = 78\,480\ \text{Pa} \approx \mathbf{0{,}785\ \text{bar}}\)</p>
+    <p><strong>2.</strong> \(P_{\text{haut}} = 2{,}5 - 0{,}785 = \mathbf{1{,}715\ \text{bar}}\)</p>
+    <p><strong>3.</strong> \(P_{\text{haut}} = 1{,}715\ \text{bar} > P_{\text{min}} = 0{,}5\ \text{bar}\) : le système est <strong>conforme</strong>. La pression en haut est bien supérieure au minimum requis, ce qui évite la cavitation et les entrées d'air dans le circuit.</p>
+    <p><strong>4.</strong> Pour que \(P_{\text{haut}} \geq 0{,}5\ \text{bar}\) :</p>
+    <p>\(P_{\text{bas,min}} = P_{\text{min}} + \Delta P = 0{,}5 + 0{,}785 = \mathbf{1{,}285\ \text{bar}}\)</p>
+    <p>En pratique, on impose une pression de gonflage minimale de 1,5 bar en bas pour dégager une marge de sécurité.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Compression du fluide frigorigène R410A par un compresseur</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un technicien CVC installe un système de climatisation utilisant le fluide frigorigène R410A. Côté condenseur, la pression de vapeur saturante est \(P_{\text{sat}} = 12\ \text{bar}\) à 30°C. Le compresseur comprime le gaz depuis l'état initial \(P_1 = 7\ \text{bar}\), \(V_1 = 1{,}0\ \text{L}\) jusqu'à \(P_2 = 12\ \text{bar}\) (compression isotherme approximative).</p>
+  <p class="q"><strong>1.</strong> Appliquer la loi de Boyle-Mariotte pour calculer le volume \(V_2\) après compression.</p>
+  <p class="q"><strong>2.</strong> Calculer le volume moyen \(V_{\text{moy}} = \dfrac{V_1 + V_2}{2}\).</p>
+  <p class="q"><strong>3.</strong> Estimer le travail de compression par cycle : \(W \approx (P_2 - P_1) \times V_{\text{moy}}\). Exprimer \(P_2 - P_1\) en Pa et \(V_{\text{moy}}\) en m³ avant de calculer \(W\) en joules.</p>
+  <p class="q"><strong>4.</strong> Le compresseur effectue 50 cycles par seconde. Estimer la puissance mécanique absorbée.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_1 V_1 = P_2 V_2 \Rightarrow V_2 = \dfrac{P_1 \cdot V_1}{P_2} = \dfrac{7 \times 1{,}0}{12} \approx \mathbf{0{,}583\ \text{L}}\)</p>
+    <p><strong>2.</strong> \(V_{\text{moy}} = \dfrac{V_1 + V_2}{2} = \dfrac{1{,}0 + 0{,}583}{2} \approx \mathbf{0{,}792\ \text{L}}\)</p>
+    <p><strong>3.</strong> Conversions :</p>
+    <p>\(P_2 - P_1 = (12 - 7) \times 10^5 = 5 \times 10^5\ \text{Pa}\)</p>
+    <p>\(V_{\text{moy}} = 0{,}792\ \text{L} = 0{,}792 \times 10^{-3}\ \text{m}^3\)</p>
+    <p>\(W = 5 \times 10^5 \times 0{,}792 \times 10^{-3} = \mathbf{396\ \text{J}}\) par cycle</p>
+    <p><strong>4.</strong> \(P_{\text{mécanique}} = W \times f = 396 \times 50 = \mathbf{19\,800\ \text{W} \approx 19{,}8\ \text{kW}}\)</p>
+    <p>Cette valeur est cohérente avec la puissance absorbée par les compresseurs de climatisations de moyenne puissance (groupes packagés ou rooftops).</p>
+  </div>
+</div>
+
+<!-- ===== À RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir – Pression dans un fluide immobile</strong>
+  <ul>
+    <li>La pression est une force par unité de surface : \(P = F/S\) (Pa). Rappel : 1 bar = 10⁵ Pa = 1 000 mbar.</li>
+    <li>Dans un fluide au repos, la pression augmente avec la profondeur : \(P = P_0 + \rho g h\). Plus on descend, plus la pression est élevée.</li>
+    <li>Pression absolue = pression atmosphérique + pression relative (manométrique) : \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}}\). La pression absolue ne peut pas être négative.</li>
+    <li>Loi de Boyle-Mariotte à température constante : \(P_1 V_1 = P_2 V_2\). Comprimer réduit le volume et augmente la pression.</li>
+    <li>Pour un circuit de chauffage : \(P_{\text{haut}} = P_{\text{bas}} - \rho g h\). Vérifier toujours que \(P_{\text{haut}} \geq P_{\text{min}}\) pour éviter la cavitation.</li>
+  </ul>
+</div>
+
+</div>
+<script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
+<script src="../../../nav.js"></script>
+</body>
+</html>

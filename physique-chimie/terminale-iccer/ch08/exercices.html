@@ -3,240 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch08 – Exercices – Pression dans un fluide immobile | ICCER Terminale</title>
+<title>Ch08 – Exercices – Signal sonore | ICCER Terminale</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
-.methode strong{color:#d97706}
-</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
 </head>
 <body><div class="c">
 <a href="../../../physique-chimie/terminale-iccer/pc-term-iccer.html" class="nb">← Retour au sommaire</a>
-
 <header>
-  <h1>Ch08 – Caractériser la pression dans un fluide immobile</h1>
-  <p class="sous-titre">Exercices | Terminale Bac Pro ICCER – Fluides statiques</p>
+  <h1>Chapitre 8 – Exercices</h1>
+  <p class="sous-titre">Caractériser la propagation d'un signal sonore &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
 </header>
 
-<!-- ===== INTRODUCTION ===== -->
 <div class="intro-box">
-  <strong>Rappels du cours</strong>
-  <p>La pression est la force exercée par unité de surface. Dans un fluide immobile, elle varie avec la profondeur selon la statique des fluides.</p>
-  <ul>
-    <li><strong>Pression exercée par une force :</strong> \(P = \dfrac{F}{S}\) (Pa)</li>
-    <li><strong>Statique des fluides :</strong> \(P = P_0 + \rho \cdot g \cdot h\) avec \(\rho\) en kg/m³, \(g = 9{,}81\ \text{m/s}^2\), \(h\) en m</li>
-    <li><strong>Pression absolue / relative :</strong> \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}}\) — une pression relative négative est une dépression</li>
-    <li><strong>Loi de Boyle-Mariotte (T = cste) :</strong> \(P_1 \cdot V_1 = P_2 \cdot V_2\)</li>
-    <li><strong>Unités :</strong> 1 bar = 10⁵ Pa = 1 000 mbar ; \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\) ; \(P_{\text{atm}} \approx 1{,}013\ \text{bar}\)</li>
-  </ul>
+  <strong>Rappels du cours — formules essentielles</strong>
+  <p><strong>Relation entre vitesse, fréquence et longueur d'onde :</strong>
+  \[v = \lambda \cdot f \quad \Longleftrightarrow \quad \lambda = \dfrac{v}{f}\]
+  avec \(v \approx 340\text{ m/s}\) dans l'air à 20 °C, \(f\) en Hz, \(\lambda\) en m.</p>
+  <p><strong>Relation période–fréquence :</strong>
+  \[T = \dfrac{1}{f} \quad \Longleftrightarrow \quad f = \dfrac{1}{T}\]</p>
+  <p><strong>Niveau sonore en décibels :</strong>
+  \[L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right) \quad \text{avec } I_0 = 10^{-12}\text{ W/m}^2\]
+  &rarr; Si \(I = 10^{k} \cdot I_0\), alors \(L = 10k\) dB.</p>
+  <p><strong>Retrouver I à partir de L :</strong>
+  \[I = I_0 \times 10^{L/10}\]</p>
+  <p><strong>Addition de sources identiques (n sources de même niveau L₁) :</strong>
+  \[L_\text{total} = L_1 + 10 \cdot \log(n)\]</p>
+  <p><strong>Atténuation géométrique — source ponctuelle :</strong>
+  \[I = \dfrac{P}{4\pi d^2} \quad \Longrightarrow \quad I \propto \dfrac{1}{d^2}\]
+  En niveau sonore : \(L_2 = L_1 - 20 \cdot \log\!\left(\dfrac{d_2}{d_1}\right)\)</p>
+  <p><strong>Formule de Sabine (réverbération) :</strong>
+  \[T_R = \dfrac{0{,}16 \times V}{A}\]
+  avec \(V\) = volume de la salle (m³), \(A\) = surface absorbante équivalente (m²), \(T_R\) en secondes.</p>
 </div>
 
-<!-- ===== EXERCICES DE BASE ===== -->
 <h2>Exercices de base</h2>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Pression exercée par une force sur une surface</span>
+    <span class="exo-title">Calculer longueur d'onde et période d'un son</span>
     <span class="diff diff-1">Niveau 1</span>
   </div>
-  <p>Une soupape de sécurité est soumise à une force \(F = 200\ \text{N}\) sur une surface \(S = 0{,}02\ \text{m}^2\).</p>
-  <p class="q"><strong>1.</strong> Écrire la formule reliant pression, force et surface.</p>
-  <p class="q"><strong>2.</strong> Calculer la pression \(P\) exercée en Pa.</p>
-  <p class="q"><strong>3.</strong> Convertir ce résultat en bar, puis en mbar.</p>
+  <p>Un son de fréquence \(f = 1\,000\text{ Hz}\) se propage dans l'air à \(v = 340\text{ m/s}\).</p>
+  <p class="q"><strong>1.</strong> Calculer la longueur d'onde \(\lambda\) de ce son.</p>
+  <p class="q"><strong>2.</strong> Calculer la période \(T\) de ce son.</p>
+  <p class="q"><strong>3.</strong> Ce son de 1 000 Hz est-il audible pour l'oreille humaine (domaine : 20 Hz à 20 000 Hz) ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P = \dfrac{F}{S}\)</p>
-    <p><strong>2.</strong> \(P = \dfrac{200}{0{,}02} = \mathbf{10\,000\ \text{Pa}}\)</p>
-    <p><strong>3.</strong> \(P = \dfrac{10\,000}{10^5} = \mathbf{0{,}1\ \text{bar}}\) &nbsp;et&nbsp; \(P = 0{,}1 \times 1\,000 = \mathbf{100\ \text{mbar}}\)</p>
+    <p><strong>1.</strong>
+    \[\lambda = \dfrac{v}{f} = \dfrac{340}{1\,000} = \mathbf{0{,}34\text{ m}} = 34\text{ cm}\]</p>
+    <p><strong>2.</strong>
+    \[T = \dfrac{1}{f} = \dfrac{1}{1\,000} = \mathbf{1 \times 10^{-3}\text{ s}} = 1\text{ ms}\]</p>
+    <p><strong>3.</strong> \(f = 1\,000\text{ Hz}\) est bien compris entre 20 Hz et 20 000 Hz : ce son est <strong>parfaitement audible</strong>. C'est une fréquence à laquelle l'oreille humaine est très sensible.</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Pression au fond d'un réservoir d'eau</span>
+    <span class="exo-title">Calculer un niveau sonore L en dB</span>
     <span class="diff diff-1">Niveau 1</span>
   </div>
-  <p>Un réservoir d'eau est soumis en surface à la pression atmosphérique \(P_0 = 1\ \text{bar} = 10^5\ \text{Pa}\). La profondeur vaut \(h = 5\ \text{m}\). On prend \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\) et \(g = 9{,}81\ \text{m/s}^2\).</p>
-  <p class="q"><strong>1.</strong> Écrire la formule de la statique des fluides.</p>
-  <p class="q"><strong>2.</strong> Calculer la pression \(P\) au fond du réservoir en Pa.</p>
-  <p class="q"><strong>3.</strong> Exprimer ce résultat en bar.</p>
+  <p>On donne : \(I_0 = 10^{-12}\text{ W/m}^2\). Un son a une intensité sonore \(I = 10^{-8}\text{ W/m}^2\).</p>
+  <p class="q"><strong>1.</strong> Calculer le niveau sonore \(L\) en dB correspondant à cette intensité.</p>
+  <p class="q"><strong>2.</strong> À quel type de bruit courant correspond approximativement ce niveau (conversation normale ≈ 60 dB, moteur tondeuse ≈ 90 dB, seuil de danger ≈ 120 dB) ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P = P_0 + \rho \cdot g \cdot h\)</p>
-    <p><strong>2.</strong> \(P = 10^5 + 1\,000 \times 9{,}81 \times 5 = 100\,000 + 49\,050 = \mathbf{149\,050\ \text{Pa}}\)</p>
-    <p><strong>3.</strong> \(P = \dfrac{149\,050}{10^5} \approx \mathbf{1{,}49\ \text{bar}}\)</p>
+    <p><strong>1.</strong>
+    \[L = 10 \times \log\!\left(\dfrac{I}{I_0}\right) = 10 \times \log\!\left(\dfrac{10^{-8}}{10^{-12}}\right) = 10 \times \log(10^{4}) = 10 \times 4 = \mathbf{40\text{ dB}}\]</p>
+    <p><strong>2.</strong> 40 dB correspond à une ambiance calme, comme une <strong>bibliothèque ou un appartement silencieux</strong>. Ce niveau est très en dessous du seuil d'action de 85 dB.</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Conversions d'unités de pression</span>
+    <span class="exo-title">Retrouver l'intensité à partir du niveau sonore</span>
     <span class="diff diff-1">Niveau 1</span>
   </div>
-  <p>Effectuer les conversions suivantes (rappel : 1 bar = 10⁵ Pa = 1 000 mbar) :</p>
-  <p class="q"><strong>1.</strong> Convertir \(2{,}5\ \text{bar}\) en Pa.</p>
-  <p class="q"><strong>2.</strong> Convertir \(150\,000\ \text{Pa}\) en bar.</p>
-  <p class="q"><strong>3.</strong> Convertir \(3\ \text{bar}\) en mbar.</p>
+  <p>Un son a un niveau sonore \(L = 80\text{ dB}\). On donne \(I_0 = 10^{-12}\text{ W/m}^2\).</p>
+  <p class="q"><strong>1.</strong> En utilisant la formule \(I = I_0 \times 10^{L/10}\), calculer l'intensité sonore \(I\) en W/m².</p>
+  <p class="q"><strong>2.</strong> Comparer cette valeur à l'intensité de l'exercice précédent (40 dB). Le niveau a doublé (de 40 à 80 dB) : l'intensité a-t-elle simplement doublé ? Que peut-on conclure sur l'échelle décibel ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(2{,}5\ \text{bar} \times 10^5 = \mathbf{250\,000\ \text{Pa}}\)</p>
-    <p><strong>2.</strong> \(\dfrac{150\,000}{10^5} = \mathbf{1{,}5\ \text{bar}}\)</p>
-    <p><strong>3.</strong> \(3\ \text{bar} \times 1\,000 = \mathbf{3\,000\ \text{mbar}}\)</p>
+    <p><strong>1.</strong>
+    \[I = I_0 \times 10^{L/10} = 10^{-12} \times 10^{80/10} = 10^{-12} \times 10^{8} = \mathbf{10^{-4}\text{ W/m}^2}\]</p>
+    <p><strong>2.</strong> À 40 dB : \(I = 10^{-8}\text{ W/m}^2\) &nbsp;|&nbsp; À 80 dB : \(I = 10^{-4}\text{ W/m}^2\)<br>
+    Le niveau a doublé (40 → 80 dB), mais l'intensité a été multipliée par \(\dfrac{10^{-4}}{10^{-8}} = 10\,000\) !<br>
+    <strong>Conclusion :</strong> l'échelle décibel est <strong>logarithmique</strong>, pas linéaire. Doubler le niveau en dB correspond à multiplier l'intensité par un facteur considérable. C'est pourquoi +10 dB correspond à une intensité multipliée par 10 et +20 dB à une intensité multipliée par 100.</p>
   </div>
 </div>
 
-<!-- ===== EXERCICES GUIDÉS ===== -->
 <h2>Exercices guidés</h2>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Loi de Boyle-Mariotte — compression et détente d'un gaz</span>
+    <span class="exo-title">Addition de sources sonores identiques</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Un ballon contient un gaz à \(P_1 = 2\ \text{bar}\) et \(V_1 = 10\ \text{L}\). La température reste constante tout au long des transformations.</p>
+  <p>Deux sources sonores identiques émettent chacune un niveau sonore \(L_1 = 70\text{ dB}\).<br>
+  Formule pour n sources identiques : \(L_\text{total} = L_1 + 10 \cdot \log(n)\)</p>
   <div class="methode">
-    <strong>Méthode :</strong> La loi de Boyle-Mariotte s'applique à température constante : \(P_1 V_1 = P_2 V_2\). Pour trouver \(P_2\) ou \(V_2\) inconnu, isoler la grandeur recherchée avant de substituer les valeurs numériques.
+    <strong>Méthode :</strong> Cette formule s'applique uniquement à des sources identiques (même niveau, même fréquence et mêmes positions de référence). On ne peut pas additionner directement les niveaux en dB : 70 + 70 ≠ 140 dB !
   </div>
-  <p class="q"><strong>1.</strong> On comprime le gaz jusqu'à \(V_2 = 4\ \text{L}\). Calculer la nouvelle pression \(P_2\).</p>
-  <p class="q"><strong>2.</strong> On détend le gaz (depuis l'état initial) jusqu'à \(V_2 = 20\ \text{L}\). Calculer la pression \(P_2\) dans ce cas.</p>
-  <p class="q"><strong>3.</strong> Dans quel cas la pression est-elle la plus élevée ? Justifier physiquement.</p>
+  <p class="q"><strong>1.</strong> Calculer le niveau total \(L_\text{total}\) pour \(n = 2\) sources.</p>
+  <p class="q"><strong>2.</strong> Calculer le niveau total pour \(n = 4\) sources.</p>
+  <p class="q"><strong>3.</strong> Que se passe-t-il lorsqu'on double le nombre de sources ? Quelle augmentation en dB cela provoque-t-il ?</p>
+  <p class="q"><strong>4.</strong> Combien de sources faudrait-il pour obtenir un niveau total de 80 dB ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_1 V_1 = P_2 V_2 \Rightarrow P_2 = \dfrac{P_1 \cdot V_1}{V_2} = \dfrac{2 \times 10}{4} = \mathbf{5\ \text{bar}}\)</p>
-    <p>Le volume est divisé par 2,5 ; la pression est multipliée par 2,5.</p>
-    <p><strong>2.</strong> \(P_2 = \dfrac{P_1 \cdot V_1}{V_2} = \dfrac{2 \times 10}{20} = \mathbf{1\ \text{bar}}\)</p>
-    <p>Le volume double ; la pression est divisée par 2.</p>
-    <p><strong>3.</strong> La pression est maximale lors de la compression (\(P_2 = 5\ \text{bar}\)). Physiquement, un volume réduit contraint les molécules de gaz dans un espace plus petit : la fréquence des chocs sur les parois augmente, donc la pression augmente.</p>
+    <p><strong>1.</strong> \(n = 2\) :
+    \[L_\text{total} = 70 + 10 \times \log(2) = 70 + 10 \times 0{,}301 = 70 + 3{,}01 \approx \mathbf{73\text{ dB}}\]</p>
+    <p><strong>2.</strong> \(n = 4\) :
+    \[L_\text{total} = 70 + 10 \times \log(4) = 70 + 10 \times 0{,}602 = 70 + 6{,}02 \approx \mathbf{76\text{ dB}}\]</p>
+    <p><strong>3.</strong> De n = 2 (73 dB) à n = 4 (76 dB), on double le nombre de sources et le niveau augmente de seulement <strong>3 dB</strong>. En général, doubler le nombre de sources ajoute toujours \(10 \times \log(2) \approx 3\text{ dB}\). L'échelle logarithmique amortit fortement les augmentations.</p>
+    <p><strong>4.</strong> On cherche n tel que \(L_\text{total} = 80\text{ dB}\) :
+    \[80 = 70 + 10 \times \log(n)\]
+    \[10 = 10 \times \log(n) \Rightarrow \log(n) = 1 \Rightarrow n = 10\]
+    Il faudrait <strong>10 sources identiques</strong> de 70 dB pour obtenir un niveau total de 80 dB.</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Différence de pression dans une colonne d'eau</span>
+    <span class="exo-title">Atténuation avec la distance — source ponctuelle</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Dans un circuit de chauffage vertical, on calcule la différence de pression entre le bas et le haut d'une colonne d'eau de hauteur \(h = 8\ \text{m}\). On prend \(\rho = 1\,000\ \text{kg/m}^3\) et \(g = 9{,}81\ \text{m/s}^2\).</p>
+  <p>Une source sonore ponctuelle émet une puissance acoustique \(P = 0{,}1\text{ W}\).<br>
+  Formule de l'intensité : \(I = \dfrac{P}{4\pi d^2}\) &nbsp;|&nbsp; \(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\) avec \(I_0 = 10^{-12}\text{ W/m}^2\)</p>
   <div class="methode">
-    <strong>Méthode :</strong> La pression en bas est supérieure à la pression en haut. La différence vaut \(\Delta P = \rho \cdot g \cdot h\). C'est cette différence de pression hydrostatique que la pompe de circulation doit vaincre dans un circuit vertical.
+    <strong>Méthode :</strong> L'intensité sonore d'une source ponctuelle décroît en \(1/d^2\) (loi de l'inverse du carré de la distance). On calcule I pour chaque distance, puis L en dB.
   </div>
-  <p class="q"><strong>1.</strong> Calculer \(\Delta P = P_{\text{bas}} - P_{\text{haut}}\) en Pa.</p>
-  <p class="q"><strong>2.</strong> Exprimer \(\Delta P\) en bar.</p>
-  <p class="q"><strong>3.</strong> Si la pression en haut du circuit est \(P_{\text{haut}} = 1{,}5\ \text{bar}\), quelle est la pression en bas ?</p>
+  <p class="q"><strong>1.</strong> Calculer l'intensité \(I\) à \(d = 1\text{ m}\).</p>
+  <p class="q"><strong>2.</strong> Calculer l'intensité \(I\) à \(d = 2\text{ m}\).</p>
+  <p class="q"><strong>3.</strong> Calculer l'intensité \(I\) à \(d = 10\text{ m}\).</p>
+  <p class="q"><strong>4.</strong> Calculer le niveau sonore \(L\) en dB pour chacune de ces trois distances. Vérifier que doubler la distance diminue L d'environ 6 dB.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(\Delta P = \rho \cdot g \cdot h = 1\,000 \times 9{,}81 \times 8 = \mathbf{78\,480\ \text{Pa}}\)</p>
-    <p><strong>2.</strong> \(\Delta P = \dfrac{78\,480}{10^5} \approx \mathbf{0{,}785\ \text{bar}}\)</p>
-    <p><strong>3.</strong> \(P_{\text{bas}} = P_{\text{haut}} + \Delta P = 1{,}5 + 0{,}785 = \mathbf{2{,}285\ \text{bar}}\)</p>
+    <p><strong>1.</strong> À \(d = 1\text{ m}\) :
+    \[I_1 = \dfrac{0{,}1}{4\pi \times 1^2} = \dfrac{0{,}1}{12{,}57} \approx \mathbf{7{,}96 \times 10^{-3}\text{ W/m}^2}\]</p>
+    <p><strong>2.</strong> À \(d = 2\text{ m}\) :
+    \[I_2 = \dfrac{0{,}1}{4\pi \times 4} = \dfrac{0{,}1}{50{,}27} \approx \mathbf{1{,}99 \times 10^{-3}\text{ W/m}^2}\]
+    On vérifie : \(I_2 = I_1 / 4\) ✓ (distance doublée → intensité divisée par 4)</p>
+    <p><strong>3.</strong> À \(d = 10\text{ m}\) :
+    \[I_{10} = \dfrac{0{,}1}{4\pi \times 100} = \dfrac{0{,}1}{1\,256{,}6} \approx \mathbf{7{,}96 \times 10^{-5}\text{ W/m}^2}\]</p>
+    <p><strong>4.</strong> Niveaux sonores :
+    \[L_1 = 10 \times \log\!\left(\dfrac{7{,}96 \times 10^{-3}}{10^{-12}}\right) = 10 \times \log(7{,}96 \times 10^9) = 10 \times 9{,}90 \approx \mathbf{99\text{ dB}}\]
+    \[L_2 = 10 \times \log\!\left(\dfrac{1{,}99 \times 10^{-3}}{10^{-12}}\right) = 10 \times 9{,}30 \approx \mathbf{93\text{ dB}}\]
+    \[L_{10} = 10 \times \log\!\left(\dfrac{7{,}96 \times 10^{-5}}{10^{-12}}\right) = 10 \times 7{,}90 \approx \mathbf{79\text{ dB}}\]
+    De \(d = 1\text{ m}\) à \(d = 2\text{ m}\) : \(\Delta L = 99 - 93 = 6\text{ dB}\) ✓ (distance × 2 → −6 dB)</p>
   </div>
 </div>
 
-<!-- ===== EXERCICES D'APPLICATION ===== -->
 <h2>Exercices d'application</h2>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Vases communicants — eau et huile</span>
+    <span class="exo-title">Bruit de chantier — respect du seuil réglementaire à 10 m</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Deux réservoirs sont reliés par le bas. Le premier contient de l'eau (\(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\)) avec une hauteur \(h_{\text{eau}} = 50\ \text{cm} = 0{,}50\ \text{m}\). Le second contient de l'huile (\(\rho_{\text{huile}} = 900\ \text{kg/m}^3\)). À l'équilibre, les pressions au niveau de la jonction sont égales. La pression atmosphérique \(P_0\) est la même en surface des deux côtés.</p>
-  <p class="q"><strong>1.</strong> Écrire la condition d'équilibre des pressions au niveau de la jonction.</p>
-  <p class="q"><strong>2.</strong> En déduire l'expression de \(h_{\text{huile}}\), puis calculer sa valeur.</p>
-  <p class="q"><strong>3.</strong> Expliquer pourquoi la hauteur d'huile est supérieure à la hauteur d'eau.</p>
+  <p>Un chantier de travaux produit un bruit de \(L_1 = 95\text{ dB}\) à \(d_1 = 1\text{ m}\).<br>
+  La réglementation impose un niveau maximal de 85 dB à \(d_2 = 10\text{ m}\) du chantier.<br>
+  On utilise la loi d'atténuation : \(I \propto 1/d^2\), soit \(L_2 = L_1 - 20 \times \log\!\left(\dfrac{d_2}{d_1}\right)\)</p>
+  <p class="q"><strong>1.</strong> Calculer l'intensité \(I_1\) à 1 m (en W/m²) à partir du niveau \(L_1 = 95\text{ dB}\), en utilisant \(I = I_0 \times 10^{L/10}\).</p>
+  <p class="q"><strong>2.</strong> En appliquant \(I \propto 1/d^2\), calculer l'intensité \(I_2\) à \(d_2 = 10\text{ m}\).</p>
+  <p class="q"><strong>3.</strong> Calculer le niveau sonore \(L_2\) à 10 m. Le seuil réglementaire de 85 dB est-il respecté ?</p>
+  <p class="q"><strong>4.</strong> Vérifier le résultat avec la formule \(L_2 = L_1 - 20 \times \log(d_2/d_1)\).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Avec \(P_0\) identique en surface des deux côtés :</p>
-    <p>\(P_0 + \rho_{\text{eau}} \cdot g \cdot h_{\text{eau}} = P_0 + \rho_{\text{huile}} \cdot g \cdot h_{\text{huile}}\)</p>
-    <p>Soit, après simplification : \(\rho_{\text{eau}} \cdot h_{\text{eau}} = \rho_{\text{huile}} \cdot h_{\text{huile}}\)</p>
-    <p><strong>2.</strong> \(h_{\text{huile}} = \dfrac{\rho_{\text{eau}} \cdot h_{\text{eau}}}{\rho_{\text{huile}}} = \dfrac{1\,000 \times 0{,}50}{900} \approx \mathbf{0{,}556\ \text{m} \approx 55{,}6\ \text{cm}}\)</p>
-    <p><strong>3.</strong> L'huile est moins dense que l'eau (\(\rho_{\text{huile}} < \rho_{\text{eau}}\)). Pour exercer la même pression au niveau de la jonction, il faut une colonne d'huile plus haute : un fluide léger doit « compenser » sa faible densité par une hauteur plus grande.</p>
+    <p><strong>1.</strong>
+    \[I_1 = 10^{-12} \times 10^{95/10} = 10^{-12} \times 10^{9{,}5} \approx \mathbf{3{,}16 \times 10^{-3}\text{ W/m}^2}\]</p>
+    <p><strong>2.</strong> La distance passe de 1 m à 10 m, soit un facteur 10. L'intensité est divisée par \(10^2 = 100\) :
+    \[I_2 = \dfrac{I_1}{100} = \dfrac{3{,}16 \times 10^{-3}}{100} = \mathbf{3{,}16 \times 10^{-5}\text{ W/m}^2}\]</p>
+    <p><strong>3.</strong>
+    \[L_2 = 10 \times \log\!\left(\dfrac{3{,}16 \times 10^{-5}}{10^{-12}}\right) = 10 \times \log(3{,}16 \times 10^7) = 10 \times 7{,}5 = \mathbf{75\text{ dB}}\]
+    75 dB &lt; 85 dB → le seuil réglementaire est <strong>respecté ✓</strong>.</p>
+    <p><strong>4.</strong> Vérification :
+    \[L_2 = 95 - 20 \times \log\!\left(\dfrac{10}{1}\right) = 95 - 20 \times 1 = 95 - 20 = \mathbf{75\text{ dB}}\] ✓</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Pression absolue et pression relative (manométrique)</span>
+    <span class="exo-title">Réverbération dans une salle — formule de Sabine</span>
     <span class="diff diff-3">Niveau 3</span>
   </div>
-  <p>Un manomètre mesure la pression relative par rapport à la pression atmosphérique. La pression atmosphérique est \(P_{\text{atm}} = 1{,}013\ \text{bar}\). La relation est : \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}}\).</p>
-  <p class="q"><strong>1.</strong> Un manomètre indique \(P_{\text{rel}} = +1{,}5\ \text{bar}\). Calculer la pression absolue \(P_{\text{abs}}\).</p>
-  <p class="q"><strong>2.</strong> Un autre manomètre indique \(P_{\text{rel}} = -0{,}3\ \text{bar}\) (dépression). Calculer la pression absolue correspondante.</p>
-  <p class="q"><strong>3.</strong> Une pression absolue peut-elle être négative ? Quelle est la pression absolue minimale possible ?</p>
+  <p>Un technicien thermique intervient dans une salle de réunion d'un bâtiment tertiaire pour optimiser le traitement acoustique.<br>
+  Données : volume de la salle \(V = 200\text{ m}^3\), surface absorbante équivalente actuelle \(A = 50\text{ m}^2\).<br>
+  Formule de Sabine : \(T_R = \dfrac{0{,}16 \times V}{A}\) (T_R en secondes, V en m³, A en m²)</p>
+  <p class="q"><strong>1.</strong> Calculer le temps de réverbération actuel \(T_R\) de la salle.</p>
+  <p class="q"><strong>2.</strong> Un temps de réverbération cible de \(T_R = 0{,}5\text{ s}\) est recommandé pour les salles de réunion. La salle actuelle est-elle trop réverbérante ou pas assez ?</p>
+  <p class="q"><strong>3.</strong> Pour atteindre \(T_R = 0{,}5\text{ s}\), calculer la surface absorbante équivalente \(A_\text{cible}\) nécessaire. En déduire la surface absorbante supplémentaire à installer.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}} = 1{,}013 + 1{,}5 = \mathbf{2{,}513\ \text{bar}}\)</p>
-    <p><strong>2.</strong> \(P_{\text{abs}} = 1{,}013 + (-0{,}3) = 1{,}013 - 0{,}3 = \mathbf{0{,}713\ \text{bar}}\)</p>
-    <p>Malgré une pression relative négative, la pression absolue reste positive : on est en dépression (pression inférieure à l'atmosphérique), mais pas en vide parfait.</p>
-    <p><strong>3.</strong> Non, une pression absolue ne peut pas être négative. La valeur minimale est le vide parfait : \(P_{\text{abs}} = 0\). La pression relative minimale est donc \(P_{\text{rel,min}} = -P_{\text{atm}} = -1{,}013\ \text{bar}\).</p>
+    <p><strong>1.</strong>
+    \[T_R = \dfrac{0{,}16 \times V}{A} = \dfrac{0{,}16 \times 200}{50} = \dfrac{32}{50} = \mathbf{0{,}64\text{ s}}\]</p>
+    <p><strong>2.</strong> \(T_R = 0{,}64\text{ s} > 0{,}5\text{ s}\) : la salle est <strong>trop réverbérante</strong>. Les sons se propagent et se cumulent trop longtemps, ce qui nuit à l'intelligibilité de la parole.</p>
+    <p><strong>3.</strong> On cherche \(A_\text{cible}\) pour \(T_R = 0{,}5\text{ s}\) :
+    \[0{,}5 = \dfrac{0{,}16 \times 200}{A_\text{cible}} = \dfrac{32}{A_\text{cible}}\]
+    \[A_\text{cible} = \dfrac{32}{0{,}5} = \mathbf{64\text{ m}^2}\]
+    Surface supplémentaire : \(\Delta A = 64 - 50 = \mathbf{14\text{ m}^2}\)<br>
+    Il faut ajouter l'équivalent de <strong>14 m²</strong> de matériaux absorbants (panneaux de mousse acoustique, plafond suspendu, rideaux épais...).</p>
   </div>
 </div>
 
-<!-- ===== EXERCICES CONTEXTUALISÉS ICCER ===== -->
 <h2>Exercices contextualisés ICCER</h2>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Contrôle de pression d'un circuit de chauffage central</span>
+    <span class="exo-title">CTA et silencieux acoustique — respect des niveaux en local traité</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Un plombier chauffagiste contrôle la pression d'un circuit de chauffage central. Le manomètre installé en bas de l'installation indique \(P_{\text{bas}} = 2{,}5\ \text{bar}\). Le circuit monte verticalement sur une hauteur \(h = 8\ \text{m}\). On prend \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\), \(g = 9{,}81\ \text{m/s}^2\).</p>
-  <p class="q"><strong>1.</strong> Calculer la différence de pression hydrostatique \(\Delta P = \rho \cdot g \cdot h\) en Pa, puis en bar.</p>
-  <p class="q"><strong>2.</strong> Calculer la pression en haut du circuit : \(P_{\text{haut}} = P_{\text{bas}} - \Delta P\).</p>
-  <p class="q"><strong>3.</strong> La pression minimale de fonctionnement est \(P_{\text{min}} = 0{,}5\ \text{bar}\). Le système est-il conforme ? Justifier.</p>
-  <p class="q"><strong>4.</strong> Quelle pression minimale doit-on imposer en bas pour que \(P_{\text{haut}} \geq 0{,}5\ \text{bar}\) soit respectée ?</p>
+  <p>Un technicien CVC installe une centrale de traitement d'air (CTA) pour la ventilation d'un bâtiment tertiaire. Le ventilateur de la CTA émet un bruit de \(L_\text{source} = 85\text{ dB}\) à 1 m.<br>
+  Les locaux traités exigent un niveau maximal de <strong>40 dB</strong>.<br>
+  Un silencieux est installé en gaine ; il réduit le niveau de <strong>30 dB</strong>.<br>
+  Loi d'atténuation : \(L(d) = L_1 - 20 \times \log(d)\) (avec \(L_1\) le niveau à 1 m)</p>
+  <p class="q"><strong>1.</strong> Calculer le niveau après le silencieux : \(L_\text{après} = L_\text{source} - 30\text{ dB}\). Ce niveau est-il suffisant pour respecter les 40 dB dans les locaux ?</p>
+  <p class="q"><strong>2.</strong> Sans silencieux, à quelle distance minimale \(d\) le niveau atteint-il 40 dB ? (Utiliser \(40 = 85 - 20 \times \log(d)\), résoudre en d.)</p>
+  <p class="q"><strong>3.</strong> Avec le silencieux (niveau réduit à 55 dB à 1 m), à quelle distance le niveau atteint-il 40 dB ? Conclure sur l'utilité du silencieux.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(\Delta P = 1\,000 \times 9{,}81 \times 8 = 78\,480\ \text{Pa} \approx \mathbf{0{,}785\ \text{bar}}\)</p>
-    <p><strong>2.</strong> \(P_{\text{haut}} = 2{,}5 - 0{,}785 = \mathbf{1{,}715\ \text{bar}}\)</p>
-    <p><strong>3.</strong> \(P_{\text{haut}} = 1{,}715\ \text{bar} > P_{\text{min}} = 0{,}5\ \text{bar}\) : le système est <strong>conforme</strong>. La pression en haut est bien supérieure au minimum requis, ce qui évite la cavitation et les entrées d'air dans le circuit.</p>
-    <p><strong>4.</strong> Pour que \(P_{\text{haut}} \geq 0{,}5\ \text{bar}\) :</p>
-    <p>\(P_{\text{bas,min}} = P_{\text{min}} + \Delta P = 0{,}5 + 0{,}785 = \mathbf{1{,}285\ \text{bar}}\)</p>
-    <p>En pratique, on impose une pression de gonflage minimale de 1,5 bar en bas pour dégager une marge de sécurité.</p>
+    <p><strong>1.</strong>
+    \[L_\text{après} = 85 - 30 = \mathbf{55\text{ dB}}\]
+    55 dB &gt; 40 dB → Le niveau est <strong>insuffisant</strong> : le silencieux seul ne permet pas de respecter l'exigence de 40 dB directement à la sortie de la gaine.</p>
+    <p><strong>2.</strong> Sans silencieux, on cherche d tel que \(L(d) = 40\text{ dB}\) :
+    \[40 = 85 - 20 \times \log(d)\]
+    \[20 \times \log(d) = 85 - 40 = 45\]
+    \[\log(d) = \dfrac{45}{20} = 2{,}25\]
+    \[d = 10^{2{,}25} \approx \mathbf{178\text{ m}}\]
+    Sans silencieux, il faudrait être à plus de 178 m de la CTA pour avoir 40 dB, ce qui est irréaliste dans un bâtiment.</p>
+    <p><strong>3.</strong> Avec le silencieux (L₁ = 55 dB à 1 m), on cherche d tel que \(L(d) = 40\text{ dB}\) :
+    \[40 = 55 - 20 \times \log(d)\]
+    \[20 \times \log(d) = 15\]
+    \[\log(d) = 0{,}75\]
+    \[d = 10^{0{,}75} \approx \mathbf{5{,}6\text{ m}}\]
+    Avec le silencieux, le niveau de 40 dB est atteint à seulement <strong>5,6 m</strong> de la source — une distance réaliste dans un bâtiment.<br>
+    <strong>Conclusion :</strong> le silencieux est indispensable ; il réduit d'un facteur ~32 la distance nécessaire pour respecter l'exigence acoustique.</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Compression du fluide frigorigène R410A par un compresseur</span>
+    <span class="exo-title">PAC en toiture — respect de la réglementation de voisinage</span>
     <span class="diff diff-3">Niveau 3</span>
   </div>
-  <p>Un technicien CVC installe un système de climatisation utilisant le fluide frigorigène R410A. Côté condenseur, la pression de vapeur saturante est \(P_{\text{sat}} = 12\ \text{bar}\) à 30°C. Le compresseur comprime le gaz depuis l'état initial \(P_1 = 7\ \text{bar}\), \(V_1 = 1{,}0\ \text{L}\) jusqu'à \(P_2 = 12\ \text{bar}\) (compression isotherme approximative).</p>
-  <p class="q"><strong>1.</strong> Appliquer la loi de Boyle-Mariotte pour calculer le volume \(V_2\) après compression.</p>
-  <p class="q"><strong>2.</strong> Calculer le volume moyen \(V_{\text{moy}} = \dfrac{V_1 + V_2}{2}\).</p>
-  <p class="q"><strong>3.</strong> Estimer le travail de compression par cycle : \(W \approx (P_2 - P_1) \times V_{\text{moy}}\). Exprimer \(P_2 - P_1\) en Pa et \(V_{\text{moy}}\) en m³ avant de calculer \(W\) en joules.</p>
-  <p class="q"><strong>4.</strong> Le compresseur effectue 50 cycles par seconde. Estimer la puissance mécanique absorbée.</p>
+  <p>Un installateur pose une pompe à chaleur (PAC) air/air en toiture d'un immeuble. La PAC émet un niveau sonore de \(L_1 = 65\text{ dB}\) à \(d_1 = 1\text{ m}\).<br>
+  La réglementation impose un niveau maximal de <strong>35 dB</strong> à la limite de propriété, à \(d = 5\text{ m}\).<br>
+  Loi d'atténuation : \(L_2 = L_1 - 20 \times \log\!\left(\dfrac{d_2}{d_1}\right)\)</p>
+  <p class="q"><strong>1.</strong> Calculer le niveau sonore \(L\) à \(d = 5\text{ m}\).</p>
+  <p class="q"><strong>2.</strong> Ce niveau respecte-t-il la réglementation (35 dB) ? Calculer l'atténuation supplémentaire nécessaire si ce n'est pas le cas.</p>
+  <p class="q"><strong>3.</strong> L'installateur envisage d'installer un capot absorbant autour de la PAC. Si ce capot réduit le niveau à la source de 20 dB (nouveau niveau à 1 m = 45 dB), recalculer le niveau à 5 m. La réglementation est-elle respectée ?</p>
+  <p class="q"><strong>4.</strong> Proposer deux autres solutions techniques pour réduire le bruit d'une PAC en toiture.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_1 V_1 = P_2 V_2 \Rightarrow V_2 = \dfrac{P_1 \cdot V_1}{P_2} = \dfrac{7 \times 1{,}0}{12} \approx \mathbf{0{,}583\ \text{L}}\)</p>
-    <p><strong>2.</strong> \(V_{\text{moy}} = \dfrac{V_1 + V_2}{2} = \dfrac{1{,}0 + 0{,}583}{2} \approx \mathbf{0{,}792\ \text{L}}\)</p>
-    <p><strong>3.</strong> Conversions :</p>
-    <p>\(P_2 - P_1 = (12 - 7) \times 10^5 = 5 \times 10^5\ \text{Pa}\)</p>
-    <p>\(V_{\text{moy}} = 0{,}792\ \text{L} = 0{,}792 \times 10^{-3}\ \text{m}^3\)</p>
-    <p>\(W = 5 \times 10^5 \times 0{,}792 \times 10^{-3} = \mathbf{396\ \text{J}}\) par cycle</p>
-    <p><strong>4.</strong> \(P_{\text{mécanique}} = W \times f = 396 \times 50 = \mathbf{19\,800\ \text{W} \approx 19{,}8\ \text{kW}}\)</p>
-    <p>Cette valeur est cohérente avec la puissance absorbée par les compresseurs de climatisations de moyenne puissance (groupes packagés ou rooftops).</p>
+    <p><strong>1.</strong>
+    \[L(5\text{ m}) = 65 - 20 \times \log\!\left(\dfrac{5}{1}\right) = 65 - 20 \times \log(5) = 65 - 20 \times 0{,}699 = 65 - 14 = \mathbf{51\text{ dB}}\]</p>
+    <p><strong>2.</strong> \(51\text{ dB} > 35\text{ dB}\) → la réglementation <strong>n'est pas respectée</strong>.<br>
+    Atténuation supplémentaire nécessaire :
+    \[\Delta L = 51 - 35 = \mathbf{16\text{ dB}}\]
+    Il faut apporter une réduction supplémentaire d'au moins <strong>16 dB</strong> pour respecter la limite de propriété.</p>
+    <p><strong>3.</strong> Avec le capot absorbant : nouveau niveau à 1 m = \(65 - 20 = 45\text{ dB}\).<br>
+    Niveau à 5 m :
+    \[L'(5\text{ m}) = 45 - 20 \times \log(5) = 45 - 14 = \mathbf{31\text{ dB}}\]
+    31 dB &lt; 35 dB → la réglementation est <strong>respectée ✓</strong> avec une marge de 4 dB.</p>
+    <p><strong>4.</strong> Autres solutions techniques :<br>
+    — <strong>Anti-vibratoires sous la PAC</strong> : plots ou silent-blocs qui découplent la PAC de la structure du bâtiment, réduisant la transmission du bruit solide dans les murs.<br>
+    — <strong>Silencieux sur les conduits d'air</strong> (plenums acoustiques) : des lèvres absorbantes placées sur les orifices de prise d'air et de soufflage réduisent le rayonnement acoustique des conduits.<br>
+    — <strong>Orientation de la PAC</strong> : diriger les orifices d'air vers une zone sans voisinage sensible diminue l'exposition des riverains.</p>
   </div>
 </div>
 
-<!-- ===== À RETENIR ===== -->
 <div class="retenir">
-  <strong>À retenir – Pression dans un fluide immobile</strong>
+  <strong>À retenir — Propagation d'un signal sonore</strong>
   <ul>
-    <li>La pression est une force par unité de surface : \(P = F/S\) (Pa). Rappel : 1 bar = 10⁵ Pa = 1 000 mbar.</li>
-    <li>Dans un fluide au repos, la pression augmente avec la profondeur : \(P = P_0 + \rho g h\). Plus on descend, plus la pression est élevée.</li>
-    <li>Pression absolue = pression atmosphérique + pression relative (manométrique) : \(P_{\text{abs}} = P_{\text{atm}} + P_{\text{rel}}\). La pression absolue ne peut pas être négative.</li>
-    <li>Loi de Boyle-Mariotte à température constante : \(P_1 V_1 = P_2 V_2\). Comprimer réduit le volume et augmente la pression.</li>
-    <li>Pour un circuit de chauffage : \(P_{\text{haut}} = P_{\text{bas}} - \rho g h\). Vérifier toujours que \(P_{\text{haut}} \geq P_{\text{min}}\) pour éviter la cavitation.</li>
+    <li>Relation fondamentale : \(\lambda = v / f\) avec \(v \approx 340\text{ m/s}\) dans l'air.</li>
+    <li>Le niveau sonore \(L = 10 \times \log(I/I_0)\) est exprimé en décibels (dB) — échelle <strong>logarithmique</strong>.</li>
+    <li>Doubler la distance à une source ponctuelle → intensité divisée par 4 → niveau diminue de <strong>6 dB</strong>.</li>
+    <li>Ajouter n sources identiques de niveau L₁ : \(L_\text{total} = L_1 + 10 \times \log(n)\). Doubler le nombre → +3 dB.</li>
+    <li>La <strong>formule de Sabine</strong> \(T_R = 0{,}16 V / A\) permet de calculer le temps de réverbération.</li>
+    <li>En installation ICCER : silencieux, capots absorbants et manchons antivibratoires permettent de respecter les seuils réglementaires (35–40 dB en limite de propriété).</li>
+    <li>Seuil réglementaire pour les travailleurs : <strong>85 dB</strong> — au-delà, les EPI auditifs sont obligatoires.</li>
   </ul>
 </div>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch07 – Exercices – Rayonnement thermique et effet de serre | ICCER Terminale</title>
+<title>Ch07 – Exercices – Oxydoréduction et corrosion | ICCER Terminale</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
@@ -13,21 +13,30 @@
 <a href="../../../physique-chimie/terminale-iccer/pc-term-iccer.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 7 – Exercices</h1>
-  <p class="sous-titre">Rayonnement thermique et effet de serre | Terminale Bac Pro ICCER</p>
+  <p class="sous-titre">Oxydoréduction et protection des métaux contre la corrosion &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
 </header>
 
 <div class="intro-box">
-  <strong>Rappels de cours — Formules essentielles</strong>
-  <ul>
-    <li><strong>Loi de Stefan-Boltzmann :</strong> \(P = \varepsilon \cdot \sigma \cdot T^4 \cdot S\)<br>
-    avec σ = 5,67 × 10⁻⁸ W/m²/K⁴, T en kelvins (K), S en m², ε = émissivité (0 ≤ ε ≤ 1)</li>
-    <li><strong>Loi de Wien (longueur d'onde pic) :</strong> \(\lambda_{max} = \dfrac{b}{T}\)<br>
-    avec b = 2,898 × 10⁻³ m·K, T en kelvins, λ en mètres</li>
-    <li><strong>Conversion de température :</strong> T (K) = θ (°C) + 273</li>
-    <li><strong>Albédo :</strong> \(\alpha = \dfrac{P_{réfléchie}}{P_{reçue}}\) — fraction du rayonnement réfléchie</li>
-    <li><strong>Domaines spectraux :</strong> UV (λ &lt; 400 nm) | Visible (400–700 nm) | Infrarouge (λ &gt; 700 nm)</li>
-    <li><strong>Rappel d'unité :</strong> 1 µm = 10⁻⁶ m = 1 000 nm</li>
-  </ul>
+  <strong>Rappels du cours — formules essentielles</strong>
+  <p><strong>Demi-équation d'oxydation (réducteur perd des électrons) :</strong><br>
+  \[\mathrm{Red \longrightarrow Ox + n\,e^-}\]</p>
+  <p><strong>Demi-équation de réduction (oxydant gagne des électrons) :</strong><br>
+  \[\mathrm{Ox + n\,e^- \longrightarrow Red}\]</p>
+  <p><strong>Équation bilan :</strong> on additionne les deux demi-équations en égalisant le nombre d'électrons échangés.</p>
+  <p><strong>Couples redox classiques et potentiels standard :</strong></p>
+  <table style="width:100%;border-collapse:collapse;font-size:.93em">
+    <tr style="background:var(--p-bg)"><th style="padding:4px 8px;border:1px solid var(--p-border)">Couple</th><th style="padding:4px 8px;border:1px solid var(--p-border)">E° (V)</th><th style="padding:4px 8px;border:1px solid var(--p-border)">Caractère</th></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{Zn^{2+}/Zn}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">−0,76 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">Zn : réducteur très fort</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{Fe^{2+}/Fe}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">−0,44 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">Fe : réducteur fort</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{H^+/H_2}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">0,00 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">référence</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{Cu^{2+}/Cu}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">+0,34 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">Cu²⁺ : oxydant modéré</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{O_2/H_2O}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">+1,23 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">O₂ : oxydant fort</td></tr>
+  </table>
+  <p style="margin-top:8px"><strong>Règle du gamma :</strong> la réaction spontanée met en jeu l'oxydant du couple de E° le plus élevé avec le réducteur du couple de E° le plus faible.</p>
+  <p><strong>Force électromotrice d'une pile :</strong> \(E = E°_\text{cathode} - E°_\text{anode}\) &nbsp; (cathode = réduction, anode = oxydation)</p>
+  <p><strong>Quantité d'électrons et masse déposée :</strong> \(Q = I \times t\) &nbsp;|&nbsp; \(n(e^-) = \dfrac{Q}{F}\) (F = 96 500 C/mol) &nbsp;|&nbsp; \(m = n \times M\)</p>
+  <p><strong>Protection cathodique :</strong> l'anode sacrificielle (métal de E° inférieur) s'oxyde à la place du métal à protéger.</p>
+  <p><strong>Épaisseur de dépôt :</strong> \(e = \dfrac{m}{\rho \times S}\)</p>
 </div>
 
 <h2>Exercices de base</h2>
@@ -35,61 +44,84 @@
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Loi de Wien — longueur d'onde pic d'un corps à 300 K</span>
+    <span class="exo-title">Identifier oxydant et réducteur — réaction Fe / CuSO₄</span>
     <span class="diff diff-1">Niveau 1</span>
   </div>
-  <p>On considère un corps noir à la température T = 300 K (environ 27 °C, température ambiante).</p>
-  <p class="q"><strong>1.</strong> Rappeler la formule de la loi de Wien permettant de calculer la longueur d'onde d'émission maximale \(\lambda_{max}\).</p>
-  <p class="q"><strong>2.</strong> Calculer \(\lambda_{max}\) pour T = 300 K. Exprimer le résultat en mètres, puis en micromètres (µm).</p>
-  <p class="q"><strong>3.</strong> Dans quel domaine spectral se situe cette longueur d'onde : ultraviolet, visible ou infrarouge ? Justifier.</p>
+  <p>On plonge un clou en fer dans une solution de sulfate de cuivre CuSO₄. On observe le dépôt d'un solide rougeâtre (cuivre) sur le clou et la disparition progressive des ions Cu²⁺ en solution.</p>
+  <p>La réaction bilan observée est : \(\mathrm{Fe + CuSO_4 \longrightarrow FeSO_4 + Cu}\)</p>
+  <p class="q"><strong>1.</strong> Identifier l'oxydant et le réducteur dans cette réaction. Justifier en indiquant quelle espèce perd ou gagne des électrons.</p>
+  <p class="q"><strong>2.</strong> Écrire la demi-équation d'oxydation (le réducteur cède ses électrons).</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-équation de réduction (l'oxydant capte les électrons).</p>
+  <p class="q"><strong>4.</strong> Vérifier que la somme des deux demi-équations redonne bien l'équation bilan.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Loi de Wien : \(\lambda_{max} = \dfrac{b}{T}\) avec b = 2,898 × 10⁻³ m·K</p>
-    <p><strong>2.</strong> \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{300} = \mathbf{9{,}66 \times 10^{-6}\text{ m}} = \mathbf{9{,}66\text{ µm}}\)</p>
-    <p><strong>3.</strong> Le rayonnement visible correspond à des longueurs d'onde entre 0,4 µm et 0,7 µm. La valeur trouvée (9,66 µm) est bien supérieure à 0,7 µm : ce rayonnement se situe dans le domaine <strong>infrarouge</strong>. Un objet à température ambiante rayonne donc en infrarouge, invisible à l'œil nu mais détectable par des caméras thermiques (utilisées en diagnostic énergétique des bâtiments).</p>
+    <p><strong>1.</strong> Dans cette réaction :<br>
+    — Le <strong>fer Fe</strong> passe de l'état 0 à l'état Fe²⁺ : il <strong>perd des électrons</strong> → c'est le <strong>réducteur</strong>.<br>
+    — L'ion <strong>Cu²⁺</strong> passe de Cu²⁺ à Cu (état 0) : il <strong>gagne des électrons</strong> → c'est l'<strong>oxydant</strong>.</p>
+    <p><strong>2.</strong> Demi-équation d'oxydation (Fe cède 2 e⁻) :
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]</p>
+    <p><strong>3.</strong> Demi-équation de réduction (Cu²⁺ capte 2 e⁻) :
+    \[\mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu}\]</p>
+    <p><strong>4.</strong> Vérification : les deux demi-équations échangent 2 e⁻ chacune — on les additionne directement :
+    \[\mathrm{Fe + Cu^{2+} + 2\,e^- \longrightarrow Fe^{2+} + Cu + 2\,e^-}\]
+    Après simplification des 2 e⁻ :
+    \[\boxed{\mathrm{Fe_{(s)} + Cu^{2+}_{(aq)} \longrightarrow Fe^{2+}_{(aq)} + Cu_{(s)}}}\]
+    Ce qui correspond bien à \(\mathrm{Fe + CuSO_4 \longrightarrow FeSO_4 + Cu}\) ✓</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 2</span>
-    <span class="exo-title">Loi de Stefan-Boltzmann — puissance rayonnée</span>
+    <span class="exo-title">Comparer le pouvoir réducteur et oxydant — Zn²⁺/Zn et Cu²⁺/Cu</span>
     <span class="diff diff-1">Niveau 1</span>
   </div>
-  <p>Une surface noire (ε = 1) de surface S = 1 m² est portée à la température T = 500 K.</p>
-  <p class="q"><strong>1.</strong> Rappeler la formule de Stefan-Boltzmann.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée P par cette surface.</p>
-  <p class="q"><strong>3.</strong> Comparer cette valeur à la puissance rayonnée par la même surface à T = 300 K (calculer puis comparer). Que peut-on conclure sur l'influence de la température ?</p>
+  <p>On donne les potentiels standard des couples redox :<br>
+  \(E°(\mathrm{Zn^{2+}/Zn}) = -0{,}76\text{ V}\) &nbsp;&nbsp; et &nbsp;&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)</p>
+  <p class="q"><strong>1.</strong> Lequel des deux métaux (Zn ou Cu) est le meilleur réducteur ? Justifier en utilisant les valeurs de E°.</p>
+  <p class="q"><strong>2.</strong> Lequel des deux ions (Zn²⁺ ou Cu²⁺) est le meilleur oxydant ? Justifier.</p>
+  <p class="q"><strong>3.</strong> D'après la règle du gamma, la réaction entre Zn et Cu²⁺ est-elle spontanée ? Et la réaction entre Cu et Zn²⁺ ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P = \varepsilon \cdot \sigma \cdot T^4 \cdot S\) avec σ = 5,67 × 10⁻⁸ W/m²/K⁴</p>
-    <p><strong>2.</strong> À T = 500 K :<br>
-    \(T^4 = 500^4 = 6{,}25 \times 10^{10}\text{ K}^4\)<br>
-    \(P = 1 \times 5{,}67 \times 10^{-8} \times 6{,}25 \times 10^{10} \times 1 = \mathbf{3\,544\text{ W}}\)</p>
-    <p><strong>3.</strong> À T = 300 K :<br>
-    \(T^4 = 300^4 = 8{,}1 \times 10^{9}\text{ K}^4\)<br>
-    \(P = 5{,}67 \times 10^{-8} \times 8{,}1 \times 10^{9} \times 1 = \mathbf{459\text{ W}}\)<br>
-    Rapport : \(\dfrac{3\,544}{459} \approx 7{,}7\). La puissance rayonnée à 500 K est presque 8 fois plus grande qu'à 300 K, alors que la température n'a augmenté que d'un facteur \(\dfrac{500}{300} \approx 1{,}67\). C'est la conséquence de la loi en T⁴ : la puissance rayonnée est <strong>très sensible</strong> à la température.</p>
+    <p><strong>1.</strong> Le <strong>meilleur réducteur</strong> est le métal dont le E° est le plus <strong>faible</strong> (négatif).<br>
+    E°(Zn²⁺/Zn) = −0,76 V &lt; E°(Cu²⁺/Cu) = +0,34 V<br>
+    → Le <strong>zinc Zn</strong> est le meilleur réducteur des deux.</p>
+    <p><strong>2.</strong> Le <strong>meilleur oxydant</strong> est l'ion dont le E° est le plus <strong>élevé</strong> (positif).<br>
+    E°(Cu²⁺/Cu) = +0,34 V &gt; E°(Zn²⁺/Zn) = −0,76 V<br>
+    → L'ion <strong>Cu²⁺</strong> est le meilleur oxydant des deux.</p>
+    <p><strong>3.</strong> D'après la règle du gamma, la réaction spontanée oppose l'oxydant de E° le plus élevé et le réducteur de E° le plus faible :<br>
+    — Réaction Zn + Cu²⁺ : E°(Cu²⁺/Cu) = +0,34 V &gt; E°(Zn²⁺/Zn) = −0,76 V → <strong>réaction spontanée ✓</strong><br>
+    — Réaction Cu + Zn²⁺ : ce serait le sens inverse → <strong>non spontanée ✗</strong> (le cuivre ne peut pas réduire les ions Zn²⁺)</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 3</span>
-    <span class="exo-title">Albédo de la Terre</span>
+    <span class="exo-title">La rouille — réaction de corrosion du fer en milieu aéré</span>
     <span class="diff diff-1">Niveau 1</span>
   </div>
-  <p>La constante solaire (puissance solaire reçue par unité de surface perpendiculaire aux rayons solaires) est \(P_{solaire} = 1\,361\text{ W/m}^2\). L'albédo moyen de la Terre est α = 0,30.</p>
-  <p class="q"><strong>1.</strong> Rappeler la définition de l'albédo.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance réfléchie par la Terre par m².</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance absorbée par la Terre par m².</p>
-  <p class="q"><strong>4.</strong> Que représente physiquement l'albédo dans le bilan énergétique de la Terre ?</p>
+  <p>Le fer se corrode en présence d'eau et de dioxygène O₂ dissous. Les deux couples redox en jeu sont :<br>
+  \(\mathrm{Fe^{2+}/Fe}\) (\(E° = -0{,}44\text{ V}\)) et \(\mathrm{O_2/H_2O}\) (\(E° = +1{,}23\text{ V}\))</p>
+  <p class="q"><strong>1.</strong> D'après les valeurs de E°, quel est l'oxydant et quel est le réducteur dans la réaction de corrosion ?</p>
+  <p class="q"><strong>2.</strong> Écrire la demi-équation de réduction de O₂ en milieu acide : \(\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\). Vérifier l'équilibre des charges.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-équation d'oxydation du fer.</p>
+  <p class="q"><strong>4.</strong> En équilibrant le nombre d'électrons échangés, écrire l'équation bilan de la corrosion du fer. Identifier l'étape d'oxydation et l'étape de réduction.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> L'albédo est le rapport entre la puissance rayonnante réfléchie et la puissance rayonnante reçue : \(\alpha = \dfrac{P_{réfléchie}}{P_{reçue}}\). C'est une grandeur sans unité, comprise entre 0 (corps qui absorbe tout) et 1 (corps qui réfléchit tout).</p>
-    <p><strong>2.</strong> \(P_{réfléchie} = \alpha \times P_{solaire} = 0{,}30 \times 1\,361 = \mathbf{408{,}3\text{ W/m}^2}\)</p>
-    <p><strong>3.</strong> \(P_{absorbée} = (1-\alpha) \times P_{solaire} = 0{,}70 \times 1\,361 = \mathbf{952{,}7\text{ W/m}^2}\)</p>
-    <p><strong>4.</strong> L'albédo représente la fraction du rayonnement solaire que la Terre renvoie dans l'espace. Plus l'albédo est élevé, moins la Terre absorbe d'énergie solaire. La neige et les nuages ont un albédo élevé (0,8 à 0,9), les océans et les forêts un albédo faible (0,1 à 0,2). La fonte des glaces polaires réduit l'albédo global de la Terre, amplifiant le réchauffement climatique.</p>
+    <p><strong>1.</strong> E°(O₂/H₂O) = +1,23 V &gt; E°(Fe²⁺/Fe) = −0,44 V<br>
+    → <strong>O₂ est l'oxydant</strong> (E° le plus élevé) ; <strong>Fe est le réducteur</strong> (E° le plus faible).</p>
+    <p><strong>2.</strong> Demi-équation de réduction :
+    \[\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\]
+    Vérification des charges : gauche = 0 + 4(+1) + 4(−1) = 0 ; droite = 0 ✓</p>
+    <p><strong>3.</strong> Demi-équation d'oxydation du fer :
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]</p>
+    <p><strong>4.</strong> O₂ consomme 4 e⁻ et Fe libère 2 e⁻. Il faut multiplier la demi-équation du fer par 2 :
+    \[\mathrm{2\,Fe \longrightarrow 2\,Fe^{2+} + 4\,e^-}\]
+    Addition des deux demi-équations (les 4 e⁻ s'annulent) :
+    \[\boxed{\mathrm{2\,Fe_{(s)} + O_{2(g)} + 4\,H^+_{(aq)} \longrightarrow 2\,Fe^{2+}_{(aq)} + 2\,H_2O_{(l)}}}\]
+    — <strong>Oxydation</strong> : \(\mathrm{2\,Fe \longrightarrow 2\,Fe^{2+} + 4\,e^-}\) (le fer se corrode)<br>
+    — <strong>Réduction</strong> : \(\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\) (le dioxygène est réduit)</p>
   </div>
 </div>
 
@@ -98,58 +130,66 @@
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 4</span>
-    <span class="exo-title">Comparaison Soleil / Terre — domaines spectraux et effet de serre</span>
+    <span class="exo-title">Pile zinc-cuivre — calcul de la fem</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>On compare le rayonnement du Soleil (T_Soleil = 6 000 K) et celui de la Terre (T_Terre = 255 K, température d'équilibre radiative sans atmosphère).</p>
+  <p>On réalise une pile électrochimique avec :<br>
+  — une électrode de zinc (Zn) plongée dans une solution de ZnSO₄ ;<br>
+  — une électrode de cuivre (Cu) plongée dans une solution de CuSO₄.<br>
+  Données : \(E°(\mathrm{Zn^{2+}/Zn}) = -0{,}76\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)</p>
   <div class="methode">
-    <strong>Méthode :</strong> appliquer la loi de Wien à chaque corps, identifier les domaines spectraux correspondants, puis relier les résultats au mécanisme de l'effet de serre.
+    <strong>Méthode :</strong> Dans une pile, l'<strong>anode</strong> est le siège de l'<strong>oxydation</strong> (le métal le plus réducteur, E° le plus faible). La <strong>cathode</strong> est le siège de la <strong>réduction</strong> (E° le plus élevé). La fem est \(E = E°_\text{cathode} - E°_\text{anode}\).
   </div>
-  <p class="q"><strong>1.</strong> Calculer \(\lambda_{max}\) pour le Soleil (T = 6 000 K). Exprimer en µm et identifier le domaine spectral.</p>
-  <p class="q"><strong>2.</strong> Calculer \(\lambda_{max}\) pour la Terre (T = 255 K). Exprimer en µm et identifier le domaine spectral.</p>
-  <p class="q"><strong>3.</strong> Les gaz à effet de serre (vapeur d'eau, CO₂) sont transparents au rayonnement solaire mais absorbent le rayonnement infrarouge terrestre. Expliquer le mécanisme de l'effet de serre naturel à partir des résultats précédents.</p>
-  <p class="q"><strong>4.</strong> En quoi l'augmentation de la concentration en CO₂ perturbe-t-elle ce bilan radiatif ?</p>
+  <p class="q"><strong>1.</strong> Identifier l'anode et la cathode. Justifier avec les valeurs de E°.</p>
+  <p class="q"><strong>2.</strong> Écrire la demi-réaction à l'anode.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-réaction à la cathode.</p>
+  <p class="q"><strong>4.</strong> Écrire l'équation bilan de la réaction de la pile.</p>
+  <p class="q"><strong>5.</strong> Calculer la force électromotrice E de la pile. Quel métal se dissout lors du fonctionnement de la pile ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> Soleil (T = 6 000 K) :<br>
-    \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{6\,000} \approx 4{,}83 \times 10^{-7}\text{ m} = \mathbf{0{,}48\text{ µm}}\)<br>
-    Domaine : <strong>visible</strong> (lumière jaune-verte, exactement dans la plage 0,4–0,7 µm). Le Soleil rayonne principalement dans le visible.</p>
-    <p><strong>2.</strong> Terre (T = 255 K) :<br>
-    \(\lambda_{max} = \dfrac{2{,}898 \times 10^{-3}}{255} \approx 1{,}14 \times 10^{-5}\text{ m} = \mathbf{11{,}4\text{ µm}}\)<br>
-    Domaine : <strong>infrarouge thermique</strong> (grande longueur d'onde, bien au-delà du visible).</p>
-    <p><strong>3.</strong> Mécanisme de l'effet de serre naturel :<br>
-    – Le rayonnement solaire (visible, λ ≈ 0,5 µm) traverse l'atmosphère sans être absorbé : il atteint la surface terrestre qui se réchauffe.<br>
-    – La Terre, chauffée, réémet un rayonnement infrarouge (λ ≈ 11 µm).<br>
-    – Les gaz à effet de serre absorbent ce rayonnement infrarouge et le renvoient en partie vers la surface, augmentant sa température au-delà de 255 K (la température réelle moyenne est +15 °C, soit 288 K).<br>
-    L'effet de serre naturel est donc indispensable à la vie sur Terre.</p>
-    <p><strong>4.</strong> L'augmentation de CO₂ renforce l'absorption du rayonnement infrarouge terrestre. Plus de rayonnement est renvoyé vers la surface, ce qui augmente la température moyenne de la Terre au-delà de l'équilibre naturel. C'est le réchauffement climatique d'origine anthropique.</p>
+    <p><strong>1.</strong> E°(Zn²⁺/Zn) = −0,76 V est le plus faible → <strong>anode = zinc</strong> (oxydation).<br>
+    E°(Cu²⁺/Cu) = +0,34 V est le plus élevé → <strong>cathode = cuivre</strong> (réduction).</p>
+    <p><strong>2.</strong> À l'anode (oxydation du zinc) :
+    \[\mathrm{Zn \longrightarrow Zn^{2+} + 2\,e^-}\]</p>
+    <p><strong>3.</strong> À la cathode (réduction des ions Cu²⁺) :
+    \[\mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu}\]</p>
+    <p><strong>4.</strong> Les deux demi-réactions échangent 2 e⁻. Équation bilan :
+    \[\boxed{\mathrm{Zn_{(s)} + Cu^{2+}_{(aq)} \longrightarrow Zn^{2+}_{(aq)} + Cu_{(s)}}}\]</p>
+    <p><strong>5.</strong> Calcul de la fem :
+    \[E = E°_\text{cathode} - E°_\text{anode} = (+0{,}34) - (-0{,}76) = \mathbf{+1{,}10\text{ V}}\]
+    C'est le <strong>zinc (anode)</strong> qui se dissout progressivement lors du fonctionnement de la pile.</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Panneau solaire thermique — bilan radiatif de l'absorbeur</span>
+    <span class="exo-title">Protection par anode sacrificielle — masse de zinc consommée</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Un panneau solaire thermique dispose d'un absorbeur de surface S = 2 m². L'absorbeur est à la température T = 350 K et son émissivité est ε = 0,95. La puissance solaire incidente sur le panneau est \(P_{inc} = 800\text{ W/m}^2\).</p>
+  <p>Une canalisation en acier (fer) enterrée est protégée par une anode sacrificielle en zinc fixée à la paroi.<br>
+  Données : \(E°(\mathrm{Fe^{2+}/Fe}) = -0{,}44\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Zn^{2+}/Zn}) = -0{,}76\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)<br>
+  \(M_\mathrm{Zn} = 65\text{ g/mol}\) &nbsp;|&nbsp; lors du fonctionnement, \(n(e^-) = 0{,}5\text{ mol}\) ont été échangés.</p>
   <div class="methode">
-    <strong>Méthode :</strong> calculer séparément la puissance reçue (solaire) et la puissance perdue (rayonnement thermique de l'absorbeur), puis établir le bilan.
+    <strong>Méthode :</strong> La demi-équation d'oxydation du zinc indique le rapport stœchiométrique entre Zn consommé et e⁻ échangés : \(\mathrm{Zn \to Zn^{2+} + 2\,e^-}\), donc 1 mol de Zn → 2 mol e⁻.
   </div>
-  <p class="q"><strong>1.</strong> Calculer la puissance solaire totale reçue par l'absorbeur.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par l'absorbeur (loi de Stefan-Boltzmann).</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance nette disponible pour chauffer le fluide caloporteur (P reçue − P rayonnée).</p>
-  <p class="q"><strong>4.</strong> Calculer le rendement radiatif : \(\eta_{rad} = \dfrac{P_{nette}}{P_{reçue}}\). Commenter.</p>
+  <p class="q"><strong>1.</strong> Expliquer le principe de protection cathodique par anode sacrificielle.</p>
+  <p class="q"><strong>2.</strong> Pourquoi utilise-t-on du zinc et non du cuivre comme anode sacrificielle pour protéger le fer ? Justifier à l'aide des potentiels standard.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-réaction à l'anode sacrificielle (zinc) et à la cathode (fer).</p>
+  <p class="q"><strong>4.</strong> Si \(n(e^-) = 0{,}5\text{ mol}\) ont été échangés, calculer la quantité de matière de zinc consommée, puis la masse de zinc \(m_\mathrm{Zn}\).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_{reçue} = P_{inc} \times S = 800 \times 2 = \mathbf{1\,600\text{ W}}\)</p>
-    <p><strong>2.</strong> \(T^4 = 350^4 = 1{,}5006 \times 10^{10}\text{ K}^4\)<br>
-    \(P_{ray} = \varepsilon \cdot \sigma \cdot T^4 \cdot S = 0{,}95 \times 5{,}67 \times 10^{-8} \times 1{,}5006 \times 10^{10} \times 2\)<br>
-    \(P_{ray} = 0{,}95 \times 5{,}67 \times 10^{-8} \times 3{,}0012 \times 10^{10} = 0{,}95 \times 1\,702 \approx \mathbf{1\,617\text{ W}}\)</p>
-    <p><strong>3.</strong> \(P_{nette} = P_{reçue} - P_{ray} = 1\,600 - 1\,617 \approx \mathbf{-17\text{ W}}\)<br>
-    Le bilan est légèrement négatif ! Cela signifie qu'à cette température (350 K), l'absorbeur perd plus d'énergie par rayonnement qu'il n'en reçoit du soleil. Pour être efficace, il faut soit réduire l'émissivité de l'absorbeur (revêtement sélectif), soit limiter les pertes par convection avec un vitrage.</p>
-    <p><strong>4.</strong> \(\eta_{rad} = \dfrac{-17}{1\,600} \approx -1\text{ \%}\)<br>
-    Ce résultat illustre l'importance des <strong>revêtements sélectifs</strong> sur les capteurs solaires thermiques : ils maximisent l'absorption dans le visible (α élevé) tout en minimisant l'émission infrarouge (ε faible). Dans la pratique, ε ≈ 0,05 à 0,10 pour un capteur à haut rendement.</p>
+    <p><strong>1.</strong> Principe : en mettant en contact électrique un métal de E° inférieur (l'anode sacrificielle, zinc) avec le métal à protéger (fer), on crée une pile. D'après la règle du gamma, c'est le métal de E° le plus faible (zinc) qui s'oxyde en premier. Le fer, rendu cathode, est protégé : il ne se corrode pas.</p>
+    <p><strong>2.</strong> E°(Zn²⁺/Zn) = −0,76 V &lt; E°(Fe²⁺/Fe) = −0,44 V : le zinc est un <strong>meilleur réducteur que le fer</strong>, donc c'est bien lui qui s'oxyde préférentiellement → <strong>zinc adapté ✓</strong><br>
+    E°(Cu²⁺/Cu) = +0,34 V &gt; E°(Fe²⁺/Fe) = −0,44 V : si on mettait du cuivre, c'est le fer qui serait le réducteur le plus fort → il s'oxiderait encore plus vite → <strong>cuivre inadapté ✗</strong></p>
+    <p><strong>3.</strong> À l'anode sacrificielle (zinc, oxydation) :
+    \[\mathrm{Zn \longrightarrow Zn^{2+} + 2\,e^-}\]
+    À la cathode (fer, réduction protégée) :
+    \[\mathrm{Fe^{2+} + 2\,e^- \longrightarrow Fe}\]
+    Le fer est réduit (ou n'est pas oxydé) : il est protégé.</p>
+    <p><strong>4.</strong> D'après la demi-équation, 1 mol de Zn → 2 mol d'électrons.<br>
+    \[n(\mathrm{Zn}) = \dfrac{n(e^-)}{2} = \dfrac{0{,}5}{2} = 0{,}25\text{ mol}\]
+    \[m_\mathrm{Zn} = n \times M = 0{,}25 \times 65 = \mathbf{16{,}25\text{ g}}\]</p>
   </div>
 </div>
 
@@ -158,50 +198,52 @@
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Température d'équilibre de la Terre</span>
+    <span class="exo-title">Galvanisation — calcul de l'épaisseur de zinc déposée</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>On veut calculer la température d'équilibre de la Terre en supposant qu'elle se comporte comme un corps noir (ε = 1) et en ne tenant compte que du bilan solaire-terrestre (sans effet de serre).</p>
-  <p>Données : constante solaire \(E_0 = 1\,361\text{ W/m}^2\), albédo α = 0,30, rayon terrestre R (simplifié, il se simplifie dans le calcul).</p>
-  <p class="q"><strong>1.</strong> La Terre intercepte le rayonnement solaire sur sa section droite (disque de surface πR²). La puissance solaire totale interceptée est \(P_{inter} = E_0 \times \pi R^2\). Calculer la puissance moyenne reçue par m² de surface terrestre (surface totale = 4πR²).</p>
-  <p class="q"><strong>2.</strong> Avec α = 0,30, calculer la puissance moyenne absorbée par m².</p>
-  <p class="q"><strong>3.</strong> À l'équilibre, la Terre réémet toute cette puissance en infrarouge. En égalisant \(P_{absorbée} = \sigma \cdot T^4\), calculer la température d'équilibre T.</p>
-  <p class="q"><strong>4.</strong> Comparer à la température réelle moyenne (+15 °C = 288 K). Expliquer l'écart.</p>
+  <p>La galvanisation est un procédé de protection de l'acier par dépôt d'une couche de zinc en surface. Une pièce en acier est plongée dans un bain de zinc fondu.<br>
+  Données : masse de zinc déposée \(m_\mathrm{Zn} = 50\text{ g}\), surface de la pièce \(S = 0{,}5\text{ m}^2\), densité du zinc \(\rho_\mathrm{Zn} = 7\,133\text{ kg/m}^3\).<br>
+  Formule de l'épaisseur : \(e = \dfrac{m}{\rho \times S}\)</p>
+  <p class="q"><strong>1.</strong> Citer deux avantages de la galvanisation par rapport à la protection par peinture seule.</p>
+  <p class="q"><strong>2.</strong> Expliquer brièvement pourquoi la galvanisation protège l'acier même si le revêtement est légèrement rayé (aspect redox).</p>
+  <p class="q"><strong>3.</strong> Convertir la masse de zinc en kg, puis calculer l'épaisseur de zinc déposée en mètres. Exprimer le résultat en microomètres (μm).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_{moy} = \dfrac{E_0 \times \pi R^2}{4\pi R^2} = \dfrac{E_0}{4} = \dfrac{1\,361}{4} = \mathbf{340{,}25\text{ W/m}^2}\)<br>
-    (Le R se simplifie, ce résultat est indépendant du rayon de la Terre.)</p>
-    <p><strong>2.</strong> \(P_{absorbée} = (1-\alpha) \times P_{moy} = 0{,}70 \times 340{,}25 = \mathbf{238{,}2\text{ W/m}^2}\)</p>
-    <p><strong>3.</strong> À l'équilibre : \(P_{absorbée} = \sigma \cdot T^4\)<br>
-    \(T^4 = \dfrac{P_{absorbée}}{\sigma} = \dfrac{238{,}2}{5{,}67 \times 10^{-8}} = 4{,}202 \times 10^{9}\text{ K}^4\)<br>
-    \(T = (4{,}202 \times 10^{9})^{1/4} = \mathbf{254{,}5\text{ K}} \approx -18{,}5\text{ °C}\)</p>
-    <p><strong>4.</strong> La température calculée sans atmosphère est d'environ −18,5 °C, alors que la température réelle moyenne est +15 °C. L'écart est de +33,5 °C. Cet écart est dû à <strong>l'effet de serre naturel</strong> de l'atmosphère terrestre (vapeur d'eau, CO₂, méthane...) qui retient une partie du rayonnement infrarouge terrestre et réchauffe la surface au-delà de la valeur d'équilibre radiative.</p>
+    <p><strong>1.</strong> Avantages de la galvanisation par rapport à la peinture :<br>
+    — <strong>Protection mécanique et électrochimique</strong> : même si le zinc est rayé, il protège encore le fer par protection cathodique (anode sacrificielle).<br>
+    — <strong>Durabilité supérieure</strong> : la couche de zinc résiste à l'abrasion et aux chocs mieux que la peinture, qui peut s'écailler sans assurer de protection électrochimique.</p>
+    <p><strong>2.</strong> Même rayée, la couche de zinc reste en contact électrique avec l'acier. E°(Zn²⁺/Zn) = −0,76 V &lt; E°(Fe²⁺/Fe) = −0,44 V : c'est toujours le zinc qui joue le rôle d'anode sacrificielle et s'oxyde préférentiellement, protégeant le fer.</p>
+    <p><strong>3.</strong> Conversion : \(m_\mathrm{Zn} = 50\text{ g} = 0{,}050\text{ kg}\)<br>
+    \[e = \dfrac{m}{\rho \times S} = \dfrac{0{,}050}{7\,133 \times 0{,}5} = \dfrac{0{,}050}{3\,566{,}5} \approx 1{,}40 \times 10^{-5}\text{ m}\]
+    \[\boxed{e \approx 14\text{ μm}}\]
+    (Une épaisseur typique de galvanisation à chaud est de l'ordre de 50 à 100 μm ; ici on obtient 14 μm, cohérent avec un dépôt léger.)</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Effet de serre dans une serre vitrée — longueurs d'onde</span>
+    <span class="exo-title">Électrolyse — dépôt de cuivre (cuivrage)</span>
     <span class="diff diff-3">Niveau 3</span>
   </div>
-  <p>Un simple vitrage laisse passer environ 80 % du rayonnement solaire (courtes longueurs d'onde) mais est pratiquement opaque au rayonnement thermique infrarouge (longues longueurs d'onde). On veut expliquer l'effet de serre dans une serre vitrée.</p>
-  <p class="q"><strong>1.</strong> Calculer la longueur d'onde pic du rayonnement solaire (T_Soleil = 5 778 K). En déduire le domaine spectral.</p>
-  <p class="q"><strong>2.</strong> Calculer la longueur d'onde pic du rayonnement émis par un vitrage à T = 293 K (20 °C). En déduire le domaine spectral.</p>
-  <p class="q"><strong>3.</strong> Expliquer, en utilisant les résultats des questions 1 et 2, pourquoi la température s'élève à l'intérieur d'une serre vitrée (effet de serre local).</p>
-  <p class="q"><strong>4.</strong> Faire l'analogie avec l'effet de serre atmosphérique : quel rôle joue l'atmosphère vis-à-vis du vitrage ?</p>
+  <p>On réalise un dépôt électrolytique de cuivre (cuivrage) sur une pièce en acier.<br>
+  Données : tension U = 6 V, intensité I = 2 A, durée t = 30 min.<br>
+  Demi-équation cathodique : \(\mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu}\)<br>
+  \(M_\mathrm{Cu} = 64\text{ g/mol}\) &nbsp;|&nbsp; \(F = 96\,500\text{ C/mol}\)</p>
+  <p class="q"><strong>1.</strong> Calculer la charge Q (en coulombs) ayant traversé le circuit.</p>
+  <p class="q"><strong>2.</strong> En déduire la quantité de matière d'électrons \(n(e^-)\).</p>
+  <p class="q"><strong>3.</strong> D'après la demi-équation, calculer la quantité de matière de cuivre déposée \(n(\mathrm{Cu})\).</p>
+  <p class="q"><strong>4.</strong> Calculer la masse de cuivre déposée \(m_\mathrm{Cu}\).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(\lambda_{max,Soleil} = \dfrac{2{,}898 \times 10^{-3}}{5\,778} \approx 5{,}02 \times 10^{-7}\text{ m} = \mathbf{0{,}50\text{ µm}}\)<br>
-    Domaine : <strong>visible</strong> (lumière verte-jaune). Le vitrage est transparent pour ce rayonnement : il le laisse entrer dans la serre.</p>
-    <p><strong>2.</strong> \(\lambda_{max,vitrage} = \dfrac{2{,}898 \times 10^{-3}}{293} \approx 9{,}89 \times 10^{-6}\text{ m} = \mathbf{9{,}89\text{ µm}}\)<br>
-    Domaine : <strong>infrarouge thermique</strong>. Le vitrage est opaque à ces longueurs d'onde.</p>
-    <p><strong>3.</strong> Mécanisme de l'effet de serre dans la serre vitrée :<br>
-    – Le rayonnement solaire (visible, 0,5 µm) traverse le vitrage et est absorbé par le sol et les plantes à l'intérieur, qui se réchauffent.<br>
-    – Le sol chaud (T ≈ 300 K) réémet un rayonnement infrarouge (λ ≈ 10 µm).<br>
-    – Ce rayonnement infrarouge <strong>ne peut pas traverser le vitrage</strong> (le verre est opaque à ces longueurs d'onde).<br>
-    – L'énergie est piégée à l'intérieur : la température monte jusqu'à ce qu'un nouvel équilibre s'établisse à une température plus élevée qu'à l'extérieur.</p>
-    <p><strong>4.</strong> Dans l'effet de serre atmosphérique, l'atmosphère (chargée en CO₂, vapeur d'eau) joue le même rôle que le vitrage : elle est transparente au rayonnement solaire visible mais absorbe le rayonnement infrarouge terrestre. L'énergie est retenue dans le système Terre-atmosphère, élevant la température de surface. L'analogie avec la serre vitrée est à l'origine du nom « effet de serre ».</p>
+    <p><strong>1.</strong> Conversion : t = 30 min = 30 × 60 = 1 800 s
+    \[Q = I \times t = 2 \times 1\,800 = \mathbf{3\,600\text{ C}}\]</p>
+    <p><strong>2.</strong>
+    \[n(e^-) = \dfrac{Q}{F} = \dfrac{3\,600}{96\,500} \approx \mathbf{3{,}73 \times 10^{-2}\text{ mol}}\]</p>
+    <p><strong>3.</strong> D'après \(\mathrm{Cu^{2+} + 2\,e^- \to Cu}\) : 2 mol e⁻ donnent 1 mol Cu.
+    \[n(\mathrm{Cu}) = \dfrac{n(e^-)}{2} = \dfrac{3{,}73 \times 10^{-2}}{2} \approx \mathbf{1{,}86 \times 10^{-2}\text{ mol}}\]</p>
+    <p><strong>4.</strong>
+    \[m_\mathrm{Cu} = n \times M = 1{,}86 \times 10^{-2} \times 64 \approx \mathbf{1{,}19\text{ g}}\]</p>
   </div>
 </div>
 
@@ -210,68 +252,71 @@
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Installation de capteurs solaires thermiques — bilan énergétique</span>
+    <span class="exo-title">Circuit de chauffage mixte acier/cuivre — corrosion galvanique</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Un technicien en énergies renouvelables installe des panneaux solaires thermiques sur un toit. La surface totale de captation est S = 6 m². Chaque mètre carré reçoit une puissance solaire de \(P_{solaire} = 700\text{ W/m}^2\). Les capteurs ont une émissivité ε = 0,95 et fonctionnent à une température T = 360 K.</p>
-  <p class="q"><strong>1.</strong> Calculer la puissance solaire totale reçue par les capteurs.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par les capteurs vers l'extérieur (loi de Stefan-Boltzmann).</p>
-  <p class="q"><strong>3.</strong> Calculer la puissance nette disponible pour le transfert au fluide caloporteur (\(P_{nette} = P_{reçue} - P_{rayonnée}\)).</p>
-  <p class="q"><strong>4.</strong> Le technicien propose de remplacer les capteurs par des modèles à faible émissivité (ε = 0,10, revêtement sélectif). Calculer la nouvelle puissance rayonnée et la nouvelle puissance nette. Quelle est la part de gain ?</p>
+  <p>Un plombier chauffagiste installe un circuit de chauffage central comprenant des canalisations en acier (fer) et des raccords en cuivre. Il sait que la mise en contact direct de deux métaux différents en présence d'eau peut provoquer une corrosion galvanique accélérée.</p>
+  <p>Données : \(E°(\mathrm{Fe^{2+}/Fe}) = -0{,}44\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)</p>
+  <p class="q"><strong>1.</strong> Expliquer le phénomène de corrosion galvanique en termes redox : lorsque les deux métaux sont en contact électrique via l'eau, quel métal joue le rôle d'anode et lequel joue le rôle de cathode ?</p>
+  <p class="q"><strong>2.</strong> Quel métal se corrode préférentiellement ? Justifier avec les valeurs de E°.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-réaction à l'anode et à la cathode.</p>
+  <p class="q"><strong>4.</strong> Quelle solution technique le plombier chauffagiste doit-il adopter pour limiter la corrosion galvanique ? Expliquer le rôle de chaque solution.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(P_{reçue} = P_{solaire} \times S = 700 \times 6 = \mathbf{4\,200\text{ W}}\)</p>
-    <p><strong>2.</strong> \(T = 360\text{ K}\)<br>
-    \(T^4 = 360^4 = 1{,}6796 \times 10^{10}\text{ K}^4\)<br>
-    \(P_{ray} = \varepsilon \cdot \sigma \cdot T^4 \cdot S = 0{,}95 \times 5{,}67 \times 10^{-8} \times 1{,}6796 \times 10^{10} \times 6\)<br>
-    \(P_{ray} = 0{,}95 \times 5{,}67 \times 10^{-8} \times 10{,}078 \times 10^{10} = 0{,}95 \times 5\,714 \approx \mathbf{5\,428\text{ W}}\)</p>
-    <p><strong>3.</strong> \(P_{nette} = 4\,200 - 5\,428 = \mathbf{-1\,228\text{ W}}\)<br>
-    Le bilan est négatif : les capteurs perdent plus d'énergie par rayonnement qu'ils n'en reçoivent du soleil à cette température ! En pratique, d'autres pertes (convection, conduction) s'ajoutent encore. Cela illustre pourquoi les capteurs solaires thermiques haute performance utilisent impérativement des revêtements sélectifs.</p>
-    <p><strong>4.</strong> Avec ε = 0,10 :<br>
-    \(P_{ray,sel} = 0{,}10 \times 5\,714 \approx \mathbf{571\text{ W}}\) (au lieu de 5 428 W)<br>
-    \(P_{nette,sel} = 4\,200 - 571 = \mathbf{3\,629\text{ W}}\)<br>
-    Gain : \(3\,629 - (-1\,228) = 4\,857\text{ W}\), soit une amélioration considérable. Le revêtement sélectif est la technologie clé des capteurs solaires thermiques modernes.</p>
+    <p><strong>1.</strong> Lorsque acier (Fe) et cuivre (Cu) sont en contact électrique via l'eau (électrolyte), ils forment une pile galvanique.<br>
+    E°(Fe²⁺/Fe) = −0,44 V &lt; E°(Cu²⁺/Cu) = +0,34 V<br>
+    → Le fer est le réducteur le plus fort : il joue le rôle d'<strong>anode</strong> (oxydation).<br>
+    → Le cuivre joue le rôle de <strong>cathode</strong> (réduction).</p>
+    <p><strong>2.</strong> C'est le <strong>fer (acier)</strong> qui se corrode préférentiellement, car E°(Fe²⁺/Fe) est plus faible que E°(Cu²⁺/Cu) : d'après la règle du gamma, le fer est le réducteur qui s'oxyde spontanément en présence des ions présents dans l'eau.</p>
+    <p><strong>3.</strong> À l'anode (acier, oxydation) :
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]
+    À la cathode (cuivre) : les électrons libérés par le fer permettent la réduction du dioxygène dissous ou le dépôt de Cu :
+    \[\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\]</p>
+    <p><strong>4.</strong> Solutions techniques :<br>
+    — <strong>Manchon diélectrique</strong> (isolant électrique) : interposé entre les deux métaux différents, il interrompt le contact électrique et supprime le circuit galvanique → pas de transfert d'électrons → pas de corrosion galvanique.<br>
+    — <strong>Disconnecteur / raccord isolant</strong> : même principe, adapté aux raccords vissés.<br>
+    — <strong>Inhibiteur de corrosion</strong> dans l'eau du circuit : ralentit les réactions d'oxydation sans éliminer le contact.</p>
   </div>
 </div>
 
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 9</span>
-    <span class="exo-title">Isolation d'une toiture — rayonnement et écran réfléchissant</span>
+    <span class="exo-title">Traitement de l'eau d'un circuit de chauffage — inhibiteurs de corrosion</span>
     <span class="diff diff-3">Niveau 3</span>
   </div>
-  <p>Un installateur thermique étudie les pertes par rayonnement d'une toiture. La surface intérieure de la toiture a une température T₁ = 15 °C et une émissivité ε = 0,85. La surface totale est S = 80 m².</p>
-  <p class="q"><strong>1.</strong> Convertir T₁ = 15 °C en kelvins.</p>
-  <p class="q"><strong>2.</strong> Calculer la puissance rayonnée par la surface intérieure de la toiture.</p>
-  <p class="q"><strong>3.</strong> La surface extérieure est à T₂ = −5 °C avec ε = 0,85. Calculer la puissance rayonnée vers l'extérieur.</p>
-  <p class="q"><strong>4.</strong> Expliquer l'intérêt d'un écran réfléchissant (pare-vapeur aluminisé, ε ≈ 0,05) placé côté intérieur. Calculer la nouvelle puissance rayonnée depuis la surface intérieure avec ε = 0,05 et conclure.</p>
+  <p>Un technicien de maintenance énergétique contrôle l'eau d'un circuit de chauffage fermé. L'analyse révèle une concentration en ions fer(II) de \(c(\mathrm{Fe^{2+}}) = 0{,}01\text{ mol/L}\). Il ajoute un traitement à base de polyphosphates pour réduire la corrosion interne des canalisations en acier.</p>
+  <p>Données : \(M_\mathrm{Fe} = 56\text{ g/mol}\)</p>
+  <p class="q"><strong>1.</strong> La présence d'ions Fe²⁺ dans l'eau de circuit est-elle le signe d'une oxydation ou d'une réduction du fer ? Justifier en écrivant la demi-équation correspondante.</p>
+  <p class="q"><strong>2.</strong> Expliquer en termes redox pourquoi l'ajout de polyphosphates ralentit la corrosion. (Les polyphosphates forment une couche protectrice en précipitant à la surface du métal, réduisant le contact entre le fer et l'eau/oxygène.)</p>
+  <p class="q"><strong>3.</strong> Calculer la concentration massique \(\gamma(\mathrm{Fe^{2+}})\) en g/L sachant que \(c = 0{,}01\text{ mol/L}\). Ce taux est-il préoccupant ? (Valeur indicative : au-delà de 0,2 mg/L soit 0,0002 g/L, l'eau est considérée comme corrosive.)</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(T_1 = 15 + 273 = \mathbf{288\text{ K}}\)</p>
-    <p><strong>2.</strong> \(T_1^4 = 288^4 = 6{,}879 \times 10^{9}\text{ K}^4\)<br>
-    \(P_1 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 6{,}879 \times 10^{9} \times 80\)<br>
-    \(P_1 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 5{,}503 \times 10^{11}\)<br>
-    \(P_1 = 0{,}85 \times 31\,202 \approx \mathbf{26\,522\text{ W}} \approx 26{,}5\text{ kW}\)</p>
-    <p><strong>3.</strong> \(T_2 = -5 + 273 = 268\text{ K}\)<br>
-    \(T_2^4 = 268^4 = 5{,}153 \times 10^{9}\text{ K}^4\)<br>
-    \(P_2 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 5{,}153 \times 10^{9} \times 80\)<br>
-    \(P_2 = 0{,}85 \times 5{,}67 \times 10^{-8} \times 4{,}122 \times 10^{11} = 0{,}85 \times 23\,372 \approx \mathbf{19\,866\text{ W}} \approx 19{,}9\text{ kW}\)</p>
-    <p><strong>4.</strong> Avec ε = 0,05 (écran réfléchissant) :<br>
-    \(P_{1,ecran} = 0{,}05 \times 5{,}67 \times 10^{-8} \times 6{,}879 \times 10^{9} \times 80 = 0{,}05 \times 31\,202 \approx \mathbf{1\,560\text{ W}}\)<br>
-    Sans écran : P₁ ≈ 26 522 W ; avec écran : P₁ ≈ 1 560 W.<br>
-    <strong>Réduction des pertes par rayonnement de 94 %.</strong><br>
-    L'écran réfléchissant (feuille d'aluminium, émissivité ε ≈ 0,05) réfléchit la quasi-totalité du rayonnement infrarouge émis par la surface intérieure chaude, au lieu de le laisser être absorbé par les matériaux de toiture et rayonné vers l'extérieur. C'est un complément efficace et peu coûteux aux isolants thermiques classiques (laine de roche, polystyrène...) qui agissent, eux, principalement sur la conduction thermique.</p>
+    <p><strong>1.</strong> La présence d'ions Fe²⁺ indique que le fer a <strong>perdu des électrons</strong> : c'est une <strong>oxydation</strong> du fer.
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]
+    C'est la preuve que des canalisations en acier sont en cours de corrosion dans le circuit.</p>
+    <p><strong>2.</strong> Explication redox :<br>
+    La corrosion du fer nécessite que le métal soit en contact avec l'eau contenant des espèces oxydantes (O₂ dissous, H⁺). Les polyphosphates (PO₄³⁻ polymérisés) réagissent avec les ions Fe²⁺ et Ca²⁺ de l'eau pour précipiter à la surface interne des canalisations et former une <strong>couche insoluble et adhérente</strong>. Cette couche :<br>
+    — isole physiquement le fer de l'eau et du dioxygène dissous ;<br>
+    — réduit la surface de contact métal/électrolyte ;<br>
+    → Les transferts d'électrons (oxydation du fer) sont ainsi ralentis : la cinétique de corrosion diminue fortement.</p>
+    <p><strong>3.</strong> Calcul de la concentration massique :
+    \[\gamma(\mathrm{Fe^{2+}}) = c \times M = 0{,}01 \times 56 = 0{,}56\text{ g/L}\]
+    \[\boxed{\gamma(\mathrm{Fe^{2+}}) = 0{,}56\text{ g/L} = 560\text{ mg/L}}\]
+    Ce taux est <strong>très préoccupant</strong> : il est environ 2 800 fois supérieur au seuil indicatif de 0,2 mg/L. Une intervention rapide est nécessaire (vidange, rinçage du circuit, dosage d'inhibiteur, recherche des canalisations dégradées).</p>
   </div>
 </div>
 
 <div class="retenir">
-  <strong>À retenir</strong>
+  <strong>À retenir — Oxydoréduction et protection des métaux</strong>
   <ul>
-    <li>Tout corps émet un rayonnement thermique. Sa puissance est donnée par la <strong>loi de Stefan-Boltzmann</strong> : \(P = \varepsilon \cdot \sigma \cdot T^4 \cdot S\). La puissance varie comme T⁴ : très sensible à la température.</li>
-    <li>La <strong>loi de Wien</strong> \(\lambda_{max} = b/T\) indique la longueur d'onde du maximum d'émission. Plus le corps est chaud, plus le rayonnement est à courte longueur d'onde (vers le visible). Un corps froid rayonne dans l'infrarouge.</li>
-    <li>L'<strong>effet de serre</strong> repose sur la différence de domaine spectral entre le rayonnement solaire (visible, courtes λ, que l'atmosphère laisse passer) et le rayonnement terrestre (infrarouge, grandes λ, que les gaz à effet de serre absorbent).</li>
-    <li>Pour les <strong>capteurs solaires thermiques</strong>, le revêtement sélectif (ε faible) réduit drastiquement les pertes par rayonnement infrarouge tout en maintenant une forte absorptivité dans le visible.</li>
-    <li>Un <strong>écran réfléchissant</strong> (feuille aluminisée, ε ≈ 0,05) réduit fortement les échanges par rayonnement dans une paroi : complément utile à l'isolation thermique.</li>
+    <li>L'<strong>oxydation</strong> est une perte d'électrons ; la <strong>réduction</strong> est un gain d'électrons.</li>
+    <li>L'<strong>oxydant</strong> capte des électrons (\(\mathrm{Ox + n\,e^- \to Red}\)) ; le <strong>réducteur</strong> en cède (\(\mathrm{Red \to Ox + n\,e^-}\)).</li>
+    <li>Plus le <strong>potentiel standard E°</strong> est faible, plus l'espèce réduite est un bon <strong>réducteur</strong>.</li>
+    <li>La <strong>règle du gamma</strong> prédit la réaction spontanée : oxydant (E° élevé) + réducteur (E° faible).</li>
+    <li>La <strong>force électromotrice</strong> d'une pile : \(E = E°_\text{cathode} - E°_\text{anode} > 0\).</li>
+    <li>L'<strong>anode sacrificielle</strong> (Zn) protège le fer car E°(Zn²⁺/Zn) &lt; E°(Fe²⁺/Fe) : le zinc s'oxyde en premier.</li>
+    <li>En circuit de chauffage, le contact acier/cuivre sans isolation électrique provoque une <strong>corrosion galvanique</strong> de l'acier → utiliser des <strong>manchons diélectriques</strong>.</li>
   </ul>
 </div>
 
