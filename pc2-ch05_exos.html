@@ -46,7 +46,7 @@ th{background:#eef2f7;font-weight:600}
 <body>
 <div class="c">
 <header>
-  <div class="mama-tag">MAMA – 2nde Pro</div>
+  <div class="mama-tag">2nde Bac Pro</div>
   <h1>Chapitre 5 – Mouvement et trajectoire</h1>
   <p class="sous-titre">Physique-Chimie 2 &nbsp;|&nbsp; Exercices d'application</p>
 </header>
@@ -239,29 +239,29 @@ th{background:#eef2f7;font-weight:600}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 5</span>
-    <span class="exo-title">Distance de freinage et sécurité routière</span>
+    <span class="exo-title">D&eacute;placement d'un panneau sur un chariot d'atelier</span>
     <span class="diff diff-2">Intermédiaire</span>
   </div>
-  <div class="mama-tag">MAMA – Sécurité véhicule</div>
-  <p>Une voiture roule à \(v = 90\,\text{km/h}\). Le conducteur voit un obstacle et freine.</p>
+  <div class="mama-tag">Atelier de menuiserie</div>
+  <p>Un technicien menuisier pousse un chariot chargé de panneaux de MDF depuis le stock jusqu'à la scie. La distance est de \(d = 18\,\text{m}\).</p>
   <ul>
-    <li>Temps de réaction du conducteur : \(t_r = 1\,\text{s}\)</li>
-    <li>Distance de freinage (après appui sur la pédale) : \(d_f = 45\,\text{m}\)</li>
+    <li>Vitesse de déplacement du chariot : \(v = 0{,}9\,\text{m/s}\)</li>
+    <li>Temps de préparation avant de pousser : \(t_{prépa} = 5\,\text{s}\)</li>
   </ul>
   <div class="methode">
-    <strong>Distance d'arrêt totale :</strong> \(d_{arrêt} = d_{réaction} + d_{freinage}\)<br>
-    Avec \(d_{réaction} = v \times t_r\) (pendant le temps de réaction, la voiture continue à même vitesse).
+    <strong>Durée totale :</strong> \(t_{total} = t_{prépa} + t_{déplacement}\)<br>
+    Avec \(t_{déplacement} = \dfrac{d}{v}\) (temps pour parcourir la distance à vitesse constante).
   </div>
-  <p class="q"><strong>1.</strong> Convertir \(v = 90\,\text{km/h}\) en m/s.</p>
-  <p class="q"><strong>2.</strong> Calculer la distance de réaction \(d_r\).</p>
-  <p class="q"><strong>3.</strong> Calculer la distance d'arrêt totale \(d_{arrêt}\).</p>
-  <p class="q"><strong>4.</strong> L'obstacle est à 60 m. Y a-t-il collision ? Justifier.</p>
+  <p class="q"><strong>1.</strong> Convertir \(v = 0{,}9\,\text{m/s}\) en km/h.</p>
+  <p class="q"><strong>2.</strong> Calculer la durée de déplacement \(t_{déplacement}\).</p>
+  <p class="q"><strong>3.</strong> Calculer la durée totale \(t_{total}\).</p>
+  <p class="q"><strong>4.</strong> Le technicien effectue 8 allers-retours (soit 16 trajets) dans la journée. Calculer le temps total consacré à ces déplacements.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(v = \dfrac{90}{3{,}6} = 25\,\text{m/s}\)</p>
-    <p><strong>2.</strong> \(d_r = v \times t_r = 25 \times 1 = 25\,\text{m}\)</p>
-    <p><strong>3.</strong> \(d_{arrêt} = 25 + 45 = 70\,\text{m}\)</p>
-    <p><strong>4.</strong> L'obstacle est à 60 m mais la distance d'arrêt est 70 m. \(70 > 60\) → <strong>Il y a collision !</strong> La voiture n'aura pas le temps de s'arrêter.</p>
+    <p><strong>1.</strong> \(v = 0{,}9 \times 3{,}6 = 3{,}24\,\text{km/h}\)</p>
+    <p><strong>2.</strong> \(t_{déplacement} = \dfrac{d}{v} = \dfrac{18}{0{,}9} = 20\,\text{s}\)</p>
+    <p><strong>3.</strong> \(t_{total} = 5 + 20 = 25\,\text{s}\)</p>
+    <p><strong>4.</strong> Temps total = \(16 \times 25 = 400\,\text{s} \approx 6{,}7\,\text{min}\). En optimisant l'implantation de l'atelier (stock plus proche), on peut réduire significativement ce temps improductif.</p>
   </div>
 </div>
 
@@ -273,26 +273,26 @@ th{background:#eef2f7;font-weight:600}
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 6</span>
-    <span class="exo-title">Vitesse du piston dans un moteur</span>
+    <span class="exo-title">Vitesse de la lame d'une scie alternative</span>
     <span class="diff diff-2">Intermédiaire</span>
   </div>
-  <div class="mama-tag">MAMA – Moteur thermique</div>
-  <p>Un moteur thermique tourne à \(n = 3\,000\,\text{tr/min}\). La course du piston (aller simple) est \(c = 8\,\text{cm} = 0{,}08\,\text{m}\).</p>
+  <div class="mama-tag">Atelier de fabrication</div>
+  <p>Une scie alternative (scie sauteuse d'établi) effectue \(n = 3\,000\,\text{courses/min}\). La course de la lame (aller simple) est \(c = 2{,}5\,\text{cm} = 0{,}025\,\text{m}\).</p>
   <div class="methode">
-    À chaque tour, le piston fait un aller-retour complet (2 fois la course).<br>
-    Distance par tour : \(d_{tour} = 2 \times c\)<br>
-    Vitesse moyenne : \(v_{moy} = d_{tour} \times f\) où \(f\) est la fréquence de rotation en tr/s.
+    À chaque cycle, la lame fait un aller-retour complet (2 fois la course).<br>
+    Distance par cycle : \(d_{cycle} = 2 \times c\)<br>
+    Vitesse moyenne : \(v_{moy} = d_{cycle} \times f\) où \(f\) est la fréquence en cycles/s.
   </div>
-  <p class="q"><strong>1.</strong> Convertir \(n = 3\,000\,\text{tr/min}\) en tr/s (fréquence \(f\)).</p>
-  <p class="q"><strong>2.</strong> Calculer la distance parcourue par le piston en un tour.</p>
-  <p class="q"><strong>3.</strong> Calculer la vitesse moyenne du piston en m/s.</p>
-  <p class="q"><strong>4.</strong> Le piston s'arrête en haut (PMH) et en bas (PMB). Quel est le type de mouvement global sur un aller ? (Départ à 0, accélération, puis décélération jusqu'à 0.)</p>
+  <p class="q"><strong>1.</strong> Convertir \(n = 3\,000\,\text{courses/min}\) en cycles/s (fréquence \(f\)).</p>
+  <p class="q"><strong>2.</strong> Calculer la distance parcourue par la lame en un cycle.</p>
+  <p class="q"><strong>3.</strong> Calculer la vitesse moyenne de la lame en m/s.</p>
+  <p class="q"><strong>4.</strong> La lame s'arrête en haut et en bas de sa course. Quel est le type de mouvement sur un aller ? (Départ à 0, accélération, puis décélération jusqu'à 0.)</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
-    <p><strong>1.</strong> \(f = \dfrac{3000}{60} = 50\,\text{tr/s}\)</p>
-    <p><strong>2.</strong> \(d_{tour} = 2 \times 0{,}08 = 0{,}16\,\text{m}\)</p>
-    <p><strong>3.</strong> \(v_{moy} = 0{,}16 \times 50 = 8\,\text{m/s}\)</p>
-    <p><strong>4.</strong> Mouvement <strong>rectiligne accéléré</strong> puis <strong>décéléré</strong> : il part de zéro, accélère en milieu de course, puis ralentit jusqu'à zéro en fin d'aller.</p>
+    <p><strong>1.</strong> \(f = \dfrac{3000}{60} = 50\,\text{cycles/s}\)</p>
+    <p><strong>2.</strong> \(d_{cycle} = 2 \times 0{,}025 = 0{,}05\,\text{m}\)</p>
+    <p><strong>3.</strong> \(v_{moy} = 0{,}05 \times 50 = 2{,}5\,\text{m/s}\)</p>
+    <p><strong>4.</strong> Mouvement <strong>rectiligne accéléré</strong> puis <strong>décéléré</strong> : la lame part de zéro, accélère en milieu de course, puis ralentit jusqu'à zéro en fin d'aller.</p>
   </div>
 </div>
 
