@@ -76,15 +76,16 @@ details p{margin:6px 0 0 0;color:#4a5568}
 <header>
   <h1>Chapitre 1 – Statistiques à deux variables</h1>
   <p class="sous-titre">Terminale Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Statistique et probabilités</p>
-  <p class="maj">Dernière mise à jour : 8 mars 2026</p>
+  <p class="maj">Dernière mise à jour : 11 mars 2026</p>
 </header>
 
 <div class="objectifs">
   <strong>Je vais apprendre à :</strong>
   <ul>
     <li>Représenter un nuage de points à partir d'une série statistique à deux variables</li>
-    <li>Choisir et tracer un ajustement adapté à la forme du nuage (affine ou non)</li>
-    <li>Calculer et interpréter le coefficient de corrélation \(r\)</li>
+    <li>Choisir un ajustement adapté à la forme du nuage (affine ou non affine)</li>
+    <li>Utiliser le coefficient de détermination \(R^2\) pour évaluer la qualité d'un ajustement</li>
+    <li>Effectuer un <strong>changement de variable</strong> pour linéariser une relation non affine</li>
     <li>Utiliser l'ajustement pour <strong>interpoler</strong> ou <strong>extrapoler</strong> des valeurs</li>
   </ul>
 </div>
@@ -121,11 +122,15 @@ details p{margin:6px 0 0 0;color:#4a5568}
 <div class="def">
   <span class="label label-def">Définition — Série à deux variables</span><br>
   Une <strong>série statistique à deux variables</strong> est un ensemble de couples \((x_i\,;\,y_i)\) où chaque couple correspond à une observation (une semaine, un bâtiment, un appareil…).
+  <ul>
+    <li>La variable \(x\) est la <strong>variable explicative</strong> (ou indépendante) : c'est celle que l'on choisit ou que l'on contrôle (ex. : la température).</li>
+    <li>La variable \(y\) est la <strong>variable expliquée</strong> (ou dépendante) : c'est celle que l'on cherche à prévoir (ex. : la consommation).</li>
+  </ul>
 </div>
 
 <div class="def">
   <span class="label label-def">Définition — Nuage de points</span><br>
-  Un <strong>nuage de points</strong> est la représentation graphique des couples \((x_i\,;\,y_i)\) dans un repère orthogonal. La variable \(x\) est placée en abscisse, la variable \(y\) en ordonnée.
+  Un <strong>nuage de points</strong> est la représentation graphique des couples \((x_i\,;\,y_i)\) dans un repère orthogonal. La variable \(x\) (explicative) est placée en abscisse, la variable \(y\) (expliquée) en ordonnée.
 </div>
 
 <div class="prop">
@@ -185,33 +190,50 @@ details p{margin:6px 0 0 0;color:#4a5568}
   <p><em>Interprétation : quand la température augmente de 1°C, la consommation diminue d'environ 42 kWh.</em></p>
 </div>
 
-<!-- ==================== COEFFICIENT DE CORRÉLATION ==================== -->
-<h2>4. Coefficient de corrélation \(r\)</h2>
+<!-- ==================== COEFFICIENT DE DÉTERMINATION ==================== -->
+<h2>4. Coefficient de détermination \(R^2\)</h2>
 
 <div class="def">
   <span class="label label-def">Définition</span><br>
-  Le <strong>coefficient de corrélation linéaire</strong> \(r\) est un nombre compris entre \(-1\) et \(1\). Il mesure l'intensité et le sens de la liaison linéaire entre \(x\) et \(y\) :
+  Le <strong>coefficient de détermination</strong> \(R^2\) est un nombre compris entre \(0\) et \(1\). Il mesure la <strong>qualité</strong> d'un ajustement : plus \(R^2\) est proche de 1, plus le modèle est pertinent.
   <ul>
-    <li>\(r > 0\) → liaison positive (quand \(x\) augmente, \(y\) augmente)</li>
-    <li>\(r < 0\) → liaison négative (quand \(x\) augmente, \(y\) diminue)</li>
-    <li>\(|r|\) proche de 1 → liaison forte, ajustement fiable</li>
-    <li>\(|r|\) proche de 0 → liaison faible, ajustement à rejeter</li>
+    <li>\(R^2\) proche de 1 → le modèle explique bien les données</li>
+    <li>\(R^2\) proche de 0 → le modèle est peu adapté</li>
   </ul>
+  <p>Pour un ajustement affine, \(R^2\) est le carré du coefficient de corrélation : \(R^2 = r^2\).</p>
 </div>
 
 <div class="prop">
   <span class="label label-prop">Règle pratique</span><br>
   <table>
-    <tr><th>Valeur de \(|r|\)</th><th>Qualité de la liaison</th><th>L'ajustement affine est…</th></tr>
-    <tr><td>\(|r| > 0{,}95\)</td><td>Très forte</td><td>Excellent</td></tr>
-    <tr><td>\(0{,}85 < |r| \leq 0{,}95\)</td><td>Forte</td><td>Acceptable</td></tr>
-    <tr><td>\(|r| \leq 0{,}85\)</td><td>Faible ou nulle</td><td>À rejeter ou changer de modèle</td></tr>
+    <tr><th>Valeur de \(R^2\)</th><th>Qualité de l'ajustement</th><th>À faire</th></tr>
+    <tr><td>\(R^2 > 0{,}90\)</td><td>Très bonne</td><td>Ajustement fiable</td></tr>
+    <tr><td>\(0{,}72 < R^2 \leq 0{,}90\)</td><td>Acceptable</td><td>Utiliser avec prudence</td></tr>
+    <tr><td>\(R^2 \leq 0{,}72\)</td><td>Insuffisante</td><td>Changer de modèle</td></tr>
   </table>
+  <p style="font-size:.88em;color:#718096;margin-top:8px"><em>Note : ces seuils correspondent à \(|r| > 0{,}95\), \(|r| > 0{,}85\) et \(|r| \leq 0{,}85\) respectivement.</em></p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Lien entre \(r\) et \(R^2\)</span><br>
+  <ul>
+    <li>La calculatrice donne souvent les deux : \(r\) (coefficient de corrélation) et \(R^2\) (coefficient de détermination).</li>
+    <li>On a toujours : \(R^2 = r^2\), donc \(0 \leq R^2 \leq 1\).</li>
+    <li>\(r\) indique en plus le <strong>sens</strong> de la liaison (positif ou négatif) ; \(R^2\) mesure uniquement la qualité.</li>
+    <li>Pour les ajustements non affines (après changement de variable), on utilise \(R^2\) entre les nouvelles variables pour valider la linearisation.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Chauffage</span>
+  <p>La calculatrice donne pour les données de chauffage : \(r \approx -0{,}999\) donc \(R^2 \approx (-0{,}999)^2 \approx 0{,}998\).</p>
+  <p>Avec \(R^2 = 0{,}998\), très proche de 1 → l'ajustement affine est <strong>excellent</strong>.</p>
+  <p>\(r < 0\) indique que la liaison est <strong>négative</strong> : quand la température monte, la consommation baisse.</p>
 </div>
 
 <div class="att">
   <span class="label label-att">Attention</span><br>
-  Un \(r\) faible ne signifie pas qu'il n'y a <em>pas de relation</em> entre \(x\) et \(y\), mais que la relation n'est <strong>pas linéaire</strong>. Il faut alors envisager un autre type d'ajustement (exponentiel, puissance…).
+  Un \(R^2\) faible ne signifie pas l'absence de relation entre \(x\) et \(y\), mais que la relation n'est <strong>pas linéaire</strong>. Il faut alors tenter un changement de variable pour linéariser le nuage.
 </div>
 
 <!-- ==================== GRAPHIQUE CHART.JS INTERACTIF ==================== -->
@@ -246,8 +268,52 @@ details p{margin:6px 0 0 0;color:#4a5568}
   <p style="font-size:.82em;color:#718096;margin-top:6px">Zone de données réelles : 2°C à 22°C. Au-delà → extrapolation (moins fiable).</p>
 </div>
 
+<!-- ==================== OUTILS NUMÉRIQUES ==================== -->
+<h2>6. Utilisation des outils numériques</h2>
+
+<p>Les ajustements sont réalisés à l'aide d'outils numériques : <strong>calculatrice</strong>, <strong>tableur</strong> ou logiciel dédié. Aucune justification théorique n'est attendue : on lit directement les résultats fournis par l'outil.</p>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Avec la calculatrice (Casio, TI ou équivalent)</span><br>
+  <ol>
+    <li>Entrer les données dans deux listes : \(x_i\) dans la liste L1 (ou L<sub>X</sub>), \(y_i\) dans la liste L2 (ou L<sub>Y</sub>).</li>
+    <li>Accéder au menu <em>Stat → Calcul → Régression</em>.</li>
+    <li>Choisir le type de régression :
+      <ul>
+        <li><strong>LinReg</strong> (ou <em>a+bx</em>) pour un ajustement affine</li>
+        <li><strong>ExpReg</strong> pour un ajustement exponentiel \(y = a \cdot q^x\)</li>
+        <li>Ou entrer les données transformées (z = log y) et refaire une LinReg</li>
+      </ul>
+    </li>
+    <li>Lire les valeurs de \(a\), \(b\), \(r\) et \(R^2\) affichées par la calculatrice.</li>
+    <li>Écrire l'équation du modèle et vérifier que \(R^2\) est suffisamment proche de 1.</li>
+  </ol>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Avec un tableur (LibreOffice Calc, Excel, Google Sheets)</span><br>
+  <ol>
+    <li>Saisir les données en deux colonnes (A : \(x_i\), B : \(y_i\)).</li>
+    <li>Créer un <strong>graphique en nuage de points</strong> (XY Scatter).</li>
+    <li>Cliquer sur la série de points, puis <em>Ajouter une courbe de tendance</em>.</li>
+    <li>Choisir le type (Linéaire, Exponentielle, etc.) et cocher <em>Afficher l'équation</em> et <em>Afficher R²</em>.</li>
+    <li>Lire directement l'équation et \(R^2\) sur le graphique.</li>
+  </ol>
+  <p>Pour les changements de variable, créer une colonne C = LOG(B2) et tracer le nuage \((x, z)\).</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Important — Direction de l'ajustement</span><br>
+  On distingue :
+  <ul>
+    <li><strong>Ajustement de \(y\) en \(x\)</strong> : on cherche \(y\) à partir de \(x\) (variable explicative \(x\), variable expliquée \(y\)). La droite minimise les écarts verticaux.</li>
+    <li><strong>Ajustement de \(x\) en \(y\)</strong> : on cherche \(x\) à partir de \(y\). La droite minimise les écarts horizontaux.</li>
+  </ul>
+  En Terminale Bac Pro, <strong>la direction de l'ajustement vous est toujours précisée dans l'énoncé</strong>.
+</div>
+
 <!-- ==================== AJUSTEMENTS NON AFFINES ==================== -->
-<h2>6. Ajustements non affines — Changements de variable</h2>
+<h2>7. Ajustements non affines — Changements de variable</h2>
 
 <p>Quand le nuage de points n'est pas rectiligne, on peut effectuer un <strong>changement de variable</strong> pour "linéariser" la relation, puis appliquer un ajustement affine sur les nouvelles variables.</p>
 
@@ -256,14 +322,26 @@ details p{margin:6px 0 0 0;color:#4a5568}
   Si la relation entre \(x\) et \(y\) n'est pas linéaire, on pose une nouvelle variable \(z\) (transformée de \(x\) ou de \(y\)), de façon à ce que la relation entre \(z\) et l'autre variable soit linéaire.
 </div>
 
-<h3>Modèles courants</h3>
+<h3>Modèles courants au programme</h3>
 <table>
-  <tr><th>Type de relation</th><th>Changement de variable</th><th>Nouvelle relation linéaire</th></tr>
-  <tr><td>Affine \(y = ax + b\)</td><td>Aucun</td><td>\(y = ax + b\)</td></tr>
-  <tr><td>Exponentielle \(y = A \cdot q^x\)</td><td>\(z = \log(y)\)</td><td>\(z = x\log(q) + \log(A)\)</td></tr>
-  <tr><td>Puissance \(y = A \cdot x^k\)</td><td>\(z = \log(y)\), \(u = \log(x)\)</td><td>\(z = ku + \log(A)\)</td></tr>
-  <tr><td>Inverse \(y = \frac{a}{x} + b\)</td><td>\(z = \frac{1}{x}\)</td><td>\(y = az + b\)</td></tr>
+  <tr><th>Type de relation</th><th>Changement de variable</th><th>Nouvelle relation linéaire</th><th>Vérification</th></tr>
+  <tr><td>Affine \(y = ax + b\)</td><td>Aucun</td><td>\(y = ax + b\)</td><td>\(R^2\) sur \((x,y)\)</td></tr>
+  <tr><td>Exponentielle \(y = a \cdot q^x\)</td><td>\(z = \log(y)\)</td><td>\(z = x\log(q) + \log(a)\) affine en \(x\)</td><td>\(R^2\) sur \((x,z)\)</td></tr>
+  <tr><td>Inverse \(y = \dfrac{a}{x} + b\)</td><td>\(z = \dfrac{1}{x}\)</td><td>\(y = az + b\) affine en \(z\)</td><td>\(R^2\) sur \((z,y)\)</td></tr>
 </table>
+
+<div class="prop">
+  <span class="label label-prop">Démarche pour un ajustement non affine</span><br>
+  <ol>
+    <li>Observer la forme du nuage de \((x, y)\) → il n'est pas rectiligne.</li>
+    <li>Choisir un changement de variable (indiqué dans l'énoncé en Terminale).</li>
+    <li>Calculer les nouvelles valeurs transformées (ex. : \(z_i = \log(y_i)\)).</li>
+    <li>Tracer le nuage des nouvelles variables → vérifier qu'il est rectiligne.</li>
+    <li>Calculer l'ajustement affine des nouvelles variables → lire \(a\), \(b\) et \(R^2\).</li>
+    <li>Si \(R^2\) est proche de 1 → le changement de variable est validé.</li>
+    <li>Revenir à la relation initiale \((x, y)\) en effectuant l'opération inverse.</li>
+  </ol>
+</div>
 
 <div class="ex">
   <span class="label label-ex">Exemple — Ajustement exponentiel (croissance bactérienne)</span>
@@ -282,8 +360,26 @@ details p{margin:6px 0 0 0;color:#4a5568}
   <p>Modèle : \(\boxed{N \approx 2 \times 2^t}\)</p>
 </div>
 
+<div class="ex">
+  <span class="label label-ex">Exemple — Ajustement inverse (débit / pression)</span>
+  <p><span class="ticcer-badge">ICCER</span> Dans un réseau hydraulique, on mesure la pression \(x\) (en bar) et le débit \(y\) (en L/min) dans une canalisation :</p>
+  <table>
+    <tr><th>\(x\) (bar)</th><td>0,5</td><td>1</td><td>2</td><td>4</td><td>5</td></tr>
+    <tr><th>\(y\) (L/min)</th><td>80</td><td>40</td><td>20</td><td>10</td><td>8</td></tr>
+  </table>
+  <p><strong>Étape 1 :</strong> Le nuage de \((x, y)\) n'est pas rectiligne → on pose \(z = \dfrac{1}{x}\).</p>
+  <table>
+    <tr><th>\(x\)</th><td>0,5</td><td>1</td><td>2</td><td>4</td><td>5</td></tr>
+    <tr><th>\(z = 1/x\)</th><td>2</td><td>1</td><td>0,5</td><td>0,25</td><td>0,2</td></tr>
+    <tr><th>\(y\)</th><td>80</td><td>40</td><td>20</td><td>10</td><td>8</td></tr>
+  </table>
+  <p><strong>Étape 2 :</strong> La calculatrice donne pour \((z, y)\) : \(y = 40z + 0\), avec \(R^2 \approx 0{,}999\) → très bon ajustement.</p>
+  <p><strong>Étape 3 :</strong> On revient à \(x\) en remplaçant \(z\) par \(\dfrac{1}{x}\) : \[\boxed{y = \frac{40}{x}}\]</p>
+  <p><em>Application : pour \(x = 3\) bar → \(y = 40/3 \approx 13{,}3\) L/min (interpolation).</em></p>
+</div>
+
 <!-- ==================== INTERPOLATION / EXTRAPOLATION ==================== -->
-<h2>7. Interpolation et extrapolation</h2>
+<h2>8. Interpolation et extrapolation</h2>
 
 <div class="def">
   <span class="label label-def">Définitions</span><br>
@@ -314,7 +410,7 @@ details p{margin:6px 0 0 0;color:#4a5568}
 </div>
 
 <!-- ==================== EXEMPLE ICCER ==================== -->
-<h2>8. Exemple professionnel ICCER — COP d'une pompe à chaleur</h2>
+<h2>9. Exemple professionnel ICCER — COP d'une pompe à chaleur</h2>
 
 <div class="situation">
   <h3>🌡️ Performance d'une PAC selon la température extérieure</h3>
@@ -341,7 +437,7 @@ details p{margin:6px 0 0 0;color:#4a5568}
 </div>
 
 <!-- ==================== ANIMATION AJUSTEMENTS ==================== -->
-<h2>9. Simulation — Comparer les types d'ajustement</h2>
+<h2>10. Simulation — Comparer les types d'ajustement</h2>
 
 <div class="anim-wrap">
   <p><strong>Comparer visuellement les ajustements selon la forme du nuage</strong></p>
@@ -395,11 +491,14 @@ details p{margin:6px 0 0 0;color:#4a5568}
 <div class="retenir">
   <strong>📌 À retenir</strong>
   <ul>
-    <li>Un nuage de points représente la liaison entre deux variables \(x\) et \(y\).</li>
-    <li>La droite de régression \(y = ax + b\) passe toujours par \(G(\bar{x}, \bar{y})\).</li>
-    <li>Le coefficient \(r\) mesure la qualité de la liaison linéaire : \(|r|\) proche de 1 = très bonne liaison.</li>
-    <li>Si \(|r| \leq 0{,}85\), l'ajustement affine est insuffisant → tenter un changement de variable.</li>
-    <li>L'interpolation (dans l'intervalle) est fiable ; l'extrapolation (hors intervalle) est risquée.</li>
+    <li>Une série à deux variables associe une <strong>variable explicative \(x\)</strong> et une <strong>variable expliquée \(y\)</strong>.</li>
+    <li>Le <strong>nuage de points</strong> permet de visualiser la forme de la liaison entre \(x\) et \(y\).</li>
+    <li>La droite de régression \(y = ax + b\) passe toujours par le point moyen \(G(\bar{x}, \bar{y})\).</li>
+    <li>Le <strong>coefficient de détermination \(R^2\)</strong> mesure la qualité de l'ajustement : plus \(R^2\) est proche de 1, meilleur est le modèle.</li>
+    <li>Si le nuage n'est pas rectiligne, on effectue un <strong>changement de variable</strong> (ex. : \(z = \log y\) ou \(z = 1/x\)) pour linéariser.</li>
+    <li>On valide le changement de variable en vérifiant que \(R^2\) est proche de 1 sur les nouvelles variables.</li>
+    <li><strong>Interpoler</strong> = estimer dans l'intervalle des données connues (fiable).</li>
+    <li><strong>Extrapoler</strong> = estimer hors de l'intervalle (résultat moins fiable, à signaler).</li>
     <li>Toujours interpréter le résultat dans le contexte professionnel.</li>
   </ul>
 </div>
@@ -407,10 +506,12 @@ details p{margin:6px 0 0 0;color:#4a5568}
 <div class="att">
   <span class="label label-att">Erreurs fréquentes à éviter</span>
   <ul>
-    <li>Oublier de vérifier que \(|r|\) est proche de 1 avant d'utiliser l'ajustement affine.</li>
-    <li>Extrapoler loin de la zone de données sans signaler que le résultat est moins fiable.</li>
-    <li>Confondre \(r\) et \(r^2\) : la calculatrice peut donner l'un ou l'autre selon le modèle.</li>
-    <li>Ne pas identifier le sens de la liaison (signe de \(a\) et de \(r\) doit être cohérent).</li>
+    <li><strong>Utiliser un ajustement affine sans vérifier \(R^2\)</strong> : si \(R^2 < 0{,}72\), l'ajustement est inadapté, il faut changer de modèle.</li>
+    <li><strong>Confondre \(r\) et \(R^2\)</strong> : \(r\) peut être négatif (liaison décroissante) mais \(R^2 = r^2\) est toujours positif. Ce n'est pas la même chose !</li>
+    <li><strong>Extrapoler sans le signaler</strong> : toujours préciser qu'une valeur hors de l'intervalle des données est une extrapolation et que le résultat est moins fiable.</li>
+    <li><strong>Confondre interpolation et extrapolation</strong> : l'interpolation est dans l'intervalle connu, l'extrapolation en dehors.</li>
+    <li><strong>Oublier de revenir à la relation initiale</strong> : après un changement de variable, il faut exprimer le modèle final en fonction de \(x\) et \(y\) (pas de \(z\)).</li>
+    <li><strong>Inverser la variable explicative et la variable expliquée</strong> : \(y\) en \(x\) ou \(x\) en \(y\) donne deux droites différentes. Toujours respecter la direction indiquée dans l'énoncé.</li>
   </ul>
 </div>
 
