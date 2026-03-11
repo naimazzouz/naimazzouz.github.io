@@ -3,902 +3,926 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch08 – Pression dans un fluide immobile – Cours</title>
+<title>Ch08 – Signal sonore – Cours</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-.svg-caption{font-size:.82em;color:#718096;margin-top:6px;font-style:italic;display:block}
+.retenir ul{margin:8px 0 0 0;padding-left:20px}
 
-input[type=range]{width:200px;accent-color:var(--p)}</style>
+.exo summary{font-weight:700;cursor:pointer;color:var(--s);margin-bottom:6px}
+.exo details[open] summary{margin-bottom:10px}
+
+.situation strong{color:#1d4ed8}
+
+.chart-wrap canvas{max-height:320px}
+
+.anim-wrap canvas{border-radius:6px;max-width:100%}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;justify-content:center}
+.btn-row button{padding:6px 14px;border:2px solid var(--p);border-radius:6px;background:#fff;color:var(--p);font-weight:600;cursor:pointer;font-size:.88em;transition:all .2s}
+.btn-row button.active,.btn-row button:hover{background:var(--p);color:#fff}
+
+.two-col .col{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px}
+.two-col .col h3{margin:0 0 8px;font-size:.95em;color:var(--p)}
+.two-col .col ul{margin:0;padding-left:18px;font-size:.9em}</style>
 </head>
 <body>
 <div class="c">
 <a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
-
 <header>
-  <h1>Chapitre 8 – Caractériser la pression dans un fluide immobile</h1>
-  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique – Mécanique des fluides &nbsp;|&nbsp; Pression, Pascal, hydraulique</p>
+  <h1>Chapitre 8 – Caractériser la propagation d'un signal sonore</h1>
+  <p class="sous-titre">Terminale Bac Pro ICCER &nbsp;|&nbsp; Physique – Signaux</p>
 </header>
 
-<!-- OBJECTIFS -->
+<div class="situation">
+  <span class="ticcer-badge">ICCER — Mise en situation</span><br>
+  <strong>Acoustique des installations ICCER : bruit des équipements CVC</strong><br>
+  Dans une installation de climatisation ou de chauffage, les équipements mécaniques (CTA, pompes, compresseurs, ventilo-convecteurs) sont des sources sonores permanentes.
+  La réglementation impose des niveaux acoustiques maximaux dans les locaux habités :
+  <strong>30 dB(A) dans les chambres</strong> la nuit et <strong>35 dB(A) dans les séjours</strong>.
+  Les techniciens ICCER doivent mesurer les niveaux sonores avec un sonomètre,
+  calculer l'atténuation en fonction de la distance, et préconiser des solutions (encoffrement, silent-blocs, conduits flexibles) pour respecter ces limites.
+</div>
+
 <div class="objectifs">
-  <strong>Objectifs du chapitre</strong>
+  <strong>Objectifs d'apprentissage</strong>
   <ul>
-    <li>Définir la pression et calculer \(P = F/S\) en Pa</li>
-    <li>Connaître et exploiter la relation de Pascal : \(\Delta P = \rho\,g\,\Delta h\)</li>
-    <li>Déterminer expérimentalement les variations de pression à l'aide d'un capteur</li>
-    <li>Comprendre la presse hydraulique et le rapport de forces \(F_1/S_1 = F_2/S_2\)</li>
-    <li>Illustrer expérimentalement le fonctionnement d'un vérin hydraulique</li>
+    <li>Mettre en évidence la nécessité d'un milieu matériel pour la propagation du son.</li>
+    <li>Déterminer expérimentalement la vitesse de propagation du son dans l'air ou dans l'eau.</li>
+    <li>Exploiter la relation \(\lambda = c_\text{son} \times T = \dfrac{c_\text{son}}{f}\).</li>
+    <li>Connaître le domaine d'audition humaine (20 Hz – 20 kHz).</li>
+    <li>Mesurer une pression acoustique et un niveau d'intensité acoustique à l'aide d'un sonomètre.</li>
+    <li>Calculer un niveau d'intensité acoustique en dB : \(L = 10 \times \log\!\left(\dfrac{I}{I_0}\right)\).</li>
+    <li>Étudier l'atténuation de l'intensité acoustique en fonction de la distance.</li>
   </ul>
 </div>
 
-<!-- INTRODUCTION -->
-<h2>Introduction – La pression en ICCER</h2>
-
-<div class="ex">
-  <span class="label label-ex">Situation ICCER</span> <span class="ticcer-badge">Métier</span><br>
-  En tant que technicien ICCER, vous manipulez des fluides sous pression quotidiennement : eau chaude sanitaire (3–6 bar), circuits hydrauliques de levage (100–400 bar), réseaux de climatisation (fluide frigorigène sous pression), alimentation en eau de CTA. Comprendre la pression dans un fluide vous permet de <strong>dimensionner des circuits</strong>, lire des manomètres, régler des limiteurs de pression et diagnostiquer des pannes hydrauliques.
-</div>
-
-<!-- ====================================================
-     1. NOTION DE PRESSION
-     ==================================================== -->
-<h2>1. Notion de pression</h2>
+<h2>1. Nature d'un son – vibration mécanique dans un milieu matériel</h2>
 
 <div class="def">
   <span class="label label-def">Définition</span><br>
-  La <strong>pression</strong> est la force exercée perpendiculairement par un fluide sur une surface, rapportée à l'aire de cette surface :
-  <div class="formule-box" style="margin-top:10px">
-    \[ P = \frac{F}{S} \]
-    <small>P : pression (Pa) &nbsp;|&nbsp; F : force normale exercée sur la surface (N) &nbsp;|&nbsp; S : aire de la surface (m²)</small>
-  </div>
-</div>
-
-<h3>Unités de pression</h3>
-
-<table>
-  <thead><tr><th>Unité</th><th>Symbole</th><th>Équivalence</th><th>Domaine d'usage</th></tr></thead>
-  <tbody>
-    <tr><td>Pascal</td><td>Pa</td><td>1 Pa = 1 N/m²</td><td>Unité SI – référence légale</td></tr>
-    <tr><td>Bar</td><td>bar</td><td>1 bar = 10⁵ Pa</td><td>Hydraulique industrielle, météo</td></tr>
-    <tr><td>Hectopascal</td><td>hPa</td><td>1 hPa = 100 Pa</td><td>Météorologie</td></tr>
-    <tr><td>Atmosphère</td><td>atm</td><td>1 atm = 101 325 Pa</td><td>Référence atmosphérique</td></tr>
-  </tbody>
-</table>
-
-<div class="prop">
-  <span class="label label-prop">Ordres de grandeur à retenir</span>
-  <ul style="margin:6px 0 0;padding-left:20px">
-    <li>Pression atmosphérique : P<sub>atm</sub> = 101 325 Pa ≈ 1,013 bar</li>
-    <li>Pneu de voiture : 2 à 3 bar relatifs</li>
-    <li>Eau chaude sanitaire : 3 à 6 bar <span class="ticcer-badge">ICCER</span></li>
-    <li>Circuit hydraulique industriel : 100 à 400 bar <span class="ticcer-badge">ICCER</span></li>
-    <li>Plongée à 10 m : environ 2 bar (atmosphère + colonne d'eau)</li>
-  </ul>
-</div>
-
-<div class="att">
-  <span class="label label-att">Attention</span><br>
-  La pression est une grandeur <strong>scalaire</strong> (un nombre positif, sans direction). Elle s'exerce dans toutes les directions en un point d'un fluide au repos. La <em>force de pression</em> sur une surface est perpendiculaire à cette surface.
-</div>
-
-<div class="meth">
-  <span class="label label-meth">Exemple – calcul de force sur un piston</span><br>
-  Un piston circulaire de diamètre d = 5 cm = 0,05 m est soumis à P = 8 × 10⁵ Pa.
-  \[ S = \pi \times \left(\frac{d}{2}\right)^2 = \pi \times (0{,}025)^2 \approx 1{,}96 \times 10^{-3}\,\text{m}^2 \]
-  \[ F = P \times S = 8 \times 10^5 \times 1{,}96 \times 10^{-3} \approx \mathbf{1\,570\,\text{N}} \]
-</div>
-
-<!-- ====================================================
-     2. RELATION DE PASCAL
-     ==================================================== -->
-<h2>2. Relation de Pascal – fluide incompressible à l'équilibre</h2>
-
-<div class="def">
-  <span class="label label-def">Fluide incompressible</span><br>
-  Un fluide <strong>incompressible</strong> est un fluide dont la masse volumique ρ reste constante quelle que soit la pression. Les liquides (eau, huile hydraulique…) sont considérés incompressibles en pratique.
+  Un <strong>son</strong> est une onde mécanique produite par la vibration d'une source (corde, membrane, colonne d'air…). Cette vibration se propage dans le milieu environnant sous forme de <strong>compressions et dilatations</strong> successives des particules du milieu.
 </div>
 
 <div class="prop">
-  <span class="label label-prop">Relation de Pascal</span><br>
-  Dans un fluide incompressible à l'équilibre, la variation de pression entre deux points est proportionnelle à la différence d'altitude :
-  <div class="formule-box" style="margin-top:10px">
-    \[ \Delta P = P_B - P_A = \rho \, g \, \Delta h \]
-    <small>
-      ρ : masse volumique (kg/m³) &nbsp;|&nbsp; g = 9,81 m/s² &nbsp;|&nbsp; Δh = h<sub>A</sub> − h<sub>B</sub> : profondeur de B par rapport à A (m)
-    </small>
-  </div>
-  <strong>La pression augmente quand on descend dans le fluide.</strong>
-</div>
-
-<h3>Signification de chaque terme</h3>
-<table>
-  <thead><tr><th>Symbole</th><th>Grandeur</th><th>Unité SI</th><th>Valeurs courantes</th></tr></thead>
-  <tbody>
-    <tr><td>ΔP</td><td>Variation de pression</td><td>Pa</td><td>Variable</td></tr>
-    <tr><td>ρ</td><td>Masse volumique du fluide</td><td>kg/m³</td><td>Eau : 1 000 ; Mer : 1 025 ; Huile : 870–900</td></tr>
-    <tr><td>g</td><td>Intensité de la pesanteur</td><td>m/s²</td><td>9,81 (≈ 10 en approximation)</td></tr>
-    <tr><td>Δh</td><td>Profondeur</td><td>m</td><td>Positive vers le bas</td></tr>
-  </tbody>
-</table>
-
-<div class="prop">
-  <span class="label label-prop">Loi des vases communicants</span><br>
-  Dans des vases communicants contenant le même fluide homogène au repos, les surfaces libres sont à la <strong>même altitude</strong>, quelle que soit la forme des récipients.
-</div>
-
-<!-- ====================================================
-     SCHÉMA SVG COLONNE
-     ==================================================== -->
-<h2>3. Schéma – Pression dans une colonne de fluide</h2>
-
-<div class="svg-wrap">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 350" width="460" height="350" aria-label="Colonne de fluide">
-  <rect x="140" y="55" width="150" height="255" rx="3" fill="#bfdbfe"/>
-  <rect x="130" y="45" width="12" height="268" rx="3" fill="#3182ce"/>
-  <rect x="288" y="45" width="12" height="268" rx="3" fill="#3182ce"/>
-  <rect x="130" y="305" width="172" height="10" rx="3" fill="#3182ce"/>
-  <line x1="140" y1="58" x2="290" y2="58" stroke="#1e40af" stroke-width="2.5" stroke-dasharray="7,3"/>
-  <text x="308" y="63" font-size="12" fill="#1e40af" font-family="Segoe UI,sans-serif" font-style="italic">Surface libre</text>
-  <circle cx="215" cy="130" r="7" fill="#6f42c1" stroke="#fff" stroke-width="2"/>
-  <text x="228" y="126" font-size="14" font-weight="bold" fill="#6f42c1" font-family="Segoe UI,sans-serif">A</text>
-  <text x="228" y="142" font-size="10" fill="#6f42c1" font-family="Segoe UI,sans-serif">(Pₐ faible)</text>
-  <circle cx="215" cy="260" r="7" fill="#2f855a" stroke="#fff" stroke-width="2"/>
-  <text x="228" y="256" font-size="14" font-weight="bold" fill="#2f855a" font-family="Segoe UI,sans-serif">B</text>
-  <text x="228" y="272" font-size="10" fill="#2f855a" font-family="Segoe UI,sans-serif">(P_B forte)</text>
-  <line x1="155" y1="130" x2="203" y2="130" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr-a8)"/>
-  <line x1="275" y1="130" x2="227" y2="130" stroke="#6f42c1" stroke-width="2" marker-end="url(#arr-a8)"/>
-  <line x1="148" y1="260" x2="203" y2="260" stroke="#2f855a" stroke-width="3" marker-end="url(#arr-b8)"/>
-  <line x1="282" y1="260" x2="227" y2="260" stroke="#2f855a" stroke-width="3" marker-end="url(#arr-b8)"/>
-  <line x1="106" y1="130" x2="106" y2="260" stroke="#d97706" stroke-width="2"/>
-  <polygon points="106,125 102,135 110,135" fill="#d97706"/>
-  <polygon points="106,265 102,255 110,255" fill="#d97706"/>
-  <line x1="130" y1="130" x2="110" y2="130" stroke="#d97706" stroke-width="1" stroke-dasharray="4,2"/>
-  <line x1="130" y1="260" x2="110" y2="260" stroke="#d97706" stroke-width="1" stroke-dasharray="4,2"/>
-  <text x="68" y="200" font-size="14" fill="#d97706" font-family="Segoe UI,sans-serif" font-weight="bold">Δh</text>
-  <line x1="390" y1="60" x2="390" y2="110" stroke="#c53030" stroke-width="2.5" marker-end="url(#arr-g8)"/>
-  <text x="400" y="90" font-size="13" fill="#c53030" font-family="Segoe UI,sans-serif" font-weight="bold">g</text>
-  <rect x="310" y="170" width="140" height="58" rx="7" fill="#f5f0ff" stroke="#6f42c1" stroke-width="1.5"/>
-  <text x="380" y="193" font-size="12" text-anchor="middle" fill="#4c1d95" font-family="Segoe UI,sans-serif" font-weight="bold">P_B − Pₐ = ΔP</text>
-  <text x="380" y="213" font-size="12" text-anchor="middle" fill="#4c1d95" font-family="Segoe UI,sans-serif">= ρ · g · Δh</text>
-  <line x1="310" y1="200" x2="116" y2="200" stroke="#6f42c1" stroke-width="1" stroke-dasharray="4,3" opacity=".6"/>
-  <defs>
-    <marker id="arr-a8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0 0,8 4,0 8" fill="#6f42c1"/></marker>
-    <marker id="arr-b8" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><polygon points="0 0,9 4.5,0 9" fill="#2f855a"/></marker>
-    <marker id="arr-g8" markerWidth="9" markerHeight="9" refX="4.5" refY="8" orient="auto"><polygon points="0 0,9 0,4.5 9" fill="#c53030"/></marker>
-  </defs>
-</svg>
-<span class="svg-caption">Le point B est plus profond que A : P_B > Pₐ. La différence Δh est mesurée dans la direction verticale.</span>
-</div>
-
-<!-- ====================================================
-     INTERACTIF – Simulateur pression colonne
-     ==================================================== -->
-<h2>4. Simulateur interactif – Pression dans un fluide</h2>
-
-<p>Faites varier la profondeur et le fluide pour calculer la pression automatiquement.</p>
-
-<div class="anim-wrap">
-  <div class="slider-row">
-    <label for="fluidSel">Fluide :</label>
-    <select id="fluidSel" style="padding:4px 10px;border-radius:6px;border:1px solid #e2e8f0;font-size:.92em">
-      <option value="1000">Eau douce (ρ = 1 000 kg/m³)</option>
-      <option value="1025">Eau de mer (ρ = 1 025 kg/m³)</option>
-      <option value="880">Huile hydraulique (ρ = 880 kg/m³)</option>
-      <option value="13600">Mercure (ρ = 13 600 kg/m³)</option>
-    </select>
-  </div>
-  <div class="slider-row">
-    <label for="depthSlider">Profondeur h :</label>
-    <input type="range" id="depthSlider" min="0" max="100" value="10" step="0.5">
-    <span class="value-badge" id="depthVal">10,0 m</span>
-  </div>
-  <div class="slider-row">
-    <label for="p0Slider">Pression en surface P₀ :</label>
-    <input type="range" id="p0Slider" min="0" max="5" value="1.013" step="0.001">
-    <span class="value-badge" id="p0Val">1,01 bar</span>
-  </div>
-
-  <div class="info-grid" style="max-width:580px;margin:14px auto">
-    <div class="info-card"><div class="val" id="simDeltaP">—</div><div class="lbl">ΔP = ρgh (Pa)</div></div>
-    <div class="info-card"><div class="val" id="simPtot" style="color:#2f855a">—</div><div class="lbl">P totale (bar)</div></div>
-    <div class="info-card"><div class="val" id="simEquiv" style="color:#d97706">—</div><div class="lbl">Équivalent atmosphères</div></div>
-  </div>
-  <canvas id="colCanvas" width="360" height="220" style="border-radius:8px;background:#e0f2fe;max-width:100%"></canvas>
-</div>
-
-<!-- ====================================================
-     5. APPLICATIONS PASCAL
-     ==================================================== -->
-<h2>5. Applications de la relation de Pascal</h2>
-
-<h3>Plongée sous-marine</h3>
-<div class="ex">
-  <span class="label label-ex">Application – Plongée</span><br>
-  Un plongeur descend à h = 30 m dans l'eau de mer (ρ = 1 025 kg/m³).<br>
-  \[ \Delta P = 1\,025 \times 9{,}81 \times 30 \approx 301\,658\,\text{Pa} \approx 3{,}02\,\text{bar} \]
-  Pression totale : P = 1 bar + 3,02 bar = <strong>4,02 bar</strong><br>
-  <em>Règle pratique : +1 bar tous les 10 m de profondeur dans l'eau.</em>
-</div>
-
-<h3>Variation de pression avec l'altitude (atmosphère)</h3>
-<div class="ex">
-  <span class="label label-ex">Application – Altitude</span><br>
-  Pour l'air (ρ ≈ 1,29 kg/m³) et une variation d'altitude de 100 m :
-  \[ \Delta P = 1{,}29 \times 9{,}81 \times 100 \approx 1\,265\,\text{Pa} \approx 12{,}7\,\text{hPa} \]
-  La pression atmosphérique diminue d'environ <strong>12 hPa par 100 m</strong> de montée.
-</div>
-
-<div class="meth">
-  <span class="label label-meth">Protocole expérimental – Mesure avec capteur</span>
-  <ol style="margin:8px 0 0;padding-left:20px">
-    <li>Remplir un récipient transparent gradué avec de l'eau.</li>
-    <li>Immerger une sonde (capteur piézorésistif) à différentes profondeurs mesurées.</li>
-    <li>Relever la pression (Pa) et la profondeur h pour chaque position.</li>
-    <li>Tracer P = f(h) : on obtient une droite de pente ρ × g.</li>
-    <li>En déduire ρ du fluide et comparer à la valeur tabulée.</li>
-  </ol>
-</div>
-
-<!-- ====================================================
-     6. PRESSE HYDRAULIQUE
-     ==================================================== -->
-<h2>6. La presse hydraulique</h2>
-
-<div class="def">
-  <span class="label label-def">Principe de Pascal – transmission de pression</span><br>
-  Dans un fluide incompressible, toute variation de pression exercée en un point se transmet <strong>intégralement et simultanément</strong> en tout point du fluide.
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Principe de la presse hydraulique</span>
-  <div class="formule-box" style="margin-top:8px">
-    \[ P_1 = P_2 \;\Longrightarrow\; \frac{F_1}{S_1} = \frac{F_2}{S_2} \;\Longrightarrow\; F_2 = F_1 \times \frac{S_2}{S_1} \]
-    <small>F₁ : force appliquée (N) | S₁ : section petit piston (m²) | F₂ : force produite (N) | S₂ : section grand piston (m²)</small>
-  </div>
-  Si S₂ ≫ S₁, alors F₂ ≫ F₁ : <strong>la force est amplifiée</strong> dans le rapport S₂/S₁.
-</div>
-
-<div class="att">
-  <span class="label label-att">Conservation de l'énergie</span><br>
-  La presse hydraulique ne crée pas d'énergie. Si la force est multipliée par k = S₂/S₁, le déplacement est divisé par ce même facteur : d₁ × S₁ = d₂ × S₂ (conservation du volume de fluide déplacé).
-</div>
-
-<!-- SVG presse hydraulique -->
-<h2>7. Schéma – Presse hydraulique</h2>
-
-<div class="svg-wrap">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 390" width="580" height="390" aria-label="Presse hydraulique">
-  <rect x="72" y="196" width="76" height="114" rx="2" fill="#93c5fd" opacity=".7"/>
-  <rect x="146" y="286" width="178" height="26" fill="#93c5fd" opacity=".7"/>
-  <rect x="322" y="160" width="156" height="152" rx="2" fill="#93c5fd" opacity=".7"/>
-  <rect x="62" y="80" width="12" height="232" rx="4" fill="#4a5568"/>
-  <rect x="146" y="80" width="12" height="232" rx="4" fill="#4a5568"/>
-  <rect x="62" y="306" width="98" height="10" rx="4" fill="#4a5568"/>
-  <rect x="320" y="50" width="12" height="266" rx="4" fill="#4a5568"/>
-  <rect x="468" y="50" width="12" height="266" rx="4" fill="#4a5568"/>
-  <rect x="320" y="308" width="162" height="10" rx="4" fill="#4a5568"/>
-  <rect x="146" y="280" width="178" height="8" rx="3" fill="#4a5568"/>
-  <rect x="146" y="308" width="178" height="8" rx="3" fill="#4a5568"/>
-  <rect x="64" y="182" width="82" height="16" rx="3" fill="#6f42c1" stroke="#4c1d95" stroke-width="1.5"/>
-  <rect x="96" y="80" width="18" height="102" rx="3" fill="#a78bfa" stroke="#6d28d9" stroke-width="1"/>
-  <text x="105" y="170" font-size="11" text-anchor="middle" fill="#4c1d95" font-family="Segoe UI,sans-serif" font-weight="bold">Piston 1</text>
-  <rect x="322" y="145" width="156" height="18" rx="3" fill="#2f855a" stroke="#1a4731" stroke-width="1.5"/>
-  <rect x="382" y="50" width="36" height="95" rx="3" fill="#6ee7b7" stroke="#065f46" stroke-width="1"/>
-  <text x="400" y="135" font-size="11" text-anchor="middle" fill="#1a4731" font-family="Segoe UI,sans-serif" font-weight="bold">Piston 2</text>
-  <line x1="62" y1="340" x2="158" y2="340" stroke="#6f42c1" stroke-width="2"/>
-  <line x1="62" y1="335" x2="62" y2="345" stroke="#6f42c1" stroke-width="2"/>
-  <line x1="158" y1="335" x2="158" y2="345" stroke="#6f42c1" stroke-width="2"/>
-  <text x="110" y="360" font-size="13" text-anchor="middle" fill="#6f42c1" font-family="Segoe UI,sans-serif" font-weight="bold">S₁ (petite)</text>
-  <line x1="320" y1="340" x2="480" y2="340" stroke="#2f855a" stroke-width="2"/>
-  <line x1="320" y1="335" x2="320" y2="345" stroke="#2f855a" stroke-width="2"/>
-  <line x1="480" y1="335" x2="480" y2="345" stroke="#2f855a" stroke-width="2"/>
-  <text x="400" y="360" font-size="13" text-anchor="middle" fill="#2f855a" font-family="Segoe UI,sans-serif" font-weight="bold">S₂ (grande)</text>
-  <defs>
-    <marker id="arrow-f1h" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto"><polygon points="0 0,10 0,5 10" fill="#6f42c1"/></marker>
-    <marker id="arrow-f2h" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto"><polygon points="0 0,10 0,5 10" fill="#2f855a"/></marker>
-  </defs>
-  <line x1="105" y1="30" x2="105" y2="76" stroke="#6f42c1" stroke-width="3.5" marker-end="url(#arrow-f1h)"/>
-  <text x="118" y="20" font-size="14" fill="#6f42c1" font-family="Segoe UI,sans-serif" font-weight="bold">F₁</text>
-  <text x="55" y="44" font-size="10" fill="#6f42c1" font-family="Segoe UI,sans-serif">(petite force)</text>
-  <line x1="400" y1="14" x2="400" y2="44" stroke="#2f855a" stroke-width="4" marker-end="url(#arrow-f2h)"/>
-  <text x="416" y="28" font-size="14" fill="#2f855a" font-family="Segoe UI,sans-serif" font-weight="bold">F₂</text>
-  <text x="300" y="20" font-size="10" fill="#2f855a" font-family="Segoe UI,sans-serif">(grande force produite)</text>
-  <circle cx="105" cy="230" r="14" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <text x="105" y="234" font-size="10" text-anchor="middle" fill="#d97706" font-family="Segoe UI,sans-serif" font-weight="bold">P</text>
-  <circle cx="400" cy="210" r="14" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <text x="400" y="214" font-size="10" text-anchor="middle" fill="#d97706" font-family="Segoe UI,sans-serif" font-weight="bold">P</text>
-  <line x1="119" y1="230" x2="240" y2="295" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3" opacity=".7"/>
-  <line x1="386" y1="210" x2="260" y2="295" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3" opacity=".7"/>
-  <text x="234" y="380" font-size="11" text-anchor="middle" fill="#d97706" font-family="Segoe UI,sans-serif" font-style="italic">Même pression P transmise dans le fluide</text>
-  <rect x="490" y="145" width="82" height="78" rx="7" fill="#f5f0ff" stroke="#6f42c1" stroke-width="1.5"/>
-  <text x="531" y="166" font-size="11" text-anchor="middle" fill="#4c1d95" font-family="Segoe UI,sans-serif" font-weight="bold">P₁ = P₂</text>
-  <line x1="498" y1="172" x2="564" y2="172" stroke="#ddd6fe" stroke-width="1"/>
-  <text x="531" y="187" font-size="10" text-anchor="middle" fill="#4c1d95" font-family="Segoe UI,sans-serif">F₁/S₁ = F₂/S₂</text>
-  <line x1="498" y1="195" x2="564" y2="195" stroke="#ddd6fe" stroke-width="1"/>
-  <text x="531" y="211" font-size="10" text-anchor="middle" fill="#4c1d95" font-family="Segoe UI,sans-serif">F₂ = F₁·S₂/S₁</text>
-  <text x="235" y="300" font-size="10" text-anchor="middle" fill="#1e40af" font-family="Segoe UI,sans-serif" font-style="italic">Fluide hydraulique</text>
-</svg>
-<span class="svg-caption">Une petite force F₁ sur le petit piston génère une grande force F₂ sur le grand piston. La pression P est identique dans tout le circuit.</span>
-</div>
-
-<!-- ====================================================
-     SIMULATEUR PRESSE HYDRAULIQUE
-     ==================================================== -->
-<h2>8. Simulateur interactif – Presse hydraulique</h2>
-
-<p>Faites varier les diamètres des pistons et la force appliquée pour calculer la force produite et la pression dans le circuit.</p>
-
-<div class="anim-wrap">
-  <div class="slider-row">
-    <label>Diamètre d₁ (petit piston) :</label>
-    <input type="range" id="d1Slider" min="0.5" max="10" value="2" step="0.1">
-    <span class="value-badge" id="d1Val">2,0 cm</span>
-  </div>
-  <div class="slider-row">
-    <label>Diamètre d₂ (grand piston) :</label>
-    <input type="range" id="d2Slider" min="2" max="40" value="20" step="0.5">
-    <span class="value-badge" id="d2Val">20,0 cm</span>
-  </div>
-  <div class="slider-row">
-    <label>Force appliquée F₁ :</label>
-    <input type="range" id="f1Slider" min="1" max="500" value="100" step="1">
-    <span class="value-badge" id="f1Val">100 N</span>
-  </div>
-
-  <div class="info-grid" style="max-width:620px;margin:14px auto">
-    <div class="info-card"><div class="val" id="presseS2S1">100</div><div class="lbl">Rapport S₂/S₁</div></div>
-    <div class="info-card"><div class="val" id="presseF2" style="color:#2f855a">10 000 N</div><div class="lbl">Force produite F₂</div></div>
-    <div class="info-card"><div class="val" id="presseP" style="color:#d97706">—</div><div class="lbl">Pression P (bar)</div></div>
-  </div>
-  <p style="font-size:.82em;color:#718096;margin:4px 0">La pression est la même des deux côtés du circuit. F₂ est amplifiée par le rapport des surfaces.</p>
-</div>
-
-<!-- ====================================================
-     9. LE VÉRIN HYDRAULIQUE
-     ==================================================== -->
-<h2>9. Le vérin hydraulique</h2>
-
-<div class="def">
-  <span class="label label-def">Définition</span><br>
-  Un <strong>vérin hydraulique</strong> est un actionneur linéaire qui convertit l'énergie d'un fluide sous pression en un mouvement de translation. Il est constitué d'un cylindre fermé dans lequel coulisse un piston solidaire d'une tige.
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Principe de fonctionnement</span> <span class="ticcer-badge">ICCER</span>
-  <ul style="margin:6px 0 0;padding-left:20px">
-    <li>Une pompe hydraulique met le fluide sous pression et l'envoie dans la chambre du vérin.</li>
-    <li>La pression s'exerce sur la face du piston → force : F = P × S<sub>piston</sub></li>
-    <li>La tige sort (aller) ou rentre (retour) selon la chambre alimentée (vérin double effet).</li>
-    <li>Un distributeur (électrovalve) oriente le flux selon la direction souhaitée.</li>
-  </ul>
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Avantages du vérin hydraulique</span>
-  <ul style="margin:6px 0 0;padding-left:20px">
-    <li><strong>Amplification de force :</strong> 100–400 bar → forces de plusieurs centaines de kN dans un encombrement réduit</li>
-    <li><strong>Compacité :</strong> rapport force/volume très favorable</li>
-    <li><strong>Contrôle précis :</strong> régulation de la force et de la vitesse</li>
-    <li><strong>Réversibilité :</strong> effort dans les deux sens (double effet)</li>
-    <li><strong>Sécurité :</strong> limiteurs de pression contre les surcharges</li>
-  </ul>
+  <span class="label label-prop">Propriété fondamentale</span><br>
+  La propagation d'un son <strong>nécessite obligatoirement un milieu matériel</strong> (gaz, liquide ou solide). <strong>Il n'y a pas de son dans le vide.</strong>
 </div>
 
 <div class="ex">
-  <span class="label label-ex">Exemples industriels</span><br>
-  Vérins de levage (pelleteuse, nacelle élévatrice), presses d'emboutissage, freins hydrauliques de camions, ponts élévateurs de garage, ascenseurs hydrauliques, presses à injection plastique.
+  <span class="label label-ex">Expérience – Cloche sous vide</span><br>
+  On place un réveil sonnant sous une cloche en verre. Lorsque l'on pompe progressivement l'air à l'intérieur de la cloche, le son devient de plus en plus faible, puis inaudible lorsque le vide est suffisant. En remettant de l'air, le son redevient audible. Cette expérience démontre que l'air (milieu matériel) est indispensable à la propagation du son.
 </div>
 
-<!-- ====================================================
-     10. EXEMPLES NUMÉRIQUES
-     ==================================================== -->
-<h2>10. Exemples numériques détaillés</h2>
-
-<div class="meth">
-  <span class="label label-meth">Exemple 1 – Pascal dans un réservoir d'huile</span><br>
-  Données : huile ρ = 870 kg/m³, P₀ = 3,0 × 10⁵ Pa en surface, h = 4 m.
-  \[ \Delta P = 870 \times 9{,}81 \times 4 \approx 34\,147\,\text{Pa} \]
-  \[ P = 3{,}0 \times 10^5 + 34\,147 \approx \mathbf{3{,}34 \times 10^5\,\text{Pa} \approx 3{,}34\,\text{bar}} \]
+<div class="def">
+  <span class="label label-def">Onde longitudinale</span><br>
+  Un son est une <strong>onde longitudinale</strong> : les particules du milieu vibrent <em>dans le même sens</em> que la direction de propagation de l'onde (par opposition aux ondes transversales où les particules vibrent perpendiculairement à la propagation). L'onde sonore crée ainsi des zones alternées de <strong>compression</strong> (surpression) et de <strong>dilatation</strong> (dépression).
 </div>
 
-<div class="meth">
-  <span class="label label-meth">Exemple 2 – Amplification de force (presse)</span><br>
-  Données : d₁ = 2,0 cm, d₂ = 20,0 cm, F₁ = 100 N.
-  \[ S_1 = \pi (0{,}010)^2 \approx 3{,}14 \times 10^{-4}\,\text{m}^2 \qquad S_2 = \pi (0{,}100)^2 \approx 3{,}14 \times 10^{-2}\,\text{m}^2 \]
-  \[ \frac{S_2}{S_1} = 100 \qquad F_2 = 100 \times 100 = \mathbf{10\,000\,\text{N} = 10\,\text{kN}} \]
+<h2>2. Vitesse de propagation du son</h2>
+
+<div class="prop">
+  <span class="label label-prop">Propriété</span><br>
+  La vitesse de propagation du son <strong>dépend du milieu</strong> traversé (nature, état physique, température). Elle est <strong>indépendante de la fréquence</strong> du son.
 </div>
-
-<div class="meth">
-  <span class="label label-meth">Exemple 3 – Force d'un vérin</span><br>
-  Données : d = 8,0 cm, P = 200 bar = 2,0 × 10⁷ Pa.
-  \[ S = \pi (0{,}040)^2 \approx 5{,}03 \times 10^{-3}\,\text{m}^2 \]
-  \[ F = 2{,}0 \times 10^7 \times 5{,}03 \times 10^{-3} \approx \mathbf{100\,600\,\text{N} \approx 100\,\text{kN}} \]
-  Équivalent au poids d'une masse d'environ 10 tonnes.
-</div>
-
-<div class="meth">
-  <span class="label label-meth">Méthode générale de résolution</span>
-  <ol style="margin:8px 0 0;padding-left:20px">
-    <li><strong>Identifier</strong> les grandeurs données et la grandeur cherchée</li>
-    <li><strong>Choisir</strong> la relation adaptée : P = F/S, ΔP = ρgh ou F₁/S₁ = F₂/S₂</li>
-    <li><strong>Convertir</strong> toutes les grandeurs en unités SI (m, kg, s → Pa, N)</li>
-    <li><strong>Appliquer</strong> la formule, isoler l'inconnue et calculer</li>
-    <li><strong>Vérifier</strong> l'ordre de grandeur et les unités</li>
-  </ol>
-</div>
-
-<!-- ====================================================
-     11. MINI-EXERCICES
-     ==================================================== -->
-<h2>11. Mini-exercices</h2>
-
-<!-- Exercice 1 -->
-<div class="exo">
-  <strong>Exercice 1 – Pression et force sur une surface</strong><br>
-  Un piston circulaire de diamètre d = 8 cm est soumis à une pression P = 12 bar.
-  <ol>
-    <li>Convertir 12 bar en Pa.</li>
-    <li>Calculer la surface S du piston en m².</li>
-    <li>Calculer la force F exercée sur ce piston.</li>
-    <li>À quelle masse (en kg) cette force correspond-elle ? (g = 9,81 m/s²)</li>
-  </ol>
-  <details>
-    <summary>Voir la correction</summary>
-    <div style="margin-top:10px;padding:10px;background:#f0fff4;border-radius:6px">
-      <strong>1. Conversion :</strong><br>
-      12 bar × 10⁵ = <strong>1,2 × 10⁶ Pa</strong>
-      <br><br>
-      <strong>2. Surface :</strong><br>
-      d = 8 cm = 0,08 m → r = 0,04 m<br>
-      \(S = \pi \times (0{,}04)^2 = \pi \times 1{,}6 \times 10^{-3} \approx \mathbf{5{,}03 \times 10^{-3}\,\text{m}^2}\)
-      <br><br>
-      <strong>3. Force :</strong><br>
-      \(F = P \times S = 1{,}2 \times 10^6 \times 5{,}03 \times 10^{-3} \approx \mathbf{6\,032\,\text{N} \approx 6\,\text{kN}}\)
-      <br><br>
-      <strong>4. Masse équivalente :</strong><br>
-      \(m = F/g = 6\,032 / 9{,}81 \approx \mathbf{615\,\text{kg}}\)<br>
-      Ce piston peut soulever une masse d'environ 615 kg !
-    </div>
-  </details>
-</div>
-
-<!-- Exercice 2 -->
-<div class="exo">
-  <strong>Exercice 2 – Relation de Pascal dans un circuit ECS</strong> <span class="ticcer-badge">ICCER</span><br>
-  Un ballon d'eau chaude sanitaire est placé en haut d'un bâtiment. La pression de l'eau au ballon (en haut) est P₀ = 1,5 bar. La hauteur entre le ballon et le point de puisage le plus bas est h = 12 m. L'eau a une masse volumique ρ = 1 000 kg/m³.
-  <ol>
-    <li>Calculer la surpression ΔP due à la colonne d'eau de 12 m.</li>
-    <li>Calculer la pression totale au point de puisage.</li>
-    <li>Cette pression est-elle dans la plage normale pour un réseau ECS (3 à 6 bar) ?</li>
-    <li>Si h = 30 m, quelle est la pression au point le plus bas ? Faut-il poser un réducteur de pression ?</li>
-  </ol>
-  <details>
-    <summary>Voir la correction</summary>
-    <div style="margin-top:10px;padding:10px;background:#f0fff4;border-radius:6px">
-      <strong>1. Surpression ΔP :</strong><br>
-      \(\Delta P = \rho g h = 1\,000 \times 9{,}81 \times 12 = 117\,720\,\text{Pa} \approx \mathbf{1{,}18\,\text{bar}}\)
-      <br><br>
-      <strong>2. Pression totale :</strong><br>
-      P = 1,5 + 1,18 = <strong>2,68 bar</strong>
-      <br><br>
-      <strong>3. Plage normale ECS :</strong><br>
-      2,68 bar < 3 bar → la pression est légèrement inférieure à la plage normale (3–6 bar). Il faudrait augmenter la pression au ballon ou vérifier le réseau.
-      <br><br>
-      <strong>4. Pour h = 30 m :</strong><br>
-      \(\Delta P = 1\,000 \times 9{,}81 \times 30 = 294\,300\,\text{Pa} \approx 2{,}94\,\text{bar}\)<br>
-      P = 1,5 + 2,94 = <strong>4,44 bar</strong> → dans la plage 3–6 bar, pas de réducteur nécessaire.<br>
-      Si la pression au ballon était 3 bar avec h = 30 m : P = 3 + 2,94 = 5,94 bar → toujours dans la plage. Acceptable.
-    </div>
-  </details>
-</div>
-
-<!-- Exercice 3 -->
-<div class="exo">
-  <strong>Exercice 3 – Presse hydraulique</strong><br>
-  Une presse hydraulique de garage a un petit piston de d₁ = 3 cm et un grand piston de d₂ = 24 cm.
-  <ol>
-    <li>Calculer S₁ et S₂ (en m²).</li>
-    <li>Calculer le rapport d'amplification S₂/S₁.</li>
-    <li>Un technicien appuie avec une force F₁ = 150 N. Calculer F₂.</li>
-    <li>Calculer la pression P dans le circuit hydraulique (en bar).</li>
-    <li>Si le grand piston monte de d₂ = 5 mm, de combien descend le petit piston ?</li>
-  </ol>
-  <details>
-    <summary>Voir la correction</summary>
-    <div style="margin-top:10px;padding:10px;background:#f0fff4;border-radius:6px">
-      <strong>1. Surfaces :</strong><br>
-      \(S_1 = \pi(0{,}015)^2 \approx 7{,}07 \times 10^{-4}\,\text{m}^2\)<br>
-      \(S_2 = \pi(0{,}12)^2 \approx 4{,}52 \times 10^{-2}\,\text{m}^2\)
-      <br><br>
-      <strong>2. Rapport :</strong><br>
-      \(S_2/S_1 = 4{,}52 \times 10^{-2} / 7{,}07 \times 10^{-4} \approx \mathbf{64}\)<br>
-      (Équivalent à (d₂/d₁)² = (24/3)² = 8² = 64 ✓)
-      <br><br>
-      <strong>3. F₂ :</strong><br>
-      \(F_2 = 150 \times 64 = \mathbf{9\,600\,\text{N} \approx 9{,}6\,\text{kN}}\)
-      <br><br>
-      <strong>4. Pression :</strong><br>
-      \(P = F_1/S_1 = 150 / 7{,}07 \times 10^{-4} \approx 212\,150\,\text{Pa} \approx \mathbf{2{,}12\,\text{bar}}\)
-      <br><br>
-      <strong>5. Conservation du volume :</strong><br>
-      d₁ × S₁ = d₂ × S₂<br>
-      \(d_1 = d_2 \times S_2/S_1 = 0{,}005 \times 64 = \mathbf{0{,}32\,\text{m} = 32\,\text{cm}}\)<br>
-      Le petit piston descend de 32 cm pour que le grand monte de 5 mm → c'est le prix à payer pour l'amplification.
-    </div>
-  </details>
-</div>
-
-<!-- Exercice 4 -->
-<div class="exo">
-  <strong>Exercice 4 – Vérin hydraulique de levage</strong> <span class="ticcer-badge">ICCER</span><br>
-  Un pont élévateur de garage est équipé de 2 vérins hydrauliques. Chaque vérin a un piston de diamètre d = 10 cm et est alimenté à P = 150 bar.
-  <ol>
-    <li>Calculer la force développée par un seul vérin (en N et en kN).</li>
-    <li>Calculer la force totale développée par les 2 vérins.</li>
-    <li>Quelle est la masse maximale que peut soulever ce pont ? (g = 9,81 m/s²)</li>
-    <li>Si on veut soulever un camion de 5 000 kg avec 4 vérins de d = 8 cm, quelle pression faut-il fournir ?</li>
-  </ol>
-  <details>
-    <summary>Voir la correction</summary>
-    <div style="margin-top:10px;padding:10px;background:#f0fff4;border-radius:6px">
-      <strong>1. Force d'un vérin :</strong><br>
-      P = 150 bar = 150 × 10⁵ = 1,5 × 10⁷ Pa<br>
-      \(S = \pi(0{,}05)^2 \approx 7{,}85 \times 10^{-3}\,\text{m}^2\)<br>
-      \(F = 1{,}5 \times 10^7 \times 7{,}85 \times 10^{-3} \approx \mathbf{117\,750\,\text{N} \approx 117{,}8\,\text{kN}}\)
-      <br><br>
-      <strong>2. Force totale (2 vérins) :</strong><br>
-      F_tot = 2 × 117 750 = <strong>235 500 N ≈ 235,5 kN</strong>
-      <br><br>
-      <strong>3. Masse maximale :</strong><br>
-      \(m = F_{tot}/g = 235\,500 / 9{,}81 \approx \mathbf{24\,006\,\text{kg} \approx 24\,\text{tonnes}}\)
-      <br><br>
-      <strong>4. Pression pour 4 vérins de d = 8 cm, masse 5 000 kg :</strong><br>
-      Poids à soulever : F = 5 000 × 9,81 = 49 050 N<br>
-      Force par vérin : F_v = 49 050 / 4 = 12 262,5 N<br>
-      \(S_v = \pi(0{,}04)^2 \approx 5{,}03 \times 10^{-3}\,\text{m}^2\)<br>
-      \(P = F_v/S_v = 12\,262{,}5 / 5{,}03 \times 10^{-3} \approx 2{,}44 \times 10^6\,\text{Pa} \approx \mathbf{24{,}4\,\text{bar}}\)<br>
-      Pression très raisonnable pour du matériel hydraulique standard.
-    </div>
-  </details>
-</div>
-
-<!-- ====================================================
-     TABLEAU RÉCAPITULATIF
-     ==================================================== -->
-<h2>12. Tableau récapitulatif des formules</h2>
 
 <table>
-  <thead><tr><th>Formule</th><th>Nom / Usage</th><th>Grandeurs</th><th>Unités SI</th></tr></thead>
-  <tbody>
-    <tr><td>\(P = \dfrac{F}{S}\)</td><td>Définition de la pression</td><td>P pression, F force, S surface</td><td>Pa = N/m²</td></tr>
-    <tr><td>\(\Delta P = \rho\,g\,\Delta h\)</td><td>Relation de Pascal</td><td>ρ masse volumique, g = 9,81 m/s², Δh profondeur</td><td>Pa, kg/m³, m</td></tr>
-    <tr><td>\(\dfrac{F_1}{S_1} = \dfrac{F_2}{S_2}\)</td><td>Presse hydraulique</td><td>F₁, F₂ forces ; S₁, S₂ sections</td><td>N, m²</td></tr>
-    <tr><td>\(F_2 = F_1 \times \dfrac{S_2}{S_1}\)</td><td>Amplification de force</td><td>Rapport des sections = rapport des forces</td><td>N, m²</td></tr>
-    <tr><td>\(F = P \times S\)</td><td>Force d'un vérin / piston</td><td>P pression, S section piston</td><td>N, Pa, m²</td></tr>
-  </tbody>
-</table>
-
-<table>
-  <thead><tr><th colspan="2">Conversions et constantes à mémoriser</th></tr></thead>
-  <tbody>
-    <tr><td>1 bar</td><td>= 10⁵ Pa = 100 000 Pa</td></tr>
-    <tr><td>1 hPa</td><td>= 100 Pa</td></tr>
-    <tr><td>Pression atmosphérique</td><td>P<sub>atm</sub> = 101 325 Pa ≈ 1,013 bar</td></tr>
-    <tr><td>Masse volumique eau</td><td>ρ<sub>eau</sub> = 1 000 kg/m³</td></tr>
-    <tr><td>Masse volumique eau de mer</td><td>ρ<sub>mer</sub> ≈ 1 025 kg/m³</td></tr>
-    <tr><td>Masse volumique air</td><td>ρ<sub>air</sub> ≈ 1,29 kg/m³</td></tr>
-    <tr><td>Pesanteur</td><td>g = 9,81 m/s²</td></tr>
-  </tbody>
-</table>
-
-<!-- ====================================================
-     BILAN
-     ==================================================== -->
-<div class="retenir" style="margin-top:30px">
-  <span class="label label-ret">Bilan — Ce qu'il faut retenir</span>
-  <div class="two-col">
-    <div>
-      <strong>Formules essentielles</strong>
-      <ul>
-        <li>Pression : \(P = F/S\) (Pa = N/m²)</li>
-        <li>Pascal : \(\Delta P = \rho g \Delta h\)</li>
-        <li>Presse : \(F_1/S_1 = F_2/S_2\)</li>
-        <li>Vérin : \(F = P \times S\)</li>
-        <li>1 bar = 10⁵ Pa</li>
-        <li>+1 bar tous les 10 m dans l'eau</li>
-      </ul>
-    </div>
-    <div>
-      <strong>En pratique ICCER</strong>
-      <ul>
-        <li>ECS : 3–6 bar normalement</li>
-        <li>Hydraulique industrielle : 100–400 bar</li>
-        <li><strong>Presse hydraulique</strong> → amplification par S₂/S₁</li>
-        <li><strong>Vérin</strong> → actionneur linéaire sous pression</li>
-        <li>Pascal : pression transmise <strong>intégralement</strong> dans le fluide</li>
-        <li>Fluide incompressible : ρ = constante</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div style="margin-top:20px;padding:14px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;font-size:.85em;color:#718096;">
-  <strong>Référence BO :</strong> Terminale Bac Pro ICCER — Groupement 2 — Physique-Chimie : « Caractériser la pression dans un fluide immobile ». Connaissances exigibles : définition de la pression (P = F/S) ; relation de Pascal (ΔP = ρgΔh) ; mesure expérimentale ; presse hydraulique (F₁/S₁ = F₂/S₂) ; vérin hydraulique.
-</div>
-
-<!-- ====================================================
-     13. INSTRUMENTS DE MESURE DE PRESSION
-     ==================================================== -->
-<h2>13. Instruments de mesure de pression en ICCER</h2>
-
-<table class="recap-table">
   <thead>
     <tr>
-      <th>Instrument</th>
-      <th>Principe</th>
-      <th>Plage typique</th>
-      <th>Application ICCER</th>
+      <th>Milieu</th>
+      <th>Vitesse du son \(c_\text{son}\)</th>
+      <th>Conditions</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>Manomètre à cadran</strong></td>
-      <td>Tube de Bourdon (déformation élastique)</td>
-      <td>0 – 600 bar</td>
-      <td>Circuits frigorigènes, ECS, hydraulique industriel</td>
-    </tr>
-    <tr>
-      <td><strong>Pressostat</strong></td>
-      <td>Membrane + contact électrique</td>
-      <td>0,5 – 40 bar</td>
-      <td>Sécurité haute/basse pression PAC, compresseur</td>
-    </tr>
-    <tr>
-      <td><strong>Capteur piézorésistif</strong></td>
-      <td>Variation de résistance sous pression</td>
-      <td>0 – 1 000 bar</td>
-      <td>Supervision GTB, mesure continue, BMS</td>
-    </tr>
-    <tr>
-      <td><strong>Vacuomètre</strong></td>
-      <td>Manomètre inversé</td>
-      <td>−1 à 0 bar</td>
-      <td>Tirage au vide des circuits frigorigènes</td>
-    </tr>
-    <tr>
-      <td><strong>Manifold de charge</strong></td>
-      <td>2 manomètres (HP + BP) + vannes</td>
-      <td>0 – 45 bar</td>
-      <td>Mesure HP/BP sur unité de climatisation / PAC</td>
-    </tr>
-    <tr>
-      <td><strong>Colonne de liquide (U)</strong></td>
-      <td>Loi de Pascal : ΔP = ρgh</td>
-      <td>0 – 5 000 Pa</td>
-      <td>Mesure de faibles pressions, réseau aéraulique</td>
-    </tr>
+    <tr><td>Air (sec)</td><td>\(\approx 340\ \text{m/s}\)</td><td>à 20 °C</td></tr>
+    <tr><td>Air (sec)</td><td>\(\approx 331\ \text{m/s}\)</td><td>à 0 °C</td></tr>
+    <tr><td>Eau douce</td><td>\(\approx 1480\ \text{m/s}\)</td><td>à 20 °C</td></tr>
+    <tr><td>Eau de mer</td><td>\(\approx 1500\ \text{m/s}\)</td><td>à 20 °C</td></tr>
+    <tr><td>Acier</td><td>\(\approx 5000\ \text{m/s}\)</td><td>—</td></tr>
+    <tr><td>Béton</td><td>\(\approx 3500\ \text{m/s}\)</td><td>—</td></tr>
   </tbody>
 </table>
 
+<div class="att">
+  <span class="label label-att">Remarque</span><br>
+  Le son se propage <strong>plus vite dans les solides et les liquides</strong> que dans les gaz. Les molécules sont plus proches les unes des autres dans un solide ou un liquide, ce qui facilite la transmission des vibrations.
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Applications industrielles et technologiques</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Sonar :</strong> mesure du temps d'aller-retour d'une impulsion sonore dans l'eau pour déterminer la profondeur ou détecter des obstacles. On utilise \(d = c_\text{son} \times \dfrac{\Delta t}{2}\).</li>
+    <li><strong>Échographie médicale :</strong> les ultrasons (> 20 kHz) traversent les tissus humains à des vitesses connues (~1540 m/s) ; les échos permettent de reconstruire une image.</li>
+    <li><strong>CND (Contrôle Non Destructif) :</strong> en aéronautique et industrie, des ultrasons sont envoyés dans les pièces métalliques pour détecter des défauts internes sans les endommager.</li>
+    <li><span class="ticcer-badge">ICCER</span> <strong>Détection de fuites :</strong> les fuites de fluide frigorigène ou d'eau sous pression dans les canalisations génèrent des ultrasons détectables par un capteur acoustique de maintenance.</li>
+  </ul>
+</div>
+
+<h2>3. Fréquence, période et longueur d'onde</h2>
+
 <div class="def">
-  <span class="label label-def">Pression relative vs pression absolue</span><br>
-  <ul>
-    <li><strong>Pression absolue</strong> : mesurée par rapport au vide absolu (0 Pa). P<sub>abs</sub> = P<sub>rel</sub> + P<sub>atm</sub></li>
-    <li><strong>Pression relative (manométrique)</strong> : mesurée par rapport à l'atmosphère. Un manomètre à zéro indique P<sub>atm</sub>.</li>
-    <li><strong>Dépression</strong> : pression relative négative (ex. : aspiration d'une pompe, tirage au vide).</li>
+  <span class="label label-def">Rappels</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li>La <strong>période</strong> \(T\) (en secondes, s) est la durée d'un cycle complet de vibration.</li>
+    <li>La <strong>fréquence</strong> \(f\) (en hertz, Hz) est le nombre de cycles par seconde : \(f = \dfrac{1}{T}\).</li>
   </ul>
-  En frigorigènes, on parle souvent de <strong>pression relative</strong> (lue sur le manifold), mais les tables de saturation utilisent la <strong>pression absolue</strong>.
 </div>
 
-<!-- ====================================================
-     14. EXERCICE 5 — INSTRUMENTS DE MESURE
-     ==================================================== -->
-<h2>14. Exercice 5 : Lecture de manomètre et calcul de pression</h2>
+<div class="def">
+  <span class="label label-def">Longueur d'onde</span><br>
+  La <strong>longueur d'onde</strong> \(\lambda\) (lambda, en mètres, m) est la distance parcourue par l'onde pendant une période \(T\). C'est aussi la distance entre deux zones de compression successives.
+</div>
 
-<div class="exo">
-  <strong>Exercice 5 – Réseau de chauffage : lecture et calcul de pression</strong> <span class="ticcer-badge">ICCER</span><br>
-  Un réseau de chauffage hydraulique d'un immeuble de bureaux comporte :
-  <ul>
-    <li>Pression en surface (niveau 0, local technique) : P₀ = 2,5 bar (pression relative)</li>
-    <li>Hauteur du dernier niveau : h = 18 m</li>
-    <li>Fluide : eau chaude ρ = 980 kg/m³ (eau à 60 °C)</li>
-    <li>Pression atmosphérique : 1,013 bar</li>
-  </ul>
-  <ol>
-    <li>Convertir P₀ = 2,5 bar relatif en pression absolue (Pa).</li>
-    <li>Calculer ΔP = ρgh dû à la colonne d'eau de 18 m.</li>
-    <li>Calculer la pression absolue P au dernier niveau.</li>
-    <li>Exprimer cette pression en bar relatif. Est-elle dans la plage acceptable pour un réseau ECS (3 – 6 bar abs) ?</li>
-    <li>Un pressostat de sécurité est réglé à 4 bar relatif. À quelle pression absolue se déclenche-t-il ?</li>
-  </ol>
-  <details>
-    <summary>Voir la correction</summary>
-    <div style="margin-top:10px;padding:10px;background:#f0fff4;border-radius:6px">
-      <strong>1. Pression absolue en surface :</strong><br>
-      P<sub>abs,0</sub> = P<sub>rel</sub> + P<sub>atm</sub> = 2,5 + 1,013 = <strong>3,513 bar</strong> = 3,513 × 10⁵ Pa<br><br>
-      <strong>2. Pression due à la colonne d'eau :</strong><br>
-      \(\Delta P = \rho g h = 980 \times 9{,}81 \times 18 \approx 173\,124\,\text{Pa} \approx 1{,}73\,\text{bar}\)<br><br>
-      <strong>3. Pression absolue au dernier niveau :</strong><br>
-      P<sub>abs,haut</sub> = 3,513 × 10⁵ + 173 124 ≈ <strong>524 424 Pa ≈ 5,24 bar abs</strong><br><br>
-      <strong>4. Pression relative en haut :</strong><br>
-      P<sub>rel,haut</sub> = 5,24 − 1,013 ≈ <strong>4,23 bar rel</strong><br>
-      La plage acceptable pour un réseau de chauffage est généralement 1,5 – 3 bar relatif en chaud. Ici 4,23 bar rel peut indiquer une pression trop élevée → vérifier la soupape de sécurité.<br><br>
-      <strong>5. Pressostat à 4 bar rel :</strong><br>
-      P<sub>abs</sub> déclenchement = 4 + 1,013 = <strong>5,013 bar abs</strong>. Le pressostat se déclenche avant d'atteindre la limite constructeur (généralement 6 bar abs).
+<div class="formule-box">
+  \[
+    \lambda = c_\text{son} \times T = \frac{c_\text{son}}{f}
+  \]
+  <small>
+    \(\lambda\) : longueur d'onde (m) &nbsp;|&nbsp;
+    \(c_\text{son}\) : vitesse du son (m/s) &nbsp;|&nbsp;
+    \(T\) : période (s) &nbsp;|&nbsp;
+    \(f\) : fréquence (Hz)
+  </small>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu</span><br>
+  <strong>Énoncé :</strong> Un haut-parleur émet un son de fréquence \(f = 1\,000\ \text{Hz}\) dans l'air à 20 °C (\(c_\text{son} = 340\ \text{m/s}\)). Calculer la longueur d'onde \(\lambda\) et la période \(T\).
+  <br><br>
+  <strong>1. Calcul de la période :</strong>
+  \[
+    T = \frac{1}{f} = \frac{1}{1\,000} = 1{,}0 \times 10^{-3}\ \text{s} = 1{,}0\ \text{ms}
+  \]
+  <strong>2. Calcul de la longueur d'onde :</strong>
+  \[
+    \lambda = \frac{c_\text{son}}{f} = \frac{340}{1\,000} = 0{,}34\ \text{m} = 34\ \text{cm}
+  \]
+  <strong>Conclusion :</strong> À 1 kHz, les compressions sonores sont espacées de 34 cm dans l'air.
+</div>
+
+<!-- ANIMATION CANVAS – Onde sonore -->
+<h2>4. Animation — Propagation d'une onde sonore (compressions/dilatations)</h2>
+
+<p>L'animation ci-dessous représente la propagation d'une onde sonore dans l'air : les zones bleues correspondent aux compressions (surpression) et les zones sombres aux dilatations (dépression). Modifiez la fréquence pour observer l'effet sur la longueur d'onde.</p>
+
+<div class="anim-wrap">
+  <canvas id="waveCanvas" width="700" height="140" style="border-radius:8px;max-width:100%"></canvas>
+  <div style="margin-top:10px">
+    <div class="slider-row">
+      <label style="color:#e2e8f0">Fréquence f (Hz)</label>
+      <input type="range" id="slFreq" min="100" max="2000" value="500" oninput="updateWave()">
+      <span class="value-badge" id="dispFreq">500 Hz</span>
     </div>
-  </details>
-</div>
-
-<h2>Graphique — Évolution de la pression avec la profondeur</h2>
-
-<p>
-  La pression dans un fluide immobile augmente linéairement avec la profondeur selon \(P = P_0 + \rho g h\).
-  Ce graphique illustre cette évolution pour l'eau (\(\rho = 1000\) kg/m³) et pour l'huile (\(\rho = 900\) kg/m³).
-</p>
-
-<div class="chart-wrapper">
-  <canvas id="chartPression"></canvas>
+  </div>
+  <div class="info-grid" style="margin-top:10px">
+    <div class="info-card" style="background:#2d3748">
+      <div class="val" style="color:#a78bfa" id="wv-f">500 Hz</div>
+      <div class="lbl" style="color:#a0aec0">Fréquence f</div>
+    </div>
+    <div class="info-card" style="background:#2d3748">
+      <div class="val" style="color:#68d391" id="wv-T">2,00 ms</div>
+      <div class="lbl" style="color:#a0aec0">Période T</div>
+    </div>
+    <div class="info-card" style="background:#2d3748">
+      <div class="val" style="color:#fbd38d" id="wv-lam">68,0 cm</div>
+      <div class="lbl" style="color:#a0aec0">Longueur d'onde λ</div>
+    </div>
+  </div>
 </div>
 
 <script>
 (function(){
-  const depths=[0,1,2,3,4,5,6,7,8,9,10];
-  const P0=101325; // Pa
-  const g=9.81;
-  const rhoEau=1000, rhoHuile=900;
-  const pEau=depths.map(h=>Math.round((P0+rhoEau*g*h)/1000*10)/10); // kPa
-  const pHuile=depths.map(h=>Math.round((P0+rhoHuile*g*h)/1000*10)/10);
-  new Chart(document.getElementById('chartPression'),{
+  const cv = document.getElementById('waveCanvas');
+  const ctx = cv.getContext('2d');
+  let freq = 500;
+  let t = 0;
+
+  function drawWave(){
+    const W=cv.width, H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#1a202c';
+    ctx.fillRect(0,0,W,H);
+
+    const cson = 340;
+    const lam = cson/freq; // m
+    const lamPx = lam * 200; // scale: 1m = 200px (we want ~2-5 periods visible)
+    const scalePx = Math.min(lamPx, W/2);
+    const kPx = (2*Math.PI) / scalePx;
+
+    // Draw pressure wave (sinusoidal background)
+    const cx = H/2;
+    for(let x=0;x<W;x++){
+      const p = Math.sin(kPx*x - 2*Math.PI*freq*t/60);
+      const c = Math.round(((p+1)/2)*200);
+      ctx.fillStyle = `rgb(${c},${c+30},${c+80})`;
+      ctx.fillRect(x,0,1,H);
+    }
+
+    // Overlay: dark gradient at edges
+    const grd = ctx.createLinearGradient(0,0,W,0);
+    grd.addColorStop(0,'rgba(26,32,44,0.8)');
+    grd.addColorStop(0.1,'rgba(26,32,44,0)');
+    grd.addColorStop(0.9,'rgba(26,32,44,0)');
+    grd.addColorStop(1,'rgba(26,32,44,0.8)');
+    ctx.fillStyle=grd;ctx.fillRect(0,0,W,H);
+
+    // Particle dots
+    const nParts = 40;
+    for(let i=0;i<nParts;i++){
+      const x0 = (i/nParts)*W;
+      const p = Math.sin(kPx*x0 - 2*Math.PI*freq*t/60);
+      const dx = p*6;
+      ctx.beginPath();ctx.arc(x0+dx, cx, 3, 0, Math.PI*2);
+      ctx.fillStyle='rgba(200,220,255,0.7)';ctx.fill();
+    }
+
+    // Labels
+    ctx.fillStyle='rgba(255,255,255,0.5)';ctx.font='11px Segoe UI,sans-serif';ctx.textAlign='center';
+    ctx.fillText('Compression ⬆', W*0.25, 18);
+    ctx.fillText('Dilatation ⬇', W*0.75, 18);
+
+    // Lambda indicator
+    const x1 = (W/4);
+    const x2 = x1 + scalePx;
+    if(x2<W-20){
+      ctx.strokeStyle='rgba(251,211,141,0.8)';ctx.lineWidth=1.5;
+      ctx.setLineDash([4,3]);
+      ctx.beginPath();ctx.moveTo(x1,H-15);ctx.lineTo(x2,H-15);ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='#fbd38d';ctx.font='bold 11px Segoe UI,sans-serif';ctx.textAlign='center';
+      ctx.fillText('λ', (x1+x2)/2, H-4);
+    }
+
+    t++;
+    requestAnimationFrame(drawWave);
+  }
+
+  window.updateWave = function(){
+    freq = +document.getElementById('slFreq').value;
+    document.getElementById('dispFreq').textContent = freq+' Hz';
+    document.getElementById('wv-f').textContent = freq+' Hz';
+    const T = 1/freq;
+    document.getElementById('wv-T').textContent = T<0.001 ? (T*1000000).toFixed(0)+' µs' : (T*1000).toFixed(2)+' ms';
+    const lam = 340/freq;
+    document.getElementById('wv-lam').textContent = lam<1 ? (lam*100).toFixed(1)+' cm' : lam.toFixed(2)+' m';
+  };
+
+  updateWave();
+  drawWave();
+})();
+</script>
+
+<h2>5. Domaine d'audition humaine – Infrasons et ultrasons</h2>
+
+<div class="prop">
+  <span class="label label-prop">Domaine audible</span><br>
+  L'oreille humaine perçoit les sons dont la fréquence est approximativement comprise entre <strong>20 Hz et 20 000 Hz (20 kHz)</strong>. Cette plage varie selon l'âge et l'état de santé auditive.
+</div>
+
+<div class="def">
+  <span class="label label-def">Définitions</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Infrasons :</strong> ondes sonores de fréquence <em>inférieure</em> à 20 Hz. Non perceptibles par l'oreille humaine, mais ressentis par le corps (vibrations).</li>
+    <li><strong>Sons audibles :</strong> de 20 Hz à 20 kHz.</li>
+    <li><strong>Ultrasons :</strong> ondes sonores de fréquence <em>supérieure</em> à 20 kHz. Non perceptibles par l'oreille humaine.</li>
+  </ul>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Source / Phénomène</th>
+      <th>Gamme de fréquences</th>
+      <th>Domaine</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Séismes, vagues de fond</td><td>&lt; 1 Hz</td><td>Infrasons</td></tr>
+    <tr><td>Moteurs diesel, ventilateurs industriels</td><td>5 – 20 Hz</td><td>Infrasons</td></tr>
+    <tr><td>Voix humaine (grave – aigu)</td><td>80 Hz – 1 100 Hz</td><td>Sons audibles</td></tr>
+    <tr><td>Piano (étendue complète)</td><td>28 Hz – 4 200 Hz</td><td>Sons audibles</td></tr>
+    <tr><td>Ventilo-convecteur CTA</td><td>100 Hz – 3 000 Hz</td><td>Sons audibles</td></tr>
+    <tr><td>Sifflet d'arbitre</td><td>2 500 – 4 000 Hz</td><td>Sons audibles</td></tr>
+    <tr><td>Chauve-souris (détection)</td><td>20 kHz – 100 kHz</td><td>Ultrasons</td></tr>
+    <tr><td>Échographie médicale</td><td>1 MHz – 20 MHz</td><td>Ultrasons</td></tr>
+    <tr><td>CND industriel (aéronautique)</td><td>0,1 MHz – 50 MHz</td><td>Ultrasons</td></tr>
+  </tbody>
+</table>
+
+<h2>6. Pression acoustique et intensité sonore</h2>
+
+<div class="def">
+  <span class="label label-def">Pression acoustique</span><br>
+  Lorsqu'une onde sonore se propage dans l'air, elle crée des <strong>variations locales et périodiques de la pression</strong> autour de la pression atmosphérique P₀. L'amplitude de ces variations est appelée <strong>pression acoustique</strong> p, exprimée en <strong>pascals (Pa)</strong>.
+  <br><br>
+  Un <strong>microphone</strong> est un capteur qui convertit ces variations de pression en signal électrique. Un <strong>sonomètre</strong> contient un microphone et affiche directement le niveau d'intensité acoustique en dB.
+</div>
+
+<div class="def">
+  <span class="label label-def">Intensité sonore</span><br>
+  L'<strong>intensité sonore</strong> I est la puissance acoustique P_ac traversant une surface S perpendiculaire à la direction de propagation :
+</div>
+
+<div class="formule-box">
+  \[
+    I = \frac{P_\text{ac}}{S}
+  \]
+  <small>
+    I : intensité sonore (W/m²) &nbsp;|&nbsp;
+    P_ac : puissance acoustique (W) &nbsp;|&nbsp;
+    S : surface (m²)
+  </small>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Valeurs de référence</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Seuil d'audition :</strong> I₀ = 10⁻¹² W/m² (à 1 kHz, pour une oreille jeune et saine). C'est la plus faible intensité perceptible par l'oreille humaine.</li>
+    <li><strong>Seuil de douleur :</strong> I ≈ 1 W/m², soit 10¹² fois le seuil d'audition.</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Lien entre pression et intensité</span><br>
+  La pression acoustique p et l'intensité I sont liées par la relation :
+  \[
+    I = \frac{p^2}{\rho \cdot c_\text{son}}
+  \]
+  où ρ est la masse volumique du milieu (kg/m³) et c_son la vitesse du son. Cette relation montre que l'intensité est proportionnelle au <strong>carré de la pression acoustique</strong>.
+</div>
+
+<h2>7. Niveau d'intensité acoustique (en décibels)</h2>
+
+<div class="att">
+  <span class="label label-att">Pourquoi une échelle logarithmique ?</span><br>
+  L'intensité sonore perçue par l'oreille varie dans un rapport de 10¹² entre le seuil d'audition et le seuil de douleur. Utiliser une <strong>échelle logarithmique</strong> permet de compresser cette très large plage en une échelle pratique de 0 à 140 dB.
+</div>
+
+<div class="def">
+  <span class="label label-def">Niveau d'intensité acoustique</span><br>
+  Le <strong>niveau d'intensité acoustique</strong> L (en décibels, dB) est défini par :
+</div>
+
+<div class="formule-box">
+  \[
+    L = 10 \times \log\!\left(\frac{I}{I_0}\right)
+  \]
+  <small>
+    L : niveau d'intensité acoustique (dB) &nbsp;|&nbsp;
+    I : intensité sonore (W/m²) &nbsp;|&nbsp;
+    I₀ = 10⁻¹² W/m² : intensité de référence (seuil d'audition)
+  </small>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Lien mathématique – Formule inverse</span><br>
+  Si on connaît L, on retrouve I en utilisant la fonction 10^x :
+  \[
+    \frac{I}{I_0} = 10^{L/10} \quad \Longrightarrow \quad I = I_0 \times 10^{L/10}
+  \]
+  Chaque augmentation de <strong>10 dB</strong> correspond à une multiplication de l'intensité par <strong>10</strong>.<br>
+  Chaque augmentation de <strong>3 dB</strong> correspond environ à un doublement de l'intensité.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Niveau L (dB)</th>
+      <th>Intensité I (W/m²)</th>
+      <th>Source / Situation</th>
+      <th>Risque</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>0 dB</td><td>10⁻¹²</td><td>Seuil d'audition (silence absolu)</td><td>Aucun</td></tr>
+    <tr><td>30 dB</td><td>10⁻⁹</td><td>Bibliothèque calme — Norme logement nuit</td><td>Aucun</td></tr>
+    <tr><td>35 dB</td><td>~3×10⁻⁹</td><td>Ventilation calme — Norme séjour nuit</td><td>Aucun</td></tr>
+    <tr><td>60 dB</td><td>10⁻⁶</td><td>Conversation normale</td><td>Aucun</td></tr>
+    <tr><td>75 dB</td><td>~3,2×10⁻⁵</td><td>Ventilo-convecteur fort, aspirateur</td><td>Faible</td></tr>
+    <tr style="background:#fff9f0"><td><strong>85 dB</strong></td><td>~3,2×10⁻⁴</td><td><strong>Seuil de risque auditif</strong></td><td style="color:#d97706"><strong>Seuil risque</strong></td></tr>
+    <tr><td>90 dB</td><td>10⁻³</td><td>Compresseur frigorifique, perceuse</td><td style="color:#d97706">Risque modéré</td></tr>
+    <tr><td>110 dB</td><td>10⁻¹</td><td>Concert de rock (première rangée)</td><td style="color:#c53030">Risque élevé</td></tr>
+    <tr><td>140 dB</td><td>100</td><td>Seuil de douleur, explosion proche</td><td style="color:#c53030"><strong>Très dangereux</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="att">
+  <span class="ticcer-badge">ICCER</span><br>
+  <span class="label label-att">Danger pour l'audition</span><br>
+  Au-delà de <strong>85 dB</strong>, une exposition prolongée entraîne des lésions irréversibles des cellules ciliées de la cochlée. Ces cellules ne se régénèrent pas. La surdité professionnelle est la première maladie professionnelle en France. En atelier industriel, le port de protections auditives (EPI) est obligatoire dès 80 dB et renforcé dès 85 dB (réglementation INRS).
+  <br>En ICCER, les compresseurs de climatisation, les pompes et les CTA peuvent dépasser 85-95 dB à 1 mètre.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu – Calcul de niveau sonore</span><br>
+  <strong>Énoncé :</strong> Une perceuse produit une intensité sonore I = 10⁻³ W/m². Calculer le niveau d'intensité acoustique L.
+  <br><br>
+  <strong>Application numérique :</strong>
+  \[
+    L = 10 \times \log\!\left(\frac{10^{-3}}{10^{-12}}\right)
+    = 10 \times \log\!\left(10^{9}\right)
+    = 10 \times 9
+    = 90\ \text{dB}
+  \]
+  <strong>Conclusion :</strong> L = 90 dB. L'utilisation de protections auditives est nécessaire.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu – Retrouver I à partir de L</span><br>
+  <strong>Énoncé :</strong> Un sonomètre indique L = 60 dB. Quelle est l'intensité sonore I ?
+  <br><br>
+  \[
+    I = I_0 \times 10^{L/10} = 10^{-12} \times 10^{60/10} = 10^{-12} \times 10^{6} = 10^{-6}\ \text{W/m}^2
+  \]
+</div>
+
+<h2>8. Atténuation du son avec la distance</h2>
+
+<div class="prop">
+  <span class="label label-prop">Principe</span><br>
+  Pour une <strong>source ponctuelle</strong> émettant uniformément dans toutes les directions, la puissance acoustique P_ac se répartit sur des sphères de surface S = 4πr² croissante. L'intensité diminue donc en 1/r² :
+  \[
+    I(r) = \frac{P_\text{ac}}{4\pi r^2}
+  \]
+</div>
+
+<div class="formule-box">
+  \[
+    L_2 = L_1 - 20 \times \log\!\left(\frac{r_2}{r_1}\right)
+  \]
+  <small>
+    L₁ : niveau sonore à la distance r₁ (dB) &nbsp;|&nbsp;
+    L₂ : niveau sonore à la distance r₂ (dB) &nbsp;|&nbsp;
+    r₁, r₂ : distances à la source (m)
+  </small>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Démonstration de la formule</span><br>
+  On part de I ∝ 1/r², donc I₂/I₁ = (r₁/r₂)². En passant en décibels :
+  \[
+    L_2 - L_1 = 10 \times \log\!\left(\frac{r_1^2}{r_2^2}\right)
+    = -20 \times \log\!\left(\frac{r_2}{r_1}\right)
+  \]
+</div>
+
+<div class="att">
+  <span class="label label-att">Règle pratique</span><br>
+  <strong>Doubler la distance à la source</strong> (source ponctuelle) provoque une diminution du niveau sonore de :
+  \[
+    \Delta L = -20 \times \log(2) \approx -6\ \text{dB}
+  \]
+  S'éloigner deux fois plus loin réduit le niveau sonore d'environ <strong>6 dB</strong>.
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple résolu – Application industrielle</span><br>
+  <strong>Situation :</strong> Une machine dans un atelier produit L₁ = 95 dB à r₁ = 1 m. Un opérateur travaille à r₂ = 4 m. Quel est le niveau sonore reçu par l'opérateur ?
+  <br><br>
+  \[
+    L_2 = 95 - 20 \times \log\!\left(\frac{4}{1}\right)
+    = 95 - 20 \times 0{,}602
+    \approx 83\ \text{dB}
+  \]
+  <strong>Conclusion :</strong> À 4 m, l'opérateur reçoit ≈ 83 dB, légèrement en dessous du seuil de risque de 85 dB. Pour une exposition prolongée, les protections auditives restent recommandées.
+</div>
+
+
+<!-- GRAPHIQUE INTERACTIF – Atténuation sonore -->
+<h2>9. Simulateur — Atténuation sonore en fonction de la distance</h2>
+
+<p>
+  Ajustez le niveau sonore à 1 m et la distance pour voir comment le niveau évolue.
+  La ligne rouge indique le seuil de risque auditif (85 dB) et la ligne verte la norme logement (35 dB).
+</p>
+
+<div class="chart-wrap">
+  <div class="slider-row">
+    <label>Niveau à r₁=1 m (dB)</label>
+    <input type="range" id="slL1" min="50" max="120" value="90" oninput="updateAttenChart()">
+    <span class="value-badge" id="dispL1">90 dB</span>
+  </div>
+  <canvas id="attenChart" height="260"></canvas>
+  <div class="info-grid" style="margin-top:10px">
+    <div class="info-card"><div class="val" id="ac-l1">90 dB</div><div class="lbl">Niveau à 1 m</div></div>
+    <div class="info-card"><div class="val" id="ac-r85">~3,2 m</div><div class="lbl">Distance seuil 85 dB</div></div>
+    <div class="info-card"><div class="val" id="ac-r35">~178 m</div><div class="lbl">Distance norme 35 dB</div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const ctx4 = document.getElementById('attenChart').getContext('2d');
+  const distances = [1,2,3,4,5,6,8,10,15,20,30,50];
+
+  function levelAt(L1, r){
+    return L1 - 20*Math.log10(r);
+  }
+
+  function distanceForLevel(L1, Ltarget){
+    return Math.pow(10, (L1-Ltarget)/20);
+  }
+
+  const chart4 = new Chart(ctx4,{
     type:'line',
     data:{
-      labels:depths,
+      labels: distances,
       datasets:[
-        {label:'Eau (ρ=1000 kg/m³)',data:pEau,borderColor:'#0056b3',backgroundColor:'rgba(0,86,179,.08)',borderWidth:2.5,pointRadius:4,tension:.1},
-        {label:'Huile (ρ=900 kg/m³)',data:pHuile,borderColor:'#d97706',backgroundColor:'rgba(217,119,6,.08)',borderWidth:2.5,pointRadius:4,tension:.1}
+        {
+          label:'Niveau sonore L(r)',
+          data: distances.map(r=>levelAt(90,r)),
+          borderColor:'#6f42c1',
+          backgroundColor:'rgba(111,66,193,0.1)',
+          borderWidth:2,
+          tension:0.3,
+          fill:true,
+          pointRadius:4
+        },
+        {
+          label:'Seuil risque 85 dB',
+          data: distances.map(()=>85),
+          borderColor:'#c53030',
+          borderWidth:2,
+          borderDash:[6,3],
+          pointRadius:0,
+          fill:false
+        },
+        {
+          label:'Norme logement 35 dB',
+          data: distances.map(()=>35),
+          borderColor:'#38a169',
+          borderWidth:2,
+          borderDash:[6,3],
+          pointRadius:0,
+          fill:false
+        }
       ]
     },
     options:{
       responsive:true,
       plugins:{
-        legend:{position:'bottom',labels:{font:{size:12}}},
-        title:{display:true,text:'Pression (kPa) en fonction de la profondeur (m) — P₀ = 101,3 kPa',font:{size:12}}
+        legend:{position:'top'},
+        tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y.toFixed(0)+' dB'}}
       },
       scales:{
-        x:{title:{display:true,text:'Profondeur h (m)'}},
-        y:{title:{display:true,text:'Pression P (kPa)'},beginAtZero:false,grid:{color:'#f0f0f0'}}
+        x:{title:{display:true,text:'Distance à la source (m)'},grid:{color:'rgba(0,0,0,.06)'}},
+        y:{
+          title:{display:true,text:'Niveau acoustique L (dB)'},
+          min:0, max:130,
+          grid:{color:'rgba(0,0,0,.06)'}
+        }
       }
     }
   });
+
+  window.updateAttenChart = function(){
+    const L1 = +document.getElementById('slL1').value;
+    document.getElementById('dispL1').textContent = L1+' dB';
+    chart4.data.datasets[0].data = distances.map(r=>levelAt(L1,r));
+    chart4.update();
+    const r85 = distanceForLevel(L1,85);
+    const r35 = distanceForLevel(L1,35);
+    document.getElementById('ac-l1').textContent = L1+' dB';
+    document.getElementById('ac-r85').textContent = r85<1 ? '< 1 m' : r85>1000 ? '> 1 km' : r85.toFixed(1)+' m';
+    document.getElementById('ac-r35').textContent = r35>1000 ? (r35/1000).toFixed(1)+' km' : r35.toFixed(0)+' m';
+  };
+
+  updateAttenChart();
 })();
 </script>
 
-<p style="font-size:.9em;color:#718096;text-align:center">La pression augmente linéairement avec la profondeur. L'eau exerce une pression plus forte que l'huile à même profondeur car elle est plus dense.</p>
-
-<div class="nav-footer">
-  <a href="pc-term-iccer.html" class="nav-btn">← Retour au sommaire</a>
-  <a href="pc-t-ch08_exos.html" class="nav-btn">Exercices du chapitre →</a>
+<div class="prop">
+  <span class="ticcer-badge">ICCER</span><br>
+  <span class="label label-prop">Moyens de réduction du bruit en installation ICCER</span><br>
+  <ul style="margin:6px 0 0 0;padding-left:20px">
+    <li><strong>Éloignement :</strong> augmenter la distance entre l'opérateur et la source (loi en 1/r²).</li>
+    <li><strong>Silent-blocs et amortisseurs de vibrations :</strong> découplage mécanique entre le compresseur/pompe et la structure du bâtiment.</li>
+    <li><strong>Conduits flexibles :</strong> réduisent la transmission des vibrations des CTA vers les gaines rigides.</li>
+    <li><strong>Encoffrement acoustique :</strong> entourer la machine avec un capot en matériaux absorbants (laine de verre, mousse mélamine).</li>
+    <li><strong>Protections individuelles (EPI) :</strong> bouchons d'oreille ou casque antibruit (obligatoires dès 80 dB).</li>
+    <li><strong>Réduction à la source :</strong> maintenance des machines, lubrification, équilibrage des rotors.</li>
+  </ul>
 </div>
 
-</div><!-- fin .c -->
+<h2>10. Sources lumineuses intenses et lasers – Dangers et prévention</h2>
 
-<!-- ===== SCRIPTS ===== -->
-<script>
-/* ---- Simulateur pression colonne ---- */
-function updateColumn(){
-  const rho = parseFloat(document.getElementById('fluidSel').value);
-  const h   = parseFloat(document.getElementById('depthSlider').value);
-  const p0  = parseFloat(document.getElementById('p0Slider').value) * 1e5; // bar → Pa
+<div class="def">
+  <span class="label label-def">Qu'est-ce qu'un laser ?</span><br>
+  Un <strong>laser</strong> (<em>Light Amplification by Stimulated Emission of Radiation</em>) est une source de lumière aux propriétés très particulières :
+  <ul>
+    <li><strong>Monochromaticité :</strong> le faisceau est composé d'une seule longueur d'onde (une seule couleur).</li>
+    <li><strong>Cohérence :</strong> toutes les ondes sont en phase.</li>
+    <li><strong>Directivité (faible divergence) :</strong> le faisceau reste très concentré sur de longues distances.</li>
+    <li><strong>Forte puissance surfacique :</strong> l'énergie est concentrée sur une très petite surface.</li>
+  </ul>
+</div>
 
-  document.getElementById('depthVal').textContent = h.toFixed(1) + ' m';
-  document.getElementById('p0Val').textContent = (p0/1e5).toFixed(2) + ' bar';
+<div class="prop">
+  <span class="label label-prop">Classes de lasers (norme EN 60825-1)</span>
+  <table>
+    <thead>
+      <tr><th>Classe</th><th>Danger</th><th>Exemples d'utilisation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Classe 1</strong></td><td>Sans danger en utilisation normale</td><td>Lecteurs CD, imprimantes laser</td></tr>
+      <tr><td><strong>Classe 2</strong></td><td>Faible risque – le réflexe de clignement protège l'œil</td><td>Pointeurs laser rouges (&lt; 1 mW)</td></tr>
+      <tr><td><strong>Classe 3B</strong></td><td>Dangereux pour l'œil par vision directe ou par réflexion</td><td>Lasers de spectroscopie, médecine</td></tr>
+      <tr><td><strong>Classe 4</strong></td><td>Très dangereux – brûlures de l'œil et de la peau, risque d'incendie</td><td>Lasers de découpe industrielle, chirurgie</td></tr>
+    </tbody>
+  </table>
+</div>
 
-  const dP   = rho * 9.81 * h;
-  const pTot = p0 + dP;
+<div class="att">
+  <span class="label label-att">Dangers pour la santé</span><br>
+  L'exposition au rayonnement d'un laser ou d'une source lumineuse intense (UV, IR) présente des risques :
+  <ul>
+    <li><strong>Pour l'œil :</strong> la cornée et le cristallin concentrent le faisceau sur la rétine → brûlure irréversible, cécité (même par réflexion sur un miroir ou une surface métallique).</li>
+    <li><strong>Pour la peau :</strong> brûlures thermiques en cas d'exposition prolongée à un faisceau de forte puissance (classes 3B et 4).</li>
+    <li><strong>Risques invisibles :</strong> les lasers IR ou UV ne sont pas visibles à l'œil nu → pas de réflexe de clignement → danger accru.</li>
+  </ul>
+</div>
 
-  document.getElementById('simDeltaP').textContent = Math.round(dP).toLocaleString('fr-FR') + ' Pa';
-  document.getElementById('simPtot').textContent   = (pTot/1e5).toFixed(2) + ' bar';
-  document.getElementById('simEquiv').textContent  = (pTot/101325).toFixed(2) + ' atm';
+<div class="meth">
+  <span class="label label-meth">Prévention et protections (EPI)</span><br>
+  En atelier utilisant des lasers (découpe, soudage, marquage) :
+  <ul>
+    <li><strong>Lunettes de protection laser :</strong> spécifiques à la longueur d'onde utilisée.</li>
+    <li><strong>Balisage de la zone laser :</strong> signalétique obligatoire, accès restreint.</li>
+    <li><strong>Ne jamais regarder directement dans le faisceau</strong>, même pour un laser de classe 2.</li>
+    <li><strong>Se méfier des réflexions :</strong> les surfaces métalliques polies peuvent dévier le faisceau.</li>
+    <li><strong>Écrans de confinement :</strong> pour les lasers de classe 4, barricader la zone avec des matériaux opaques.</li>
+  </ul>
+</div>
 
-  drawColumn(h, rho);
-}
+<h2>11. Tableau récapitulatif – Formules et unités</h2>
 
-function drawColumn(h, rho){
-  const cv = document.getElementById('colCanvas');
-  const ctx = cv.getContext('2d');
-  const W = cv.width, H = cv.height;
-  ctx.clearRect(0,0,W,H);
+<table>
+  <thead>
+    <tr>
+      <th>Grandeur</th>
+      <th>Symbole</th>
+      <th>Formule</th>
+      <th>Unité</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Fréquence</td><td>f</td><td>\(f = 1/T\)</td><td>Hertz (Hz)</td></tr>
+    <tr><td>Période</td><td>T</td><td>\(T = 1/f\)</td><td>Seconde (s)</td></tr>
+    <tr><td>Longueur d'onde</td><td>λ</td><td>\(\lambda = c_\text{son} \times T = c_\text{son}/f\)</td><td>Mètre (m)</td></tr>
+    <tr><td>Vitesse du son (air, 20 °C)</td><td>c</td><td>\(c_\text{son} \approx 340\) m/s</td><td>m/s</td></tr>
+    <tr><td>Intensité sonore</td><td>I</td><td>\(I = P_\text{ac}/S\)</td><td>W/m²</td></tr>
+    <tr><td>Niveau d'intensité acoustique</td><td>L</td><td>\(L = 10\log(I/I_0)\)</td><td>Décibel (dB)</td></tr>
+    <tr><td>Intensité à partir du niveau</td><td>I</td><td>\(I = I_0 \times 10^{L/10}\)</td><td>W/m²</td></tr>
+    <tr><td>Atténuation géométrique</td><td>L₂</td><td>\(L_2 = L_1 - 20\log(r_2/r_1)\)</td><td>dB</td></tr>
+  </tbody>
+</table>
 
-  // Fond bleu clair
-  ctx.fillStyle = '#e0f2fe';
-  ctx.fillRect(0,0,W,H);
+<!-- À RETENIR -->
+<div class="retenir">
+  <strong>💡 À retenir absolument</strong>
+  <ul>
+    <li>Le son est une <strong>onde mécanique longitudinale</strong> qui ne se propage pas dans le vide.</li>
+    <li>La vitesse du son dépend du milieu : <strong>340 m/s dans l'air</strong>, <strong>1 500 m/s dans l'eau</strong>, ~5 000 m/s dans l'acier.</li>
+    <li>L'oreille humaine perçoit entre <strong>20 Hz et 20 kHz</strong>.</li>
+    <li>Le niveau sonore s'exprime en <strong>décibels (dB)</strong> : \(L = 10\log(I/I_0)\), avec I₀ = 10⁻¹² W/m².</li>
+    <li>Au-delà de <strong>85 dB</strong>, l'exposition prolongée est dangereuse pour l'audition de façon irréversible.</li>
+    <li>Doubler la distance à une source ponctuelle réduit le niveau sonore d'environ <strong>6 dB</strong>.</li>
+    <li>En ICCER, les équipements CVC peuvent dépasser 85-95 dB : protections EPI et encoffrement obligatoires.</li>
+  </ul>
+</div>
 
-  // Récipient
-  const rx=80, ry=20, rw=200, rh=160;
-  // Fluide (hauteur proportionnelle à h, max 100 m)
-  const fluidH = Math.min(rh, (h/100)*rh);
-  ctx.fillStyle = rho > 5000 ? '#94a3b8' : rho > 1010 ? '#60a5fa' : rho < 900 ? '#fde68a' : '#93c5fd';
-  ctx.fillRect(rx, ry + rh - fluidH, rw, fluidH);
+<!-- BILAN TWO-COL -->
+<h2>12. Bilan — Synthèse du chapitre</h2>
 
-  // Parois
-  ctx.strokeStyle = '#3182ce'; ctx.lineWidth = 3;
-  ctx.strokeRect(rx, ry, rw, rh);
+<div class="two-col">
+  <div class="col">
+    <h3>Formules essentielles</h3>
+    <ul>
+      <li>λ = c/f = c×T &nbsp;[m]</li>
+      <li>f = 1/T &nbsp;[Hz]</li>
+      <li>L = 10·log(I/I₀) &nbsp;[dB]</li>
+      <li>I = I₀ × 10^(L/10) &nbsp;[W/m²]</li>
+      <li>L₂ = L₁ − 20·log(r₂/r₁) &nbsp;[dB]</li>
+      <li>Doublement distance → −6 dB</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h3>Applications ICCER</h3>
+    <ul>
+      <li>Sonomètre pour mesurer bruit CTA/compresseur</li>
+      <li>Calcul distance de sécurité (85 dB)</li>
+      <li>Atténuation par encoffrement acoustique</li>
+      <li>EPI auditifs dès 80 dB (INRS)</li>
+      <li>Norme logement : 30 dB chambre, 35 dB séjour</li>
+      <li>Détection fuites par ultrasons</li>
+    </ul>
+  </div>
+</div>
 
-  // Ligne surface
-  ctx.strokeStyle = '#1e40af'; ctx.lineWidth = 2;
-  ctx.setLineDash([6,3]);
-  ctx.beginPath();
-  ctx.moveTo(rx, ry + rh - fluidH);
-  ctx.lineTo(rx + rw, ry + rh - fluidH);
-  ctx.stroke();
-  ctx.setLineDash([]);
+<!-- MINI-EXERCICES -->
+<h2>13. Mini-exercices corrigés</h2>
 
-  // Point de mesure (fond du fluide)
-  const py = ry + rh;
-  ctx.fillStyle = '#2f855a';
-  ctx.beginPath();
-  ctx.arc(rx + rw/2, py - 4, 7, 0, Math.PI*2);
-  ctx.fill();
+<div class="exo">
+  <details>
+    <summary>▶ Exercice 1 — Longueur d'onde d'un son émis par une CTA</summary>
+    <p>
+      Un ventilo-convecteur émet un bruit caractéristique à la fréquence <strong>f = 200 Hz</strong>
+      dans l'air à 20 °C (c_son = 340 m/s).
+    </p>
+    <ol>
+      <li>Calculer la longueur d'onde λ de ce son.</li>
+      <li>Calculer sa période T.</li>
+      <li>Ce son est-il audible ? Indiquer à quel domaine il appartient.</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> \(\lambda = c/f = 340/200 = \mathbf{1{,}7 \text{ m}}\)<br>
+      <em>2.</em> \(T = 1/f = 1/200 = 5{,}0 \times 10^{-3} \text{ s} = \mathbf{5{,}0 \text{ ms}}\)<br>
+      <em>3.</em> f = 200 Hz ∈ [20 Hz ; 20 kHz] → son <strong>audible</strong>, dans les graves.
+      C'est le type de fréquence produit par les ventilateurs (basses fréquences difficiles à isoler avec des parois légères).
+    </p>
+  </details>
+</div>
 
-  // Cote h
-  if(fluidH > 10){
-    const yTop = ry + rh - fluidH;
-    const yBot = ry + rh;
-    ctx.strokeStyle = '#d97706'; ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(rx - 20, yTop);
-    ctx.lineTo(rx - 20, yBot);
-    ctx.stroke();
-    ctx.fillStyle = '#d97706';
-    ctx.font = 'bold 12px Segoe UI,sans-serif';
-    ctx.fillText('h = ' + h.toFixed(1) + ' m', rx - 70, (yTop + yBot)/2 + 5);
-  }
+<div class="exo">
+  <details>
+    <summary>▶ Exercice 2 — Niveau sonore d'un compresseur frigorifique</summary>
+    <p>
+      Un compresseur de PAC extérieur produit une intensité sonore mesurée à I = 3,16 × 10⁻⁴ W/m² à 1 mètre.
+      (I₀ = 10⁻¹² W/m²)
+    </p>
+    <ol>
+      <li>Calculer le niveau sonore L à 1 m.</li>
+      <li>Des protections auditives sont-elles obligatoires pour un technicien travaillant à 1 m pendant 30 minutes ?</li>
+      <li>À quelle distance r₂ le niveau descend-il à 85 dB (seuil de risque) ?</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> \(L = 10\log(3{,}16 \times 10^{-4} / 10^{-12}) = 10\log(3{,}16 \times 10^8)\)<br>
+      \(\log(3{,}16 \times 10^8) = \log(3{,}16) + 8 \approx 0{,}5 + 8 = 8{,}5\)<br>
+      \(L = 10 \times 8{,}5 = \mathbf{85 \text{ dB}}\)<br>
+      <em>2.</em> L = 85 dB : c'est exactement le seuil de risque. Pour 30 minutes à ce niveau, les protections auditives sont <strong>fortement recommandées</strong> et obligatoires selon les conventions collectives ICCER.<br>
+      <em>3.</em> À L₁ = 85 dB à r₁ = 1 m, pour L₂ = 85 dB → il faut déjà être à 1 m, donc le seuil est atteint dès 1 m.
+      Pour descendre sous 80 dB (action préventive) :
+      \(L_2 = 85 - 20\log(r_2) = 80 \Rightarrow 20\log(r_2) = 5 \Rightarrow r_2 = 10^{0,25} \approx \mathbf{1{,}8 \text{ m}}\).
+    </p>
+  </details>
+</div>
 
-  // Label pression
-  ctx.fillStyle = '#2d3748';
-  ctx.font = '11px Segoe UI,sans-serif';
-  ctx.fillText('ΔP = ρgh', rx + rw + 10, ry + rh - fluidH/2);
-  ctx.font = 'bold 11px Segoe UI,sans-serif';
-  ctx.fillStyle = '#2f855a';
-  const dP = rho * 9.81 * h;
-  ctx.fillText('= ' + (dP/1e5).toFixed(2) + ' bar', rx + rw + 10, ry + rh - fluidH/2 + 18);
-}
+<div class="exo">
+  <details>
+    <summary>▶ Exercice 3 — Atténuation par la distance : CTA en toiture</summary>
+    <p>
+      Une CTA installée en toiture d'un immeuble produit un niveau sonore de <strong>L₁ = 75 dB</strong>
+      à r₁ = 2 m. Un appartement est situé à <strong>r₂ = 15 m</strong> de la CTA (en ligne directe).
+    </p>
+    <ol>
+      <li>Calculer le niveau sonore L₂ à 15 m (en considérant la CTA comme une source ponctuelle).</li>
+      <li>La réglementation acoustique impose &lt; 35 dB dans un séjour. Cette limite est-elle respectée ?</li>
+      <li>De combien dB faudrait-il atténuer le niveau à la source pour respecter la norme ?</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> \(L_2 = L_1 - 20\log(r_2/r_1) = 75 - 20\log(15/2) = 75 - 20\log(7{,}5)\)<br>
+      \(\log(7{,}5) \approx 0{,}875\)<br>
+      \(L_2 = 75 - 20 \times 0{,}875 = 75 - 17{,}5 = \mathbf{57{,}5 \text{ dB}}\)<br>
+      <em>2.</em> 57,5 dB >> 35 dB → <strong>la norme n'est pas respectée</strong>.<br>
+      <em>3.</em> Il faut descendre à 35 dB à 15 m. Atténuation nécessaire = 57,5 − 35 = <strong>22,5 dB</strong>.
+      Solutions : encoffrement acoustique de la CTA, écran acoustique, silent-blocs, implantation plus éloignée.
+    </p>
+  </details>
+</div>
 
-document.getElementById('fluidSel').addEventListener('change', updateColumn);
-document.getElementById('depthSlider').addEventListener('input', updateColumn);
-document.getElementById('p0Slider').addEventListener('input', updateColumn);
-updateColumn();
+<div class="exo">
+  <details>
+    <summary>▶ Exercice 4 — Calcul de I et comparaison de deux sources</summary>
+    <p>
+      Deux équipements sont installés dans le même local technique :
+      une pompe à chaleur (L_PAC = 72 dB) et un compresseur frigorifique (L_comp = 90 dB).
+      (I₀ = 10⁻¹² W/m²)
+    </p>
+    <ol>
+      <li>Calculer l'intensité I_PAC et l'intensité I_comp.</li>
+      <li>Combien de fois le compresseur est-il plus intense que la PAC ?</li>
+      <li>Un technicien doit intervenir 2 heures dans ce local avec un seul EPI auditif offrant une atténuation de 15 dB. Le niveau reçu est-il acceptable (< 85 dB) ?</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1.</em> \(I_{PAC} = 10^{-12} \times 10^{72/10} = 10^{-12} \times 10^{7{,}2} \approx 10^{-12} \times 1{,}585 \times 10^7 \approx \mathbf{1{,}59 \times 10^{-5} \text{ W/m}^2}\)<br>
+      \(I_{comp} = 10^{-12} \times 10^{90/10} = 10^{-12} \times 10^9 = \mathbf{10^{-3} \text{ W/m}^2}\)<br>
+      <em>2.</em> Rapport : \(I_{comp}/I_{PAC} = 10^{-3} / 1{,}59 \times 10^{-5} \approx \mathbf{63}\) fois plus intense.<br>
+      En décibels : 90 − 72 = <strong>18 dB</strong> (rapport de 10^1,8 ≈ 63).<br>
+      <em>3.</em> Le niveau le plus élevé est L_comp = 90 dB.
+      Avec EPI atténuant 15 dB : niveau reçu = 90 − 15 = <strong>75 dB < 85 dB</strong> → <strong>acceptable</strong>.
+      Mais une intervention de 2 h à 75 dB reste longue ; vérifier que le niveau moyen (LEX,8h) reste sous 80 dB.
+    </p>
+  </details>
+</div>
 
-/* ---- Simulateur presse hydraulique ---- */
-function updatePresse(){
-  const d1 = parseFloat(document.getElementById('d1Slider').value) / 100; // cm → m
-  const d2 = parseFloat(document.getElementById('d2Slider').value) / 100;
-  const f1 = parseFloat(document.getElementById('f1Slider').value);
+<!-- ====================================================
+     EXERCICE 5 — CHOIX DES EPI AUDITIFS
+     ==================================================== -->
+<div class="exo">
+  <details>
+    <summary>▶ Exercice 5 — Choix des EPI auditifs pour un chantier ICCER</summary>
+    <p>
+      Un technicien ICCER installe une PAC en toiture. Il est exposé à trois sources sonores simultanées :
+      <ul>
+        <li>Foreuse percussion : L₁ = 105 dB</li>
+        <li>Compresseur de service : L₂ = 88 dB</li>
+        <li>Bruit de fond (vent, circulation) : L₃ = 72 dB</li>
+      </ul>
+      La réglementation impose une exposition ≤ 80 dB sur 8 heures (valeur d'action inférieure) et interdit toute exposition > 87 dB sans EPI.
+    </p>
+    <ol>
+      <li>Quelle source domine le niveau sonore global ? (Justifier sans calcul détaillé.)</li>
+      <li>Pour protéger le technicien lors de l'utilisation de la foreuse (105 dB, durée 2h), un casque anti-bruit offrant 32 dB d'atténuation est disponible. Quel niveau reçoit-il avec ce casque ?</li>
+      <li>Ce casque est-il suffisant pour rester sous 80 dB ? Sous 87 dB ?</li>
+      <li>Des bouchons d'oreille offrent 24 dB d'atténuation. Peut-on les combiner avec le casque ? (L'atténuation combinée n'est pas la somme, mais ≈ atténuation la plus forte + 5 dB.)</li>
+      <li>Donner deux autres mesures de prévention collective pour réduire le bruit à la source.</li>
+    </ol>
+    <hr>
+    <strong>Correction :</strong>
+    <p>
+      <em>1. Source dominante :</em> La foreuse à 105 dB domine largement (écart de 17 dB avec le compresseur). En cumul de sources, la source la plus forte détermine presque à elle seule le niveau global (+ quelques dixièmes de dB).<br><br>
+      <em>2. Niveau avec casque (−32 dB) :</em><br>
+      L<sub>reçu</sub> = 105 − 32 = <strong>73 dB</strong><br><br>
+      <em>3. 73 dB < 80 dB</em> → suffisant pour rester sous 80 dB et bien en dessous de 87 dB. <strong>Le casque est adapté.</strong><br><br>
+      <em>4. Combinaison casque + bouchons :</em><br>
+      Atténuation combinée ≈ 32 + 5 = 37 dB → niveau reçu = 105 − 37 = 68 dB. Utile si la durée d'exposition est très longue ou si le niveau dépasse 105 dB. En pratique, la combinaison est recommandée au-delà de 105 dB.<br><br>
+      <em>5. Mesures collectives :</em> Encoffrement acoustique de la foreuse, utilisation d'une foreuse avec marteau intégré moins bruyant (technologie SDS+), organisation des plannings pour limiter l'exposition cumulée (rotation des travailleurs), choix d'équipements labellisés « faible bruit ».
+    </p>
+  </details>
+</div>
 
-  document.getElementById('d1Val').textContent = (d1*100).toFixed(1) + ' cm';
-  document.getElementById('d2Val').textContent = (d2*100).toFixed(1) + ' cm';
-  document.getElementById('f1Val').textContent = f1.toFixed(0) + ' N';
+<!-- ====================================================
+     TABLEAU SYNTHÈSE FORMULES ACOUSTIQUES
+     ==================================================== -->
+<h2>Synthèse — Formules acoustiques essentielles</h2>
 
-  const S1 = Math.PI * (d1/2)**2;
-  const S2 = Math.PI * (d2/2)**2;
-  const rapport = S2/S1;
-  const F2 = f1 * rapport;
-  const P  = f1 / S1; // Pa
+<table class="recap-table" style="margin-top:14px">
+  <thead>
+    <tr>
+      <th>Grandeur</th>
+      <th>Formule</th>
+      <th>Unité</th>
+      <th>Remarque</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Niveau d'intensité acoustique</td>
+      <td>\(L = 10 \log\!\left(\dfrac{I}{I_0}\right)\)</td>
+      <td>dB</td>
+      <td>I₀ = 10⁻¹² W/m²</td>
+    </tr>
+    <tr>
+      <td>Intensité depuis L</td>
+      <td>\(I = I_0 \times 10^{L/10}\)</td>
+      <td>W/m²</td>
+      <td>Inverse de la formule dB</td>
+    </tr>
+    <tr>
+      <td>Atténuation par distance</td>
+      <td>\(L_2 = L_1 - 20\log\!\left(\dfrac{r_2}{r_1}\right)\)</td>
+      <td>dB</td>
+      <td>Source ponctuelle en champ libre</td>
+    </tr>
+    <tr>
+      <td>Cumul de n sources identiques</td>
+      <td>\(L_{tot} = L_1 + 10\log(n)\)</td>
+      <td>dB</td>
+      <td>2 sources identiques → +3 dB</td>
+    </tr>
+    <tr>
+      <td>Longueur d'onde</td>
+      <td>\(\lambda = c/f\)</td>
+      <td>m</td>
+      <td>c = 340 m/s dans l'air à 20 °C</td>
+    </tr>
+    <tr>
+      <td>Niveau reçu avec EPI</td>
+      <td>\(L_{reçu} = L_{source} - A_{EPI}\)</td>
+      <td>dB</td>
+      <td>A<sub>EPI</sub> : atténuation en dB</td>
+    </tr>
+  </tbody>
+</table>
 
-  document.getElementById('presseS2S1').textContent = rapport.toFixed(1);
-  document.getElementById('presseF2').textContent   = F2 >= 1000
-    ? (F2/1000).toFixed(1) + ' kN'
-    : F2.toFixed(0) + ' N';
-  document.getElementById('presseP').textContent    = (P/1e5).toFixed(2) + ' bar';
-}
+<!-- NAV FOOTER -->
+<div class="nav-footer">
+  <a href="pc-term-iccer.html">← Sommaire ICCER</a>
+  <a href="pc-t-ch10_lecon.html">← Ch10 – Oxydoréduction</a>
+  <a href="pc-term-iccer.html">Fin du programme →</a>
+</div>
 
-document.getElementById('d1Slider').addEventListener('input', updatePresse);
-document.getElementById('d2Slider').addEventListener('input', updatePresse);
-document.getElementById('f1Slider').addEventListener('input', updatePresse);
-updatePresse();
-</script>
+</div>
 <script src="/nav.js"></script>
 </body>
 </html>

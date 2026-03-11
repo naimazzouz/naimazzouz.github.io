@@ -1,640 +1,327 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Ch07 – Rayonnement thermique et effet de serre – Exercices</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="../../../styles.css">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
-/* Niveau */
-    .niveau-titre{font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#718096;margin:36px 0 4px;padding:6px 0 6px 12px;border-left:4px solid var(--p);background:#f5f0ff}
-    .niveau-desc{font-size:.88em;color:#718096;margin:0 0 16px;font-style:italic}
-
-    /* Exercice */
-
-    .diff-4{background:#ede9fe;color:#5b21b6}
-    .metier{font-size:.75em;padding:2px 8px;border-radius:4px;font-weight:600;background:#e0f2fe;color:#0369a1}
-
-    .enonce{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 16px;margin:10px 0;font-size:.93em;line-height:1.65}
-    .donnees{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 6px 6px 0;margin:10px 0;font-size:.92em}
-    .donnees strong{display:block;margin-bottom:4px;color:var(--o)}
-
-    /* Correction */
-
-    /* QCM */</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch07 – Exercices – Oxydoréduction et corrosion | ICCER Terminale</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
 </head>
-<body>
-<div class="c">
-  <a href="pc-term-iccer.html" class="nb">← RETOUR SOMMAIRE</a>
-  <header>
-    <h1>Chapitre 4 – Exercices</h1>
-    <p class="sous-titre">Rayonnement thermique et effet de serre &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
-  </header>
+<body><div class="c">
+<a href="../../../physique-chimie/terminale-iccer/pc-term-iccer.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Chapitre 7 – Exercices</h1>
+  <p class="sous-titre">Oxydoréduction et protection des métaux contre la corrosion &nbsp;|&nbsp; Terminale Bac Pro ICCER</p>
+</header>
 
-  <!-- ======================================================
-       NIVEAU 1 – VÉRIFIER LES BASES
-  ====================================================== -->
-  <div class="niveau-titre">🟢 Niveau 1 – Vérifier les bases</div>
-  <p class="niveau-desc">Vocabulaire, notions essentielles et formules à connaître.</p>
-
-  <!-- EXO 1 : QCM -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 1</span>
-      <span class="exo-title">QCM – Rayonnement thermique et effet de serre</span>
-      <span class="diff diff-1">Niveau 1</span>
-    </div>
-    <p style="font-size:.9em;color:#718096;margin:0 0 10px">Une seule bonne réponse par question. Cocher puis vérifier.</p>
-    <div class="qcm-grid">
-
-      <div class="qcm-item">
-        <strong>1. Tout corps dont la température est supérieure à 0 K émet :</strong>
-        <ul>
-          <li>a. de la lumière visible uniquement</li>
-          <li class="ok">b. un rayonnement thermique (ondes électromagnétiques)</li>
-          <li>c. uniquement s'il est chauffé à plus de 100 °C</li>
-        </ul>
-        <button class="bcq" onclick="showQcm(this,'q1')">Vérifier</button>
-        <div class="qcm-corr" id="q1">✔ Réponse b — Tout corps au-dessus du zéro absolu émet un rayonnement thermique, quelle que soit sa température.</div>
-      </div>
-
-      <div class="qcm-item">
-        <strong>2. À température ambiante (~20 °C), un objet émet principalement dans :</strong>
-        <ul>
-          <li>a. le domaine visible</li>
-          <li>b. l'ultraviolet (UV)</li>
-          <li class="ok">c. l'infrarouge (IR)</li>
-        </ul>
-        <button class="bcq" onclick="showQcm(this,'q2')">Vérifier</button>
-        <div class="qcm-corr" id="q2">✔ Réponse c — À ~293 K, le pic d'émission (loi de Wien) se situe vers 10 µm, dans l'infrarouge moyen.</div>
-      </div>
-
-      <div class="qcm-item">
-        <strong>3. Une caméra thermique détecte :</strong>
-        <ul>
-          <li>a. la lumière visible émise par les objets</li>
-          <li class="ok">b. le rayonnement infrarouge émis par les objets</li>
-          <li>c. la température à l'intérieur des matériaux</li>
-        </ul>
-        <button class="bcq" onclick="showQcm(this,'q3')">Vérifier</button>
-        <div class="qcm-corr" id="q3">✔ Réponse b — La caméra thermique capte l'IR de surface et produit un thermogramme. Elle ne mesure pas la température interne.</div>
-      </div>
-
-      <div class="qcm-item">
-        <strong>4. L'effet de serre naturel :</strong>
-        <ul>
-          <li>a. est un phénomène néfaste créé par l'homme</li>
-          <li class="ok">b. est indispensable à la vie, il réchauffe la Terre de +33 °C</li>
-          <li>c. est causé uniquement par le CO₂</li>
-        </ul>
-        <button class="bcq" onclick="showQcm(this,'q4')">Vérifier</button>
-        <div class="qcm-corr" id="q4">✔ Réponse b — Sans l'effet de serre naturel, la Terre serait à −18 °C au lieu de +15 °C. C'est un phénomène naturel et vital.</div>
-      </div>
-
-      <div class="qcm-item">
-        <strong>5. Parmi ces gaz, lequel est un gaz à effet de serre (GES) d'origine principalement humaine ?</strong>
-        <ul>
-          <li>a. Oxygène (O₂)</li>
-          <li>b. Azote (N₂)</li>
-          <li class="ok">c. Dioxyde de carbone (CO₂)</li>
-        </ul>
-        <button class="bcq" onclick="showQcm(this,'q5')">Vérifier</button>
-        <div class="qcm-corr" id="q5">✔ Réponse c — Le CO₂ est émis par la combustion de carburants fossiles. O₂ et N₂ ne sont pas des GES.</div>
-      </div>
-
-      <div class="qcm-item">
-        <strong>6. Sur un thermogramme "fer chaud", les zones blanc-rouge correspondent à :</strong>
-        <ul>
-          <li class="ok">a. les zones les plus chaudes</li>
-          <li>b. les zones les plus froides</li>
-          <li>c. les zones à température ambiante</li>
-        </ul>
-        <button class="bcq" onclick="showQcm(this,'q6')">Vérifier</button>
-        <div class="qcm-corr" id="q6">✔ Réponse a — Sur la palette "fer chaud", blanc, rouge et orange indiquent les hautes températures.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- EXO 2 : Domaines spectraux -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 2</span>
-      <span class="exo-title">Domaines spectraux – classer et associer</span>
-      <span class="diff diff-1">Niveau 1</span>
-    </div>
-    <div class="enonce">
-      Le spectre ci-dessous présente les domaines électromagnétiques. Associer chaque lettre à la bonne description.
-    </div>
-    <div class="svg-wrap">
-      <svg width="750" height="90" viewBox="0 0 750 90" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10"  y="20" width="90"  height="35" rx="4" fill="#8b5cf6"/>
-        <text x="55"  y="42" text-anchor="middle" font-size="13" fill="white" font-weight="bold">A</text>
-        <text x="55"  y="70" text-anchor="middle" font-size="10" fill="#555">UV</text>
-        <defs>
-          <linearGradient id="vis2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#6600ff"/>
-            <stop offset="40%" stop-color="#0077ff"/>
-            <stop offset="70%" stop-color="#00cc44"/>
-            <stop offset="85%" stop-color="#ffcc00"/>
-            <stop offset="100%" stop-color="#ff2200"/>
-          </linearGradient>
-        </defs>
-        <rect x="100" y="20" width="120" height="35" rx="4" fill="url(#vis2)"/>
-        <text x="160" y="42" text-anchor="middle" font-size="13" fill="white" font-weight="bold" style="text-shadow:0 1px 2px #000">B</text>
-        <text x="160" y="70" text-anchor="middle" font-size="10" fill="#555">Visible</text>
-        <rect x="220" y="20" width="120" height="35" rx="4" fill="#f87171"/>
-        <text x="280" y="42" text-anchor="middle" font-size="13" fill="white" font-weight="bold">C</text>
-        <text x="280" y="70" text-anchor="middle" font-size="10" fill="#555">IR proche</text>
-        <rect x="340" y="20" width="150" height="35" rx="4" fill="#ef4444"/>
-        <text x="415" y="42" text-anchor="middle" font-size="13" fill="white" font-weight="bold">D</text>
-        <text x="415" y="70" text-anchor="middle" font-size="10" fill="#555">IR moyen ★</text>
-        <rect x="490" y="20" width="120" height="35" rx="4" fill="#b91c1c"/>
-        <text x="550" y="42" text-anchor="middle" font-size="13" fill="white" font-weight="bold">E</text>
-        <text x="550" y="70" text-anchor="middle" font-size="10" fill="#555">IR lointain</text>
-        <rect x="610" y="20" width="120" height="35" rx="4" fill="#d97706"/>
-        <text x="670" y="42" text-anchor="middle" font-size="13" fill="white" font-weight="bold">F</text>
-        <text x="670" y="70" text-anchor="middle" font-size="10" fill="#555">Micro-ondes</text>
-        <text x="10"  y="14" font-size="10" fill="#718096">λ courte →</text>
-        <text x="620" y="14" font-size="10" fill="#718096">→ λ longue</text>
-        <text x="415" y="85" text-anchor="middle" font-size="9" fill="#6f42c1">★ Zone d'émission des corps à température ambiante</text>
-      </svg>
-    </div>
-    <div class="q"><strong>1.</strong> Quelle lettre correspond au domaine dans lequel le Soleil (~5 780 K) émet principalement ?</div>
-    <div class="q"><strong>2.</strong> Quelle lettre correspond au domaine dans lequel un corps humain (~37 °C) émet principalement ?</div>
-    <div class="q"><strong>3.</strong> Quelle lettre correspond au domaine détecté par une caméra thermique ?</div>
-    <div class="q"><strong>4.</strong> Pourquoi le rayonnement d'un corps à température ambiante est-il invisible à l'œil nu ?</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> Le Soleil émet principalement dans le domaine <strong>B (visible)</strong> — son pic est vers 500 nm.</p>
-      <p><strong>2.</strong> Le corps humain à 37 °C = 310 K émet principalement dans le domaine <strong>D (IR moyen)</strong>, vers 9–10 µm.</p>
-      <p><strong>3.</strong> La caméra thermique détecte le domaine <strong>D (IR moyen)</strong>, typiquement entre 8 et 14 µm.</p>
-      <p><strong>4.</strong> L'œil humain ne perçoit que le visible (400–780 nm). Le rayonnement IR d'un corps à température ambiante a une longueur d'onde bien plus grande (~10 µm) : il est totalement <strong>invisible à l'œil nu</strong>.</p>
-    </div>
-  </div>
-
-  <!-- EXO 3 : Comportement des matériaux -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 3</span>
-      <span class="exo-title">Absorption, réflexion, transmission – classer les matériaux</span>
-      <span class="diff diff-1">Niveau 1</span>
-    </div>
-    <div class="enonce">
-      Compléter le tableau : indiquer le comportement principal de chaque matériau vis-à-vis du rayonnement infrarouge (absorbe / réfléchit / transmet) et une conséquence pratique.
-    </div>
-    <table>
-      <thead>
-        <tr><th>Matériau</th><th>Comportement vis-à-vis de l'IR</th><th>Conséquence pratique</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Verre ordinaire</td><td style="color:#cbd5e0;font-style:italic">À compléter</td><td style="color:#cbd5e0;font-style:italic">À compléter</td></tr>
-        <tr><td>Métal poli (aluminium)</td><td style="color:#cbd5e0;font-style:italic">À compléter</td><td style="color:#cbd5e0;font-style:italic">À compléter</td></tr>
-        <tr><td>Peinture noire mate</td><td style="color:#cbd5e0;font-style:italic">À compléter</td><td style="color:#cbd5e0;font-style:italic">À compléter</td></tr>
-        <tr><td>CO₂ (gaz)</td><td style="color:#cbd5e0;font-style:italic">À compléter</td><td style="color:#cbd5e0;font-style:italic">À compléter</td></tr>
-      </tbody>
-    </table>
-    <div class="q">Rappel : \(\alpha + \rho + \tau = 1\) (absorption + réflexion + transmission = 1).</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <table>
-        <thead><tr><th>Matériau</th><th>Comportement</th><th>Conséquence pratique</th></tr></thead>
-        <tbody>
-          <tr><td>Verre ordinaire</td><td><strong>Absorbe</strong> fortement l'IR</td><td>Transparent au visible mais bloque l'IR → effet de serre dans les serres agricoles</td></tr>
-          <tr><td>Métal poli (aluminium)</td><td><strong>Réfléchit</strong> l'IR</td><td>Faible échauffement ; utilisé comme isolant radiant (pare-vapeur réfléchissant)</td></tr>
-          <tr><td>Peinture noire mate</td><td><strong>Absorbe</strong> très fortement l'IR (α ≈ 0,95)</td><td>Se réchauffe vite sous rayonnement ; proche du corps noir idéal</td></tr>
-          <tr><td>CO₂ (gaz)</td><td><strong>Absorbe</strong> de façon sélective l'IR</td><td>Bandes à 4,3 µm et 15 µm → rôle central dans l'effet de serre atmosphérique</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <hr class="sep">
-
-  <!-- ======================================================
-       NIVEAU 2 – APPLICATION DIRECTE
-  ====================================================== -->
-  <div class="niveau-titre">🟡 Niveau 2 – Application directe</div>
-  <p class="niveau-desc">Utiliser les formules du cours dans des situations simples et guidées.</p>
-
-  <!-- EXO 4 : Loi de Wien -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 4</span>
-      <span class="exo-title">Loi de Wien – calculer la longueur d'onde du pic d'émission</span>
-      <span class="diff diff-2">Niveau 2</span>
-    </div>
-    <div class="enonce">
-      La loi de Wien permet de trouver la longueur d'onde du pic d'émission d'un corps selon sa température.
-    </div>
-    <div class="formule-box">
-      \(\lambda_{\max} \times T = 2{,}898 \times 10^{-3} \text{ m·K}\)
-      &nbsp;&nbsp; soit &nbsp;&nbsp;
-      \(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{T}\)
-      <small>λ<sub>max</sub> en mètres (m) &nbsp;|&nbsp; T en kelvins (K) &nbsp;|&nbsp; Conversion : T(K) = T(°C) + 273</small>
-    </div>
-    <div class="donnees">
-      <strong>Données</strong>
-      <ul style="margin:4px 0;padding-left:18px">
-        <li>Corps humain : T = 37 °C</li>
-        <li>Surface du Soleil : T = 5 780 K</li>
-        <li>Mur extérieur d'un bâtiment : T = 15 °C</li>
-        <li>1 µm = 10⁻⁶ m &nbsp;|&nbsp; 1 nm = 10⁻⁹ m &nbsp;|&nbsp; Visible : 400 à 780 nm</li>
-      </ul>
-    </div>
-    <div class="q"><strong>1.</strong> Convertir 37 °C et 15 °C en kelvins.</div>
-    <div class="q"><strong>2.</strong> Calculer λ<sub>max</sub> pour le corps humain à 37 °C. Donner le résultat en µm. Dans quel domaine spectral ?</div>
-    <div class="q"><strong>3.</strong> Calculer λ<sub>max</sub> pour la surface du Soleil à 5 780 K. Donner le résultat en nm. Dans quel domaine spectral ?</div>
-    <div class="q"><strong>4.</strong> Calculer λ<sub>max</sub> pour le mur à 15 °C. Commenter.</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <span class="etape">1. Conversion en kelvins :</span>
-      <p>T(corps humain) = 37 + 273 = <strong>310 K</strong> &nbsp;|&nbsp; T(mur) = 15 + 273 = <strong>288 K</strong></p>
-      <span class="etape">2. Corps humain (310 K) :</span>
-      <p>\(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{310} \approx 9{,}35 \times 10^{-6} \text{ m} = \mathbf{9{,}35 \; \mu\text{m}}\)</p>
-      <p>→ <strong>Infrarouge moyen</strong>. Invisible à l'œil nu, détectable par une caméra thermique.</p>
-      <span class="etape">3. Soleil (5 780 K) :</span>
-      <p>\(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{5780} \approx 5{,}01 \times 10^{-7} \text{ m} = \mathbf{501 \text{ nm}}\)</p>
-      <p>→ Domaine <strong>visible</strong> (lumière verte-jaune). On perçoit directement la lumière du Soleil.</p>
-      <span class="etape">4. Mur à 15 °C (288 K) :</span>
-      <p>\(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{288} \approx 10{,}1 \times 10^{-6} \text{ m} = \mathbf{10{,}1 \; \mu\text{m}}\)</p>
-      <p>→ <strong>Infrarouge moyen</strong>. Ce rayonnement est invisible mais constitue une perte de chaleur détectable par caméra thermique lors d'un diagnostic énergétique.</p>
-    </div>
-  </div>
-
-  <!-- EXO 5 : α + ρ + τ = 1 -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 5</span>
-      <span class="exo-title">Coefficients d'absorption, de réflexion et de transmission</span>
-      <span class="diff diff-2">Niveau 2</span>
-    </div>
-    <div class="enonce">
-      Pour tout matériau soumis à un rayonnement : \(\alpha + \rho + \tau = 1\). Retrouver le coefficient manquant dans chaque ligne.
-    </div>
-    <table>
-      <thead>
-        <tr><th>Matériau</th><th>α (absorption)</th><th>ρ (réflexion)</th><th>τ (transmission)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Verre ordinaire (pour l'IR)</td><td>0,95</td><td>0,04</td><td style="color:#6f42c1;font-weight:700">?</td></tr>
-        <tr><td>Aluminium poli</td><td>0,05</td><td style="color:#6f42c1;font-weight:700">?</td><td>0,00</td></tr>
-        <tr><td>Peinture noire mate</td><td style="color:#6f42c1;font-weight:700">?</td><td>0,04</td><td>0,01</td></tr>
-        <tr><td>Vitre plastique (serre)</td><td>0,10</td><td>0,05</td><td style="color:#6f42c1;font-weight:700">?</td></tr>
-      </tbody>
-    </table>
-    <div class="q"><strong>Bonus :</strong> Quel matériau se rapproche le plus d'un corps noir idéal (α = 1) ? Quel est son intérêt pratique ?</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <span class="etape">Méthode : le coefficient manquant = 1 − (somme des deux autres)</span>
-      <table>
-        <thead><tr><th>Matériau</th><th>α</th><th>ρ</th><th>τ</th></tr></thead>
-        <tbody>
-          <tr><td>Verre ordinaire</td><td>0,95</td><td>0,04</td><td><strong>0,01</strong></td></tr>
-          <tr><td>Aluminium poli</td><td>0,05</td><td><strong>0,95</strong></td><td>0,00</td></tr>
-          <tr><td>Peinture noire mate</td><td><strong>0,95</strong></td><td>0,04</td><td>0,01</td></tr>
-          <tr><td>Vitre plastique</td><td>0,10</td><td>0,05</td><td><strong>0,85</strong></td></tr>
-        </tbody>
-      </table>
-      <p><strong>Bonus :</strong> La <strong>peinture noire mate</strong> (α = 0,95) est la plus proche du corps noir idéal. Elle est utilisée dans les <strong>capteurs solaires thermiques</strong> pour maximiser l'absorption du rayonnement et chauffer un fluide caloporteur.</p>
-    </div>
-  </div>
-
-  <!-- EXO 6 : Graphique CO₂ -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 6</span>
-      <span class="exo-title">Lire un graphique – Évolution du CO₂ atmosphérique</span>
-      <span class="diff diff-2">Niveau 2</span>
-    </div>
-    <div class="enonce">
-      Le graphique ci-dessous montre l'évolution de la concentration en CO₂ dans l'atmosphère depuis 1850. Analyser et répondre aux questions.
-    </div>
-    <div class="chart-wrap">
-      <h3>Concentration en CO₂ atmosphérique (1850–2024)</h3>
-      <canvas id="chartCO2" height="220"></canvas>
-      <p style="font-size:.8em;color:#718096;text-align:center;margin-top:6px">Source : données NOAA / Mauna Loa (valeurs représentatives)</p>
-    </div>
-    <div class="q"><strong>1.</strong> Quelle était la concentration en CO₂ vers 1850 ?</div>
-    <div class="q"><strong>2.</strong> Quelle est la concentration en CO₂ en 2024 ?</div>
-    <div class="q"><strong>3.</strong> Calculer l'augmentation en ppm et en pourcentage depuis 1850.</div>
-    <div class="q"><strong>4.</strong> À partir de quelle période la hausse s'accélère-t-elle ? Proposer une explication.</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> Vers 1850 : concentration ≈ <strong>280 ppm</strong>.</p>
-      <p><strong>2.</strong> En 2024 : concentration ≈ <strong>422 ppm</strong>.</p>
-      <span class="etape">3. Calcul de l'augmentation :</span>
-      <p>• En ppm : 422 − 280 = <strong>+142 ppm</strong></p>
-      <p>• En % : \(\dfrac{142}{280} \times 100 \approx \mathbf{+50{,}7\%}\)</p>
-      <p><strong>4.</strong> L'augmentation s'accélère nettement à partir des <strong>années 1950–1960</strong>, période d'industrialisation mondiale intense et d'explosion de la consommation de combustibles fossiles (charbon, pétrole, gaz naturel).</p>
-    </div>
-  </div>
-
-  <hr class="sep">
-
-  <!-- ======================================================
-       NIVEAU 3 – PROBLÈMES CONTEXTUALISÉS
-  ====================================================== -->
-  <div class="niveau-titre">🟠 Niveau 3 – Problèmes contextualisés</div>
-  <p class="niveau-desc">Situations concrètes liées aux métiers du bâtiment, de la maintenance et de l'énergie.</p>
-
-  <!-- EXO 7 : Diagnostic bâtiment -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 7</span>
-      <span class="exo-title">Diagnostic énergétique d'un bâtiment à la caméra thermique</span>
-      <span class="diff diff-3">Niveau 3</span>
-      <span class="metier">🏠 Bâtiment / Énergie</span>
-    </div>
-    <div class="enonce">
-      Un technicien thermicien réalise un diagnostic énergétique d'une maison en hiver depuis l'extérieur. La température extérieure est de 5 °C et l'intérieur est chauffé à 19 °C. Il observe le thermogramme simplifié suivant.
-    </div>
-
-    <!-- Thermogramme SVG bâtiment -->
-    <div class="svg-wrap">
-      <svg width="520" height="255" viewBox="0 0 520 255" xmlns="http://www.w3.org/2000/svg">
-        <rect width="520" height="255" fill="#0c1117" rx="8"/>
-        <rect x="0" y="210" width="520" height="45" fill="#1a2535"/>
-        <!-- Mur (bleu froid) -->
-        <rect x="60" y="60" width="300" height="155" rx="4" fill="#1e3a5f"/>
-        <!-- Ponts thermiques angles (orange) -->
-        <rect x="59" y="59" width="20" height="20" rx="2" fill="#f97316" opacity=".85"/>
-        <rect x="59" y="195" width="20" height="20" rx="2" fill="#f97316" opacity=".75"/>
-        <!-- Fenêtre (froid) -->
-        <rect x="110" y="100" width="100" height="70" rx="3" fill="#0f2a45"/>
-        <line x1="160" y1="100" x2="160" y2="170" stroke="#1e3a5f" stroke-width="2"/>
-        <line x1="110" y1="135" x2="210" y2="135" stroke="#1e3a5f" stroke-width="2"/>
-        <!-- Joints défaillants (rouge) -->
-        <rect x="110" y="100" width="100" height="4" rx="1" fill="#ef4444" opacity=".9"/>
-        <rect x="110" y="166" width="100" height="4" rx="1" fill="#ef4444" opacity=".9"/>
-        <rect x="110" y="100" width="4" height="70" rx="1" fill="#ef4444" opacity=".9"/>
-        <rect x="206" y="100" width="4" height="70" rx="1" fill="#ef4444" opacity=".9"/>
-        <!-- Porte (légèrement plus chaude) -->
-        <rect x="240" y="120" width="60" height="95" rx="3" fill="#2d5a8e"/>
-        <circle cx="255" cy="168" r="4" fill="#60a5fa"/>
-        <!-- Toiture (froid) -->
-        <polygon points="30,65 360,65 390,30 0,30" fill="#162036"/>
-        <!-- Zone déperdition toiture -->
-        <rect x="180" y="30" width="80" height="15" rx="2" fill="#fb923c" opacity=".7"/>
-        <!-- Cheminée chaude -->
-        <rect x="290" y="0" width="30" height="50" rx="3" fill="#fbbf24"/>
-        <text x="305" y="28" text-anchor="middle" font-size="9" fill="#78350f" font-weight="bold">cheminée</text>
-        <!-- Labels -->
-        <text x="305" y="140" text-anchor="middle" font-size="11" fill="#93c5fd">Mur → 8 °C</text>
-        <text x="160" y="148" text-anchor="middle" font-size="10" fill="#bfdbfe">Fenêtre → 5 °C</text>
-        <text x="270" y="178" text-anchor="middle" font-size="10" fill="#93c5fd">Porte → 10 °C</text>
-        <text x="220" y="22" text-anchor="middle" font-size="9" fill="#fed7aa">Fuite toit → 14 °C</text>
-        <!-- Palette -->
-        <defs>
-          <linearGradient id="pal" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%"   stop-color="#1e3a6e"/>
-            <stop offset="40%"  stop-color="#7c3aed"/>
-            <stop offset="65%"  stop-color="#f97316"/>
-            <stop offset="85%"  stop-color="#ef4444"/>
-            <stop offset="100%" stop-color="#fbbf24"/>
-          </linearGradient>
-        </defs>
-        <rect x="440" y="20" width="18" height="200" rx="3" fill="url(#pal)"/>
-        <text x="462" y="25"  font-size="9" fill="#e2e8f0">20 °C</text>
-        <text x="462" y="120" font-size="9" fill="#e2e8f0">10 °C</text>
-        <text x="462" y="222" font-size="9" fill="#e2e8f0"> 3 °C</text>
-        <text x="260" y="248" text-anchor="middle" font-size="10" fill="#64748b">Thermogramme façade (vue extérieure, hiver)</text>
-      </svg>
-    </div>
-
-    <div class="q"><strong>1.</strong> Sur le thermogramme, quelles zones sont les plus chaudes ? Que cela indique-t-il ?</div>
-    <div class="q"><strong>2.</strong> Les joints de la fenêtre apparaissent en rouge vif. Quelle anomalie cela révèle-t-il ?</div>
-    <div class="q"><strong>3.</strong> Citer deux mesures correctives que le technicien pourrait recommander.</div>
-    <div class="q"><strong>4.</strong> Pourquoi la caméra thermique est-elle utilisée en hiver et depuis l'extérieur ? Aurait-on le même résultat en été ?</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> Les zones les plus chaudes (joints, angle toiture, cheminée) correspondent à des <strong>déperditions de chaleur</strong> : l'air chaud intérieur s'échappe et réchauffe la surface extérieure à ces endroits.</p>
-      <p><strong>2.</strong> Les joints rouges révèlent un <strong>joint défaillant</strong> : l'air chaud fuit directement par les bords de la fenêtre. C'est une source importante de perte d'énergie.</p>
-      <p><strong>3.</strong> Mesures correctives :
-      <br>• <strong>Remplacer les joints</strong> de fenêtre (simple et peu coûteux).
-      <br>• Installer un <strong>double ou triple vitrage</strong> pour mieux isoler.
-      <br>• Traiter les <strong>ponts thermiques</strong> par isolation extérieure (ITE).</p>
-      <p><strong>4.</strong> En hiver, l'écart intérieur/extérieur est grand (ici 14 °C) : les fuites de chaleur sont bien visibles sur le thermogramme. En été, si les températures sont proches, il n'y a pas de flux thermique significatif et les anomalies sont indétectables.</p>
-    </div>
-  </div>
-
-  <!-- EXO 8 : Maintenance électrique -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 8</span>
-      <span class="exo-title">Maintenance électrique – détecter un point chaud sur un tableau</span>
-      <span class="diff diff-3">Niveau 3</span>
-      <span class="metier">⚡ Électricité / Maintenance</span>
-    </div>
-    <div class="enonce">
-      Un technicien de maintenance contrôle un tableau électrique basse tension à l'aide d'une caméra thermique, sans couper l'alimentation. Le disjoncteur du départ moteur n°3 apparaît en rouge vif à 78 °C, alors que les disjoncteurs voisins sont à 32 °C.
-    </div>
-    <div class="donnees">
-      <strong>Données</strong>
-      <ul style="margin:4px 0;padding-left:18px">
-        <li>Température disjoncteur normal : 32 °C</li>
-        <li>Température disjoncteur défaillant : 78 °C</li>
-        <li>Seuil d'alarme : +30 °C par rapport aux composants voisins</li>
-        <li>Constante de Wien : 2,898 × 10⁻³ m·K</li>
-      </ul>
-    </div>
-    <div class="q"><strong>1.</strong> Calculer l'écart de température entre le disjoncteur défaillant et les voisins. Y a-t-il dépassement du seuil d'alarme ?</div>
-    <div class="q"><strong>2.</strong> Donner deux causes possibles de cet échauffement.</div>
-    <div class="q"><strong>3.</strong> Quel est l'avantage de la caméra thermique pour cette opération de maintenance ?</div>
-    <div class="q"><strong>4.</strong> Calculer λ<sub>max</sub> pour le disjoncteur à 78 °C. Confirmer qu'il émet dans l'infrarouge.</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <span class="etape">1. Écart de température :</span>
-      <p>ΔT = 78 − 32 = <strong>+46 °C</strong>. C'est supérieur au seuil de 30 °C → <strong>alarme déclenchée</strong>, intervention nécessaire.</p>
-      <p><strong>2.</strong> Causes possibles :
-      <br>• <strong>Connexion électrique desserrée</strong> → résistance de contact élevée → échauffement par effet Joule.
-      <br>• <strong>Surcharge de courant</strong> sur le circuit moteur.</p>
-      <p><strong>3.</strong> La caméra thermique permet un contrôle <strong>à distance, sans coupure de l'alimentation</strong>, non destructif et rapide : c'est une technique de <strong>maintenance préventive</strong>.</p>
-      <span class="etape">4. Loi de Wien (78 °C = 351 K) :</span>
-      <p>\(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{351} \approx 8{,}3 \times 10^{-6} \text{ m} = \mathbf{8{,}3 \; \mu\text{m}}\)</p>
-      <p>→ 8,3 µm est bien dans l'<strong>infrarouge moyen</strong> : la caméra thermique peut le détecter.</p>
-    </div>
-  </div>
-
-  <hr class="sep">
-
-  <!-- ======================================================
-       NIVEAU 4 – EXERCICES PLUS COMPLETS
-  ====================================================== -->
-  <div class="niveau-titre">🔴 Niveau 4 – Exercices plus complets</div>
-  <p class="niveau-desc">Plusieurs étapes de raisonnement. Niveau Bac Professionnel.</p>
-
-  <!-- EXO 9 : Comparer les GES -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 9</span>
-      <span class="exo-title">Comparer les gaz à effet de serre – PRG et origines</span>
-      <span class="diff diff-4">Niveau 4</span>
-    </div>
-    <div class="enonce">
-      Analyser le tableau des principaux gaz à effet de serre et répondre aux questions.
-    </div>
-    <table>
-      <thead>
-        <tr><th>Gaz</th><th>Formule</th><th>PRG (100 ans)</th><th>Durée de vie</th><th>Sources humaines principales</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Dioxyde de carbone</td><td>CO₂</td><td><strong>1</strong> (référence)</td><td>100–300 ans</td><td>Combustibles fossiles, déforestation</td></tr>
-        <tr><td>Méthane</td><td>CH₄</td><td><strong>28–36</strong></td><td>~12 ans</td><td>Élevage, décharges, gaz naturel</td></tr>
-        <tr><td>Protoxyde d'azote</td><td>N₂O</td><td><strong>265–298</strong></td><td>~114 ans</td><td>Engrais azotés, élevage intensif</td></tr>
-        <tr><td>HFC-134a (réfrigérant)</td><td>CH₂FCF₃</td><td><strong>1 430</strong></td><td>~14 ans</td><td>Réfrigération, climatisation, PAC</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:.85em;color:#718096">PRG : Potentiel de Réchauffement Global — combien de fois un gaz est plus réchauffant que le CO₂ pour une même masse émise.</p>
-    <div class="q"><strong>1.</strong> Quel gaz a le PRG le plus élevé ? Combien de fois est-il plus réchauffant que le CO₂ ?</div>
-    <div class="q"><strong>2.</strong> 1 kg de CH₄ rejeté équivaut à combien de kg de CO₂ ? (Prendre PRG = 30.)</div>
-    <div class="q"><strong>3.</strong> En tant que technicien ICCER, pourquoi est-il important de veiller à l'étanchéité des circuits frigorifiques ?</div>
-    <div class="q"><strong>4.</strong> Le CO₂ a le PRG le plus faible mais reste le principal responsable du réchauffement. Expliquer ce paradoxe.</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> Le <strong>HFC-134a</strong> (PRG = 1 430) est 1 430 fois plus réchauffant que le CO₂ à masse égale.</p>
-      <span class="etape">2. Équivalent CO₂ du méthane (PRG = 30) :</span>
-      <p>1 kg de CH₄ = 30 × 1 kg CO₂ = <strong>30 kg CO₂ équivalent</strong>.</p>
-      <p><strong>3.</strong> Le HFC-134a est utilisé comme <strong>fluide frigorigène</strong> dans les climatiseurs et PAC. Une fuite dans l'atmosphère représente un impact climatique très élevé (PRG = 1 430). Il faut vérifier l'étanchéité, récupérer les fluides en fin de vie et utiliser des fluides à faible PRG.</p>
-      <p><strong>4.</strong> Le CO₂ est émis en <strong>quantités considérables</strong> (plus de 37 milliards de tonnes/an). C'est la <strong>quantité × PRG = CO₂ équivalent</strong> qui compte : même avec un PRG de 1, le CO₂ domine le bilan global à cause de ses émissions massives.</p>
-    </div>
-  </div>
-
-  <!-- EXO 10 : Analyse documentaire -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 10</span>
-      <span class="exo-title">Analyse documentaire – Comprendre l'effet de serre</span>
-      <span class="diff diff-4">Niveau 4</span>
-    </div>
-    <div class="enonce">
-      <strong>Document :</strong> L'atmosphère terrestre joue le rôle d'un filtre sélectif. Le rayonnement solaire (~5 780 K) traverse l'atmosphère presque sans absorption : l'atmosphère est <em>transparente</em> dans le visible. La surface terrestre, réchauffée à ~288 K, ré-émet ce rayonnement sous forme d'infrarouge (~10 µm). Les gaz à effet de serre (H₂O, CO₂, CH₄, N₂O) absorbent partiellement ce rayonnement IR et le ré-émettent dans toutes les directions, dont une partie vers la surface. Ce mécanisme maintient la température moyenne à +15 °C au lieu de −18 °C sans atmosphère.<br><br>
-      Depuis 1850, la concentration en CO₂ est passée de 280 ppm à ~422 ppm. Cela amplifie l'effet de serre et provoque un réchauffement estimé à +1,2 °C (GIEC, 2023).
-    </div>
-    <div class="q"><strong>1.</strong> Pourquoi le rayonnement solaire traverse-t-il l'atmosphère sans être absorbé, alors que le rayonnement IR de la Terre est partiellement bloqué ?</div>
-    <div class="q"><strong>2.</strong> Expliquer en 3 étapes simples le mécanisme de l'effet de serre naturel.</div>
-    <div class="q"><strong>3.</strong> Sans l'effet de serre naturel, quelle serait la température à la surface de la Terre ? Quel serait l'impact sur la vie ?</div>
-    <div class="q"><strong>4.</strong> Quelle est la différence entre l'effet de serre naturel et l'amplification par l'activité humaine ?</div>
-    <div class="q"><strong>5.</strong> Citer deux actions concrètes qu'un technicien ICCER peut mener pour réduire son impact sur l'effet de serre.</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <p><strong>1.</strong> Le Soleil émet dans le <strong>visible</strong> (400–780 nm) : l'atmosphère y est transparente. La Terre émet dans l'<strong>IR</strong> (~10 µm) : les molécules de GES absorbent ces longueurs d'onde par résonance moléculaire.</p>
-      <span class="etape">2. Les 3 étapes de l'effet de serre :</span>
-      <ol>
-        <li>Le rayonnement solaire (visible) traverse l'atmosphère et réchauffe la surface terrestre.</li>
-        <li>La surface réchauffée émet un rayonnement infrarouge vers l'atmosphère.</li>
-        <li>Les GES absorbent ce rayonnement IR et le ré-émettent en partie vers la Terre → réchauffement supplémentaire de la surface.</li>
-      </ol>
-      <p><strong>3.</strong> Sans effet de serre : <strong>−18 °C</strong> en moyenne. L'eau liquide n'existerait presque pas à la surface → la vie telle que nous la connaissons serait impossible.</p>
-      <p><strong>4.</strong> L'effet de serre <strong>naturel</strong> est stable depuis des millénaires. L'<strong>amplification anthropique</strong> est due aux émissions humaines (combustibles fossiles, déforestation…) qui augmentent la concentration en GES au-delà des niveaux naturels → réchauffement climatique supplémentaire.</p>
-      <p><strong>5.</strong> Actions concrètes pour un technicien ICCER :
-      <br>• <strong>Limiter les fuites de fluides frigorigènes</strong> à fort PRG (HFC) → récupérer les fluides en fin de vie.
-      <br>• <strong>Installer des équipements économes</strong> (PAC haute efficacité, isolation renforcée) pour réduire la consommation de combustibles fossiles.</p>
-    </div>
-  </div>
-
-  <!-- EXO 11 : Synthèse -->
-  <div class="exo">
-    <div class="exo-header">
-      <span class="exo-num">Exercice 11</span>
-      <span class="exo-title">Synthèse – Audit énergétique d'une PME industrielle</span>
-      <span class="diff diff-4">Niveau 4</span>
-      <span class="metier">🏭 Industrie / Énergie</span>
-    </div>
-    <div class="enonce">
-      Une PME fait appel à un bureau d'études pour un audit énergétique. Le technicien relève :<br><br>
-      • <strong>Toiture</strong> : bac acier non isolé, température de surface mesurée = 12 °C (extérieur 5 °C, intérieur 17 °C).<br>
-      • <strong>Tableau électrique</strong> : un câble présente une température de 95 °C, les câbles voisins sont à 38 °C.<br>
-      • <strong>Groupe froid</strong> : fluide HFC-404A (PRG = 3 920), charge = 8 kg, fuite annuelle estimée à 15 %.
-    </div>
-    <div class="donnees">
-      <strong>Données</strong>
-      <ul style="margin:4px 0;padding-left:18px">
-        <li>Constante de Wien : 2,898 × 10⁻³ m·K</li>
-        <li>Seuil d'alerte câble BT : ΔT &gt; 20 °C par rapport aux câbles voisins</li>
-        <li>PRG du HFC-404A : 3 920</li>
-      </ul>
-    </div>
-    <div class="q"><strong>1.</strong> Calculer λ<sub>max</sub> pour la toiture à 12 °C. Confirmer le domaine spectral détecté par la caméra thermique.</div>
-    <div class="q"><strong>2.</strong> Calculer l'écart de température du câble. Y a-t-il un risque ? Quelle action préconiser ?</div>
-    <div class="q"><strong>3.</strong> Calculer la masse de fluide HFC-404A perdue chaque année. Calculer l'équivalent CO₂ de cette fuite.</div>
-    <div class="q"><strong>4.</strong> Classer les 3 anomalies par ordre de priorité d'intervention (sécurité, environnement, efficacité énergétique) et justifier.</div>
-    <div class="zone-rep">Zone de réponse…</div>
-    <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr">
-      <span class="etape">1. Loi de Wien – toiture (12 °C = 285 K) :</span>
-      <p>\(\lambda_{\max} = \dfrac{2{,}898 \times 10^{-3}}{285} \approx 10{,}2 \times 10^{-6} \text{ m} = \mathbf{10{,}2 \; \mu\text{m}}\)</p>
-      <p>→ Infrarouge moyen (8–15 µm) : bien détectable par une caméra thermique.</p>
-      <span class="etape">2. Câble électrique :</span>
-      <p>ΔT = 95 − 38 = <strong>+57 °C</strong> &gt; seuil de 20 °C → risque <strong>incendie</strong>. Action : consigner le circuit immédiatement, identifier la cause (connexion desserrée, surcharge) et réparer avant remise en service.</p>
-      <span class="etape">3. Fuite fluide frigorigène :</span>
-      <p>Masse perdue/an = 8 × 15 % = <strong>1,2 kg/an</strong></p>
-      <p>Équivalent CO₂ = 1,2 × 3 920 = <strong>4 704 kg CO₂ eq/an</strong> (~4,7 tonnes)</p>
-      <span class="etape">4. Ordre de priorité :</span>
-      <ol>
-        <li>🔴 <strong>URGENCE – Sécurité :</strong> câble en surchauffe (ΔT = +57 °C) → risque incendie immédiat.</li>
-        <li>🟠 <strong>ENVIRONNEMENT :</strong> fuite fluide frigorigène (4,7 t CO₂ eq/an) → réparer et envisager un fluide à faible PRG.</li>
-        <li>🟡 <strong>EFFICACITÉ ÉNERGÉTIQUE :</strong> toiture non isolée → isoler pour réduire les pertes thermiques et la facture de chauffage.</li>
-      </ol>
-    </div>
-  </div>
-
+<div class="intro-box">
+  <strong>Rappels du cours — formules essentielles</strong>
+  <p><strong>Demi-équation d'oxydation (réducteur perd des électrons) :</strong><br>
+  \[\mathrm{Red \longrightarrow Ox + n\,e^-}\]</p>
+  <p><strong>Demi-équation de réduction (oxydant gagne des électrons) :</strong><br>
+  \[\mathrm{Ox + n\,e^- \longrightarrow Red}\]</p>
+  <p><strong>Équation bilan :</strong> on additionne les deux demi-équations en égalisant le nombre d'électrons échangés.</p>
+  <p><strong>Couples redox classiques et potentiels standard :</strong></p>
+  <table style="width:100%;border-collapse:collapse;font-size:.93em">
+    <tr style="background:var(--p-bg)"><th style="padding:4px 8px;border:1px solid var(--p-border)">Couple</th><th style="padding:4px 8px;border:1px solid var(--p-border)">E° (V)</th><th style="padding:4px 8px;border:1px solid var(--p-border)">Caractère</th></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{Zn^{2+}/Zn}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">−0,76 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">Zn : réducteur très fort</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{Fe^{2+}/Fe}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">−0,44 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">Fe : réducteur fort</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{H^+/H_2}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">0,00 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">référence</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{Cu^{2+}/Cu}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">+0,34 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">Cu²⁺ : oxydant modéré</td></tr>
+    <tr><td style="padding:4px 8px;border:1px solid var(--p-border)">\(\mathrm{O_2/H_2O}\)</td><td style="padding:4px 8px;border:1px solid var(--p-border)">+1,23 V</td><td style="padding:4px 8px;border:1px solid var(--p-border)">O₂ : oxydant fort</td></tr>
+  </table>
+  <p style="margin-top:8px"><strong>Règle du gamma :</strong> la réaction spontanée met en jeu l'oxydant du couple de E° le plus élevé avec le réducteur du couple de E° le plus faible.</p>
+  <p><strong>Force électromotrice d'une pile :</strong> \(E = E°_\text{cathode} - E°_\text{anode}\) &nbsp; (cathode = réduction, anode = oxydation)</p>
+  <p><strong>Quantité d'électrons et masse déposée :</strong> \(Q = I \times t\) &nbsp;|&nbsp; \(n(e^-) = \dfrac{Q}{F}\) (F = 96 500 C/mol) &nbsp;|&nbsp; \(m = n \times M\)</p>
+  <p><strong>Protection cathodique :</strong> l'anode sacrificielle (métal de E° inférieur) s'oxyde à la place du métal à protéger.</p>
+  <p><strong>Épaisseur de dépôt :</strong> \(e = \dfrac{m}{\rho \times S}\)</p>
 </div>
 
-<script>
-// Graphique Chart.js — CO₂
-(function(){
-  const ctx = document.getElementById('chartCO2').getContext('2d');
-  const annees = [1850,1870,1890,1910,1930,1950,1960,1970,1980,1990,2000,2010,2015,2020,2024];
-  const co2    = [280,285,290,295,308,311,317,325,339,354,369,390,401,413,422];
-  new Chart(ctx,{
-    type:'line',
-    data:{
-      labels:annees,
-      datasets:[{
-        label:'CO₂ (ppm)',
-        data:co2,
-        borderColor:'#6f42c1',
-        backgroundColor:'rgba(111,66,193,0.08)',
-        borderWidth:2.5,
-        pointRadius:4,
-        pointBackgroundColor:'#6f42c1',
-        tension:0.3,
-        fill:true
-      }]
-    },
-    options:{
-      responsive:true,
-      plugins:{legend:{display:true,labels:{font:{size:12}}}},
-      scales:{
-        x:{title:{display:true,text:'Année',font:{size:12}},grid:{color:'#f0f0f0'}},
-        y:{title:{display:true,text:'Concentration (ppm)',font:{size:12}},min:260,max:440,ticks:{stepSize:20},grid:{color:'#f0f0f0'}}
-      }
-    }
-  });
-})();
+<h2>Exercices de base</h2>
 
-function toggle(btn){
-  const c=btn.nextElementSibling;
-  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
-  else{c.style.display='block';btn.textContent='Masquer la correction';}
-}
-function showQcm(btn,id){
-  const d=document.getElementById(id);
-  if(d.style.display==='block'){d.style.display='none';btn.textContent='Vérifier';}
-  else{d.style.display='block';btn.textContent='Masquer';}
-}
-</script>
-<script src="/nav.js"></script>
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 1</span>
+    <span class="exo-title">Identifier oxydant et réducteur — réaction Fe / CuSO₄</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>On plonge un clou en fer dans une solution de sulfate de cuivre CuSO₄. On observe le dépôt d'un solide rougeâtre (cuivre) sur le clou et la disparition progressive des ions Cu²⁺ en solution.</p>
+  <p>La réaction bilan observée est : \(\mathrm{Fe + CuSO_4 \longrightarrow FeSO_4 + Cu}\)</p>
+  <p class="q"><strong>1.</strong> Identifier l'oxydant et le réducteur dans cette réaction. Justifier en indiquant quelle espèce perd ou gagne des électrons.</p>
+  <p class="q"><strong>2.</strong> Écrire la demi-équation d'oxydation (le réducteur cède ses électrons).</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-équation de réduction (l'oxydant capte les électrons).</p>
+  <p class="q"><strong>4.</strong> Vérifier que la somme des deux demi-équations redonne bien l'équation bilan.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Dans cette réaction :<br>
+    — Le <strong>fer Fe</strong> passe de l'état 0 à l'état Fe²⁺ : il <strong>perd des électrons</strong> → c'est le <strong>réducteur</strong>.<br>
+    — L'ion <strong>Cu²⁺</strong> passe de Cu²⁺ à Cu (état 0) : il <strong>gagne des électrons</strong> → c'est l'<strong>oxydant</strong>.</p>
+    <p><strong>2.</strong> Demi-équation d'oxydation (Fe cède 2 e⁻) :
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]</p>
+    <p><strong>3.</strong> Demi-équation de réduction (Cu²⁺ capte 2 e⁻) :
+    \[\mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu}\]</p>
+    <p><strong>4.</strong> Vérification : les deux demi-équations échangent 2 e⁻ chacune — on les additionne directement :
+    \[\mathrm{Fe + Cu^{2+} + 2\,e^- \longrightarrow Fe^{2+} + Cu + 2\,e^-}\]
+    Après simplification des 2 e⁻ :
+    \[\boxed{\mathrm{Fe_{(s)} + Cu^{2+}_{(aq)} \longrightarrow Fe^{2+}_{(aq)} + Cu_{(s)}}}\]
+    Ce qui correspond bien à \(\mathrm{Fe + CuSO_4 \longrightarrow FeSO_4 + Cu}\) ✓</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 2</span>
+    <span class="exo-title">Comparer le pouvoir réducteur et oxydant — Zn²⁺/Zn et Cu²⁺/Cu</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>On donne les potentiels standard des couples redox :<br>
+  \(E°(\mathrm{Zn^{2+}/Zn}) = -0{,}76\text{ V}\) &nbsp;&nbsp; et &nbsp;&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)</p>
+  <p class="q"><strong>1.</strong> Lequel des deux métaux (Zn ou Cu) est le meilleur réducteur ? Justifier en utilisant les valeurs de E°.</p>
+  <p class="q"><strong>2.</strong> Lequel des deux ions (Zn²⁺ ou Cu²⁺) est le meilleur oxydant ? Justifier.</p>
+  <p class="q"><strong>3.</strong> D'après la règle du gamma, la réaction entre Zn et Cu²⁺ est-elle spontanée ? Et la réaction entre Cu et Zn²⁺ ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le <strong>meilleur réducteur</strong> est le métal dont le E° est le plus <strong>faible</strong> (négatif).<br>
+    E°(Zn²⁺/Zn) = −0,76 V &lt; E°(Cu²⁺/Cu) = +0,34 V<br>
+    → Le <strong>zinc Zn</strong> est le meilleur réducteur des deux.</p>
+    <p><strong>2.</strong> Le <strong>meilleur oxydant</strong> est l'ion dont le E° est le plus <strong>élevé</strong> (positif).<br>
+    E°(Cu²⁺/Cu) = +0,34 V &gt; E°(Zn²⁺/Zn) = −0,76 V<br>
+    → L'ion <strong>Cu²⁺</strong> est le meilleur oxydant des deux.</p>
+    <p><strong>3.</strong> D'après la règle du gamma, la réaction spontanée oppose l'oxydant de E° le plus élevé et le réducteur de E° le plus faible :<br>
+    — Réaction Zn + Cu²⁺ : E°(Cu²⁺/Cu) = +0,34 V &gt; E°(Zn²⁺/Zn) = −0,76 V → <strong>réaction spontanée ✓</strong><br>
+    — Réaction Cu + Zn²⁺ : ce serait le sens inverse → <strong>non spontanée ✗</strong> (le cuivre ne peut pas réduire les ions Zn²⁺)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 3</span>
+    <span class="exo-title">La rouille — réaction de corrosion du fer en milieu aéré</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Le fer se corrode en présence d'eau et de dioxygène O₂ dissous. Les deux couples redox en jeu sont :<br>
+  \(\mathrm{Fe^{2+}/Fe}\) (\(E° = -0{,}44\text{ V}\)) et \(\mathrm{O_2/H_2O}\) (\(E° = +1{,}23\text{ V}\))</p>
+  <p class="q"><strong>1.</strong> D'après les valeurs de E°, quel est l'oxydant et quel est le réducteur dans la réaction de corrosion ?</p>
+  <p class="q"><strong>2.</strong> Écrire la demi-équation de réduction de O₂ en milieu acide : \(\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\). Vérifier l'équilibre des charges.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-équation d'oxydation du fer.</p>
+  <p class="q"><strong>4.</strong> En équilibrant le nombre d'électrons échangés, écrire l'équation bilan de la corrosion du fer. Identifier l'étape d'oxydation et l'étape de réduction.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> E°(O₂/H₂O) = +1,23 V &gt; E°(Fe²⁺/Fe) = −0,44 V<br>
+    → <strong>O₂ est l'oxydant</strong> (E° le plus élevé) ; <strong>Fe est le réducteur</strong> (E° le plus faible).</p>
+    <p><strong>2.</strong> Demi-équation de réduction :
+    \[\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\]
+    Vérification des charges : gauche = 0 + 4(+1) + 4(−1) = 0 ; droite = 0 ✓</p>
+    <p><strong>3.</strong> Demi-équation d'oxydation du fer :
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]</p>
+    <p><strong>4.</strong> O₂ consomme 4 e⁻ et Fe libère 2 e⁻. Il faut multiplier la demi-équation du fer par 2 :
+    \[\mathrm{2\,Fe \longrightarrow 2\,Fe^{2+} + 4\,e^-}\]
+    Addition des deux demi-équations (les 4 e⁻ s'annulent) :
+    \[\boxed{\mathrm{2\,Fe_{(s)} + O_{2(g)} + 4\,H^+_{(aq)} \longrightarrow 2\,Fe^{2+}_{(aq)} + 2\,H_2O_{(l)}}}\]
+    — <strong>Oxydation</strong> : \(\mathrm{2\,Fe \longrightarrow 2\,Fe^{2+} + 4\,e^-}\) (le fer se corrode)<br>
+    — <strong>Réduction</strong> : \(\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\) (le dioxygène est réduit)</p>
+  </div>
+</div>
+
+<h2>Exercices guidés</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 4</span>
+    <span class="exo-title">Pile zinc-cuivre — calcul de la fem</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>On réalise une pile électrochimique avec :<br>
+  — une électrode de zinc (Zn) plongée dans une solution de ZnSO₄ ;<br>
+  — une électrode de cuivre (Cu) plongée dans une solution de CuSO₄.<br>
+  Données : \(E°(\mathrm{Zn^{2+}/Zn}) = -0{,}76\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)</p>
+  <div class="methode">
+    <strong>Méthode :</strong> Dans une pile, l'<strong>anode</strong> est le siège de l'<strong>oxydation</strong> (le métal le plus réducteur, E° le plus faible). La <strong>cathode</strong> est le siège de la <strong>réduction</strong> (E° le plus élevé). La fem est \(E = E°_\text{cathode} - E°_\text{anode}\).
+  </div>
+  <p class="q"><strong>1.</strong> Identifier l'anode et la cathode. Justifier avec les valeurs de E°.</p>
+  <p class="q"><strong>2.</strong> Écrire la demi-réaction à l'anode.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-réaction à la cathode.</p>
+  <p class="q"><strong>4.</strong> Écrire l'équation bilan de la réaction de la pile.</p>
+  <p class="q"><strong>5.</strong> Calculer la force électromotrice E de la pile. Quel métal se dissout lors du fonctionnement de la pile ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> E°(Zn²⁺/Zn) = −0,76 V est le plus faible → <strong>anode = zinc</strong> (oxydation).<br>
+    E°(Cu²⁺/Cu) = +0,34 V est le plus élevé → <strong>cathode = cuivre</strong> (réduction).</p>
+    <p><strong>2.</strong> À l'anode (oxydation du zinc) :
+    \[\mathrm{Zn \longrightarrow Zn^{2+} + 2\,e^-}\]</p>
+    <p><strong>3.</strong> À la cathode (réduction des ions Cu²⁺) :
+    \[\mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu}\]</p>
+    <p><strong>4.</strong> Les deux demi-réactions échangent 2 e⁻. Équation bilan :
+    \[\boxed{\mathrm{Zn_{(s)} + Cu^{2+}_{(aq)} \longrightarrow Zn^{2+}_{(aq)} + Cu_{(s)}}}\]</p>
+    <p><strong>5.</strong> Calcul de la fem :
+    \[E = E°_\text{cathode} - E°_\text{anode} = (+0{,}34) - (-0{,}76) = \mathbf{+1{,}10\text{ V}}\]
+    C'est le <strong>zinc (anode)</strong> qui se dissout progressivement lors du fonctionnement de la pile.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 5</span>
+    <span class="exo-title">Protection par anode sacrificielle — masse de zinc consommée</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Une canalisation en acier (fer) enterrée est protégée par une anode sacrificielle en zinc fixée à la paroi.<br>
+  Données : \(E°(\mathrm{Fe^{2+}/Fe}) = -0{,}44\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Zn^{2+}/Zn}) = -0{,}76\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)<br>
+  \(M_\mathrm{Zn} = 65\text{ g/mol}\) &nbsp;|&nbsp; lors du fonctionnement, \(n(e^-) = 0{,}5\text{ mol}\) ont été échangés.</p>
+  <div class="methode">
+    <strong>Méthode :</strong> La demi-équation d'oxydation du zinc indique le rapport stœchiométrique entre Zn consommé et e⁻ échangés : \(\mathrm{Zn \to Zn^{2+} + 2\,e^-}\), donc 1 mol de Zn → 2 mol e⁻.
+  </div>
+  <p class="q"><strong>1.</strong> Expliquer le principe de protection cathodique par anode sacrificielle.</p>
+  <p class="q"><strong>2.</strong> Pourquoi utilise-t-on du zinc et non du cuivre comme anode sacrificielle pour protéger le fer ? Justifier à l'aide des potentiels standard.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-réaction à l'anode sacrificielle (zinc) et à la cathode (fer).</p>
+  <p class="q"><strong>4.</strong> Si \(n(e^-) = 0{,}5\text{ mol}\) ont été échangés, calculer la quantité de matière de zinc consommée, puis la masse de zinc \(m_\mathrm{Zn}\).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Principe : en mettant en contact électrique un métal de E° inférieur (l'anode sacrificielle, zinc) avec le métal à protéger (fer), on crée une pile. D'après la règle du gamma, c'est le métal de E° le plus faible (zinc) qui s'oxyde en premier. Le fer, rendu cathode, est protégé : il ne se corrode pas.</p>
+    <p><strong>2.</strong> E°(Zn²⁺/Zn) = −0,76 V &lt; E°(Fe²⁺/Fe) = −0,44 V : le zinc est un <strong>meilleur réducteur que le fer</strong>, donc c'est bien lui qui s'oxyde préférentiellement → <strong>zinc adapté ✓</strong><br>
+    E°(Cu²⁺/Cu) = +0,34 V &gt; E°(Fe²⁺/Fe) = −0,44 V : si on mettait du cuivre, c'est le fer qui serait le réducteur le plus fort → il s'oxiderait encore plus vite → <strong>cuivre inadapté ✗</strong></p>
+    <p><strong>3.</strong> À l'anode sacrificielle (zinc, oxydation) :
+    \[\mathrm{Zn \longrightarrow Zn^{2+} + 2\,e^-}\]
+    À la cathode (fer, réduction protégée) :
+    \[\mathrm{Fe^{2+} + 2\,e^- \longrightarrow Fe}\]
+    Le fer est réduit (ou n'est pas oxydé) : il est protégé.</p>
+    <p><strong>4.</strong> D'après la demi-équation, 1 mol de Zn → 2 mol d'électrons.<br>
+    \[n(\mathrm{Zn}) = \dfrac{n(e^-)}{2} = \dfrac{0{,}5}{2} = 0{,}25\text{ mol}\]
+    \[m_\mathrm{Zn} = n \times M = 0{,}25 \times 65 = \mathbf{16{,}25\text{ g}}\]</p>
+  </div>
+</div>
+
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 6</span>
+    <span class="exo-title">Galvanisation — calcul de l'épaisseur de zinc déposée</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>La galvanisation est un procédé de protection de l'acier par dépôt d'une couche de zinc en surface. Une pièce en acier est plongée dans un bain de zinc fondu.<br>
+  Données : masse de zinc déposée \(m_\mathrm{Zn} = 50\text{ g}\), surface de la pièce \(S = 0{,}5\text{ m}^2\), densité du zinc \(\rho_\mathrm{Zn} = 7\,133\text{ kg/m}^3\).<br>
+  Formule de l'épaisseur : \(e = \dfrac{m}{\rho \times S}\)</p>
+  <p class="q"><strong>1.</strong> Citer deux avantages de la galvanisation par rapport à la protection par peinture seule.</p>
+  <p class="q"><strong>2.</strong> Expliquer brièvement pourquoi la galvanisation protège l'acier même si le revêtement est légèrement rayé (aspect redox).</p>
+  <p class="q"><strong>3.</strong> Convertir la masse de zinc en kg, puis calculer l'épaisseur de zinc déposée en mètres. Exprimer le résultat en microomètres (μm).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Avantages de la galvanisation par rapport à la peinture :<br>
+    — <strong>Protection mécanique et électrochimique</strong> : même si le zinc est rayé, il protège encore le fer par protection cathodique (anode sacrificielle).<br>
+    — <strong>Durabilité supérieure</strong> : la couche de zinc résiste à l'abrasion et aux chocs mieux que la peinture, qui peut s'écailler sans assurer de protection électrochimique.</p>
+    <p><strong>2.</strong> Même rayée, la couche de zinc reste en contact électrique avec l'acier. E°(Zn²⁺/Zn) = −0,76 V &lt; E°(Fe²⁺/Fe) = −0,44 V : c'est toujours le zinc qui joue le rôle d'anode sacrificielle et s'oxyde préférentiellement, protégeant le fer.</p>
+    <p><strong>3.</strong> Conversion : \(m_\mathrm{Zn} = 50\text{ g} = 0{,}050\text{ kg}\)<br>
+    \[e = \dfrac{m}{\rho \times S} = \dfrac{0{,}050}{7\,133 \times 0{,}5} = \dfrac{0{,}050}{3\,566{,}5} \approx 1{,}40 \times 10^{-5}\text{ m}\]
+    \[\boxed{e \approx 14\text{ μm}}\]
+    (Une épaisseur typique de galvanisation à chaud est de l'ordre de 50 à 100 μm ; ici on obtient 14 μm, cohérent avec un dépôt léger.)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Électrolyse — dépôt de cuivre (cuivrage)</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>On réalise un dépôt électrolytique de cuivre (cuivrage) sur une pièce en acier.<br>
+  Données : tension U = 6 V, intensité I = 2 A, durée t = 30 min.<br>
+  Demi-équation cathodique : \(\mathrm{Cu^{2+} + 2\,e^- \longrightarrow Cu}\)<br>
+  \(M_\mathrm{Cu} = 64\text{ g/mol}\) &nbsp;|&nbsp; \(F = 96\,500\text{ C/mol}\)</p>
+  <p class="q"><strong>1.</strong> Calculer la charge Q (en coulombs) ayant traversé le circuit.</p>
+  <p class="q"><strong>2.</strong> En déduire la quantité de matière d'électrons \(n(e^-)\).</p>
+  <p class="q"><strong>3.</strong> D'après la demi-équation, calculer la quantité de matière de cuivre déposée \(n(\mathrm{Cu})\).</p>
+  <p class="q"><strong>4.</strong> Calculer la masse de cuivre déposée \(m_\mathrm{Cu}\).</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Conversion : t = 30 min = 30 × 60 = 1 800 s
+    \[Q = I \times t = 2 \times 1\,800 = \mathbf{3\,600\text{ C}}\]</p>
+    <p><strong>2.</strong>
+    \[n(e^-) = \dfrac{Q}{F} = \dfrac{3\,600}{96\,500} \approx \mathbf{3{,}73 \times 10^{-2}\text{ mol}}\]</p>
+    <p><strong>3.</strong> D'après \(\mathrm{Cu^{2+} + 2\,e^- \to Cu}\) : 2 mol e⁻ donnent 1 mol Cu.
+    \[n(\mathrm{Cu}) = \dfrac{n(e^-)}{2} = \dfrac{3{,}73 \times 10^{-2}}{2} \approx \mathbf{1{,}86 \times 10^{-2}\text{ mol}}\]</p>
+    <p><strong>4.</strong>
+    \[m_\mathrm{Cu} = n \times M = 1{,}86 \times 10^{-2} \times 64 \approx \mathbf{1{,}19\text{ g}}\]</p>
+  </div>
+</div>
+
+<h2>Exercices contextualisés ICCER</h2>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Circuit de chauffage mixte acier/cuivre — corrosion galvanique</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un plombier chauffagiste installe un circuit de chauffage central comprenant des canalisations en acier (fer) et des raccords en cuivre. Il sait que la mise en contact direct de deux métaux différents en présence d'eau peut provoquer une corrosion galvanique accélérée.</p>
+  <p>Données : \(E°(\mathrm{Fe^{2+}/Fe}) = -0{,}44\text{ V}\) &nbsp;|&nbsp; \(E°(\mathrm{Cu^{2+}/Cu}) = +0{,}34\text{ V}\)</p>
+  <p class="q"><strong>1.</strong> Expliquer le phénomène de corrosion galvanique en termes redox : lorsque les deux métaux sont en contact électrique via l'eau, quel métal joue le rôle d'anode et lequel joue le rôle de cathode ?</p>
+  <p class="q"><strong>2.</strong> Quel métal se corrode préférentiellement ? Justifier avec les valeurs de E°.</p>
+  <p class="q"><strong>3.</strong> Écrire la demi-réaction à l'anode et à la cathode.</p>
+  <p class="q"><strong>4.</strong> Quelle solution technique le plombier chauffagiste doit-il adopter pour limiter la corrosion galvanique ? Expliquer le rôle de chaque solution.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Lorsque acier (Fe) et cuivre (Cu) sont en contact électrique via l'eau (électrolyte), ils forment une pile galvanique.<br>
+    E°(Fe²⁺/Fe) = −0,44 V &lt; E°(Cu²⁺/Cu) = +0,34 V<br>
+    → Le fer est le réducteur le plus fort : il joue le rôle d'<strong>anode</strong> (oxydation).<br>
+    → Le cuivre joue le rôle de <strong>cathode</strong> (réduction).</p>
+    <p><strong>2.</strong> C'est le <strong>fer (acier)</strong> qui se corrode préférentiellement, car E°(Fe²⁺/Fe) est plus faible que E°(Cu²⁺/Cu) : d'après la règle du gamma, le fer est le réducteur qui s'oxyde spontanément en présence des ions présents dans l'eau.</p>
+    <p><strong>3.</strong> À l'anode (acier, oxydation) :
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]
+    À la cathode (cuivre) : les électrons libérés par le fer permettent la réduction du dioxygène dissous ou le dépôt de Cu :
+    \[\mathrm{O_2 + 4\,H^+ + 4\,e^- \longrightarrow 2\,H_2O}\]</p>
+    <p><strong>4.</strong> Solutions techniques :<br>
+    — <strong>Manchon diélectrique</strong> (isolant électrique) : interposé entre les deux métaux différents, il interrompt le contact électrique et supprime le circuit galvanique → pas de transfert d'électrons → pas de corrosion galvanique.<br>
+    — <strong>Disconnecteur / raccord isolant</strong> : même principe, adapté aux raccords vissés.<br>
+    — <strong>Inhibiteur de corrosion</strong> dans l'eau du circuit : ralentit les réactions d'oxydation sans éliminer le contact.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Traitement de l'eau d'un circuit de chauffage — inhibiteurs de corrosion</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un technicien de maintenance énergétique contrôle l'eau d'un circuit de chauffage fermé. L'analyse révèle une concentration en ions fer(II) de \(c(\mathrm{Fe^{2+}}) = 0{,}01\text{ mol/L}\). Il ajoute un traitement à base de polyphosphates pour réduire la corrosion interne des canalisations en acier.</p>
+  <p>Données : \(M_\mathrm{Fe} = 56\text{ g/mol}\)</p>
+  <p class="q"><strong>1.</strong> La présence d'ions Fe²⁺ dans l'eau de circuit est-elle le signe d'une oxydation ou d'une réduction du fer ? Justifier en écrivant la demi-équation correspondante.</p>
+  <p class="q"><strong>2.</strong> Expliquer en termes redox pourquoi l'ajout de polyphosphates ralentit la corrosion. (Les polyphosphates forment une couche protectrice en précipitant à la surface du métal, réduisant le contact entre le fer et l'eau/oxygène.)</p>
+  <p class="q"><strong>3.</strong> Calculer la concentration massique \(\gamma(\mathrm{Fe^{2+}})\) en g/L sachant que \(c = 0{,}01\text{ mol/L}\). Ce taux est-il préoccupant ? (Valeur indicative : au-delà de 0,2 mg/L soit 0,0002 g/L, l'eau est considérée comme corrosive.)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> La présence d'ions Fe²⁺ indique que le fer a <strong>perdu des électrons</strong> : c'est une <strong>oxydation</strong> du fer.
+    \[\mathrm{Fe \longrightarrow Fe^{2+} + 2\,e^-}\]
+    C'est la preuve que des canalisations en acier sont en cours de corrosion dans le circuit.</p>
+    <p><strong>2.</strong> Explication redox :<br>
+    La corrosion du fer nécessite que le métal soit en contact avec l'eau contenant des espèces oxydantes (O₂ dissous, H⁺). Les polyphosphates (PO₄³⁻ polymérisés) réagissent avec les ions Fe²⁺ et Ca²⁺ de l'eau pour précipiter à la surface interne des canalisations et former une <strong>couche insoluble et adhérente</strong>. Cette couche :<br>
+    — isole physiquement le fer de l'eau et du dioxygène dissous ;<br>
+    — réduit la surface de contact métal/électrolyte ;<br>
+    → Les transferts d'électrons (oxydation du fer) sont ainsi ralentis : la cinétique de corrosion diminue fortement.</p>
+    <p><strong>3.</strong> Calcul de la concentration massique :
+    \[\gamma(\mathrm{Fe^{2+}}) = c \times M = 0{,}01 \times 56 = 0{,}56\text{ g/L}\]
+    \[\boxed{\gamma(\mathrm{Fe^{2+}}) = 0{,}56\text{ g/L} = 560\text{ mg/L}}\]
+    Ce taux est <strong>très préoccupant</strong> : il est environ 2 800 fois supérieur au seuil indicatif de 0,2 mg/L. Une intervention rapide est nécessaire (vidange, rinçage du circuit, dosage d'inhibiteur, recherche des canalisations dégradées).</p>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Oxydoréduction et protection des métaux</strong>
+  <ul>
+    <li>L'<strong>oxydation</strong> est une perte d'électrons ; la <strong>réduction</strong> est un gain d'électrons.</li>
+    <li>L'<strong>oxydant</strong> capte des électrons (\(\mathrm{Ox + n\,e^- \to Red}\)) ; le <strong>réducteur</strong> en cède (\(\mathrm{Red \to Ox + n\,e^-}\)).</li>
+    <li>Plus le <strong>potentiel standard E°</strong> est faible, plus l'espèce réduite est un bon <strong>réducteur</strong>.</li>
+    <li>La <strong>règle du gamma</strong> prédit la réaction spontanée : oxydant (E° élevé) + réducteur (E° faible).</li>
+    <li>La <strong>force électromotrice</strong> d'une pile : \(E = E°_\text{cathode} - E°_\text{anode} > 0\).</li>
+    <li>L'<strong>anode sacrificielle</strong> (Zn) protège le fer car E°(Zn²⁺/Zn) &lt; E°(Fe²⁺/Fe) : le zinc s'oxyde en premier.</li>
+    <li>En circuit de chauffage, le contact acier/cuivre sans isolation électrique provoque une <strong>corrosion galvanique</strong> de l'acier → utiliser des <strong>manchons diélectriques</strong>.</li>
+  </ul>
+</div>
+
+</div>
+<script>function toggle(b){const c=b.nextElementSibling;c.style.display=c.style.display==='block'?'none':'block';b.textContent=c.style.display==='block'?'Masquer la correction':'Voir la correction';}</script>
+<script src="../../../nav.js"></script>
 </body>
 </html>
