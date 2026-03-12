@@ -179,6 +179,10 @@
                document.querySelector('.c') ||
                document.body;
     wrap.insertBefore(sumBC, wrap.firstChild);
+    var sumAuthor = document.createElement('footer');
+    sumAuthor.className = 'sn-author';
+    sumAuthor.innerHTML = 'Na\u00efm Azzouz';
+    wrap.appendChild(sumAuthor);
     injectCss();
     return;
   }
@@ -307,6 +311,12 @@
   footerBlock.innerHTML = buildChNav() +
     '<p style="text-align:center;margin-top:14px">' + buildBackTop() + '</p>';
   container.appendChild(footerBlock);
+
+  /* ── Signature auteur ────────────────────────────────────────────── */
+  var authorFooter = document.createElement('footer');
+  authorFooter.className = 'sn-author';
+  authorFooter.innerHTML = 'Na\u00efm Azzouz';
+  container.appendChild(authorFooter);
 
   /* ── Comportement du bouton retour en haut ─────────────────────────── */
   var btn = document.getElementById('sn-back-top');

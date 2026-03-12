@@ -1,0 +1,345 @@
+/* ============================================================
+   print.css — Feuille de style d'impression
+   Optimisée pour polycopiés scolaires format A4
+   maths-sciences-lp.github.io
+   ============================================================ */
+
+@media print {
+
+  /* ── Page A4 ── */
+  @page {
+    size: A4;
+    margin: 18mm 15mm 20mm 15mm;
+  }
+
+  @page :first {
+    margin-top: 12mm;
+  }
+
+  /* ── Reset fond & ombres ── */
+  body {
+    background: #fff;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    padding: 0;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Conteneur principal : pleine largeur ── */
+  .c, .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fff;
+  }
+
+  /* ── Typographie ── */
+  h1 {
+    font-size: 16pt;
+    margin: 0 0 4pt;
+    color: var(--p);
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  header {
+    text-align: center;
+    border-bottom: 2.5pt solid var(--p);
+    margin-bottom: 14pt;
+    padding-bottom: 10pt;
+  }
+
+  .sous-titre {
+    font-size: 9pt;
+    color: #555;
+  }
+
+  h2 {
+    font-size: 12.5pt;
+    color: var(--p);
+    border-left: 3.5pt solid var(--p);
+    padding-left: 8pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h3 {
+    font-size: 10.5pt;
+    margin-top: 12pt;
+    margin-bottom: 4pt;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* ── Masquer les éléments de navigation & interactivité ── */
+  .nb,
+  .nav-footer,
+  .nav-bottom,
+  .nav-btn,
+  .nav-links,
+  .nav-link,
+  .nav-back,
+  .nav-fwd,
+  .sn-breadcrumb,
+  .sn-ch-menu,
+  .sn-ch-nav,
+  .sn-back-top,
+  .sn-toc,
+  .bc,
+  .bcq,
+  .btn-corr,
+  .ctrl-vis,
+  .slider-row,
+  .anim-wrap button,
+  .flash-btn {
+    display: none !important;
+  }
+
+  /* ── Forcer l'affichage des corrections ── */
+  .corr,
+  .correction,
+  .qcm-corr,
+  .flash-corr {
+    display: block !important;
+  }
+
+  /* ── Blocs pédagogiques : anti-coupure ── */
+  .def, .prop, .att, .meth, .retenir,
+  .situation, .objectifs, .ex, .exo,
+  .formula-box, .formule-box, .formule,
+  .guide, .appli, .biv, .intro-box,
+  .result-box, .corr, .correction,
+  .chart-wrapper, .chart-wrap,
+  .anim-wrap, .svg-wrap,
+  .niveau-header, .qcm-item, .info-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Garder titres avec leur contenu */
+  .niveau-header + .exo,
+  h2 + .def,
+  h2 + .prop,
+  h2 + .meth,
+  h2 + .att,
+  h2 + .situation,
+  h2 + .ex,
+  h2 + .exo,
+  h3 + .def,
+  h3 + .prop,
+  h3 + .meth,
+  h3 + .att {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* ── Blocs pédagogiques : ajustements impression ── */
+  .def, .prop, .att, .meth {
+    padding: 10pt 12pt;
+    margin: 8pt 0;
+    border-radius: 0 4pt 4pt 0;
+  }
+
+  .retenir {
+    padding: 12pt 14pt;
+    margin: 12pt 0;
+    border-radius: 4pt;
+    border-width: 1.5pt;
+  }
+
+  .situation {
+    padding: 10pt 14pt;
+    margin: 8pt 0;
+    border-radius: 4pt;
+    border-width: 1.5pt;
+  }
+
+  .ex, .exo {
+    padding: 12pt 14pt;
+    margin: 8pt 0;
+    border-radius: 4pt;
+  }
+
+  .corr {
+    padding: 8pt 12pt;
+    margin-top: 6pt;
+    border-radius: 0 4pt 4pt 0;
+    font-size: 9.5pt;
+  }
+
+  .formula-box, .formule-box, .formule {
+    padding: 10pt 14pt;
+    margin: 8pt 0;
+    border-radius: 4pt;
+    border-width: 1.5pt;
+  }
+
+  .objectifs {
+    padding: 10pt 14pt;
+    margin-bottom: 14pt;
+    border-radius: 4pt;
+  }
+
+  /* ── Tableaux ── */
+  table {
+    font-size: 9pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th {
+    background: var(--p-bg) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Forcer les fonds alternés */
+  tr:nth-child(even) td {
+    background: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Graphiques et figures ── */
+  .chart-wrapper, .chart-wrap {
+    max-width: 100%;
+    border: 0.5pt solid #ccc;
+    border-radius: 4pt;
+    padding: 10pt;
+    margin: 10pt auto;
+  }
+
+  canvas {
+    max-width: 100% !important;
+  }
+
+  .svg-wrap svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .anim-wrap {
+    border: 0.5pt solid #ccc;
+    border-radius: 4pt;
+    padding: 10pt;
+  }
+
+  /* ── Grilles : repasser en une colonne si trop étroit ── */
+  .grid2, .two-col, .deux-col {
+    grid-template-columns: 1fr 1fr;
+    gap: 10pt;
+  }
+
+  .qcm-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8pt;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8pt;
+  }
+
+  /* ── Niveaux de difficulté : conserver les couleurs ── */
+  .niveau-header {
+    border-radius: 4pt;
+    padding: 6pt 10pt;
+    margin: 16pt 0 8pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .niv1, .niv2, .niv3, .niv4 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Badges & labels ── */
+  .badge, .badge-green, .badge-blue, .badge-yellow, .badge-red,
+  .badge-niv, .badge-1, .badge-2, .badge-3, .badge-4,
+  .label, .label-def, .label-prop, .label-att, .label-meth,
+  .mama-tag, .ticcer-badge, .erama-badge, .exo-num-badge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Numéros d'étapes ── */
+  .nc, .num, .guide-num {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Liens : afficher l'URL pour les liens externes ── */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666;
+    word-break: break-all;
+  }
+
+  /* Mais pas pour les liens internes de navigation */
+  .nb a::after,
+  .nav-footer a::after,
+  .nav-btn::after,
+  .nav-link::after {
+    content: none;
+  }
+
+  /* ── Zone de réponse : garder le cadre pointillé ── */
+  .zone-rep, .reponse-box {
+    border: 1pt dashed #999;
+    min-height: 30pt;
+    margin: 6pt 0;
+    background: #fff;
+  }
+
+  /* ── Séparateurs ── */
+  .sep, .section-sep {
+    border-top: 1pt dashed #ccc;
+    margin: 16pt 0;
+  }
+
+  /* ── Signature auteur (visible à l'impression) ── */
+  .sn-author {
+    display: block !important;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #555;
+    margin-top: 16pt;
+    padding-top: 8pt;
+    border-top: 0.5pt solid #ccc;
+    font-weight: 600;
+  }
+
+  /* ── MathJax : ajustements ── */
+  mjx-container {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ── Éviter les pages vides ── */
+  .c > *:last-child {
+    page-break-after: auto;
+  }
+
+  /* ── Images ── */
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+}
