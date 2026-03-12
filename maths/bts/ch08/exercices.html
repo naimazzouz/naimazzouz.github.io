@@ -131,6 +131,50 @@
   </div>
 </div>
 
+<!-- --- Exercice 1.5 --- -->
+<div class="exo">
+  <strong>Exercice 1.5 &mdash; Loi uniforme &mdash; Dur&eacute;e al&eacute;atoire</strong>
+  <p>La dur&eacute;e (en minutes) d&rsquo;un cycle de s&eacute;chage d&rsquo;un vernis sur un panneau de bois varie uniform&eacute;ment entre 10 et 18 minutes. On note \(X\) cette dur&eacute;e : \(X \sim \mathcal{U}([10\,;\,18])\).</p>
+  <ol>
+    <li>Calculer \(E(X)\) et \(\sigma(X)\).</li>
+    <li>Calculer \(P(X \leqslant 12)\).</li>
+    <li>Calculer \(P(13 \leqslant X \leqslant 16)\).</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(E(X) = \dfrac{10 + 18}{2} = 14\) min<br>
+      \(V(X) = \dfrac{(18-10)^2}{12} = \dfrac{64}{12} \approx 5{,}33\)<br>
+      \(\sigma(X) = \sqrt{5{,}33} \approx 2{,}31\) min</li>
+      <li>\(P(X \leqslant 12) = \dfrac{12 - 10}{18 - 10} = \dfrac{2}{8} = 0{,}25 = 25\,\%\)</li>
+      <li>\(P(13 \leqslant X \leqslant 16) = \dfrac{16 - 13}{18 - 10} = \dfrac{3}{8} = 0{,}375 = 37{,}5\,\%\)</li>
+    </ol>
+  </div>
+</div>
+
+<!-- --- Exercice 1.6 --- -->
+<div class="exo">
+  <strong>Exercice 1.6 &mdash; Loi normale &mdash; Lecture de table</strong>
+  <p>Soit \(Z \sim \mathcal{N}(0,1)\). &Agrave; l&rsquo;aide de la table de la loi normale centr&eacute;e r&eacute;duite, calculer :</p>
+  <ol>
+    <li>\(P(Z \leqslant 1{,}5)\)</li>
+    <li>\(P(Z \geqslant 0{,}8)\)</li>
+    <li>\(P(-1{,}2 \leqslant Z \leqslant 2{,}0)\)</li>
+    <li>\(P(|Z| \leqslant 1{,}96)\)</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(P(Z \leqslant 1{,}5) = \Phi(1{,}5) \approx 0{,}9332\)</li>
+      <li>\(P(Z \geqslant 0{,}8) = 1 - \Phi(0{,}8) \approx 1 - 0{,}7881 = 0{,}2119\)</li>
+      <li>\(P(-1{,}2 \leqslant Z \leqslant 2{,}0) = \Phi(2{,}0) - \Phi(-1{,}2) = \Phi(2{,}0) - (1 - \Phi(1{,}2))\)<br>
+      \(\approx 0{,}9772 - (1 - 0{,}8849) = 0{,}9772 - 0{,}1151 = 0{,}8621\)</li>
+      <li>\(P(|Z| \leqslant 1{,}96) = P(-1{,}96 \leqslant Z \leqslant 1{,}96) = 2\Phi(1{,}96) - 1 \approx 2 \times 0{,}9750 - 1 = 0{,}9500\)<br>
+      C&rsquo;est la r&egrave;gle des <strong>95&nbsp;%</strong>.</li>
+    </ol>
+  </div>
+</div>
+
 <!-- ===================================================== -->
 <!--              NIVEAU 2 — APPLIQUER                     -->
 <!-- ===================================================== -->
@@ -347,44 +391,34 @@
 
 <!-- --- Exercice 4.1 --- -->
 <div class="exo">
-  <strong>Exercice 4.1 &mdash; Optimisation d&rsquo;un plan de contr&ocirc;le</strong>
-  <p>Une entreprise de quincaillerie livre des lots de ferrures. Un plan de contr&ocirc;le consiste &agrave; pr&eacute;lever \(n\) pi&egrave;ces et &agrave; accepter le lot si le nombre de d&eacute;fectueux est inf&eacute;rieur ou &eacute;gal au seuil \(c\). On souhaite comparer deux plans :</p>
+  <strong>Exercice 4.1 &mdash; Combinaisons lin&eacute;aires et co&ucirc;t de chantier</strong>
+  <p>Un menuisier agenceur r&eacute;alise un am&eacute;nagement n&eacute;cessitant 3 types de panneaux :</p>
   <ul>
-    <li><strong>Plan A</strong> : \(n = 50\), \(c = 1\)</li>
-    <li><strong>Plan B</strong> : \(n = 100\), \(c = 3\)</li>
+    <li>Panneaux A : co&ucirc;t unitaire \(X_A\) avec \(E(X_A) = 45\) &euro; et \(\sigma(X_A) = 3\) &euro;</li>
+    <li>Panneaux B : co&ucirc;t unitaire \(X_B\) avec \(E(X_B) = 30\) &euro; et \(\sigma(X_B) = 2\) &euro;</li>
+    <li>Panneaux C : co&ucirc;t unitaire \(X_C\) avec \(E(X_C) = 20\) &euro; et \(\sigma(X_C) = 1{,}5\) &euro;</li>
   </ul>
-  <p>On utilise l&rsquo;approximation de Poisson.</p>
+  <p>Les co&ucirc;ts sont ind&eacute;pendants. Le devis pr&eacute;voit 4 panneaux A, 6 panneaux B et 10 panneaux C. On ajoute des frais fixes de 150 &euro; (transport et pose).</p>
   <ol>
-    <li>Pour chaque plan, calculer la probabilit&eacute; d&rsquo;accepter un lot dont le vrai taux de d&eacute;faut est \(p = 0{,}01\).</li>
-    <li>M&ecirc;me question pour \(p = 0{,}05\) (lot de mauvaise qualit&eacute;).</li>
-    <li>M&ecirc;me question pour \(p = 0{,}10\).</li>
-    <li>Dresser un tableau comparatif des probabilit&eacute;s d&rsquo;acceptation pour \(p \in \{0{,}01\;;\;0{,}02\;;\;0{,}05\;;\;0{,}10\}\).</li>
-    <li>Quel plan est le plus discriminant ? Justifier.</li>
+    <li>Exprimer le co&ucirc;t total \(T = 4X_A + 6X_B + 10X_C + 150\).</li>
+    <li>Calculer \(E(T)\).</li>
+    <li>Calculer \(V(T)\) et \(\sigma(T)\).</li>
+    <li>En supposant que \(T\) suit approximativement une loi normale, d&eacute;terminer un intervalle de confiance &agrave; 95&nbsp;% pour le co&ucirc;t total.</li>
+    <li>Le client a un budget maximal de 650 &euro;. Quelle est la probabilit&eacute; de d&eacute;passer ce budget ?</li>
   </ol>
   <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
   <div class="corr">
-    <p>Rappel : \(P(X \leqslant c) = e^{-\lambda}\displaystyle\sum_{k=0}^{c}\frac{\lambda^k}{k!}\) avec \(\lambda = np\).</p>
     <ol>
-      <li><strong>\(p = 0{,}01\)</strong> :<br>
-      Plan A : \(\lambda = 0{,}5\), \(P(X \leqslant 1) = e^{-0{,}5}(1 + 0{,}5) = 0{,}6065 \times 1{,}5 \approx 0{,}910\)<br>
-      Plan B : \(\lambda = 1\), \(P(X \leqslant 3) = e^{-1}(1 + 1 + 0{,}5 + \frac{1}{6}) = 0{,}3679 \times 2{,}6667 \approx 0{,}981\)</li>
-      <li><strong>\(p = 0{,}05\)</strong> :<br>
-      Plan A : \(\lambda = 2{,}5\), \(P(X \leqslant 1) = e^{-2{,}5}(1 + 2{,}5) = 0{,}0821 \times 3{,}5 \approx 0{,}287\)<br>
-      Plan B : \(\lambda = 5\), \(P(X \leqslant 3) = e^{-5}(1 + 5 + 12{,}5 + \frac{125}{6}) = 0{,}00674 \times 39{,}333 \approx 0{,}265\)</li>
-      <li><strong>\(p = 0{,}10\)</strong> :<br>
-      Plan A : \(\lambda = 5\), \(P(X \leqslant 1) = e^{-5}(1 + 5) = 0{,}00674 \times 6 \approx 0{,}040\)<br>
-      Plan B : \(\lambda = 10\), \(P(X \leqslant 3) = e^{-10}(1 + 10 + 50 + \frac{1000}{6}) = 0{,}0000454 \times 227{,}67 \approx 0{,}010\)</li>
-      <li>Tableau comparatif :
-      <table>
-        <tr><th>\(p\)</th><th>Plan A (\(n=50, c=1\))</th><th>Plan B (\(n=100, c=3\))</th></tr>
-        <tr><td>0,01</td><td>0,910</td><td>0,981</td></tr>
-        <tr><td>0,02</td><td>0,736</td><td>0,857</td></tr>
-        <tr><td>0,05</td><td>0,287</td><td>0,265</td></tr>
-        <tr><td>0,10</td><td>0,040</td><td>0,010</td></tr>
-      </table>
-      <p>(Pour \(p = 0{,}02\) : Plan A : \(\lambda = 1\), \(P \approx 0{,}736\) ; Plan B : \(\lambda = 2\), \(P \approx 0{,}857\).)</p>
-      </li>
-      <li>Le <strong>plan B</strong> est plus discriminant : il accepte mieux les bons lots (\(p = 0{,}01\) : 98,1&nbsp;% vs 91&nbsp;%) et rejette plus fermement les mauvais lots (\(p = 0{,}10\) : 1&nbsp;% vs 4&nbsp;%). Le plus grand &eacute;chantillon permet un meilleur discernement, au prix d&rsquo;un co&ucirc;t de contr&ocirc;le plus &eacute;lev&eacute;.</li>
+      <li>\(T = 4X_A + 6X_B + 10X_C + 150\)</li>
+      <li>\(E(T) = 4 \times 45 + 6 \times 30 + 10 \times 20 + 150 = 180 + 180 + 200 + 150 = 710\) &euro;</li>
+      <li>\(V(T) = 4^2 V(X_A) + 6^2 V(X_B) + 10^2 V(X_C)\)<br>
+      \(= 16 \times 9 + 36 \times 4 + 100 \times 2{,}25 = 144 + 144 + 225 = 513\)<br>
+      \(\sigma(T) = \sqrt{513} \approx 22{,}6\) &euro;</li>
+      <li>Intervalle &agrave; 95&nbsp;% : \([E(T) - 1{,}96\sigma(T)\;;\;E(T) + 1{,}96\sigma(T)]\)<br>
+      \(= [710 - 44{,}3\;;\;710 + 44{,}3] = [665{,}7\;;\;754{,}3]\) &euro;<br>
+      Le co&ucirc;t total se situera entre environ <strong>666 &euro; et 754 &euro;</strong> avec 95&nbsp;% de confiance.</li>
+      <li>\(P(T > 650) = P\!\left(Z > \dfrac{650 - 710}{22{,}6}\right) = P(Z > -2{,}65) = \Phi(2{,}65) \approx 0{,}996\)<br>
+      La probabilit&eacute; de d&eacute;passer 650 &euro; est d&rsquo;environ <strong>99,6&nbsp;%</strong>. Le budget du client est tr&egrave;s insuffisant.</li>
     </ol>
   </div>
 </div>
