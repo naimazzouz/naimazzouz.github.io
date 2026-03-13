@@ -1,7 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch08 – Fonction linéaire et affine – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
-</style></head><body><div class="c"><a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a><header><h1>DS – Fonction affine</h1></header><div class="dh"><strong>Dur&eacute;e :</strong> 1h | Calculatrice | 20 pts</div>
-<h2>Exercice 1 (8 pts)</h2><div class="e">Soit \(f(x)=-2x+6\).<br>1. Identifier a et b. (2 pts)<br>2. Tracer la droite. (3 pts)<br>3. Trouver x tel que f(x)=0. (3 pts)</div>
-<h2>Exercice 2 (6 pts)</h2><div class="e">Trouver l'&eacute;quation de la droite passant par C(1;4) et D(3;10). (6 pts)</div>
-<h2>Exercice 3 (6 pts)</h2><div class="e">Un plombier facture 50€ de d&eacute;placement + 45€/h.<br>1. Exprimer le co&ucirc;t C(h). (2 pts)<br>2. Pour quelle dur&eacute;e la facture est-elle de 230€ ? (4 pts)</div></div><script src="/nav.js"></script>
-</body></html>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 8</h1>
+  <p class="sous-titre">Fonction linéaire et affine &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Étude d'une fonction affine</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Soit la fonction affine \(f(x) = -2x + 6\).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Identifier le coefficient directeur \(a\) et l'ordonnée à l'origine \(b\). La fonction est-elle croissante ou décroissante ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer \(f(0)\) et \(f(3)\). Placer les points correspondants et tracer la droite. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> Résoudre \(f(x) = 0\). Interpréter graphiquement. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(a = -2\) (coefficient directeur), \(b = 6\) (ordonnée à l'origine). Comme \(a < 0\), la fonction est <strong>décroissante</strong>.</p>
+    <p><strong>2.</strong> \(f(0) = 6\) → point \((0\;;\;6)\). \(f(3) = -2 \times 3 + 6 = 0\) → point \((3\;;\;0)\).</p>
+    <p><strong>3.</strong> \(-2x + 6 = 0 \Rightarrow -2x = -6 \Rightarrow x = \mathbf{3}\). Graphiquement, c'est l'abscisse du point d'intersection de la droite avec l'axe des abscisses.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Déterminer une fonction affine</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>On connaît deux points d'une droite : \(C(1\;;\;4)\) et \(D(3\;;\;10)\).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer le coefficient directeur \(a = \dfrac{y_D - y_C}{x_D - x_C}\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> En déduire l'ordonnée à l'origine \(b\) en utilisant le point \(C\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-val">VAL</span> Vérifier que le point \(D\) appartient bien à la droite trouvée. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(a = \dfrac{10 - 4}{3 - 1} = \dfrac{6}{2} = \mathbf{3}\).</p>
+    <p><strong>2.</strong> \(y = 3x + b\). En \(C(1\;;\;4)\) : \(4 = 3 \times 1 + b \Rightarrow b = 1\). Donc \(\mathbf{f(x) = 3x + 1}\).</p>
+    <p><strong>3.</strong> \(f(3) = 3 \times 3 + 1 = 10 = y_D\) ✓ Le point \(D\) est bien sur la droite.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Tarif d'un artisan</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Un plombier facture ses interventions : 50 € de déplacement + 45 € par heure de travail. On note \(h\) le nombre d'heures.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-ana">ANA</span> Exprimer le coût total \(C(h)\) en fonction de \(h\). De quel type de fonction s'agit-il ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer le coût pour 3 heures d'intervention. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> La facture d'un client s'élève à 230 €. Calculer la durée de l'intervention. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-com">COM</span> Un concurrent facture 70 € de déplacement + 35 € par heure. Pour quelle durée les deux tarifs sont-ils égaux ? <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(C(h) = 45h + 50\). C'est une <strong>fonction affine</strong> (de la forme \(ah + b\)).</p>
+    <p><strong>2.</strong> \(C(3) = 45 \times 3 + 50 = 135 + 50 = \mathbf{185}\) €.</p>
+    <p><strong>3.</strong> \(45h + 50 = 230 \Rightarrow 45h = 180 \Rightarrow h = \mathbf{4}\) heures.</p>
+    <p><strong>4.</strong> \(45h + 50 = 35h + 70 \Rightarrow 10h = 20 \Rightarrow h = \mathbf{2}\) heures. Au-delà de 2 h, le concurrent est moins cher.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,7 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch12 – Théorème de Pythagore – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
-</style></head><body><div class="c"><a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a><header><h1>DS – Aires et volumes</h1></header><div class="dh"><strong>Dur&eacute;e :</strong> 1h | Calculatrice | 20 pts</div>
-<h2>Exercice 1 (10 pts) – Pi&egrave;ce m&eacute;canique</h2><div class="e">Une pi&egrave;ce est compos&eacute;e d'un cylindre (rayon 6cm, hauteur 8cm) surmont&eacute; d'un c&ocirc;ne (m&ecirc;me rayon, hauteur 4cm).<br>1. Calculer le volume du cylindre. (4 pts)<br>2. Calculer le volume du c&ocirc;ne. (3 pts)<br>3. Volume total en cm³ et en L. (3 pts)</div>
-<h2>Exercice 2 (6 pts) – Surface</h2><div class="e">Un atelier rectangulaire : 15m × 8m. On enl&egrave;ve un poste de travail circulaire (rayon 2m).<br>1. Aire totale de l'atelier. (2 pts)<br>2. Aire du poste. (2 pts)<br>3. Aire utilisable. (2 pts)</div>
-<h2>Exercice 3 (4 pts) – R&eacute;servoir</h2><div class="e">Un r&eacute;servoir cylindrique : diam&egrave;tre=1,2m, hauteur=2m. Capacit&eacute; en litres. (4 pts)</div></div><script src="/nav.js"></script>
-</body></html>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 12</h1>
+  <p class="sous-titre">Théorème de Pythagore et réciproque &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Échafaudage</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un échafaudage est adossé à un mur. Il forme un triangle rectangle avec le sol et le mur. La hauteur contre le mur est de 8 m et la distance au sol entre le pied de l'échafaudage et le mur est de 6 m.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Faire un schéma en identifiant le triangle rectangle et ses côtés. Quel est l'hypoténuse ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la longueur de la partie oblique de l'échafaudage en appliquant le théorème de Pythagore. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-val">VAL</span> Un ouvrier affirme que les mesures 6 m, 8 m et 10 m forment un triangle rectangle. Vérifier par la réciproque du théorème de Pythagore. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le triangle rectangle a pour côtés : hauteur = 8 m (côté vertical), base = 6 m (côté horizontal). L'hypoténuse est la <strong>partie oblique</strong> de l'échafaudage (le plus grand côté, opposé à l'angle droit).</p>
+    <p><strong>2.</strong> Théorème de Pythagore : \(c^2 = 6^2 + 8^2 = 36 + 64 = 100\). Donc \(c = \sqrt{100} = \mathbf{10}\) m.</p>
+    <p><strong>3.</strong> Le plus grand côté est 10 m. On calcule : \(10^2 = 100\). Et \(6^2 + 8^2 = 36 + 64 = 100\).<br>
+    Comme \(10^2 = 6^2 + 8^2\), d'après la réciproque du théorème de Pythagore, le triangle <strong>est bien rectangle</strong>. ✓</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Diagonale d'un panneau</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Un menuisier doit vérifier qu'un panneau rectangulaire de 120 cm × 90 cm est bien d'équerre (angles droits). Il mesure la diagonale.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Si le panneau est parfaitement rectangulaire, calculer la longueur théorique de la diagonale. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-val">VAL</span> Le menuisier mesure une diagonale de 152 cm. Le panneau est-il d'équerre ? Justifier. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> Expliquer en une phrase pourquoi la mesure de la diagonale permet de vérifier l'équerrage. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(d^2 = 120^2 + 90^2 = 14\,400 + 8\,100 = 22\,500\). Donc \(d = \sqrt{22\,500} = \mathbf{150}\) cm.</p>
+    <p><strong>2.</strong> La diagonale mesurée (152 cm) ≠ diagonale théorique (150 cm). Le panneau <strong>n'est pas d'équerre</strong> : l'écart de 2 cm indique un défaut de rectangularité.</p>
+    <p><strong>3.</strong> Si le rectangle est parfait, la diagonale vérifie le théorème de Pythagore. Un écart entre la mesure et le calcul révèle l'absence d'angle droit.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Triangle quelconque</span>
+    <span class="pts">6 points</span>
+  </div>
+
+  <p>Un charpentier mesure les trois côtés d'un triangle de toiture : 5 m, 12 m et 13 m.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-ana">ANA</span> Ce triangle est-il rectangle ? Utiliser la réciproque du théorème de Pythagore. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Si le triangle est rectangle, calculer son aire. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> Donner un autre triplet pythagoricien classique (différent de 3-4-5 et 5-12-13). <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Le plus grand côté est 13. On vérifie : \(13^2 = 169\). Et \(5^2 + 12^2 = 25 + 144 = 169\).<br>
+    Comme \(13^2 = 5^2 + 12^2\), le triangle est <strong>rectangle</strong> en l'angle opposé au côté de 13 m. ✓</p>
+    <p><strong>2.</strong> Les deux côtés de l'angle droit sont 5 m et 12 m. \(A = \dfrac{5 \times 12}{2} = \mathbf{30}\) m².</p>
+    <p><strong>3.</strong> Exemples : <strong>8-15-17</strong> ou <strong>7-24-25</strong> ou <strong>6-8-10</strong> (multiple de 3-4-5).</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

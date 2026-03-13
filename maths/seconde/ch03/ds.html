@@ -1,4 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch03 – Indicateurs statistiques – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
-</style></head><body><div class="c"><a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a><header><h1>DS – Indicateurs statistiques</h1></header><div class="dh"><strong>Dur&eacute;e :</strong> 1h | Calculatrice autoris&eacute;e | 20 pts</div><h2>Exercice 1 (12 pts)</h2><div class="e">Temps d'arr&ecirc;t machine (h) sur 15 jours : 0,5 ; 1 ; 2 ; 0,5 ; 3 ; 1 ; 1,5 ; 0,5 ; 2 ; 1 ; 4 ; 1,5 ; 2 ; 0,5 ; 1.<br><br>1. Calculer la moyenne. (4 pts)<br>2. Trouver le mode et la m&eacute;diane. (4 pts)<br>3. Calculer Q1, Q3 et IQ. (4 pts)</div><h2>Exercice 2 (8 pts)</h2><div class="e">Un atelier relève les d&eacute;fauts par journée (20 jours) : effectif 0 d&eacute;faut=5, 1 d&eacute;faut=8, 2 d&eacute;fauts=4, 3 d&eacute;fauts=3.<br><br>1. Calculer la moyenne de d&eacute;fauts par jour. (4 pts)<br>2. Calculer l'&eacute;tendue. (2 pts)<br>3. Interpréter la moyenne. (2 pts)</div></div><script src="/nav.js"></script>
-</body></html>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 3</h1>
+  <p class="sous-titre">Indicateurs statistiques &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Temps d'arrêt machine</span>
+    <span class="pts">12 points</span>
+  </div>
+
+  <p>Le responsable d'un atelier d'agencement a relevé les durées d'arrêt (en minutes) d'une machine à commande numérique sur 15 jours :</p>
+  <p style="text-align:center;font-weight:600;margin:10px 0">12 &nbsp; 8 &nbsp; 15 &nbsp; 10 &nbsp; 22 &nbsp; 8 &nbsp; 14 &nbsp; 10 &nbsp; 18 &nbsp; 8 &nbsp; 12 &nbsp; 25 &nbsp; 10 &nbsp; 14 &nbsp; 12</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer la moyenne de cette série. Arrondir au dixième. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-app">APP</span> Déterminer le mode de cette série. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Ranger les valeurs dans l'ordre croissant et déterminer la médiane. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Déterminer le premier quartile \(Q_1\), le troisième quartile \(Q_3\) et l'écart interquartile. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> Interpréter l'écart interquartile en une phrase. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\bar{x} = \dfrac{12+8+15+10+22+8+14+10+18+8+12+25+10+14+12}{15} = \dfrac{198}{15} = \mathbf{13{,}2}\) min.</p>
+    <p><strong>2.</strong> Le mode est <strong>8 min</strong> (apparaît 3 fois, plus que toute autre valeur).</p>
+    <p><strong>3.</strong> Série ordonnée : 8, 8, 8, 10, 10, 10, 12, <strong>12</strong>, 12, 14, 14, 15, 18, 22, 25.<br>
+    15 valeurs → la médiane est la 8<sup>e</sup> valeur : \(Me = \mathbf{12}\) min.</p>
+    <p><strong>4.</strong> \(Q_1\) = 4<sup>e</sup> valeur = <strong>10</strong> min. \(Q_3\) = 12<sup>e</sup> valeur = <strong>15</strong> min.<br>
+    Écart interquartile : \(Q_3 - Q_1 = 15 - 10 = \mathbf{5}\) min.</p>
+    <p><strong>5.</strong> 50 % des jours, la durée d'arrêt est comprise entre 10 et 15 minutes. La dispersion centrale est modérée (5 min).</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Contrôle qualité</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un contrôleur qualité relève le nombre de pièces défectueuses produites chaque jour pendant 20 jours :</p>
+  <table>
+    <tr><th>Nb de défauts</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>Nb de jours</td><td>3</td><td>5</td><td>6</td><td>3</td><td>2</td><td>1</td></tr>
+  </table>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer le nombre moyen de défauts par jour. <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer l'étendue de cette série. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> La norme qualité impose une moyenne inférieure à 2,5 défauts/jour et une étendue inférieure à 6. L'atelier est-il conforme ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-com">COM</span> Proposer une action si la moyenne dépassait le seuil. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\bar{x} = \dfrac{0 \times 3 + 1 \times 5 + 2 \times 6 + 3 \times 3 + 4 \times 2 + 5 \times 1}{20} = \dfrac{0+5+12+9+8+5}{20} = \dfrac{39}{20} = \mathbf{1{,}95}\) défauts/jour.</p>
+    <p><strong>2.</strong> Étendue = \(5 - 0 = \mathbf{5}\).</p>
+    <p><strong>3.</strong> Moyenne : 1,95 &lt; 2,5 ✓. Étendue : 5 &lt; 6 ✓. <strong>L'atelier est conforme</strong> aux deux critères.</p>
+    <p><strong>4.</strong> On pourrait renforcer le contrôle en amont (vérification des réglages machines avant chaque série) ou former les opérateurs aux points critiques de la fabrication.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

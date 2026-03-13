@@ -1,4 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch04 – Probabilités – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
-</style></head><body><div class="c"><a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a><header><h1>DS – Probabilit&eacute;s</h1></header><div class="dh"><strong>Dur&eacute;e :</strong> 1h | Calculatrice | 20 pts</div><h2>Exercice 1 (10 pts)</h2><div class="e">Sac : 5 billes rouges, 3 bleues, 2 vertes.<br>1. Univers &Omega;. (2 pts)<br>2. P(rouge). (2 pts)<br>3. P(non verte). (3 pts)<br>4. P(rouge ou bleue). (3 pts)</div><h2>Exercice 2 (10 pts)</h2><div class="e">Machine : P(d&eacute;faut)=0,02. On contr&ocirc;le 1000 pi&egrave;ces.<br>1. Nombre th&eacute;orique de d&eacute;fectueuses. (3 pts)<br>2. On observe 25 d&eacute;fectueuses : fr&eacute;quence observ&eacute;e. (3 pts)<br>3. Y a-t-il fluctuation ? (4 pts)</div></div><script src="/nav.js"></script>
-</body></html>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 4</h1>
+  <p class="sous-titre">Probabilités et fluctuation des fréquences &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Tirage de billes</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Un sac contient 5 billes rouges, 3 billes bleues et 2 billes vertes, indiscernables au toucher. On tire une bille au hasard.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Combien y a-t-il de billes en tout ? Écrire l'univers des couleurs possibles. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la probabilité de tirer une bille rouge. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer la probabilité de ne pas tirer une bille verte. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-ana">ANA</span> Calculer la probabilité de tirer une bille rouge ou bleue. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-val">VAL</span> Vérifier que la somme de toutes les probabilités vaut 1. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Total : \(5 + 3 + 2 = 10\) billes. Univers : \(\Omega = \{R;\, B;\, V\}\).</p>
+    <p><strong>2.</strong> \(P(R) = \dfrac{5}{10} = \mathbf{0{,}5}\).</p>
+    <p><strong>3.</strong> \(P(\overline{V}) = 1 - P(V) = 1 - \dfrac{2}{10} = \mathbf{0{,}8}\).</p>
+    <p><strong>4.</strong> \(P(R \cup B) = \dfrac{5+3}{10} = \dfrac{8}{10} = \mathbf{0{,}8}\).</p>
+    <p><strong>5.</strong> \(P(R) + P(B) + P(V) = 0{,}5 + 0{,}3 + 0{,}2 = 1\) ✓</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Contrôle de production et fluctuation</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>Une machine de découpe produit des panneaux de bois. On sait que 2 % des panneaux sont défectueux (probabilité théorique \(p = 0{,}02\)).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Sur une production de 1 000 panneaux, combien de panneaux défectueux peut-on théoriquement prévoir ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-app">APP</span> Un contrôleur prélève un échantillon de 200 panneaux et en trouve 7 défectueux. Calculer la fréquence observée \(f\). <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Pour un échantillon de taille \(n = 200\), calculer l'intervalle de fluctuation au seuil de 95 % : \(\left[p - \dfrac{1}{\sqrt{n}}\;;\; p + \dfrac{1}{\sqrt{n}}\right]\). <span style="font-size:.85em;color:#718096">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-val">VAL</span> La fréquence observée \(f\) appartient-elle à cet intervalle ? Conclure sur la conformité de la machine. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-com">COM</span> En une phrase, expliquer ce que signifie « la fréquence sort de l'intervalle de fluctuation ». <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(1\,000 \times 0{,}02 = \mathbf{20}\) panneaux défectueux.</p>
+    <p><strong>2.</strong> \(f = \dfrac{7}{200} = \mathbf{0{,}035}\) soit 3,5 %.</p>
+    <p><strong>3.</strong> \(\dfrac{1}{\sqrt{200}} \approx 0{,}0707\). Intervalle : \([0{,}02 - 0{,}0707\;;\; 0{,}02 + 0{,}0707]\).<br>
+    Comme la borne inférieure est négative, on la ramène à 0 : \(\mathbf{[0\;;\; 0{,}0907]}\).</p>
+    <p><strong>4.</strong> \(f = 0{,}035 \in [0\;;\; 0{,}0907]\) → <strong>Oui</strong>, la fréquence est dans l'intervalle. On ne peut pas remettre en cause la probabilité théorique de 2 %. La machine semble conforme.</p>
+    <p><strong>5.</strong> Si la fréquence observée sort de l'intervalle de fluctuation, cela signifie que le résultat est anormalement éloigné de la valeur théorique : on peut remettre en cause le bon fonctionnement de la machine.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -1,7 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch11 – Figures planes : périmètres et aires – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
-</style></head><body><div class="c"><a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a><header><h1>DS – G&eacute;om&eacute;trie dans le triangle</h1></header><div class="dh"><strong>Dur&eacute;e :</strong> 1h | Calculatrice | 20 pts</div>
-<h2>Exercice 1 (8 pts) – Pythagore</h2><div class="e">Un &eacute;chafaudage forme un triangle rectangle : hauteur=8m, base=6m.<br>1. Calculer la longueur de l'&eacute;chafaudage oblique. (4 pts)<br>2. V&eacute;rifier par la r&eacute;ciproque. (4 pts)</div>
-<h2>Exercice 2 (8 pts) – Trigonom&eacute;trie</h2><div class="e">Une rampe d'acc&egrave;s fait un angle de 20° avec le sol. La longueur est 5m.<br>1. Calculer la hauteur (c&ocirc;t&eacute; oppos&eacute;). (4 pts)<br>2. Calculer la projection horizontale (c&ocirc;t&eacute; adjacent). (4 pts)</div>
-<h2>Exercice 3 (4 pts) – Thal&egrave;s</h2><div class="e">Sur un chantier, DE∥BC. AB=12m, AD=8m, BC=9m. Calculer DE. (4 pts)</div></div><script src="/nav.js"></script>
-</body></html>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveillé – Chapitre 11</h1>
+  <p class="sous-titre">Figures planes : périmètres et aires &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
+</div>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Atelier rectangulaire</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un atelier de menuiserie est de forme rectangulaire : longueur 15 m, largeur 8 m. On souhaite installer un poste de travail circulaire de rayon 2 m au centre de l'atelier.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire totale de l'atelier. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire du poste de travail circulaire. Arrondir au centième. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-ana">ANA</span> En déduire l'aire utilisable restante. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer le périmètre total de l'atelier et le périmètre du cercle. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(A_{atelier} = L \times l = 15 \times 8 = \mathbf{120}\) m².</p>
+    <p><strong>2.</strong> \(A_{cercle} = \pi r^2 = \pi \times 2^2 = 4\pi \approx \mathbf{12{,}57}\) m².</p>
+    <p><strong>3.</strong> \(A_{utilisable} = 120 - 12{,}57 = \mathbf{107{,}43}\) m².</p>
+    <p><strong>4.</strong> Périmètre atelier : \(2(15+8) = \mathbf{46}\) m. Périmètre cercle : \(2\pi r = 2\pi \times 2 = 4\pi \approx \mathbf{12{,}57}\) m.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Pièce composite</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un agenceur doit calculer la surface d'un panneau décoratif composé d'un rectangle de 60 cm × 40 cm surmonté d'un demi-cercle de diamètre 60 cm.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Faire un schéma annoté de la pièce avec les dimensions. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire du rectangle. <span style="font-size:.85em;color:#718096">(1 pt)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire du demi-cercle. Arrondir au centième. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire totale du panneau en cm² puis en m². <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-ana">ANA</span> Le panneau doit être peint. Un pot de peinture couvre 2 m². Combien de panneaux peut-on peindre avec un seul pot ? <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Schéma : rectangle 60 × 40 avec un demi-cercle de rayon 30 cm au-dessus.</p>
+    <p><strong>2.</strong> \(A_{rect} = 60 \times 40 = \mathbf{2\,400}\) cm².</p>
+    <p><strong>3.</strong> Rayon du demi-cercle : \(r = 60/2 = 30\) cm. \(A_{demi} = \dfrac{\pi r^2}{2} = \dfrac{\pi \times 30^2}{2} = \dfrac{900\pi}{2} \approx \mathbf{1\,413{,}72}\) cm².</p>
+    <p><strong>4.</strong> \(A_{total} = 2\,400 + 1\,413{,}72 = \mathbf{3\,813{,}72}\) cm² \(= 0{,}3814\) m².</p>
+    <p><strong>5.</strong> Nombre de panneaux : \(\dfrac{2}{0{,}3814} \approx 5{,}24\). On peut peindre <strong>5 panneaux complets</strong> avec un pot.</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 3 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 3 – Triangle et trapèze</span>
+    <span class="pts">4 points</span>
+  </div>
+
+  <p>Un escalier est constitué de marches en forme de trapèze. Chaque marche a une grande base de 30 cm, une petite base de 24 cm et une hauteur de 3 cm.</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer l'aire d'une marche. <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-com">COM</span> L'escalier comporte 14 marches. Calculer la surface totale de bois nécessaire et exprimer le résultat en m². <span style="font-size:.85em;color:#718096">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(A = \dfrac{(B + b) \times h}{2} = \dfrac{(30 + 24) \times 3}{2} = \dfrac{54 \times 3}{2} = \mathbf{81}\) cm².</p>
+    <p><strong>2.</strong> \(81 \times 14 = 1\,134\) cm² \(= \mathbf{0{,}1134}\) m².</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>
