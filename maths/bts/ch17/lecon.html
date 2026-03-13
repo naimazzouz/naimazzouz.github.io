@@ -7,19 +7,724 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+.algo-block{background:#1e1e1e;color:#d4d4d4;border-radius:8px;padding:1.2rem 1.5rem;font-family:'Courier New',monospace;font-size:.93rem;line-height:1.7;margin:1rem 0;overflow-x:auto}
+.algo-block .kw{color:#569cd6;font-weight:bold}
+.algo-block .fn{color:#dcdcaa}
+.algo-block .str{color:#ce9178}
+.algo-block .cmt{color:#6a9955;font-style:italic}
+.algo-block .num{color:#b5cea8}
+table.tableau{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem}
+table.tableau th,table.tableau td{border:1px solid #93a5c0;padding:.45rem .7rem;text-align:center}
+table.tableau th{background:var(--p-bg);color:var(--p);font-weight:700}
+table.tableau tr:nth-child(even){background:#f7f9fc}
+.python-block{background:#0d1117;color:#e6edf3;border-radius:8px;padding:1.2rem 1.5rem;font-family:'Courier New',monospace;font-size:.92rem;line-height:1.75;margin:1rem 0;overflow-x:auto;border-left:4px solid #3b82f6}
+.python-block .kw{color:#ff7b72}
+.python-block .fn{color:#d2a8ff}
+.python-block .str{color:#a5d6ff}
+.python-block .cmt{color:#8b949e;font-style:italic}
+.python-block .num{color:#79c0ff}
+.step-list{counter-reset:step;list-style:none;padding:0}
+.step-list li{counter-increment:step;display:flex;gap:.8rem;margin:.5rem 0;align-items:flex-start}
+.step-list li::before{content:counter(step);background:var(--p);color:#fff;border-radius:50%;width:1.6rem;height:1.6rem;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:.1rem}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-bts.html" class="nb">&#8592; Retour au sommaire</a>
+
 <header>
-  <h1>Chapitre 17 – Calcul et algorithmique</h1>
-  <p class="sous-titre">BTS — Groupements D1, D2</p>
+  <h1>Chapitre 17 &#8211; Calcul num&#233;rique et algorithmique</h1>
+  <p class="sous-titre">BTS | Math&#233;matiques | Groupements D1, D2</p>
 </header>
 
-<div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+<!-- OBJECTIFS -->
+<section class="objectifs">
+  <h2>Objectifs du chapitre</h2>
+  <ul>
+    <li>Mettre en &#339;uvre les m&#233;thodes d'analyse num&#233;rique&#160;: dichotomie, Newton-Raphson, trap&#232;zes, Simpson, Euler.</li>
+    <li>Concevoir et analyser des algorithmes&#160;: structures de contr&#244;le, boucles, fonctions.</li>
+    <li>Traduire un algorithme en Python et l'appliquer &#224; des probl&#232;mes professionnels (biologie, chimie, proc&#233;d&#233;s).</li>
+    <li>&#201;valuer les erreurs d'approximation des m&#233;thodes num&#233;riques.</li>
+  </ul>
+</section>
+
+<!-- SITUATION PROFESSIONNELLE -->
+<div class="situation">
+  <strong>Situation professionnelle &#8212; Laboratoire de biotechnologie</strong><br>
+  Un technicien de laboratoire suit la croissance d'une culture bact&#233;rienne. La densit&#233; optique \( D(t) \) en fonction du temps v&#233;rifie une &#233;quation diff&#233;rentielle. Pour calculer la quantit&#233; totale de biomasse produite sur 24&#160;heures, il doit int&#233;grer num&#233;riquement \( D(t) \) et r&#233;soudre l'&#233;quation \( D(t) = 0{,}8 \) pour trouver le temps de saturation. Les outils algorithmiques lui permettent d'automatiser ces calculs et de simuler diff&#233;rents sc&#233;narios de culture.
+</div>
+
+<!-- ===== PARTIE 1 : ANALYSE NUMERIQUE ===== -->
+<h2>1. Analyse num&#233;rique &#8212; R&#233;solution approch&#233;e d'&#233;quations</h2>
+
+<h3>1.1 M&#233;thode de dichotomie</h3>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; Principe de dichotomie</span>
+  <p>Soit \( f \) continue sur \([a,b]\) avec \( f(a) \cdot f(b) &lt; 0 \). Par le th&#233;or&#232;me des valeurs interm&#233;diaires, il existe \( c \in\, ]a,b[ \) tel que \( f(c) = 0 \).</p>
+  <p>La m&#233;thode de dichotomie consiste &#224; diviser l'intervalle par 2 &#224; chaque &#233;tape, en ne conservant que le demi-intervalle contenant la racine.</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">M&#233;thode &#8212; Algorithme de dichotomie</span>
+  <ol class="step-list">
+    <li>Choisir \([a_0, b_0]\) tel que \( f(a_0) \cdot f(b_0) &lt; 0 \), fixer la pr&#233;cision \(\varepsilon\).</li>
+    <li>Calculer le milieu \( m = \dfrac{a+b}{2} \).</li>
+    <li>Si \( f(a) \cdot f(m) &lt; 0 \), poser \( b \leftarrow m \)&#160;; sinon \( a \leftarrow m \).</li>
+    <li>R&#233;p&#233;ter jusqu'&#224; \( b - a &lt; \varepsilon \).</li>
+    <li>La racine approch&#233;e est \( c \approx \dfrac{a+b}{2} \).</li>
+  </ol>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propri&#233;t&#233; &#8212; Nombre d'it&#233;rations</span>
+  <p>Apr&#232;s \( n \) it&#233;rations, l'erreur est major&#233;e par \(\dfrac{b_0 - a_0}{2^n}\).</p>
+  <p>Pour atteindre une pr&#233;cision \( \varepsilon \), il faut au minimum \( n \geq \dfrac{\ln(b_0 - a_0) - \ln \varepsilon}{\ln 2} \) it&#233;rations.</p>
+</div>
+
+<div class="ex">
+  <strong>Exemple</strong> &#8212; R&#233;soudre \( f(x) = x^3 - 2x - 5 = 0 \) sur \([2, 3]\) avec \(\varepsilon = 0{,}01\).
+
+  <table class="tableau">
+    <thead>
+      <tr><th>It&#233;ration</th><th>\(a\)</th><th>\(b\)</th><th>\(m\)</th><th>\(f(m)\)</th><th>Intervalle suivant</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>2</td><td>3</td><td>2,5</td><td>&#8722;2,375</td><td>[2,5&#160;; 3]</td></tr>
+      <tr><td>1</td><td>2,5</td><td>3</td><td>2,75</td><td>0,797</td><td>[2,5&#160;; 2,75]</td></tr>
+      <tr><td>2</td><td>2,5</td><td>2,75</td><td>2,625</td><td>&#8722;0,945</td><td>[2,625&#160;; 2,75]</td></tr>
+      <tr><td>3</td><td>2,625</td><td>2,75</td><td>2,6875</td><td>&#8722;0,080</td><td>[2,6875&#160;; 2,75]</td></tr>
+      <tr><td>4</td><td>2,6875</td><td>2,75</td><td>2,71875</td><td>0,352</td><td>[2,6875&#160;; 2,71875]</td></tr>
+      <tr><td>5</td><td>2,6875</td><td>2,71875</td><td>2,703</td><td>0,134</td><td>[2,6875&#160;; 2,703]</td></tr>
+    </tbody>
+  </table>
+
+  <p>Apr&#232;s 7&#160;it&#233;rations, on obtient \( c \approx 2{,}094 \) &#224; \(10^{-2}\) pr&#232;s.</p>
+</div>
+
+<div class="python-block">
+<span class="cmt"># Dichotomie en Python</span>
+<span class="kw">def</span> <span class="fn">dichotomie</span>(f, a, b, eps=1e-6):
+    <span class="kw">while</span> (b - a) &gt; eps:
+        m = (a + b) / 2
+        <span class="kw">if</span> f(a) * f(m) &lt; 0:
+            b = m
+        <span class="kw">else</span>:
+            a = m
+    <span class="kw">return</span> (a + b) / 2
+
+f = <span class="kw">lambda</span> x: x**3 - 2*x - 5
+racine = <span class="fn">dichotomie</span>(f, 2, 3)
+<span class="fn">print</span>(<span class="str">f"Racine ≈ {racine:.6f}"</span>)  <span class="cmt"># Racine ≈ 2.094552</span>
+</div>
+
+<h3>1.2 M&#233;thode de Newton-Raphson</h3>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; M&#233;thode de Newton</span>
+  <p>La m&#233;thode de Newton consiste &#224; remplacer la courbe \( y = f(x) \) par sa tangente au point courant. &#192; partir d'une valeur initiale \( x_0 \), on construit la suite&#160;:</p>
+  \[
+    x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+  \]
+  <p>La suite converge (quadratiquement) vers une racine de \( f \) lorsque \( f'(x_n) \neq 0 \) et que \( x_0 \) est suffisamment proche de la racine.</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propri&#233;t&#233; &#8212; Convergence quadratique</span>
+  <p>Si \( f \) est deux fois d&#233;rivable et \( f'(r) \neq 0 \) au voisinage de la racine \( r \), alors l'erreur \( e_n = x_n - r \) v&#233;rifie&#160;:</p>
+  \[
+    |e_{n+1}| \leq \frac{|f''(\xi)|}{2|f'(x_n)|}\, e_n^2
+  \]
+  <p>La convergence est quadratique&#160;: le nombre de chiffres significatifs exacts double &#224; chaque it&#233;ration.</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span>
+  <p>La m&#233;thode de Newton peut diverger si \( f'(x_n) = 0 \) ou si \( x_0 \) est mal choisi. Toujours v&#233;rifier la convergence et pr&#233;f&#233;rer la dichotomie pour une premi&#232;re localisation de la racine.</p>
+</div>
+
+<div class="ex">
+  <strong>Exemple</strong> &#8212; R&#233;soudre \( f(x) = x^3 - 2x - 5 = 0 \) avec \( x_0 = 2 \).
+  <p>\( f'(x) = 3x^2 - 2 \)</p>
+  <table class="tableau">
+    <thead><tr><th>\(n\)</th><th>\(x_n\)</th><th>\(f(x_n)\)</th><th>\(f'(x_n)\)</th><th>\(x_{n+1}\)</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>2,000 000</td><td>&#8722;1,000 000</td><td>10,000 000</td><td>2,100 000</td></tr>
+      <tr><td>1</td><td>2,100 000</td><td>0,061 000</td><td>11,230 000</td><td>2,094 568</td></tr>
+      <tr><td>2</td><td>2,094 568</td><td>0,000 096</td><td>11,161&#8230;</td><td>2,094 552</td></tr>
+    </tbody>
+  </table>
+  <p>Convergence en 3&#160;it&#233;rations contre 7 pour la dichotomie&#160;!</p>
+</div>
+
+<div class="python-block">
+<span class="cmt"># Newton-Raphson en Python</span>
+<span class="kw">def</span> <span class="fn">newton</span>(f, df, x0, eps=1e-9, max_iter=100):
+    x = x0
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(max_iter):
+        fx = f(x)
+        <span class="kw">if</span> <span class="fn">abs</span>(fx) &lt; eps:
+            <span class="kw">break</span>
+        x = x - fx / <span class="fn">df</span>(x)
+    <span class="kw">return</span> x
+
+f  = <span class="kw">lambda</span> x: x**3 - 2*x - 5
+df = <span class="kw">lambda</span> x: 3*x**2 - 2
+<span class="fn">print</span>(<span class="str">f"Racine ≈ {newton(f, df, 2):.9f}"</span>)
+</div>
+
+<!-- ===== PARTIE 2 : INTEGRATION NUMERIQUE ===== -->
+<h2>2. Int&#233;gration num&#233;rique</h2>
+
+<p>Lorsqu'une primitive n'est pas calculable analytiquement, ou que \( f \) n'est connue que par des valeurs tabul&#233;es, on utilise des m&#233;thodes d'int&#233;gration num&#233;rique pour approcher \(\displaystyle\int_a^b f(x)\,\mathrm{d}x\).</p>
+
+<p>On subdivise \([a,b]\) en \(n\) intervalles de longueur \(h = \dfrac{b-a}{n}\), avec les points \(x_i = a + i\,h\).</p>
+
+<h3>2.1 M&#233;thode des rectangles</h3>
+
+<div class="formule-box">
+  <strong>M&#233;thode des rectangles (point gauche)&#160;:</strong>
+  \[
+    \int_a^b f(x)\,\mathrm{d}x \approx h\sum_{i=0}^{n-1} f(x_i)
+  \]
+  <strong>Erreur&#160;:</strong> \(\displaystyle|E_R| \leq \frac{(b-a)^2}{2n}\,\max_{[a,b]}|f'(x)|\)
+</div>
+
+<h3>2.2 M&#233;thode des trap&#232;zes</h3>
+
+<div class="formule-box">
+  <strong>Formule des trap&#232;zes&#160;:</strong>
+  \[
+    \int_a^b f(x)\,\mathrm{d}x \approx \frac{h}{2}\bigl[f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n)\bigr]
+  \]
+  <strong>Erreur&#160;:</strong> \(\displaystyle|E_T| \leq \frac{(b-a)^3}{12n^2}\,\max_{[a,b]}|f''(x)|\)
+</div>
+
+<h3>2.3 M&#233;thode de Simpson</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propri&#233;t&#233; &#8212; Formule de Simpson</span>
+  <p>Pour \( n \) pair&#160;:</p>
+  \[
+    \int_a^b f(x)\,\mathrm{d}x \approx \frac{h}{3}\bigl[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \cdots + 4f(x_{n-1}) + f(x_n)\bigr]
+  \]
+  <strong>Erreur&#160;:</strong> \(\displaystyle|E_S| \leq \frac{(b-a)^5}{180n^4}\,\max_{[a,b]}|f^{(4)}(x)|\)
+  <p>La m&#233;thode de Simpson est d'ordre 4&#160;: elle est nettement plus pr&#233;cise que les trap&#232;zes &#224; nombre de subdivisions &#233;gal.</p>
+</div>
+
+<div class="retenir">
+  <strong>&#192; retenir &#8212; Comparaison des erreurs</strong>
+  <table class="tableau">
+    <thead><tr><th>M&#233;thode</th><th>Ordre</th><th>Erreur en \(O(\cdot)\)</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td>Rectangles</td><td>1</td><td>\(O(h)\)</td><td>Estimation rapide</td></tr>
+      <tr><td>Trap&#232;zes</td><td>2</td><td>\(O(h^2)\)</td><td>Donn&#233;es tabul&#233;es</td></tr>
+      <tr><td>Simpson</td><td>4</td><td>\(O(h^4)\)</td><td>Calcul pr&#233;cis</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="ex">
+  <strong>Exemple &#8212; Biomasse produite</strong><br>
+  Un technicien mesure la densit&#233; bact&#233;rienne (en g/L) toutes les 4&#160;heures&#160;:
+  <table class="tableau">
+    <thead><tr><th>\(t\) (h)</th><th>0</th><th>4</th><th>8</th><th>12</th><th>16</th><th>20</th><th>24</th></tr></thead>
+    <tbody><tr><td>\(D(t)\)</td><td>0,10</td><td>0,25</td><td>0,52</td><td>0,80</td><td>0,95</td><td>0,98</td><td>1,00</td></tr></tbody>
+  </table>
+  <p>Avec \(h = 4\), \(n = 6\)&#160;:</p>
+  <p><strong>Trap&#232;zes&#160;:</strong>
+  \(\dfrac{4}{2}\bigl(0{,}10 + 2{\times}0{,}25 + 2{\times}0{,}52 + 2{\times}0{,}80 + 2{\times}0{,}95 + 2{\times}0{,}98 + 1{,}00\bigr) = 2 \times 7{,}20 = 14{,}40 \text{ g}\cdot\text{h/L}\)</p>
+  <p><strong>Simpson&#160;:</strong>
+  \(\dfrac{4}{3}\bigl(0{,}10 + 4{\times}0{,}25 + 2{\times}0{,}52 + 4{\times}0{,}80 + 2{\times}0{,}95 + 4{\times}0{,}98 + 1{,}00\bigr) = \dfrac{4}{3} \times 11{,}04 \approx 14{,}72 \text{ g}\cdot\text{h/L}\)</p>
+</div>
+
+<div class="python-block">
+<span class="cmt"># Intégration numérique — méthodes trapèzes et Simpson</span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+t = np.array([0, 4, 8, 12, 16, 20, 24])
+D = np.array([0.10, 0.25, 0.52, 0.80, 0.95, 0.98, 1.00])
+
+<span class="cmt"># Méthode des trapèzes</span>
+I_trap = np.trapz(D, t)
+<span class="fn">print</span>(<span class="str">f"Trapèzes : {I_trap:.4f} g·h/L"</span>)
+
+<span class="cmt"># Simpson (scipy)</span>
+<span class="kw">from</span> scipy.integrate <span class="kw">import</span> simpson
+I_simp = <span class="fn">simpson</span>(D, x=t)
+<span class="fn">print</span>(<span class="str">f"Simpson  : {I_simp:.4f} g·h/L"</span>)
+</div>
+
+<!-- ===== PARTIE 3 : EULER ===== -->
+<h2>3. R&#233;solution approch&#233;e d'&#233;quations diff&#233;rentielles &#8212; M&#233;thode d'Euler</h2>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; &#201;quation diff&#233;rentielle du 1<sup>er</sup> ordre</span>
+  <p>Une &#233;quation diff&#233;rentielle du premier ordre s'&#233;crit&#160;:</p>
+  \[
+    y'(t) = f(t, y(t)), \qquad y(t_0) = y_0
+  \]
+  <p>Lorsqu'une solution analytique n'est pas disponible, la m&#233;thode d'Euler approche la solution par une suite de points \((t_n, y_n)\).</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propri&#233;t&#233; &#8212; Sch&#233;ma d'Euler explicite</span>
+  <p>On choisit un pas \( h &gt; 0 \) et on pose \( t_n = t_0 + nh \). La suite est d&#233;finie par&#160;:</p>
+  \[
+    \boxed{y_{n+1} = y_n + h \cdot f(t_n,\, y_n)}
+  \]
+  <p>L'erreur locale par pas est en \(O(h^2)\)&#160;; l'erreur globale est en \(O(h)\).</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">M&#233;thode &#8212; Tableau de valeurs Euler</span>
+  <p>Pour \( y' = -0{,}3y \), \( y(0) = 10 \), \( h = 1 \)&#160;:</p>
+  <table class="tableau">
+    <thead>
+      <tr><th>\(n\)</th><th>\(t_n\)</th><th>\(y_n\)</th><th>\(f(t_n, y_n) = -0{,}3\,y_n\)</th><th>\(y_{n+1} = y_n + h \cdot f\)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>0</td><td>10,000</td><td>&#8722;3,000</td><td>7,000</td></tr>
+      <tr><td>1</td><td>1</td><td>7,000</td><td>&#8722;2,100</td><td>4,900</td></tr>
+      <tr><td>2</td><td>2</td><td>4,900</td><td>&#8722;1,470</td><td>3,430</td></tr>
+      <tr><td>3</td><td>3</td><td>3,430</td><td>&#8722;1,029</td><td>2,401</td></tr>
+      <tr><td>4</td><td>4</td><td>2,401</td><td>&#8722;0,720</td><td>1,681</td></tr>
+    </tbody>
+  </table>
+  <p>Solution exacte&#160;: \( y(t) = 10\,e^{-0{,}3t} \). Pour \( t = 4 \)&#160;: \( y(4) = 10\,e^{-1{,}2} \approx 3{,}012 \). L'erreur d'Euler est ici de \(|\,1{,}681 - 3{,}012\,| \approx 1{,}33\)&#160;&#8212;&#160;r&#233;duire \(h\) am&#233;liore la pr&#233;cision.</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention &#8212; Choix du pas</span>
+  <p>Un pas \(h\) trop grand entra&#238;ne une erreur importante (m&#233;thode instable pour certaines &#233;quations). Un pas trop petit augmente le temps de calcul et les erreurs d'arrondi. En pratique, on choisit \( h \) de fa&#231;on &#224; ce que \( h \ll \dfrac{1}{\max|f'_y|}\).</p>
+</div>
+
+<div class="python-block">
+<span class="cmt"># Méthode d'Euler — croissance bactérienne logistique</span>
+<span class="kw">def</span> <span class="fn">euler</span>(f, t0, y0, h, n_steps):
+    t, y = [t0], [y0]
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(n_steps):
+        y_new = y[-1] + h * f(t[-1], y[-1])
+        t_new = t[-1] + h
+        t.append(t_new)
+        y.append(y_new)
+    <span class="kw">return</span> t, y
+
+<span class="cmt"># Modèle de Malthus : y' = r*y, r = 0.2, y(0) = 100</span>
+r = 0.2
+f = <span class="kw">lambda</span> t, y: r * y
+t_vals, y_vals = <span class="fn">euler</span>(f, 0, 100, h=0.5, n_steps=20)
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(5):
+    <span class="fn">print</span>(<span class="str">f"t={t_vals[i]:.1f}  y={y_vals[i]:.3f}"</span>)
+</div>
+
+<!-- ===== PARTIE 4 : ALGORITHMIQUE ===== -->
+<h2>4. Algorithmique &#8212; Structures fondamentales</h2>
+
+<h3>4.1 Variables et affectation</h3>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; Variable</span>
+  <p>Une <strong>variable</strong> est un espace m&#233;moire nomm&#233; qui stocke une valeur. Une <strong>affectation</strong> modifie la valeur d'une variable.</p>
+  <p>Notation algorithmique&#160;: <code>x &#8592; 5</code> &nbsp;|&nbsp; Python&#160;: <code>x = 5</code></p>
+  <p>Types courants&#160;: entier (<em>int</em>), r&#233;el (<em>float</em>), bool&#233;en (<em>bool</em>), cha&#238;ne (<em>str</em>).</p>
+</div>
+
+<div class="algo-block">
+<span class="cmt">// Échange de deux variables</span>
+<span class="kw">Variables</span> a, b, temp : Réel
+a &#8592; 3.14
+b &#8592; 2.71
+temp &#8592; a
+a &#8592; b
+b &#8592; temp
+<span class="kw">Afficher</span> "a =", a, "b =", b
+</div>
+
+<h3>4.2 Structures conditionnelles</h3>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; Si / Alors / Sinon</span>
+  <p>Permet d'ex&#233;cuter des instructions diff&#233;rentes selon qu'une condition est vraie ou fausse.</p>
+</div>
+
+<div class="algo-block">
+<span class="kw">Si</span> condition <span class="kw">Alors</span>
+    instructions si vrai
+<span class="kw">SinonSi</span> autre_condition <span class="kw">Alors</span>
+    instructions si autre_condition
+<span class="kw">Sinon</span>
+    instructions sinon
+<span class="kw">FinSi</span>
+</div>
+
+<div class="ex">
+  <strong>Exemple &#8212; Dose de m&#233;dicament</strong><br>
+  Un technicien pharmaceutique doit calculer une dose \(d\) en fonction du poids \(p\) du patient&#160;:
+  \(d = 5p\) si \(p \leq 60\)&#160;kg, \(d = 4p\) si \(p &gt; 60\)&#160;kg.
+</div>
+
+<div class="algo-block">
+<span class="kw">Variables</span> p, dose : Réel
+<span class="kw">Saisir</span> p
+<span class="kw">Si</span> p &#8804; 60 <span class="kw">Alors</span>
+    dose &#8592; 5 * p
+<span class="kw">Sinon</span>
+    dose &#8592; 4 * p
+<span class="kw">FinSi</span>
+<span class="kw">Afficher</span> "Dose =", dose, "mg"
+</div>
+
+<div class="python-block">
+p = float(input("Poids du patient (kg) : "))
+<span class="kw">if</span> p &lt;= 60:
+    dose = 5 * p
+<span class="kw">else</span>:
+    dose = 4 * p
+<span class="fn">print</span>(<span class="str">f"Dose prescrite : {dose:.1f} mg"</span>)
+</div>
+
+<h3>4.3 Boucles</h3>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; Boucle POUR (it&#233;ration born&#233;e)</span>
+  <p>La boucle <strong>Pour</strong> r&#233;p&#232;te un bloc d'instructions un nombre fix&#233; de fois. On conna&#238;t le nombre d'it&#233;rations avant d'entrer dans la boucle.</p>
+</div>
+
+<div class="algo-block">
+<span class="kw">Pour</span> i <span class="kw">allant de</span> 1 <span class="kw">à</span> n <span class="kw">Faire</span>
+    <span class="cmt">// instructions répétées n fois</span>
+<span class="kw">FinPour</span>
+</div>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; Boucle TANTQUE (it&#233;ration conditionnelle)</span>
+  <p>La boucle <strong>TantQue</strong> r&#233;p&#232;te un bloc tant qu'une condition reste vraie. Utilis&#233;e quand le nombre d'it&#233;rations n'est pas connu &#224; l'avance (ex.&#160;: dichotomie, convergence).</p>
+</div>
+
+<div class="algo-block">
+<span class="kw">TantQue</span> condition <span class="kw">Faire</span>
+    <span class="cmt">// instructions</span>
+    <span class="cmt">// NE PAS oublier de modifier la condition pour éviter une boucle infinie</span>
+<span class="kw">FinTantQue</span>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention &#8212; Boucle infinie</span>
+  <p>Si la condition d'une boucle TantQue ne devient jamais fausse, le programme ne termine pas. Toujours s'assurer que le corps de la boucle modifie la condition de sortie ou ajouter un compteur de garde.</p>
+</div>
+
+<h3>4.4 Fonctions</h3>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; Fonction algorithmique</span>
+  <p>Une <strong>fonction</strong> est un sous-programme nomm&#233; qui re&#231;oit des <em>param&#232;tres</em> et renvoie un <em>r&#233;sultat</em>. Elle am&#233;liore la lisibilit&#233; et &#233;vite les r&#233;p&#233;titions.</p>
+</div>
+
+<div class="algo-block">
+<span class="kw">Fonction</span> carre(x : Réel) : Réel
+    <span class="kw">Retourner</span> x * x
+<span class="kw">FinFonction</span>
+
+<span class="cmt">// Appel :</span>
+résultat &#8592; carre(4)  <span class="cmt">// résultat = 16</span>
+</div>
+
+<!-- ===== PARTIE 5 : ALGORITHMES CLASSIQUES ===== -->
+<h2>5. Algorithmes classiques</h2>
+
+<h3>5.1 Calcul de factorielle</h3>
+
+<div class="algo-block">
+<span class="kw">Fonction</span> factorielle(n : Entier) : Entier
+    résultat &#8592; 1
+    <span class="kw">Pour</span> i <span class="kw">allant de</span> 1 <span class="kw">à</span> n <span class="kw">Faire</span>
+        résultat &#8592; résultat * i
+    <span class="kw">FinPour</span>
+    <span class="kw">Retourner</span> résultat
+<span class="kw">FinFonction</span>
+</div>
+
+<div class="python-block">
+<span class="kw">def</span> <span class="fn">factorielle</span>(n):
+    res = 1
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(1, n + 1):
+        res *= i
+    <span class="kw">return</span> res
+
+<span class="fn">print</span>(<span class="fn">factorielle</span>(6))   <span class="cmt"># 720</span>
+<span class="fn">print</span>(<span class="fn">factorielle</span>(10))  <span class="cmt"># 3628800</span>
+</div>
+
+<h3>5.2 Suite de Fibonacci</h3>
+
+<div class="def">
+  <span class="label label-def">D&#233;finition &#8212; Suite de Fibonacci</span>
+  <p>\(F_0 = 0,\ F_1 = 1,\ F_n = F_{n-1} + F_{n-2}\) pour \(n \geq 2\).</p>
+  <p>Application&#160;: mod&#233;lisation de la croissance de populations (bact&#233;ries, lapins&#8230;).</p>
+</div>
+
+<div class="algo-block">
+<span class="kw">Fonction</span> fibonacci(n : Entier) : Entier
+    <span class="kw">Si</span> n &#8804; 1 <span class="kw">Alors</span> <span class="kw">Retourner</span> n
+    a &#8592; 0
+    b &#8592; 1
+    <span class="kw">Pour</span> i <span class="kw">allant de</span> 2 <span class="kw">à</span> n <span class="kw">Faire</span>
+        c &#8592; a + b
+        a &#8592; b
+        b &#8592; c
+    <span class="kw">FinPour</span>
+    <span class="kw">Retourner</span> b
+<span class="kw">FinFonction</span>
+</div>
+
+<div class="python-block">
+<span class="kw">def</span> <span class="fn">fibonacci</span>(n):
+    <span class="kw">if</span> n &lt;= 1:
+        <span class="kw">return</span> n
+    a, b = 0, 1
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(2, n + 1):
+        a, b = b, a + b
+    <span class="kw">return</span> b
+
+<span class="cmt"># Afficher les 10 premiers termes</span>
+<span class="fn">print</span>([<span class="fn">fibonacci</span>(k) <span class="kw">for</span> k <span class="kw">in</span> <span class="fn">range</span>(10)])
+<span class="cmt"># [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</span>
+</div>
+
+<h3>5.3 Recherche de maximum et minimum dans une liste</h3>
+
+<div class="algo-block">
+<span class="kw">Fonction</span> maximum(T : Tableau de n Réels) : Réel
+    maxi &#8592; T[0]
+    <span class="kw">Pour</span> i <span class="kw">allant de</span> 1 <span class="kw">à</span> n-1 <span class="kw">Faire</span>
+        <span class="kw">Si</span> T[i] &gt; maxi <span class="kw">Alors</span>
+            maxi &#8592; T[i]
+        <span class="kw">FinSi</span>
+    <span class="kw">FinPour</span>
+    <span class="kw">Retourner</span> maxi
+<span class="kw">FinFonction</span>
+</div>
+
+<div class="python-block">
+<span class="kw">def</span> <span class="fn">recherche_max</span>(T):
+    maxi = T[0]
+    <span class="kw">for</span> val <span class="kw">in</span> T:
+        <span class="kw">if</span> val &gt; maxi:
+            maxi = val
+    <span class="kw">return</span> maxi
+
+mesures = [3.2, 7.1, 1.9, 8.4, 4.6, 2.0]
+<span class="fn">print</span>(<span class="str">f"Maximum : {recherche_max(mesures)}"</span>)  <span class="cmt"># 8.4</span>
+</div>
+
+<h3>5.4 Tri par s&#233;lection</h3>
+
+<div class="meth">
+  <span class="label label-meth">M&#233;thode &#8212; Tri par s&#233;lection</span>
+  <p>Principe&#160;: trouver le minimum du sous-tableau non tri&#233; et le placer &#224; sa position finale. Complexit&#233;&#160;: \(O(n^2)\).</p>
+</div>
+
+<div class="algo-block">
+<span class="kw">Pour</span> i <span class="kw">allant de</span> 0 <span class="kw">à</span> n-2 <span class="kw">Faire</span>
+    imin &#8592; i
+    <span class="kw">Pour</span> j <span class="kw">allant de</span> i+1 <span class="kw">à</span> n-1 <span class="kw">Faire</span>
+        <span class="kw">Si</span> T[j] &lt; T[imin] <span class="kw">Alors</span>
+            imin &#8592; j
+        <span class="kw">FinSi</span>
+    <span class="kw">FinPour</span>
+    <span class="cmt">// Échanger T[i] et T[imin]</span>
+    temp &#8592; T[i] ; T[i] &#8592; T[imin] ; T[imin] &#8592; temp
+<span class="kw">FinPour</span>
+</div>
+
+<div class="python-block">
+<span class="kw">def</span> <span class="fn">tri_selection</span>(T):
+    n = <span class="fn">len</span>(T)
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(n - 1):
+        imin = i
+        <span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(i + 1, n):
+            <span class="kw">if</span> T[j] &lt; T[imin]:
+                imin = j
+        T[i], T[imin] = T[imin], T[i]
+    <span class="kw">return</span> T
+
+<span class="fn">print</span>(<span class="fn">tri_selection</span>([5.2, 1.1, 3.8, 0.9, 4.4]))
+<span class="cmt"># [0.9, 1.1, 3.8, 4.4, 5.2]</span>
+</div>
+
+<!-- ===== PARTIE 6 : PYTHON ===== -->
+<h2>6. Python &#8212; &#201;l&#233;ments de syntaxe</h2>
+
+<h3>6.1 Types de base et op&#233;rations</h3>
+
+<div class="python-block">
+<span class="cmt"># Types de base</span>
+x = 3           <span class="cmt"># entier (int)</span>
+y = 3.14        <span class="cmt"># flottant (float)</span>
+b = <span class="kw">True</span>        <span class="cmt"># booléen</span>
+s = <span class="str">"bonjour"</span>   <span class="cmt"># chaîne</span>
+
+<span class="cmt"># Opérations arithmétiques</span>
+<span class="fn">print</span>(7 // 2)   <span class="cmt"># 3  (division entière)</span>
+<span class="fn">print</span>(7 % 2)    <span class="cmt"># 1  (modulo)</span>
+<span class="fn">print</span>(2 ** 10)  <span class="cmt"># 1024 (puissance)</span>
+<span class="fn">print</span>(round(3.14159, 3))  <span class="cmt"># 3.142</span>
+</div>
+
+<h3>6.2 Listes</h3>
+
+<div class="python-block">
+<span class="cmt"># Création et manipulation de listes</span>
+concentrations = [0.1, 0.4, 0.9, 1.6, 2.5]
+<span class="fn">print</span>(concentrations[0])        <span class="cmt"># 0.1 (premier élément)</span>
+<span class="fn">print</span>(concentrations[-1])       <span class="cmt"># 2.5 (dernier élément)</span>
+<span class="fn">print</span>(concentrations[1:4])      <span class="cmt"># [0.4, 0.9, 1.6] (tranche)</span>
+<span class="fn">print</span>(<span class="fn">len</span>(concentrations))       <span class="cmt"># 5</span>
+
+<span class="cmt"># Création par compréhension</span>
+carres = [x**2 <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(1, 6)]  <span class="cmt"># [1, 4, 9, 16, 25]</span>
+
+<span class="cmt"># Ajout d'un élément</span>
+concentrations.append(3.6)
+
+<span class="cmt"># Statistiques de base</span>
+n = <span class="fn">len</span>(concentrations)
+moyenne = <span class="fn">sum</span>(concentrations) / n
+<span class="fn">print</span>(<span class="str">f"Moyenne : {moyenne:.3f}"</span>)
+<span class="fn">print</span>(<span class="str">f"Max : {max(concentrations)} — Min : {min(concentrations)}"</span>)
+</div>
+
+<h3>6.3 Fonctions Python avec documentation</h3>
+
+<div class="python-block">
+<span class="kw">def</span> <span class="fn">dilution</span>(C0, V0, Vf):
+    <span class="str">"""Calcule la concentration après dilution.
+
+    Paramètres
+    ----------
+    C0 : concentration initiale (mol/L)
+    V0 : volume initial (mL)
+    Vf : volume final (mL)
+
+    Retourne
+    --------
+    Concentration finale (mol/L)
+    """</span>
+    <span class="kw">if</span> Vf == 0:
+        <span class="kw">raise</span> <span class="fn">ValueError</span>(<span class="str">"Volume final nul impossible"</span>)
+    <span class="kw">return</span> (C0 * V0) / Vf
+
+<span class="cmt"># Dilution d'un acide 5 mol/L dans 100 mL → 500 mL</span>
+Cf = <span class="fn">dilution</span>(5.0, 100, 500)
+<span class="fn">print</span>(<span class="str">f"Concentration finale : {Cf:.2f} mol/L"</span>)  <span class="cmt"># 1.00 mol/L</span>
+</div>
+
+<!-- ===== PARTIE 7 : APPLICATIONS ===== -->
+<h2>7. Applications professionnelles</h2>
+
+<h3>7.1 Simulation d'un proc&#233;d&#233; biologique &#8212; Mod&#232;le logistique</h3>
+
+<div class="situation">
+  <strong>Situation &#8212; Culture de micro-algues</strong><br>
+  Un technicien g&#232;re un bior&#233;acteur. La croissance suit un mod&#232;le logistique&#160;:
+  \[
+    \frac{dN}{dt} = r\,N\!\left(1 - \frac{N}{K}\right)
+  \]
+  avec \(r = 0{,}3\) h\(^{-1}\) (taux de croissance), \(K = 10^6\) cell/mL (capacit&#233; maximale), \(N(0) = 10^4\) cell/mL. Il utilise la m&#233;thode d'Euler avec \(h = 0{,}5\) h pour simuler l'&#233;volution sur 40&#160;heures.
+</div>
+
+<div class="python-block">
+<span class="cmt"># Simulation logistique par Euler</span>
+r, K, N0, h = 0.3, 1e6, 1e4, 0.5
+
+t_list = [0]
+N_list = [N0]
+
+<span class="kw">while</span> t_list[-1] &lt; 40:
+    N = N_list[-1]
+    dN = r * N * (1 - N / K)
+    N_list.append(N + h * dN)
+    t_list.append(t_list[-1] + h)
+
+<span class="cmt"># Affichage toutes les 5 heures</span>
+<span class="kw">for</span> i, (t, N) <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="fn">zip</span>(t_list, N_list)):
+    <span class="kw">if</span> t % 5 == 0:
+        <span class="fn">print</span>(<span class="str">f"t = {t:4.0f} h  |  N = {N:.2e} cell/mL"</span>)
+</div>
+
+<h3>7.2 Calcul d'une dose de m&#233;dicament par int&#233;gration num&#233;rique</h3>
+
+<div class="ex">
+  <strong>Situation &#8212; Pharmacocin&#233;tique</strong><br>
+  La concentration plasmatique d'un m&#233;dicament suit \(C(t) = C_0\,e^{-kt}\) avec \(C_0 = 8\)&#160;mg/L et \(k = 0{,}1\)&#160;h\(^{-1}\).
+  La dose re&#231;ue sur 12&#160;heures est \(\displaystyle D = \int_0^{12} C(t)\,\mathrm{d}t\).
+  <br>La valeur exacte est \( D = \dfrac{C_0}{k}(1 - e^{-12k}) = 80(1 - e^{-1{,}2}) \approx 54{,}85 \text{ mg}\cdot\text{h/L}\).
+</div>
+
+<div class="python-block">
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+C0, k = 8.0, 0.1
+
+<span class="cmt"># Simpson avec n = 100 subdivisions</span>
+n = 100
+t = np.linspace(0, 12, n + 1)
+h_step = 12.0 / n
+C = C0 * np.exp(-k * t)
+
+I_simp = (C[0] + C[-1] + 4*np.sum(C[1::2]) + 2*np.sum(C[2:-1:2])) * h_step / 3
+exact  = (C0 / k) * (1 - np.exp(-k * 12))
+
+<span class="fn">print</span>(<span class="str">f"Simpson (n=100) : {I_simp:.4f} mg·h/L"</span>)
+<span class="fn">print</span>(<span class="str">f"Valeur exacte   : {exact:.4f} mg·h/L"</span>)
+<span class="fn">print</span>(<span class="str">f"Erreur relative : {abs(I_simp - exact)/exact * 100:.2e} %"</span>)
+</div>
+
+<h3>7.3 Optimisation d'un proc&#233;d&#233; &#8212; Recherche du minimum d'une fonction</h3>
+
+<div class="situation">
+  <strong>Situation &#8212; Co&#251;t de production chimique</strong><br>
+  Un ing&#233;nieur proc&#233;d&#233;s cherche la temp&#233;rature \(T\) (en &#176;C) qui minimise le co&#251;t d'une r&#233;action&#160;:
+  \[
+    C(T) = 0{,}01T^2 - 1{,}8T + 90, \qquad T \in [50, 120]
+  \]
+  On r&#233;sout \( C'(T) = 0 \) par dichotomie, puis on v&#233;rifie par calcul direct.
+</div>
+
+<div class="python-block">
+<span class="cmt"># Minimum par dichotomie sur C'(T)</span>
+<span class="kw">def</span> <span class="fn">dC</span>(T):
+    <span class="kw">return</span> 0.02 * T - 1.8  <span class="cmt"># dérivée de C(T)</span>
+
+T_opt = <span class="fn">dichotomie</span>(dC, 50, 120)
+C_min = 0.01 * T_opt**2 - 1.8 * T_opt + 90
+<span class="fn">print</span>(<span class="str">f"Température optimale : {T_opt:.1f} °C"</span>)    <span class="cmt"># 90.0 °C</span>
+<span class="fn">print</span>(<span class="str">f"Coût minimal         : {C_min:.2f} unités"</span>)  <span class="cmt"># 9.00 unités</span>
+</div>
+
+<div class="retenir">
+  <strong>&#192; retenir &#8212; R&#233;capitulatif des m&#233;thodes num&#233;riques</strong>
+  <table class="tableau">
+    <thead>
+      <tr><th>Probl&#232;me</th><th>M&#233;thode</th><th>Ordre</th><th>Remarque</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R&#233;solution \(f(x)=0\)</td><td>Dichotomie</td><td>Lin&#233;aire</td><td>S&#251;re, lente</td></tr>
+      <tr><td>R&#233;solution \(f(x)=0\)</td><td>Newton-Raphson</td><td>Quadratique</td><td>Rapide, n&#233;cessite \(f'\)</td></tr>
+      <tr><td>Int&#233;gration</td><td>Rectangles</td><td>\(O(h)\)</td><td>Simple, peu pr&#233;cise</td></tr>
+      <tr><td>Int&#233;gration</td><td>Trap&#232;zes</td><td>\(O(h^2)\)</td><td>Donn&#233;es tabul&#233;es</td></tr>
+      <tr><td>Int&#233;gration</td><td>Simpson</td><td>\(O(h^4)\)</td><td>Haute pr&#233;cision</td></tr>
+      <tr><td>&#201;quation diff.</td><td>Euler</td><td>\(O(h)\)</td><td>Simple, pas \(h\) petit</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention &#8212; Python vs pseudo-code</span>
+  <p>En Python, les indices de tableaux commencent &#224; 0. L'indentation (4 espaces) d&#233;limite les blocs&#160;&#8212;&#160;ne pas m&#233;langer tabulations et espaces. Les erreurs de type (<em>TypeError</em>) surviennent souvent lors de la division enti&#232;re avec <code>//</code> sur des flottants. Toujours documenter ses fonctions avec une docstring.</p>
 </div>
 
 </div>

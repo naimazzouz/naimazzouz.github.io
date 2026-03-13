@@ -4,21 +4,631 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch19 – Transformation en z – BTS</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire BTS</a>
+<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+
 <header>
   <h1>Chapitre 19 – Transformation en z</h1>
-  <p class="sous-titre">BTS — Mathématiques</p>
+  <p class="sous-titre">BTS | Mathématiques | Groupements B2, B3</p>
 </header>
+
+<!-- OBJECTIFS -->
 <div class="objectifs">
-  <h3>🚧 En cours de rédaction</h3>
-  <p>Ce chapitre sera bientôt disponible. Revenez prochainement !</p>
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Comprendre la notion de signal discret et son traitement numérique</li>
+    <li>Définir et calculer la transformée en z d'un signal discret</li>
+    <li>Utiliser les propriétés de la transformée en z (linéarité, décalage, convolution)</li>
+    <li>Calculer la transformée en z inverse par décomposition en éléments simples</li>
+    <li>Résoudre des équations aux différences à l'aide de la transformée en z</li>
+    <li>Analyser la stabilité d'un filtre numérique (condition sur les pôles)</li>
+  </ul>
 </div>
+
+<!-- SITUATION PROFESSIONNELLE -->
+<div class="situation">
+  <strong>Situation professionnelle — Filtrage numérique en électrotechnique</strong>
+  <p>
+    Un technicien en électronique industrielle travaille sur un système de traitement numérique du signal.
+    Le convertisseur analogique-numérique (CAN) échantillonne un signal de mesure à la fréquence
+    \(f_e = 1\,\text{kHz}\). Le signal numérique obtenu \(x[n]\) doit être filtré pour éliminer les
+    bruits haute fréquence avant d'être transmis à l'unité de contrôle d'un variateur de vitesse.
+  </p>
+  <p>
+    L'outil mathématique adapté à ce traitement est la <strong>transformée en z</strong>, qui joue pour
+    les signaux discrets le même rôle que la transformée de Laplace pour les signaux continus.
+    Elle permet de concevoir des filtres numériques, d'analyser leur stabilité et de calculer leur réponse.
+  </p>
+</div>
+
+<!-- SECTION 1 : SIGNAUX DISCRETS -->
+<h2>1. Signaux discrets et suites</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Signal discret</span>
+  <p>
+    Un <strong>signal discret</strong> est une suite de valeurs numériques \(x[n]\) indexées par
+    un entier \(n \in \mathbb{Z}\). Il résulte de l'échantillonnage d'un signal continu \(x(t)\)
+    à des instants \(t = nT_e\) :
+  </p>
+  \[x[n] = x(nT_e), \quad T_e = \frac{1}{f_e}\]
+  <p>Signaux discrets fondamentaux :</p>
+  <ul>
+    <li>
+      <strong>Impulsion de Kronecker</strong> :
+      \(\displaystyle\delta[n] = \begin{cases} 1 & n = 0 \\ 0 & n \neq 0 \end{cases}\)
+    </li>
+    <li>
+      <strong>Échelon unitaire discret</strong> :
+      \(\displaystyle u[n] = \begin{cases} 1 & n \geq 0 \\ 0 & n < 0 \end{cases}\)
+    </li>
+    <li>
+      <strong>Exponentielle discrète</strong> : \(x[n] = a^n\,u[n]\), \(a \in \mathbb{R}\)
+    </li>
+    <li>
+      <strong>Sinusoïde discrète</strong> : \(x[n] = \cos(\omega_0 n)\,u[n]\),
+      où \(\omega_0\) est la pulsation normalisée
+    </li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Rappel — Transformée de Fourier à temps discret (TFTD)</span>
+  <p>
+    La transformée de Fourier à temps discret d'un signal \(x[n]\) est :
+  </p>
+  \[X(e^{j\omega}) = \sum_{n=-\infty}^{+\infty} x[n]\, e^{-j\omega n}\]
+  <p>
+    où \(\omega\) est la pulsation normalisée (sans dimension). Elle existe si le signal est
+    absolument sommable : \(\sum_{n}|x[n]| < +\infty\).
+  </p>
+  <p>
+    La transformée en z est une généralisation de la TFTD : on substitue \(e^{j\omega}\)
+    par une variable complexe \(z\), ce qui étend considérablement le domaine de convergence.
+  </p>
+</div>
+
+<!-- SECTION 2 : DÉFINITION -->
+<h2>2. Définition de la transformée en z</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Transformée en z bilatérale</span>
+  <p>
+    Soit \(x[n]\) un signal discret. La <strong>transformée en z bilatérale</strong> est :
+  </p>
+  <div class="formule-box">
+    \[\mathcal{Z}\{x[n]\} = X(z) = \sum_{n=-\infty}^{+\infty} x[n]\, z^{-n}, \quad z \in \mathbb{C}\]
+  </div>
+  <p>
+    La <strong>région de convergence (ROC)</strong> est l'ensemble des \(z\) pour lesquels
+    la série converge absolument.
+  </p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Transformée en z unilatérale</span>
+  <p>
+    Pour les signaux causaux (nuls pour \(n < 0\)), on utilise la transformée unilatérale,
+    plus courante en traitement du signal :
+  </p>
+  <div class="formule-box">
+    \[\mathcal{Z}\{x[n]\} = X(z) = \sum_{n=0}^{+\infty} x[n]\, z^{-n}\]
+  </div>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Région de convergence pour un signal causal</span>
+  <p>
+    Pour un signal causal \(x[n] = x[n]\,u[n]\), la ROC est :
+    \[|z| > r_{\max}\]
+    où \(r_{\max}\) est le plus grand module des pôles de \(X(z)\).
+  </p>
+  <p>
+    Le cercle unité \(|z| = 1\) est dans la ROC si et seulement si tous les pôles vérifient
+    \(|p_i| < 1\). Dans ce cas, on peut calculer la réponse en fréquence en posant \(z = e^{j\omega}\).
+  </p>
+</div>
+
+<!-- SECTION 3 : TRANSFORMÉES USUELLES -->
+<h2>3. Table des transformées en z usuelles</h2>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Transformées fondamentales</span>
+  <table style="width:100%;border-collapse:collapse;margin:1em 0">
+    <thead>
+      <tr style="background:var(--p);color:#fff">
+        <th style="padding:0.5em 0.8em;border:1px solid #aaa;text-align:left">Signal \(x[n]\)</th>
+        <th style="padding:0.5em 0.8em;border:1px solid #aaa;text-align:left">Transformée \(X(z)\)</th>
+        <th style="padding:0.5em 0.8em;border:1px solid #aaa;text-align:left">ROC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\delta[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(1\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">tout \(\mathbb{C}\)</td>
+      </tr>
+      <tr style="background:#f5f7fb">
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\delta[n-k]\) (\(k \geq 0\))</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(z^{-k}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(z \neq 0\) si \(k > 0\)</td>
+      </tr>
+      <tr>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{z}{z-1}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > 1\)</td>
+      </tr>
+      <tr style="background:#f5f7fb">
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(a^n\,u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{z}{z-a}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > |a|\)</td>
+      </tr>
+      <tr>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(n\,u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{z}{(z-1)^2}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > 1\)</td>
+      </tr>
+      <tr style="background:#f5f7fb">
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(n\,a^n\,u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{az}{(z-a)^2}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > |a|\)</td>
+      </tr>
+      <tr>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\cos(\omega_0 n)\,u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{z(z-\cos\omega_0)}{z^2 - 2z\cos\omega_0 + 1}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > 1\)</td>
+      </tr>
+      <tr style="background:#f5f7fb">
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\sin(\omega_0 n)\,u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{z\sin\omega_0}{z^2 - 2z\cos\omega_0 + 1}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > 1\)</td>
+      </tr>
+      <tr>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(a^n\cos(\omega_0 n)\,u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{z(z-a\cos\omega_0)}{z^2 - 2az\cos\omega_0 + a^2}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > |a|\)</td>
+      </tr>
+      <tr style="background:#f5f7fb">
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(a^n\sin(\omega_0 n)\,u[n]\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(\dfrac{az\sin\omega_0}{z^2 - 2az\cos\omega_0 + a^2}\)</td>
+        <td style="padding:0.5em 0.8em;border:1px solid #aaa">\(|z| > |a|\)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Démonstration de \(\mathcal{Z}\{a^n u[n]\} = \dfrac{z}{z-a}\)</span>
+  <p>Par définition de la transformée unilatérale :</p>
+  \[\mathcal{Z}\{a^n u[n]\} = \sum_{n=0}^{+\infty} a^n z^{-n} = \sum_{n=0}^{+\infty} \left(\frac{a}{z}\right)^n\]
+  <p>
+    C'est une série géométrique de raison \(r = a/z\). Elle converge si et seulement si
+    \(|a/z| < 1\), c'est-à-dire \(|z| > |a|\). La somme vaut :
+  </p>
+  \[\mathcal{Z}\{a^n u[n]\} = \frac{1}{1 - a/z} = \frac{z}{z - a}\]
+</div>
+
+<!-- SECTION 4 : PROPRIÉTÉS -->
+<h2>4. Propriétés de la transformée en z</h2>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Linéarité</span>
+  <p>Pour tous réels \(\alpha, \beta\) et signaux \(x[n], y[n]\) :</p>
+  <div class="formule-box">
+    \[\mathcal{Z}\{\alpha\,x[n] + \beta\,y[n]\} = \alpha\,X(z) + \beta\,Y(z)\]
+  </div>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Décalage temporel (retard)</span>
+  <p>Pour tout entier \(k \geq 0\) et conditions initiales nulles :</p>
+  <div class="formule-box">
+    \[\mathcal{Z}\{x[n-k]\} = z^{-k}\,X(z)\]
+  </div>
+  <p>
+    Le facteur \(z^{-k}\) joue le rôle d'un opérateur de retard.
+    Il est l'analogue discret du facteur \(e^{-sT}\) en transformée de Laplace.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Avance temporelle</span>
+  <p>Pour tout entier \(k \geq 1\) et conditions initiales nulles :</p>
+  \[\mathcal{Z}\{x[n+k]\} = z^{k}\,X(z)\]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Convolution discrète</span>
+  <p>Si \(y[n] = x[n] * h[n] = \displaystyle\sum_{k=-\infty}^{+\infty} x[k]\,h[n-k]\), alors :</p>
+  <div class="formule-box">
+    \[\mathcal{Z}\{x[n] * h[n]\} = X(z) \cdot H(z)\]
+  </div>
+  <p>
+    La convolution (opération complexe dans le domaine temporel) devient un
+    <strong>simple produit</strong> dans le domaine z.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Théorème de la valeur initiale</span>
+  <p>Pour un signal causal \(x[n]\) avec \(x[n] = 0\) pour \(n < 0\) :</p>
+  <div class="formule-box">
+    \[x[0] = \lim_{z \to \infty} X(z)\]
+  </div>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Théorème de la valeur finale</span>
+  <p>
+    Si \(x[n]\) admet une limite quand \(n \to +\infty\), et si tous les pôles de
+    \((z-1)X(z)\) sont à l'intérieur du cercle unité (sauf éventuellement en \(z=1\)) :
+  </p>
+  <div class="formule-box">
+    \[\lim_{n \to +\infty} x[n] = \lim_{z \to 1} \,(z-1)\,X(z)\]
+  </div>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Multiplication par \(n\)</span>
+  <div class="formule-box">
+    \[\mathcal{Z}\{n\,x[n]\} = -z\,\frac{\mathrm{d}X}{\mathrm{d}z}(z)\]
+  </div>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Démonstration de \(\mathcal{Z}\{n\,a^n\,u[n]\}\)</span>
+  <p>
+    On part de \(\mathcal{Z}\{a^n u[n]\} = \dfrac{z}{z-a}\) et on applique la propriété de multiplication par \(n\) :
+  </p>
+  \[\mathcal{Z}\{n\,a^n\,u[n]\} = -z\,\frac{\mathrm{d}}{\mathrm{d}z}\!\left(\frac{z}{z-a}\right)\]
+  <p>Calcul de la dérivée :</p>
+  \[\frac{\mathrm{d}}{\mathrm{d}z}\!\left(\frac{z}{z-a}\right) = \frac{(z-a)\cdot 1 - z \cdot 1}{(z-a)^2} = \frac{-a}{(z-a)^2}\]
+  <p>Donc :</p>
+  \[\mathcal{Z}\{n\,a^n\,u[n]\} = -z \cdot \frac{-a}{(z-a)^2} = \frac{az}{(z-a)^2}\]
+</div>
+
+<!-- SECTION 5 : TRANSFORMÉE INVERSE -->
+<h2>5. Transformée en z inverse</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Transformée inverse</span>
+  <p>
+    La transformée en z inverse permet de retrouver \(x[n]\) à partir de \(X(z)\).
+    La formule théorique fait appel à une intégrale de contour (théorème des résidus),
+    mais en pratique on utilise la <strong>décomposition en éléments simples</strong>.
+  </p>
+  <p>
+    La méthode standard consiste à développer \(X(z)/z\) en fractions partielles,
+    puis à multiplier par \(z\) pour retrouver des termes identifiables dans la table.
+  </p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Décomposition en éléments simples (pôles simples)</span>
+  <ol>
+    <li>Écrire \(\dfrac{X(z)}{z}\) sous la forme \(\dfrac{N(z)}{D(z)}\)</li>
+    <li>
+      Décomposer : \(\dfrac{X(z)}{z} = \sum_{i} \dfrac{A_i}{z - p_i}\)
+      où les \(p_i\) sont les pôles
+    </li>
+    <li>
+      Calculer les résidus : \(A_i = \left[(z - p_i)\,\dfrac{X(z)}{z}\right]_{z = p_i}\)
+    </li>
+    <li>Multiplier par \(z\) : \(X(z) = \sum_i \dfrac{A_i z}{z - p_i}\)</li>
+    <li>Identifier chaque terme dans la table : \(x[n] = \sum_i A_i\, p_i^n\, u[n]\)</li>
+  </ol>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Pôles multiples</span>
+  <p>
+    Pour un pôle \(a\) d'ordre 2, la décomposition de \(X(z)/z\) comprend des termes
+    en \(\dfrac{A}{z-a}\) et \(\dfrac{B}{(z-a)^2}\). Après multiplication par \(z\) :
+    \[\frac{Az}{z-a} + \frac{Bz}{(z-a)^2} \xrightarrow{\mathcal{Z}^{-1}} A\,a^n\,u[n] + \frac{B}{a}\,n\,a^n\,u[n]\]
+  </p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple complet — Calcul de \(\mathcal{Z}^{-1}\!\left\{\dfrac{z^2}{(z-1)(z-0{,}5)}\right\}\)</span>
+  <p>Posons \(F(z) = \dfrac{z^2}{(z-1)(z-0{,}5)}\). On écrit :</p>
+  \[\frac{F(z)}{z} = \frac{z}{(z-1)(z-0{,}5)} = \frac{A}{z-1} + \frac{B}{z-0{,}5}\]
+  <p><strong>Calcul de \(A\) :</strong></p>
+  \[A = \left[\frac{z}{z-0{,}5}\right]_{z=1} = \frac{1}{1 - 0{,}5} = 2\]
+  <p><strong>Calcul de \(B\) :</strong></p>
+  \[B = \left[\frac{z}{z-1}\right]_{z=0{,}5} = \frac{0{,}5}{0{,}5 - 1} = \frac{0{,}5}{-0{,}5} = -1\]
+  <p>On reconstitue \(F(z)\) :</p>
+  \[F(z) = \frac{2z}{z-1} - \frac{z}{z-0{,}5}\]
+  <p>Par la table des transformées inverses :</p>
+  \[f[n] = 2 \cdot 1^n\,u[n] - (0{,}5)^n\,u[n] = \left[2 - (0{,}5)^n\right]u[n]\]
+  <p>
+    <strong>Vérification (valeur initiale) :</strong>
+    \(\lim_{z\to\infty} F(z) = 1 \Rightarrow f[0] = 1 = 2 - (0{,}5)^0 = 2 - 1 = 1\). Cohérent.
+  </p>
+</div>
+
+<!-- SECTION 6 : ÉQUATIONS AUX DIFFÉRENCES -->
+<h2>6. Équations aux différences</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Équation aux différences linéaire à coefficients constants</span>
+  <p>
+    Une équation aux différences (EDLCC) est de la forme :
+  </p>
+  <div class="formule-box">
+    \[\sum_{k=0}^{N} a_k\, y[n-k] = \sum_{k=0}^{M} b_k\, x[n-k]\]
+  </div>
+  <p>
+    Elle modélise la relation entre l'entrée \(x[n]\) et la sortie \(y[n]\) d'un système discret.
+    \(N\) est l'ordre du système.
+  </p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Résolution par la transformée en z</span>
+  <p>Avec des conditions initiales nulles (\(y[-k] = 0\) et \(x[-k] = 0\) pour \(k > 0\)) :</p>
+  <ol>
+    <li>Appliquer \(\mathcal{Z}\) à chaque terme en utilisant \(\mathcal{Z}\{y[n-k]\} = z^{-k} Y(z)\)</li>
+    <li>Factoriser : \(Y(z)\cdot A(z) = X(z)\cdot B(z)\) avec \(A(z) = \sum a_k z^{-k}\) et \(B(z) = \sum b_k z^{-k}\)</li>
+    <li>Isoler : \(Y(z) = \dfrac{B(z)}{A(z)}\cdot X(z) = H(z)\cdot X(z)\)</li>
+    <li>Calculer \(\mathcal{Z}^{-1}\{Y(z)\}\) par décomposition en éléments simples</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Réponse impulsionnelle d'un filtre du 1er ordre</span>
+  <p>
+    Résoudre \(y[n] - 0{,}7\,y[n-1] = x[n]\) avec \(x[n] = \delta[n]\), conditions initiales nulles.
+  </p>
+  <p><strong>Étape 1 :</strong> Transformation en z :</p>
+  \[Y(z) - 0{,}7\,z^{-1}Y(z) = \mathcal{Z}\{\delta[n]\} = 1\]
+  <p><strong>Étape 2 :</strong> Factorisation :</p>
+  \[Y(z)\left(1 - 0{,}7\,z^{-1}\right) = 1 \implies Y(z) = \frac{1}{1-0{,}7z^{-1}} = \frac{z}{z-0{,}7}\]
+  <p><strong>Étape 3 :</strong> Transformée inverse (lecture directe dans la table) :</p>
+  \[y[n] = h[n] = (0{,}7)^n\,u[n]\]
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Réponse indicielle d'un filtre du 2ème ordre</span>
+  <p>
+    Soit \(y[n] - 1{,}2\,y[n-1] + 0{,}35\,y[n-2] = x[n]\), avec \(x[n] = u[n]\) et
+    conditions initiales nulles.
+  </p>
+  <p><strong>Fonction de transfert :</strong></p>
+  \[H(z) = \frac{1}{1 - 1{,}2z^{-1} + 0{,}35z^{-2}} = \frac{z^2}{z^2 - 1{,}2z + 0{,}35}\]
+  <p><strong>Pôles :</strong> \(\Delta = 1{,}44 - 4(0{,}35) = 0{,}04\), donc
+    \(z_1 = 0{,}7\), \(z_2 = 0{,}5\).</p>
+  <p><strong>Transformée de l'entrée :</strong> \(X(z) = \dfrac{z}{z-1}\).</p>
+  \[Y(z) = H(z)X(z) = \frac{z^3}{(z^2 - 1{,}2z + 0{,}35)(z-1)} = \frac{z^3}{(z-0{,}7)(z-0{,}5)(z-1)}\]
+  <p>Décomposition de \(Y(z)/z\) :</p>
+  \[\frac{Y(z)}{z} = \frac{z^2}{(z-0{,}7)(z-0{,}5)(z-1)} = \frac{A}{z-1} + \frac{B}{z-0{,}7} + \frac{C}{z-0{,}5}\]
+  <p>Résidus :</p>
+  \[A = \left[\frac{z^2}{(z-0{,}7)(z-0{,}5)}\right]_{z=1} = \frac{1}{0{,}3 \times 0{,}5} = \frac{10}{3}\]
+  \[B = \left[\frac{z^2}{(z-0{,}5)(z-1)}\right]_{z=0{,}7} = \frac{0{,}49}{0{,}2\times(-0{,}3)} = -\frac{49}{6}\]
+  \[C = \left[\frac{z^2}{(z-0{,}7)(z-1)}\right]_{z=0{,}5} = \frac{0{,}25}{(-0{,}2)(-0{,}5)} = \frac{5}{2}\]
+  <p>Réponse :</p>
+  \[y[n] = \left(\frac{10}{3} - \frac{49}{6}(0{,}7)^n + \frac{5}{2}(0{,}5)^n\right)u[n]\]
+</div>
+
+<!-- SECTION 7 : FONCTION DE TRANSFERT -->
+<h2>7. Fonction de transfert en z</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Fonction de transfert en z</span>
+  <p>
+    La <strong>fonction de transfert en z</strong> d'un système numérique est le rapport :
+  </p>
+  <div class="formule-box">
+    \[H(z) = \frac{Y(z)}{X(z)} = \frac{b_0 + b_1 z^{-1} + \cdots + b_M z^{-M}}{1 + a_1 z^{-1} + \cdots + a_N z^{-N}}\]
+  </div>
+  <p>
+    Les <strong>zéros</strong> de \(H(z)\) sont les racines du numérateur.
+    Les <strong>pôles</strong> de \(H(z)\) sont les racines du dénominateur.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Condition de stabilité</span>
+  <p>Un système numérique décrit par \(H(z)\) est <strong>stable</strong> si et seulement si :</p>
+  <div class="formule-box">
+    \[\forall\, i,\quad |p_i| < 1\]
+  </div>
+  <p>
+    Tous les pôles doivent être strictement à l'intérieur du cercle unité dans le plan complexe.
+    C'est l'analogue discret de la stabilité de Hurwitz (pôles à partie réelle strictement négative)
+    pour les systèmes continus.
+  </p>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Correspondance Laplace / z</strong>
+  <table style="width:100%;border-collapse:collapse;margin:0.5em 0">
+    <thead>
+      <tr style="background:var(--p);color:#fff">
+        <th style="padding:0.4em 0.7em;border:1px solid #aaa">Domaine continu (Laplace)</th>
+        <th style="padding:0.4em 0.7em;border:1px solid #aaa">Domaine discret (z)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Variable complexe \(s\)</td>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Variable complexe \(z\)</td>
+      </tr>
+      <tr style="background:#f5f7fb">
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Retard \(e^{-sT}\)</td>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Retard \(z^{-1}\)</td>
+      </tr>
+      <tr>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Stable : \(\text{Re}(p_i) < 0\)</td>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Stable : \(|p_i| < 1\)</td>
+      </tr>
+      <tr style="background:#f5f7fb">
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Plan complexe entier</td>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Plan complexe avec cercle unité</td>
+      </tr>
+      <tr>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Axe imaginaire \(j\omega\)</td>
+        <td style="padding:0.4em 0.7em;border:1px solid #aaa">Cercle unité \(|z|=1\)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 8 : FILTRES NUMÉRIQUES -->
+<h2>8. Filtres numériques : RIF et RII</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Filtre RIF (Réponse Impulsionnelle Finie)</span>
+  <p>
+    Un <strong>filtre RIF</strong> est un filtre dont la réponse impulsionnelle \(h[n]\)
+    est nulle au-delà d'un rang \(M\) fini. Sa fonction de transfert est un polynôme en \(z^{-1}\) :
+  </p>
+  <div class="formule-box">
+    \[H_{\text{RIF}}(z) = \sum_{k=0}^{M} b_k\, z^{-k} = b_0 + b_1 z^{-1} + \cdots + b_M z^{-M}\]
+  </div>
+  <p>
+    Les seuls pôles sont en \(z = 0\) : un filtre RIF est <strong>toujours stable</strong>.
+    L'implémentation par l'équation aux différences \(y[n] = \sum_{k=0}^{M} b_k\,x[n-k]\)
+    ne nécessite pas de rétroaction.
+  </p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Filtre RII (Réponse Impulsionnelle Infinie)</span>
+  <p>
+    Un <strong>filtre RII</strong> possède une réponse impulsionnelle de durée infinie.
+    Sa fonction de transfert est une fraction rationnelle :
+  </p>
+  <div class="formule-box">
+    \[H_{\text{RII}}(z) = \frac{\sum_{k=0}^{M} b_k\, z^{-k}}{1 + \sum_{k=1}^{N} a_k\, z^{-k}}\]
+  </div>
+  <p>
+    Il possède des pôles non nuls. Sa stabilité doit être vérifiée.
+    L'implémentation nécessite une boucle de rétroaction.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Filtre passe-bas du 1er ordre (RII)</span>
+  <p>Le filtre de lissage exponentiel est défini par :</p>
+  \[y[n] = \alpha\, x[n] + (1-\alpha)\, y[n-1], \quad 0 < \alpha \leq 1\]
+  <p>Sa fonction de transfert est :</p>
+  \[H(z) = \frac{\alpha\, z}{z - (1-\alpha)}\]
+  <p>
+    Pôle : \(p = 1 - \alpha\). Pour \(0 < \alpha < 2\), \(|p| < 1\) : filtre stable.
+    Plus \(\alpha\) est petit, plus le filtre est lissant (bande passante étroite).
+  </p>
+  <p>
+    Gain statique : \(H(1) = \dfrac{\alpha}{1-(1-\alpha)} = \dfrac{\alpha}{\alpha} = 1\).
+    Le filtre ne déforme pas la composante continue.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Filtre passe-haut (RIF d'ordre 1)</span>
+  <p>Le filtre différenciateur discret est :</p>
+  \[y[n] = x[n] - x[n-1]\]
+  <p>Sa fonction de transfert :</p>
+  \[H(z) = 1 - z^{-1} = \frac{z-1}{z}\]
+  <p>
+    Zéro en \(z = 1\) (composante continue bloquée), pôle en \(z = 0\) : filtre RIF
+    toujours stable. Il s'approche d'un dérivateur discret.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Filtre passe-bas FIR par moyenne glissante</span>
+  <p>Le filtre à moyenne glissante d'ordre \(M\) est :</p>
+  \[y[n] = \frac{1}{M+1}\sum_{k=0}^{M} x[n-k]\]
+  <p>Sa fonction de transfert :</p>
+  \[H(z) = \frac{1}{M+1}\sum_{k=0}^{M} z^{-k} = \frac{1}{M+1}\cdot\frac{1 - z^{-(M+1)}}{1-z^{-1}}\]
+  <p>Filtre RIF d'ordre \(M\), toujours stable. Effet de lissage plus fort pour \(M\) grand.</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Application industrielle : lissage de mesure</span>
+  <p>
+    Un technicien mesure une température toutes les \(T_e = 100\,\text{ms}\).
+    Il applique le filtre \(y[n] = 0{,}2\,x[n] + 0{,}8\,y[n-1]\) (\(\alpha = 0{,}2\)).
+  </p>
+  <ul>
+    <li>Pôle : \(p = 0{,}8\), \(|p| = 0{,}8 < 1\) → filtre <strong>stable</strong></li>
+    <li>Gain continu : \(H(1) = 1\) → pas de biais statique</li>
+    <li>
+      Réponse en fréquence : \(H(e^{j\omega}) = \dfrac{0{,}2}{1 - 0{,}8\,e^{-j\omega}}\)
+    </li>
+    <li>
+      À \(\omega = \pi\) (fréquence de Nyquist) :
+      \(|H(e^{j\pi})| = \dfrac{0{,}2}{1+0{,}8} = \dfrac{0{,}2}{1{,}8} \approx 0{,}11\)
+      → forte atténuation haute fréquence.
+    </li>
+  </ul>
+</div>
+
+<!-- SECTION 9 : EXERCICES -->
+<h2>9. Exercices d'application</h2>
+
+<div class="exo">
+  <span class="label label-def">Exercice 1 — Calcul de transformées</span>
+  <p>Calculer les transformées en z des signaux suivants :</p>
+  <ol>
+    <li>\(x_1[n] = 2\,\delta[n] - 3\,\delta[n-2]\)</li>
+    <li>\(x_2[n] = (0{,}8)^n\,u[n] + (0{,}4)^n\,u[n]\)</li>
+    <li>\(x_3[n] = n\,(0{,}6)^n\,u[n]\)</li>
+    <li>\(x_4[n] = \cos\!\left(\dfrac{\pi}{4}\,n\right)u[n]\)</li>
+  </ol>
+</div>
+
+<div class="exo">
+  <span class="label label-def">Exercice 2 — Transformée inverse</span>
+  <p>Calculer la transformée en z inverse de :</p>
+  <ol>
+    <li>\(X_1(z) = \dfrac{3z}{z - 0{,}6}\)</li>
+    <li>\(X_2(z) = \dfrac{z^2}{(z-0{,}5)(z-0{,}3)}\)</li>
+    <li>\(X_3(z) = \dfrac{z^2 + z}{(z-1)(z-0{,}8)}\)</li>
+    <li>\(X_4(z) = \dfrac{z}{(z-0{,}4)^2}\)</li>
+  </ol>
+</div>
+
+<div class="exo">
+  <span class="label label-def">Exercice 3 — Équation aux différences et stabilité</span>
+  <p>
+    Un filtre numérique est décrit par :
+    \[y[n] - 0{,}5\,y[n-1] - 0{,}25\,y[n-2] = x[n] + 0{,}5\,x[n-1]\]
+  </p>
+  <ol>
+    <li>Déterminer la fonction de transfert \(H(z)\).</li>
+    <li>Calculer les pôles et les zéros. Le filtre est-il stable ?</li>
+    <li>Calculer la réponse impulsionnelle \(h[n]\).</li>
+    <li>
+      Calculer la réponse stationnaire à un échelon \(x[n] = u[n]\)
+      en utilisant le théorème de la valeur finale.
+    </li>
+  </ol>
+</div>
+
+<div class="exo">
+  <span class="label label-def">Exercice 4 — Analyse d'un filtre RII du 2ème ordre</span>
+  <p>
+    Un système de commande numérique possède :
+    \[H(z) = \frac{0{,}1(z+1)}{(z-0{,}8)(z-0{,}6)}\]
+  </p>
+  <ol>
+    <li>Vérifier que le système est stable.</li>
+    <li>Calculer le gain statique \(H(1)\).</li>
+    <li>Décomposer \(H(z)\) en éléments simples et calculer \(h[n]\).</li>
+    <li>
+      Donner l'équation aux différences correspondante et proposer un algorithme
+      d'implémentation numérique.
+    </li>
+  </ol>
+</div>
+
 </div>
 <script src="../../../nav.js"></script>
 </body>

@@ -4,21 +4,535 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch22 – Algèbres de Boole – BTS</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+table.truth{border-collapse:collapse;margin:.8rem auto}
+table.truth th,table.truth td{border:1px solid #93a5c0;padding:.4rem .8rem;text-align:center;font-family:monospace}
+table.truth th{background:var(--p-bg);color:var(--p);font-weight:700}
+table.truth tr:nth-child(even) td{background:#f7f9fc}
+.kmap-wrap{overflow-x:auto;margin:1rem 0}
+table.kmap{border-collapse:collapse;margin:0 auto;font-family:monospace}
+table.kmap th,table.kmap td{border:2px solid #93a5c0;padding:.6rem 1rem;text-align:center;min-width:3rem}
+table.kmap th{background:var(--p-bg);font-weight:700}
+.gate-row{display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0}
+.gate-card{border:1px solid var(--p-border);border-radius:8px;background:var(--p-bg);padding:.8rem 1rem;min-width:160px;flex:0 0 auto}
+.gate-card h4{margin:0 0 .4rem;color:var(--p);font-size:.95rem}
+.flip-card{border:1px solid #93a5c0;border-radius:8px;background:#f7f9fc;padding:.8rem 1rem;margin:.5rem 0}
+.flip-card h4{margin:0 0 .4rem;color:var(--p);font-size:.95rem}
+code{background:#e8edf4;border-radius:3px;padding:.1rem .35rem;font-size:.92em;font-family:monospace}
+table.wide{width:100%;border-collapse:collapse}
+table.wide th,table.wide td{padding:.4rem .6rem;border:1px solid var(--p-border)}
+table.wide th{background:var(--p-bg);color:var(--p)}
+table.wide tr:nth-child(even) td{background:#f7f9fc}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire BTS</a>
+<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+
 <header>
   <h1>Chapitre 22 – Algèbres de Boole</h1>
-  <p class="sous-titre">BTS — Mathématiques</p>
+  <p class="sous-titre">BTS | Mathématiques | Groupements B2, B3</p>
 </header>
+
 <div class="objectifs">
-  <h3>🚧 En cours de rédaction</h3>
-  <p>Ce chapitre sera bientôt disponible. Revenez prochainement !</p>
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Maîtriser les opérations et axiomes de l'algèbre de Boole.</li>
+    <li>Construire et simplifier des fonctions booléennes (méthode algébrique et tableaux de Karnaugh).</li>
+    <li>Identifier et utiliser les portes logiques élémentaires.</li>
+    <li>Analyser des circuits combinatoires courants (additionneur, multiplexeur, décodeur).</li>
+    <li>Comprendre le fonctionnement des bascules RS, JK, D, T dans les circuits séquentiels.</li>
+  </ul>
 </div>
+
+<div class="situation">
+  <strong>Situation professionnelle — Logique combinatoire dans un automatisme industriel</strong>
+  <p>Un technicien en automatismes programme un automate programmable industriel (API) pour commander un convoyeur de tri de pièces. La sortie «&nbsp;moteur en marche&nbsp;» doit être activée lorsque : le capteur de présence pièce est actif <strong>ET</strong> la sécurité porte n'est pas déclenchée, <strong>OU</strong> lorsqu'un mode test forcé est sélectionné par l'opérateur. Formaliser ce cahier des charges en équation logique, simplifier l'expression et la câbler sur un circuit numérique sont des compétences directement issues de l'algèbre de Boole. Ce chapitre fournit toutes les bases nécessaires à ces tâches.</p>
+</div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2>1. Définition d'une algèbre de Boole</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Algèbre de Boole</span>
+  <p>Une <strong>algèbre de Boole</strong> est un ensemble \(B = \{0,\,1\}\) muni de trois opérations :</p>
+  <ul>
+    <li><strong>Addition logique</strong> (OU, noté \(+\) ou \(\lor\)) : \(a + b\)</li>
+    <li><strong>Multiplication logique</strong> (ET, noté \(\cdot\) ou \(\land\)) : \(a \cdot b\)</li>
+    <li><strong>Complément</strong> (NON, noté \(\bar{a}\) ou \(\lnot a\))</li>
+  </ul>
+  <p>Ces opérations satisfont un ensemble d'axiomes garantissant la cohérence du calcul logique. En électronique numérique, \(0\) correspond à un niveau bas (environ 0 V) et \(1\) à un niveau haut (environ 3,3 V ou 5 V selon la technologie).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Tables des opérations de base</span>
+  <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:.8rem">
+    <div>
+      <strong>OU (\(+\))</strong>
+      <table class="truth">
+        <tr><th>a</th><th>b</th><th>\(a + b\)</th></tr>
+        <tr><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td></tr>
+      </table>
+    </div>
+    <div>
+      <strong>ET (\(\cdot\))</strong>
+      <table class="truth">
+        <tr><th>a</th><th>b</th><th>\(a \cdot b\)</th></tr>
+        <tr><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td></tr>
+      </table>
+    </div>
+    <div>
+      <strong>NON (\(\bar{a}\))</strong>
+      <table class="truth">
+        <tr><th>a</th><th>\(\bar{a}\)</th></tr>
+        <tr><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td></tr>
+      </table>
+    </div>
+  </div>
+  <p style="margin-top:.6rem">La priorité des opérations est : NON &gt; ET &gt; OU (comme en arithmétique classique : négation &gt; produit &gt; somme).</p>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2>2. Axiomes et théorèmes fondamentaux</h2>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés — Axiomes de l'algèbre de Boole</span>
+  <p>Pour tout \(a, b, c \in \{0,1\}\) :</p>
+  <table class="wide">
+    <tr><th>Nom</th><th>ET (\(\cdot\))</th><th>OU (\(+\))</th></tr>
+    <tr><td><strong>Éléments neutres</strong></td><td>\(a \cdot 1 = a\)</td><td>\(a + 0 = a\)</td></tr>
+    <tr><td><strong>Éléments absorbants</strong></td><td>\(a \cdot 0 = 0\)</td><td>\(a + 1 = 1\)</td></tr>
+    <tr><td><strong>Idempotence</strong></td><td>\(a \cdot a = a\)</td><td>\(a + a = a\)</td></tr>
+    <tr><td><strong>Complémentarité</strong></td><td>\(a \cdot \bar{a} = 0\)</td><td>\(a + \bar{a} = 1\)</td></tr>
+    <tr><td><strong>Involution</strong></td><td colspan="2">\(\overline{\bar{a}} = a\)</td></tr>
+    <tr><td><strong>Commutativité</strong></td><td>\(a \cdot b = b \cdot a\)</td><td>\(a + b = b + a\)</td></tr>
+    <tr><td><strong>Associativité</strong></td><td>\((a \cdot b) \cdot c = a \cdot (b \cdot c)\)</td><td>\((a+b)+c = a+(b+c)\)</td></tr>
+    <tr><td><strong>Distributivité</strong></td><td>\(a \cdot (b+c) = a b + a c\)</td><td>\(a + bc = (a+b)(a+c)\)</td></tr>
+    <tr><td><strong>Absorption</strong></td><td>\(a(a+b) = a\)</td><td>\(a + ab = a\)</td></tr>
+  </table>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Théorèmes de De Morgan</span>
+  <p>Les théorèmes de De Morgan permettent de distribuer une négation sur une opération logique :</p>
+  $$\overline{a \cdot b} = \bar{a} + \bar{b} \qquad \text{(NON d'un ET = OU des NON)}$$
+  $$\overline{a + b} = \bar{a} \cdot \bar{b} \qquad \text{(NON d'un OU = ET des NON)}$$
+  <p>Généralisation à \(n\) variables :</p>
+  $$\overline{a_1 \cdot a_2 \cdots a_n} = \bar{a}_1 + \bar{a}_2 + \cdots + \bar{a}_n$$
+  $$\overline{a_1 + a_2 + \cdots + a_n} = \bar{a}_1 \cdot \bar{a}_2 \cdots \bar{a}_n$$
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Application de De Morgan</span>
+  <p>Simplifier \(S = \overline{(A + B) \cdot C}\).</p>
+  $$S = \overline{(A+B) \cdot C} = \overline{A+B} + \bar{C} = \bar{A}\bar{B} + \bar{C}$$
+  <p>Puis vérifier les cas limites : si \(A=0,\,B=0,\,C=1\) alors \(S=1\cdot 1+0=1\) ✓</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Erreurs fréquentes</span>
+  <ul>
+    <li>\(\overline{A+B} \neq \bar{A}+\bar{B}\) : il faut bien changer l'opérateur (De Morgan).</li>
+    <li>La priorité d'opération : \(AB + C\) se lit \((A\cdot B)+C\), pas \(A\cdot(B+C)\).</li>
+    <li>L'involution s'applique une variable à la fois : \(\overline{\overline{A+B}} = A+B\), pas \(\bar{A}+\bar{B}\).</li>
+  </ul>
+</div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2>3. Fonctions booléennes</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Fonction booléenne</span>
+  <p>Une <strong>fonction booléenne</strong> de \(n\) variables est une application \(f : \{0,1\}^n \to \{0,1\}\).</p>
+  <p>Pour \(n\) variables, la table de vérité comporte \(2^n\) lignes.</p>
+  <p>Elle peut être représentée par :</p>
+  <ul>
+    <li>Une <strong>table de vérité</strong> exhaustive.</li>
+    <li>Une <strong>expression algébrique</strong> (non unique).</li>
+    <li>Ses <strong>formes canoniques</strong> : somme de mintermes (SOM/FND) ou produit de maxtermes (POM/FNC).</li>
+  </ul>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Formes canoniques (SOM et POM)</span>
+  <p><strong>Somme de mintermes — FND (Forme Normale Disjonctive)</strong></p>
+  <p>Le <em>minterme</em> \(m_i\) est le produit de toutes les variables, chacune complémentée ou non selon le rang binaire \(i\). On écrit la fonction comme somme des mintermes où \(f=1\).</p>
+  <p>Numérotation : le rang \(i\) est la valeur décimale de la combinaison des variables. Ex. \((A,B,C)=(1,0,1)\) donne \(i=5\), minterme \(m_5 = A\bar{B}C\).</p>
+  <p><strong>Produit de maxtermes — FNC (Forme Normale Conjonctive)</strong></p>
+  <p>Le <em>maxterme</em> \(M_i\) est la somme de toutes les variables. On écrit la fonction comme produit des maxtermes où \(f=0\).</p>
+  <p>Ex. \((A,B,C)=(0,1,0)\) donne \(i=2\), maxterme \(M_2 = A+\bar{B}+C\).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Table de vérité et formes canoniques (3 variables)</span>
+  <p>Soit \(f(A,B,C)\) définie par la table :</p>
+  <table class="truth">
+    <tr><th>N°</th><th>A</th><th>B</th><th>C</th><th>f</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>2</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+    <tr><td>3</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><td>4</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>5</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+    <tr><td>6</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td>7</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+  </table>
+  <p>FND : \(f = m_0 + m_2 + m_4 + m_5 + m_7 = \bar{A}\bar{B}\bar{C} + \bar{A}B\bar{C} + A\bar{B}\bar{C} + A\bar{B}C + ABC\)</p>
+  <p>FNC : \(f = M_1 \cdot M_3 \cdot M_6\)</p>
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2>4. Simplification des fonctions booléennes</h2>
+
+<h3>4.1 Simplification algébrique</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Simplification algébrique</span>
+  <ol>
+    <li>Développer si nécessaire (distributivité).</li>
+    <li>Regrouper les termes partageant un sous-produit commun.</li>
+    <li>Appliquer absorption, idempotence, complémentarité.</li>
+    <li>Vérifier avec quelques lignes de la table de vérité.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple 1 — Factorisation et absorption</span>
+  <p>Simplifier \(f = AB + A\bar{B} + \bar{A}B\).</p>
+  $$f = A(B + \bar{B}) + \bar{A}B = A \cdot 1 + \bar{A}B = A + \bar{A}B$$
+  $$= (A + \bar{A})(A + B) = 1 \cdot (A + B) = A + B$$
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple 2 — Utilisation de De Morgan</span>
+  <p>Simplifier \(g = \overline{A\bar{B}} \cdot \overline{\bar{A}B}\).</p>
+  $$g = (\bar{A} + B)(A + \bar{B})$$
+  $$= \bar{A}A + \bar{A}\bar{B} + BA + B\bar{B} = 0 + \bar{A}\bar{B} + AB + 0 = \bar{A}\bar{B} + AB$$
+  <p>C'est la fonction XNOR : \(g = \overline{A \oplus B}\).</p>
+</div>
+
+<h3>4.2 Tableaux de Karnaugh (K-map)</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Tableau de Karnaugh</span>
+  <p>Le <strong>tableau de Karnaugh</strong> est une grille représentant la table de vérité, où les cases voisines ne diffèrent que d'<strong>un seul bit</strong> (code Gray). Il est cyclique : les bords opposés sont adjacents.</p>
+  <p>Les groupes (implicants) de \(2^k\) cases à 1 adjacentes correspondent à des termes simplifiés. Plus le groupe est grand, moins il contient de variables.</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Tableau de Karnaugh à 2 variables</span>
+  <div class="kmap-wrap">
+    <table class="kmap">
+      <tr><th style="background:none;border:none"></th><th>\(\bar{B}\ (B{=}0)\)</th><th>\(B\ (B{=}1)\)</th></tr>
+      <tr><th>\(\bar{A}\ (A{=}0)\)</th><td>0</td><td>1</td></tr>
+      <tr><th>\(A\ (A{=}1)\)</th><td>1</td><td>1</td></tr>
+    </table>
+  </div>
+  <p>Groupe de 2 : \(\{(0,1),(1,1)\} \Rightarrow B\) | Groupe de 2 : \(\{(1,0),(1,1)\} \Rightarrow A\)</p>
+  <p>Résultat : \(f = A + B\)</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Tableau de Karnaugh à 3 variables</span>
+  <p>On dispose A en ligne, B et C en colonnes en code Gray : <code>00, 01, 11, 10</code>.</p>
+  <div class="kmap-wrap">
+    <table class="kmap">
+      <tr><th>A \ BC</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+      <tr><th>\(A=0\)</th><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+      <tr><th>\(A=1\)</th><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+    </table>
+  </div>
+  <p>Groupe de 4 (ligne bas + coins gauches/droits) : \(A\) | Groupe de 4 (colonne 00 + 10) : \(\bar{C}\)</p>
+  <p>Résultat : \(f = A + \bar{C}\)</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Tableau de Karnaugh à 4 variables</span>
+  <p>Variables AB en lignes, CD en colonnes, chacun en code Gray.</p>
+  <div class="kmap-wrap">
+    <table class="kmap">
+      <tr><th>AB \ CD</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+      <tr><th>00</th><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><th>01</th><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+      <tr><th>11</th><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+      <tr><th>10</th><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+    </table>
+  </div>
+  <p>Groupe de 8 (colonne 01 entière) : \(\bar{C}D\) | Groupe de 4 (coins) : \(\bar{B}\bar{D}\)</p>
+  <p>Résultat : \(f = \bar{C}D + \bar{B}\bar{D}\)</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Règles du K-map à respecter</span>
+  <ul>
+    <li>Le tableau est <strong>cyclique</strong> : les quatre coins forment un groupe adjacent.</li>
+    <li>Toujours chercher les groupes les <strong>plus grands</strong> d'abord.</li>
+    <li>Un terme peut appartenir à <strong>plusieurs groupes</strong>.</li>
+    <li>Chaque 1 doit être couvert par au moins un groupe.</li>
+    <li>Les cases «&nbsp;indifférentes&nbsp;» (don't care, notées X ou –) peuvent être utilisées ou non selon ce qui agrandit le groupe.</li>
+  </ul>
+</div>
+
+<!-- ==================== SECTION 5 ==================== -->
+<h2>5. Portes logiques</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Porte logique</span>
+  <p>Une <strong>porte logique</strong> est un composant électronique réalisant une fonction booléenne élémentaire sur un ou plusieurs bits. Elle est caractérisée par son symbole normalisé (norme CEI 60617 ou norme américaine MIL) et sa table de vérité.</p>
+</div>
+
+<div class="gate-row">
+  <div class="gate-card">
+    <h4>AND (ET)</h4>
+    <p>\(S = A \cdot B\)</p>
+    <table class="truth">
+      <tr><th>A</th><th>B</th><th>S</th></tr>
+      <tr><td>0</td><td>0</td><td>0</td></tr>
+      <tr><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td>1</td><td>0</td><td>0</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td></tr>
+    </table>
+  </div>
+  <div class="gate-card">
+    <h4>OR (OU)</h4>
+    <p>\(S = A + B\)</p>
+    <table class="truth">
+      <tr><th>A</th><th>B</th><th>S</th></tr>
+      <tr><td>0</td><td>0</td><td>0</td></tr>
+      <tr><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td></tr>
+    </table>
+  </div>
+  <div class="gate-card">
+    <h4>NOT (NON)</h4>
+    <p>\(S = \bar{A}\)</p>
+    <table class="truth">
+      <tr><th>A</th><th>S</th></tr>
+      <tr><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>0</td></tr>
+    </table>
+  </div>
+  <div class="gate-card">
+    <h4>NAND (NON-ET)</h4>
+    <p>\(S = \overline{A \cdot B}\)</p>
+    <table class="truth">
+      <tr><th>A</th><th>B</th><th>S</th></tr>
+      <tr><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>1</td><td>0</td></tr>
+    </table>
+  </div>
+  <div class="gate-card">
+    <h4>NOR (NON-OU)</h4>
+    <p>\(S = \overline{A + B}\)</p>
+    <table class="truth">
+      <tr><th>A</th><th>B</th><th>S</th></tr>
+      <tr><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td>1</td><td>0</td><td>0</td></tr>
+      <tr><td>1</td><td>1</td><td>0</td></tr>
+    </table>
+  </div>
+  <div class="gate-card">
+    <h4>XOR (OU exclusif)</h4>
+    <p>\(S = A \oplus B = A\bar{B} + \bar{A}B\)</p>
+    <table class="truth">
+      <tr><th>A</th><th>B</th><th>S</th></tr>
+      <tr><td>0</td><td>0</td><td>0</td></tr>
+      <tr><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>1</td><td>0</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Universalité des portes NAND et NOR</strong>
+  <p>Les portes NAND et NOR sont dites <strong>universelles</strong> : toute fonction logique peut être réalisée en n'utilisant que l'un ou l'autre type.</p>
+  <table class="wide" style="margin-top:.6rem;font-size:.9rem">
+    <tr><th>Fonction</th><th>Avec NAND</th><th>Avec NOR</th></tr>
+    <tr><td>NOT \(A\)</td><td>\(\overline{A \cdot A}\)</td><td>\(\overline{A + A}\)</td></tr>
+    <tr><td>AND \(AB\)</td><td>\(\overline{\overline{A \cdot B}}\)</td><td>\(\overline{\overline{A+A}+\overline{B+B}}\)</td></tr>
+    <tr><td>OR \(A+B\)</td><td>\(\overline{\bar{A} \cdot \bar{B}}\)</td><td>\(\overline{\overline{A+B}}\)</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<h2>6. Circuits combinatoires</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Circuit combinatoire</span>
+  <p>Un <strong>circuit combinatoire</strong> est un circuit logique dont les sorties dépendent uniquement des valeurs présentes des entrées, sans mémoire d'états passés. Il est entièrement caractérisé par sa table de vérité.</p>
+</div>
+
+<h3>6.1 Demi-additionneur (Half-Adder)</h3>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Demi-additionneur</span>
+  <p>Additionne deux bits \(A\) et \(B\). Sorties : somme \(S\) et retenue sortante \(C_{out}\).</p>
+  $$S = A \oplus B \qquad C_{out} = A \cdot B$$
+  <table class="truth">
+    <tr><th>A</th><th>B</th><th>S</th><th>\(C_{out}\)</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+  </table>
+  <p>Réalisation : 1 porte XOR + 1 porte AND.</p>
+</div>
+
+<h3>6.2 Additionneur complet (Full-Adder)</h3>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Additionneur complet</span>
+  <p>Additionne trois bits : données \(A\), \(B\) et retenue entrante \(C_{in}\).</p>
+  $$S = A \oplus B \oplus C_{in}$$
+  $$C_{out} = AB + (A \oplus B) \cdot C_{in}$$
+  <p>On peut cascader des additionneurs complets pour additionner des mots de \(n\) bits (additionneur ripple-carry).</p>
+</div>
+
+<h3>6.3 Comparateur 1 bit</h3>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Comparateur 1 bit</span>
+  <p>Compare deux bits \(A\) et \(B\). Trois sorties :</p>
+  $$S_{=}\ :\ A=B \quad\Rightarrow\quad S_{=} = \overline{A \oplus B} = AB + \bar{A}\bar{B}$$
+  $$S_{>}\ :\ A>B \quad\Rightarrow\quad S_{>} = A\bar{B}$$
+  $$S_{<}\ :\ A<B \quad\Rightarrow\quad S_{<} = \bar{A}B$$
+</div>
+
+<h3>6.4 Multiplexeur (MUX)</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Multiplexeur</span>
+  <p>Un <strong>multiplexeur \(2^n\)-vers-1</strong> (MUX) aiguille une des \(2^n\) entrées de données vers la sortie unique, selon le code présent sur les \(n\) entrées de sélection.</p>
+  <p><strong>MUX 2-vers-1 :</strong> \(S = \overline{SEL} \cdot I_0 + SEL \cdot I_1\)</p>
+  <p><strong>MUX 4-vers-1 :</strong> \(S = \bar{S}_1\bar{S}_0 I_0 + \bar{S}_1 S_0 I_1 + S_1\bar{S}_0 I_2 + S_1 S_0 I_3\)</p>
+  <p>Applications : aiguillage de bus, conversion parallèle-série, réalisation de fonctions logiques quelconques.</p>
+</div>
+
+<h3>6.5 Décodeur</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Décodeur</span>
+  <p>Un <strong>décodeur \(n\)-vers-\(2^n\)</strong> active exactement une sortie parmi \(2^n\) selon le code binaire de \(n\) bits en entrée.</p>
+  <p>Décodeur 2-vers-4 (toutes sorties actives à 1) :</p>
+  $$Y_0 = \bar{A}\bar{B},\quad Y_1 = \bar{A}B,\quad Y_2 = A\bar{B},\quad Y_3 = AB$$
+  <p>Applications : sélection de mémoire, afficheur 7 segments, démultiplexage.</p>
+</div>
+
+<!-- ==================== SECTION 7 ==================== -->
+<h2>7. Circuits séquentiels — Bascules</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Circuit séquentiel</span>
+  <p>Un <strong>circuit séquentiel</strong> possède une mémoire : ses sorties dépendent des entrées actuelles <em>et</em> de l'état passé. La <strong>bascule</strong> (flip-flop) est l'élément de mémorisation 1 bit fondamental.</p>
+  <p>On distingue :</p>
+  <ul>
+    <li>Circuits séquentiels <strong>asynchrones</strong> : les changements d'état se produisent dès que les entrées changent.</li>
+    <li>Circuits séquentiels <strong>synchrones</strong> : les changements d'état sont cadencés par un signal d'horloge (CLK).</li>
+  </ul>
+</div>
+
+<h3>7.1 Bascule RS</h3>
+
+<div class="flip-card">
+  <h4>Bascule RS (Set-Reset)</h4>
+  <p>Entrées : \(S\) (Set = forcer \(Q=1\)), \(R\) (Reset = forcer \(Q=0\)). Sorties : \(Q\) et \(\bar{Q}\).</p>
+  <table class="truth">
+    <tr><th>S</th><th>R</th><th>\(Q_{n+1}\)</th><th>Commentaire</th></tr>
+    <tr><td>0</td><td>0</td><td>\(Q_n\)</td><td>Mémorisation (pas de changement)</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td>Reset : mise à 0</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td><td>Set : mise à 1</td></tr>
+    <tr><td>1</td><td>1</td><td>Interdit</td><td>Contradiction : Q = Q_bar = 1</td></tr>
+  </table>
+  <div class="att" style="margin-top:.6rem"><strong>État \(S=R=1\) interdit</strong> : les deux sorties seraient à 1 simultanément, ce qui contredit \(Q \neq \bar{Q}\). À proscrire absolument dans la conception.</div>
+</div>
+
+<h3>7.2 Bascule JK</h3>
+
+<div class="flip-card">
+  <h4>Bascule JK</h4>
+  <p>Amélioration de la RS : l'état \(J=K=1\) est redéfini comme <strong>basculation</strong> (toggle) au lieu d'être interdit.</p>
+  <table class="truth">
+    <tr><th>J</th><th>K</th><th>\(Q_{n+1}\)</th><th>Commentaire</th></tr>
+    <tr><td>0</td><td>0</td><td>\(Q_n\)</td><td>Mémorisation</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td>Reset</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td><td>Set</td></tr>
+    <tr><td>1</td><td>1</td><td>\(\bar{Q}_n\)</td><td>Basculement (toggle)</td></tr>
+  </table>
+  <p>Équation caractéristique : \(Q_{n+1} = J\bar{Q}_n + \bar{K}Q_n\)</p>
+</div>
+
+<h3>7.3 Bascule D</h3>
+
+<div class="flip-card">
+  <h4>Bascule D (Data / Delay)</h4>
+  <p>Une seule entrée de donnée \(D\). Sur le front actif de l'horloge (généralement montant ↑), la sortie copie l'entrée.</p>
+  $$Q_{n+1} = D$$
+  <table class="truth">
+    <tr><th>D</th><th>CLK</th><th>\(Q_{n+1}\)</th></tr>
+    <tr><td>0</td><td>↑</td><td>0</td></tr>
+    <tr><td>1</td><td>↑</td><td>1</td></tr>
+    <tr><td>X</td><td>bas ou haut (pas de front)</td><td>\(Q_n\) (mémorisation)</td></tr>
+  </table>
+  <p>Applications : registres à décalage, mémoires vives SRAM, verrous.</p>
+</div>
+
+<h3>7.4 Bascule T</h3>
+
+<div class="flip-card">
+  <h4>Bascule T (Toggle)</h4>
+  <p>Si \(T=1\), la sortie bascule à chaque front d'horloge actif. Si \(T=0\), mémorisation.</p>
+  $$Q_{n+1} = T \oplus Q_n$$
+  <table class="truth">
+    <tr><th>T</th><th>\(Q_n\)</th><th>\(Q_{n+1}\)</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td></tr>
+    <tr><td>1</td><td>1</td><td>0</td></tr>
+  </table>
+  <p>Applications : compteurs binaires, diviseurs de fréquence (une bascule T avec \(T=1\) divise la fréquence par 2).</p>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Récapitulatif des bascules</strong>
+  <table class="wide" style="font-size:.9rem">
+    <tr><th>Bascule</th><th>Entrées</th><th>Équation</th><th>Particularité</th></tr>
+    <tr><td><strong>RS</strong></td><td>S, R</td><td>Set ou Reset de Q</td><td>S=R=1 interdit</td></tr>
+    <tr><td><strong>JK</strong></td><td>J, K</td><td>\(Q_{n+1}=J\bar{Q}+\bar{K}Q\)</td><td>J=K=1 → toggle</td></tr>
+    <tr><td><strong>D</strong></td><td>D</td><td>\(Q_{n+1}=D\)</td><td>Transparente/synchrone</td></tr>
+    <tr><td><strong>T</strong></td><td>T</td><td>\(Q_{n+1}=T\oplus Q\)</td><td>Diviseur de fréquence</td></tr>
+  </table>
+</div>
+
+<!-- ==================== SYNTHÈSE ==================== -->
+<div class="formule-box">
+  <strong>Synthèse du chapitre 22</strong>
+  <ul>
+    <li><strong>Opérations de base</strong> : OU (\(+\)), ET (\(\cdot\)), NON (\(\bar{\ }\)) sur \(\{0,1\}\).</li>
+    <li><strong>Axiomes clés</strong> : idempotence \(a\cdot a=a\), absorption \(a+ab=a\), complémentarité \(a+\bar{a}=1\).</li>
+    <li><strong>De Morgan</strong> : \(\overline{AB}=\bar{A}+\bar{B}\) ; \(\overline{A+B}=\bar{A}\bar{B}\) — indispensable pour transformer NAND/NOR.</li>
+    <li><strong>Karnaugh</strong> : groupes de \(2^k\) cases, tableau cyclique, don't care utilisables.</li>
+    <li><strong>NAND et NOR</strong> sont universels.</li>
+    <li><strong>Circuits combinatoires</strong> : additionneur, comparateur, MUX, décodeur — sorties = f(entrées actuelles).</li>
+    <li><strong>Circuits séquentiels</strong> : bascules RS, JK, D, T — sorties = f(entrées + état mémorisé).</li>
+  </ul>
+</div>
+
 </div>
 <script src="../../../nav.js"></script>
 </body>

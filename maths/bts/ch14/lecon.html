@@ -12,14 +12,955 @@
 <body>
 <div class="c">
 <a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+
 <header>
   <h1>Chapitre 14 – Modélisation géométrique</h1>
-  <p class="sous-titre">BTS — Groupement B1</p>
+  <p class="sous-titre">BTS | Mathématiques | Groupement B1 — Module Géo</p>
 </header>
 
+<!-- OBJECTIFS -->
 <div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Identifier et utiliser les coniques (parabole, ellipse, hyperbole) dans des contextes professionnels</li>
+    <li>Maîtriser les coordonnées polaires et les courbes associées (spirale, rose, cardioïde)</li>
+    <li>Reconnaître et décrire les surfaces quadriques fondamentales (sphère, ellipsoïde, paraboloïdes, cône, cylindre)</li>
+    <li>Paramétrer des courbes dans l'espace : cycloïde et hélice</li>
+    <li>Appliquer ces modèles au calcul de voûtes, arches et structures cintrées</li>
+  </ul>
+</div>
+
+<!-- SITUATION PROFESSIONNELLE -->
+<div class="situation">
+  <strong>Situation professionnelle — Conception d'une passerelle cintrée</strong>
+  <p>
+    Un bureau d'études en génie civil conçoit une passerelle piétonne dont le tablier
+    suit un arc parabolique de portée 20 m et de flèche 4 m. Les câbles porteurs
+    décrivent des paraboles, les sections transversales des piliers sont des ellipses
+    aplaties, et les pièces d'ancrage présentent des profils hyperboliques pour
+    répartir les contraintes. Le dessinateur doit fournir les équations des courbes
+    génératrices afin d'alimenter le logiciel de CAO 3D.
+  </p>
+  <p>
+    Par ailleurs, les tuyauteries hélicoïdales des échangeurs thermiques, les
+    spirales des engrenages à développante et les voûtes paraboliques des halles
+    industrielles requièrent tous les mêmes outils mathématiques.
+    Ce chapitre fournit les fondements de la modélisation géométrique avancée.
+  </p>
+</div>
+
+<!-- =========================================================
+     PARTIE 1 — CONIQUES
+     ========================================================= -->
+<h2>1. Coniques</h2>
+
+<p>
+  Les <strong>coniques</strong> sont les courbes obtenues par intersection d'un
+  cône de révolution avec un plan. Selon l'inclinaison du plan, on obtient une
+  ellipse (ou un cercle), une parabole ou une hyperbole. Elles admettent une
+  définition métrique unifiée faisant intervenir un foyer et une directrice.
+</p>
+
+<!-- 1.1 Définition focale commune -->
+<div class="def">
+  <span class="label label-def">Définition — Conique (définition focale unifiée)</span>
+  <p>
+    Soit \(F\) un point appelé <strong>foyer</strong> et \(\Delta\) une droite
+    appelée <strong>directrice</strong> ne passant pas par \(F\). On appelle
+    <em>conique d'excentricité \(e\)</em> l'ensemble des points \(M\) du plan
+    vérifiant :
+    \[
+      \frac{MF}{d(M,\,\Delta)} = e \quad (e > 0)
+    \]
+  </p>
+  <ul>
+    <li>Si \(e < 1\) : <strong>ellipse</strong></li>
+    <li>Si \(e = 1\) : <strong>parabole</strong></li>
+    <li>Si \(e > 1\) : <strong>hyperbole</strong></li>
+  </ul>
+</div>
+
+<!-- 1.2 Parabole -->
+<h3>1.1 Parabole</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Parabole de paramètre \(p\)</span>
+  <p>
+    Une <strong>parabole</strong> de paramètre \(p > 0\) est le lieu des points
+    équidistants d'un foyer \(F\) et d'une directrice \(\Delta\).
+    En choisissant le repère de sorte que le sommet soit à l'origine,
+    \(F = \!\left(\dfrac{p}{2},\, 0\right)\) et \(\Delta : x = -\dfrac{p}{2}\),
+    l'équation réduite est :
+    \[
+      y^2 = 2p\,x
+    \]
+    En axe vertical (sommet en bas) : \(x^2 = 2p\,y\).
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés — Parabole \(y^2 = 2px\)</span>
+  <ul>
+    <li>Foyer : \(F = \!\left(\dfrac{p}{2},\, 0\right)\)</li>
+    <li>Directrice : \(x = -\dfrac{p}{2}\)</li>
+    <li>Sommet : \(O = (0,0)\) (point le plus proche de \(\Delta\))</li>
+    <li>Axe de symétrie : \(Ox\)</li>
+    <li>Demi-corde au foyer (paramètre) : \(y_F = p\) (la courbe passe par \((p/2,\, p)\))</li>
+    <li><em>Propriété réflectrice :</em> tout rayon parallèle à l'axe se réfléchit vers \(F\)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Arc parabolique d'une passerelle</span>
+  <p>
+    Une arche de portée \(L = 20\) m et de flèche \(f = 4\) m. On place le sommet
+    à l'origine, l'axe vertical vers le haut. Les appuis sont en \((\pm 10,\; -4)\).
+    L'équation est de la forme \(x^2 = 2p\,y\) (axe vertical, parabole vers le bas
+    si on prend \(y = f - \ldots\)).
+  </p>
+  <p>
+    Avec l'axe vertical positif vers le haut et le sommet en \((0, 4)\) :
+    \[
+      y = 4 - \frac{x^2}{25}
+    \]
+    Vérification : en \(x = 10\), \(y = 4 - 4 = 0\). Le paramètre vaut
+    \(2p = 2 \times 25/2 = 25\) (\(p = 12{,}5\) m).
+  </p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Déterminer l'équation d'une parabole connaissant portée et flèche</span>
+  <ol>
+    <li>Placer l'axe de symétrie vertical ; choisir le sommet à l'origine</li>
+    <li>Écrire \(y = ax^2\) (parabole vers le bas : \(a < 0\))</li>
+    <li>Utiliser la condition \(y(-L/2) = -f\) pour déterminer \(a = -f/(L/2)^2 = -4f/L^2\)</li>
+    <li>L'équation finale est \(y = -\dfrac{4f}{L^2}\,x^2\)</li>
+  </ol>
+</div>
+
+<!-- 1.3 Ellipse -->
+<h3>1.2 Ellipse</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Ellipse</span>
+  <p>
+    L'<strong>ellipse</strong> de demi-grand axe \(a\) et de demi-petit axe \(b\)
+    (\(a > b > 0\)) est le lieu des points \(M\) tels que
+    \(MF_1 + MF_2 = 2a\),
+    où \(F_1\) et \(F_2\) sont les deux foyers, distants de \(2c\) avec
+    \(c = \sqrt{a^2 - b^2}\).
+  </p>
+  <p>Équation réduite (centre à l'origine, grand axe horizontal) :</p>
+  \[
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+  \]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés — Ellipse \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\)</span>
+  <ul>
+    <li>Foyers : \(F_1 = (-c,\, 0)\) et \(F_2 = (c,\, 0)\) avec \(c = \sqrt{a^2-b^2}\)</li>
+    <li>Excentricité : \(e = \dfrac{c}{a} \in\, ]0,\,1[\)</li>
+    <li>Sommets principaux : \(A_1 = (-a,0)\), \(A_2 = (a,0)\)</li>
+    <li>Sommets secondaires : \(B_1 = (0,-b)\), \(B_2 = (0,b)\)</li>
+    <li>Directrices : \(x = \pm\dfrac{a}{e} = \pm\dfrac{a^2}{c}\)</li>
+    <li>Aire : \(\mathcal{A} = \pi ab\)</li>
+    <li>Paramètre (demi-corde au foyer) : \(p = \dfrac{b^2}{a}\)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Section transversale elliptique d'un tunnel</span>
+  <p>
+    La section d'un tunnel autoroutier est une demi-ellipse de largeur \(2a = 11\) m
+    et de hauteur \(b = 5\) m. Donc \(a = 5{,}5\) m.
+    \[
+      \frac{x^2}{30{,}25} + \frac{y^2}{25} = 1 \quad (y \geq 0)
+    \]
+    \(c = \sqrt{30{,}25 - 25} = \sqrt{5{,}25} \approx 2{,}29\) m ;
+    \(e \approx 2{,}29/5{,}5 \approx 0{,}42\).
+    Aire de la section : \(\mathcal{A}_{\text{demi}} = \pi \times 5{,}5 \times 5 / 2 \approx 43{,}2\) m².
+  </p>
+</div>
+
+<!-- 1.4 Hyperbole -->
+<h3>1.3 Hyperbole</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Hyperbole</span>
+  <p>
+    L'<strong>hyperbole</strong> de demi-axes \(a\) et \(b\) est le lieu des points
+    \(M\) tels que \(\big|MF_1 - MF_2\big| = 2a\), avec
+    \(c = \sqrt{a^2 + b^2}\).
+  </p>
+  <p>Équation réduite :</p>
+  \[
+    \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+  \]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés — Hyperbole</span>
+  <ul>
+    <li>Foyers : \((\pm c,\, 0)\) avec \(c = \sqrt{a^2+b^2}\)</li>
+    <li>Excentricité : \(e = c/a > 1\)</li>
+    <li>Asymptotes : \(y = \pm\dfrac{b}{a}\,x\) (la courbe s'en approche sans les atteindre)</li>
+    <li>Deux branches symétriques par rapport aux deux axes</li>
+    <li>Hyperbole équilatère : \(a = b\), asymptotes perpendiculaires ;
+        après rotation de 45° : \(xy = k\) (loi de Boyle-Mariotte, Ohm, etc.)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Tour hyperbolique de refroidissement</span>
+  <p>
+    Une tour de refroidissement a un profil hyperbolique d'équation
+    \(\dfrac{x^2}{9} - \dfrac{z^2}{16} = 1\) (en mètres, axe de symétrie vertical
+    \(Oz\), section au niveau du col). Rayon minimal (col) : \(a = 3\) m.
+    \(c = \sqrt{9 + 16} = 5\) m. Asymptotes : \(z = \pm\dfrac{4}{3}x\),
+    soit un angle de \(\arctan(4/3) \approx 53°\) avec l'horizontale.
+  </p>
+</div>
+
+<div class="formule-box">
+  <strong>Récapitulatif — Équations réduites des coniques</strong>
+  <table style="width:100%;border-collapse:collapse;margin-top:0.5em;font-size:0.95em;">
+    <thead>
+      <tr style="background:var(--p);color:#fff;">
+        <th style="padding:7px 10px;text-align:left;">Conique</th>
+        <th style="padding:7px 10px;text-align:left;">Équation réduite</th>
+        <th style="padding:7px 10px;text-align:left;">Excentricité</th>
+        <th style="padding:7px 10px;text-align:left;">Foyer(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:5px 10px;">Parabole</td>
+        <td>\(y^2 = 2px\)</td>
+        <td>\(e = 1\)</td>
+        <td>\((p/2,\,0)\)</td>
+      </tr>
+      <tr style="background:#f5f8fb;">
+        <td style="padding:5px 10px;">Ellipse</td>
+        <td>\(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\)</td>
+        <td>\(0 < e < 1\)</td>
+        <td>\((\pm c,\,0)\)</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px;">Hyperbole</td>
+        <td>\(\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1\)</td>
+        <td>\(e > 1\)</td>
+        <td>\((\pm c,\,0)\)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Identifier une conique à partir d'une équation du second degré</span>
+  <p>
+    Pour l'équation générale \(Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0\),
+    on calcule \(\delta = B^2 - 4AC\) :
+  </p>
+  <ul>
+    <li>\(\delta < 0\) : <strong>ellipse</strong> (cercle si \(A=C\) et \(B=0\))</li>
+    <li>\(\delta = 0\) : <strong>parabole</strong></li>
+    <li>\(\delta > 0\) : <strong>hyperbole</strong></li>
+  </ul>
+  <p>
+    On met ensuite sous forme canonique par complétion du carré et changement
+    de repère (translation, puis rotation si \(B \neq 0\)).
+  </p>
+  <p>
+    <em>Exemple :</em> \(4x^2 + 9y^2 - 16x + 36y + 16 = 0\).
+    \(\delta = 0 - 4\times4\times9 = -144 < 0\) : c'est une ellipse.
+    Complétion : \(4(x-2)^2 + 9(y+2)^2 = 36\), soit
+    \(\dfrac{(x-2)^2}{9} + \dfrac{(y+2)^2}{4} = 1\).
+  </p>
+</div>
+
+<!-- =========================================================
+     PARTIE 2 — COORDONNÉES POLAIRES
+     ========================================================= -->
+<h2>2. Coordonnées polaires et courbes polaires</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Coordonnées polaires</span>
+  <p>
+    On se donne un <strong>pôle</strong> \(O\) et un <strong>axe polaire</strong>
+    (demi-droite d'origine \(O\)). Tout point \(M\) est repéré par le couple
+    \((r,\; \theta)\) où :
+  </p>
+  <ul>
+    <li>\(r = OM \geq 0\) : la <em>distance polaire</em> (ou rayon vecteur)</li>
+    <li>\(\theta \in [0,\; 2\pi[\) : l'<em>angle polaire</em>, mesuré depuis l'axe polaire dans le sens trigonométrique</li>
+  </ul>
+  <p>Par convention, on peut aussi autoriser \(r < 0\) : alors \((r,\theta)\) représente le même point que \((-r,\; \theta+\pi)\).</p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Conversions cartésien ↔ polaire</span>
+  \[
+    \text{Polaire} \to \text{Cartésien :}\quad
+    \begin{cases} x = r\cos\theta \\ y = r\sin\theta \end{cases}
+    \qquad
+    \text{Cartésien} \to \text{Polaire :}\quad
+    \begin{cases} r = \sqrt{x^2+y^2} \\ \theta = \operatorname{atan2}(y,\,x) \end{cases}
+  \]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Équation polaire des coniques (foyer au pôle)</span>
+  <p>Si le foyer \(F\) est au pôle, l'équation polaire de la conique est :</p>
+  \[
+    r = \frac{p}{1 - e\cos\theta}
+    \quad \text{ou} \quad
+    r = \frac{p}{1 + e\cos\theta}
+  \]
+  <p>
+    selon l'orientation. \(p\) est le paramètre de la conique et \(e\) son
+    excentricité. Cette forme unifiée est très utilisée en mécanique céleste.
+  </p>
+</div>
+
+<h3>2.1 Spirale d'Archimède</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Spirale d'Archimède</span>
+  \[
+    r = a\theta \quad (a > 0,\; \theta \geq 0)
+  \]
+  <p>
+    La distance au pôle croît <em>linéairement</em> avec l'angle. La spirale
+    d'Archimède est caractérisée par des spires <strong>équidistantes</strong> :
+    la distance entre deux spires successives est constante et vaut \(2\pi a\).
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés de la spirale d'Archimède \(r = a\theta\)</span>
+  <ul>
+    <li>Pas (distance entre spires) : \(d = 2\pi a\)</li>
+    <li>Équation cartésienne implicite : \(\sqrt{x^2+y^2} = a\cdot\operatorname{atan2}(y,x)\) (transcendante)</li>
+    <li>Vecteur tangent : angle avec le rayon vecteur \(\psi = \arctan(\theta)\)</li>
+    <li>Longueur de la spirale de \(0\) à \(\theta_0\) :
+        \(L = \dfrac{a}{2}\!\left[\theta_0\sqrt{1+\theta_0^2} + \ln\!\left(\theta_0 + \sqrt{1+\theta_0^2}\right)\right]\)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Outil de fraisage en spirale</span>
+  <p>
+    Un outil CNC décrit une spirale d'Archimède de pas \(d = 5\) mm.
+    On a \(a = d/(2\pi) \approx 0{,}796\) mm/rad.
+    Après 3 tours complets (\(\theta = 6\pi \approx 18{,}85\) rad) :
+    \(r = 0{,}796 \times 6\pi \approx 15\) mm.
+    Après 5 tours : \(r \approx 25\) mm.
+  </p>
+</div>
+
+<h3>2.2 Rose à \(n\) pétales</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Rose polaire</span>
+  \[
+    r = a\cos(n\theta) \quad \text{ou} \quad r = a\sin(n\theta) \quad (a > 0,\; n \in \mathbb{N}^*)
+  \]
+  <ul>
+    <li>Si \(n\) est <strong>impair</strong> : \(n\) pétales</li>
+    <li>Si \(n\) est <strong>pair</strong> : \(2n\) pétales</li>
+    <li>Chaque pétale a pour longueur maximale \(a\)</li>
+    <li>La courbe est tracée pour \(\theta \in [0,\; \pi]\) (impair) ou \([0,\; 2\pi]\) (pair)</li>
+  </ul>
+</div>
+
+<h3>2.3 Cardioïde</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Cardioïde</span>
+  \[
+    r = a(1 + \cos\theta) \quad (a > 0)
+  \]
+  <p>
+    La cardioïde est une épicycloïde particulière : lieu d'un point d'un cercle
+    de rayon \(a\) roulant sans glisser sur un cercle fixe de même rayon \(a\).
+    Elle a un <strong>point de rebroussement</strong> au pôle (\(\theta = \pi\)).
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Éléments remarquables — Cardioïde \(r = a(1+\cos\theta)\)</span>
+  <ul>
+    <li>Point le plus éloigné : \(\theta = 0\), \(r = 2a\), en cartésien \((2a,\; 0)\)</li>
+    <li>Point de rebroussement : \(\theta = \pi\), \(r = 0\) (pôle \(O\))</li>
+    <li>Largeur maximale : en \(\theta = \pm\pi/2\), \(r = a\), points \((0,\; \pm a)\)</li>
+    <li>Aire de la surface délimitée : \(\mathcal{A} = \dfrac{3}{2}\pi a^2\)</li>
+    <li>Périmètre : \(L = 8a\)</li>
+  </ul>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Convertir une courbe polaire en cartésien</span>
+  <ol>
+    <li>Écrire l'équation polaire</li>
+    <li>Multiplier par \(r\) si nécessaire pour faire apparaître \(r^2 = x^2+y^2\)</li>
+    <li>Remplacer : \(r\cos\theta = x\), \(r\sin\theta = y\), \(r^2 = x^2+y^2\)</li>
+    <li>Simplifier</li>
+  </ol>
+  <p>
+    <em>Exemple 1 :</em> \(r = 2\cos\theta\)
+    → multiplier par \(r\) : \(r^2 = 2r\cos\theta\)
+    → \(x^2+y^2 = 2x\)
+    → \((x-1)^2 + y^2 = 1\) : cercle de centre \((1,0)\) et rayon 1.
+  </p>
+  <p>
+    <em>Exemple 2 :</em> \(r = \dfrac{3}{1 - \cos\theta}\) (parabole, \(e=1\), \(p=3\))
+    → \(r - r\cos\theta = 3\) → \(r = x + 3\) → \(\sqrt{x^2+y^2} = x+3\)
+    → \(y^2 = 6x + 9 = (x+3)^2 - x^2\) soit \(y^2 = 6(x + 3/2)\). Parabole de sommet \((-3/2, 0)\).
+  </p>
+</div>
+
+<!-- =========================================================
+     PARTIE 3 — SURFACES QUADRIQUES
+     ========================================================= -->
+<h2>3. Surfaces quadriques</h2>
+
+<p>
+  Une <strong>surface quadrique</strong> est définie par une équation
+  polynomiale de degré 2 en \(x\), \(y\), \(z\). Elle généralise les coniques
+  à l'espace à trois dimensions. On les étudie par la méthode des <em>sections</em>
+  planes (coupes horizontales, verticales et par les plans de coordonnées).
+</p>
+
+<h3>3.1 Sphère</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Sphère</span>
+  \[
+    (x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = R^2
+  \]
+  <p>
+    Centre \(\Omega = (x_0,\; y_0,\; z_0)\), rayon \(R > 0\).
+    Toutes les sections par un plan quelconque sont des cercles (si le plan coupe
+    la sphère) ou un point (plan tangent).
+  </p>
+</div>
+
+<h3>3.2 Ellipsoïde</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Ellipsoïde</span>
+  \[
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
+    \quad (a,b,c > 0)
+  \]
+  <p>
+    Demi-axes \(a\), \(b\), \(c\). Cas particuliers : si deux demi-axes sont égaux,
+    on obtient un <em>ellipsoïde de révolution</em> ; si les trois sont égaux, une sphère.
+    Les sections par les plans de coordonnées sont des ellipses.
+  </p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Dôme ellipsoïdal</span>
+  <p>
+    Un dôme de grande salle a la forme d'un demi-ellipsoïde : diamètre en \(x\)
+    de 30 m, en \(y\) de 24 m, hauteur 10 m.
+    \[
+      \frac{x^2}{225} + \frac{y^2}{144} + \frac{z^2}{100} = 1 \quad (z \geq 0)
+    \]
+    Volume du demi-ellipsoïde : \(V = \dfrac{2}{3}\pi abc = \dfrac{2}{3}\pi \times 15 \times 12 \times 10 \approx 3770\) m³.
+  </p>
+</div>
+
+<h3>3.3 Paraboloïde elliptique</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Paraboloïde elliptique</span>
+  \[
+    z = \frac{x^2}{a^2} + \frac{y^2}{b^2}
+  \]
+  <p>
+    Sections horizontales \((z = k > 0)\) : ellipses. Sections par les plans
+    \(y=0\) ou \(x=0\) : paraboles. Utilisé pour les antennes paraboliques
+    à deux foyers et les toitures à double courbure.
+  </p>
+</div>
+
+<h3>3.4 Paraboloïde hyperbolique (selle de cheval)</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Paraboloïde hyperbolique</span>
+  \[
+    z = \frac{x^2}{a^2} - \frac{y^2}{b^2}
+  \]
+  <p>
+    Surface en forme de selle. Les sections \(z = k > 0\) sont des hyperboles
+    d'axe \(Ox\) ; pour \(z = k < 0\) des hyperboles d'axe \(Oy\) ; pour
+    \(z = 0\) : deux droites \(y = \pm(b/a)x\). Surface doublement réglée.
+    Très utilisée pour les <em>coques minces en béton</em> (voiles hyperboliques).
+  </p>
+</div>
+
+<h3>3.5 Cylindre et cône</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Cylindre elliptique d'axe \(Oz\)</span>
+  \[
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+  \]
+  <p>
+    La variable \(z\) est libre : la surface est engendrée par des droites
+    parallèles à \(Oz\) passant par l'ellipse directrice.
+    Cas particulier \(a = b = R\) : cylindre circulaire.
+  </p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Cône du second degré</span>
+  \[
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 0
+  \]
+  <p>
+    Sommet à l'origine. Sections \(z = k\) : ellipses de demi-axes
+    \(|k|a/c\) et \(|k|b/c\). Sections méridionales : hyperboles (plans \(z=0\)
+    passant par l'axe) ou droites (plans contenant l'axe de révolution).
+  </p>
+</div>
+
+<div class="formule-box">
+  <strong>Récapitulatif — Quadriques usuelles et leurs sections</strong>
+  <table style="width:100%;border-collapse:collapse;margin-top:0.5em;font-size:0.92em;">
+    <thead>
+      <tr style="background:var(--p);color:#fff;">
+        <th style="padding:7px 10px;">Surface</th>
+        <th style="padding:7px 10px;">Équation</th>
+        <th style="padding:7px 10px;">Section \(z=k\)</th>
+        <th style="padding:7px 10px;">Application</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:5px 10px;">Sphère</td>
+        <td>\(x^2+y^2+z^2=R^2\)</td>
+        <td>Cercle</td>
+        <td>Réservoirs, dômes</td>
+      </tr>
+      <tr style="background:#f5f8fb;">
+        <td style="padding:5px 10px;">Ellipsoïde</td>
+        <td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</td>
+        <td>Ellipse</td>
+        <td>Dômes, coques</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px;">Paraboloïde ellip.</td>
+        <td>\(z=\frac{x^2}{a^2}+\frac{y^2}{b^2}\)</td>
+        <td>Ellipse</td>
+        <td>Antennes, toitures</td>
+      </tr>
+      <tr style="background:#f5f8fb;">
+        <td style="padding:5px 10px;">Paraboloïde hyperb.</td>
+        <td>\(z=\frac{x^2}{a^2}-\frac{y^2}{b^2}\)</td>
+        <td>Hyperbole</td>
+        <td>Voiles béton, coques</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px;">Cylindre ellip.</td>
+        <td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td>
+        <td>Ellipse (constante)</td>
+        <td>Tunnels, conduits</td>
+      </tr>
+      <tr style="background:#f5f8fb;">
+        <td style="padding:5px 10px;">Cône</td>
+        <td>\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=\frac{z^2}{c^2}\)</td>
+        <td>Ellipse (variable)</td>
+        <td>Toitures coniques</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Tracer une quadrique par la méthode des sections planes</span>
+  <ol>
+    <li>Couper par les trois plans de coordonnées (\(z=0\), \(y=0\), \(x=0\)) pour obtenir les courbes de référence</li>
+    <li>Couper par des plans parallèles \(z = k\) pour plusieurs valeurs de \(k\) et identifier la forme des niveaux</li>
+    <li>Déterminer les limites de la surface (valeurs de \(z\) possibles)</li>
+    <li>Assembler les sections pour esquisser la surface en perspective</li>
+  </ol>
+</div>
+
+<!-- =========================================================
+     PARTIE 4 — COURBES PARAMÉTRÉES DANS L'ESPACE
+     ========================================================= -->
+<h2>4. Courbes paramétrées dans l'espace</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Courbe paramétrée de l'espace</span>
+  <p>
+    Une courbe paramétrée est définie par trois fonctions continues \(f\), \(g\), \(h\) :
+    \[
+      \mathcal{C} : \begin{cases} x = f(t) \\ y = g(t) \\ z = h(t) \end{cases}
+      \quad t \in I \subset \mathbb{R}
+    \]
+    Le <strong>vecteur tangent</strong> en \(t\) est \(\vec{T}(t) = (f'(t),\; g'(t),\; h'(t))\).
+    Un point où \(\vec{T} = \vec{0}\) est un <em>point singulier</em>.
+  </p>
+</div>
+
+<h3>4.1 Cycloïde</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Cycloïde</span>
+  <p>
+    Trajectoire d'un point \(M\) fixé sur un cercle de rayon \(R\) roulant sans
+    glisser sur une droite (axe \(Ox\)) :
+    \[
+      \begin{cases} x = R(t - \sin t) \\ y = R(1 - \cos t) \end{cases}
+      \quad t \in \mathbb{R}
+    \]
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés de la cycloïde</span>
+  <ul>
+    <li>Période : \(2\pi R\) (longueur d'une arche)</li>
+    <li>Points de rebroussement : \(t = 2k\pi\), en \((2k\pi R,\; 0)\) — le point \(M\) touche le sol</li>
+    <li>Points les plus hauts : \(t = (2k+1)\pi\), en \(((2k+1)\pi R,\; 2R)\)</li>
+    <li>Aire d'une arche : \(\mathcal{A} = 3\pi R^2\) (3 fois l'aire du disque)</li>
+    <li>Longueur d'une arche : \(L = 8R\)</li>
+    <li>La cycloïde est une <em>tautochrone</em> (période d'oscillation indépendante de l'amplitude)</li>
+    <li>La cycloïde est une <em>brachistochrone</em> (courbe de descente la plus rapide)</li>
+  </ul>
+</div>
+
+<h3>4.2 Hélice circulaire</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Hélice circulaire de rayon \(R\) et de pas \(p\)</span>
+  <p>
+    Courbe tracée sur le cylindre \(x^2 + y^2 = R^2\) en faisant un angle constant
+    avec les génératrices. Équation paramétrique :
+    \[
+      \begin{cases} x = R\cos t \\ y = R\sin t \\ z = \dfrac{p}{2\pi}\,t \end{cases}
+      \quad t \in \mathbb{R}
+    \]
+    où \(p\) est le <strong>pas</strong> (avance axiale par tour complet).
+    Une hélice droite (sens horaire) s'obtient en changeant \(t\) en \(-t\).
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés de l'hélice</span>
+  <ul>
+    <li>Projection sur \(xOy\) : cercle de rayon \(R\)</li>
+    <li>Vecteur tangent : \(\vec{T}(t) = \!\left(-R\sin t,\; R\cos t,\; \dfrac{p}{2\pi}\right)\)
+        — de norme constante \(\|\vec{T}\| = \sqrt{R^2 + (p/2\pi)^2}\)</li>
+    <li>Angle avec les génératrices (plan horizontal) :
+        \(\alpha = \arctan\!\!\left(\dfrac{p}{2\pi R}\right)\) — constant (propriété fondamentale)</li>
+    <li>Longueur d'un pas : \(L = \sqrt{(2\pi R)^2 + p^2}\)</li>
+    <li>Courbure : \(\kappa = \dfrac{R}{R^2 + (p/2\pi)^2}\) — constante</li>
+    <li>Torsion : \(\tau = \dfrac{p/2\pi}{R^2 + (p/2\pi)^2}\) — constante</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Escalier hélicoïdal d'une tour</span>
+  <p>
+    Un escalier hélicoïdal a un rayon \(R = 0{,}8\) m, un pas \(p = 2{,}7\) m
+    (hauteur d'un étage) et 15 marches par étage.
+  </p>
+  <ul>
+    <li>Longueur développée d'un tour :
+        \(L = \sqrt{(2\pi \times 0{,}8)^2 + 2{,}7^2} = \sqrt{25{,}13 + 7{,}29} \approx 5{,}69\) m</li>
+    <li>Angle de la rampe avec l'horizontal :
+        \(\alpha = \arctan\!\!\left(\dfrac{2{,}7}{2\pi \times 0{,}8}\right) \approx \arctan(0{,}537) \approx 28{,}2°\)</li>
+    <li>Hauteur de marche : \(h = 2{,}7 / 15 = 18\) cm</li>
+    <li>Giron de marche (à mi-rayon \(r = 0{,}4\) m) :
+        \(g = 2\pi \times 0{,}4 / 15 \approx 16{,}8\) cm</li>
+  </ul>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Hélice et hélice tronconique</span>
+  <p>
+    L'hélice circulaire a un rayon <em>constant</em>. Si le rayon varie
+    linéairement avec \(t\), on obtient une <strong>spirale conique</strong>
+    (utilisée pour les ressorts coniques) :
+    \[
+      x = (R_0 + at)\cos t, \quad y = (R_0 + at)\sin t, \quad z = bt
+    \]
+  </p>
+</div>
+
+<!-- =========================================================
+     PARTIE 5 — APPLICATIONS AU BÂTIMENT
+     ========================================================= -->
+<h2>5. Applications au bâtiment — Voûtes, arches et toitures cintrées</h2>
+
+<p>
+  Les formes étudiées se retrouvent directement dans la construction : arches en
+  maçonnerie ou béton, toitures cintrées, voûtes, coques minces. Le choix de la
+  forme dépend des contraintes mécaniques, esthétiques et constructives.
+</p>
+
+<h3>5.1 Arc en plein cintre</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Arc en plein cintre (arc de cercle)</span>
+  <p>
+    Arc semi-circulaire de rayon \(R\). Portée \(L = 2R\), flèche \(f = R\).
+    Équation du contour (centre en \(O\), coordonnées \(x\) horizontal) :
+    \[
+      x^2 + z^2 = R^2 \quad (z \geq 0)
+    \]
+    Rapport flèche/portée : \(f/L = 1/2\) (arc en plein cintre).
+  </p>
+</div>
+
+<h3>5.2 Arc en anse de panier</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Arc en anse de panier</span>
+  <p>
+    Arc surbaissé composé de trois arcs de cercles tangents. Il approche
+    visuellement une demi-ellipse \(\dfrac{x^2}{a^2} + \dfrac{z^2}{b^2} = 1\)
+    avec \(b < a\) (\(z \geq 0\)), portée \(2a\), flèche \(b\).
+  </p>
+  <p>
+    Rapport flèche/portée : \(f/L = b/(2a) < 1/2\).
+    Utilisé notamment dans les ponts en arc gothique tardif et les baies de
+    style Renaissance.
+  </p>
+</div>
+
+<h3>5.3 Arc parabolique</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Arc parabolique</span>
+  <p>
+    Pour une portée \(L\) et une flèche \(f\), avec les appuis en
+    \(x = \pm L/2\) et le sommet en \((0, f)\) :
+    \[
+      z = f\left(1 - \frac{4x^2}{L^2}\right) = -\frac{4f}{L^2}x^2 + f
+    \]
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété mécanique de l'arc parabolique</span>
+  <p>
+    Sous une <strong>charge uniformément répartie sur la portée horizontale</strong>,
+    la courbe des pressions (ligne de pression) est une parabole. L'arc parabolique
+    travaille alors <em>uniquement en compression</em>, sans moment fléchissant :
+    c'est le profil idéal pour les ponts en arc et les câbles de suspension.
+  </p>
+</div>
+
+<h3>5.4 Voûte cylindrique</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Voûte cylindrique</span>
+  <p>
+    Surface engendrée par la translation d'un arc de cercle (directrice) le long
+    d'une direction perpendiculaire à son plan (génératrices). Pour un arc
+    semi-circulaire de rayon \(R\) et une longueur \(L\) :
+    \[
+      x^2 + z^2 = R^2 \quad (z \geq 0,\; y \in [0,\; L])
+    \]
+    Surface de couverture : \(S = \pi R \times L\).
+    Volume intérieur : \(V = \dfrac{\pi R^2}{2} \times L\).
+  </p>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Toiture cintrée d'une serre horticole</span>
+  <p>
+    Une serre a un toit semi-cylindrique de rayon \(R = 4\) m et de longueur
+    \(L = 30\) m.
+  </p>
+  <ul>
+    <li>Surface de couverture (polycarbonate) :
+        \(S = \pi \times 4 \times 30 = 120\pi \approx 377\) m²</li>
+    <li>Volume intérieur :
+        \(V = \dfrac{\pi \times 16}{2} \times 30 = 240\pi \approx 754\) m³</li>
+    <li>Largeur au sol : \(2R = 8\) m ; hauteur maximale : \(R = 4\) m</li>
+    <li>Profil du toit : \(x^2 + z^2 = 16\), demi-cercle supérieur</li>
+  </ul>
+</div>
+
+<h3>5.5 Comparaison des formes d'arches</h3>
+
+<div class="formule-box">
+  <strong>Tableau comparatif des types d'arches</strong>
+  <table style="width:100%;border-collapse:collapse;margin-top:0.5em;font-size:0.92em;">
+    <thead>
+      <tr style="background:var(--p);color:#fff;">
+        <th style="padding:7px 10px;">Type d'arc</th>
+        <th style="padding:7px 10px;">Équation</th>
+        <th style="padding:7px 10px;">\(f/L\)</th>
+        <th style="padding:7px 10px;">Avantage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:5px 10px;">Plein cintre</td>
+        <td>\(x^2+z^2=R^2\)</td>
+        <td>\(1/2\)</td>
+        <td>Stabilité, poussée régulière</td>
+      </tr>
+      <tr style="background:#f5f8fb;">
+        <td style="padding:5px 10px;">Anse de panier</td>
+        <td>Demi-ellipse approchée</td>
+        <td>\(< 1/2\)</td>
+        <td>Surbaissement, portée accrue</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px;">Parabolique</td>
+        <td>\(z = f - 4f x^2/L^2\)</td>
+        <td>Variable</td>
+        <td>Optimal sous charge uniforme</td>
+      </tr>
+      <tr style="background:#f5f8fb;">
+        <td style="padding:5px 10px;">Ogival (gothique)</td>
+        <td>Deux arcs de cercle sécants</td>
+        <td>\(> 1/2\)</td>
+        <td>Légèreté visuelle, grandes portées</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Portée, flèche et élancement</span>
+  <p>
+    Ne pas confondre :
+  </p>
+  <ul>
+    <li><strong>Portée \(L\)</strong> : distance horizontale entre les appuis</li>
+    <li><strong>Flèche \(f\)</strong> : hauteur maximale de l'arc au-dessus de la corde des appuis</li>
+    <li><strong>Élancement \(f/L\)</strong> : rapport caractérisant la forme de l'arc (\(< 0{,}5\) = surbaissé, \(> 0{,}5\) = surhaussé)</li>
+  </ul>
+</div>
+
+<!-- =========================================================
+     SYNTHÈSE
+     ========================================================= -->
+<div class="retenir">
+  <strong>À retenir — Points clés du chapitre</strong>
+  <ul>
+    <li><strong>Coniques :</strong> excentricité \(e\) distingue ellipse (\(e < 1\)), parabole (\(e = 1\)), hyperbole (\(e > 1\))</li>
+    <li><strong>Équation focale unifiée :</strong> \(\dfrac{MF}{d(M,\Delta)} = e\)</li>
+    <li><strong>Coordonnées polaires :</strong> \(x = r\cos\theta\), \(y = r\sin\theta\) ;
+        coniques : \(r = \dfrac{p}{1 - e\cos\theta}\)</li>
+    <li><strong>Spirale d'Archimède :</strong> \(r = a\theta\), pas constant \(2\pi a\)</li>
+    <li><strong>Quadriques :</strong> étude par méthode des sections planes</li>
+    <li><strong>Hélice :</strong> \(x=R\cos t\), \(y=R\sin t\), \(z=pt/(2\pi)\) — angle constant avec les génératrices</li>
+    <li><strong>Arc parabolique :</strong> optimal mécaniquement sous charge uniforme</li>
+    <li><strong>Voûte semi-cylindrique :</strong> surface \(= \pi R L\), volume \(= \dfrac{\pi R^2}{2}L\)</li>
+  </ul>
+</div>
+
+<!-- =========================================================
+     EXERCICES
+     ========================================================= -->
+<h2>Exercices d'application</h2>
+
+<div class="exo">
+  <strong>Exercice 1 — Identification et réduction d'une conique</strong>
+  <p>
+    Un dessinateur industriel rencontre l'équation \(9x^2 + 4y^2 - 36x + 8y - 23 = 0\).
+  </p>
+  <ol>
+    <li>Identifier le type de conique à partir du discriminant.</li>
+    <li>Mettre l'équation sous forme réduite par complétion du carré.</li>
+    <li>Donner les demi-axes, le centre, les foyers et l'excentricité.</li>
+    <li>Calculer l'aire de la surface délimitée.</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p>1. \(A=9\), \(B=0\), \(C=4\) : \(\delta = 0 - 4\times9\times4 = -144 < 0\) → <strong>ellipse</strong>.</p>
+    <p>2. \(9(x^2-4x) + 4(y^2+2y) = 23\) →
+       \(9(x-2)^2 - 36 + 4(y+1)^2 - 4 = 23\) →
+       \(9(x-2)^2 + 4(y+1)^2 = 63\) →
+       \(\dfrac{(x-2)^2}{7} + \dfrac{(y+1)^2}{63/4} = 1\)</p>
+    <p>3. Centre \((2, -1)\), \(a = \sqrt{63/4} \approx 3{,}97\) (grand axe vertical), \(b = \sqrt{7} \approx 2{,}65\).
+       \(c = \sqrt{63/4 - 7} = \sqrt{35/4} \approx 2{,}96\).
+       \(e = c/a \approx 0{,}745\). Foyers en \((2,\; -1 \pm 2{,}96)\).</p>
+    <p>4. Aire \(= \pi ab = \pi \times \sqrt{63/4} \times \sqrt{7} = \pi\sqrt{63 \times 7/4} = \pi\sqrt{441/4} = \dfrac{21\pi}{2} \approx 32{,}99\) unités².</p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 — Courbe polaire d'un profil d'outil</strong>
+  <p>
+    Le profil de coupe d'un outil se modélise par la cardioïde \(r = 6(1 + \cos\theta)\) (en mm).
+  </p>
+  <ol>
+    <li>Calculer la largeur maximale (distance entre les deux points les plus
+        éloignés perpendiculairement à l'axe).</li>
+    <li>Calculer la longueur totale du profil.</li>
+    <li>Calculer l'aire de la section de l'outil.</li>
+    <li>Convertir le point \(\theta = \pi/3\) en coordonnées cartésiennes.</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p>\(a = 6\) mm.</p>
+    <p>1. Largeur maximale : en \(\theta = \pm\pi/2\), \(r = 6(1+0) = 6\) mm. Les deux points sont \((0, 6)\) et \((0, -6)\), largeur \(= 12\) mm.</p>
+    <p>2. Périmètre : \(L = 8a = 8 \times 6 = 48\) mm.</p>
+    <p>3. Aire : \(\mathcal{A} = \dfrac{3}{2}\pi a^2 = \dfrac{3}{2}\pi \times 36 = 54\pi \approx 169{,}6\) mm².</p>
+    <p>4. En \(\theta = \pi/3\) : \(r = 6(1 + 1/2) = 9\) mm ;
+       \(x = 9\cos(\pi/3) = 9/2 = 4{,}5\) mm ;
+       \(y = 9\sin(\pi/3) = 9\sqrt{3}/2 \approx 7{,}79\) mm.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3 — Hélice de tuyauterie</strong>
+  <p>
+    Une tuyauterie hélicoïdale d'un échangeur thermique a un rayon de 0,15 m
+    et un pas de 0,10 m. L'échangeur contient 20 tours de spire.
+  </p>
+  <ol>
+    <li>Écrire l'équation paramétrique de l'axe de la tuyauterie.</li>
+    <li>Calculer la longueur totale de la tuyauterie.</li>
+    <li>Calculer l'angle de la tuyauterie avec le plan horizontal.</li>
+    <li>Calculer la hauteur totale de l'échangeur.</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p>1. \(x = 0{,}15\cos t\), \(y = 0{,}15\sin t\), \(z = \dfrac{0{,}10}{2\pi}\,t \approx 0{,}01592\,t\)</p>
+    <p>2. Longueur d'un tour : \(L_1 = \sqrt{(2\pi \times 0{,}15)^2 + 0{,}10^2} = \sqrt{0{,}8883 + 0{,}01} \approx 0{,}9426\) m.
+       Longueur totale : \(L = 20 \times 0{,}9426 \approx 18{,}85\) m.</p>
+    <p>3. \(\alpha = \arctan\!\!\left(\dfrac{0{,}10}{2\pi \times 0{,}15}\right) = \arctan(0{,}1061) \approx 6{,}07°\)</p>
+    <p>4. Hauteur : \(H = 20 \times 0{,}10 = 2\) m.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 4 — Voûte parabolique d'une halle industrielle</strong>
+  <p>
+    Une halle industrielle est couverte par une voûte parabolique de portée 24 m
+    et de flèche 6 m. La halle a 40 m de longueur.
+  </p>
+  <ol>
+    <li>Écrire l'équation de la parabole (sommet en haut, axe vertical).</li>
+    <li>Calculer la hauteur sous voûte à 8 m du centre.</li>
+    <li>Calculer la surface de la voûte (intégrale de longueur d'arc × longueur).</li>
+    <li>Un poteau est placé à 6 m du centre. Calculer sa hauteur.</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display='none';this.style.display='none'" style="display:none"></button>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p>1. \(z = 6 - \dfrac{4 \times 6}{24^2}x^2 = 6 - \dfrac{x^2}{24}\)</p>
+    <p>2. En \(x = 8\) : \(z = 6 - 64/24 = 6 - 2{,}67 \approx 3{,}33\) m.</p>
+    <p>3. Longueur d'arc de la parabole \(z = 6 - x^2/24\) de \(-12\) à \(12\) :
+       \(L = \int_{-12}^{12}\sqrt{1 + (z')^2}\,dx\) avec \(z' = -x/12\).
+       \(L = 2\int_0^{12}\sqrt{1 + x^2/144}\,dx \approx 26{,}2\) m (calcul numérique).
+       Surface : \(S = 26{,}2 \times 40 \approx 1048\) m².</p>
+    <p>4. En \(x = 6\) : \(z = 6 - 36/24 = 6 - 1{,}5 = 4{,}5\) m.</p>
+  </div>
 </div>
 
 </div>
