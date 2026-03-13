@@ -3,25 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch01 – Statistique à deux variables – 1ère Pro</title>
+<title>DS Ch01 – Statistique à deux variables – 1ère Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-1ere-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 <header>
-  <h1>Devoir Surveillé – Chapitre 01 – Statistique à deux variables</h1>
-  <p class="sous-titre">1ère Bac Pro | Statistique et probabilités | Mathématiques</p>
+  <h1>Devoir Surveillé – Chapitre 1</h1>
+  <p class="sous-titre">Statistique à deux variables &nbsp;|&nbsp; 1<sup>ère</sup> Bac Pro</p>
 </header>
-
-<div class="objectifs">
-  <h3>Devoir surveillé</h3>
-  <p>Contenu à venir.</p>
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<!-- ═══════════ EXERCICE 1 ═══════════ -->
+<div class="partie">
+<div class="partie-header">
+  <span class="partie-title">Exercice 1 – Surface et prix de rénovation</span>
+  <span class="pts">8 points</span>
+</div>
+
+<p>Une entreprise de rénovation du bâtiment relève la surface rénovée (en m²) et le prix total facturé (en euros) pour 7 chantiers récents :</p>
+
+<table style="width:100%;border-collapse:collapse;margin:12px 0;text-align:center">
+<tr style="background:var(--p);color:#fff"><th style="padding:8px;border:1px solid #ccc">Surface \(x\) (m²)</th><td style="padding:8px;border:1px solid #ccc">20</td><td style="padding:8px;border:1px solid #ccc">35</td><td style="padding:8px;border:1px solid #ccc">50</td><td style="padding:8px;border:1px solid #ccc">65</td><td style="padding:8px;border:1px solid #ccc">80</td><td style="padding:8px;border:1px solid #ccc">100</td><td style="padding:8px;border:1px solid #ccc">120</td></tr>
+<tr><th style="padding:8px;border:1px solid #ccc;background:var(--p-bg)">Prix \(y\) (€)</th><td style="padding:8px;border:1px solid #ccc">3&nbsp;200</td><td style="padding:8px;border:1px solid #ccc">5&nbsp;100</td><td style="padding:8px;border:1px solid #ccc">7&nbsp;400</td><td style="padding:8px;border:1px solid #ccc">9&nbsp;000</td><td style="padding:8px;border:1px solid #ccc">11&nbsp;500</td><td style="padding:8px;border:1px solid #ccc">14&nbsp;200</td><td style="padding:8px;border:1px solid #ccc">17&nbsp;000</td></tr>
+</table>
+
+<p><strong>1.</strong> <span class="comp comp-app">APP</span> Identifier la variable explicative et la variable expliquée. <span class="bareme">(1 pt)</span></p>
+<span class="answer-line"></span>
+
+<p><strong>2.</strong> <span class="comp comp-rea">REA</span> Placer les 7 points dans un repère sur le quadrillage ci-dessous (1 carreau = 10 m² en abscisse, 1 carreau = 2 000 € en ordonnée). <span class="bareme">(2 pts)</span></p>
+<div style="border:1px solid #ccc;height:220px;margin:10px 0;border-radius:6px;background:repeating-linear-gradient(0deg,transparent,transparent 29px,#e5e7eb 30px),repeating-linear-gradient(90deg,transparent,transparent 29px,#e5e7eb 30px)"></div>
+
+<p><strong>3.</strong> <span class="comp comp-ana">ANA</span> Le nuage de points suggère-t-il une corrélation linéaire ? Justifier en observant l'alignement des points. <span class="bareme">(2 pts)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer les coordonnées du point moyen \(G(\bar{x}\,;\,\bar{y})\). <span class="bareme">(2 pts)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>5.</strong> <span class="comp comp-com">COM</span> Placer le point \(G\) sur le graphique précédent. <span class="bareme">(1 pt)</span></p>
+
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr" style="display:none">
+<p><strong>1.</strong> La variable explicative est la surface \(x\) (en m²) et la variable expliquée est le prix \(y\) (en €).</p>
+<p><strong>2.</strong> Les 7 points sont placés aux coordonnées \((20\,;\,3\,200)\), \((35\,;\,5\,100)\), \((50\,;\,7\,400)\), \((65\,;\,9\,000)\), \((80\,;\,11\,500)\), \((100\,;\,14\,200)\), \((120\,;\,17\,000)\).</p>
+<p><strong>3.</strong> Oui, les points sont approximativement alignés : lorsque la surface augmente, le prix augmente de façon régulière. Il y a une corrélation linéaire positive.</p>
+<p><strong>4.</strong>
+\(\bar{x} = \dfrac{20+35+50+65+80+100+120}{7} = \dfrac{470}{7} \approx 67{,}1\) m²</p>
+<p>\(\bar{y} = \dfrac{3\,200+5\,100+7\,400+9\,000+11\,500+14\,200+17\,000}{7} = \dfrac{67\,400}{7} \approx 9\,628{,}6\) €</p>
+<p>Donc \(G(67{,}1\,;\,9\,628{,}6)\).</p>
+<p><strong>5.</strong> Le point \(G\) est placé au centre du nuage.</p>
+</div>
+</div>
+
+<!-- ═══════════ EXERCICE 2 ═══════════ -->
+<div class="partie">
+<div class="partie-header">
+  <span class="partie-title">Exercice 2 – Régression linéaire et prédiction</span>
+  <span class="pts">12 points</span>
+</div>
+
+<p>On reprend les données de l'exercice 1. La droite de régression obtenue à la calculatrice est :</p>
+<p style="text-align:center;font-size:1.1em">\(y = 138x + 370\)</p>
+
+<p><strong>1.</strong> <span class="comp comp-val">VAL</span> Vérifier que le point moyen \(G\) appartient (approximativement) à cette droite. <span class="bareme">(2 pts)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>2.</strong> <span class="comp comp-rea">REA</span> Tracer la droite de régression sur le graphique de l'exercice 1 en utilisant le point \(G\) et un second point de la droite pour \(x = 0\). <span class="bareme">(2 pts)</span></p>
+
+<p><strong>3.</strong> <span class="comp comp-rea">REA</span> Un client souhaite rénover une surface de 90 m². Calculer le prix estimé à l'aide de la droite de régression. <span class="bareme">(2 pts)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>4.</strong> <span class="comp comp-ana">ANA</span> Un autre client dispose d'un budget de 20 000 €. Quelle surface maximale peut-il rénover ? Détailler le calcul. <span class="bareme">(3 pts)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>5.</strong> <span class="comp comp-val">VAL</span> Cette estimation est-elle fiable pour une surface de 250 m² ? Justifier. <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>6.</strong> <span class="comp comp-com">COM</span> Rédiger une phrase d'interprétation du coefficient directeur \(a = 138\) dans le contexte de l'exercice. <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr" style="display:none">
+<p><strong>1.</strong> Pour \(x = 67{,}1\) : \(y = 138 \times 67{,}1 + 370 = 9\,259{,}8 + 370 = 9\,629{,}8\) €.
+On avait trouvé \(\bar{y} \approx 9\,628{,}6\) €. Les valeurs sont très proches : le point moyen appartient bien (approximativement) à la droite.</p>
+<p><strong>2.</strong> Pour \(x = 0\) : \(y = 370\). On trace la droite passant par \((0\,;\,370)\) et \(G(67{,}1\,;\,9\,629)\).</p>
+<p><strong>3.</strong> \(y = 138 \times 90 + 370 = 12\,420 + 370 = 12\,790\) €.
+Le prix estimé pour 90 m² est de <strong>12 790 €</strong>.</p>
+<p><strong>4.</strong> On résout \(138x + 370 = 20\,000\) :
+\(138x = 19\,630\)
+\(x = \dfrac{19\,630}{138} \approx 142{,}2\) m².
+Le client peut rénover au maximum environ <strong>142 m²</strong>.</p>
+<p><strong>5.</strong> Non, cette estimation n'est pas fiable pour 250 m². Cette valeur est très éloignée de la plage des données observées (20 à 120 m²). On extrapole largement, ce qui rend la prédiction peu fiable.</p>
+<p><strong>6.</strong> Le coefficient directeur \(a = 138\) signifie que, en moyenne, chaque mètre carré supplémentaire de surface rénovée coûte environ 138 €.</p>
+</div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="../../../nav.js"></script>
 </body>

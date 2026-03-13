@@ -3,25 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch08 – Vecteurs du plan – 1ère Pro</title>
+<title>DS Ch08 – Vecteurs du plan – 1ère Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-1ere-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 <header>
-  <h1>Devoir Surveillé – Chapitre 08 – Vecteurs du plan</h1>
-  <p class="sous-titre">1ère Bac Pro | Géométrie | Mathématiques</p>
+  <h1>Devoir Surveillé – Chapitre 8</h1>
+  <p class="sous-titre">Vecteurs du plan &nbsp;|&nbsp; 1<sup>ère</sup> Bac Pro</p>
 </header>
-
-<div class="objectifs">
-  <h3>Devoir surveillé</h3>
-  <p>Contenu à venir.</p>
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<!-- ════════════════════════════════════════════ -->
+<!-- EXERCICE 1 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Calculs sur les vecteurs</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>On donne les vecteurs \( \vec{u}\begin{pmatrix} 3 \\ -2 \end{pmatrix} \) et \( \vec{v}\begin{pmatrix} -1 \\ 5 \end{pmatrix} \).</p>
+
+  <p><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer les coordonnées du vecteur \( \vec{u} + \vec{v} \). <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer les coordonnées du vecteur \( \vec{u} - \vec{v} \). <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer les coordonnées du vecteur \( 2\vec{u} + 3\vec{v} \). <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>4.</strong> <span class="comp comp-ana">ANA</span> Calculer la norme de \( \vec{u} \), notée \( \|\vec{u}\| \). Donner la valeur exacte puis l'arrondi au dixième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p><strong>1.</strong> \( \vec{u} + \vec{v} = \begin{pmatrix} 3 + (-1) \\ -2 + 5 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \end{pmatrix} \)</p>
+
+    <p><strong>2.</strong> \( \vec{u} - \vec{v} = \begin{pmatrix} 3 - (-1) \\ -2 - 5 \end{pmatrix} = \begin{pmatrix} 4 \\ -7 \end{pmatrix} \)</p>
+
+    <p><strong>3.</strong> \( 2\vec{u} + 3\vec{v} = \begin{pmatrix} 2 \times 3 + 3 \times (-1) \\ 2 \times (-2) + 3 \times 5 \end{pmatrix} = \begin{pmatrix} 6 - 3 \\ -4 + 15 \end{pmatrix} = \begin{pmatrix} 3 \\ 11 \end{pmatrix} \)</p>
+
+    <p><strong>4.</strong> \( \|\vec{u}\| = \sqrt{x^2 + y^2} = \sqrt{3^2 + (-2)^2} = \sqrt{9 + 4} = \sqrt{13} \approx 3{,}6 \)</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- EXERCICE 2 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Vecteurs et parallélogramme</span>
+    <span class="pts">12 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un menuisier agenceur dessine le plan d'un aménagement de bureau. Il place les coins d'un meuble sur un repère orthonormé. Les points \( A(1\,;\,3) \), \( B(4\,;\,7) \) et \( C(6\,;\,3) \) représentent trois sommets du meuble.
+  </div>
+
+  <p><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer les coordonnées du vecteur \( \overrightarrow{AB} \). <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer les coordonnées du vecteur \( \overrightarrow{AC} \). <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>3.</strong> <span class="comp comp-ana">ANA</span> Calculer la norme (longueur) de \( \overrightarrow{AB} \). Arrondir au dixième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>4.</strong> <span class="comp comp-ana">ANA</span> On cherche le point \( D \) tel que \( ABCD \) soit un parallélogramme. Rappeler la condition sur les vecteurs pour que \( ABCD \) soit un parallélogramme. <span class="bareme">(1 pt)</span></p>
+  <span class="answer-line"></span>
+
+  <p><strong>5.</strong> <span class="comp comp-rea">REA</span> En déduire les coordonnées du point \( D \). <span class="bareme">(3 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>6.</strong> <span class="comp comp-val">VAL</span> Calculer les coordonnées du milieu \( I \) du segment \( [AC] \) et du milieu \( J \) du segment \( [BD] \). Que constate-t-on ? Est-ce cohérent ? <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p><strong>1.</strong> \( \overrightarrow{AB} = \begin{pmatrix} x_B - x_A \\ y_B - y_A \end{pmatrix} = \begin{pmatrix} 4 - 1 \\ 7 - 3 \end{pmatrix} = \begin{pmatrix} 3 \\ 4 \end{pmatrix} \)</p>
+
+    <p><strong>2.</strong> \( \overrightarrow{AC} = \begin{pmatrix} x_C - x_A \\ y_C - y_A \end{pmatrix} = \begin{pmatrix} 6 - 1 \\ 3 - 3 \end{pmatrix} = \begin{pmatrix} 5 \\ 0 \end{pmatrix} \)</p>
+
+    <p><strong>3.</strong> \( \|\overrightarrow{AB}\| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5 \)</p>
+
+    <p><strong>4.</strong> \( ABCD \) est un parallélogramme si et seulement si \( \overrightarrow{AB} = \overrightarrow{DC} \).</p>
+
+    <p><strong>5.</strong> On a \( \overrightarrow{AB} = \overrightarrow{DC} \), donc :</p>
+    <p>\( \begin{pmatrix} x_C - x_D \\ y_C - y_D \end{pmatrix} = \begin{pmatrix} 3 \\ 4 \end{pmatrix} \)</p>
+    <p>Soit \( 6 - x_D = 3 \), d'où \( x_D = 3 \).</p>
+    <p>Et \( 3 - y_D = 4 \), d'où \( y_D = -1 \).</p>
+    <p>Donc \( D(3\,;\,-1) \).</p>
+
+    <p><strong>6.</strong> Milieu \( I \) de \( [AC] \) : \( I\left(\dfrac{1+6}{2}\,;\,\dfrac{3+3}{2}\right) = I(3{,}5\,;\,3) \)</p>
+    <p>Milieu \( J \) de \( [BD] \) : \( J\left(\dfrac{4+3}{2}\,;\,\dfrac{7+(-1)}{2}\right) = J(3{,}5\,;\,3) \)</p>
+    <p>On constate que \( I = J \). Les diagonales d'un parallélogramme se coupent en leur milieu, ce qui confirme que \( ABCD \) est bien un parallélogramme.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="../../../nav.js"></script>
 </body>

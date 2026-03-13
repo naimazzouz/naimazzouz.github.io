@@ -1,31 +1,143 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch02 – Grandeurs &eacute;lectriques et mouvement circulaire – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
-.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}.dh-item{display:flex;align-items:center;gap:6px}.dh-item strong{color:var(--p)}.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}.bareme{font-style:italic;color:#718096;font-size:.85em}</style></head><body><div class="c"><a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>DS – Chapitre 2</h1><p class="sous-titre">Mouvement circulaire &nbsp;|&nbsp; 2<sup>de</sup> Pro</p></header><div class="dh"><div class="dh-item">⏱ <strong>Durée :</strong> 1h</div><div class="dh-item">🧮 <strong>Calculatrice :</strong> autorisée</div><div class="dh-item">📋 <strong>Barème :</strong> 20 pts</div></div>
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie A – Période et fréquence</span><span class="pts">8 pts</span></div>
-<div class="q"><strong>1. (2 pts)</strong> Une roue tourne à 1500 tr/min. Calculer sa fréquence en Hz et sa période.</div>
-<span class="answer-line"></span><span class="answer-line"></span>
-<div class="q"><strong>2. (2 pts)</strong> L'aiguille des minutes d'une montre. Donner T et f.</div>
-<span class="answer-line"></span>
-<div class="q"><strong>3. (4 pts)</strong> Calculer la vitesse linéaire d'un point situé à r=15 cm d'un axe tournant à 2 Hz.</div>
-<span class="answer-line"></span><span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> \(f=1500/60=25\) Hz ; \(T=1/25=0{,}04\) s</p><p><strong>2.</strong> \(T=3600\) s (1h) ; \(f=1/3600\approx2{,}78\times10^{-4}\) Hz</p><p><strong>3.</strong> \(v=2\pi\times0{,}15\times2\approx1{,}88\) m/s</p></div></div>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie B – Problème</span><span class="pts">12 pts</span></div>
-<p>Un manège de rayon 5 m effectue 3 tours en 1 minute.</p>
-<div class="q"><strong>1. (3 pts)</strong> Calculer la fréquence et la période du manège.</div>
-<span class="answer-line"></span>
-<div class="q"><strong>2. (4 pts)</strong> Calculer la vitesse linéaire d'un enfant assis sur la jante.</div>
-<span class="answer-line"></span><span class="answer-line"></span>
-<div class="q"><strong>3. (3 pts)</strong> Un enfant est à r=3 m. Sa vitesse est-elle identique ? Calculer.</div>
-<span class="answer-line"></span><span class="answer-line"></span>
-<div class="q"><strong>4. (2 pts)</strong> La trajectoire est-elle rectiligne ou circulaire ? La vitesse est-elle constante en valeur ?</div>
-<span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> \(f=3/60=0{,}05\) Hz ; \(T=1/0{,}05=20\) s</p><p><strong>2.</strong> \(v=2\pi\times5/20\approx1{,}57\) m/s</p><p><strong>3.</strong> Non, \(v=2\pi\times3/20\approx0{,}94\) m/s (plus proche du centre = moins vite)</p><p><strong>4.</strong> Trajectoire circulaire. La valeur de la vitesse est constante (mouvement circulaire uniforme).</p></div></div>
-<script>function toggle(btn){const c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}</script></div><script src="/nav.js"></script>
-</body></html>
+<header>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 2</h1>
+  <p class="sous-titre">Grandeurs &eacute;lectriques et mouvement circulaire &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
+</div>
+
+<!-- ════════ PARTIE A ════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; P&eacute;riode et fr&eacute;quence</span>
+    <span class="pts">8 pts</span>
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Une roue tourne &agrave; 1500 tr/min. Calculer sa fr&eacute;quence en Hz et sa p&eacute;riode. <span class="bareme">(2 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    L'aiguille des minutes d'une montre. Donner T et f. <span class="bareme">(2 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la vitesse lin&eacute;aire d'un point situ&eacute; &agrave; \(r = 15\) cm d'un axe tournant &agrave; 2 Hz. <span class="bareme">(4 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f = 1500 / 60 = 25\) Hz ; \(T = 1 / 25 = 0{,}04\) s</p>
+    <p><strong>2.</strong> \(T = 3600\) s (1 h) ; \(f = 1 / 3600 \approx 2{,}78 \times 10^{-4}\) Hz</p>
+    <p><strong>3.</strong> \(v = 2\pi \times 0{,}15 \times 2 \approx 1{,}88\) m/s</p>
+  </div>
+</div>
+
+<!-- ════════ PARTIE B ════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Probl&egrave;me : le man&egrave;ge</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p>Un man&egrave;ge de rayon 5 m effectue 3 tours en 1 minute.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la fr&eacute;quence et la p&eacute;riode du man&egrave;ge. <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la vitesse lin&eacute;aire d'un enfant assis sur la jante. <span class="bareme">(4 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Un enfant est &agrave; \(r = 3\) m. Sa vitesse est-elle identique ? Calculer. <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-com">COM</span>
+    La trajectoire est-elle rectiligne ou circulaire ? La vitesse est-elle constante en valeur ? <span class="bareme">(2 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f = 3 / 60 = 0{,}05\) Hz ; \(T = 1 / 0{,}05 = 20\) s</p>
+    <p><strong>2.</strong> \(v = 2\pi \times 5 / 20 \approx 1{,}57\) m/s</p>
+    <p><strong>3.</strong> Non, \(v = 2\pi \times 3 / 20 \approx 0{,}94\) m/s (plus proche du centre = moins vite)</p>
+    <p><strong>4.</strong> Trajectoire circulaire. La valeur de la vitesse est constante (mouvement circulaire uniforme).</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

@@ -3,25 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch07 – Géométrie dans l'espace – 1ère Pro</title>
+<title>DS Ch07 – Géométrie dans l'espace – 1ère Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-1ere-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 <header>
-  <h1>Devoir Surveillé – Chapitre 07 – Géométrie dans l'espace</h1>
-  <p class="sous-titre">1ère Bac Pro | Géométrie | Mathématiques</p>
+  <h1>Devoir Surveillé – Chapitre 7</h1>
+  <p class="sous-titre">Géométrie dans l'espace &nbsp;|&nbsp; 1<sup>ère</sup> Bac Pro</p>
 </header>
-
-<div class="objectifs">
-  <h3>Devoir surveillé</h3>
-  <p>Contenu à venir.</p>
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<p><strong>Rappels de formules :</strong></p>
+<ul>
+  <li>Cylindre : \( V = \pi r^2 h \) &nbsp;;&nbsp; \( S_{\text{latérale}} = 2\pi r h \) &nbsp;;&nbsp; \( S_{\text{totale}} = 2\pi r(r + h) \)</li>
+  <li>Cône : \( V = \dfrac{1}{3}\pi r^2 h \) &nbsp;;&nbsp; \( S_{\text{latérale}} = \pi r g \) (avec \( g \) la génératrice)</li>
+  <li>Sphère : \( V = \dfrac{4}{3}\pi r^3 \) &nbsp;;&nbsp; \( S = 4\pi r^2 \)</li>
+</ul>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- EXERCICE 1 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Volumes et surfaces de solides</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p><strong>Partie A – Cylindre</strong></p>
+  <p>On considère un cylindre de rayon \( r = 3 \) cm et de hauteur \( h = 10 \) cm.</p>
+
+  <p><strong>1.</strong> <span class="comp comp-rea">REA</span> Calculer le volume du cylindre. Donner la valeur exacte puis l'arrondi au dixième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer la surface totale du cylindre. Donner la valeur exacte puis l'arrondi au dixième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie B – Cône</strong></p>
+  <p>On considère un cône de rayon de base \( r = 5 \) cm et de hauteur \( h = 12 \) cm.</p>
+
+  <p><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer le volume du cône. Donner la valeur exacte puis l'arrondi au dixième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie C – Sphère</strong></p>
+  <p>On considère une sphère de rayon \( r = 4 \) cm.</p>
+
+  <p><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer le volume de la sphère. Donner la valeur exacte puis l'arrondi au dixième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>5.</strong> <span class="comp comp-rea">REA</span> Calculer la surface de la sphère. Donner la valeur exacte puis l'arrondi au dixième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p><strong>1.</strong> \( V_{\text{cylindre}} = \pi r^2 h = \pi \times 3^2 \times 10 = 90\pi \approx 282{,}7 \) cm\(^3\)</p>
+
+    <p><strong>2.</strong> \( S_{\text{totale}} = 2\pi r(r + h) = 2\pi \times 3 \times (3 + 10) = 78\pi \approx 245{,}0 \) cm\(^2\)</p>
+
+    <p><strong>3.</strong> \( V_{\text{cône}} = \dfrac{1}{3}\pi r^2 h = \dfrac{1}{3} \times \pi \times 5^2 \times 12 = 100\pi \approx 314{,}2 \) cm\(^3\)</p>
+
+    <p><strong>4.</strong> \( V_{\text{sphère}} = \dfrac{4}{3}\pi r^3 = \dfrac{4}{3} \times \pi \times 4^3 = \dfrac{256\pi}{3} \approx 268{,}1 \) cm\(^3\)</p>
+
+    <p><strong>5.</strong> \( S_{\text{sphère}} = 4\pi r^2 = 4\pi \times 4^2 = 64\pi \approx 201{,}1 \) cm\(^2\)</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- EXERCICE 2 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Réservoir industriel</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un technicien chauffagiste doit installer un réservoir d'eau chaude dans un local technique. Le réservoir est composé d'un cylindre surmonté d'une demi-sphère (voir schéma ci-dessous).
+  </div>
+
+  <p><strong>Partie A – Réservoir cylindrique simple</strong></p>
+  <p>On considère d'abord un réservoir cylindrique de diamètre \( d = 60 \) cm et de hauteur \( h = 1{,}20 \) m.</p>
+
+  <p><strong>1.</strong> <span class="comp comp-app">APP</span> Donner le rayon du réservoir en mètres. <span class="bareme">(1 pt)</span></p>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer le volume du réservoir en m\(^3\). Arrondir au millième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>3.</strong> <span class="comp comp-val">VAL</span> Convertir ce volume en litres. Le réservoir peut-il contenir 300 litres ? Justifier. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie B – Réservoir composite</strong></p>
+  <p>On remplace le couvercle plat du réservoir par une demi-sphère de même rayon que le cylindre. La hauteur du cylindre reste \( h = 1{,}20 \) m et le rayon reste \( r = 0{,}30 \) m.</p>
+
+  <p><strong>4.</strong> <span class="comp comp-ana">ANA</span> Exprimer puis calculer le volume de la demi-sphère. Arrondir au millième. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>5.</strong> <span class="comp comp-rea">REA</span> Calculer le volume total du réservoir composite (cylindre + demi-sphère) en m\(^3\) puis en litres. Arrondir au litre. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>6.</strong> <span class="comp comp-com">COM</span> Le technicien doit choisir entre le réservoir cylindrique simple et le réservoir composite. Le modèle composite coûte 15 % de plus. Le client a besoin de stocker au minimum 350 litres. Quel modèle conseillez-vous ? Rédiger la réponse. <span class="bareme">(1 pt)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p><strong>1.</strong> Le diamètre est \( d = 60 \) cm \( = 0{,}60 \) m, donc le rayon est \( r = \dfrac{0{,}60}{2} = 0{,}30 \) m.</p>
+
+    <p><strong>2.</strong> \( V_{\text{cylindre}} = \pi r^2 h = \pi \times 0{,}30^2 \times 1{,}20 = \pi \times 0{,}09 \times 1{,}20 = 0{,}108\pi \approx 0{,}339 \) m\(^3\)</p>
+
+    <p><strong>3.</strong> On sait que 1 m\(^3\) = 1 000 L, donc \( V \approx 0{,}339 \times 1\,000 = 339 \) L.</p>
+    <p>Le réservoir peut contenir 339 L, ce qui est supérieur à 300 L. Oui, il peut contenir 300 litres.</p>
+
+    <p><strong>4.</strong> Volume d'une demi-sphère : \( V_{\text{demi-sphère}} = \dfrac{1}{2} \times \dfrac{4}{3}\pi r^3 = \dfrac{2}{3}\pi r^3 \)</p>
+    <p>\( V_{\text{demi-sphère}} = \dfrac{2}{3}\pi \times 0{,}30^3 = \dfrac{2}{3}\pi \times 0{,}027 = 0{,}018\pi \approx 0{,}057 \) m\(^3\)</p>
+
+    <p><strong>5.</strong> \( V_{\text{total}} = V_{\text{cylindre}} + V_{\text{demi-sphère}} = 0{,}108\pi + 0{,}018\pi = 0{,}126\pi \approx 0{,}396 \) m\(^3\)</p>
+    <p>En litres : \( 0{,}396 \times 1\,000 \approx 396 \) L.</p>
+
+    <p><strong>6.</strong> Le réservoir cylindrique simple a une capacité de 339 L, ce qui est insuffisant pour stocker 350 L. Le réservoir composite a une capacité de 396 L, ce qui répond au besoin du client. Malgré le surcoût de 15 %, il est conseillé de choisir le modèle composite, car c'est le seul qui permet d'atteindre la capacité minimale exigée de 350 litres.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="../../../nav.js"></script>
 </body>

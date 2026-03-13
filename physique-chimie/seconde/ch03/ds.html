@@ -1,26 +1,149 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch03 – Loi d'Ohm et &eacute;quilibre d'un solide – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
-.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}.dh-item{display:flex;align-items:center;gap:6px}.dh-item strong{color:var(--p)}.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}.bareme{font-style:italic;color:#718096;font-size:.85em}</style></head><body><div class="c"><a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>DS – Chapitre 3</h1><p class="sous-titre">Équilibre d'un solide &nbsp;|&nbsp; 2<sup>de</sup> Pro</p></header><div class="dh"><div class="dh-item">⏱ <strong>Durée :</strong> 1h</div><div class="dh-item">🧮 <strong>Calculatrice :</strong> autorisée</div><div class="dh-item">📋 <strong>Barème :</strong> 20 pts</div></div>
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie A – Poids et masse</span><span class="pts">8 pts</span></div>
-<p class="bareme">2 pts/question.</p>
-<div class="q"><strong>1.</strong> Calculer le poids d'un objet de 12 kg (g=9,8 N/kg).</div><span class="answer-line"></span>
-<div class="q"><strong>2.</strong> Calculer la masse d'un objet pesant 294 N.</div><span class="answer-line"></span>
-<div class="q"><strong>3.</strong> Même objet sur la Lune (g=1,6 N/kg). Calculer sa masse et son poids.</div><span class="answer-line"></span><span class="answer-line"></span>
-<div class="q"><strong>4.</strong> Quel est le poids d'un sac de 25 kg ?</div><span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> P=12×9,8=117,6 N</p><p><strong>2.</strong> m=294/9,8=30 kg</p><p><strong>3.</strong> Masse=30 kg (inchangée) ; P=30×1,6=48 N</p><p><strong>4.</strong> P=25×9,8=245 N</p></div></div>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie B – Équilibre</span><span class="pts">12 pts</span></div>
-<p>Une caisse de 40 kg est posée sur le sol. On tire dessus avec une corde horizontale avec une force T=80 N. Elle ne bouge pas.</p>
-<div class="q"><strong>1. (3 pts)</strong> Calculer le poids de la caisse.</div><span class="answer-line"></span>
-<div class="q"><strong>2. (3 pts)</strong> Quelles forces s'exercent sur la caisse ? Nommer et décrire chacune.</div><span class="answer-line"></span><span class="answer-line"></span>
-<div class="q"><strong>3. (3 pts)</strong> Quelle est la valeur de la réaction du sol ? Justifier.</div><span class="answer-line"></span>
-<div class="q"><strong>4. (3 pts)</strong> Quelle est la valeur de la force de frottement ? Dans quel sens ?</div><span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> P=40×9,8=392 N</p><p><strong>2.</strong> 4 forces : Poids (392 N ↓), Réaction (↑), Tension T (→ horizontal), Frottement f (← horizontal)</p><p><strong>3.</strong> R=P=392 N (équilibre vertical)</p><p><strong>4.</strong> f=T=80 N en sens opposé à T (vers la gauche). Équilibre horizontal.</p></div></div>
-<script>function toggle(btn){const c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}</script></div><script src="/nav.js"></script>
-</body></html>
+<header>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 3</h1>
+  <p class="sous-titre">Loi d'Ohm et &eacute;quilibre d'un solide &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
+</div>
+
+<!-- ════════ PARTIE A ════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Poids et masse</span>
+    <span class="pts">8 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le poids d'un objet de 12 kg (\(g = 9{,}8\) N/kg).
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculer la masse d'un objet pesant 294 N.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    M&ecirc;me objet sur la Lune (\(g = 1{,}6\) N/kg). Calculer sa masse et son poids.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-rea">REA</span>
+    Quel est le poids d'un sac de 25 kg ?
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 12 \times 9{,}8 = 117{,}6\) N</p>
+    <p><strong>2.</strong> \(m = 294 / 9{,}8 = 30\) kg</p>
+    <p><strong>3.</strong> Masse = 30 kg (inchang&eacute;e) ; \(P = 30 \times 1{,}6 = 48\) N</p>
+    <p><strong>4.</strong> \(P = 25 \times 9{,}8 = 245\) N</p>
+  </div>
+</div>
+
+<!-- ════════ PARTIE B ════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; &Eacute;quilibre</span>
+    <span class="pts">12 pts</span>
+  </div>
+
+  <p>Une caisse de 40 kg est pos&eacute;e sur le sol. On tire dessus avec une corde horizontale avec une force \(T = 80\) N. Elle ne bouge pas.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Calculer le poids de la caisse. <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    Quelles forces s'exercent sur la caisse ? Nommer et d&eacute;crire chacune. <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span>
+    Quelle est la valeur de la r&eacute;action du sol ? Justifier. <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-val">VAL</span>
+    Quelle est la valeur de la force de frottement ? Dans quel sens ? <span class="bareme">(3 pts)</span>
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 40 \times 9{,}8 = 392\) N</p>
+    <p><strong>2.</strong> 4 forces : Poids (392 N &darr;), R&eacute;action (&uarr;), Tension T (&rarr; horizontal), Frottement f (&larr; horizontal)</p>
+    <p><strong>3.</strong> \(R = P = 392\) N (&eacute;quilibre vertical)</p>
+    <p><strong>4.</strong> \(f = T = 80\) N en sens oppos&eacute; &agrave; T (vers la gauche). &Eacute;quilibre horizontal.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

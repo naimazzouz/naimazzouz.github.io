@@ -3,25 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch03 – Suites numériques – 1ère Pro</title>
+<title>DS Ch03 – Suites numériques – 1ère Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-1ere-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 <header>
-  <h1>Devoir Surveillé – Chapitre 03 – Suites numériques</h1>
-  <p class="sous-titre">1ère Bac Pro | Algèbre – Analyse | Mathématiques</p>
+  <h1>Devoir Surveillé – Chapitre 3</h1>
+  <p class="sous-titre">Suites numériques &nbsp;|&nbsp; 1<sup>ère</sup> Bac Pro</p>
 </header>
-
-<div class="objectifs">
-  <h3>Devoir surveillé</h3>
-  <p>Contenu à venir.</p>
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<!-- ═══════════ EXERCICE 1 ═══════════ -->
+<div class="partie">
+<div class="partie-header">
+  <span class="partie-title">Exercice 1 – Progression salariale</span>
+  <span class="pts">8 points</span>
+</div>
+
+<p>Un technicien en installation thermique est embauché avec un salaire mensuel net de <strong>1 450 €</strong>. Son contrat prévoit une augmentation de <strong>60 €</strong> par an.</p>
+
+<p>On note \(u_n\) le salaire mensuel en euros après \(n\) années d'ancienneté (\(u_0 = 1\,450\)).</p>
+
+<p><strong>1.</strong> <span class="comp comp-app">APP</span> Calculer \(u_1\), \(u_2\) et \(u_3\). <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>2.</strong> <span class="comp comp-ana">ANA</span> Quelle est la nature de la suite \((u_n)\) ? Préciser le premier terme et la raison. <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>3.</strong> <span class="comp comp-rea">REA</span> Exprimer \(u_n\) en fonction de \(n\). <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+
+<p><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer le salaire mensuel après 10 ans d'ancienneté. <span class="bareme">(1 pt)</span></p>
+<span class="answer-line"></span>
+
+<p><strong>5.</strong> <span class="comp comp-ana">ANA</span> Au bout de combien d'années le salaire dépassera-t-il 2 000 € ? <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>6.</strong> <span class="comp comp-com">COM</span> Calculer le total des salaires perçus pendant les 5 premières années (de \(u_0\) à \(u_4\)), sachant que la somme des \(n\) premiers termes d'une suite arithmétique vaut \(S = \dfrac{n}{2}(u_0 + u_{n-1})\). <span class="bareme">(1 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr" style="display:none">
+<p><strong>1.</strong>
+\(u_1 = 1\,450 + 60 = 1\,510\) € ;
+\(u_2 = 1\,510 + 60 = 1\,570\) € ;
+\(u_3 = 1\,570 + 60 = 1\,630\) €.</p>
+<p><strong>2.</strong> La suite \((u_n)\) est <strong>arithmétique</strong> de premier terme \(u_0 = 1\,450\) et de raison \(r = 60\).</p>
+<p><strong>3.</strong> \(u_n = u_0 + n \times r = 1\,450 + 60n\)</p>
+<p><strong>4.</strong> \(u_{10} = 1\,450 + 60 \times 10 = 1\,450 + 600 = 2\,050\) €.</p>
+<p><strong>5.</strong> On résout \(1\,450 + 60n > 2\,000\), soit \(60n > 550\), donc \(n > 9{,}17\).
+Le salaire dépassera 2 000 € au bout de <strong>10 ans</strong>.</p>
+<p><strong>6.</strong> \(S = \dfrac{5}{2}(u_0 + u_4) = \dfrac{5}{2}(1\,450 + 1\,690) = \dfrac{5}{2} \times 3\,140 = 7\,850\) €.
+Le total des salaires mensuels sur 5 ans est de 7 850 €. (En salaire annuel : \(7\,850 \times 12 = 94\,200\) €.)</p>
+</div>
+</div>
+
+<!-- ═══════════ EXERCICE 2 ═══════════ -->
+<div class="partie">
+<div class="partie-header">
+  <span class="partie-title">Exercice 2 – Dépréciation d'un véhicule utilitaire</span>
+  <span class="pts">12 points</span>
+</div>
+
+<p>Une entreprise d'agencement achète un véhicule utilitaire neuf à <strong>28 000 €</strong>. Chaque année, le véhicule perd <strong>15 %</strong> de sa valeur.</p>
+
+<p>On note \(v_n\) la valeur du véhicule (en euros) après \(n\) années (\(v_0 = 28\,000\)).</p>
+
+<p><strong>1.</strong> <span class="comp comp-app">APP</span> Exprimer \(v_1\) en fonction de \(v_0\) puis calculer sa valeur. <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer \(v_2\) et \(v_3\). Arrondir au centime. <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>3.</strong> <span class="comp comp-ana">ANA</span> Quelle est la nature de la suite \((v_n)\) ? Préciser le premier terme et la raison. <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>4.</strong> <span class="comp comp-rea">REA</span> Exprimer \(v_n\) en fonction de \(n\). <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+
+<p><strong>5.</strong> <span class="comp comp-rea">REA</span> Calculer la valeur du véhicule après 5 ans. Arrondir à l'euro. <span class="bareme">(1,5 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>6.</strong> <span class="comp comp-rea">REA</span> Compléter le tableau de valeurs ci-dessous (arrondir à l'euro) : <span class="bareme">(1,5 pt)</span></p>
+<table style="width:100%;border-collapse:collapse;margin:12px 0;text-align:center">
+<tr style="background:var(--p);color:#fff"><th style="padding:8px;border:1px solid #ccc">Année \(n\)</th><td style="padding:8px;border:1px solid #ccc">0</td><td style="padding:8px;border:1px solid #ccc">1</td><td style="padding:8px;border:1px solid #ccc">2</td><td style="padding:8px;border:1px solid #ccc">3</td><td style="padding:8px;border:1px solid #ccc">4</td><td style="padding:8px;border:1px solid #ccc">5</td></tr>
+<tr><th style="padding:8px;border:1px solid #ccc;background:var(--p-bg)">\(v_n\) (€)</th><td style="padding:8px;border:1px solid #ccc">28 000</td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td></tr>
+</table>
+
+<p><strong>7.</strong> <span class="comp comp-ana">ANA</span> L'entreprise souhaite revendre le véhicule quand sa valeur passe sous 10 000 €. À l'aide du tableau ou par le calcul, déterminer au bout de combien d'années cela se produit. <span class="bareme">(2 pts)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<p><strong>8.</strong> <span class="comp comp-val">VAL</span> Un collègue affirme : « Au bout de 10 ans, le véhicule ne vaut plus rien. » A-t-il raison ? Justifier. <span class="bareme">(1 pt)</span></p>
+<span class="answer-line"></span>
+<span class="answer-line"></span>
+
+<button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr" style="display:none">
+<p><strong>1.</strong> \(v_1 = v_0 \times (1 - 0{,}15) = v_0 \times 0{,}85 = 28\,000 \times 0{,}85 = 23\,800\) €.</p>
+<p><strong>2.</strong>
+\(v_2 = 23\,800 \times 0{,}85 = 20\,230\) € ;
+\(v_3 = 20\,230 \times 0{,}85 = 17\,195{,}50\) €.</p>
+<p><strong>3.</strong> La suite \((v_n)\) est <strong>géométrique</strong> de premier terme \(v_0 = 28\,000\) et de raison \(q = 0{,}85\).</p>
+<p><strong>4.</strong> \(v_n = v_0 \times q^n = 28\,000 \times 0{,}85^n\)</p>
+<p><strong>5.</strong> \(v_5 = 28\,000 \times 0{,}85^5 = 28\,000 \times 0{,}443\,705 \approx 12\,424\) €.</p>
+<p><strong>6.</strong> Tableau complété :</p>
+<table style="width:100%;border-collapse:collapse;margin:12px 0;text-align:center">
+<tr style="background:var(--p);color:#fff"><th style="padding:8px;border:1px solid #ccc">\(n\)</th><td style="padding:8px;border:1px solid #ccc">0</td><td style="padding:8px;border:1px solid #ccc">1</td><td style="padding:8px;border:1px solid #ccc">2</td><td style="padding:8px;border:1px solid #ccc">3</td><td style="padding:8px;border:1px solid #ccc">4</td><td style="padding:8px;border:1px solid #ccc">5</td></tr>
+<tr><th style="padding:8px;border:1px solid #ccc;background:var(--p-bg)">\(v_n\) (€)</th><td style="padding:8px;border:1px solid #ccc">28 000</td><td style="padding:8px;border:1px solid #ccc">23 800</td><td style="padding:8px;border:1px solid #ccc">20 230</td><td style="padding:8px;border:1px solid #ccc">17 196</td><td style="padding:8px;border:1px solid #ccc">14 616</td><td style="padding:8px;border:1px solid #ccc">12 424</td></tr>
+</table>
+<p><strong>7.</strong> On cherche \(n\) tel que \(28\,000 \times 0{,}85^n < 10\,000\), soit \(0{,}85^n < \dfrac{10\,000}{28\,000} \approx 0{,}3571\).
+Par essais : \(0{,}85^6 \approx 0{,}3771\) et \(0{,}85^7 \approx 0{,}3206\).
+La valeur passe sous 10 000 € au bout de <strong>7 ans</strong> (\(v_7 \approx 8\,976\) €).</p>
+<p><strong>8.</strong> Non. \(v_{10} = 28\,000 \times 0{,}85^{10} \approx 5\,584\) €. Le véhicule conserve une valeur résiduelle. Avec une suite géométrique de raison positive, la valeur ne sera jamais nulle (elle tend vers 0 sans l'atteindre).</p>
+</div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="../../../nav.js"></script>
 </body>

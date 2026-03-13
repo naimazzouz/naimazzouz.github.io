@@ -7,22 +7,125 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-1ere-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
 <header>
-  <h1>Devoir Surveillé – Chapitre 05 – Fonctions polynômes de degré 2</h1>
-  <p class="sous-titre">1ère Bac Pro | Algèbre – Analyse | Mathématiques</p>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 5</h1>
+  <p class="sous-titre">Fonctions polyn&ocirc;mes de degr&eacute; 2 &nbsp;|&nbsp; 1<sup>&egrave;re</sup> Bac Pro</p>
 </header>
 
-<div class="objectifs">
-  <h3>Devoir surveillé</h3>
-  <p>Contenu à venir.</p>
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
 </div>
 
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
 </div>
-<script src="../../../nav.js"></script>
+
+<!-- ===== EXERCICE 1 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; &Eacute;tude d'une fonction du second degr&eacute;</span>
+    <span class="pts">12 points</span>
+  </div>
+
+  <p>On consid&egrave;re la fonction \(f\) d&eacute;finie sur \(\mathbb{R}\) par \(f(x) = 2x^2 - 8x + 6\).</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-app">APP</span> Identifier les coefficients \(a\), \(b\) et \(c\). La parabole est-elle ouverte vers le haut ou vers le bas ? <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer les coordonn&eacute;es du sommet \(S\) de la parabole. <span class="bareme">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer le discriminant \(\Delta\) et en d&eacute;duire les racines de \(f(x) = 0\). <span class="bareme">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4.</strong> <span class="comp comp-ana">ANA</span> Dresser le tableau de variations de \(f\). <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5.</strong> <span class="comp comp-val">VAL</span> V&eacute;rifier que \(f(x) = 2(x-1)(x-3)\). <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(a = 2\), \(b = -8\), \(c = 6\). Comme \(a = 2 > 0\), la parabole est ouverte vers le haut.</p>
+    <p><strong>2.</strong> \(x_S = \dfrac{-b}{2a} = \dfrac{8}{4} = 2\). \(f(2) = 2(4) - 8(2) + 6 = 8 - 16 + 6 = -2\). Le sommet est \(S(2\,;\,-2)\).</p>
+    <p><strong>3.</strong> \(\Delta = b^2 - 4ac = 64 - 48 = 16 > 0\). Deux racines : \(x_1 = \dfrac{8-4}{4} = 1\) et \(x_2 = \dfrac{8+4}{4} = 3\).</p>
+    <p><strong>4.</strong> \(f\) est d&eacute;croissante sur \(]-\infty\,;\,2]\), minimum \(-2\) en \(x = 2\), puis croissante sur \([2\,;\,+\infty[\).</p>
+    <p><strong>5.</strong> \(2(x-1)(x-3) = 2(x^2 - 4x + 3) = 2x^2 - 8x + 6 = f(x)\). &#10003;</p>
+  </div>
+</div>
+
+<!-- ===== EXERCICE 2 ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Application professionnelle</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p>Un artisan menuisier fabrique des &eacute;tag&egrave;res sur mesure. Le b&eacute;n&eacute;fice \(B(x)\) (en euros) pour la vente de \(x\) &eacute;tag&egrave;res par mois est mod&eacute;lis&eacute; par :</p>
+  <p style="text-align:center;font-weight:600;margin:10px 0">\(B(x) = -5x^2 + 120x - 500\)</p>
+
+  <div class="q"><strong>1.</strong> <span class="comp comp-rea">REA</span> Pour combien d'&eacute;tag&egrave;res le b&eacute;n&eacute;fice est-il maximal ? Calculer ce b&eacute;n&eacute;fice maximum. <span class="bareme">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>2.</strong> <span class="comp comp-rea">REA</span> R&eacute;soudre \(B(x) = 0\). En d&eacute;duire pour quelles quantit&eacute;s l'artisan r&eacute;alise un b&eacute;n&eacute;fice positif. <span class="bareme">(3 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>3.</strong> <span class="comp comp-com">COM</span> Interpr&eacute;ter les r&eacute;sultats. Que conseillez-vous &agrave; l'artisan ? <span class="bareme">(2 pts)</span></div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(a = -5 < 0\), la parabole admet un maximum. \(x_S = \dfrac{-120}{2 \times (-5)} = 12\). \(B(12) = -5(144) + 120(12) - 500 = -720 + 1440 - 500 = \mathbf{220}\) &euro;. Le b&eacute;n&eacute;fice est maximal pour 12 &eacute;tag&egrave;res.</p>
+    <p><strong>2.</strong> \(\Delta = 14\,400 - 10\,000 = 4\,400\). \(\sqrt{\Delta} \approx 66{,}3\). \(x_1 = \dfrac{-120 + 66{,}3}{-10} \approx 5{,}4\) et \(x_2 = \dfrac{-120 - 66{,}3}{-10} \approx 18{,}6\). B&eacute;n&eacute;fice positif pour \(x \in [6\,;\,18]\) (&eacute;tag&egrave;res enti&egrave;res).</p>
+    <p><strong>3.</strong> L'artisan doit produire entre 6 et 18 &eacute;tag&egrave;res pour &ecirc;tre rentable. La production optimale est de 12 &eacute;tag&egrave;res pour un b&eacute;n&eacute;fice de 220 &euro;.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
 </body>
 </html>

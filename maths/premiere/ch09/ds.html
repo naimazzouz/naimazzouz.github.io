@@ -3,25 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DS Ch09 – Trigonométrie – 1ère Pro</title>
+<title>DS Ch09 – Trigonométrie – 1ère Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-1ere-pro.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-1ere-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
 <header>
-  <h1>Devoir Surveillé – Chapitre 09 – Trigonométrie</h1>
-  <p class="sous-titre">1ère Bac Pro | Géométrie | Mathématiques</p>
+  <h1>Devoir Surveillé – Chapitre 9</h1>
+  <p class="sous-titre">Trigonométrie &nbsp;|&nbsp; 1<sup>ère</sup> Bac Pro</p>
 </header>
-
-<div class="objectifs">
-  <h3>Devoir surveillé</h3>
-  <p>Contenu à venir.</p>
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Durée :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autorisée</div>
+  <div class="dh-item">&#9997; <strong>Barème :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autorisés</div>
+</div>
+<div class="comp-legend">
+  <span class="comp comp-app">APP – S'Approprier</span>
+  <span class="comp comp-ana">ANA – Analyser</span>
+  <span class="comp comp-rea">REA – Réaliser</span>
+  <span class="comp comp-val">VAL – Valider</span>
+  <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
+<!-- ════════════════════════════════════════════ -->
+<!-- EXERCICE 1 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 – Conversions et valeurs remarquables</span>
+    <span class="pts">8 points</span>
+  </div>
+
+  <p><strong>Partie A – Conversions degrés / radians</strong></p>
+
+  <p><strong>1.</strong> <span class="comp comp-rea">REA</span> Convertir les angles suivants en radians (donner la valeur exacte) : <span class="bareme">(2 pts)</span></p>
+  <p>&nbsp;&nbsp;a) \( 60° \) &nbsp;&nbsp;&nbsp;&nbsp; b) \( 120° \) &nbsp;&nbsp;&nbsp;&nbsp; c) \( 45° \) &nbsp;&nbsp;&nbsp;&nbsp; d) \( 210° \)</p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-rea">REA</span> Convertir les angles suivants en degrés : <span class="bareme">(2 pts)</span></p>
+  <p>&nbsp;&nbsp;a) \( \dfrac{\pi}{6} \) rad &nbsp;&nbsp;&nbsp;&nbsp; b) \( \dfrac{3\pi}{4} \) rad &nbsp;&nbsp;&nbsp;&nbsp; c) \( \dfrac{5\pi}{3} \) rad &nbsp;&nbsp;&nbsp;&nbsp; d) \( 2\pi \) rad</p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie B – Valeurs exactes</strong></p>
+
+  <p><strong>3.</strong> <span class="comp comp-app">APP</span> Compléter le tableau des valeurs exactes suivant : <span class="bareme">(2 pts)</span></p>
+  <table style="border-collapse:collapse;margin:10px 0;width:100%;max-width:500px">
+    <tr style="background:var(--p-bg)">
+      <th style="border:1px solid #ccc;padding:8px">Angle</th>
+      <th style="border:1px solid #ccc;padding:8px">\( \dfrac{\pi}{6} \)</th>
+      <th style="border:1px solid #ccc;padding:8px">\( \dfrac{\pi}{4} \)</th>
+      <th style="border:1px solid #ccc;padding:8px">\( \dfrac{\pi}{3} \)</th>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;padding:8px;font-weight:700">\( \cos \)</td>
+      <td style="border:1px solid #ccc;padding:8px;height:35px"></td>
+      <td style="border:1px solid #ccc;padding:8px"></td>
+      <td style="border:1px solid #ccc;padding:8px"></td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #ccc;padding:8px;font-weight:700">\( \sin \)</td>
+      <td style="border:1px solid #ccc;padding:8px;height:35px"></td>
+      <td style="border:1px solid #ccc;padding:8px"></td>
+      <td style="border:1px solid #ccc;padding:8px"></td>
+    </tr>
+  </table>
+
+  <p><strong>4.</strong> <span class="comp comp-ana">ANA</span> Placer sur le cercle trigonométrique les angles \( \dfrac{\pi}{6} \), \( \dfrac{\pi}{4} \), \( \dfrac{\pi}{3} \) et \( \dfrac{2\pi}{3} \). Indiquer pour chacun les valeurs de cosinus et sinus. <span class="bareme">(2 pts)</span></p>
+  <div style="text-align:center;margin:10px 0">
+    <svg width="260" height="260" viewBox="-130 -130 260 260" style="border:1px solid #ddd;border-radius:8px;background:#fafafa">
+      <!-- Axes -->
+      <line x1="-120" y1="0" x2="120" y2="0" stroke="#aaa" stroke-width="0.5"/>
+      <line x1="0" y1="-120" x2="0" y2="120" stroke="#aaa" stroke-width="0.5"/>
+      <!-- Cercle -->
+      <circle cx="0" cy="0" r="100" fill="none" stroke="var(--p)" stroke-width="1.5"/>
+      <!-- Graduations -->
+      <text x="105" y="14" font-size="11" fill="#555">1</text>
+      <text x="-115" y="14" font-size="11" fill="#555">-1</text>
+      <text x="5" y="-105" font-size="11" fill="#555">1</text>
+      <text x="5" y="115" font-size="11" fill="#555">-1</text>
+    </svg>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p><strong>1.</strong> Rappel : pour convertir des degrés en radians, on multiplie par \( \dfrac{\pi}{180} \).</p>
+    <ul>
+      <li>a) \( 60° = 60 \times \dfrac{\pi}{180} = \dfrac{\pi}{3} \)</li>
+      <li>b) \( 120° = 120 \times \dfrac{\pi}{180} = \dfrac{2\pi}{3} \)</li>
+      <li>c) \( 45° = 45 \times \dfrac{\pi}{180} = \dfrac{\pi}{4} \)</li>
+      <li>d) \( 210° = 210 \times \dfrac{\pi}{180} = \dfrac{7\pi}{6} \)</li>
+    </ul>
+
+    <p><strong>2.</strong> Pour convertir des radians en degrés, on multiplie par \( \dfrac{180}{\pi} \).</p>
+    <ul>
+      <li>a) \( \dfrac{\pi}{6} = \dfrac{\pi}{6} \times \dfrac{180}{\pi} = 30° \)</li>
+      <li>b) \( \dfrac{3\pi}{4} = \dfrac{3\pi}{4} \times \dfrac{180}{\pi} = 135° \)</li>
+      <li>c) \( \dfrac{5\pi}{3} = \dfrac{5\pi}{3} \times \dfrac{180}{\pi} = 300° \)</li>
+      <li>d) \( 2\pi = 2\pi \times \dfrac{180}{\pi} = 360° \)</li>
+    </ul>
+
+    <p><strong>3.</strong> Tableau complété :</p>
+    <table style="border-collapse:collapse;margin:10px 0">
+      <tr style="background:var(--p-bg)">
+        <th style="border:1px solid #ccc;padding:8px">Angle</th>
+        <th style="border:1px solid #ccc;padding:8px">\( \dfrac{\pi}{6} \) (30°)</th>
+        <th style="border:1px solid #ccc;padding:8px">\( \dfrac{\pi}{4} \) (45°)</th>
+        <th style="border:1px solid #ccc;padding:8px">\( \dfrac{\pi}{3} \) (60°)</th>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc;padding:8px;font-weight:700">\( \cos \)</td>
+        <td style="border:1px solid #ccc;padding:8px">\( \dfrac{\sqrt{3}}{2} \)</td>
+        <td style="border:1px solid #ccc;padding:8px">\( \dfrac{\sqrt{2}}{2} \)</td>
+        <td style="border:1px solid #ccc;padding:8px">\( \dfrac{1}{2} \)</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #ccc;padding:8px;font-weight:700">\( \sin \)</td>
+        <td style="border:1px solid #ccc;padding:8px">\( \dfrac{1}{2} \)</td>
+        <td style="border:1px solid #ccc;padding:8px">\( \dfrac{\sqrt{2}}{2} \)</td>
+        <td style="border:1px solid #ccc;padding:8px">\( \dfrac{\sqrt{3}}{2} \)</td>
+      </tr>
+    </table>
+
+    <p><strong>4.</strong> Sur le cercle trigonométrique :</p>
+    <ul>
+      <li>\( \dfrac{\pi}{6} \) (30°) : point \( \left(\dfrac{\sqrt{3}}{2}\,;\,\dfrac{1}{2}\right) \)</li>
+      <li>\( \dfrac{\pi}{4} \) (45°) : point \( \left(\dfrac{\sqrt{2}}{2}\,;\,\dfrac{\sqrt{2}}{2}\right) \)</li>
+      <li>\( \dfrac{\pi}{3} \) (60°) : point \( \left(\dfrac{1}{2}\,;\,\dfrac{\sqrt{3}}{2}\right) \)</li>
+      <li>\( \dfrac{2\pi}{3} \) (120°) : point \( \left(-\dfrac{1}{2}\,;\,\dfrac{\sqrt{3}}{2}\right) \)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- EXERCICE 2 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 – Trigonométrie appliquée à la construction</span>
+    <span class="pts">12 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un charpentier doit réaliser la charpente d'un bâtiment. La toiture forme un triangle rectangle et il doit calculer différentes dimensions à partir des angles et longueurs connues.
+  </div>
+
+  <p><strong>Partie A – Hauteur d'un pignon de toiture</strong></p>
+  <p>Le versant d'une toiture fait un angle de \( 35° \) avec l'horizontale. La longueur horizontale (demi-portée) mesure \( 4{,}50 \) m.</p>
+
+  <p><strong>1.</strong> <span class="comp comp-app">APP</span> Faire un schéma du triangle rectangle formé et identifier l'angle, le côté adjacent et le côté opposé. <span class="bareme">(1 pt)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>2.</strong> <span class="comp comp-ana">ANA</span> Quelle relation trigonométrique (sin, cos ou tan) permet de calculer la hauteur du pignon ? Justifier. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>3.</strong> <span class="comp comp-rea">REA</span> Calculer la hauteur du pignon. Arrondir au centimètre. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>4.</strong> <span class="comp comp-rea">REA</span> En déduire la longueur du rampant (le versant de la toiture). Arrondir au centimètre. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>Partie B – Rampe d'accès</strong></p>
+  <p>Le charpentier doit aussi vérifier la conformité d'une rampe d'accès pour personnes à mobilité réduite. La norme impose une pente maximale de \( 5° \). La rampe mesure \( 6 \) m de long (longueur au sol) et la hauteur à franchir est de \( 58 \) cm.</p>
+
+  <p><strong>5.</strong> <span class="comp comp-ana">ANA</span> Calculer l'angle \( \alpha \) que fait la rampe avec l'horizontale. Arrondir au dixième de degré. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>6.</strong> <span class="comp comp-val">VAL</span> La rampe est-elle conforme à la norme ? Justifier. <span class="bareme">(1 pt)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <p><strong>7.</strong> <span class="comp comp-com">COM</span> Si la rampe n'est pas conforme, quelle longueur minimale (au sol) faudrait-il pour respecter la norme avec la même hauteur de 58 cm ? Arrondir au dixième de mètre. Rédiger la réponse. <span class="bareme">(2 pts)</span></p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr" style="display:none">
+    <p><strong>1.</strong> Dans le triangle rectangle :</p>
+    <ul>
+      <li>L'angle de \( 35° \) est au pied du versant (entre l'horizontale et le rampant).</li>
+      <li>Le côté adjacent à l'angle = demi-portée = \( 4{,}50 \) m (horizontal).</li>
+      <li>Le côté opposé à l'angle = hauteur du pignon \( h \) (vertical).</li>
+      <li>L'hypoténuse = longueur du rampant (le versant).</li>
+    </ul>
+
+    <p><strong>2.</strong> On connaît le côté adjacent et on cherche le côté opposé. La relation qui lie ces deux côtés est la tangente :</p>
+    <p>\( \tan(35°) = \dfrac{\text{opposé}}{\text{adjacent}} = \dfrac{h}{4{,}50} \)</p>
+
+    <p><strong>3.</strong> \( h = 4{,}50 \times \tan(35°) = 4{,}50 \times 0{,}7002 \approx 3{,}15 \) m.</p>
+    <p>La hauteur du pignon est d'environ \( 3{,}15 \) m.</p>
+
+    <p><strong>4.</strong> On utilise le cosinus pour trouver la longueur du rampant \( L \) :</p>
+    <p>\( \cos(35°) = \dfrac{4{,}50}{L} \), donc \( L = \dfrac{4{,}50}{\cos(35°)} = \dfrac{4{,}50}{0{,}8192} \approx 5{,}49 \) m.</p>
+    <p>La longueur du rampant est d'environ \( 5{,}49 \) m.</p>
+
+    <p><strong>5.</strong> On convertit la hauteur : \( 58 \) cm \( = 0{,}58 \) m.</p>
+    <p>On utilise la tangente : \( \tan(\alpha) = \dfrac{0{,}58}{6} \approx 0{,}09667 \)</p>
+    <p>\( \alpha = \arctan(0{,}09667) \approx 5{,}5° \)</p>
+
+    <p><strong>6.</strong> L'angle \( \alpha \approx 5{,}5° \) est supérieur à la pente maximale autorisée de \( 5° \). La rampe n'est <strong>pas conforme</strong> à la norme.</p>
+
+    <p><strong>7.</strong> Pour respecter la norme, il faut que \( \tan(5°) \geqslant \dfrac{0{,}58}{L_{\min}} \), soit :</p>
+    <p>\( L_{\min} = \dfrac{0{,}58}{\tan(5°)} = \dfrac{0{,}58}{0{,}08749} \approx 6{,}6 \) m.</p>
+    <p>Pour que la rampe soit conforme à la norme d'accessibilité avec une hauteur de 58 cm, il faudrait une longueur au sol minimale de \( 6{,}6 \) m, au lieu des \( 6 \) m actuels. Le charpentier devra allonger la rampe de \( 0{,}6 \) m supplémentaires.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </div>
 <script src="../../../nav.js"></script>
 </body>

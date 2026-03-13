@@ -1,23 +1,150 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch07 – Température et chaleur – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
-.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}.dh-item{display:flex;align-items:center;gap:6px}.dh-item strong{color:var(--p)}.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}.bareme{font-style:italic;color:#718096;font-size:.85em}</style></head><body><div class="c"><a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>DS – Chapitre 7</h1><p class="sous-titre">Température et chaleur &nbsp;|&nbsp; 2<sup>de</sup> Pro</p></header><div class="dh"><div class="dh-item">⏱ <strong>Durée :</strong> 1h</div><div class="dh-item">🧮 <strong>Calculatrice :</strong> autorisée</div><div class="dh-item">📋 <strong>Barème :</strong> 20 pts</div></div>
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie A – Conversions et définitions</span><span class="pts">10 pts</span></div>
-<p class="bareme">2 pts/question.</p>
-<div class="q"><strong>1.</strong> Convertir 37°C en Kelvin.</div><span class="answer-line"></span>
-<div class="q"><strong>2.</strong> Convertir 350 K en °C.</div><span class="answer-line"></span>
-<div class="q"><strong>3.</strong> Définir l'équilibre thermique.</div><span class="answer-line"></span>
-<div class="q"><strong>4.</strong> Nommer les 3 modes de transfert thermique.</div><span class="answer-line"></span>
-<div class="q"><strong>5.</strong> Eau qui fond : chaleur absorbée ou dégagée ?</div><span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p>1. 310 K &nbsp;|&nbsp; 2. 77°C &nbsp;|&nbsp; 3. État où deux corps atteignent la même température &nbsp;|&nbsp; 4. Conduction, convection, rayonnement &nbsp;|&nbsp; 5. Absorbée (fusion)</p></div></div>
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie B – Problème</span><span class="pts">10 pts</span></div>
-<p>Un métal à 90°C est plongé dans de l'eau à 20°C. Ils atteignent l'équilibre à 35°C.</p>
-<div class="q"><strong>1. (3 pts)</strong> La chaleur se transfère du métal vers l'eau ou l'inverse ?</div><span class="answer-line"></span>
-<div class="q"><strong>2. (3 pts)</strong> Quel mode de transfert principalement ? Justifier.</div><span class="answer-line"></span>
-<div class="q"><strong>3. (4 pts)</strong> Convertir 20°C, 90°C et 35°C en Kelvin.</div><span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> Du métal (90°C) vers l'eau (20°C).</p><p><strong>2.</strong> Conduction (contact direct).</p><p><strong>3.</strong> 293 K, 363 K, 308 K.</p></div></div>
-<script>function toggle(btn){const c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}</script></div><script src="/nav.js"></script>
-</body></html>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 7</h1>
+  <p class="sous-titre">Temp&eacute;rature et chaleur &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
+</div>
+
+<!-- ===== PARTIE A ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; Conversions et d&eacute;finitions</span>
+    <span class="pts">10 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-rea">REA</span>
+    Convertir 37&deg;C en Kelvin.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Convertir 350 K en &deg;C.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-app">APP</span>
+    D&eacute;finir l'&eacute;quilibre thermique.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    Nommer les 3 modes de transfert thermique.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-ana">ANA</span>
+    Eau qui fond : chaleur absorb&eacute;e ou d&eacute;gag&eacute;e ?
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(T = 37 + 273 = 310\;\text{K}\)</p>
+    <p><strong>2.</strong> \(\theta = 350 - 273 = 77\;°\text{C}\)</p>
+    <p><strong>3.</strong> L'&eacute;quilibre thermique est l'&eacute;tat o&ugrave; deux corps en contact atteignent la m&ecirc;me temp&eacute;rature ; il n'y a plus de transfert de chaleur.</p>
+    <p><strong>4.</strong> Conduction, convection, rayonnement.</p>
+    <p><strong>5.</strong> Absorb&eacute;e (la fusion est une transformation endothermique).</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE B ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Probl&egrave;me</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <p>Un m&eacute;tal &agrave; 90&deg;C est plong&eacute; dans de l'eau &agrave; 20&deg;C. Ils atteignent l'&eacute;quilibre &agrave; 35&deg;C.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-ana">ANA</span>
+    <span class="bareme">(3 pts)</span>
+    La chaleur se transf&egrave;re du m&eacute;tal vers l'eau ou l'inverse ? Justifier.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-ana">ANA</span>
+    <span class="bareme">(3 pts)</span>
+    Quel mode de transfert principalement ? Justifier.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(4 pts)</span>
+    Convertir 20&deg;C, 90&deg;C et 35&deg;C en Kelvin.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> La chaleur se transf&egrave;re du m&eacute;tal (90&deg;C) vers l'eau (20&deg;C). Le transfert va toujours du corps chaud vers le corps froid.</p>
+    <p><strong>2.</strong> Conduction, car il y a contact direct entre le m&eacute;tal et l'eau.</p>
+    <p><strong>3.</strong> \(20 + 273 = 293\;\text{K}\) ; \(90 + 273 = 363\;\text{K}\) ; \(35 + 273 = 308\;\text{K}\)</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>

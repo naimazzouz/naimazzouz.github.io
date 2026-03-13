@@ -1,22 +1,151 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DS Ch10 – &Eacute;clairement et photocomposants – 2de Bac Pro</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
-.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}.dh-item{display:flex;align-items:center;gap:6px}.dh-item strong{color:var(--p)}.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}.bareme{font-style:italic;color:#718096;font-size:.85em}</style></head><body><div class="c"><a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
-<header><h1>DS – Chapitre 10</h1><p class="sous-titre">Éclairement et photocomposants &nbsp;|&nbsp; 2<sup>de</sup> Pro</p></header><div class="dh"><div class="dh-item">⏱ <strong>Durée :</strong> 1h</div><div class="dh-item">🧮 <strong>Calculatrice :</strong> autorisée</div><div class="dh-item">📋 <strong>Barème :</strong> 20 pts</div></div>
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie A – Éclairement et flux</span><span class="pts">10 pts</span></div>
-<p class="bareme">2 pts/question.</p>
-<div class="q"><strong>1.</strong> Donner la formule reliant E, Φ et S.</div><span class="answer-line"></span>
-<div class="q"><strong>2.</strong> Calculer l'éclairement reçu si Φ=600 lm sur S=3 m².</div><span class="answer-line"></span>
-<div class="q"><strong>3.</strong> Calculer S si Φ=1500 lm et E=250 lx.</div><span class="answer-line"></span>
-<div class="q"><strong>4.</strong> Quelle est l'unité du flux lumineux ? De l'éclairement ?</div><span class="answer-line"></span>
-<div class="q"><strong>5.</strong> Citer un avantage des LED par rapport aux ampoules incandescentes.</div><span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p>1. E=Φ/S &nbsp;|&nbsp; 2. E=200 lx &nbsp;|&nbsp; 3. S=6 m² &nbsp;|&nbsp; 4. lumen (lm) / lux (lx) &nbsp;|&nbsp; 5. Meilleur rendement, longue durée de vie, moins énergivore</p></div></div>
-<div class="partie"><div class="partie-header"><span class="partie-title">Partie B – Photocomposants</span><span class="pts">10 pts</span></div>
-<div class="q"><strong>1. (3 pts)</strong> Décrire le principe de fonctionnement d'une photorésistance.</div><span class="answer-line"></span><span class="answer-line"></span>
-<div class="q"><strong>2. (3 pts)</strong> Citer un exemple d'application pratique d'une photorésistance.</div><span class="answer-line"></span>
-<div class="q"><strong>3. (4 pts)</strong> Comparer : ampoule A (800 lm, 75 W) vs LED B (800 lm, 9 W). Même flux ? Quelle économie d'énergie en % ?</div><span class="answer-line"></span><span class="answer-line"></span>
-<button class="bc" onclick="toggle(this)">Voir la correction</button>
-<div class="corr"><p><strong>1.</strong> La résistance d'une LDR diminue quand l'éclairement augmente. Composant semi-conducteur sensible à la lumière.</p><p><strong>2.</strong> Allumage automatique des lampadaires, capteur de luminosité smartphone, alarme antieffraction.</p><p><strong>3.</strong> Oui, même flux. Économie = (75-9)/75 × 100 = 88% d'énergie économisée.</p></div></div>
-<script>function toggle(btn){const c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}</script></div><script src="/nav.js"></script>
-</body></html>
+.dh{display:flex;flex-wrap:wrap;gap:10px;background:#eef2f7;padding:14px 18px;border-radius:8px;margin-bottom:28px;font-size:.9em}
+.dh-item{display:flex;align-items:center;gap:6px}
+.dh-item strong{color:var(--p)}
+.partie{border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:24px 0}
+.partie-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--p)}
+.partie-title{font-weight:700;font-size:1.1em;color:var(--p)}
+.pts{background:var(--p);color:#fff;font-weight:700;font-size:.85em;padding:3px 10px;border-radius:12px}
+.answer-line{border-bottom:1px solid #aaa;margin:6px 0;height:28px;display:block}
+.bareme{font-style:italic;color:#718096;font-size:.85em}
+.comp{font-size:.72em;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+.comp-app{background:#dbeafe;color:#1d4ed8}
+.comp-ana{background:#fef3c7;color:#b45309}
+.comp-rea{background:#d1fae5;color:#065f46}
+.comp-val{background:#ede9fe;color:#6d28d9}
+.comp-com{background:#cffafe;color:#0e7490}
+.comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
+.comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
+@media print{.nb,.bc{display:none}}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-2nde-pro.html" class="nb">&larr; RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Devoir Surveill&eacute; &ndash; Chapitre 10</h1>
+  <p class="sous-titre">&Eacute;clairement et photocomposants &nbsp;|&nbsp; 2<sup>de</sup> Bac Pro</p>
+</header>
+
+<div class="dh">
+  <div class="dh-item">&#128337; <strong>Dur&eacute;e :</strong> 1 heure</div>
+  <div class="dh-item">&#129518; <strong>Calculatrice :</strong> autoris&eacute;e</div>
+  <div class="dh-item">&#9997; <strong>Bar&egrave;me :</strong> 20 points</div>
+  <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
+</div>
+
+<div class="comp-legend">
+  <span class="comp comp-app">APP &ndash; S'Approprier</span>
+  <span class="comp comp-ana">ANA &ndash; Analyser</span>
+  <span class="comp comp-rea">REA &ndash; R&eacute;aliser</span>
+  <span class="comp comp-val">VAL &ndash; Valider</span>
+  <span class="comp comp-com">COM &ndash; Communiquer</span>
+</div>
+
+<!-- ===== PARTIE A ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie A &ndash; &Eacute;clairement et flux</span>
+    <span class="pts">10 pts</span>
+  </div>
+  <p class="bareme">2 pts par question.</p>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-app">APP</span>
+    Donner la formule reliant l'&eacute;clairement \(E\), le flux lumineux \(\Phi\) et la surface \(S\).
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-rea">REA</span>
+    Calculer l'&eacute;clairement re&ccedil;u si \(\Phi = 600\;\text{lm}\) sur \(S = 3\;\text{m}^2\).
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-rea">REA</span>
+    Calculer \(S\) si \(\Phi = 1\,500\;\text{lm}\) et \(E = 250\;\text{lx}\).
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>4.</strong> <span class="comp comp-app">APP</span>
+    Quelle est l'unit&eacute; du flux lumineux ? De l'&eacute;clairement ?
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>5.</strong> <span class="comp comp-com">COM</span>
+    Citer un avantage des LED par rapport aux ampoules &agrave; incandescence.
+  </div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(E = \dfrac{\Phi}{S}\)</p>
+    <p><strong>2.</strong> \(E = \dfrac{600}{3} = 200\;\text{lx}\)</p>
+    <p><strong>3.</strong> \(S = \dfrac{\Phi}{E} = \dfrac{1\,500}{250} = 6\;\text{m}^2\)</p>
+    <p><strong>4.</strong> Le flux lumineux s'exprime en lumen (lm) ; l'&eacute;clairement s'exprime en lux (lx).</p>
+    <p><strong>5.</strong> Meilleur rendement &eacute;nerg&eacute;tique, dur&eacute;e de vie plus longue, consommation &eacute;lectrique r&eacute;duite.</p>
+  </div>
+</div>
+
+<!-- ===== PARTIE B ===== -->
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Partie B &ndash; Photocomposants</span>
+    <span class="pts">10 pts</span>
+  </div>
+
+  <div class="q">
+    <strong>1.</strong> <span class="comp comp-com">COM</span>
+    <span class="bareme">(3 pts)</span>
+    D&eacute;crire le principe de fonctionnement d'une photor&eacute;sistance.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>2.</strong> <span class="comp comp-app">APP</span>
+    <span class="bareme">(3 pts)</span>
+    Citer un exemple d'application pratique d'une photor&eacute;sistance.
+  </div>
+  <span class="answer-line"></span>
+
+  <div class="q">
+    <strong>3.</strong> <span class="comp comp-ana">ANA</span> <span class="comp comp-rea">REA</span>
+    <span class="bareme">(4 pts)</span>
+    Comparer : ampoule A (800 lm, 75 W) et LED B (800 lm, 9 W). Ont-elles le m&ecirc;me flux lumineux ? Calculer l'&eacute;conomie d'&eacute;nergie en %.
+  </div>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Une photor&eacute;sistance (LDR) est un composant semi-conducteur dont la r&eacute;sistance diminue lorsque l'&eacute;clairement augmente. Plus elle re&ccedil;oit de lumi&egrave;re, plus elle laisse passer le courant.</p>
+    <p><strong>2.</strong> Allumage automatique des lampadaires, capteur de luminosit&eacute; de smartphone, alarme anti-effraction.</p>
+    <p><strong>3.</strong> Oui, m&ecirc;me flux lumineux (800 lm).
+    <br>&Eacute;conomie : \(\dfrac{75 - 9}{75} \times 100 = 88\;\%\) d'&eacute;nergie &eacute;conomis&eacute;e avec la LED.</p>
+  </div>
+</div>
+
+<script>
+function toggle(btn){
+  const corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</div>
+<script src="/nav.js"></script>
+</body>
+</html>
