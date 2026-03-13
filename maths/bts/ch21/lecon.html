@@ -3,23 +3,903 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch21 – Représentation de l'espace – BTS</title>
+<title>Ch21 &ndash; Représentation de l&rsquo;espace &ndash; BTS</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
-<link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+table.mat{border-collapse:collapse;display:inline-table;margin:.3rem .5rem;font-size:.92rem}
+table.mat td{border:1px solid #bbb;padding:.3rem .6rem;text-align:center;min-width:2.2rem}
+table.mat thead td{background:var(--p);color:#fff;font-weight:600}
+.coord-box{background:#f8f9fc;border:1px solid #c8d0dc;border-radius:6px;padding:.7rem 1rem;
+           margin:.6rem 0;font-family:monospace;font-size:.93rem}
+.pos-rel{background:#f0fff4;border-left:4px solid #1a7a34;padding:.5rem .9rem;margin:.5rem 0;border-radius:0 6px 6px 0}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire BTS</a>
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <h1>Chapitre 21 – Représentation de l'espace</h1>
-  <p class="sous-titre">BTS — Mathématiques</p>
+  <h1>Chapitre 21 &ndash; Représentation de l&rsquo;espace</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupement B1</p>
+  <p class="maj">Dernière mise à jour&nbsp;: mars 2026</p>
 </header>
+
+<!-- OBJECTIFS -->
 <div class="objectifs">
-  <h3>🚧 En cours de rédaction</h3>
-  <p>Ce chapitre sera bientôt disponible. Revenez prochainement !</p>
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Maîtriser les systèmes de coordonnées cartésiennes, cylindriques et sphériques dans l&rsquo;espace.</li>
+    <li>Représenter et étudier les droites et plans dans l&rsquo;espace à l&rsquo;aide de leurs équations.</li>
+    <li>Calculer des distances (point-droite, point-plan) et des angles (dièdre, droite-plan).</li>
+    <li>Reconnaître et équationner les surfaces courantes (sphère, cylindre, cône, quadriques).</li>
+    <li>Effectuer des projections orthogonales et faire le lien avec le dessin technique.</li>
+    <li>Appliquer les matrices de transformation (rotation, symétrie, homothétie) en coordonnées homogènes.</li>
+    <li>Introduire les notions de courbure et torsion d&rsquo;une courbe gauche.</li>
+    <li>Résoudre des problèmes d&rsquo;intersection de surfaces et de sections planes.</li>
+  </ul>
 </div>
+
+<!-- SITUATION PROFESSIONNELLE -->
+<div class="situation">
+  <strong>Situation professionnelle</strong>
+  <p>
+    Mathieu est technicien supérieur en bureau d&rsquo;études mécaniques dans une société qui fabrique
+    des équipements industriels. Son logiciel de CAO génère des pièces en 3D, mais les collègues
+    de l&rsquo;atelier ont besoin de plans en 2D avec vues de face, de dessus et de côté, ainsi
+    que de sections transversales.
+  </p>
+  <p>
+    Pour valider les assemblages, Mathieu doit aussi vérifier que certaines surfaces ne se croisent
+    pas, calculer des distances minimales entre pièces mobiles et déterminer les angles entre plans
+    de coupe. Toutes ces opérations reposent sur la <strong>géométrie analytique de l&rsquo;espace</strong>.
+  </p>
+  <p>
+    Axelle, architecte en bureau d&rsquo;études bâtiment, utilise les mêmes outils pour modéliser
+    des charpentes métalliques complexes, calculer des volumes de terrassement et concevoir des
+    façades courbes.
+  </p>
 </div>
+
+<!-- SECTION 1 — REPÈRES -->
+<h2>1. Repères dans l&rsquo;espace</h2>
+
+<h3>1.1 Repère cartésien</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  Un repère cartésien de l&rsquo;espace est un triplet \((O, \vec{i}, \vec{j}, \vec{k})\)
+  où \(O\) est l&rsquo;origine et \(\vec{i}, \vec{j}, \vec{k}\) sont trois vecteurs unitaires
+  orthogonaux deux à deux formant une base directe&nbsp;:
+  \[
+    \vec{i} \cdot \vec{j} = \vec{j} \cdot \vec{k} = \vec{k} \cdot \vec{i} = 0,
+    \quad |\vec{i}| = |\vec{j}| = |\vec{k}| = 1,
+    \quad \vec{i} \times \vec{j} = \vec{k}.
+  \]
+  Tout point \(M\) de l&rsquo;espace est repéré par ses coordonnées \((x, y, z)\) telles que&nbsp;:
+  \[\overrightarrow{OM} = x\,\vec{i} + y\,\vec{j} + z\,\vec{k}.\]
+</div>
+
+<div class="svg-wrap">
+<svg width="320" height="280" viewBox="0 0 320 280" aria-label="Repère cartésien 3D">
+  <!-- axes -->
+  <!-- axe x -->
+  <line x1="140" y1="180" x2="270" y2="180" stroke="#b02a37" stroke-width="2.5"/>
+  <polygon points="270,175 280,180 270,185" fill="#b02a37"/>
+  <text x="284" y="184" font-size="14" fill="#b02a37" font-weight="bold">x</text>
+  <!-- axe y -->
+  <line x1="140" y1="180" x2="60" y2="240" stroke="#1a7a34" stroke-width="2.5"/>
+  <polygon points="56,237 55,248 64,241" fill="#1a7a34"/>
+  <text x="40" y="258" font-size="14" fill="#1a7a34" font-weight="bold">y</text>
+  <!-- axe z -->
+  <line x1="140" y1="180" x2="140" y2="40" stroke="#1e3a5f" stroke-width="2.5"/>
+  <polygon points="135,42 140,30 145,42" fill="#1e3a5f"/>
+  <text x="144" y="26" font-size="14" fill="#1e3a5f" font-weight="bold">z</text>
+  <!-- origine -->
+  <circle cx="140" cy="180" r="4" fill="#333"/>
+  <text x="148" y="196" font-size="13" fill="#333" font-weight="bold">O</text>
+  <!-- vecteurs unitaires labels -->
+  <text x="220" y="174" font-size="12" fill="#b02a37" font-style="italic">i&#8407;</text>
+  <text x="85" y="216" font-size="12" fill="#1a7a34" font-style="italic">j&#8407;</text>
+  <text x="150" y="120" font-size="12" fill="#1e3a5f" font-style="italic">k&#8407;</text>
+  <!-- point exemple M -->
+  <circle cx="230" cy="100" r="5" fill="#e67e00"/>
+  <text x="236" y="96" font-size="12" fill="#e67e00" font-weight="bold">M(x,y,z)</text>
+  <!-- lignes de construction -->
+  <line x1="140" y1="180" x2="230" y2="100" stroke="#e67e00" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- grille perspective -->
+  <line x1="230" y1="180" x2="230" y2="100" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="140" y1="100" x2="230" y2="100" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="140" y1="180" x2="140" y2="100" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>
+</div>
+<p style="text-align:center;font-size:.88rem;color:#555">Repère cartésien orthonormé direct \((O,\vec{i},\vec{j},\vec{k})\).</p>
+
+<h3>1.2 Distance entre deux points</h3>
+<div class="formule-box">
+\[
+  AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}
+\]
+</div>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  \(A(1, 2, 3)\) et \(B(4, -1, 7)\).
+  \(AB = \sqrt{9 + 9 + 16} = \sqrt{34} \approx 5.83\).
+</div>
+
+<h3>1.3 Repère cylindrique</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  Un point \(M\) est repéré en coordonnées cylindriques par \((r, \theta, z)\) où&nbsp;:
+  <ul>
+    <li>\(r \geq 0\)&nbsp;: distance à l&rsquo;axe \((Oz)\).</li>
+    <li>\(\theta \in [0, 2\pi[\)&nbsp;: angle dans le plan \(xOy\) par rapport à \(\vec{i}\).</li>
+    <li>\(z\)&nbsp;: côte (même qu&rsquo;en cartésien).</li>
+  </ul>
+</div>
+<div class="formule-box">
+  <strong>Relations cylindriques ↔ cartésiennes&nbsp;:</strong>
+  \[
+    x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
+    \qquad \longleftrightarrow \qquad
+    r = \sqrt{x^2+y^2},\quad \theta = \operatorname{atan2}(y,x),\quad z = z
+  \]
+</div>
+<p>
+  Ce repère est naturel pour les pièces à symétrie de révolution (arbres, roulements, tuyaux).
+</p>
+
+<h3>1.4 Repère sphérique</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  Un point \(M\) est repéré par \((\rho, \theta, \varphi)\) où&nbsp;:
+  <ul>
+    <li>\(\rho = OM \geq 0\)&nbsp;: distance à l&rsquo;origine.</li>
+    <li>\(\theta \in [0, 2\pi[\)&nbsp;: angle azimutal (longitude).</li>
+    <li>\(\varphi \in [0, \pi]\)&nbsp;: angle polaire (colatitude), mesuré depuis \((Oz)\).</li>
+  </ul>
+</div>
+<div class="formule-box">
+  <strong>Relations sphériques ↔ cartésiennes&nbsp;:</strong>
+  \[
+    x = \rho\sin\varphi\cos\theta, \quad
+    y = \rho\sin\varphi\sin\theta, \quad
+    z = \rho\cos\varphi
+  \]
+  \[
+    \rho = \sqrt{x^2+y^2+z^2}, \quad
+    \varphi = \arccos\!\left(\frac{z}{\rho}\right), \quad
+    \theta = \operatorname{atan2}(y,x)
+  \]
+</div>
+<p>
+  Utile en acoustique, en antennes, en géodésie (latitude/longitude) et en physique.
+</p>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  Convertir \(M(3, 4, 5)\) en coordonnées sphériques&nbsp;:<br>
+  \(\rho = \sqrt{9+16+25} = \sqrt{50} = 5\sqrt{2} \approx 7.07\)<br>
+  \(\varphi = \arccos(5/5\sqrt{2}) = \arccos(1/\sqrt{2}) = 45°\)<br>
+  \(\theta = \arctan(4/3) \approx 53.1°\)
+</div>
+
+<!-- SECTION 2 — DROITES -->
+<h2>2. Droites dans l&rsquo;espace</h2>
+
+<h3>2.1 Représentation paramétrique</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  Une droite passant par \(A(x_0, y_0, z_0)\) et de vecteur directeur \(\vec{u} = (a, b, c)\)
+  est définie par la représentation paramétrique&nbsp;:
+  \[
+    \begin{cases}
+      x = x_0 + ta \\
+      y = y_0 + tb \qquad t \in \mathbb{R} \\
+      z = z_0 + tc
+    \end{cases}
+  \]
+  ou de manière compacte&nbsp;: \(\overrightarrow{OM}(t) = \overrightarrow{OA} + t\,\vec{u}\).
+</div>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  Droite passant par \(A(1, -2, 3)\) de vecteur directeur \(\vec{u}(2, 1, -1)\)&nbsp;:
+  \[
+    \begin{cases} x = 1 + 2t \\ y = -2 + t \\ z = 3 - t \end{cases}
+  \]
+</div>
+
+<h3>2.2 Équations cartésiennes</h3>
+<p>
+  Si \(a, b, c \neq 0\), on peut écrire les équations cartésiennes&nbsp;:
+</p>
+<div class="formule-box">
+\[
+  \frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}
+\]
+</div>
+<p>
+  Si l&rsquo;un des coefficients est nul (ex. \(c=0\)), la droite est dans un plan parallèle à \(xOy\)
+  et les équations s&rsquo;adaptent en conséquence.
+</p>
+
+<h3>2.3 Positions relatives de deux droites</h3>
+<div class="grid2">
+  <div class="pos-rel">
+    <strong>Sécantes</strong>&nbsp;: elles se croisent en un point commun ; leurs directions ne sont pas colinéaires.
+  </div>
+  <div class="pos-rel">
+    <strong>Parallèles</strong>&nbsp;: \(\vec{u}_1 \parallel \vec{u}_2\) et elles n&rsquo;ont pas de point commun.
+  </div>
+  <div class="pos-rel">
+    <strong>Confondues</strong>&nbsp;: \(\vec{u}_1 \parallel \vec{u}_2\) et elles partagent tous leurs points.
+  </div>
+  <div class="pos-rel">
+    <strong>Gauches (non coplanaires)</strong>&nbsp;: elles ne sont ni sécantes ni parallèles ; elles ne sont pas dans un même plan.
+  </div>
+</div>
+<p>
+  Pour tester si deux droites \(D_1, D_2\) sont coplanaires, on vérifie que le déterminant du
+  triplet \((\vec{u}_1, \vec{u}_2, \overrightarrow{A_1A_2})\) est nul (critère du produit mixte).
+</p>
+
+<div class="prop">
+  <span class="label-prop">Critère droites gauches</span>
+  Les droites \(D_1\) (passant par \(A_1\), directrice \(\vec{u}_1\)) et \(D_2\)
+  (passant par \(A_2\), directrice \(\vec{u}_2\)) sont <strong>gauches</strong> si et seulement si&nbsp;:
+  \[
+    (\vec{u}_1 \times \vec{u}_2) \cdot \overrightarrow{A_1 A_2} \neq 0
+  \]
+  La <strong>distance minimale</strong> entre droites gauches est&nbsp;:
+  \[
+    d(D_1, D_2) = \frac{|(\vec{u}_1 \times \vec{u}_2) \cdot \overrightarrow{A_1 A_2}|}{|\vec{u}_1 \times \vec{u}_2|}
+  \]
+</div>
+
+<h3>2.4 Distance d&rsquo;un point à une droite</h3>
+<div class="formule-box">
+  Si \(H\) est le projeté orthogonal du point \(P\) sur la droite \(D\)&nbsp;:
+  \[
+    d(P, D) = \frac{|\overrightarrow{AP} \times \vec{u}|}{|\vec{u}|}
+    \qquad \text{(A point quelconque de D)}
+  \]
+</div>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  Distance de \(P(2, 1, 4)\) à la droite passant par \(A(0,0,0)\) de direction \(\vec{u}(1,1,0)\)&nbsp;:<br>
+  \(\overrightarrow{AP} = (2,1,4)\), \(\vec{u} = (1,1,0)\), \(|\vec{u}| = \sqrt{2}\).<br>
+  \(\overrightarrow{AP} \times \vec{u} = \det\begin{pmatrix}\vec{i}&\vec{j}&\vec{k}\\2&1&4\\1&1&0\end{pmatrix}
+  = (0-4)\vec{i}-(0-4)\vec{j}+(2-1)\vec{k} = (-4, 4, 1)\).<br>
+  \(d = \sqrt{16+16+1}/\sqrt{2} = \sqrt{33}/\sqrt{2} = \sqrt{33/2} \approx 4.06\).
+</div>
+
+<!-- SECTION 3 — PLANS -->
+<h2>3. Plans dans l&rsquo;espace</h2>
+
+<h3>3.1 Équation générale d&rsquo;un plan</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  L&rsquo;équation générale d&rsquo;un plan est&nbsp;:
+  \[
+    ax + by + cz + d = 0 \qquad (a, b, c) \neq (0, 0, 0)
+  \]
+  Le vecteur \(\vec{n} = (a, b, c)\) est le <strong>vecteur normal</strong> au plan.
+</div>
+
+<h3>3.2 Déterminer l&rsquo;équation d&rsquo;un plan</h3>
+<div class="prop">
+  <span class="label-prop">Cas usuels</span>
+  <ul>
+    <li>
+      <strong>Plan passant par \(A(x_0,y_0,z_0)\) de normale \(\vec{n}=(a,b,c)\)</strong>&nbsp;:
+      \[a(x-x_0) + b(y-y_0) + c(z-z_0) = 0\]
+    </li>
+    <li>
+      <strong>Plan passant par \(A, B, C\) non alignés</strong>&nbsp;:
+      on calcule \(\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}\) puis l&rsquo;équation.
+    </li>
+    <li>
+      <strong>Plan contenant deux droites sécantes</strong>&nbsp;:
+      on prend les deux vecteurs directeurs et leur produit vectoriel donne \(\vec{n}\).
+    </li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  Plan passant par \(A(1,0,0)\), \(B(0,2,0)\), \(C(0,0,3)\).<br>
+  \(\overrightarrow{AB} = (-1,2,0)\), \(\overrightarrow{AC} = (-1,0,3)\).<br>
+  \(\vec{n} = \overrightarrow{AB}\times\overrightarrow{AC}
+  = (6-0)\vec{i}-((-3)-0)\vec{j}+(0-(-2))\vec{k} = (6,3,2)\).<br>
+  Équation&nbsp;: \(6(x-1)+3(y-0)+2(z-0)=0 \Rightarrow 6x+3y+2z-6=0\).<br>
+  Vérification&nbsp;: \(B(0,2,0)\)&nbsp;: \(0+6+0-6=0\). \(C(0,0,3)\)&nbsp;: \(0+0+6-6=0\). ✓
+</div>
+
+<h3>3.3 Distance d&rsquo;un point à un plan</h3>
+<div class="formule-box">
+\[
+  d(P_0, \pi) = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2+b^2+c^2}}
+  \quad \text{avec } P_0 = (x_0, y_0, z_0)
+\]
+</div>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  Distance de \(P_0(1,1,1)\) au plan \(2x - y + 2z - 5 = 0\).<br>
+  \(d = |2\cdot1 - 1\cdot1 + 2\cdot1 - 5| / \sqrt{4+1+4} = |2-1+2-5|/3 = |-2|/3 = 2/3 \approx 0.67\).
+</div>
+
+<h3>3.4 Positions relatives</h3>
+<div class="grid2">
+  <div>
+    <strong>Deux plans \(\pi_1, \pi_2\)&nbsp;:</strong>
+    <ul>
+      <li><strong>Parallèles</strong>&nbsp;: \(\vec{n}_1 \parallel \vec{n}_2\) et \(d_1/a_1 \neq d_2/a_2\).</li>
+      <li><strong>Confondus</strong>&nbsp;: équations proportionnelles.</li>
+      <li><strong>Sécants</strong>&nbsp;: droite d&rsquo;intersection, angle dièdre \(\theta = \arccos\!\left(\dfrac{|\vec{n}_1\cdot\vec{n}_2|}{|\vec{n}_1||\vec{n}_2|}\right)\).</li>
+    </ul>
+  </div>
+  <div>
+    <strong>Plan et droite&nbsp;:</strong>
+    <ul>
+      <li><strong>Droite dans le plan</strong>&nbsp;: \(\vec{u}\cdot\vec{n}=0\) et \(A \in \pi\).</li>
+      <li><strong>Droite parallèle</strong>&nbsp;: \(\vec{u}\cdot\vec{n}=0\) et \(A \notin \pi\).</li>
+      <li><strong>Droite sécante</strong>&nbsp;: \(\vec{u}\cdot\vec{n}\neq 0\) ; angle&nbsp;: \(\sin\alpha = \dfrac{|\vec{u}\cdot\vec{n}|}{|\vec{u}||\vec{n}|}\).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 4 — SOLIDES -->
+<h2>4. Solides et surfaces dans l&rsquo;espace</h2>
+
+<h3>4.1 Sphère</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  La sphère de centre \(\Omega(a,b,c)\) et de rayon \(r\) a pour équation&nbsp;:
+  \[
+    (x-a)^2 + (y-b)^2 + (z-c)^2 = r^2
+  \]
+  Développée&nbsp;: \(x^2+y^2+z^2 - 2ax - 2by - 2cz + (a^2+b^2+c^2-r^2) = 0\).
+</div>
+<p>
+  L&rsquo;intersection d&rsquo;une sphère et d&rsquo;un plan est un cercle (ou un point, ou vide).
+  Si le plan est à distance \(d\) du centre, le cercle a pour rayon \(\rho = \sqrt{r^2-d^2}\).
+</p>
+
+<h3>4.2 Cylindre</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  Le <strong>cylindre de révolution</strong> d&rsquo;axe \((Oz)\) et de rayon \(R\) a pour équation&nbsp;:
+  \[x^2 + y^2 = R^2\]
+  Pour un cylindre d&rsquo;axe \(\Delta\) de vecteur directeur \(\vec{u}\) passant par \(A\)&nbsp;:
+  \[|\overrightarrow{AM} \times \vec{u}|^2 = R^2 |\vec{u}|^2\]
+</div>
+<p>
+  En CAO, les cylindres apparaissent dans les alésages, arbres, tuyauteries.
+  En coordonnées cylindriques, l&rsquo;équation s&rsquo;écrit simplement \(r = R\).
+</p>
+
+<h3>4.3 Cône</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  Le <strong>cône de révolution</strong> de sommet \(O\), d&rsquo;axe \((Oz)\) et de demi-angle \(\alpha\)&nbsp;:
+  \[
+    x^2 + y^2 = z^2 \tan^2\!\alpha \qquad \text{(ou } r = |z|\tan\alpha \text{ en cylindrique)}
+  \]
+</div>
+
+<h3>4.4 Surfaces quadratiques (quadriques)</h3>
+<p>
+  Les surfaces du second degré (quadriques) sont les surfaces les plus courantes en géométrie
+  analytique de l&rsquo;espace&nbsp;:
+</p>
+<div class="grid2">
+  <div>
+    <p><strong>Ellipsoïde</strong>&nbsp;: \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1\)</p>
+    <p><strong>Paraboloïde elliptique</strong>&nbsp;: \(z = \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}\)</p>
+  </div>
+  <div>
+    <p><strong>Hyperboloïde à une nappe</strong>&nbsp;: \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1\)</p>
+    <p><strong>Paraboloïde hyperbolique</strong>&nbsp;: \(z = \dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}\) (selle)</p>
+  </div>
+</div>
+
+<h3>4.5 Volumes et aires</h3>
+<div class="formule-box">
+  <table style="width:100%;border-collapse:collapse">
+    <tr>
+      <td style="padding:.35rem .8rem;font-weight:bold;border-bottom:1px solid #ddd">Sphère (rayon \(r\))</td>
+      <td style="padding:.35rem .8rem;border-bottom:1px solid #ddd">\(V = \tfrac{4}{3}\pi r^3\), \(A = 4\pi r^2\)</td>
+    </tr>
+    <tr>
+      <td style="padding:.35rem .8rem;font-weight:bold;border-bottom:1px solid #ddd">Cylindre (\(R, h\))</td>
+      <td style="padding:.35rem .8rem;border-bottom:1px solid #ddd">\(V = \pi R^2 h\), \(A_{\text{lat}} = 2\pi R h\)</td>
+    </tr>
+    <tr>
+      <td style="padding:.35rem .8rem;font-weight:bold;border-bottom:1px solid #ddd">Cône (\(R, h\))</td>
+      <td style="padding:.35rem .8rem;border-bottom:1px solid #ddd">\(V = \tfrac{1}{3}\pi R^2 h\), \(A_{\text{lat}} = \pi R\ell\) avec \(\ell=\sqrt{R^2+h^2}\)</td>
+    </tr>
+    <tr>
+      <td style="padding:.35rem .8rem;font-weight:bold">Tore (\(R, r\))</td>
+      <td style="padding:.35rem .8rem">\(V = 2\pi^2 R r^2\), \(A = 4\pi^2 R r\)</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 5 — PROJECTIONS -->
+<h2>5. Projections</h2>
+
+<h3>5.1 Projection orthogonale sur un plan</h3>
+<div class="def">
+  <span class="label-def">Définition</span>
+  Le <strong>projeté orthogonal</strong> de \(P(x_0, y_0, z_0)\) sur le plan \(\pi: ax+by+cz+d=0\) est&nbsp;:
+  \[
+    H = P - \frac{ax_0+by_0+cz_0+d}{a^2+b^2+c^2}\,(a,b,c)
+  \]
+  La droite \(PH\) est perpendiculaire à \(\pi\) (direction \(\vec{n}\)) et \(H \in \pi\).
+</div>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  Projeter \(P(3, 1, 2)\) sur le plan \(\pi: x + y + z = 6\).
+  Ici \(\vec{n}=(1,1,1)\), \(d=-6\), \(|\vec{n}|^2 = 3\).<br>
+  \(ax_0+by_0+cz_0+d = 3+1+2-6 = 0 \Rightarrow P \in \pi\)&nbsp;!
+  Prenons \(P(3,2,2)\)&nbsp;: \(3+2+2-6=1\).
+  \(H = (3,2,2) - \tfrac{1}{3}(1,1,1) = (8/3,\, 5/3,\, 5/3)\).
+</div>
+
+<h3>5.2 Vues en coupe et dessin technique</h3>
+<p>
+  Les trois vues standard du dessin technique correspondent aux projections orthogonales&nbsp;:
+</p>
+<div class="grid2">
+  <div>
+    <ul>
+      <li><strong>Vue de face</strong>&nbsp;: projection sur le plan \(xOz\) (\(y = 0\)), conserve \(x\) et \(z\).</li>
+      <li><strong>Vue de dessus</strong>&nbsp;: projection sur le plan \(xOy\) (\(z = 0\)), conserve \(x\) et \(y\).</li>
+      <li><strong>Vue de côté (gauche)</strong>&nbsp;: projection sur le plan \(yOz\) (\(x = 0\)), conserve \(y\) et \(z\).</li>
+    </ul>
+  </div>
+  <div>
+    <div class="svg-wrap">
+    <svg width="200" height="180" viewBox="0 0 200 180">
+      <!-- Vue de face -->
+      <rect x="10" y="60" width="80" height="80" fill="none" stroke="#1e3a5f" stroke-width="1.5"/>
+      <text x="30" y="106" font-size="11" fill="#1e3a5f">Vue face</text>
+      <!-- Vue dessus -->
+      <rect x="10" y="10" width="80" height="40" fill="none" stroke="#1a7a34" stroke-width="1.5"/>
+      <text x="22" y="32" font-size="11" fill="#1a7a34">Vue dessus</text>
+      <!-- Vue côté -->
+      <rect x="100" y="60" width="90" height="80" fill="none" stroke="#b02a37" stroke-width="1.5"/>
+      <text x="110" y="106" font-size="11" fill="#b02a37">Vue côté</text>
+      <!-- axes indicateurs -->
+      <line x1="10" y1="55" x2="90" y2="55" stroke="#333" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="95" y1="60" x2="95" y2="140" stroke="#333" stroke-width="0.8" stroke-dasharray="3,2"/>
+    </svg>
+    </div>
+  </div>
+</div>
+
+<h3>5.3 Perspective isométrique</h3>
+<p>
+  En perspective isométrique, les trois axes \(x, y, z\) sont représentés à \(120°\) l&rsquo;un
+  de l&rsquo;autre et conservent tous la même échelle. La matrice de projection isométrique est&nbsp;:
+</p>
+<div class="formule-box">
+\[
+  \begin{pmatrix} u \\ v \end{pmatrix}
+  = \frac{1}{\sqrt{6}}
+  \begin{pmatrix} \sqrt{3} & 0 & -\sqrt{3} \\ 1 & 2 & 1 \end{pmatrix}
+  \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+\]
+</div>
+
+<!-- SECTION 6 — TRANSFORMATIONS -->
+<h2>6. Transformations dans l&rsquo;espace</h2>
+
+<h3>6.1 Représentation matricielle en coordonnées homogènes</h3>
+<p>
+  En CAO 3D, les transformations géométriques sont représentées par des matrices \(4 \times 4\)
+  opérant sur les coordonnées <strong>homogènes</strong> \((x, y, z, 1)^\top\). Cette représentation
+  unifie les rotations, translations, changements d&rsquo;échelle et projections en un seul formalisme.
+</p>
+<div class="formule-box">
+\[
+  \begin{pmatrix} x' \\ y' \\ z' \\ 1 \end{pmatrix}
+  = \mathbf{M}
+  \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix}, \qquad
+  \mathbf{M} = \begin{pmatrix} R_{3\times3} & \mathbf{t} \\ 0\;0\;0 & 1 \end{pmatrix}
+\]
+</div>
+<p>
+  où \(R_{3\times3}\) est la matrice de rotation et \(\mathbf{t} = (t_x, t_y, t_z)^\top\)
+  le vecteur de translation.
+</p>
+
+<h3>6.2 Translation</h3>
+<div class="formule-box">
+\[
+  \mathbf{T}(t_x,t_y,t_z) =
+  \begin{pmatrix} 1&0&0&t_x \\ 0&1&0&t_y \\ 0&0&1&t_z \\ 0&0&0&1 \end{pmatrix}
+\]
+</div>
+
+<h3>6.3 Rotations autour des axes</h3>
+<p>
+  Rotation d&rsquo;angle \(\theta\) autour de l&rsquo;axe \((Oz)\)&nbsp;:
+</p>
+<div class="formule-box">
+\[
+  \mathbf{R}_z(\theta) =
+  \begin{pmatrix}
+    \cos\theta & -\sin\theta & 0 & 0 \\
+    \sin\theta &  \cos\theta & 0 & 0 \\
+    0          & 0           & 1 & 0 \\
+    0          & 0           & 0 & 1
+  \end{pmatrix}
+\]
+</div>
+<p>De même pour \(\mathbf{R}_x(\theta)\) (autour de \(Ox\)) et \(\mathbf{R}_y(\theta)\) (autour de \(Oy\)).</p>
+<div class="formule-box">
+\[
+  \mathbf{R}_x(\theta) =
+  \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & \cos\theta & -\sin\theta & 0 \\
+    0 & \sin\theta & \cos\theta & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+  \qquad
+  \mathbf{R}_y(\theta) =
+  \begin{pmatrix}
+    \cos\theta & 0 & \sin\theta & 0 \\
+    0 & 1 & 0 & 0 \\
+    -\sin\theta & 0 & \cos\theta & 0 \\
+    0 & 0 & 0 & 1
+  \end{pmatrix}
+\]
+</div>
+<div class="att">
+  <span class="label-att">Attention</span>
+  L&rsquo;ordre des rotations est important&nbsp;: en général, \(\mathbf{R}_x\mathbf{R}_y \neq \mathbf{R}_y\mathbf{R}_x\).
+  Les matrices de rotation ne commutent pas. Pour composer des transformations successives,
+  on multiplie les matrices de <strong>droite à gauche</strong>&nbsp;:
+  \(\mathbf{M}_{\text{total}} = \mathbf{M}_n \cdots \mathbf{M}_2 \mathbf{M}_1\).
+</div>
+
+<h3>6.4 Rotation autour d&rsquo;un axe quelconque</h3>
+<p>
+  Pour une rotation d&rsquo;angle \(\theta\) autour d&rsquo;un axe unitaire \(\hat{u} = (u_x, u_y, u_z)\),
+  la <strong>formule de Rodrigues</strong> donne&nbsp;:
+</p>
+<div class="formule-box">
+\[
+  \mathbf{R}(\hat{u}, \theta) = \cos\theta\,\mathbf{I} + (1-\cos\theta)\,\hat{u}\hat{u}^\top
+                               + \sin\theta\,[\hat{u}]_\times
+\]
+où \([\hat{u}]_\times =
+\begin{pmatrix}0&-u_z&u_y\\u_z&0&-u_x\\-u_y&u_x&0\end{pmatrix}\) est la matrice antisymétrique de \(\hat{u}\).
+</div>
+
+<h3>6.5 Symétrie par rapport à un plan</h3>
+<p>
+  La symétrie par rapport au plan \(\pi: \vec{n}\cdot\vec{x} = d\) (avec \(|\vec{n}|=1\)) est&nbsp;:
+</p>
+<div class="formule-box">
+\[
+  \mathbf{S}_\pi = \mathbf{I} - 2\vec{n}\vec{n}^\top
+  \qquad \text{(en coordonnées centrées)}
+\]
+</div>
+<p>Exemple&nbsp;: symétrie par rapport au plan \(xOy\) (\(\vec{n} = \vec{k}\))&nbsp;: \((x,y,z) \mapsto (x,y,-z)\).</p>
+
+<h3>6.6 Homothétie</h3>
+<div class="formule-box">
+\[
+  \mathbf{H}(s_x, s_y, s_z) =
+  \begin{pmatrix} s_x&0&0&0 \\ 0&s_y&0&0 \\ 0&0&s_z&0 \\ 0&0&0&1 \end{pmatrix}
+\]
+</div>
+<p>
+  Homothétie uniforme de rapport \(k\)&nbsp;: \(s_x = s_y = s_z = k\).
+  Changement d&rsquo;échelle non uniforme (déformation) si les rapports diffèrent.
+</p>
+
+<!-- SECTION 7 — GÉOMÉTRIE DIFFÉRENTIELLE -->
+<h2>7. Introduction à la géométrie différentielle</h2>
+
+<h3>7.1 Courbes gauches</h3>
+<p>
+  Une <strong>courbe gauche</strong> (ou courbe dans l&rsquo;espace) est une courbe qui ne peut
+  pas être tracée dans un plan. Elle est paramétrée par \(\mathbf{r}(t) = (x(t), y(t), z(t))\).
+</p>
+<div class="def">
+  <span class="label-def">Trièdre de Frenet</span>
+  Le repère mobile le long d&rsquo;une courbe est constitué de trois vecteurs unitaires&nbsp;:
+  <ul>
+    <li><strong>Vecteur tangent</strong>&nbsp;: \(\vec{T} = \dfrac{\mathbf{r}'}{|\mathbf{r}'|}\)</li>
+    <li><strong>Vecteur normal principal</strong>&nbsp;: \(\vec{N} = \dfrac{\vec{T}'}{|\vec{T}'|}\)</li>
+    <li><strong>Vecteur binormal</strong>&nbsp;: \(\vec{B} = \vec{T} \times \vec{N}\)</li>
+  </ul>
+</div>
+
+<h3>7.2 Courbure et torsion</h3>
+<div class="formule-box">
+  <strong>Courbure</strong>&nbsp;:
+  \[
+    \kappa = \frac{|\mathbf{r}' \times \mathbf{r}''|}{|\mathbf{r}'|^3}
+  \]
+  Le rayon de courbure est \(\rho = 1/\kappa\).
+</div>
+<div class="formule-box">
+  <strong>Torsion</strong>&nbsp;: mesure le degré de vrillage de la courbe hors de son plan osculateur.
+  \[
+    \tau = \frac{(\mathbf{r}' \times \mathbf{r}'') \cdot \mathbf{r}'''}{|\mathbf{r}' \times \mathbf{r}''|^2}
+  \]
+</div>
+<p>
+  Une droite a \(\kappa = 0\). Un cercle a \(\kappa = 1/R = \text{const}\) et \(\tau = 0\).
+  Une hélice a \(\kappa\) et \(\tau\) constants.
+</p>
+
+<div class="ex">
+  <span class="label-def">Exemple — Hélice</span>
+  \(\mathbf{r}(t) = (R\cos t,\; R\sin t,\; ht)\).
+  \(\mathbf{r}' = (-R\sin t, R\cos t, h)\), \(|\mathbf{r}'| = \sqrt{R^2+h^2}\).<br>
+  Courbure&nbsp;: \(\kappa = R/(R^2+h^2)\). Torsion&nbsp;: \(\tau = h/(R^2+h^2)\).
+</div>
+
+<!-- SECTION 8 — APPLICATIONS -->
+<h2>8. Applications — sections et intersections</h2>
+
+<h3>8.1 Section d&rsquo;un solide par un plan</h3>
+<p>
+  La section d&rsquo;un cylindre \(x^2+y^2=R^2\) par un plan oblique \(ax+by+cz+d=0\) est une ellipse
+  (si le plan n&rsquo;est pas parallèle à l&rsquo;axe). Les dimensions de l&rsquo;ellipse dépendent
+  de l&rsquo;angle d&rsquo;inclinaison du plan par rapport à l&rsquo;axe.
+</p>
+<div class="ex">
+  <span class="label-def">Exemple professionnel</span>
+  Un tuyau circulaire de rayon \(R = 50\,\text{mm}\) est coupé en biais à \(45°\).
+  La coupe a la forme d&rsquo;une ellipse de demi-axes \(R = 50\,\text{mm}\) et
+  \(R/\cos 45° = 50\sqrt{2} \approx 70.7\,\text{mm}\).
+  Le technicien doit préparer un gabarit de découpe en traçant cette ellipse.
+</div>
+
+<h3>8.2 Intersection de deux plans</h3>
+<p>
+  L&rsquo;intersection de deux plans non parallèles est une droite.
+  Pour \(\pi_1: a_1x+b_1y+c_1z+d_1=0\) et \(\pi_2: a_2x+b_2y+c_2z+d_2=0\)&nbsp;:
+</p>
+<ul>
+  <li>Le vecteur directeur de la droite d&rsquo;intersection est \(\vec{u} = \vec{n}_1 \times \vec{n}_2\).</li>
+  <li>On trouve un point en fixant une coordonnée et en résolvant le système \(2\times 2\).</li>
+</ul>
+
+<div class="ex">
+  <span class="label-def">Exemple</span>
+  \(\pi_1: x + y + z = 6\) et \(\pi_2: 2x - y + z = 3\).<br>
+  \(\vec{n}_1 = (1,1,1)\), \(\vec{n}_2 = (2,-1,1)\).<br>
+  \(\vec{u} = \vec{n}_1 \times \vec{n}_2 = (1\cdot1-1\cdot(-1),\; 1\cdot2-1\cdot1,\; 1\cdot(-1)-1\cdot2)
+  = (2, 1, -3)\).<br>
+  Point (fixer \(z=0\))&nbsp;: \(\begin{cases}x+y=6\\2x-y=3\end{cases} \Rightarrow 3x=9 \Rightarrow x=3, y=3\).<br>
+  Droite&nbsp;: \((x,y,z) = (3,3,0) + t(2,1,-3)\).
+</div>
+
+<h3>8.3 Intersection d&rsquo;une droite et d&rsquo;une sphère</h3>
+<p>
+  Pour trouver les points d&rsquo;intersection de la droite
+  \(\mathbf{r}(t) = \mathbf{A} + t\,\vec{u}\) et de la sphère \(|\mathbf{r}-\mathbf{C}|^2 = R^2\)&nbsp;:
+</p>
+<ol>
+  <li>Substituer&nbsp;: \(|\mathbf{A}+t\vec{u}-\mathbf{C}|^2 = R^2\).</li>
+  <li>Poser \(\mathbf{m} = \mathbf{A}-\mathbf{C}\). Développer&nbsp;: \(|\vec{u}|^2 t^2 + 2(\mathbf{m}\cdot\vec{u})t + |\mathbf{m}|^2 - R^2 = 0\).</li>
+  <li>Discriminant&nbsp;: \(\Delta = (\mathbf{m}\cdot\vec{u})^2 - |\vec{u}|^2(|\mathbf{m}|^2-R^2)\).</li>
+  <li>Si \(\Delta > 0\)&nbsp;: 2 points. \(\Delta = 0\)&nbsp;: tangence. \(\Delta < 0\)&nbsp;: pas d&rsquo;intersection.</li>
+</ol>
+
+<!-- MÉTHODE -->
+<div class="meth">
+  <span class="label-meth">Méthode</span> — Trouver l&rsquo;intersection d&rsquo;une droite et d&rsquo;un plan
+  <ol>
+    <li><strong>Écrire la droite</strong> sous forme paramétrique&nbsp;:
+        \(\begin{cases}x=x_0+ta\\y=y_0+tb\\z=z_0+tc\end{cases}\)</li>
+    <li><strong>Substituer</strong> dans l&rsquo;équation du plan \(ax+by+cz+d=0\).</li>
+    <li><strong>Résoudre</strong> en \(t\) (équation du premier degré en \(t\)).</li>
+    <li><strong>Calculer</strong> les coordonnées du point d&rsquo;intersection en remplaçant \(t\) dans
+        les équations paramétriques.</li>
+    <li><strong>Vérifier</strong> en substituant le point obtenu dans l&rsquo;équation du plan.</li>
+  </ol>
+  <p><strong>Cas particuliers&nbsp;:</strong> si \(a\alpha+b\beta+c\gamma=0\) (i.e. \(\vec{u}\cdot\vec{n}=0\)),
+     la droite est parallèle au plan (ou incluse si le point appartient au plan).</p>
+</div>
+
+<div class="ex">
+  <span class="label-def">Application de la méthode</span>
+  Droite \(D: (x,y,z)=(1,2,-1)+t(1,-1,2)\) ; Plan \(\pi: 2x+y-z=7\).
+  <ol>
+    <li>Paramétrique&nbsp;: \(x=1+t\), \(y=2-t\), \(z=-1+2t\).</li>
+    <li>Substitution&nbsp;: \(2(1+t)+(2-t)-(-1+2t)=7\).</li>
+    <li>Développement&nbsp;: \(2+2t+2-t+1-2t=7 \Rightarrow 5-t=7 \Rightarrow t=-2\).</li>
+    <li>Point&nbsp;: \(x=1+(-2)=-1\), \(y=2-(-2)=4\), \(z=-1+2(-2)=-5\). Intersection en \((-1,4,-5)\).</li>
+    <li>Vérification&nbsp;: \(2(-1)+4-(-5)=-2+4+5=7\). ✓</li>
+  </ol>
+</div>
+
+<!-- À RETENIR -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li>Coordonnées cylindriques&nbsp;: \(x=r\cos\theta\), \(y=r\sin\theta\), \(z=z\). Utiles pour les pièces à symétrie axiale.</li>
+    <li>Coordonnées sphériques&nbsp;: \(x=\rho\sin\varphi\cos\theta\), \(y=\rho\sin\varphi\sin\theta\), \(z=\rho\cos\varphi\).</li>
+    <li>Droite&nbsp;: \(\overrightarrow{OM}(t) = \overrightarrow{OA}+t\vec{u}\). La droite est caractérisée par un point et un vecteur directeur.</li>
+    <li>Plan&nbsp;: \(ax+by+cz+d=0\). Le vecteur normal est \(\vec{n}=(a,b,c)\).</li>
+    <li>Distance point-plan&nbsp;: \(d = |ax_0+by_0+cz_0+d|/\sqrt{a^2+b^2+c^2}\).</li>
+    <li>Droites gauches&nbsp;: non coplanaires, distance \(d = |(\vec{u}_1\times\vec{u}_2)\cdot\overrightarrow{A_1A_2}|/|\vec{u}_1\times\vec{u}_2|\).</li>
+    <li>En CAO, les transformations se représentent par des matrices \(4\times 4\) en coordonnées homogènes.</li>
+    <li>Pour trouver l&rsquo;intersection droite-plan&nbsp;: substituer la forme paramétrique dans l&rsquo;équation du plan, résoudre en \(t\).</li>
+  </ul>
+</div>
+
+<!-- EXERCICES -->
+<h2>Exercices</h2>
+
+<div class="exo">
+  <strong>Exercice 1 — Conversions de coordonnées</strong>
+  <ol>
+    <li>Convertir \(M(3, 3, 4)\) en coordonnées cylindriques.</li>
+    <li>Convertir \(N(r=5, \theta=60°, z=2)\) en coordonnées cartésiennes.</li>
+    <li>Convertir \(P(\rho=6, \theta=30°, \varphi=60°)\) en coordonnées cartésiennes.</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>
+        \(r = \sqrt{9+9} = 3\sqrt{2} \approx 4.24\)&nbsp;;
+        \(\theta = \arctan(3/3) = 45°\)&nbsp;;
+        \(z = 4\).<br>
+        Coordonnées cylindriques&nbsp;: \((3\sqrt{2},\, 45°,\, 4)\).
+      </li>
+      <li>
+        \(x = 5\cos60° = 2.5\)&nbsp;;
+        \(y = 5\sin60° = 5\sqrt{3}/2 \approx 4.33\)&nbsp;;
+        \(z = 2\).<br>
+        Coordonnées cartésiennes&nbsp;: \((2.5;\; 4.33;\; 2)\).
+      </li>
+      <li>
+        \(x = 6\sin60°\cos30° = 6\cdot\frac{\sqrt{3}}{2}\cdot\frac{\sqrt{3}}{2} = 6\cdot\frac{3}{4} = 4.5\)<br>
+        \(y = 6\sin60°\sin30° = 6\cdot\frac{\sqrt{3}}{2}\cdot\frac{1}{2} = \frac{3\sqrt{3}}{2} \approx 2.60\)<br>
+        \(z = 6\cos60° = 6\cdot 0.5 = 3\).<br>
+        Coordonnées cartésiennes&nbsp;: \((4.5;\; 2.60;\; 3)\).
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 — Équation d&rsquo;un plan</strong>
+  <p>Trouver l&rsquo;équation du plan passant par \(A(2, 0, 1)\), \(B(0, 3, 0)\) et \(C(1, 1, 2)\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p>
+      \(\overrightarrow{AB} = (-2, 3, -1)\), \(\overrightarrow{AC} = (-1, 1, 1)\).<br>
+      \(\vec{n} = \overrightarrow{AB}\times\overrightarrow{AC}
+      = (3\cdot1-(-1)\cdot1,\; (-1)(-1)-(-2)(1),\; (-2)(1)-3(-1))
+      = (4,\; 3,\; 1)\).<br>
+      Équation&nbsp;: \(4(x-2)+3(y-0)+1(z-1)=0 \Rightarrow 4x+3y+z-9=0\).<br>
+      Vérification avec \(B(0,3,0)\)&nbsp;: \(0+9+0-9=0\). ✓<br>
+      Vérification avec \(C(1,1,2)\)&nbsp;: \(4+3+2-9=0\). ✓
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 3 — Distance point-plan</strong>
+  <p>
+    Dans une charpente métallique, deux poutres définissent un plan d&rsquo;appui \(\pi: 3x+4y-12z=24\).
+    Un boulon de fixation est situé au point \(P(2, 1, 3)\).
+    Calculer la distance du boulon au plan pour vérifier que le jeu de montage est supérieur à
+    \(5\,\text{mm}\) (les coordonnées sont en décimètres).
+  </p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p>
+      \(d = |3(2)+4(1)-12(3)-24|/\sqrt{9+16+144}\)<br>
+      \(= |6+4-36-24|/\sqrt{169}\)<br>
+      \(= |-50|/13 = 50/13 \approx 3.85\,\text{dm} = 385\,\text{mm}\).
+    </p>
+    <p>
+      Le jeu est de \(385\,\text{mm}\), bien supérieur à \(5\,\text{mm}\).
+      (Exemple fictif pour illustrer le calcul — les dimensions seraient différentes en réalité.)
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 4 — Intersection droite-plan</strong>
+  <p>
+    La trajectoire d&rsquo;un rayon lumineux en simulation optique suit la droite
+    \(D: (x,y,z) = (0,0,1) + t(1,2,1)\).
+    Trouver le point d&rsquo;intersection avec le plan miroir \(\pi: x + 2y - 2z + 4 = 0\).
+  </p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p>
+      Paramétrique&nbsp;: \(x=t\), \(y=2t\), \(z=1+t\).
+    </p>
+    <p>
+      Substitution dans \(\pi\)&nbsp;:
+      \(t + 2(2t) - 2(1+t) + 4 = 0\)<br>
+      \(t + 4t - 2 - 2t + 4 = 0\)<br>
+      \(3t + 2 = 0 \Rightarrow t = -2/3\).
+    </p>
+    <p>
+      Point d&rsquo;intersection&nbsp;:
+      \(x = -2/3\), \(y = -4/3\), \(z = 1-2/3 = 1/3\).<br>
+      \(I\!\left(-\dfrac{2}{3}, -\dfrac{4}{3}, \dfrac{1}{3}\right)\).
+    </p>
+    <p>
+      Vérification&nbsp;: \(-2/3 + 2(-4/3) - 2(1/3) + 4 = -2/3 - 8/3 - 2/3 + 4 = -12/3 + 4 = -4+4 = 0\). ✓
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 5 — Rotation d&rsquo;un point</strong>
+  <p>
+    On effectue une rotation de \(90°\) autour de l&rsquo;axe \((Oz)\) sur le point \(P(3, 0, 2)\).
+    Trouver les coordonnées du point transformé \(P'\).
+  </p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p>
+      \(\cos 90° = 0\), \(\sin 90° = 1\).
+    </p>
+    \[\mathbf{R}_z(90°)\begin{pmatrix}3\\0\\2\\1\end{pmatrix}
+    = \begin{pmatrix}0&-1&0&0\\1&0&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}\begin{pmatrix}3\\0\\2\\1\end{pmatrix}
+    = \begin{pmatrix}0\\3\\2\\1\end{pmatrix}\]
+    <p>Le point transformé est \(P'(0, 3, 2)\).</p>
+    <p>
+      Vérification géométrique&nbsp;: dans le plan \(xOy\), le point \((3,0)\) tourne de \(90°\)
+      pour aller en \((0,3)\). La coordonnée \(z\) ne change pas. ✓
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 6 — Section d&rsquo;un cylindre</strong>
+  <p>
+    Un tuyau de ventilation de rayon \(R = 80\,\text{mm}\) d&rsquo;axe \((Oz)\) est coupé par le
+    plan incliné \(\pi: z = x\tan 30°\) (coupe à \(30°\) de l&rsquo;horizontale).
+    Montrer que la section est une ellipse et calculer ses demi-axes.
+  </p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p>
+      Le cylindre a pour équation \(x^2+y^2=R^2\).
+      Sur le plan \(z = x\tan30°\), un point du cylindre vérifie&nbsp;:
+      \(x = R\cos\phi\), \(y = R\sin\phi\), \(z = R\cos\phi\cdot\tan30°\) pour \(\phi \in [0,2\pi]\).
+    </p>
+    <p>
+      Les coordonnées dans le plan de coupe (en choisissant un repère local)&nbsp;:
+      la direction \(y\) reste identique avec amplitude \(R\), et la direction perpendiculaire
+      dans le plan de coupe a une amplitude \(R/\cos30°\).
+    </p>
+    <p>
+      La section est une <strong>ellipse</strong> de demi-axes&nbsp;:<br>
+      \(b = R = 80\,\text{mm}\) (petit axe, direction \(y\))<br>
+      \(a = R/\cos30° = 80/(\sqrt{3}/2) = 160/\sqrt{3} \approx 92.4\,\text{mm}\) (grand axe, direction oblique).
+    </p>
+  </div>
+</div>
+
+</div><!-- fin .c -->
+
+<script>
+document.querySelectorAll('.corr').forEach(el => { el.style.display = 'none'; });
+</script>
 <script src="../../../nav.js"></script>
 </body>
 </html>

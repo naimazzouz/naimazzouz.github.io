@@ -5,24 +5,936 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch14 – Modélisation géométrique – BTS</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+.table-geo{width:100%;border-collapse:collapse;font-size:.88em;margin:1rem 0}
+.table-geo th,.table-geo td{border:1px solid #c0cdd8;padding:.4rem .7rem;text-align:left}
+.table-geo th{background:var(--p);color:#fff;font-weight:600}
+.table-geo tr:nth-child(even){background:#f4f7fb}
+.matrix-box{display:inline-block;border-left:3px solid var(--p);border-right:3px solid var(--p);padding:.4rem 1rem;font-family:monospace;font-size:.95em;background:var(--p-bg);border-radius:0 4px 4px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.formula-card{background:var(--p-bg);border:2px solid var(--p-border);border-radius:8px;padding:1rem 1.2rem}
+.formula-card h4{margin:0 0 .4rem;color:var(--p);font-size:.95em}
+.step-list{counter-reset:step;list-style:none;padding:0}
+.step-list li{counter-increment:step;padding:.45rem .6rem .45rem 2.8rem;position:relative;border-left:3px solid var(--p);margin-bottom:.5rem;background:var(--p-bg)}
+.step-list li::before{content:counter(step);position:absolute;left:.5rem;top:.4rem;background:var(--p);color:#fff;width:1.4em;height:1.4em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em}
+.coord-badge{display:inline-block;background:var(--p);color:#fff;border-radius:4px;padding:.1em .55em;font-size:.85em;font-weight:600;font-family:monospace}
+.result-highlight{background:#fff3cd;border-left:4px solid #ffc107;padding:.5rem .8rem;border-radius:0 6px 6px 0;margin:.6rem 0}
+.chain-box{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.chain-box .joint{background:var(--p);color:#fff;border-radius:6px;padding:.3rem .7rem;font-weight:700;font-size:.88em}
+.chain-box .arrow{color:var(--p);font-size:1.2em;font-weight:700}
+@media(max-width:640px){.two-col,.three-col{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <h1>Chapitre 14 – Modélisation géométrique</h1>
-  <p class="sous-titre">BTS — Groupement B1</p>
+  <h1>Chapitre 14 &ndash; Modélisation géométrique</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupement B1</p>
+  <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
 
+<!-- ===================== OBJECTIFS ===================== -->
 <div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+  <h2>Objectifs du chapitre</h2>
+  <ul>
+    <li>Maîtriser les repères <strong>cartésien, cylindrique et sphérique</strong> et les changements de coordonnées.</li>
+    <li>Représenter et manipuler <strong>droites et plans dans l'espace</strong> par leurs équations.</li>
+    <li>Calculer des distances : point-plan, point-droite, droite-droite gauche.</li>
+    <li>Définir et étudier des <strong>courbes paramétriques</strong> (tangente, longueur d'arc).</li>
+    <li>Définir et décrire des <strong>surfaces paramétriques</strong> (vecteur normal, exemples classiques).</li>
+    <li>Exprimer les <strong>transformations géométriques</strong> à l'aide de matrices homogènes 4×4.</li>
+    <li>Comprendre la composition de transformations et son application aux <strong>chaînes cinématiques</strong>.</li>
+    <li>Utiliser les <strong>courbes de Bézier et splines</strong> dans un contexte de CAO/DAO.</li>
+  </ul>
 </div>
 
+<!-- ===================== SITUATION PRO ===================== -->
+<div class="situation">
+  <h2>Situation professionnelle — Conception industrielle et robotique</h2>
+  <p>
+    Un bureau d'études en mécanique utilise un logiciel de CAO (Conception Assistée par Ordinateur)
+    pour modéliser un bras robotique à 3 axes destiné à l'usinage de pièces complexes. Le technicien
+    doit :
+  </p>
+  <ul>
+    <li>Définir la <strong>trajectoire de l'outil</strong> en espace 3D par une courbe paramétrique.</li>
+    <li>Calculer l'<strong>intersection entre l'outil et la pièce</strong> (droite-plan).</li>
+    <li>Exprimer la <strong>position de l'effecteur</strong> (outil en bout de bras) par composition de
+        rotations et translations le long de la chaîne cinématique.</li>
+    <li>Modéliser des surfaces (carter, carter cylindrique, surface gauche) pour les simuler et
+        les usiner.</li>
+  </ul>
+  <p>
+    Ces problèmes mobilisent la <strong>modélisation géométrique</strong> : représentation analytique
+    de l'espace, des courbes et des surfaces, et calcul matriciel des transformations.
+  </p>
 </div>
+
+<!-- ===================== 1. REPÈRES ET COORDONNÉES ===================== -->
+<h2>1. Repères et systèmes de coordonnées</h2>
+
+<h3>1.1 Repère cartésien</h3>
+
+<div class="def">
+  <span class="label-def">Définition — Repère cartésien</span>
+  <p>
+    Dans un repère orthonormé \((O,\,\vec{i},\,\vec{j},\,\vec{k})\) de \(\mathbb{R}^3\), tout point
+    \(M\) est repéré par ses <strong>coordonnées cartésiennes</strong> \((x, y, z)\) telles que :
+  </p>
+  \[
+    \overrightarrow{OM} = x\,\vec{i} + y\,\vec{j} + z\,\vec{k}
+  \]
+  <p>
+    La <strong>distance euclidienne</strong> entre deux points \(A(x_A, y_A, z_A)\) et \(B(x_B, y_B, z_B)\) :
+  </p>
+  \[
+    AB = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2 + (z_B-z_A)^2}
+  \]
+</div>
+
+<h3>1.2 Coordonnées cylindriques</h3>
+
+<div class="def">
+  <span class="label-def">Définition — Coordonnées cylindriques</span>
+  <p>
+    Les coordonnées cylindriques \((r, \theta, z)\) d'un point \(M\) sont définies par :
+  </p>
+  \[
+    \begin{cases} x = r\cos\theta \\ y = r\sin\theta \\ z = z \end{cases}
+    \qquad
+    \text{avec } r \geq 0,\quad \theta \in [0, 2\pi[,\quad z \in \mathbb{R}
+  \]
+  <p>
+    Conversion inverse : \(r = \sqrt{x^2+y^2}\), \(\theta = \mathrm{atan2}(y,x)\), \(z = z\).
+  </p>
+  <p>
+    Ce repère est adapté aux pièces à <strong>symétrie de révolution</strong> (arbres, cylindres, carters).
+  </p>
+</div>
+
+<h3>1.3 Coordonnées sphériques</h3>
+
+<div class="def">
+  <span class="label-def">Définition — Coordonnées sphériques</span>
+  <p>
+    Les coordonnées sphériques \((\rho, \theta, \varphi)\) d'un point \(M\) sont :
+  </p>
+  \[
+    \begin{cases}
+      x = \rho\sin\varphi\cos\theta \\
+      y = \rho\sin\varphi\sin\theta \\
+      z = \rho\cos\varphi
+    \end{cases}
+    \qquad
+    \text{avec } \rho \geq 0,\quad \theta \in [0,2\pi[,\quad \varphi \in [0,\pi]
+  \]
+  <p>
+    Conversion inverse : \(\rho = \sqrt{x^2+y^2+z^2}\), \(\varphi = \arccos(z/\rho)\), \(\theta = \mathrm{atan2}(y,x)\).
+  </p>
+  <p>Adapté aux rotations d'un bras robotique ou à la modélisation de sphères.</p>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 1 — Conversion de coordonnées</span>
+  <p>
+    Le point \(M(3, 3, 4)\) (cartésien). Calculer ses coordonnées cylindriques et sphériques.
+  </p>
+  <p><strong>Cylindriques :</strong></p>
+  \[
+    r = \sqrt{3^2+3^2} = \sqrt{18} = 3\sqrt{2} \approx 4{,}243
+    \qquad
+    \theta = \arctan(3/3) = \arctan(1) = \frac{\pi}{4} = 45°
+    \qquad z = 4
+  \]
+  <p><strong>Sphériques :</strong></p>
+  \[
+    \rho = \sqrt{9+9+16} = \sqrt{34} \approx 5{,}831
+    \qquad
+    \varphi = \arccos\!\left(\frac{4}{\sqrt{34}}\right) \approx \arccos(0{,}686) \approx 46{,}7°
+    \qquad
+    \theta = 45°
+  \]
+</div>
+
+<!-- ===================== 2. DROITES ET PLANS ===================== -->
+<h2>2. Droites et plans dans l'espace</h2>
+
+<h3>2.1 Équation paramétrique d'une droite</h3>
+
+<div class="def">
+  <span class="label-def">Définition — Droite paramétrique</span>
+  <p>
+    Une droite \(\Delta\) passant par le point \(A(x_A, y_A, z_A)\) et de <strong>vecteur directeur</strong>
+    \(\vec{d} = (d_x, d_y, d_z)\) a pour représentation paramétrique :
+  </p>
+  \[
+    M \in \Delta \iff \overrightarrow{OM} = \overrightarrow{OA} + t\,\vec{d},\quad t \in \mathbb{R}
+  \]
+  \[
+    \text{soit }\quad
+    \begin{cases}
+      x = x_A + t\,d_x \\
+      y = y_A + t\,d_y \\
+      z = z_A + t\,d_z
+    \end{cases},\quad t \in \mathbb{R}
+  \]
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 2 — Droite dans l'espace</span>
+  <p>
+    La trajectoire d'un outil d'usinage passe par \(A(1, 2, 0)\) dans la direction
+    \(\vec{d} = (2, -1, 3)\). Son équation paramétrique est :
+  </p>
+  \[
+    \begin{cases} x = 1 + 2t \\ y = 2 - t \\ z = 3t \end{cases}
+  \]
+  <p>
+    Pour \(t=1\) : \(M = (3, 1, 3)\). Pour \(t=-0{,}5\) : \(M = (0, 2{,}5, -1{,}5)\).
+  </p>
+</div>
+
+<h3>2.2 Équation d'un plan</h3>
+
+<div class="def">
+  <span class="label-def">Définition — Plan dans l'espace</span>
+  <p>
+    Un plan \(\Pi\) est entièrement défini par :
+  </p>
+  <ul>
+    <li>Son <strong>vecteur normal</strong> \(\vec{n} = (a, b, c)\) (perpendiculaire au plan)</li>
+    <li>Un <strong>point \(A\)</strong> appartenant au plan</li>
+  </ul>
+  <p>L'équation du plan s'écrit sous deux formes équivalentes :</p>
+  \[
+    \text{Forme normale : } \vec{n}\cdot\overrightarrow{AM} = 0 \quad\text{soit}\quad a(x-x_A)+b(y-y_A)+c(z-z_A)=0
+  \]
+  \[
+    \text{Forme générale : } ax + by + cz + d = 0 \quad\text{avec } d = -(ax_A+by_A+cz_A)
+  \]
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 3 — Équation d'un plan de contact</span>
+  <p>
+    Une surface d'appui passe par \(A(1, 0, 2)\) et son vecteur normal est \(\vec{n} = (1, 2, -1)\).
+    Donner l'équation du plan.
+  </p>
+  \[
+    1(x-1) + 2(y-0) + (-1)(z-2) = 0
+    \implies x - 1 + 2y - z + 2 = 0
+    \implies x + 2y - z + 1 = 0
+  \]
+  <p>Vérification : \(A(1,0,2)\) : \(1 + 0 - 2 + 1 = 0\) ✓</p>
+</div>
+
+<h3>2.3 Distances</h3>
+
+<div class="prop">
+  <span class="label-prop">Distance d'un point à un plan</span>
+  <p>La distance du point \(P(x_P, y_P, z_P)\) au plan \(\Pi : ax+by+cz+d=0\) est :</p>
+  \[
+    d(P, \Pi) = \frac{|ax_P + by_P + cz_P + d|}{\sqrt{a^2 + b^2 + c^2}}
+  \]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Distance d'un point à une droite</span>
+  <p>
+    Distance du point \(P\) à la droite \(\Delta\) passant par \(A\) de vecteur directeur \(\vec{d}\) :
+  </p>
+  \[
+    d(P, \Delta) = \frac{\left\|\overrightarrow{AP} \times \vec{d}\right\|}{\|\vec{d}\|}
+  \]
+  <p>où \(\times\) désigne le <strong>produit vectoriel</strong>.</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Produit vectoriel</span>
+  \[
+    \vec{u} \times \vec{v} = \begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\u_x&u_y&u_z\\v_x&v_y&v_z\end{vmatrix}
+    = \begin{pmatrix}u_yv_z - u_zv_y \\ u_zv_x - u_xv_z \\ u_xv_y - u_yv_x\end{pmatrix}
+  \]
+  <p>
+    Propriétés : \(\vec{u}\times\vec{v}\) est perpendiculaire à \(\vec{u}\) et à \(\vec{v}\) ;
+    \(\|\vec{u}\times\vec{v}\| = \|\vec{u}\|\cdot\|\vec{v}\|\cdot\sin\theta\).
+  </p>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 4 — Distance outil-surface</span>
+  <p>
+    Le plan de la pièce est \(\Pi : 2x + y - 2z + 3 = 0\). La tête de l'outil est en
+    \(P(4, 1, 5)\). Calculer la distance de \(P\) à \(\Pi\).
+  </p>
+  \[
+    d(P, \Pi) = \frac{|2\times4 + 1\times1 + (-2)\times5 + 3|}{\sqrt{4+1+4}}
+    = \frac{|8+1-10+3|}{\sqrt{9}} = \frac{|2|}{3} = \frac{2}{3} \approx 0{,}667 \text{ unités}
+  \]
+</div>
+
+<h3>2.4 Positions relatives de droites et plans</h3>
+
+<div class="prop">
+  <span class="label-prop">Positions relatives</span>
+  <table class="table-geo">
+    <tr><th>Configuration</th><th>Condition</th></tr>
+    <tr><td>Droite ∥ plan</td><td>\(\vec{d} \cdot \vec{n} = 0\) et \(A \notin \Pi\)</td></tr>
+    <tr><td>Droite ⊂ plan</td><td>\(\vec{d} \cdot \vec{n} = 0\) et \(A \in \Pi\)</td></tr>
+    <tr><td>Droite sécante au plan</td><td>\(\vec{d} \cdot \vec{n} \neq 0\)</td></tr>
+    <tr><td>Plans parallèles</td><td>\(\vec{n}_1 \parallel \vec{n}_2\) (proportionnels) et \(\Pi_1 \neq \Pi_2\)</td></tr>
+    <tr><td>Plans sécants (droite d'intersection)</td><td>\(\vec{n}_1\) et \(\vec{n}_2\) non colinéaires</td></tr>
+    <tr><td>Droites gauches (non coplanaires)</td><td>\(\overrightarrow{A_1A_2} \cdot (\vec{d}_1 \times \vec{d}_2) \neq 0\)</td></tr>
+  </table>
+</div>
+
+<!-- ===================== 3. COURBES PARAMÉTRIQUES ===================== -->
+<h2>3. Courbes paramétriques dans l'espace</h2>
+
+<div class="def">
+  <span class="label-def">Définition — Courbe paramétrique 3D</span>
+  <p>
+    Une <strong>courbe paramétrique</strong> est l'ensemble des points \(M(t)\) définis par trois fonctions :
+  </p>
+  \[
+    \mathcal{C} : M(t) = \begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix},\quad t \in [a, b]
+  \]
+  <p>
+    Le paramètre \(t\) représente souvent le temps (cinématique) ou un paramètre de forme (géométrie).
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Vecteur vitesse et vecteur tangent</span>
+  <p>
+    Le <strong>vecteur vitesse</strong> (ou vecteur tangent) en \(M(t)\) est la dérivée de \(M(t)\) :
+  </p>
+  \[
+    \vec{v}(t) = M'(t) = \begin{pmatrix}x'(t)\\y'(t)\\z'(t)\end{pmatrix}
+  \]
+  <p>
+    \(\|\vec{v}(t)\|\) est la <strong>vitesse instantanée</strong> ; \(\vec{v}(t)/\|\vec{v}(t)\|\) est le
+    <strong>vecteur tangent unitaire</strong> orientant la courbe.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Longueur d'arc</span>
+  <p>
+    La longueur de la courbe entre \(t=a\) et \(t=b\) est :
+  </p>
+  \[
+    \ell = \int_a^b \|M'(t)\|\, dt = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2}\, dt
+  \]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Vecteur accélération</span>
+  \[
+    \vec{\gamma}(t) = M''(t) = \begin{pmatrix}x''(t)\\y''(t)\\z''(t)\end{pmatrix}
+  \]
+  <p>
+    En cinématique robotique, l'accélération intervient dans le calcul des couples moteurs nécessaires.
+  </p>
+</div>
+
+<h3>3.1 Courbes classiques</h3>
+
+<div class="ex">
+  <span class="label-meth">Exemple 5 — Cercle dans l'espace</span>
+  <p>
+    Cercle de rayon \(R\) dans le plan \(xOy\), centré à l'origine :
+  </p>
+  \[
+    M(t) = \begin{pmatrix}R\cos t\\ R\sin t\\ 0\end{pmatrix},\quad t \in [0, 2\pi]
+  \]
+  <p>Vecteur vitesse : \(\vec{v}(t) = (-R\sin t,\, R\cos t,\, 0)\) ; norme constante \(\|\vec{v}\| = R\).</p>
+  <p>Longueur : \(\ell = \displaystyle\int_0^{2\pi} R\, dt = 2\pi R\) — on retrouve la formule classique.</p>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 6 — Hélice cylindrique (filetage, ressort, hélice de fraise)</span>
+  <p>
+    L'hélice de rayon \(R\) et de pas \(h\) (montée par tour) est la courbe parcourue par un point
+    se déplaçant à vitesse angulaire constante sur un cylindre :
+  </p>
+  \[
+    M(t) = \begin{pmatrix}R\cos t\\ R\sin t\\ \dfrac{h}{2\pi}\, t\end{pmatrix},\quad t \in [0, 2\pi n]
+  \]
+  <p>
+    \(\vec{v}(t) = \left(-R\sin t,\, R\cos t,\, \dfrac{h}{2\pi}\right)\)
+    &nbsp;;&nbsp;
+    \(\|\vec{v}(t)\| = \sqrt{R^2 + \left(\dfrac{h}{2\pi}\right)^2}\) (constante)
+  </p>
+  <p>Longueur d'un tour (\(t: 0 \to 2\pi\)) :</p>
+  \[
+    \ell_{\text{tour}} = 2\pi \sqrt{R^2 + \left(\frac{h}{2\pi}\right)^2}
+  \]
+  <p>
+    <strong>Application :</strong> Une fraise hélicoïdale de rayon \(R=5\) mm et de pas \(h=8\) mm.
+    Longueur de l'arête de coupe par tour :
+  </p>
+  \[
+    \ell = 2\pi\sqrt{25 + \left(\frac{8}{2\pi}\right)^2} = 2\pi\sqrt{25 + 1{,}621} \approx 2\pi \times 5{,}162 \approx 32{,}43 \text{ mm}
+  \]
+</div>
+
+<!-- Chart hélice -->
+<div class="chart-wrap">
+  <canvas id="chartHelice" height="300"></canvas>
+  <p style="text-align:center;font-size:.85em;color:#666">
+    Fig. 1 — Projection XY d'une hélice cylindrique (\(R=5\) mm, \(h=8\) mm, 3 tours)
+  </p>
+</div>
+
+<h3>3.2 Courbes de Bézier</h3>
+
+<div class="def">
+  <span class="label-def">Définition — Courbe de Bézier d'ordre n</span>
+  <p>
+    Une <strong>courbe de Bézier</strong> d'ordre \(n\) est définie par \(n+1\) points de contrôle
+    \(P_0, P_1, \ldots, P_n\) et s'écrit :
+  </p>
+  \[
+    B(t) = \sum_{i=0}^{n} \binom{n}{i} t^i (1-t)^{n-i}\, P_i,\quad t \in [0,1]
+  \]
+  <p>
+    Les fonctions \(b_{i,n}(t) = \dbinom{n}{i}t^i(1-t)^{n-i}\) sont les <strong>polynômes de Bernstein</strong>.
+  </p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Cas particulier — Courbe de Bézier cubique (ordre 3)</span>
+  \[
+    B(t) = (1-t)^3 P_0 + 3t(1-t)^2 P_1 + 3t^2(1-t) P_2 + t^3 P_3,\quad t \in [0,1]
+  \]
+  <p>Propriétés :</p>
+  <ul>
+    <li>\(B(0) = P_0\) et \(B(1) = P_3\) : la courbe passe par les points extrêmes.</li>
+    <li>\(B'(0) = 3(P_1 - P_0)\) : tangente en début proportionnelle à \(\overrightarrow{P_0P_1}\).</li>
+    <li>\(B'(1) = 3(P_3 - P_2)\) : tangente en fin proportionnelle à \(\overrightarrow{P_2P_3}\).</li>
+    <li>La courbe est contenue dans l'enveloppe convexe de ses points de contrôle.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 7 — Bézier cubique en CAO</span>
+  <p>
+    Profil de pièce défini par \(P_0=(0,0)\), \(P_1=(1,2)\), \(P_2=(3,2)\), \(P_3=(4,0)\) (coordonnées en cm).
+    Calculer le point de la courbe pour \(t=0{,}5\).
+  </p>
+  \[
+    B(0{,}5) = (0{,}5)^3 P_0 + 3(0{,}5)(0{,}5)^2 P_1 + 3(0{,}5)^2(0{,}5) P_2 + (0{,}5)^3 P_3
+  \]
+  \[
+    = \frac{1}{8}(0,0) + \frac{3}{8}(1,2) + \frac{3}{8}(3,2) + \frac{1}{8}(4,0)
+    = (0,0) + (0{,}375,\,0{,}75) + (1{,}125,\,0{,}75) + (0{,}5,\,0)
+    = (2{,}000,\,1{,}500) \text{ cm}
+  \]
+  <p>Le point médian de la courbe est \(B(0{,}5) = (2\,;\,1{,}5)\) cm.</p>
+</div>
+
+<!-- ===================== 4. SURFACES PARAMÉTRIQUES ===================== -->
+<h2>4. Surfaces paramétriques</h2>
+
+<div class="def">
+  <span class="label-def">Définition — Surface paramétrique</span>
+  <p>
+    Une <strong>surface paramétrique</strong> est l'ensemble des points \(M(u,v)\) définis par
+    deux paramètres \(u\) et \(v\) :
+  </p>
+  \[
+    \mathcal{S} : M(u,v) = \begin{pmatrix}x(u,v)\\y(u,v)\\z(u,v)\end{pmatrix},\quad (u,v) \in D \subset \mathbb{R}^2
+  \]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Vecteurs tangents et vecteur normal</span>
+  <p>Les vecteurs tangents partiels en \(M(u,v)\) :</p>
+  \[
+    \vec{T}_u = \frac{\partial M}{\partial u} = \begin{pmatrix}\partial x/\partial u\\\partial y/\partial u\\\partial z/\partial u\end{pmatrix}
+    \qquad
+    \vec{T}_v = \frac{\partial M}{\partial v} = \begin{pmatrix}\partial x/\partial v\\\partial y/\partial v\\\partial z/\partial v\end{pmatrix}
+  \]
+  <p>Le <strong>vecteur normal</strong> à la surface en \(M(u,v)\) :</p>
+  \[
+    \vec{n}(u,v) = \vec{T}_u \times \vec{T}_v
+  \]
+  <p>
+    La surface est dite régulière en \(M\) si \(\vec{n}(u,v) \neq \vec{0}\), c'est-à-dire si
+    \(\vec{T}_u\) et \(\vec{T}_v\) ne sont pas colinéaires.
+  </p>
+</div>
+
+<h3>4.1 Sphère</h3>
+
+<div class="ex">
+  <span class="label-meth">Exemple 8 — Sphère de rayon R</span>
+  \[
+    M(\theta,\varphi) = \begin{pmatrix}R\sin\varphi\cos\theta\\ R\sin\varphi\sin\theta\\ R\cos\varphi\end{pmatrix},
+    \quad \theta \in [0,2\pi],\; \varphi \in [0,\pi]
+  \]
+  <p>Vecteurs tangents :</p>
+  \[
+    \vec{T}_\theta = \begin{pmatrix}-R\sin\varphi\sin\theta\\ R\sin\varphi\cos\theta\\ 0\end{pmatrix}
+    \qquad
+    \vec{T}_\varphi = \begin{pmatrix}R\cos\varphi\cos\theta\\ R\cos\varphi\sin\theta\\ -R\sin\varphi\end{pmatrix}
+  \]
+  <p>Vecteur normal :</p>
+  \[
+    \vec{n} = \vec{T}_\theta \times \vec{T}_\varphi = -R^2\sin\varphi\begin{pmatrix}\sin\varphi\cos\theta\\\sin\varphi\sin\theta\\\cos\varphi\end{pmatrix}
+  \]
+  <p>Le vecteur normal est colinéaire à \(\overrightarrow{OM}\) : il pointe vers l'extérieur de la sphère, ce qui est cohérent.</p>
+</div>
+
+<h3>4.2 Cylindre</h3>
+
+<div class="ex">
+  <span class="label-meth">Exemple 9 — Cylindre de rayon R, axe Oz</span>
+  \[
+    M(\theta, z) = \begin{pmatrix}R\cos\theta\\ R\sin\theta\\ z\end{pmatrix},
+    \quad \theta \in [0,2\pi],\; z \in [0, L]
+  \]
+  \[
+    \vec{T}_\theta = (-R\sin\theta,\, R\cos\theta,\, 0)
+    \qquad
+    \vec{T}_z = (0,\, 0,\, 1)
+  \]
+  \[
+    \vec{n} = \vec{T}_\theta \times \vec{T}_z = (R\cos\theta,\, R\sin\theta,\, 0)
+  \]
+  <p>Normal radial, perpendiculaire à l'axe : cohérent avec la géométrie cylindrique.</p>
+</div>
+
+<h3>4.3 Tore</h3>
+
+<div class="ex">
+  <span class="label-meth">Exemple 10 — Tore (grand rayon R, petit rayon r)</span>
+  \[
+    M(\theta,\varphi) = \begin{pmatrix}(R+r\cos\varphi)\cos\theta\\ (R+r\cos\varphi)\sin\theta\\ r\sin\varphi\end{pmatrix}
+  \]
+  <p>
+    Le tore est la surface engendrée par la rotation d'un cercle de rayon \(r\) autour d'un axe
+    situé à la distance \(R\) de son centre. Il est utilisé en robotique (joints toriques,
+    tuyauteries, conduits de fluide).
+  </p>
+</div>
+
+<h3>4.4 Surface de révolution</h3>
+
+<div class="prop">
+  <span class="label-prop">Surface de révolution autour de l'axe Oz</span>
+  <p>
+    Si le profil est donné par \(r = f(z)\) (rayon en fonction de la hauteur), la surface de révolution est :
+  </p>
+  \[
+    M(\theta, z) = \begin{pmatrix}f(z)\cos\theta\\ f(z)\sin\theta\\ z\end{pmatrix}
+  \]
+  <p>
+    Exemples : cône (\(f(z) = az\)), paraboloïde (\(f(z) = \sqrt{az}\)), hyperboloïde.
+  </p>
+</div>
+
+<!-- ===================== 5. TRANSFORMATIONS GÉOMÉTRIQUES ===================== -->
+<h2>5. Transformations géométriques et matrices homogènes</h2>
+
+<div class="def">
+  <span class="label-def">Définition — Coordonnées homogènes</span>
+  <p>
+    En robotique et en infographie, on représente un point \(M(x, y, z)\) par ses
+    <strong>coordonnées homogènes</strong> \(\tilde{M} = (x, y, z, 1)^T \in \mathbb{R}^4\).
+    Cette convention permet d'exprimer toutes les transformations affines (translation, rotation,
+    symétrie) par une seule multiplication matricielle \(4 \times 4\).
+  </p>
+</div>
+
+<h3>5.1 Translation</h3>
+
+<div class="prop">
+  <span class="label-prop">Matrice de translation</span>
+  <p>Translation de vecteur \(\vec{t} = (t_x, t_y, t_z)\) :</p>
+  \[
+    T(t_x, t_y, t_z) = \begin{pmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{pmatrix}
+  \]
+  \[
+    T \cdot \tilde{M} = \begin{pmatrix}x+t_x\\y+t_y\\z+t_z\\1\end{pmatrix}
+  \]
+</div>
+
+<h3>5.2 Rotations</h3>
+
+<div class="prop">
+  <span class="label-prop">Matrices de rotation élémentaires</span>
+  <p><strong>Rotation d'angle θ autour de l'axe Oz :</strong></p>
+  \[
+    R_z(\theta) = \begin{pmatrix}\cos\theta&-\sin\theta&0&0\\\sin\theta&\cos\theta&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}
+  \]
+  <p><strong>Rotation d'angle θ autour de l'axe Ox :</strong></p>
+  \[
+    R_x(\theta) = \begin{pmatrix}1&0&0&0\\0&\cos\theta&-\sin\theta&0\\0&\sin\theta&\cos\theta&0\\0&0&0&1\end{pmatrix}
+  \]
+  <p><strong>Rotation d'angle θ autour de l'axe Oy :</strong></p>
+  \[
+    R_y(\theta) = \begin{pmatrix}\cos\theta&0&\sin\theta&0\\0&1&0&0\\-\sin\theta&0&\cos\theta&0\\0&0&0&1\end{pmatrix}
+  \]
+</div>
+
+<h3>5.3 Symétrie par rapport à un plan</h3>
+
+<div class="prop">
+  <span class="label-prop">Symétrie par rapport au plan xOy (\(z = 0\))</span>
+  \[
+    S_{xOy} = \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&1\end{pmatrix}
+  \]
+</div>
+
+<h3>5.4 Composition de transformations</h3>
+
+<div class="prop">
+  <span class="label-prop">Composition matricielle</span>
+  <p>
+    Pour appliquer successivement \(T_1\) puis \(T_2\) à un point, on calcule la matrice composée :
+  </p>
+  \[
+    T_{\text{composée}} = T_2 \cdot T_1
+  \]
+  <p>
+    <strong>Attention :</strong> la multiplication matricielle n'est pas commutative.
+    "Rotation puis translation" \(\neq\) "translation puis rotation".
+  </p>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 11 — Transformation composée</span>
+  <p>
+    On effectue d'abord une rotation de 90° autour de Oz, puis une translation de \((2, 0, 0)\).
+    Quel est l'image du point \(M(1, 0, 0)\) ?
+  </p>
+  <p>Étape 1 : rotation \(R_z(90°)\) :</p>
+  \[
+    R_z(90°) \cdot \begin{pmatrix}1\\0\\0\\1\end{pmatrix}
+    = \begin{pmatrix}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}
+      \begin{pmatrix}1\\0\\0\\1\end{pmatrix}
+    = \begin{pmatrix}0\\1\\0\\1\end{pmatrix}
+  \]
+  <p>Étape 2 : translation \(T(2,0,0)\) :</p>
+  \[
+    T(2,0,0) \cdot \begin{pmatrix}0\\1\\0\\1\end{pmatrix}
+    = \begin{pmatrix}2\\1\\0\\1\end{pmatrix}
+  \]
+  <p>L'image de \(M(1,0,0)\) est \(M'(2,1,0)\).</p>
+</div>
+
+<!-- ===================== 6. APPLICATION ROBOTIQUE ===================== -->
+<h2>6. Application robotique — Chaîne cinématique</h2>
+
+<div class="def">
+  <span class="label-def">Définition — Chaîne cinématique</span>
+  <p>
+    Un robot articulé est modélisé comme une <strong>chaîne cinématique</strong> : une suite de
+    segments (liaisons) reliés par des articulations (joints). Chaque joint apporte une
+    transformation géométrique (rotation ou translation) exprimée dans le repère du segment précédent.
+  </p>
+</div>
+
+<div class="chain-box">
+  <div class="joint">Base</div><div class="arrow">→</div>
+  <div class="joint">Joint 1 (R<sub>z</sub>)</div><div class="arrow">→</div>
+  <div class="joint">Joint 2 (R<sub>y</sub>)</div><div class="arrow">→</div>
+  <div class="joint">Joint 3 (R<sub>y</sub>)</div><div class="arrow">→</div>
+  <div class="joint">Effecteur</div>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Cinématique directe — Matrice de transformation globale</span>
+  <p>
+    Pour un robot à \(n\) articulations, la position de l'effecteur dans le repère de base est :
+  </p>
+  \[
+    {}^0T_n = {}^0T_1 \cdot {}^1T_2 \cdots {}^{n-1}T_n
+  \]
+  <p>
+    où \({}^{i-1}T_i\) est la matrice homogène 4×4 exprimant la transformation du repère \(i\)
+    dans le repère \(i-1\) (en fonction de l'angle articulaire \(\theta_i\) pour un joint rotoïde).
+  </p>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 12 — Robot plan à 2 axes</span>
+  <p>
+    Robot plan avec deux bras de longueurs \(l_1 = 300\) mm et \(l_2 = 200\) mm.
+    Les angles articulaires sont \(\theta_1 = 30°\) et \(\theta_2 = 45°\).
+  </p>
+  <p>Transformation 1 (rotation \(\theta_1\) + translation le long de l'axe 1) :</p>
+  \[
+    {}^0T_1 = R_z(\theta_1) \cdot T(l_1, 0, 0) = \begin{pmatrix}c_1&-s_1&0&l_1 c_1\\s_1&c_1&0&l_1 s_1\\0&0&1&0\\0&0&0&1\end{pmatrix}
+  \]
+  <p>avec \(c_1 = \cos 30° = \frac{\sqrt{3}}{2} \approx 0{,}866\) et \(s_1 = \sin 30° = 0{,}5\).</p>
+  <p>Position du coude (bout du premier bras) :</p>
+  \[
+    P_1 = (l_1 c_1,\, l_1 s_1) = (300 \times 0{,}866,\, 300 \times 0{,}5) = (259{,}8,\, 150{,}0) \text{ mm}
+  \]
+  <p>Position de l'effecteur (après transformation 2, angle \(\theta_1 + \theta_2 = 75°\)) :</p>
+  \[
+    P_E = P_1 + l_2 \begin{pmatrix}\cos(\theta_1+\theta_2)\\\sin(\theta_1+\theta_2)\end{pmatrix}
+        = (259{,}8,\, 150{,}0) + 200\begin{pmatrix}\cos 75°\\\sin 75°\end{pmatrix}
+  \]
+  \[
+    = (259{,}8 + 200 \times 0{,}259,\, 150{,}0 + 200 \times 0{,}966)
+    = (259{,}8 + 51{,}8,\, 150{,}0 + 193{,}2)
+    = (311{,}6,\, 343{,}2) \text{ mm}
+  \]
+  <div class="result-highlight">
+    L'effecteur est en position \((311{,}6\,;\,343{,}2)\) mm dans le repère de base.
+  </div>
+</div>
+
+<!-- ===================== 7. SPLINES ===================== -->
+<h2>7. Splines cubiques et CAO/DAO</h2>
+
+<div class="def">
+  <span class="label-def">Définition — Spline cubique</span>
+  <p>
+    Une <strong>spline cubique</strong> est une courbe lisse définie par morceaux, où chaque morceau
+    est un polynôme cubique. Les raccords entre morceaux assurent la continuité de la courbe
+    <em>et</em> de ses deux premières dérivées (\(C^2\) de classe).
+  </p>
+  <p>
+    Sur l'intervalle \([x_k, x_{k+1}]\), le morceau est :
+  </p>
+  \[
+    S_k(x) = a_k + b_k(x-x_k) + c_k(x-x_k)^2 + d_k(x-x_k)^3
+  \]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Avantages des splines en CAO</span>
+  <ul>
+    <li><strong>Contrôle local :</strong> déplacer un point de contrôle n'affecte que la zone voisine.</li>
+    <li><strong>Lissage :</strong> la continuité \(C^2\) garantit une courbure continue — important pour les surfaces d'aspect (carrosserie, meubles design).</li>
+    <li><strong>Efficacité numérique :</strong> les splines sont résolues par des systèmes tridiagonaux à résolution rapide.</li>
+    <li><strong>Formats standards :</strong> IGES, STEP, NURBS (splines rationnelles non-uniformes) sont les formats universels de CAO.</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 13 — Profil d'un rail d'agencement</span>
+  <p>
+    Un ébéniste-agenceur doit usiner un rail de guidage dont le profil passe par les points :
+    \(P_0=(0,0)\), \(P_1=(10,8)\), \(P_2=(20,5)\), \(P_3=(30,0)\) (mm).
+    Il utilise une spline cubique naturelle (dérivée seconde nulle aux extrémités) pour
+    générer la trajectoire d'outil en défonçage CNC.
+  </p>
+  <p>
+    Le logiciel CAO construit la spline en résolvant le système tridiagonal des conditions de
+    raccord \(C^2\). La trajectoire obtenue est parfaitement lisse, sans angle vif, ce qui
+    évite les à-coups sur la machine.
+  </p>
+</div>
+
+<!-- ===================== MÉTHODE : INTERSECTION DROITE-PLAN ===================== -->
+<div class="meth">
+  <span class="label-meth">Méthode — Calcul de l'intersection droite-plan</span>
+  <p>
+    Étant donné la droite \(\Delta : M(t) = A + t\vec{d}\) et le plan \(\Pi : ax+by+cz+d=0\),
+    calculer le point d'intersection.
+  </p>
+  <ol class="step-list">
+    <li>
+      Substituer les paramétrisations de \(\Delta\) dans l'équation du plan :
+      \(a(x_A+td_x)+b(y_A+td_y)+c(z_A+td_z)+d=0\).
+    </li>
+    <li>
+      Regrouper les termes en \(t\) :
+      \(t(ad_x+bd_y+cd_z) = -(ax_A+by_A+cz_A+d)\).
+    </li>
+    <li>
+      Si \(ad_x+bd_y+cd_z = \vec{n}\cdot\vec{d} = 0\) : la droite est parallèle au plan (pas d'intersection ou droite contenue dans le plan).
+    </li>
+    <li>
+      Sinon : \(t^* = \dfrac{-(ax_A+by_A+cz_A+d)}{ad_x+bd_y+cd_z} = \dfrac{-(\vec{n}\cdot\overrightarrow{OA}+d)}{\vec{n}\cdot\vec{d}}\).
+    </li>
+    <li>
+      Calculer le point d'intersection : \(I = A + t^*\vec{d}\).
+    </li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label-meth">Exemple 14 — Perçage d'une plaque inclinée</span>
+  <p>
+    Un foret descend le long de la droite \(\Delta\) :
+    \(\begin{cases}x = 2 + t \\ y = 1 \\ z = 5 - 2t\end{cases}\)
+    (vecteur directeur \(\vec{d} = (1, 0, -2)\)).
+    La surface de la plaque est le plan \(\Pi : x + z = 4\) (soit \(x + 0y + z - 4 = 0\)).
+    Trouver le point de percée.
+  </p>
+  <p>Substitution dans \(\Pi\) :</p>
+  \[
+    (2+t) + (5-2t) - 4 = 0 \implies 7 + t - 2t - 4 = 0 \implies 3 - t = 0 \implies t^* = 3
+  \]
+  <p>Point d'intersection :</p>
+  \[
+    I = (2+3,\, 1,\, 5-6) = (5,\, 1,\, -1)
+  \]
+  <div class="result-highlight">
+    Le foret percera la plaque au point \(I(5, 1, -1)\).
+  </div>
+</div>
+
+<!-- Chart robot bras -->
+<div class="chart-wrap">
+  <canvas id="chartRobot" height="300"></canvas>
+  <p style="text-align:center;font-size:.85em;color:#666">
+    Fig. 2 — Espace de travail d'un robot plan à 2 axes (\(l_1=300\) mm, \(l_2=200\) mm) selon \(\theta_1\)
+  </p>
+</div>
+
+<!-- ===================== À RETENIR ===================== -->
+<div class="retenir">
+  <h2>À retenir — Formules essentielles</h2>
+  <div class="two-col">
+    <div class="formula-card">
+      <h4>Droite paramétrique</h4>
+      \[M = A + t\,\vec{d},\quad t \in \mathbb{R}\]
+    </div>
+    <div class="formula-card">
+      <h4>Plan</h4>
+      \[ax+by+cz+d=0\]
+      \[\vec{n}\cdot\overrightarrow{AM}=0\]
+    </div>
+    <div class="formula-card">
+      <h4>Distance point-plan</h4>
+      \[d = \frac{|ax_P+by_P+cz_P+d|}{\sqrt{a^2+b^2+c^2}}\]
+    </div>
+    <div class="formula-card">
+      <h4>Distance point-droite</h4>
+      \[d = \frac{\|\overrightarrow{AP}\times\vec{d}\|}{\|\vec{d}\|}\]
+    </div>
+    <div class="formula-card">
+      <h4>Longueur d'arc</h4>
+      \[\ell=\int_a^b\!\sqrt{x'^2+y'^2+z'^2}\,dt\]
+    </div>
+    <div class="formula-card">
+      <h4>Normale surface</h4>
+      \[\vec{n}=\frac{\partial M}{\partial u}\times\frac{\partial M}{\partial v}\]
+    </div>
+    <div class="formula-card">
+      <h4>Bézier cubique</h4>
+      \[B(t)=(1{-}t)^3P_0+3t(1{-}t)^2P_1\]
+      \[+3t^2(1{-}t)P_2+t^3P_3\]
+    </div>
+    <div class="formula-card">
+      <h4>Intersection droite-plan</h4>
+      \[t^* = \frac{-(\vec{n}\cdot\overrightarrow{OA}+d)}{\vec{n}\cdot\vec{d}}\]
+    </div>
+  </div>
+  <div style="margin-top:1rem">
+    <p><strong>Coordonnées cylindriques :</strong> \((r,\theta,z)\) avec \(x=r\cos\theta\), \(y=r\sin\theta\)</p>
+    <p><strong>Coordonnées sphériques :</strong> \((\rho,\theta,\varphi)\) avec \(x=\rho\sin\varphi\cos\theta\), \(y=\rho\sin\varphi\sin\theta\), \(z=\rho\cos\varphi\)</p>
+    <p><strong>Matrices homogènes 4×4 :</strong> translation \(T(t_x,t_y,t_z)\), rotations \(R_x\), \(R_y\), \(R_z\) — composition \(= T_2 \cdot T_1\).</p>
+  </div>
+</div>
+
+</div><!-- fin .c -->
+
+<script>
+// === Chart 1 : Hélice ===
+(function(){
+  const R = 5, h = 8, turns = 3;
+  const pts = [];
+  for(let t = 0; t <= 2*Math.PI*turns; t += 0.05){
+    pts.push({ x: +(R*Math.cos(t)).toFixed(3), y: +(R*Math.sin(t)).toFixed(3) });
+  }
+  new Chart(document.getElementById('chartHelice'), {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'Projection XY de l\'hélice',
+        data: pts,
+        borderColor: '#1e3a5f',
+        backgroundColor: 'rgba(30,58,95,0.15)',
+        showLine: true,
+        pointRadius: 0,
+        borderWidth: 2,
+        tension: 0.0
+      }]
+    },
+    options: {
+      parsing: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Hélice cylindrique — projection dans le plan XY (R=5 mm, 3 tours)',
+          font: { size: 13, weight: 'bold' }
+        },
+        legend: { display: false }
+      },
+      scales: {
+        x: { type: 'linear', title: { display: true, text: 'x (mm)' } },
+        y: { type: 'linear', title: { display: true, text: 'y (mm)' } }
+      },
+      aspectRatio: 1.5
+    }
+  });
+})();
+
+// === Chart 2 : Espace de travail robot plan 2 axes ===
+(function(){
+  const l1 = 300, l2 = 200;
+  const datasets = [];
+  const colors = ['#1e3a5f','#2980b9','#27ae60','#e67e22','#e74c3c','#8e44ad'];
+
+  // Pour theta1 de 0 à 150°, tracer la position de l'effecteur en faisant varier theta2
+  [0, 30, 60, 90, 120, 150].forEach((theta1deg, idx) => {
+    const theta1 = theta1deg * Math.PI / 180;
+    const pts = [];
+    for(let theta2deg = -120; theta2deg <= 120; theta2deg += 5){
+      const theta2 = theta2deg * Math.PI / 180;
+      const x = l1*Math.cos(theta1) + l2*Math.cos(theta1+theta2);
+      const y = l1*Math.sin(theta1) + l2*Math.sin(theta1+theta2);
+      pts.push({ x: +x.toFixed(1), y: +y.toFixed(1) });
+    }
+    datasets.push({
+      label: `θ₁ = ${theta1deg}°`,
+      data: pts,
+      borderColor: colors[idx],
+      backgroundColor: 'transparent',
+      showLine: true,
+      pointRadius: 0,
+      borderWidth: 2,
+      tension: 0.2
+    });
+  });
+
+  new Chart(document.getElementById('chartRobot'), {
+    type: 'scatter',
+    data: { datasets },
+    options: {
+      parsing: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Espace de travail — robot plan 2 axes (l₁=300 mm, l₂=200 mm)',
+          font: { size: 13, weight: 'bold' }
+        },
+        legend: { position: 'right' }
+      },
+      scales: {
+        x: { type: 'linear', title: { display: true, text: 'x (mm)' }, min: -550, max: 550 },
+        y: { type: 'linear', title: { display: true, text: 'y (mm)' }, min: -550, max: 550 }
+      }
+    }
+  });
+})();
+</script>
+
 <script src="../../../nav.js"></script>
 </body>
 </html>

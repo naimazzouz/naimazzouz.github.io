@@ -3,26 +3,961 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch16 – Matrices et systèmes linéaires – BTS</title>
+<title>Ch16 &ndash; Matrices et syst&egrave;mes lin&eacute;aires &ndash; BTS</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+table.mat{border-collapse:collapse;margin:0.8em auto}
+table.mat td,table.mat th{border:1px solid #93a5c0;padding:6px 12px;text-align:center;font-size:0.96em}
+table.mat th{background:var(--p-bg);font-weight:600}
+table.mat .pivot{background:#d1fae5;font-weight:700}
+table.mat .elim{background:#fef9c3}
+.mat-inline{display:inline-block;border-left:2px solid #1e3a5f;border-right:2px solid #1e3a5f;padding:4px 8px;margin:0 3px;font-size:0.95em}
+.sarrus{background:#f0f4fa;border:1px solid #93a5c0;border-radius:6px;padding:12px;overflow-x:auto;margin:1em 0}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <h1>Chapitre 16 – Matrices et systèmes linéaires</h1>
-  <p class="sous-titre">BTS — Groupement B1</p>
+  <h1>Chapitre 16 &ndash; Matrices et syst&egrave;mes lin&eacute;aires</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Math&eacute;matiques &nbsp;|&nbsp; Groupement B1</p>
+  <p class="maj">Derni&egrave;re mise &agrave; jour&nbsp;: mars 2026</p>
 </header>
 
+<!-- ======================================================= OBJECTIFS -->
 <div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>D&eacute;finir une matrice, ses types (carr&eacute;e, identit&eacute;, nulle, sym&eacute;trique, triangulaire).</li>
+    <li>Ma&icirc;triser les op&eacute;rations&nbsp;: addition, multiplication scalaire et <strong>produit matriciel</strong>.</li>
+    <li>Calculer le <strong>d&eacute;terminant</strong> d&rsquo;une matrice 2&times;2 et 3&times;3 (r&egrave;gle de Sarrus).</li>
+    <li>Calculer la <strong>matrice inverse</strong> par la m&eacute;thode de Gauss-Jordan.</li>
+    <li>R&eacute;soudre un <strong>syst&egrave;me lin&eacute;aire</strong> par la m&eacute;thode de Gauss et par la m&eacute;thode de Cramer.</li>
+    <li>Interpr&eacute;ter le rang d&rsquo;une matrice et les conditions d&rsquo;existence des solutions.</li>
+    <li>Calculer les <strong>valeurs propres et vecteurs propres</strong> d&rsquo;une matrice 2&times;2 et 3&times;3.</li>
+    <li>Appliquer les matrices &agrave; l&rsquo;analyse de r&eacute;seaux &eacute;lectriques et aux transformations g&eacute;om&eacute;triques.</li>
+  </ul>
 </div>
 
+<!-- ======================================================= SITUATION PRO -->
+<div class="situation">
+  <div class="label-def" style="background:#6f42c1;color:#fff;margin-bottom:8px">Situation professionnelle</div>
+  <p><strong>Analyse d&rsquo;un r&eacute;seau &eacute;lectrique par les lois de Kirchhoff</strong></p>
+  <p>
+    Un &eacute;lectrotechnicien doit d&eacute;terminer les courants circulant dans un r&eacute;seau
+    comportant trois mailles ind&eacute;pendantes. En appliquant les lois de Kirchhoff
+    (conservation des courants aux n&oelig;uds, somme des tensions dans les mailles),
+    il obtient un <strong>syst&egrave;me de trois &eacute;quations lin&eacute;aires</strong>&nbsp;:
+  </p>
+  \[
+    \begin{cases}
+      R_{11}\,I_1 + R_{12}\,I_2 + R_{13}\,I_3 = E_1\\
+      R_{21}\,I_1 + R_{22}\,I_2 + R_{23}\,I_3 = E_2\\
+      R_{31}\,I_1 + R_{32}\,I_2 + R_{33}\,I_3 = E_3
+    \end{cases}
+  \]
+  <p>
+    Ce syst&egrave;me s&rsquo;&eacute;crit sous forme matricielle \(R\,\vec{I} = \vec{E}\),
+    o&ugrave; \(R\) est la <em>matrice des r&eacute;sistances</em>.
+    Pour trouver \(\vec{I}\), on calcule l&rsquo;<strong>inverse de la matrice</strong> \(R\).
+    Ce chapitre pr&eacute;sente tous les outils n&eacute;cessaires pour r&eacute;soudre ce type de probl&egrave;me.
+  </p>
 </div>
+
+<!-- ======================================================= 1. DEFINITIONS -->
+<h2>1. D&eacute;finitions et types de matrices</h2>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Une <strong>matrice</strong> \(A\) de taille \(m\times n\) (ou \(m\) lignes et \(n\) colonnes) est
+    un tableau rectangulaire de r&eacute;els&nbsp;:
+  </p>
+  \[
+    A = (a_{ij})_{\substack{1\le i\le m\\1\le j\le n}}
+    =
+    \begin{pmatrix}
+      a_{11} & a_{12} & \cdots & a_{1n}\\
+      a_{21} & a_{22} & \cdots & a_{2n}\\
+      \vdots & \vdots & \ddots & \vdots\\
+      a_{m1} & a_{m2} & \cdots & a_{mn}
+    \end{pmatrix}
+  \]
+  <p>
+    L&rsquo;&eacute;l&eacute;ment \(a_{ij}\) est &agrave; la ligne \(i\) et &agrave; la colonne \(j\).
+    On note \(\mathcal{M}_{m,n}(\mathbb{R})\) l&rsquo;ensemble de ces matrices.
+  </p>
+</div>
+
+<h3>1.1 Types remarquables de matrices</h3>
+
+<div class="prop">
+  <div class="label-def" style="background:#2da44e;color:#fff">Types de matrices</div>
+  <table class="mat" style="width:100%;max-width:680px">
+    <tr><th>Nom</th><th>Condition</th><th>Exemple (2&times;2 ou 3&times;3)</th></tr>
+    <tr>
+      <td>Matrice carr&eacute;e d&rsquo;ordre \(n\)</td>
+      <td>\(m = n\)</td>
+      <td>\(\begin{pmatrix}1&2\\3&4\end{pmatrix}\)</td>
+    </tr>
+    <tr>
+      <td>Matrice diagonale</td>
+      <td>\(a_{ij}=0\) si \(i\ne j\)</td>
+      <td>\(\begin{pmatrix}3&0\\0&-1\end{pmatrix}\)</td>
+    </tr>
+    <tr>
+      <td>Matrice identit&eacute; \(I_n\)</td>
+      <td>\(a_{ii}=1\), \(a_{ij}=0\) (\(i\ne j\))</td>
+      <td>\(\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}\)</td>
+    </tr>
+    <tr>
+      <td>Matrice nulle \(O\)</td>
+      <td>Tous coefficients nuls</td>
+      <td>\(\begin{pmatrix}0&0\\0&0\end{pmatrix}\)</td>
+    </tr>
+    <tr>
+      <td>Triangulaire sup&eacute;rieure</td>
+      <td>\(a_{ij}=0\) si \(i>j\)</td>
+      <td>\(\begin{pmatrix}1&2&3\\0&4&5\\0&0&6\end{pmatrix}\)</td>
+    </tr>
+    <tr>
+      <td>Sym&eacute;trique</td>
+      <td>\(a_{ij}=a_{ji}\)</td>
+      <td>\(\begin{pmatrix}1&2&3\\2&4&5\\3&5&6\end{pmatrix}\)</td>
+    </tr>
+  </table>
+</div>
+
+<h3>1.2 Matrice transpos&eacute;e</h3>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    La <strong>transpos&eacute;e</strong> de \(A = (a_{ij})_{m\times n}\) est la matrice
+    \(A^T = (a_{ji})_{n\times m}\) obtenue en &eacute;changeant lignes et colonnes.
+  </p>
+  \[
+    A = \begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}
+    \implies
+    A^T = \begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}
+  \]
+  <p>Propri&eacute;t&eacute;s&nbsp;: \((A^T)^T=A\), \((A+B)^T=A^T+B^T\), \((AB)^T=B^T A^T\).</p>
+  <p>Une matrice est <strong>sym&eacute;trique</strong> si \(A^T = A\).</p>
+</div>
+
+<!-- ======================================================= 2. OPERATIONS -->
+<h2>2. Op&eacute;rations matricielles</h2>
+
+<h3>2.1 Addition et multiplication scalaire</h3>
+
+<div class="prop">
+  <div class="label-def" style="background:#2da44e;color:#fff">Propri&eacute;t&eacute;s</div>
+  <p>
+    Pour \(A = (a_{ij})\), \(B = (b_{ij})\) de m&ecirc;me taille \(m\times n\) et \(\lambda \in \mathbb{R}\)&nbsp;:
+  </p>
+  <ul>
+    <li><strong>Addition</strong>&nbsp;: \((A+B)_{ij} = a_{ij} + b_{ij}\) (composante par composante)</li>
+    <li><strong>Scalaire</strong>&nbsp;: \((\lambda A)_{ij} = \lambda\,a_{ij}\)</li>
+    <li>Commutativit&eacute;&nbsp;: \(A+B=B+A\)</li>
+    <li>&Eacute;l&eacute;ment neutre&nbsp;: \(A+O=A\)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 1 &mdash; Addition et scalaire</div>
+  \[
+    A = \begin{pmatrix}1&-1\\0&2\end{pmatrix},\quad
+    B = \begin{pmatrix}3&1\\-2&0\end{pmatrix}
+  \]
+  \[
+    A+B = \begin{pmatrix}4&0\\-2&2\end{pmatrix}, \qquad
+    3A = \begin{pmatrix}3&-3\\0&6\end{pmatrix}
+  \]
+</div>
+
+<h3>2.2 Produit matriciel</h3>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Le produit \(C = AB\) est d&eacute;fini si le <strong>nombre de colonnes de \(A\)</strong>
+    &eacute;gale le <strong>nombre de lignes de \(B\)</strong>&nbsp;:
+    si \(A\) est \(m\times p\) et \(B\) est \(p\times n\), alors \(C\) est \(m\times n\) avec&nbsp;:
+  </p>
+  \[
+    c_{ij} = \sum_{k=1}^{p} a_{ik}\,b_{kj}
+  \]
+  <p>
+    C&rsquo;est le <em>produit ligne par colonne</em>&nbsp;: le coefficient \(c_{ij}\) est
+    le produit scalaire de la ligne \(i\) de \(A\) par la colonne \(j\) de \(B\).
+  </p>
+</div>
+
+<div class="att">
+  <div class="label-def" style="background:#c0392b;color:#fff">Attention</div>
+  <p>
+    Le produit matriciel est en g&eacute;n&eacute;ral <strong>non commutatif</strong>&nbsp;:
+    \(AB \ne BA\) (m&ecirc;me quand les deux produits existent et ont la m&ecirc;me taille).
+    Cependant&nbsp;: \(AI = IA = A\).
+  </p>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 2 &mdash; Produit 2&times;2</div>
+  \[
+    A = \begin{pmatrix}1&2\\3&4\end{pmatrix},\quad
+    B = \begin{pmatrix}5&6\\7&8\end{pmatrix}
+  \]
+  \[
+    AB = \begin{pmatrix}
+      1\cdot5+2\cdot7 & 1\cdot6+2\cdot8\\
+      3\cdot5+4\cdot7 & 3\cdot6+4\cdot8
+    \end{pmatrix}
+    = \begin{pmatrix}19&22\\43&50\end{pmatrix}
+  \]
+  \[
+    BA = \begin{pmatrix}
+      5\cdot1+6\cdot3 & 5\cdot2+6\cdot4\\
+      7\cdot1+8\cdot3 & 7\cdot2+8\cdot4
+    \end{pmatrix}
+    = \begin{pmatrix}23&34\\31&46\end{pmatrix} \ne AB
+  \]
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 3 &mdash; Produit 2&times;3 par 3&times;2</div>
+  \[
+    A = \begin{pmatrix}1&0&2\\-1&3&1\end{pmatrix}_{2\times3},\quad
+    B = \begin{pmatrix}1&2\\0&-1\\3&0\end{pmatrix}_{3\times2}
+  \]
+  \[
+    AB = \begin{pmatrix}
+      1+0+6 & 2+0+0\\
+      -1+0+3 & -2-3+0
+    \end{pmatrix}
+    = \begin{pmatrix}7&2\\2&-5\end{pmatrix}_{2\times2}
+  \]
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 4 &mdash; Syst&egrave;me &eacute;lectrique (matrices des r&eacute;sistances)</div>
+  <p>
+    Dans un circuit, les courants \(\vec{I}\) sont li&eacute;s aux tensions \(\vec{V}\) par \(V = RI\)&nbsp;:
+  </p>
+  \[
+    \begin{pmatrix}V_1\\V_2\end{pmatrix}
+    = \begin{pmatrix}10&5\\2&8\end{pmatrix}
+    \begin{pmatrix}I_1\\I_2\end{pmatrix}
+    \implies
+    \begin{cases}V_1 = 10I_1 + 5I_2\\V_2 = 2I_1 + 8I_2\end{cases}
+  \]
+</div>
+
+<h3>2.3 Puissance d&rsquo;une matrice carr&eacute;e</h3>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Pour \(A\) carr&eacute;e d&rsquo;ordre \(n\) et \(k \in \mathbb{N}\)&nbsp;:
+    \(A^0 = I_n\), \(A^1 = A\), \(A^k = A\cdot A^{k-1}\) (produit it&eacute;r&eacute;).
+  </p>
+</div>
+
+<!-- ======================================================= 3. DETERMINANT -->
+<h2>3. D&eacute;terminant d&rsquo;une matrice carr&eacute;e</h2>
+
+<h3>3.1 D&eacute;terminant 2&times;2</h3>
+
+<div class="formule-box">
+  \[
+    \det\begin{pmatrix}a&b\\c&d\end{pmatrix} = ad - bc
+  \]
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 5</div>
+  \[
+    \det\begin{pmatrix}3&-1\\2&5\end{pmatrix} = 3\cdot5 - (-1)\cdot2 = 15+2 = 17
+  \]
+</div>
+
+<h3>3.2 D&eacute;terminant 3&times;3 &mdash; R&egrave;gle de Sarrus</h3>
+
+<div class="def">
+  <div class="label-def">R&egrave;gle de Sarrus</div>
+  <p>
+    Pour une matrice \(3\times3\), on r&eacute;p&egrave;te les deux premi&egrave;res colonnes
+    &agrave; droite et on somme les produits en diagonale&nbsp;:
+  </p>
+  <div class="sarrus">
+    \[
+      \det\begin{pmatrix}a&b&c\\d&e&f\\g&h&i\end{pmatrix}
+      = aei + bfg + cdh - ceg - afh - bdi
+    \]
+    <p style="margin-top:8px;font-size:0.92em;color:#444">
+      Diagonales descendantes (+)&nbsp;: \(aei\), \(bfg\), \(cdh\)<br>
+      Diagonales montantes (&minus;)&nbsp;: \(ceg\), \(afh\), \(bdi\)
+    </p>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 6 &mdash; D&eacute;terminant 3&times;3</div>
+  \[
+    A = \begin{pmatrix}2&1&-1\\1&3&2\\-1&1&3\end{pmatrix}
+  \]
+  \[
+    \det(A) = 2\cdot3\cdot3 + 1\cdot2\cdot(-1) + (-1)\cdot1\cdot1
+              - (-1)\cdot3\cdot(-1) - 2\cdot2\cdot1 - 1\cdot1\cdot3
+  \]
+  \[
+    = 18 - 2 - 1 - 3 - 4 - 3 = 5
+  \]
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 7 &mdash; D&eacute;veloppement par cofacteurs (colonne 1)</div>
+  <p>M&eacute;thode alternative&nbsp;: d&eacute;velopper selon la premi&egrave;re colonne.</p>
+  \[
+    \det(A) = 2\begin{vmatrix}3&2\\1&3\end{vmatrix}
+              -1\begin{vmatrix}1&-1\\1&3\end{vmatrix}
+              +(-1)\begin{vmatrix}1&-1\\3&2\end{vmatrix}
+  \]
+  \[
+    = 2(9-2) - 1(3+1) + (-1)(2+3)
+    = 14 - 4 - 5 = 5 \quad \checkmark
+  \]
+</div>
+
+<h3>3.3 Propri&eacute;t&eacute;s du d&eacute;terminant</h3>
+
+<div class="prop">
+  <div class="label-def" style="background:#2da44e;color:#fff">Propri&eacute;t&eacute;s</div>
+  <ul>
+    <li>\(\det(AB) = \det(A)\cdot\det(B)\)</li>
+    <li>\(\det(A^T) = \det(A)\)</li>
+    <li>\(\det(\lambda A) = \lambda^n\det(A)\) pour \(A\) d&rsquo;ordre \(n\)</li>
+    <li>Permuter deux lignes (ou colonnes) change le signe.</li>
+    <li>Si une ligne est nulle ou si deux lignes sont &eacute;gales&nbsp;: \(\det(A)=0\).</li>
+    <li>\(A\) est <strong>inversible</strong> si et seulement si \(\det(A)\ne0\).</li>
+  </ul>
+</div>
+
+<!-- ======================================================= 4. INVERSE -->
+<h2>4. Inverse d&rsquo;une matrice</h2>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Une matrice carr&eacute;e \(A\) est <strong>inversible</strong> si et seulement si
+    \(\det(A) \ne 0\). Son inverse \(A^{-1}\) v&eacute;rifie&nbsp;:
+    \[A\,A^{-1} = A^{-1}A = I_n\]
+  </p>
+</div>
+
+<h3>4.1 Inverse d&rsquo;une matrice 2&times;2</h3>
+
+<div class="formule-box">
+  \[
+    A = \begin{pmatrix}a&b\\c&d\end{pmatrix}
+    \implies
+    A^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}
+  \]
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 8 &mdash; Inverse 2&times;2</div>
+  \[
+    A = \begin{pmatrix}3&1\\2&5\end{pmatrix}
+    \implies
+    \det(A) = 15-2 = 13
+    \implies
+    A^{-1} = \frac{1}{13}\begin{pmatrix}5&-1\\-2&3\end{pmatrix}
+  \]
+  <p>
+    V&eacute;rification&nbsp;:
+    \(AA^{-1} = \dfrac{1}{13}\begin{pmatrix}3&1\\2&5\end{pmatrix}\begin{pmatrix}5&-1\\-2&3\end{pmatrix}
+    = \dfrac{1}{13}\begin{pmatrix}13&0\\0&13\end{pmatrix} = I_2\) &#10003;
+  </p>
+</div>
+
+<h3>4.2 M&eacute;thode de Gauss-Jordan (inversion par pivotage)</h3>
+
+<div class="meth">
+  <div class="label-def" style="background:#e67e22;color:#fff">M&eacute;thode &mdash; Gauss-Jordan</div>
+  <p>
+    Pour inverser une matrice \(A\) d&rsquo;ordre \(n\), on &eacute;crit le tableau augment&eacute; \([A\,|\,I_n]\)
+    et on applique des <em>op&eacute;rations &eacute;l&eacute;mentaires sur les lignes</em> pour transformer
+    \(A\) en \(I_n\)&nbsp;: la partie droite devient alors \(A^{-1}\).
+  </p>
+  <p>Op&eacute;rations autoris&eacute;es&nbsp;:</p>
+  <ol>
+    <li>Multiplier une ligne par un scalaire non nul.</li>
+    <li>Ajouter &agrave; une ligne un multiple d&rsquo;une autre ligne.</li>
+    <li>&Eacute;changer deux lignes.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 9 &mdash; Gauss-Jordan sur une matrice 3&times;3</div>
+  <p>
+    Calculer l&rsquo;inverse de \(A = \begin{pmatrix}1&2&0\\0&1&3\\0&0&2\end{pmatrix}\).
+  </p>
+  <p><strong>&Eacute;tape 1&nbsp;: tableau augment&eacute;</strong></p>
+  <table class="mat" style="margin:0.5em auto">
+    <tr>
+      <td class="pivot">1</td><td>2</td><td>0</td>
+      <td style="border-left:2px solid #1e3a5f">1</td><td>0</td><td>0</td>
+    </tr>
+    <tr>
+      <td>0</td><td class="pivot">1</td><td>3</td>
+      <td>0</td><td>1</td><td>0</td>
+    </tr>
+    <tr>
+      <td>0</td><td>0</td><td class="pivot">2</td>
+      <td>0</td><td>0</td><td>1</td>
+    </tr>
+  </table>
+  <p><strong>&Eacute;tape 2&nbsp;: pivot en (3,3) &mdash; \(L_3 \leftarrow \frac{1}{2}L_3\)</strong></p>
+  <table class="mat" style="margin:0.5em auto">
+    <tr><td>1</td><td>2</td><td>0</td><td style="border-left:2px solid #1e3a5f">1</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td>1</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>0</td><td>0</td><td class="pivot">1</td><td>0</td><td>0</td><td>1/2</td></tr>
+  </table>
+  <p><strong>&Eacute;tape 3&nbsp;: &eacute;liminer colonne 3 &mdash; \(L_2 \leftarrow L_2 - 3L_3\)</strong></p>
+  <table class="mat" style="margin:0.5em auto">
+    <tr><td>1</td><td>2</td><td>0</td><td style="border-left:2px solid #1e3a5f">1</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td class="pivot">1</td><td>0</td><td>0</td><td>1</td><td>-3/2</td></tr>
+    <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1/2</td></tr>
+  </table>
+  <p><strong>&Eacute;tape 4&nbsp;: &eacute;liminer colonne 2 &mdash; \(L_1 \leftarrow L_1 - 2L_2\)</strong></p>
+  <table class="mat" style="margin:0.5em auto">
+    <tr><td class="pivot">1</td><td>0</td><td>0</td><td style="border-left:2px solid #1e3a5f">1</td><td>-2</td><td>3</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>-3/2</td></tr>
+    <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1/2</td></tr>
+  </table>
+  <p>
+    Donc&nbsp;:
+    \(A^{-1} = \begin{pmatrix}1&-2&3\\0&1&-3/2\\0&0&1/2\end{pmatrix}\)
+  </p>
+</div>
+
+<!-- ======================================================= 5. SYSTEMES LINEAIRES -->
+<h2>5. Syst&egrave;mes lin&eacute;aires</h2>
+
+<h3>5.1 &Eacute;criture matricielle</h3>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Un syst&egrave;me de \(m\) &eacute;quations &agrave; \(n\) inconnues s&rsquo;&eacute;crit&nbsp;:
+  </p>
+  \[
+    AX = B
+    \quad\text{avec}\quad
+    A \in \mathcal{M}_{m,n},\; X = \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\;
+    B = \begin{pmatrix}b_1\\\vdots\\b_m\end{pmatrix}
+  \]
+  <p>
+    Si \(A\) est carr&eacute;e et inversible, la solution unique est \(X = A^{-1}B\).
+  </p>
+</div>
+
+<h3>5.2 Rang d&rsquo;une matrice et conditions d&rsquo;existence</h3>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Le <strong>rang</strong> d&rsquo;une matrice \(A\), not&eacute; \(\text{rg}(A)\), est le nombre maximal
+    de lignes (ou colonnes) lin&eacute;airement ind&eacute;pendantes. Il se calcule en r&eacute;duisant
+    \(A\) par op&eacute;rations &eacute;l&eacute;mentaires (forme &eacute;chelonn&eacute;e).
+  </p>
+</div>
+
+<div class="prop">
+  <div class="label-def" style="background:#2da44e;color:#fff">Th&eacute;or&egrave;me de Rouch&eacute;-Fontene</div>
+  <p>Le syst&egrave;me \(AX = B\) (\(A\) de taille \(m\times n\)) admet&nbsp;:</p>
+  <ul>
+    <li><strong>Aucune solution</strong> si \(\text{rg}(A) \ne \text{rg}(A|B)\) (syst&egrave;me incompatible).</li>
+    <li><strong>Une solution unique</strong> si \(\text{rg}(A) = \text{rg}(A|B) = n\).</li>
+    <li><strong>Une infinit&eacute; de solutions</strong> si \(\text{rg}(A) = \text{rg}(A|B) < n\) (syst&egrave;me sous-d&eacute;termin&eacute;).</li>
+  </ul>
+</div>
+
+<h3>5.3 M&eacute;thode de Gauss (pivot de Gauss)</h3>
+
+<div class="meth">
+  <div class="label-def" style="background:#e67e22;color:#fff">M&eacute;thode &mdash; Gauss (r&eacute;solution d&rsquo;un syst&egrave;me 3&times;3)</div>
+  <ol>
+    <li>&Eacute;crire la <strong>matrice augment&eacute;e</strong> \([A|B]\).</li>
+    <li>Par op&eacute;rations &eacute;l&eacute;mentaires sur les lignes, transformer \(A\) en forme triangulaire sup&eacute;rieure&nbsp;: &eacute;liminer les &eacute;l&eacute;ments sous chaque pivot.</li>
+    <li><strong>Remonter</strong> (back-substitution)&nbsp;: r&eacute;soudre de la derni&egrave;re ligne vers la premi&egrave;re.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 10 &mdash; Syst&egrave;me 3&times;3 par Gauss</div>
+  <p>R&eacute;soudre&nbsp;:
+    \(\begin{cases}
+      2x + y - z = 8\\
+      -3x - y + 2z = -11\\
+      -2x + y + 2z = -3
+    \end{cases}\)
+  </p>
+  <p><strong>Matrice augment&eacute;e&nbsp;:</strong></p>
+  <table class="mat" style="margin:0.5em auto">
+    <tr>
+      <td class="pivot">2</td><td>1</td><td>-1</td>
+      <td style="border-left:2px solid #1e3a5f">8</td>
+    </tr>
+    <tr><td>-3</td><td>-1</td><td>2</td><td>-11</td></tr>
+    <tr><td>-2</td><td>1</td><td>2</td><td>-3</td></tr>
+  </table>
+  <p>
+    \(L_2 \leftarrow L_2 + \tfrac{3}{2}L_1\)&nbsp;: \((0,\ \tfrac{1}{2},\ \tfrac{1}{2},\ 1)\)<br>
+    \(L_3 \leftarrow L_3 + L_1\)&nbsp;: \((0,\ 2,\ 1,\ 5)\)
+  </p>
+  <table class="mat" style="margin:0.5em auto">
+    <tr><td>2</td><td>1</td><td>-1</td><td style="border-left:2px solid #1e3a5f">8</td></tr>
+    <tr><td>0</td><td class="pivot">1/2</td><td>1/2</td><td>1</td></tr>
+    <tr><td>0</td><td>2</td><td>1</td><td>5</td></tr>
+  </table>
+  <p>
+    \(L_3 \leftarrow L_3 - 4L_2\)&nbsp;: \((0,\ 0,\ -1,\ 1)\)
+  </p>
+  <table class="mat" style="margin:0.5em auto">
+    <tr><td>2</td><td>1</td><td>-1</td><td style="border-left:2px solid #1e3a5f">8</td></tr>
+    <tr><td>0</td><td>1/2</td><td>1/2</td><td>1</td></tr>
+    <tr><td>0</td><td>0</td><td class="pivot">-1</td><td>1</td></tr>
+  </table>
+  <p><strong>Remonter&nbsp;:</strong></p>
+  <p>\(L_3\)&nbsp;: \(-z = 1 \implies z = -1\)</p>
+  <p>\(L_2\)&nbsp;: \(\tfrac{1}{2}y + \tfrac{1}{2}(-1) = 1 \implies y = 3\)</p>
+  <p>\(L_1\)&nbsp;: \(2x + 3 - (-1) = 8 \implies 2x = 4 \implies x = 2\)</p>
+  <p>
+    <strong>Solution</strong>&nbsp;: \((x, y, z) = (2, 3, -1)\)
+  </p>
+  <p>
+    V&eacute;rification&nbsp;: \(2(2)+3-(-1)=8\) &#10003;,&ensp;
+    \(-3(2)-3+2(-1)=-11\) &#10003;,&ensp;
+    \(-2(2)+3+2(-1)=-3\) &#10003;
+  </p>
+</div>
+
+<h3>5.4 M&eacute;thode de Cramer</h3>
+
+<div class="prop">
+  <div class="label-def" style="background:#2da44e;color:#fff">Formules de Cramer</div>
+  <p>
+    Si \(A\) est carr&eacute;e d&rsquo;ordre \(n\) et \(\det(A)\ne0\), alors la solution unique de
+    \(AX=B\) est&nbsp;:
+  </p>
+  \[
+    x_k = \frac{\det(A_k)}{\det(A)}, \quad k = 1, \ldots, n
+  \]
+  <p>
+    o&ugrave; \(A_k\) est la matrice obtenue en rempla&ccedil;ant la \(k\)-i&egrave;me colonne de \(A\) par \(B\).
+  </p>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 11 &mdash; Cramer 2&times;2</div>
+  <p>
+    R&eacute;soudre \(\begin{cases}3x+y=7\\x+2y=4\end{cases}\)
+  </p>
+  \[
+    A=\begin{pmatrix}3&1\\1&2\end{pmatrix},\quad B=\begin{pmatrix}7\\4\end{pmatrix},\quad
+    \det(A)=6-1=5
+  \]
+  \[
+    \det(A_1)=\begin{vmatrix}7&1\\4&2\end{vmatrix}=14-4=10,\quad
+    \det(A_2)=\begin{vmatrix}3&7\\1&4\end{vmatrix}=12-7=5
+  \]
+  \[
+    x = \frac{10}{5}=2,\quad y=\frac{5}{5}=1
+  \]
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 12 &mdash; Cramer 3&times;3 (circuit de Kirchhoff)</div>
+  <p>
+    Un &eacute;lectrotechnicien analyse un circuit avec trois mailles. Les lois de Kirchhoff donnent&nbsp;:
+    \(\begin{cases}10I_1 + 5I_2 + 0\,I_3 = 15\\
+    3I_1 + 8I_2 + 2I_3 = 0\\
+    0\,I_1 + 2I_2 + 6I_3 = 12\end{cases}\)
+  </p>
+  \[
+    A=\begin{pmatrix}10&5&0\\3&8&2\\0&2&6\end{pmatrix},\quad
+    B=\begin{pmatrix}15\\0\\12\end{pmatrix}
+  \]
+  \[
+    \det(A)=10(48-4)-5(18-0)+0 = 10\cdot44-5\cdot18 = 440-90=350
+  \]
+  \[
+    \det(A_1)=\begin{vmatrix}15&5&0\\0&8&2\\12&2&6\end{vmatrix}
+    = 15(48-4)-5(0-24)+0 = 660+120 = 780
+  \]
+  \[
+    I_1 = \frac{780}{350} = \frac{78}{35} \approx 2{,}23\,\text{A}
+  \]
+  <p>(Le calcul de \(I_2\) et \(I_3\) se fait de m&ecirc;me.)</p>
+</div>
+
+<!-- ======================================================= 6. VALEURS PROPRES -->
+<h2>6. Valeurs propres et vecteurs propres</h2>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Soit \(A\) une matrice carr&eacute;e d&rsquo;ordre \(n\).
+    Un scalaire \(\lambda \in \mathbb{R}\) est une <strong>valeur propre</strong> de \(A\)
+    s&rsquo;il existe un vecteur <strong>non nul</strong> \(\vec{v}\) (appel&eacute; <strong>vecteur propre associ&eacute;</strong>) tel que&nbsp;:
+  </p>
+  \[
+    A\,\vec{v} = \lambda\,\vec{v}
+  \]
+  <p>
+    Interpr&eacute;tation&nbsp;: l&rsquo;application de \(A\) &agrave; \(\vec{v}\) ne change pas sa direction,
+    seulement son module (facteur \(\lambda\)).
+  </p>
+</div>
+
+<h3>6.1 &Eacute;quation caract&eacute;ristique</h3>
+
+<div class="prop">
+  <div class="label-def" style="background:#2da44e;color:#fff">M&eacute;thode</div>
+  <p>
+    Les valeurs propres sont les racines du <strong>polyn&ocirc;me caract&eacute;ristique</strong>&nbsp;:
+  </p>
+  \[
+    P(\lambda) = \det(A - \lambda I) = 0
+  \]
+  <p>
+    Pour chaque valeur propre \(\lambda_k\), les vecteurs propres associ&eacute;s sont
+    les solutions non nulles de \((A - \lambda_k I)\vec{v} = \vec{0}\).
+  </p>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 13 &mdash; Valeurs propres d&rsquo;une matrice 2&times;2</div>
+  \[
+    A = \begin{pmatrix}4&1\\2&3\end{pmatrix}
+  \]
+  <p><strong>&Eacute;quation caract&eacute;ristique&nbsp;:</strong></p>
+  \[
+    \det(A-\lambda I) = \begin{vmatrix}4-\lambda&1\\2&3-\lambda\end{vmatrix}
+    = (4-\lambda)(3-\lambda) - 2 = \lambda^2 - 7\lambda + 10 = 0
+  \]
+  \[
+    \Delta = 49 - 40 = 9 \implies \lambda_1 = \frac{7-3}{2} = 2,\quad \lambda_2 = \frac{7+3}{2} = 5
+  \]
+  <p><strong>Vecteur propre pour \(\lambda_1 = 2\)&nbsp;:</strong></p>
+  \[
+    (A-2I)\vec{v}=\vec{0} \implies \begin{pmatrix}2&1\\2&1\end{pmatrix}\begin{pmatrix}v_1\\v_2\end{pmatrix}=\vec{0}
+    \implies 2v_1+v_2=0 \implies \vec{v}_1 = \begin{pmatrix}1\\-2\end{pmatrix}
+  \]
+  <p><strong>Vecteur propre pour \(\lambda_2 = 5\)&nbsp;:</strong></p>
+  \[
+    (A-5I)\vec{v}=\vec{0} \implies \begin{pmatrix}-1&1\\2&-2\end{pmatrix}\vec{v}=\vec{0}
+    \implies -v_1+v_2=0 \implies \vec{v}_2 = \begin{pmatrix}1\\1\end{pmatrix}
+  \]
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 14 &mdash; Valeurs propres d&rsquo;une matrice 3&times;3</div>
+  \[
+    B = \begin{pmatrix}3&0&0\\0&2&1\\0&1&2\end{pmatrix}
+  \]
+  \[
+    \det(B-\lambda I) =
+    (3-\lambda)\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}
+    = (3-\lambda)\bigl[(2-\lambda)^2-1\bigr]
+  \]
+  \[
+    = (3-\lambda)(\lambda^2-4\lambda+3) = (3-\lambda)(3-\lambda)(1-\lambda)
+    = -(lambda-3)^2(\lambda-1)
+  \]
+  <p>
+    Valeurs propres&nbsp;: \(\lambda_1=1\) (simple) et \(\lambda_2=3\) (double).
+  </p>
+</div>
+
+<h3>6.2 Application : diagonalisation</h3>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    Une matrice \(A\) d&rsquo;ordre \(n\) est <strong>diagonalisable</strong> si elle poss&egrave;de
+    \(n\) vecteurs propres lin&eacute;airement ind&eacute;pendants. Dans ce cas&nbsp;:
+  </p>
+  \[
+    A = P\,D\,P^{-1}
+  \]
+  <p>
+    o&ugrave; \(D = \text{diag}(\lambda_1,\ldots,\lambda_n)\) et \(P\) est la matrice dont les
+    colonnes sont les vecteurs propres.
+  </p>
+  <p>
+    Application&nbsp;: calcul rapide de puissances&nbsp; \(A^k = P\,D^k\,P^{-1}\),
+    utile en &eacute;lectronique (r&eacute;ponse en r&eacute;gime libre).
+  </p>
+</div>
+
+<!-- ======================================================= 7. APPLICATION KIRCHHOFF -->
+<h2>7. Application : analyse de circuits (Kirchhoff)</h2>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple complet &mdash; Circuit &agrave; deux mailles</div>
+  <p>
+    Un &eacute;lectrotechnicien analyse le circuit suivant avec deux mailles de courant \(I_1\) et \(I_2\)&nbsp;:
+  </p>
+  <ul>
+    <li>Maille 1 (loi des tensions)&nbsp;: \(R_1 I_1 + R_3(I_1-I_2) = E_1\) avec \(R_1=4\,\Omega\), \(R_3=2\,\Omega\), \(E_1=20\,\text{V}\)</li>
+    <li>Maille 2&nbsp;: \(R_2 I_2 + R_3(I_2-I_1) = E_2\) avec \(R_2=3\,\Omega\), \(E_2=10\,\text{V}\)</li>
+  </ul>
+  <p>Apr&egrave;s d&eacute;veloppement&nbsp;:</p>
+  \[
+    \begin{cases}
+      6I_1 - 2I_2 = 20\\
+      -2I_1 + 5I_2 = 10
+    \end{cases}
+    \implies
+    \begin{pmatrix}6&-2\\-2&5\end{pmatrix}\begin{pmatrix}I_1\\I_2\end{pmatrix}
+    = \begin{pmatrix}20\\10\end{pmatrix}
+  \]
+  \[
+    \det(A) = 30 - 4 = 26
+  \]
+  \[
+    I_1 = \frac{\det\begin{pmatrix}20&-2\\10&5\end{pmatrix}}{26}
+         = \frac{100+20}{26} = \frac{120}{26} \approx 4{,}62\,\text{A}
+  \]
+  \[
+    I_2 = \frac{\det\begin{pmatrix}6&20\\-2&10\end{pmatrix}}{26}
+         = \frac{60+40}{26} = \frac{100}{26} \approx 3{,}85\,\text{A}
+  \]
+  <p>
+    V&eacute;rification&nbsp;:
+    \(6(120/26)-2(100/26) = (720-200)/26 = 520/26 = 20\) &#10003;
+  </p>
+</div>
+
+<!-- ======================================================= 8. TRANSFORMATIONS GEOMETRIQUES -->
+<h2>8. Application : transformations g&eacute;om&eacute;triques</h2>
+
+<div class="def">
+  <div class="label-def">D&eacute;finition</div>
+  <p>
+    De nombreuses transformations g&eacute;om&eacute;triques du plan ou de l&rsquo;espace s&rsquo;expriment
+    comme des multiplications matricielles&nbsp;:
+    \(\vec{v}' = M\,\vec{v}\).
+  </p>
+</div>
+
+<div class="prop">
+  <div class="label-def" style="background:#2da44e;color:#fff">Matrices de transformation usuelles</div>
+  <table class="mat" style="width:100%;max-width:700px">
+    <tr><th>Transformation</th><th>Matrice</th></tr>
+    <tr>
+      <td>Rotation d&rsquo;angle \(\theta\) dans le plan</td>
+      <td>
+        \(R_\theta = \begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\)
+      </td>
+    </tr>
+    <tr>
+      <td>Mise &agrave; l&rsquo;&eacute;chelle (\(s_x, s_y\))</td>
+      <td>
+        \(S = \begin{pmatrix}s_x&0\\0&s_y\end{pmatrix}\)
+      </td>
+    </tr>
+    <tr>
+      <td>Sym&eacute;trie par rapport &agrave; l&rsquo;axe \(x\)</td>
+      <td>
+        \(\begin{pmatrix}1&0\\0&-1\end{pmatrix}\)
+      </td>
+    </tr>
+    <tr>
+      <td>Rotation 3D autour de \(z\) d&rsquo;angle \(\theta\)</td>
+      <td>
+        \(\begin{pmatrix}\cos\theta&-\sin\theta&0\\\sin\theta&\cos\theta&0\\0&0&1\end{pmatrix}\)
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 15 &mdash; Rotation d&rsquo;un point</div>
+  <p>
+    Un point \(P = (3, 0)\) est tourn&eacute; de \(60°\) autour de l&rsquo;origine.
+    Trouver ses nouvelles coordonn&eacute;es.
+  </p>
+  \[
+    R_{60°} = \begin{pmatrix}\cos60°&-\sin60°\\\sin60°&\cos60°\end{pmatrix}
+    = \begin{pmatrix}1/2&-\sqrt{3}/2\\\sqrt{3}/2&1/2\end{pmatrix}
+  \]
+  \[
+    P' = R_{60°}\begin{pmatrix}3\\0\end{pmatrix}
+    = \begin{pmatrix}3/2\\3\sqrt{3}/2\end{pmatrix}
+    \approx \begin{pmatrix}1{,}5\\2{,}60\end{pmatrix}
+  \]
+  <p>
+    V&eacute;rification (norme conserv&eacute;e)&nbsp;:
+    \(\|P'\| = \sqrt{(3/2)^2 + (3\sqrt{3}/2)^2} = \sqrt{9/4+27/4} = \sqrt{9} = 3 = \|P\|\) &#10003;
+  </p>
+</div>
+
+<div class="ex">
+  <div class="label-def" style="background:#e67e22;color:#fff">Exemple 16 &mdash; Compos&eacute;e de transformations</div>
+  <p>
+    Un technicien en CFAO applique successivement une mise &agrave; l&rsquo;&eacute;chelle de facteur 2 selon
+    \(x\), puis une rotation de \(90°\) &agrave; un vecteur \(\vec{v} = (1, 0)\).
+  </p>
+  \[
+    S = \begin{pmatrix}2&0\\0&1\end{pmatrix}, \quad
+    R_{90°} = \begin{pmatrix}0&-1\\1&0\end{pmatrix}
+  \]
+  \[
+    M = R_{90°}\cdot S = \begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}2&0\\0&1\end{pmatrix}
+    = \begin{pmatrix}0&-1\\2&0\end{pmatrix}
+  \]
+  \[
+    M\vec{v} = \begin{pmatrix}0&-1\\2&0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}
+    = \begin{pmatrix}0\\2\end{pmatrix}
+  \]
+  <p>
+    Le vecteur initial \((1,0)\) devient \((0,2)\) apr&egrave;s la compos&eacute;e.
+    <em>Attention&nbsp;: l&rsquo;ordre des matrices importe&nbsp;!</em>
+  </p>
+</div>
+
+<!-- ======================================================= A RETENIR -->
+<div class="retenir">
+  <strong>&#128203; &Agrave; retenir &mdash; Matrices et syst&egrave;mes lin&eacute;aires</strong>
+  <div class="grid2">
+    <div>
+      <strong>Produit matriciel</strong>&nbsp;: \(c_{ij}=\sum_k a_{ik}b_{kj}\), en g&eacute;n&eacute;ral \(AB\ne BA\)
+      <br><strong>Det 2&times;2</strong>&nbsp;: \(ad-bc\)
+      <br><strong>Sarrus (3&times;3)</strong>&nbsp;: somme diag. desc. &minus; somme diag. mont.
+      <br><strong>Inverse 2&times;2</strong>&nbsp;: \(A^{-1}=\dfrac{1}{\det A}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}\)
+      <br><strong>Gauss-Jordan</strong>&nbsp;: \([A|I] \to [I|A^{-1}]\)
+    </div>
+    <div>
+      <strong>Cramer</strong>&nbsp;: \(x_k=\dfrac{\det(A_k)}{\det(A)}\) si \(\det(A)\ne0\)
+      <br><strong>Gauss</strong>&nbsp;: triangulation + remonter
+      <br><strong>Valeurs propres</strong>&nbsp;: \(\det(A-\lambda I)=0\)
+      <br><strong>Vecteurs propres</strong>&nbsp;: \((A-\lambda_k I)\vec{v}=\vec{0}\)
+      <br><strong>Rang</strong>&nbsp;: nombre de lignes non nulles apr&egrave;s &eacute;chelonnement
+      <br>\(AX=B\) a une solution unique si et seulement si \(\det(A)\ne0\)
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= EXERCICES -->
+<h2>9. Exercices d&rsquo;application</h2>
+
+<div class="exo">
+  <div class="label-def" style="background:#1e3a5f;color:#fff">Exercice 1 &mdash; Produit matriciel et d&eacute;terminant</div>
+  <p>
+    Soit \(A=\begin{pmatrix}2&1\\3&-1\end{pmatrix}\) et \(B=\begin{pmatrix}1&-2\\0&3\end{pmatrix}\).
+  </p>
+  <ol type="a">
+    <li>Calculer \(AB\) et \(BA\). Sont-ils &eacute;gaux ?</li>
+    <li>Calculer \(\det(A)\), \(\det(B)\) et \(\det(AB)\). V&eacute;rifier \(\det(AB)=\det(A)\det(B)\).</li>
+    <li>Calculer \(A^{-1}\).</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a.</strong>
+      \(AB=\begin{pmatrix}2\cdot1+1\cdot0&2\cdot(-2)+1\cdot3\\3\cdot1+(-1)\cdot0&3\cdot(-2)+(-1)\cdot3\end{pmatrix}
+      =\begin{pmatrix}2&-1\\3&-9\end{pmatrix}\)
+    </p>
+    <p>
+      \(BA=\begin{pmatrix}1\cdot2+(-2)\cdot3&1\cdot1+(-2)\cdot(-1)\\0\cdot2+3\cdot3&0\cdot1+3\cdot(-1)\end{pmatrix}
+      =\begin{pmatrix}-4&3\\9&-3\end{pmatrix}\ne AB\)
+    </p>
+    <p><strong>b.</strong>
+      \(\det(A)=-2-3=-5\), \(\det(B)=3-0=3\), \(\det(AB)=-18+3=-15=(-5)\cdot3\) &#10003;
+    </p>
+    <p><strong>c.</strong>
+      \(A^{-1}=\dfrac{1}{-5}\begin{pmatrix}-1&-1\\-3&2\end{pmatrix}
+      =\begin{pmatrix}1/5&1/5\\3/5&-2/5\end{pmatrix}\)
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="label-def" style="background:#1e3a5f;color:#fff">Exercice 2 &mdash; Syst&egrave;me lin&eacute;aire par Gauss</div>
+  <p>
+    R&eacute;soudre par la m&eacute;thode de Gauss&nbsp;:
+    \(\begin{cases}x - y + 2z = 1\\2x + y - z = 3\\x + 3y - z = 2\end{cases}\)
+  </p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p>Matrice augment&eacute;e&nbsp;:</p>
+    <p>\(\begin{pmatrix}1&-1&2&|&1\\2&1&-1&|&3\\1&3&-1&|&2\end{pmatrix}\)</p>
+    <p>\(L_2\leftarrow L_2-2L_1\)&nbsp;: \((0,3,-5,|,1)\) &ensp; \(L_3\leftarrow L_3-L_1\)&nbsp;: \((0,4,-3,|,1)\)</p>
+    <p>\(L_3\leftarrow L_3-\frac{4}{3}L_2\)&nbsp;: \(\left(0,0,\frac{11}{3},|\,-\frac{1}{3}\right)\)</p>
+    <p>Remonter&nbsp;: \(z = -\frac{1}{11}\), \(3y-5\cdot(-\frac{1}{11})=1 \implies y=\frac{6}{33}=\frac{2}{11}\), \(x-\frac{2}{11}-\frac{2}{11}=1 \implies x=\frac{15}{11}\)</p>
+    <p><strong>Solution&nbsp;:</strong> \(x=\dfrac{15}{11}\), \(y=\dfrac{2}{11}\), \(z=-\dfrac{1}{11}\)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="label-def" style="background:#1e3a5f;color:#fff">Exercice 3 &mdash; Valeurs propres et vecteurs propres</div>
+  <p>
+    Calculer les valeurs propres et vecteurs propres de
+    \(M=\begin{pmatrix}5&-2\\2&1\end{pmatrix}\).
+  </p>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p>
+      \(\det(M-\lambda I)=(5-\lambda)(1-\lambda)+4=\lambda^2-6\lambda+9=(\lambda-3)^2=0\)
+    </p>
+    <p>Valeur propre unique&nbsp;: \(\lambda=3\) (double).</p>
+    <p>
+      Vecteur propre&nbsp;: \((M-3I)\vec{v}=\vec{0}\implies\begin{pmatrix}2&-2\\2&-2\end{pmatrix}\vec{v}=\vec{0}
+      \implies v_1=v_2 \implies \vec{v}=\begin{pmatrix}1\\1\end{pmatrix}\)
+    </p>
+    <p>
+      La matrice n&rsquo;est pas diagonalisable (une seule direction propre pour une valeur propre double).
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <div class="label-def" style="background:#1e3a5f;color:#fff">Exercice 4 &mdash; Transformation g&eacute;om&eacute;trique</div>
+  <p>
+    Un ing&eacute;nieur applique successivement une rotation de \(45°\) puis une mise &agrave; l&rsquo;&eacute;chelle
+    de facteur 3 sur l&rsquo;axe \(x\) et \(2\) sur l&rsquo;axe \(y\) au vecteur \(\vec{v}=(1,1)\).
+  </p>
+  <ol type="a">
+    <li>Calculer la matrice r&eacute;sultante \(M = S \cdot R_{45°}\).</li>
+    <li>Calculer \(M\vec{v}\) et sa norme.</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a.</strong>
+      \(R_{45°}=\dfrac{\sqrt{2}}{2}\begin{pmatrix}1&-1\\1&1\end{pmatrix}\),
+      \(S=\begin{pmatrix}3&0\\0&2\end{pmatrix}\)
+    </p>
+    <p>
+      \(M = S\cdot R_{45°} = \dfrac{\sqrt{2}}{2}\begin{pmatrix}3&-3\\2&2\end{pmatrix}\)
+    </p>
+    <p><strong>b.</strong>
+      \(M\vec{v}=\dfrac{\sqrt{2}}{2}\begin{pmatrix}3-3\\2+2\end{pmatrix}=\dfrac{\sqrt{2}}{2}\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}0\\2\sqrt{2}\end{pmatrix}\)
+    </p>
+    <p>
+      Norme&nbsp;: \(\|M\vec{v}\|=2\sqrt{2}\approx2{,}83\).
+      La norme initiale &eacute;tait \(\|\vec{v}\|=\sqrt{2}\)&nbsp;;
+      le facteur d&rsquo;&eacute;chelle effectif est 2.
+    </p>
+  </div>
+</div>
+
+</div><!-- fin .c -->
 <script src="../../../nav.js"></script>
 </body>
 </html>

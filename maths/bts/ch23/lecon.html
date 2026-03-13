@@ -3,23 +3,573 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch23 – Éléments de théorie des ensembles – BTS</title>
+<title>Ch23 &ndash; Éléments de théorie des ensembles – BTS</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+.venn-wrap{display:flex;justify-content:center;margin:1.5rem 0;flex-wrap:wrap;gap:1.2rem}
+.venn-wrap figure{text-align:center;margin:0}
+.venn-wrap figcaption{font-size:.85rem;color:#555;margin-top:.4rem}
+table.pascal{border-collapse:collapse;margin:1.2rem auto}
+table.pascal td{width:2.4rem;height:2.4rem;text-align:center;border:1px solid #93a5c0;background:#eef2f7;font-weight:600;font-size:.95rem}
+table.pascal td.hi{background:#1e3a5f;color:#fff}
+table.pascal td.mt{border:none;background:transparent}
+pre code{display:block;background:#1e1e2e;color:#cdd6f4;border-radius:8px;padding:1.2rem 1.4rem;font-size:.88rem;line-height:1.65;overflow-x:auto;margin:.6rem 0}
+.kw{color:#cba6f7}
+.cm{color:#6c7086;font-style:italic}
+.op-box{display:flex;flex-wrap:wrap;gap:1rem;margin:1rem 0}
+.op-card{flex:1 1 155px;border:2px solid var(--p-border);border-radius:10px;padding:1rem;background:var(--p-bg);text-align:center}
+.op-card strong{display:block;font-size:1.05rem;color:var(--p);margin-bottom:.35rem}
+.op-card p{margin:0;font-size:.88rem;color:#444}
+.table-std{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem}
+.table-std th{background:var(--p);color:#fff;padding:.5rem .8rem;text-align:left}
+.table-std td{border:1px solid var(--p-border);padding:.45rem .8rem}
+.table-std tr:nth-child(even) td{background:var(--p-bg)}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire BTS</a>
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire BTS</a>
+
 <header>
-  <h1>Chapitre 23 – Éléments de théorie des ensembles</h1>
-  <p class="sous-titre">BTS — Mathématiques</p>
+  <h1>Chapitre 23 &ndash; Éléments de théorie des ensembles</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupement D2</p>
+  <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
+
+<!-- ══════════════════════ OBJECTIFS ══ -->
 <div class="objectifs">
-  <h3>🚧 En cours de rédaction</h3>
-  <p>Ce chapitre sera bientôt disponible. Revenez prochainement !</p>
+  <h2>Objectifs du chapitre</h2>
+  <ul>
+    <li>Maîtriser le vocabulaire et les notations de la théorie des ensembles (appartenance, inclusion, cardinal).</li>
+    <li>Effectuer les opérations ensemblistes : union, intersection, complémentaire, différence.</li>
+    <li>Connaître et appliquer les lois de De Morgan.</li>
+    <li>Comprendre le produit cartésien, les relations binaires et la notion d'application.</li>
+    <li>Appliquer la formule d'inclusion-exclusion au calcul de cardinaux et de probabilités.</li>
+    <li>Calculer des arrangements et des combinaisons ; construire le triangle de Pascal.</li>
+    <li>Établir le lien entre opérations ensemblistes et requêtes SQL (UNION, INTERSECT, EXCEPT).</li>
+  </ul>
 </div>
+
+<!-- ══════════════════════ SITUATION ══ -->
+<div class="situation">
+  <h3>Situation professionnelle &mdash; Technicienne en informatique industrielle</h3>
+  <p>
+    <strong>Contexte :</strong> Aurélie est technicienne support dans une entreprise de logistique
+    gérant plusieurs milliers de références produits. Elle administre une base de données relationnelle
+    recensant fournisseurs, catégories de produits et mouvements de stock.
+  </p>
+  <p>Sa responsable lui confie deux demandes :</p>
+  <ol>
+    <li>Extraire les fournisseurs qui livrent <em>à la fois</em> la catégorie A et la catégorie B (audit croisé).</li>
+    <li>Extraire les fournisseurs qui livrent A <em>mais pas</em> B (renégociation des contrats B).</li>
+  </ol>
+  <p>
+    Aurélie reconnaît une <strong>intersection</strong> (requête 1) et une <strong>différence ensembliste</strong> (requête 2).
+    Elle formalise le problème en notations mathématiques avant d'écrire les requêtes SQL.
+    Ce chapitre fournit tous les outils pour raisonner de la même façon.
+  </p>
 </div>
+
+<!-- ══════════════════════ 1. NOTIONS FONDAMENTALES ══ -->
+<h2>1. Notions fondamentales</h2>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Ensemble</span>
+  Un <strong>ensemble</strong> est une collection bien définie d'objets appelés <strong>éléments</strong>.
+  On note les ensembles par des lettres majuscules. Les éléments se désignent en <em>extension</em> (liste)
+  ou en <em>compréhension</em> (propriété) :
+  <ul>
+    <li>Extension : \(A = \{1,\, 3,\, 5,\, 7,\, 9\}\)</li>
+    <li>Compréhension : \(A = \{x \in \mathbb{N} \mid x \text{ impair},\; x \leq 9\}\)</li>
+  </ul>
+  Un ensemble peut être <strong>fini</strong> (nombre d'éléments déterminé) ou <strong>infini</strong>
+  (\(\mathbb{N}\), \(\mathbb{Z}\), \(\mathbb{R}\), etc.).
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Appartenance</span>
+  On note \(x \in A\) si \(x\) est un élément de \(A\), et \(x \notin A\) sinon.<br><br>
+  <em>Exemple :</em> Pour \(A = \{2, 4, 6, 8\}\) : \(4 \in A\) et \(5 \notin A\).
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Inclusion</span>
+  \(A\) est <strong>inclus dans</strong> \(B\), noté \(A \subseteq B\), si tout élément de \(A\) appartient à \(B\) :
+  \[A \subseteq B \iff \bigl(\forall x,\; x \in A \Rightarrow x \in B\bigr)\]
+  Inclusion stricte : \(A \subsetneq B\) signifie \(A \subseteq B\) et \(A \neq B\).<br>
+  Égalité : \(A = B \iff A \subseteq B\) et \(B \subseteq A\).<br><br>
+  <em>Exemple :</em> \(\{2, 4\} \subseteq \{1,2,3,4,5\}\) mais \(\{2,6\} \not\subseteq \{1,2,3,4,5\}\).
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Ensemble vide et ensemble universel</span>
+  <ul>
+    <li>L'<strong>ensemble vide</strong> \(\emptyset\) ne contient aucun élément.
+        Il est inclus dans tout ensemble : \(\emptyset \subseteq A\) pour tout \(A\).</li>
+    <li>L'<strong>ensemble universel</strong> \(E\) (ou \(\Omega\)) contient tous les éléments du contexte.
+        Tout sous-ensemble vérifie \(A \subseteq E\).</li>
+  </ul>
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Cardinal</span>
+  Le <strong>cardinal</strong> de \(A\), noté \(|A|\) ou \(\text{Card}(A)\), est le nombre d'éléments de \(A\).<br>
+  <em>Exemples :</em> \(|\{a,b,c,d\}| = 4\) &bull; \(|\emptyset| = 0\) &bull; \(|\{0\}| = 1\).
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété &mdash; Ensemble des parties</span>
+  L'ensemble de tous les sous-ensembles de \(A\), noté \(\mathcal{P}(A)\), vérifie \(|\mathcal{P}(A)| = 2^{|A|}\).<br><br>
+  <em>Exemple :</em> \(A = \{1,2,3\}\) donne \(|\mathcal{P}(A)| = 8\) parties :
+  \(\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\).
+</div>
+
+<div class="ex">
+  <strong>Exemple &mdash; Base de données produits</strong><br>
+  \(A = \{\text{REF01, REF03, REF05, REF07}\}\) (en stock) &nbsp; \(|A| = 4\)<br>
+  \(B = \{\text{REF02, REF03, REF05, REF09}\}\) (commandés) &nbsp; \(|B| = 4\)<br><br>
+  &bull; \(\text{REF03} \in A\) et \(\text{REF03} \in B\)<br>
+  &bull; \(\text{REF01} \in A\) mais \(\text{REF01} \notin B\)<br>
+  &bull; \(\{A, B\} \subseteq \mathcal{P}(\text{catalogue})\)
+</div>
+
+<!-- ══════════════════════ 2. OPÉRATIONS ══ -->
+<h2>2. Opérations sur les ensembles</h2>
+
+<p>Dans toute la section, \(A\) et \(B\) sont des sous-ensembles de l'ensemble universel \(E\).</p>
+
+<div class="op-box">
+  <div class="op-card"><strong>Union A ∪ B</strong><p>Éléments dans A <em>ou</em> B (ou les deux)</p></div>
+  <div class="op-card"><strong>Intersection A ∩ B</strong><p>Éléments dans A <em>et</em> B à la fois</p></div>
+  <div class="op-card"><strong>Complémentaire Ā</strong><p>Éléments de E <em>non</em> dans A</p></div>
+  <div class="op-card"><strong>Différence A \ B</strong><p>Éléments dans A <em>mais pas</em> dans B</p></div>
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Union</span>
+  \[A \cup B = \{x \in E \mid x \in A \text{ ou } x \in B\}\]
+  <em>Exemple :</em> \(\{1,2,3\} \cup \{2,3,4,5\} = \{1,2,3,4,5\}\)
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriétés de l'union</span>
+  Commutativité : \(A \cup B = B \cup A\) &nbsp;&bull;&nbsp;
+  Associativité : \((A \cup B) \cup C = A \cup (B \cup C)\)<br>
+  Élément neutre : \(A \cup \emptyset = A\) &nbsp;&bull;&nbsp;
+  Idempotence : \(A \cup A = A\) &nbsp;&bull;&nbsp;
+  Absorption : \(A \cup E = E\)<br>
+  Distributivité : \(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Intersection</span>
+  \[A \cap B = \{x \in E \mid x \in A \text{ et } x \in B\}\]
+  <em>Exemple :</em> \(\{1,2,3\} \cap \{2,3,4,5\} = \{2,3\}\)<br>
+  Si \(A \cap B = \emptyset\), \(A\) et \(B\) sont <strong>disjoints</strong>.
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriétés de l'intersection</span>
+  Commutativité, associativité, élément neutre \(E\), élément absorbant \(\emptyset\).<br>
+  Distributivité : \(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Complémentaire</span>
+  \[\bar{A} = A^c = \{x \in E \mid x \notin A\}\]
+  Propriétés : \(A \cup \bar{A} = E\) &bull; \(A \cap \bar{A} = \emptyset\) &bull;
+  \(\overline{\bar{A}} = A\) &bull; \(\bar{E} = \emptyset\) &bull; \(\bar{\emptyset} = E\)<br><br>
+  <em>Exemple :</em> \(E=\{1..5\}\), \(A=\{1,3,5\}\) donc \(\bar{A}=\{2,4\}\).
+</div>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Différence</span>
+  \[A \setminus B = A \cap \bar{B} = \{x \in E \mid x \in A \text{ et } x \notin B\}\]
+  <em>Exemple :</em> \(\{1,2,3,4\} \setminus \{2,4,6\} = \{1,3\}\)<br>
+  Attention : la différence n'est <strong>pas commutative</strong> (\(A \setminus B \neq B \setminus A\) en général).
+</div>
+
+<h3>2.5 Diagrammes de Venn</h3>
+
+<p>Le rectangle représente \(E\), les ellipses les ensembles \(A\) et \(B\).
+La zone colorée illustre l'opération.</p>
+
+<div class="venn-wrap">
+  <figure>
+    <svg width="188" height="128" viewBox="0 0 188 128" role="img" aria-label="Union A union B">
+      <rect width="188" height="128" rx="8" fill="#f8fafc" stroke="#93a5c0" stroke-width="1.5"/>
+      <ellipse cx="75" cy="64" rx="47" ry="37" fill="#93c5fd" fill-opacity=".65" stroke="#1e3a5f" stroke-width="1.8"/>
+      <ellipse cx="113" cy="64" rx="47" ry="37" fill="#93c5fd" fill-opacity=".65" stroke="#1e3a5f" stroke-width="1.8"/>
+      <text x="54" y="68" font-size="15" font-family="serif" font-style="italic" fill="#1e3a5f" font-weight="bold">A</text>
+      <text x="127" y="68" font-size="15" font-family="serif" font-style="italic" fill="#1e3a5f" font-weight="bold">B</text>
+      <text x="170" y="16" font-size="12" fill="#555">E</text>
+    </svg>
+    <figcaption>\(A \cup B\)</figcaption>
+  </figure>
+  <figure>
+    <svg width="188" height="128" viewBox="0 0 188 128" role="img" aria-label="Intersection A inter B">
+      <rect width="188" height="128" rx="8" fill="#f8fafc" stroke="#93a5c0" stroke-width="1.5"/>
+      <ellipse cx="75" cy="64" rx="47" ry="37" fill="#eef2f7" stroke="#1e3a5f" stroke-width="1.8"/>
+      <ellipse cx="113" cy="64" rx="47" ry="37" fill="#eef2f7" stroke="#1e3a5f" stroke-width="1.8"/>
+      <clipPath id="cA23"><ellipse cx="75" cy="64" rx="47" ry="37"/></clipPath>
+      <ellipse cx="113" cy="64" rx="47" ry="37" fill="#1e3a5f" fill-opacity=".38" clip-path="url(#cA23)" stroke="none"/>
+      <text x="54" y="68" font-size="15" font-family="serif" font-style="italic" fill="#1e3a5f" font-weight="bold">A</text>
+      <text x="127" y="68" font-size="15" font-family="serif" font-style="italic" fill="#1e3a5f" font-weight="bold">B</text>
+      <text x="170" y="16" font-size="12" fill="#555">E</text>
+    </svg>
+    <figcaption>\(A \cap B\)</figcaption>
+  </figure>
+  <figure>
+    <svg width="188" height="128" viewBox="0 0 188 128" role="img" aria-label="Complementaire de A">
+      <rect width="188" height="128" rx="8" fill="#93c5fd" fill-opacity=".50" stroke="#93a5c0" stroke-width="1.5"/>
+      <ellipse cx="94" cy="64" rx="52" ry="40" fill="#f8fafc" stroke="#1e3a5f" stroke-width="1.8"/>
+      <text x="78" y="68" font-size="15" font-family="serif" font-style="italic" fill="#1e3a5f" font-weight="bold">A</text>
+      <text x="170" y="16" font-size="12" fill="#555">E</text>
+    </svg>
+    <figcaption>\(\bar{A}\)</figcaption>
+  </figure>
+  <figure>
+    <svg width="188" height="128" viewBox="0 0 188 128" role="img" aria-label="Difference A moins B">
+      <rect width="188" height="128" rx="8" fill="#f8fafc" stroke="#93a5c0" stroke-width="1.5"/>
+      <ellipse cx="75" cy="64" rx="47" ry="37" fill="#93c5fd" fill-opacity=".65" stroke="#1e3a5f" stroke-width="1.8"/>
+      <ellipse cx="113" cy="64" rx="47" ry="37" fill="#f8fafc" stroke="#1e3a5f" stroke-width="1.8"/>
+      <text x="54" y="68" font-size="15" font-family="serif" font-style="italic" fill="#1e3a5f" font-weight="bold">A</text>
+      <text x="127" y="68" font-size="15" font-family="serif" font-style="italic" fill="#1e3a5f" font-weight="bold">B</text>
+      <text x="170" y="16" font-size="12" fill="#555">E</text>
+    </svg>
+    <figcaption>\(A \setminus B\)</figcaption>
+  </figure>
+</div>
+
+<h3>2.6 Lois de De Morgan</h3>
+
+<div class="prop">
+  <span class="label-prop">Théorème &mdash; Lois de De Morgan</span>
+  \[\overline{A \cup B} = \bar{A} \cap \bar{B}\]
+  \[\overline{A \cap B} = \bar{A} \cup \bar{B}\]
+  <strong>En mots :</strong> le complémentaire d'une <em>union</em> est l'<em>intersection</em> des complémentaires,
+  et vice versa.<br>
+  Extension : \(\overline{A_1 \cup \cdots \cup A_n} = \bar{A}_1 \cap \cdots \cap \bar{A}_n\)
+</div>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  Ne pas confondre \(\overline{A \cup B}\) avec \(\bar{A} \cup \bar{B}\).
+  Par De Morgan : \(\overline{A \cup B} = \bar{A} \cap \bar{B}\), <em>pas</em> \(\bar{A} \cup \bar{B}\) !
+</div>
+
+<div class="ex">
+  <strong>Vérification :</strong>
+  \(E=\{1..6\}\), \(A=\{1,2,3\}\), \(B=\{2,3,4\}\).<br><br>
+  1re loi : \(A \cup B = \{1,2,3,4\}\) donc \(\overline{A \cup B} = \{5,6\}\).
+  Et \(\bar{A} \cap \bar{B} = \{4,5,6\} \cap \{1,5,6\} = \{5,6\}\). &check;<br><br>
+  2e loi : \(A \cap B = \{2,3\}\) donc \(\overline{A \cap B} = \{1,4,5,6\}\).
+  Et \(\bar{A} \cup \bar{B} = \{4,5,6\} \cup \{1,5,6\} = \{1,4,5,6\}\). &check;
+</div>
+
+<!-- ══════════════════════ 3. PRODUIT CARTÉSIEN ══ -->
+<h2>3. Produit cartésien et relations</h2>
+
+<h3>3.1 Produit cartésien</h3>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Produit cartésien</span>
+  \[A \times B = \{(a, b) \mid a \in A,\; b \in B\}\]
+  On a \(|A \times B| = |A| \times |B|\).<br>
+  Attention : \(A \times B \neq B \times A\) en général (les couples sont ordonnés).
+</div>
+
+<div class="ex">
+  <strong>Exemple :</strong>
+  \(A = \{1, 2\}\), \(B = \{x, y, z\}\) :
+  \(A \times B = \{(1,x),(1,y),(1,z),(2,x),(2,y),(2,z)\}\), cardinal \(= 2 \times 3 = 6\).<br><br>
+  <strong>Application BD :</strong> si \(A\) = clients et \(B\) = produits,
+  une table de commandes est un sous-ensemble de \(A \times B\).
+</div>
+
+<h3>3.2 Relations binaires</h3>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Relation binaire</span>
+  Une <strong>relation binaire</strong> \(\mathcal{R}\) de \(A\) dans \(B\) est un sous-ensemble de \(A \times B\).
+  On note \(a \mathrel{\mathcal{R}} b\) si \((a,b) \in \mathcal{R}\).<br><br>
+  Une relation sur \(A\) (de \(A\) dans \(A\)) peut être :<br>
+  &bull; <strong>Réflexive :</strong> \(\forall a,\; a\,\mathcal{R}\,a\)<br>
+  &bull; <strong>Symétrique :</strong> \(a\,\mathcal{R}\,b \Rightarrow b\,\mathcal{R}\,a\)<br>
+  &bull; <strong>Antisymétrique :</strong> \(a\,\mathcal{R}\,b\) et \(b\,\mathcal{R}\,a \Rightarrow a=b\)<br>
+  &bull; <strong>Transitive :</strong> \(a\,\mathcal{R}\,b\) et \(b\,\mathcal{R}\,c \Rightarrow a\,\mathcal{R}\,c\)<br><br>
+  Relation réflexive + symétrique + transitive = <strong>relation d'équivalence</strong>.<br>
+  Relation réflexive + antisymétrique + transitive = <strong>relation d'ordre</strong>.
+</div>
+
+<h3>3.3 Applications et fonctions</h3>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Application</span>
+  Une <strong>application</strong> \(f : A \to B\) est une relation telle que tout \(a \in A\)
+  a <em>exactement un</em> image \(f(a) \in B\).<br><br>
+  &bull; <strong>Injective :</strong> \(f(a_1)=f(a_2) \Rightarrow a_1=a_2\)<br>
+  &bull; <strong>Surjective :</strong> tout \(b \in B\) a au moins un antécédent<br>
+  &bull; <strong>Bijective :</strong> injective et surjective (correspondance parfaite 1-1)
+</div>
+
+<!-- ══════════════════════ 4. FORMULE DU CARDINAL ══ -->
+<h2>4. Formule du cardinal (inclusion-exclusion)</h2>
+
+<div class="prop">
+  <span class="label-prop">Formule fondamentale &mdash; 2 ensembles</span>
+  \[|A \cup B| = |A| + |B| - |A \cap B|\]
+  Si \(A\) et \(B\) sont disjoints : \(|A \cup B| = |A| + |B|\).<br>
+  <em>Intuition :</em> en additionnant \(|A|\) et \(|B|\), on compte deux fois les éléments de \(A \cap B\).
+</div>
+
+<div class="formule-box">
+  <strong>Extension à 3 ensembles</strong>
+  \[|A \cup B \cup C| = |A|+|B|+|C|-|A \cap B|-|A \cap C|-|B \cap C|+|A \cap B \cap C|\]
+</div>
+
+<div class="ex">
+  <strong>Exemple 1 &mdash; Sondage clients :</strong><br>
+  200 clients interrogés. 120 satisfaits du SAV (ensemble \(A\)), 90 satisfaits du délai (ensemble \(B\)),
+  60 satisfaits des deux (\(A \cap B\)).<br><br>
+  Satisfaits d'au moins un critère : \(|A \cup B| = 120+90-60 = \mathbf{150}\)<br>
+  Insatisfaits des deux : \(200-150 = \mathbf{50}\)
+</div>
+
+<div class="ex">
+  <strong>Exemple 2 &mdash; Contrôle qualité (3 défauts) :</strong><br>
+  Sur 500 pièces : défaut de surface \(|A|=80\), dimensionnel \(|B|=60\), matière \(|C|=40\).<br>
+  \(|A \cap B|=15\), \(|A \cap C|=10\), \(|B \cap C|=8\), \(|A \cap B \cap C|=3\).<br><br>
+  \[|A \cup B \cup C| = 80+60+40-15-10-8+3 = \mathbf{150}\text{ pièces défectueuses}\]
+</div>
+
+<div class="meth">
+  <span class="label-meth">Application en probabilités</span>
+  Dans un espace de probabilité quelconque :
+  \[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]
+  C'est la formule des probabilités totales généralisée.
+  Si \(A\) et \(B\) sont incompatibles (\(A \cap B = \emptyset\)) : \(P(A \cup B) = P(A)+P(B)\).
+</div>
+
+<!-- ══════════════════════ 5. DÉNOMBREMENT ══ -->
+<h2>5. Dénombrement</h2>
+
+<h3>5.1 Règles fondamentales</h3>
+
+<div class="prop">
+  <span class="label-prop">Règle de la somme</span>
+  Si une expérience peut donner \(m\) résultats <em>ou</em> \(n\) résultats (cas exclusifs),
+  le nombre total est \(m + n\).<br>
+  <em>Exemple :</em> 4 outils manuels ou 3 électriques : \(4+3=7\) choix.
+</div>
+
+<div class="prop">
+  <span class="label-prop">Règle du produit</span>
+  Si une procédure comporte \(k\) étapes indépendantes avec \(n_1, \ldots, n_k\) possibilités chacune,
+  le nombre total est \(n_1 \times n_2 \times \cdots \times n_k\).<br>
+  <em>Exemple :</em> Code = 1 lettre (26) + 2 chiffres (10×10) : \(26 \times 100 = 2600\) codes.
+</div>
+
+<h3>5.2 Factorielle et permutations</h3>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Factorielle</span>
+  \[n! = 1 \times 2 \times 3 \times \cdots \times n \qquad (0! = 1)\]
+  Le nombre de <strong>permutations</strong> (arrangements de \(n\) éléments parmi eux-mêmes) est \(n!\).<br>
+  <em>Exemple :</em> 4 pièces en ligne : \(4! = 24\) dispositions.
+</div>
+
+<h3>5.3 Arrangements (ordre compte, sans remise)</h3>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Arrangements \(A_n^k\)</span>
+  Liste ordonnée de \(k\) éléments distincts tirés parmi \(n\) (\(k \leq n\)) :
+  \[A_n^k = \frac{n!}{(n-k)!} = n(n-1)\cdots(n-k+1)\]
+  <em>Exemple &mdash; Code PIN à 4 chiffres distincts parmi \(\{0..9\}\) :</em>
+  \(A_{10}^4 = 10 \times 9 \times 8 \times 7 = 5\,040\)
+</div>
+
+<h3>5.4 Combinaisons (ordre indifférent, sans remise)</h3>
+
+<div class="def">
+  <span class="label-def">Définition &mdash; Combinaisons \(\binom{n}{k}\)</span>
+  Sous-ensemble de \(k\) éléments tirés parmi \(n\) (l'ordre ne compte pas) :
+  \[\binom{n}{k} = C_n^k = \frac{n!}{k!\,(n-k)!} = \frac{A_n^k}{k!}\]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriétés des coefficients binomiaux</span>
+  \(\binom{n}{0}=\binom{n}{n}=1\) &bull;
+  \(\binom{n}{1}=n\) &bull;
+  Symétrie : \(\binom{n}{k}=\binom{n}{n-k}\)<br>
+  Relation de Pascal : \(\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}\)<br>
+  Somme d'une ligne : \(\displaystyle\sum_{k=0}^{n}\binom{n}{k}=2^n\)
+</div>
+
+<div class="ex">
+  <strong>Exemple &mdash; Contrôle qualité :</strong>
+  Un technicien prélève 5 pièces parmi 20 (ordre sans importance) :<br>
+  \[\binom{20}{5} = \frac{20 \times 19 \times 18 \times 17 \times 16}{5!} = \frac{1\,860\,480}{120} = 15\,504\]
+</div>
+
+<h3>5.5 Triangle de Pascal</h3>
+
+<p>Chaque nombre est la somme des deux nombres directement au-dessus.</p>
+
+<table class="pascal" aria-label="Triangle de Pascal lignes 0 à 5">
+  <tr>
+    <td class="mt"></td><td class="mt"></td><td class="mt"></td><td class="mt"></td>
+    <td class="hi">1</td>
+    <td class="mt"></td><td class="mt"></td><td class="mt"></td><td class="mt"></td>
+  </tr>
+  <tr>
+    <td class="mt"></td><td class="mt"></td><td class="mt"></td>
+    <td class="hi">1</td><td class="mt"></td><td class="hi">1</td>
+    <td class="mt"></td><td class="mt"></td><td class="mt"></td>
+  </tr>
+  <tr>
+    <td class="mt"></td><td class="mt"></td>
+    <td class="hi">1</td><td class="mt"></td><td class="hi">2</td><td class="mt"></td><td class="hi">1</td>
+    <td class="mt"></td><td class="mt"></td>
+  </tr>
+  <tr>
+    <td class="mt"></td>
+    <td class="hi">1</td><td class="mt"></td><td class="hi">3</td><td class="mt"></td>
+    <td class="hi">3</td><td class="mt"></td><td class="hi">1</td>
+    <td class="mt"></td>
+  </tr>
+  <tr>
+    <td class="hi">1</td><td class="mt"></td><td class="hi">4</td><td class="mt"></td>
+    <td class="hi">6</td><td class="mt"></td><td class="hi">4</td><td class="mt"></td><td class="hi">1</td>
+  </tr>
+</table>
+<p style="text-align:center;font-size:.88rem;color:#555;">Ligne \(n\) : \(\binom{n}{0},\binom{n}{1},\ldots,\binom{n}{n}\) — lignes \(n=0\) à \(n=4\).</p>
+
+<table class="table-std" style="max-width:500px;margin:1rem auto" aria-label="Table arrangements vs combinaisons">
+  <thead>
+    <tr><th>Formule</th><th>Ordre</th><th>Remise</th><th>Nombre</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Permutations</td><td>Oui</td><td>Non</td><td>\(n!\)</td></tr>
+    <tr><td>Arrangements \(A_n^k\)</td><td>Oui</td><td>Non</td><td>\(\dfrac{n!}{(n-k)!}\)</td></tr>
+    <tr><td>Combinaisons \(\binom{n}{k}\)</td><td>Non</td><td>Non</td><td>\(\dfrac{n!}{k!(n-k)!}\)</td></tr>
+    <tr><td>Tirage avec remise (ordonné)</td><td>Oui</td><td>Oui</td><td>\(n^k\)</td></tr>
+  </tbody>
+</table>
+
+<!-- ══════════════════════ 6. SQL ══ -->
+<h2>6. Applications informatiques &mdash; Opérations ensemblistes en SQL</h2>
+
+<p>Les SGBD relationnels implémentent directement les opérations ensemblistes sur des tables.</p>
+
+<table class="table-std" aria-label="Correspondance ensembles et SQL">
+  <thead>
+    <tr><th>Opération</th><th>Notation</th><th>SQL standard</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Union (sans doublons)</td><td>\(A \cup B\)</td><td><code>UNION</code></td></tr>
+    <tr><td>Union (avec doublons)</td><td>&mdash;</td><td><code>UNION ALL</code></td></tr>
+    <tr><td>Intersection</td><td>\(A \cap B\)</td><td><code>INTERSECT</code></td></tr>
+    <tr><td>Différence</td><td>\(A \setminus B\)</td><td><code>EXCEPT</code> (Oracle : <code>MINUS</code>)</td></tr>
+  </tbody>
+</table>
+
+<div class="grid2">
+  <div>
+    <h3>UNION (\(A \cup B\))</h3>
+    <pre><code><span class="cm">-- Tous les fournisseurs (catA ou catB)</span>
+<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catA
+<span class="kw">UNION</span>
+<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catB;</code></pre>
+  </div>
+  <div>
+    <h3>INTERSECT (\(A \cap B\))</h3>
+    <pre><code><span class="cm">-- Fournisseurs livrant A ET B</span>
+<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catA
+<span class="kw">INTERSECT</span>
+<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catB;</code></pre>
+  </div>
+  <div>
+    <h3>EXCEPT (\(A \setminus B\))</h3>
+    <pre><code><span class="cm">-- Fournisseurs livrant A mais PAS B</span>
+<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catA
+<span class="kw">EXCEPT</span>
+<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catB;</code></pre>
+  </div>
+  <div>
+    <h3>De Morgan en SQL</h3>
+    <pre><code><span class="cm">-- Fournisseurs ni catA ni catB</span>
+<span class="cm">-- = complement(A union B)</span>
+<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> tous_fournisseurs
+<span class="kw">EXCEPT</span>
+(<span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catA
+ <span class="kw">UNION</span>
+ <span class="kw">SELECT</span> id_fourn <span class="kw">FROM</span> livraisons_catB);</code></pre>
+  </div>
+</div>
+
+<div class="att">
+  <span class="label-att">Règle SQL</span>
+  Pour <code>UNION</code> / <code>INTERSECT</code> / <code>EXCEPT</code> :
+  les deux requêtes doivent retourner le <em>même nombre de colonnes</em>
+  avec des types compatibles. Les noms des colonnes sont ceux de la première requête.
+</div>
+
+<!-- ══════════════════════ MÉTHODE ══ -->
+<div class="meth">
+  <span class="label-meth">Méthode &mdash; Résoudre un problème de dénombrement</span>
+  <ol>
+    <li><strong>Identifier</strong> l'ensemble universel et les ensembles en jeu.</li>
+    <li><strong>Traduire</strong> les conditions en opérations ensemblistes.</li>
+    <li><strong>Choisir la formule :</strong>
+      ordre + sans remise &rarr; \(A_n^k\) ;
+      sans ordre + sans remise &rarr; \(\binom{n}{k}\) ;
+      avec remise &rarr; \(n^k\) ;
+      cardinal d'union &rarr; inclusion-exclusion.
+    </li>
+    <li><strong>Calculer</strong> (factorielles ou touche <em>nCr</em> de la calculatrice).</li>
+    <li><strong>Vérifier</strong> la cohérence (ordre de grandeur, cas limite).</li>
+  </ol>
+</div>
+
+<!-- ══════════════════════ À RETENIR ══ -->
+<div class="retenir">
+  <h3>À retenir &mdash; Théorie des ensembles et dénombrement</h3>
+  <div class="grid2">
+    <div>
+      <strong>Opérations et lois</strong>
+      <ul>
+        <li>\(A \cup B\) : union (&laquo; ou &raquo;)</li>
+        <li>\(A \cap B\) : intersection (&laquo; et &raquo;)</li>
+        <li>\(\bar{A} = E \setminus A\) : complémentaire</li>
+        <li>\(A \setminus B = A \cap \bar{B}\) : différence</li>
+        <li>De Morgan : \(\overline{A \cup B} = \bar{A} \cap \bar{B}\)</li>
+        <li>De Morgan : \(\overline{A \cap B} = \bar{A} \cup \bar{B}\)</li>
+      </ul>
+    </div>
+    <div>
+      <strong>Formules clés</strong>
+      <ul>
+        <li>\(|A \cup B| = |A|+|B|-|A \cap B|\)</li>
+        <li>\(|\mathcal{P}(A)| = 2^{|A|}\)</li>
+        <li>\(A_n^k = \dfrac{n!}{(n-k)!}\) (arrangements)</li>
+        <li>\(\dbinom{n}{k} = \dfrac{n!}{k!(n-k)!}\) (combinaisons)</li>
+        <li>Pascal : \(\dbinom{n}{k}=\dbinom{n-1}{k-1}+\dbinom{n-1}{k}\)</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:.8rem">
+    <strong>SQL :</strong>
+    <code>UNION</code> &harr; \(A \cup B\) &nbsp;&bull;&nbsp;
+    <code>INTERSECT</code> &harr; \(A \cap B\) &nbsp;&bull;&nbsp;
+    <code>EXCEPT</code> &harr; \(A \setminus B\)
+  </p>
+</div>
+
+</div><!-- /.c -->
 <script src="../../../nav.js"></script>
 </body>
 </html>

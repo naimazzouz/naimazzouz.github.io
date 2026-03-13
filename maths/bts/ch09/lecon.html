@@ -5,24 +5,745 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch09 – Probabilités 2 – BTS</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
-<style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
+table{border-collapse:collapse;width:100%;margin:1rem 0}
+th,td{border:1px solid #cbd5e1;padding:.55rem .75rem;text-align:left;vertical-align:middle}
+th{background:var(--p-bg);color:var(--p);font-weight:600}
+tr:nth-child(even) td{background:#f8fafc}
+.loi-card{background:var(--p-bg);border:2px solid var(--p-border);border-radius:10px;padding:1rem 1.25rem;margin:.75rem 0}
+.loi-card h4{color:var(--p);margin:.2rem 0 .6rem}
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+@media(max-width:640px){.formula-grid{grid-template-columns:1fr}}
+.etape{background:#f0f4f8;border-left:4px solid var(--p);padding:.6rem 1rem;margin:.45rem 0;border-radius:0 6px 6px 0}
+.etape strong{color:var(--p)}
+.regle-choix{background:#fffbeb;border:2px solid #f59e0b;border-radius:8px;padding:1rem 1.25rem;margin:.75rem 0}
+.regle-choix h4{color:#b45309;margin:.1rem 0 .5rem}
+.badge-loi{display:inline-block;font-size:.78rem;padding:.15rem .6rem;border-radius:12px;font-weight:600;margin-right:.3rem}
+.badge-binomial{background:#dbeafe;color:#1e40af}
+.badge-poisson{background:#dcfce7;color:#15803d}
+.badge-normale{background:#fce7f3;color:#9d174d}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <h1>Chapitre 09 – Probabilités 2</h1>
-  <p class="sous-titre">BTS — Groupements B1, B2, D1, D2</p>
+  <h1>Chapitre 9 &ndash; Probabilités 2</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupements B1, B2, D1, D2</p>
+  <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
 
-<div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+<!-- ============================================================
+     OBJECTIFS
+     ============================================================ -->
+<section class="objectifs">
+  <h2>Objectifs du chapitre</h2>
+  <ul>
+    <li>Maîtriser la loi binomiale \(B(n,p)\) : calcul de probabilités, espérance, variance.</li>
+    <li>Comprendre et utiliser la loi de Poisson \(\mathcal{P}(\lambda)\) et savoir quand l'utiliser.</li>
+    <li>Connaître les propriétés de la loi normale \(\mathcal{N}(\mu, \sigma^2)\) et la courbe de Gauss.</li>
+    <li>Standardiser une variable normale et utiliser la table de la loi normale centrée réduite.</li>
+    <li>Appliquer les approximations : binomiale → Poisson et binomiale → normale.</li>
+    <li>Construire et interpréter un intervalle de confiance.</li>
+    <li>Résoudre des problèmes de contrôle qualité industriel : taux de défaut, fiabilité.</li>
+    <li>Choisir la loi adaptée à une situation donnée selon les critères du problème.</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     SITUATION PROFESSIONNELLE
+     ============================================================ -->
+<div class="situation">
+  <h2>Situation professionnelle</h2>
+  <p><strong>Contexte :</strong> Une technicienne qualité dans une usine de fabrication de composants électroniques doit mettre en place un plan de contrôle des lots de production. L'atelier produit des circuits intégrés avec un taux de défaut moyen de 2 %.</p>
+  <p>Trois types de problèmes se posent :</p>
+  <ol>
+    <li><strong>Contrôle par lot de 50 pièces :</strong> Quelle est la probabilité de trouver exactement 2 pièces défectueuses ? Plus de 3 défectueuses ? Elle utilise la <strong>loi binomiale</strong> \(B(50;\,0{,}02)\).</li>
+    <li><strong>Analyse des pannes sur une ligne :</strong> La ligne enregistre en moyenne 3 pannes par semaine. Quelle est la probabilité de 0 panne lundi ? Elle utilise la <strong>loi de Poisson</strong> \(\mathcal{P}(0{,}6)\).</li>
+    <li><strong>Mesure des dimensions d'une pièce :</strong> Le diamètre suit une loi normale \(\mathcal{N}(50\text{ mm};\,0{,}04\text{ mm}^2)\). Quelle est la proportion de pièces hors tolérance \([49{,}6\,;\,50{,}4]\) mm ? Elle utilise la <strong>loi normale</strong>.</li>
+  </ol>
+  <p>Ces trois situations illustrent les trois lois fondamentales de ce chapitre.</p>
 </div>
 
+<!-- ============================================================
+     1. RAPPELS — LOI DE BERNOULLI
+     ============================================================ -->
+<h2>1. Rappels — Loi de Bernoulli et variables aléatoires</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Épreuve de Bernoulli</strong></p>
+  <p>Une épreuve de Bernoulli de paramètre \(p\) est une expérience aléatoire à deux issues :</p>
+  <ul>
+    <li>"Succès" avec probabilité \(p\) (où \(0 < p < 1\))</li>
+    <li>"Échec" avec probabilité \(1 - p = q\)</li>
+  </ul>
+  <p>La variable aléatoire associée \(X\) suit la loi de Bernoulli \(\mathcal{B}(p)\) :</p>
+  \[P(X=1) = p \qquad P(X=0) = 1-p\]
+  \[E(X) = p \qquad V(X) = p(1-p)\]
 </div>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Espérance et variance d'une variable aléatoire discrète</strong></p>
+  <p>Si \(X\) prend les valeurs \(x_1, x_2, \ldots, x_n\) avec les probabilités \(p_1, p_2, \ldots, p_n\) :</p>
+  \[E(X) = \sum_{i=1}^n x_i\,p_i \qquad V(X) = E\!\left[(X - E(X))^2\right] = E(X^2) - [E(X)]^2\]
+  <p>L'écart-type est \(\sigma(X) = \sqrt{V(X)}\).</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété — Combinaisons</span>
+  <p>Le coefficient binomial \(\dbinom{n}{k}\) (lire "k parmi n") représente le nombre de façons de choisir \(k\) éléments parmi \(n\) :</p>
+  \[\binom{n}{k} = C_n^k = \frac{n!}{k!\,(n-k)!}\]
+  <p>Exemples : \(\dbinom{5}{2} = 10\), \(\dbinom{10}{3} = 120\), \(\dbinom{n}{0} = \dbinom{n}{n} = 1\).</p>
+</div>
+
+<!-- ============================================================
+     2. LOI BINOMIALE
+     ============================================================ -->
+<h2>2. Loi binomiale \(B(n,p)\)</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Loi binomiale</strong></p>
+  <p>On répète \(n\) épreuves de Bernoulli <strong>indépendantes</strong>, chacune de paramètre \(p\). Si \(X\) est le nombre de succès, alors \(X\) suit la loi binomiale \(B(n,\,p)\) :</p>
+  \[
+    \boxed{P(X = k) = \binom{n}{k}\,p^k\,(1-p)^{n-k}} \qquad k = 0, 1, 2, \ldots, n
+  \]
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  <p><strong>Espérance et variance de \(X \sim B(n,p)\)</strong></p>
+  \[E(X) = np \qquad V(X) = np(1-p) = npq \qquad \sigma(X) = \sqrt{npq}\]
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 1 — Contrôle qualité (situation professionnelle)</span>
+  <p>Un lot de 50 composants est prélevé. Le taux de défaut est \(p = 0{,}02\). Soit \(X \sim B(50;\,0{,}02)\).</p>
+
+  <p><strong>a) Probabilité d'exactement 2 défectueux :</strong></p>
+  \[P(X=2) = \binom{50}{2}(0{,}02)^2(0{,}98)^{48} = 1225 \times 0{,}0004 \times (0{,}98)^{48}\]
+  \[(0{,}98)^{48} \approx e^{48\ln 0{,}98} \approx e^{-0{,}974} \approx 0{,}378\]
+  \[P(X=2) \approx 1225 \times 0{,}0004 \times 0{,}378 \approx 0{,}185\]
+
+  <p><strong>b) Espérance et écart-type :</strong></p>
+  \[E(X) = 50 \times 0{,}02 = 1 \quad \text{défectueux en moyenne}\]
+  \[\sigma(X) = \sqrt{50 \times 0{,}02 \times 0{,}98} = \sqrt{0{,}98} \approx 0{,}99\]
+
+  <p><strong>c) Probabilité de trouver au plus 3 défectueux :</strong></p>
+  \[P(X \leq 3) = P(X=0) + P(X=1) + P(X=2) + P(X=3)\]
+  \[P(X=0) = (0{,}98)^{50} \approx 0{,}364\]
+  \[P(X=1) = 50 \times 0{,}02 \times (0{,}98)^{49} \approx 0{,}372\]
+  \[P(X=2) \approx 0{,}186 \qquad P(X=3) \approx 0{,}061\]
+  \[P(X \leq 3) \approx 0{,}364 + 0{,}372 + 0{,}186 + 0{,}061 = 0{,}983\]
+  <p>Il y a donc environ 98,3 % de chance que le lot ne contienne pas plus de 3 pièces défectueuses.</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 2 — Test en série</span>
+  <p>Un technicien de maintenance teste 8 fusibles indépendants, chacun ayant 10 % de chance d'être défectueux. Soit \(X \sim B(8;\,0{,}1)\).</p>
+  \[P(X=0) = (0{,}9)^8 \approx 0{,}430\]
+  \[P(X \geq 1) = 1 - P(X=0) \approx 1 - 0{,}430 = 0{,}570\]
+  \[E(X) = 8 \times 0{,}1 = 0{,}8 \quad \text{fusible défectueux en moyenne}\]
+</div>
+
+<!-- Chart binomiale -->
+<h3>Visualisation de la loi binomiale \(B(n=20;\,p=0{,}3)\)</h3>
+<div class="chart-wrap" style="background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:1rem">
+  <canvas id="binomialChart" width="600" height="340"></canvas>
+</div>
+
+<div class="exo">
+  <span class="label-meth" style="background:#7c3aed">Exercice</span>
+  <p>Dans une chaîne de production, 5 % des pièces sont hors tolérance. On prélève un échantillon de 20 pièces.</p>
+  <ol>
+    <li>Quelle loi suit le nombre \(X\) de pièces hors tolérance dans l'échantillon ?</li>
+    <li>Calculer \(E(X)\) et \(\sigma(X)\).</li>
+    <li>Calculer \(P(X = 0)\) et \(P(X \geq 2)\).</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(X \sim B(20;\,0{,}05)\) — 20 épreuves indépendantes, probabilité de succès 5 %.</p>
+    <p><strong>2.</strong></p>
+    \[E(X) = 20 \times 0{,}05 = 1 \qquad \sigma(X) = \sqrt{20 \times 0{,}05 \times 0{,}95} = \sqrt{0{,}95} \approx 0{,}975\]
+    <p><strong>3.</strong></p>
+    \[P(X=0) = \binom{20}{0}(0{,}05)^0(0{,}95)^{20} = (0{,}95)^{20} \approx 0{,}358\]
+    \[P(X=1) = \binom{20}{1}(0{,}05)^1(0{,}95)^{19} = 20 \times 0{,}05 \times (0{,}95)^{19}\]
+    \[(0{,}95)^{19} \approx 0{,}377 \Rightarrow P(X=1) \approx 0{,}377\]
+    \[P(X \geq 2) = 1 - P(X=0) - P(X=1) \approx 1 - 0{,}358 - 0{,}377 = 0{,}265\]
+    <p>Environ 26,5 % de chance de trouver 2 pièces hors tolérance ou plus dans l'échantillon.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     3. LOI DE POISSON
+     ============================================================ -->
+<h2>3. Loi de Poisson \(\mathcal{P}(\lambda)\)</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Loi de Poisson</strong></p>
+  <p>Une variable aléatoire \(X\) suit la loi de Poisson de paramètre \(\lambda > 0\) si :</p>
+  \[
+    \boxed{P(X = k) = e^{-\lambda}\,\frac{\lambda^k}{k!}} \qquad k = 0, 1, 2, 3, \ldots
+  \]
+  <p>On note \(X \sim \mathcal{P}(\lambda)\). L'ensemble des valeurs est \(\mathbb{N}\) (sans limite supérieure).</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  <p><strong>Espérance et variance de \(X \sim \mathcal{P}(\lambda)\)</strong></p>
+  \[E(X) = \lambda \qquad V(X) = \lambda \qquad \sigma(X) = \sqrt{\lambda}\]
+  <p>Pour la loi de Poisson, l'espérance est égale à la variance — propriété caractéristique.</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété — Contextes d'application</span>
+  <p>La loi de Poisson modélise le nombre d'événements rares survenant dans un intervalle de temps ou d'espace donné, lorsque les événements sont :</p>
+  <ul>
+    <li>Indépendants les uns des autres</li>
+    <li>Survenus à un taux moyen constant \(\lambda\)</li>
+    <li>Peu probables pour un petit intervalle</li>
+  </ul>
+  <p>Exemples : nombre de pannes par semaine, nombre d'appels par heure, nombre de défauts par mètre de câble.</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 1 — Pannes d'une ligne de production</span>
+  <p>Une ligne de production subit en moyenne 3 pannes par semaine (\(\lambda = 3\)). Soit \(X \sim \mathcal{P}(3)\).</p>
+
+  <p><strong>a) Probabilité d'aucune panne :</strong></p>
+  \[P(X=0) = e^{-3}\,\frac{3^0}{0!} = e^{-3} \approx 0{,}0498\]
+  <p>Environ 5 % de chance de passer une semaine sans panne.</p>
+
+  <p><strong>b) Probabilité d'exactement 2 pannes :</strong></p>
+  \[P(X=2) = e^{-3}\,\frac{3^2}{2!} = e^{-3} \times \frac{9}{2} \approx 0{,}0498 \times 4{,}5 \approx 0{,}224\]
+
+  <p><strong>c) Probabilité d'au moins 4 pannes :</strong></p>
+  \[P(X \geq 4) = 1 - P(X \leq 3) = 1 - \left[P(0)+P(1)+P(2)+P(3)\right]\]
+  \[P(X=1) = 3e^{-3} \approx 0{,}149 \qquad P(X=3) = e^{-3}\frac{27}{6} \approx 0{,}224\]
+  \[P(X \leq 3) \approx 0{,}050 + 0{,}149 + 0{,}224 + 0{,}224 = 0{,}647\]
+  \[P(X \geq 4) \approx 1 - 0{,}647 = 0{,}353\]
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 2 — Changement d'unité temporelle</span>
+  <p>Si \(\lambda = 3\) pannes/semaine, alors sur une journée (1/5 de semaine) :</p>
+  \[\lambda_j = \frac{3}{5} = 0{,}6 \text{ panne/jour}\]
+  <p>Probabilité de 0 panne un lundi :</p>
+  \[P(X=0) = e^{-0{,}6} \approx 0{,}549\]
+  <p>Plus d'une chance sur deux de passer la journée sans panne.</p>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété — Approximation de la binomiale par Poisson</span>
+  <p>Si \(X \sim B(n, p)\) avec \(n\) grand (\(n \geq 50\)) et \(p\) petit (\(p \leq 0{,}1\)), alors :</p>
+  \[B(n,\,p) \approx \mathcal{P}(\lambda) \quad \text{avec } \lambda = np\]
+  <p>Cette approximation simplifie les calculs car \(P(X=k) = e^{-\lambda}\lambda^k/k!\) est plus facile que la formule binomiale pour \(n\) grand.</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 3 — Approximation de Poisson</span>
+  <p>Sur 200 pièces, le taux de défaut est \(p = 0{,}01\). Soit \(X \sim B(200;\,0{,}01)\).</p>
+  <p>Conditions : \(n = 200 \geq 50\) et \(p = 0{,}01 \leq 0{,}1\) → on approche par \(\mathcal{P}(\lambda = 2)\).</p>
+  \[P(X=0) \approx e^{-2} \approx 0{,}135 \qquad P(X=3) \approx e^{-2}\frac{8}{6} \approx 0{,}180\]
+  <p>Calcul exact avec la binomiale : \(P(X=0) = (0{,}99)^{200} \approx 0{,}134\) — très proche.</p>
+</div>
+
+<!-- ============================================================
+     4. LOI NORMALE
+     ============================================================ -->
+<h2>4. Loi normale \(\mathcal{N}(\mu, \sigma^2)\)</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Loi normale (loi de Gauss)</strong></p>
+  <p>Une variable aléatoire continue \(X\) suit la loi normale \(\mathcal{N}(\mu, \sigma^2)\) si sa densité de probabilité est :</p>
+  \[
+    f(x) = \frac{1}{\sigma\sqrt{2\pi}}\,\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+  \]
+  <ul>
+    <li>\(\mu\) : espérance (centre de la courbe)</li>
+    <li>\(\sigma\) : écart-type (\(\sigma > 0\)) — mesure l'étalement</li>
+    <li>La courbe est symétrique par rapport à \(x = \mu\) (courbe en cloche)</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété — Règle des 1, 2, 3 sigmas</span>
+  <p>Pour \(X \sim \mathcal{N}(\mu, \sigma^2)\) :</p>
+  \[P(\mu - \sigma \leq X \leq \mu + \sigma) \approx 68{,}27\,\%\]
+  \[P(\mu - 2\sigma \leq X \leq \mu + 2\sigma) \approx 95{,}45\,\%\]
+  \[P(\mu - 3\sigma \leq X \leq \mu + 3\sigma) \approx 99{,}73\,\%\]
+</div>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Loi normale centrée réduite \(\mathcal{N}(0,1)\)</strong></p>
+  <p>C'est la loi normale avec \(\mu = 0\) et \(\sigma = 1\). Sa densité est :</p>
+  \[
+    \varphi(z) = \frac{1}{\sqrt{2\pi}}\,e^{-z^2/2}
+  \]
+  <p>La fonction de répartition est notée \(\Phi(z) = P(Z \leq z)\) et se lit dans une <strong>table de la loi normale centrée réduite</strong>.</p>
+</div>
+
+<div class="meth">
+  <span class="label-meth">Méthode — Standardisation</span>
+  <p>Pour calculer des probabilités avec \(X \sim \mathcal{N}(\mu, \sigma^2)\), on effectue le changement de variable :</p>
+  \[
+    Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0,1)
+  \]
+  <div class="etape"><strong>Étape 1.</strong> Identifier \(\mu\) et \(\sigma\) dans l'énoncé.</div>
+  <div class="etape"><strong>Étape 2.</strong> Transformer les bornes : \(a \to z_1 = \dfrac{a-\mu}{\sigma}\) et \(b \to z_2 = \dfrac{b-\mu}{\sigma}\).</div>
+  <div class="etape"><strong>Étape 3.</strong> Lire les valeurs dans la table : \(P(a \leq X \leq b) = \Phi(z_2) - \Phi(z_1)\).</div>
+  <div class="etape"><strong>Étape 4.</strong> Utiliser la symétrie si nécessaire : \(\Phi(-z) = 1 - \Phi(z)\).</div>
+</div>
+
+<h3>Table de la loi normale centrée réduite (valeurs usuelles)</h3>
+<table>
+  <thead>
+    <tr><th>\(z\)</th><th>\(\Phi(z) = P(Z \leq z)\)</th><th>\(P(-z \leq Z \leq z)\)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0</td><td>0,5000</td><td>0 %</td></tr>
+    <tr><td>0,5</td><td>0,6915</td><td>38,3 %</td></tr>
+    <tr><td>1,0</td><td>0,8413</td><td>68,3 %</td></tr>
+    <tr><td>1,28</td><td>0,9000</td><td>80,0 %</td></tr>
+    <tr><td>1,5</td><td>0,9332</td><td>86,6 %</td></tr>
+    <tr><td>1,645</td><td>0,9500</td><td>90,0 %</td></tr>
+    <tr><td>1,96</td><td>0,9750</td><td>95,0 %</td></tr>
+    <tr><td>2,0</td><td>0,9772</td><td>95,4 %</td></tr>
+    <tr><td>2,33</td><td>0,9901</td><td>98,0 %</td></tr>
+    <tr><td>2,576</td><td>0,9950</td><td>99,0 %</td></tr>
+    <tr><td>3,0</td><td>0,9987</td><td>99,7 %</td></tr>
+  </tbody>
+</table>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 1 — Contrôle dimensionnel</span>
+  <p>Le diamètre d'une pièce suit \(\mathcal{N}(50;\,0{,}04)\), soit \(\mu = 50\) mm et \(\sigma = 0{,}2\) mm. La tolérance est \([49{,}6\,;\,50{,}4]\) mm.</p>
+  <p><strong>Proportion de pièces dans la tolérance :</strong></p>
+  \[z_1 = \frac{49{,}6 - 50}{0{,}2} = -2 \qquad z_2 = \frac{50{,}4 - 50}{0{,}2} = 2\]
+  \[P(49{,}6 \leq X \leq 50{,}4) = \Phi(2) - \Phi(-2) = \Phi(2) - (1 - \Phi(2)) = 2\Phi(2) - 1\]
+  \[= 2 \times 0{,}9772 - 1 = 0{,}9544 = 95{,}44\,\%\]
+  <p>Environ 4,56 % des pièces seront hors tolérance — soit environ 46 pièces sur 1000.</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 2 — Probabilité unilatérale</span>
+  <p>La résistance d'un câble suit \(\mathcal{N}(100\,\Omega;\,9\,\Omega^2)\), soit \(\mu = 100\) et \(\sigma = 3\,\Omega\). Quelle est la probabilité que la résistance dépasse 104 \(\Omega\) ?</p>
+  \[z = \frac{104 - 100}{3} = \frac{4}{3} \approx 1{,}33\]
+  \[P(X > 104) = 1 - \Phi(1{,}33) \approx 1 - 0{,}9082 = 0{,}0918\]
+  <p>Il y a environ 9,2 % de chance que la résistance dépasse 104 \(\Omega\).</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple 3 — Recherche de quantile</span>
+  <p>Même câble. Trouver la valeur \(a\) telle que 95 % des câbles ont une résistance inférieure à \(a\).</p>
+  \[P(X \leq a) = 0{,}95 \Rightarrow \Phi\!\left(\frac{a-100}{3}\right) = 0{,}95\]
+  <p>Dans la table : \(\Phi(1{,}645) = 0{,}95\), donc :</p>
+  \[\frac{a-100}{3} = 1{,}645 \Rightarrow a = 100 + 3 \times 1{,}645 = 104{,}9\,\Omega\]
+</div>
+
+<!-- Courbe normale -->
+<div class="chart-wrap" style="background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:1rem">
+  <canvas id="normalChart" width="600" height="360"></canvas>
+</div>
+
+<!-- ============================================================
+     5. INTERVALLE DE CONFIANCE
+     ============================================================ -->
+<h2>5. Intervalle de confiance</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <p><strong>Intervalle de confiance pour la proportion</strong></p>
+  <p>On observe \(k\) succès dans un échantillon de taille \(n\). La fréquence observée est \(\hat{p} = k/n\). L'intervalle de confiance au niveau \(1-\alpha\) pour la proportion \(p\) de la population est :</p>
+  \[
+    \left[\hat{p} - z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}\,;\;\hat{p} + z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}\right]
+    \quad \text{avec } \sigma \approx \sqrt{\hat{p}(1-\hat{p})}
+  \]
+  <p>Valeurs usuelles de \(z_{\alpha/2}\) :</p>
+  <ul>
+    <li>Niveau 90 % : \(z_{\alpha/2} = 1{,}645\)</li>
+    <li>Niveau 95 % : \(z_{\alpha/2} = 1{,}96\)</li>
+    <li>Niveau 99 % : \(z_{\alpha/2} = 2{,}576\)</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple — IC sur le taux de défaut</span>
+  <p>Sur 500 pièces contrôlées, 12 sont défectueuses. Construire un intervalle de confiance à 95 % pour le taux de défaut réel \(p\).</p>
+  \[\hat{p} = \frac{12}{500} = 0{,}024 \qquad \hat{\sigma} = \sqrt{0{,}024 \times 0{,}976} \approx 0{,}153\]
+  \[\text{marge d'erreur} = 1{,}96 \times \frac{0{,}153}{\sqrt{500}} = 1{,}96 \times 0{,}00685 \approx 0{,}0134\]
+  \[IC_{95\%} = [0{,}024 - 0{,}013\,;\;0{,}024 + 0{,}013] = [0{,}011\,;\;0{,}037]\]
+  <p>On peut affirmer avec 95 % de confiance que le taux de défaut de la production est compris entre 1,1 % et 3,7 %.</p>
+</div>
+
+<!-- ============================================================
+     6. APPROXIMATIONS
+     ============================================================ -->
+<h2>6. Approximations entre lois</h2>
+
+<div class="prop">
+  <span class="label-prop">Propriété — Approximation binomiale → normale</span>
+  <p>Si \(X \sim B(n,p)\) avec \(n\) grand et \(np \geq 5\) et \(n(1-p) \geq 5\), alors :</p>
+  \[B(n,p) \approx \mathcal{N}(\mu,\,\sigma^2) \quad \text{avec } \mu = np \text{ et } \sigma^2 = np(1-p)\]
+  <p>On utilise alors la <strong>correction de continuité</strong> : \(P(X \leq k) \approx P\!\left(Z \leq \dfrac{k+0{,}5-np}{\sqrt{npq}}\right)\)</p>
+</div>
+
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple — Approximation normale</span>
+  <p>Soit \(X \sim B(100;\,0{,}3)\). Calculer \(P(X \leq 25)\) par approximation normale.</p>
+  \[\mu = 100 \times 0{,}3 = 30 \qquad \sigma = \sqrt{100 \times 0{,}3 \times 0{,}7} = \sqrt{21} \approx 4{,}58\]
+  <p>Conditions : \(np = 30 \geq 5\) et \(n(1-p) = 70 \geq 5\) ✓</p>
+  \[P(X \leq 25) \approx P\!\left(Z \leq \frac{25{,}5 - 30}{4{,}58}\right) = P(Z \leq -0{,}98) = 1 - \Phi(0{,}98) \approx 1 - 0{,}8365 = 0{,}164\]
+</div>
+
+<table>
+  <caption style="font-weight:bold;text-align:left;padding:.4rem 0">Synthèse des approximations</caption>
+  <thead>
+    <tr>
+      <th>Loi de départ</th>
+      <th>Approximation</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(B(n,p)\)</td>
+      <td>\(\mathcal{P}(\lambda = np)\)</td>
+      <td>\(n \geq 50\) et \(p \leq 0{,}1\)</td>
+    </tr>
+    <tr>
+      <td>\(B(n,p)\)</td>
+      <td>\(\mathcal{N}(np,\,npq)\)</td>
+      <td>\(np \geq 5\) et \(nq \geq 5\)</td>
+    </tr>
+    <tr>
+      <td>\(\mathcal{P}(\lambda)\)</td>
+      <td>\(\mathcal{N}(\lambda,\,\lambda)\)</td>
+      <td>\(\lambda \geq 20\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================================
+     7. APPLICATIONS INDUSTRIELLES
+     ============================================================ -->
+<h2>7. Applications industrielles</h2>
+
+<h3>7.1 Contrôle qualité par attribut</h3>
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple — Plan de contrôle</span>
+  <p>Un atelier décide d'accepter un lot si, parmi 30 pièces prélevées, il y a au plus 2 défectueuses. Le taux de défaut réel d'un lot est \(p\).</p>
+  <p>Calculer la probabilité d'acceptation pour \(p = 0{,}05\) et \(p = 0{,}15\).</p>
+  <p>\(X \sim B(30;\,p)\) et on accepte si \(X \leq 2\).</p>
+  <p><strong>Pour \(p = 0{,}05\) :</strong></p>
+  \[P(X=0) = (0{,}95)^{30} \approx 0{,}215\]
+  \[P(X=1) = 30 \times 0{,}05 \times (0{,}95)^{29} \approx 0{,}339\]
+  \[P(X=2) = 435 \times (0{,}05)^2 \times (0{,}95)^{28} \approx 0{,}259\]
+  \[P_{\text{accept}} = 0{,}215 + 0{,}339 + 0{,}259 = 0{,}812\]
+  <p><strong>Pour \(p = 0{,}15\) :</strong></p>
+  \[P(X=0) = (0{,}85)^{30} \approx 0{,}008\]
+  \[P(X=1) = 30 \times 0{,}15 \times (0{,}85)^{29} \approx 0{,}041\]
+  \[P(X=2) \approx 0{,}100\]
+  \[P_{\text{accept}} \approx 0{,}149\]
+  <p>Le plan distingue bien les bons lots (81 % d'acceptation à 5 %) des mauvais lots (15 % à 15 %).</p>
+</div>
+
+<h3>7.2 Durée de vie et fiabilité</h3>
+<div class="ex">
+  <span class="label-def" style="background:#0ea5e9">Exemple — Fiabilité d'un composant</span>
+  <p>La durée de vie d'un capteur de température suit une loi normale \(\mathcal{N}(5000\text{ h};\,250\,000\text{ h}^2)\), soit \(\mu = 5000\) h et \(\sigma = 500\) h.</p>
+  <p><strong>a)</strong> Probabilité que le capteur tombe en panne avant 4000 h :</p>
+  \[z = \frac{4000 - 5000}{500} = -2 \Rightarrow P(X < 4000) = \Phi(-2) = 1 - 0{,}9772 = 0{,}023\]
+  <p>Seulement 2,3 % des capteurs tombent en panne avant 4000 h.</p>
+  <p><strong>b)</strong> Garantie minimale couvrant 90 % des capteurs :</p>
+  \[P(X \geq t_G) = 0{,}90 \Rightarrow P(X < t_G) = 0{,}10\]
+  \[\Phi\!\left(\frac{t_G - 5000}{500}\right) = 0{,}10 \Rightarrow \frac{t_G-5000}{500} = -1{,}28\]
+  \[t_G = 5000 - 1{,}28 \times 500 = 4360 \text{ h}\]
+</div>
+
+<!-- ============================================================
+     8. MÉTHODE — CHOISIR LA BONNE LOI
+     ============================================================ -->
+<h2>8. Choisir la bonne loi</h2>
+
+<div class="meth">
+  <span class="label-meth">Méthode — Arbre de décision</span>
+  <p><strong>Question 1 : La variable est-elle continue ou discrète ?</strong></p>
+  <ul>
+    <li><strong>Continue</strong> (mesure, dimensions, durée, résistance…) → <span class="badge-loi badge-normale">Loi Normale</span> si la distribution est symétrique en cloche</li>
+    <li><strong>Discrète</strong> (comptage d'événements, nombre de défauts…) → question 2</li>
+  </ul>
+  <p><strong>Question 2 : Compte-t-on des succès dans \(n\) épreuves identiques ?</strong></p>
+  <ul>
+    <li><strong>Oui</strong>, \(n\) fixé et chaque épreuve = Bernoulli(\(p\)) → <span class="badge-loi badge-binomial">Loi Binomiale B(n,p)</span></li>
+    <li><strong>Non</strong>, on compte des événements rares sur un intervalle (temps, surface…) → <span class="badge-loi badge-poisson">Loi de Poisson P(λ)</span></li>
+  </ul>
+  <p><strong>Approximations disponibles :</strong></p>
+  <ul>
+    <li>\(n \geq 50\) et \(p \leq 0{,}1\) → remplacer \(B(n,p)\) par \(\mathcal{P}(np)\)</li>
+    <li>\(np \geq 5\) et \(nq \geq 5\) → remplacer \(B(n,p)\) par \(\mathcal{N}(np,\,npq)\)</li>
+  </ul>
+</div>
+
+<div class="regle-choix">
+  <h4>Tableau récapitulatif</h4>
+  <table>
+    <thead>
+      <tr><th>Situation</th><th>Loi</th><th>Paramètres</th><th>Formule \(P(X=k)\)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\(n\) épreuves Bernoulli indép.</td>
+        <td><span class="badge-loi badge-binomial">B(n,p)</span></td>
+        <td>\(n\), \(p\)</td>
+        <td>\(\dbinom{n}{k}p^k(1-p)^{n-k}\)</td>
+      </tr>
+      <tr>
+        <td>Événements rares, taux constant</td>
+        <td><span class="badge-loi badge-poisson">P(λ)</span></td>
+        <td>\(\lambda = np\)</td>
+        <td>\(e^{-\lambda}\lambda^k/k!\)</td>
+      </tr>
+      <tr>
+        <td>Variable continue, symétrique</td>
+        <td><span class="badge-loi badge-normale">N(μ,σ²)</span></td>
+        <td>\(\mu\), \(\sigma\)</td>
+        <td>Table après standardisation</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="exo">
+  <span class="label-meth" style="background:#7c3aed">Exercice de synthèse</span>
+  <p>Identifier la loi et résoudre chaque problème :</p>
+  <ol>
+    <li>Un menuisier coupe des planches. La longueur suit \(\mathcal{N}(200\text{ cm};\,0{,}25\text{ cm}^2)\). Quelle proportion de planches mesure entre 199,5 cm et 200,5 cm ?</li>
+    <li>Un technicien chauffagiste relève en moyenne 2 fuites par chantier sur une installation de chauffage. Quelle est la probabilité d'avoir 0 fuite sur le prochain chantier ?</li>
+    <li>Un électricien vérifie 15 prises indépendantes dont 8 % présentent un défaut. Quelle est la probabilité qu'exactement 1 prise soit défectueuse ?</li>
+  </ol>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Loi normale</strong> \(\mathcal{N}(200;\,0{,}25)\) — \(\sigma = 0{,}5\) cm</p>
+    \[z_1 = \frac{199{,}5-200}{0{,}5} = -1 \qquad z_2 = \frac{200{,}5-200}{0{,}5} = 1\]
+    \[P = \Phi(1) - \Phi(-1) = 2\Phi(1)-1 = 2(0{,}8413)-1 = 0{,}6827 = 68{,}3\,\%\]
+
+    <p><strong>2. Loi de Poisson</strong> \(\mathcal{P}(\lambda=2)\)</p>
+    \[P(X=0) = e^{-2} \approx 0{,}135\]
+    <p>Environ 13,5 % de chance d'un chantier sans fuite.</p>
+
+    <p><strong>3. Loi binomiale</strong> \(B(15;\,0{,}08)\)</p>
+    \[P(X=1) = \binom{15}{1}(0{,}08)^1(0{,}92)^{14} = 15 \times 0{,}08 \times (0{,}92)^{14}\]
+    \[(0{,}92)^{14} \approx e^{14\ln0{,}92} \approx e^{-1{,}20} \approx 0{,}301\]
+    \[P(X=1) \approx 15 \times 0{,}08 \times 0{,}301 \approx 0{,}361\]
+    <p>Environ 36,1 % de chance de trouver exactement 1 prise défectueuse.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     À RETENIR
+     ============================================================ -->
+<div class="retenir">
+  <h2>À retenir — Formules essentielles</h2>
+  <div class="formula-grid">
+    <div class="loi-card">
+      <h4><span class="badge-loi badge-binomial">Loi binomiale B(n,p)</span></h4>
+      \[P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}\]
+      \[E(X)=np \qquad V(X)=np(1-p)\]
+    </div>
+    <div class="loi-card">
+      <h4><span class="badge-loi badge-poisson">Loi de Poisson P(λ)</span></h4>
+      \[P(X=k) = e^{-\lambda}\,\frac{\lambda^k}{k!}\]
+      \[E(X) = \lambda \qquad V(X) = \lambda\]
+    </div>
+    <div class="loi-card">
+      <h4><span class="badge-loi badge-normale">Loi normale N(μ,σ²)</span></h4>
+      \[Z = \frac{X-\mu}{\sigma} \sim \mathcal{N}(0,1)\]
+      \[P(a \leq X \leq b) = \Phi(z_2)-\Phi(z_1)\]
+    </div>
+    <div class="loi-card">
+      <h4>Approximations</h4>
+      <p>\(n \geq 50\), \(p \leq 0{,}1\) : \(B(n,p) \approx \mathcal{P}(np)\)</p>
+      <p>\(np \geq 5\), \(nq \geq 5\) : \(B(n,p) \approx \mathcal{N}(np,npq)\)</p>
+    </div>
+  </div>
+  <div class="formule-box" style="margin-top:.75rem">
+    <p><strong>Règle des sigmas</strong></p>
+    \[P(\mu \pm \sigma) \approx 68\% \qquad P(\mu \pm 2\sigma) \approx 95\% \qquad P(\mu \pm 3\sigma) \approx 99{,}7\%\]
+  </div>
+  <div class="formule-box">
+    <p><strong>Intervalle de confiance (niveau \(1-\alpha\))</strong></p>
+    \[\left[\hat{p} \pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right]\]
+  </div>
+</div>
+
+</div><!-- /.c -->
+
 <script src="../../../nav.js"></script>
+<script>
+// ── Loi binomiale B(20, 0.3) ───────────────────────────────────────────
+(function() {
+  const ctx = document.getElementById('binomialChart').getContext('2d');
+  const n = 20, p = 0.3;
+
+  function binom(n, k) {
+    if (k < 0 || k > n) return 0;
+    let r = 1;
+    for (let i = 0; i < k; i++) r = r * (n - i) / (i + 1);
+    return r;
+  }
+  function binomProb(n, p, k) {
+    return binom(n, k) * Math.pow(p, k) * Math.pow(1-p, n-k);
+  }
+
+  const labels = [], data = [], colors = [];
+  const mu = n * p; // espérance = 6
+  for (let k = 0; k <= n; k++) {
+    labels.push(k.toString());
+    const prob = binomProb(n, p, k);
+    data.push(prob);
+    // Couleurs : zone ±σ en bleu foncé, reste en bleu clair
+    const sigma = Math.sqrt(n * p * (1 - p));
+    colors.push(Math.abs(k - mu) <= sigma ? '#1e3a5f' : '#93a5c0');
+  }
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'P(X = k) — B(20 ; 0,3)',
+          data,
+          backgroundColor: colors,
+          borderColor: '#1e3a5f',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Loi binomiale B(n=20, p=0,3) — E(X)=6, σ≈2,05',
+          color: '#1e3a5f', font: {size:13, weight:'bold'}
+        },
+        legend: {labels:{color:'#333'}},
+        tooltip: {
+          callbacks: {
+            label: ctx => `P(X=${ctx.label}) = ${(ctx.parsed.y*100).toFixed(2)} %`
+          }
+        }
+      },
+      scales: {
+        x: {title:{display:true, text:'k (nombre de succès)', color:'#555'}},
+        y: {
+          title: {display:true, text:'Probabilité P(X=k)', color:'#555'},
+          ticks: {callback: v => (v*100).toFixed(1)+'%'},
+          min: 0, max: 0.22
+        }
+      }
+    }
+  });
+})();
+
+// ── Courbe normale avec zones ─────────────────────────────────────────
+(function() {
+  const ctx = document.getElementById('normalChart').getContext('2d');
+  const mu = 50, sigma = 0.2;
+  const xMin = mu - 4*sigma, xMax = mu + 4*sigma, N = 400;
+  const dx = (xMax - xMin) / N;
+
+  function phi(x) {
+    return Math.exp(-0.5 * ((x - mu) / sigma) ** 2) / (sigma * Math.sqrt(2 * Math.PI));
+  }
+
+  const labels = [], dataTot = [], dataIn = [], dataOut1 = [], dataOut2 = [];
+  for (let i = 0; i <= N; i++) {
+    const x = xMin + i * dx;
+    labels.push(x.toFixed(3));
+    const y = phi(x);
+    dataTot.push(y);
+    // Zone dans tolérance [49.6, 50.4] = μ ± 2σ
+    if (x >= 49.6 && x <= 50.4) { dataIn.push(y); dataOut1.push(null); dataOut2.push(null); }
+    // Zone hors tolérance gauche
+    else if (x < 49.6) { dataOut1.push(y); dataIn.push(null); dataOut2.push(null); }
+    // Zone hors tolérance droite
+    else { dataOut2.push(y); dataIn.push(null); dataOut1.push(null); }
+  }
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Hors tolérance < 49,6 (2,28%)',
+          data: dataOut1,
+          borderColor: '#ef4444', borderWidth: 0,
+          backgroundColor: 'rgba(239,68,68,0.4)',
+          fill: true, pointRadius: 0, tension: 0.4
+        },
+        {
+          label: 'Dans tolérance [49,6 ; 50,4] (95,44%)',
+          data: dataIn,
+          borderColor: '#1e3a5f', borderWidth: 0,
+          backgroundColor: 'rgba(30,58,95,0.3)',
+          fill: true, pointRadius: 0, tension: 0.4
+        },
+        {
+          label: 'Hors tolérance > 50,4 (2,28%)',
+          data: dataOut2,
+          borderColor: '#ef4444', borderWidth: 0,
+          backgroundColor: 'rgba(239,68,68,0.4)',
+          fill: true, pointRadius: 0, tension: 0.4
+        },
+        {
+          label: 'Densité N(50 ; 0,04)',
+          data: dataTot,
+          borderColor: '#1e3a5f', borderWidth: 2.5,
+          fill: false, pointRadius: 0, tension: 0.4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Loi normale N(μ=50 mm, σ=0,2 mm) — Contrôle dimensionnel',
+          color: '#1e3a5f', font:{size:13, weight:'bold'}
+        },
+        legend: {labels:{color:'#333', font:{size:11}}}
+      },
+      scales: {
+        x: {
+          title: {display:true, text:'Diamètre (mm)', color:'#555'},
+          ticks: {
+            maxTicksLimit: 9,
+            callback: function(val, index) {
+              return parseFloat(this.getLabelForValue(val)).toFixed(1);
+            }
+          }
+        },
+        y: {
+          title: {display:true, text:'Densité de probabilité f(x)', color:'#555'},
+          min: 0
+        }
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>

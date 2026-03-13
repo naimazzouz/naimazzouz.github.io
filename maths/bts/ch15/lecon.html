@@ -12,17 +12,846 @@
 <body>
 <div class="c">
 <a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+
 <header>
   <h1>Chapitre 15 – Calcul vectoriel</h1>
-  <p class="sous-titre">BTS — Groupement B1</p>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; Groupements B1, C1</p>
+  <p class="maj">Dernière mise à jour : mars 2026</p>
 </header>
 
 <div class="objectifs">
-  <strong>Ce chapitre est en cours de rédaction.</strong><br>
-  Le contenu sera disponible prochainement.
+  <strong>Objectifs du chapitre :</strong>
+  <ul>
+    <li>Définir un vecteur dans l'espace, connaître ses coordonnées et calculer sa norme</li>
+    <li>Effectuer les opérations vectorielles : addition, soustraction, produit par un scalaire</li>
+    <li>Calculer et interpréter le produit scalaire (angle entre vecteurs, orthogonalité)</li>
+    <li>Calculer et interpréter le produit vectoriel (moment d'une force, normale à un plan)</li>
+    <li>Maîtriser le produit mixte et son interprétation volumique (coplanarité)</li>
+    <li>Écrire les équations paramétriques et cartésiennes de droites et plans dans l'espace</li>
+    <li>Appliquer le calcul vectoriel à la statique : résultante de forces, moment, barycentre</li>
+    <li>(B1) Comprendre la notion de matrice de rotation comme transformation linéaire</li>
+  </ul>
 </div>
 
+<!-- ==================== SITUATION PROFESSIONNELLE ==================== -->
+<h2>Situation professionnelle</h2>
+
+<div class="situation">
+  <h3>Équilibre d'un treillis métallique et assemblage bois</h3>
+  <p>
+    Un bureau d'études structures analyse un treillis métallique de toiture industrielle.
+    Chaque nœud du treillis est soumis à plusieurs forces : poids des pannes, charge de neige, réactions d'appui.
+    Pour vérifier l'équilibre statique du nœud, le technicien doit calculer la <strong>résultante vectorielle</strong> de toutes ces forces ; elle doit être nulle.
+  </p>
+  <p>
+    Dans le même atelier, un agenceur bois conçoit une charpente à trois pans.
+    Il doit déterminer l'équation du <strong>plan</strong> de chaque versant à partir de trois points de contour,
+    puis calculer l'angle d'about de chaque chevron grâce au <strong>produit scalaire</strong>.
+  </p>
+  <p>
+    Enfin, un ingénieur en génie civil modélise le moment d'un bras de levier sur un boulon de serrage :
+    \(\vec{M} = \vec{r} \times \vec{F}\). Ce <strong>produit vectoriel</strong> donne l'axe de rotation et l'intensité du moment.
+  </p>
+  <p>Ces trois situations font appel au <strong>calcul vectoriel dans l'espace</strong>.</p>
 </div>
+
+<!-- ==================== 1. VECTEURS DANS L'ESPACE ==================== -->
+<h2>1. Vecteurs dans l'espace</h2>
+
+<h3>1.1 Définition et représentation</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Vecteur</span><br>
+  Un <strong>vecteur</strong> \(\vec{u}\) est un objet mathématique caractérisé par :
+  <ul>
+    <li>une <strong>direction</strong> (la droite qui le porte),</li>
+    <li>un <strong>sens</strong> (l'orientation sur cette droite),</li>
+    <li>une <strong>norme</strong> (ou module) \(\|\vec{u}\|\), nombre réel positif ou nul.</li>
+  </ul>
+  Deux vecteurs sont <strong>égaux</strong> s'ils ont même direction, même sens et même norme.
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Vecteur \(\overrightarrow{AB}\)</span><br>
+  Soient \(A\) et \(B\) deux points de l'espace. Le vecteur \(\overrightarrow{AB}\) est le vecteur de direction \((AB)\), de sens de \(A\) vers \(B\), et de norme \(AB\).
+  \[\overrightarrow{AB} = -\overrightarrow{BA}\]
+</div>
+
+<h3>1.2 Repère orthonormé de l'espace</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Base orthonormée et repère</span><br>
+  Un <strong>repère orthonormé</strong> \((O\,;\,\vec{i},\vec{j},\vec{k})\) de l'espace est formé :
+  <ul>
+    <li>d'un point origine \(O\),</li>
+    <li>de trois vecteurs unitaires \(\vec{i}\), \(\vec{j}\), \(\vec{k}\) deux à deux orthogonaux et formant un <strong>trièdre direct</strong>.</li>
+  </ul>
+  Tout vecteur \(\vec{u}\) s'écrit de façon unique :
+  \[\vec{u} = x\,\vec{i} + y\,\vec{j} + z\,\vec{k}\]
+  On note alors \(\vec{u} = \begin{pmatrix}x\\y\\z\end{pmatrix}\) ou \(\vec{u}(x\,;\,y\,;\,z)\).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Coordonnées de \(\overrightarrow{AB}\)</span><br>
+  Si \(A(x_A\,;\,y_A\,;\,z_A)\) et \(B(x_B\,;\,y_B\,;\,z_B)\), alors :
+  \[\overrightarrow{AB} = \begin{pmatrix}x_B - x_A \\ y_B - y_A \\ z_B - z_A\end{pmatrix}\]
+</div>
+
+<h3>1.3 Norme d'un vecteur</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Norme</span><br>
+  La <strong>norme</strong> (ou module) du vecteur \(\vec{u} = \begin{pmatrix}x\\y\\z\end{pmatrix}\) est :
+  \[\|\vec{u}\| = \sqrt{x^2 + y^2 + z^2}\]
+</div>
+
+<div class="formule-box">
+  \[\|\vec{u}\| = \sqrt{x^2 + y^2 + z^2}\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Longueur d'une barre de treillis</span>
+  <p>Dans un treillis métallique, deux noeuds ont pour coordonnées \(A(1\,;\,2\,;\,0)\) et \(B(4\,;\,6\,;\,3)\) (en mètres).</p>
+  <p>Le vecteur barre : \(\overrightarrow{AB} = \begin{pmatrix}3\\4\\3\end{pmatrix}\).</p>
+  <p>Longueur de la barre : \(\|\overrightarrow{AB}\| = \sqrt{9+16+9} = \sqrt{34} \approx 5{,}83\) m.</p>
+</div>
+
+<h3>1.4 Vecteur unitaire</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Vecteur unitaire</span><br>
+  Un vecteur est dit <strong>unitaire</strong> (ou normé) si sa norme vaut 1.
+  Le vecteur unitaire de même sens que \(\vec{u} \neq \vec{0}\) est :
+  \[\hat{u} = \frac{\vec{u}}{\|\vec{u}\|} = \frac{1}{\|\vec{u}\|}\begin{pmatrix}x\\y\\z\end{pmatrix}\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span>
+  <p>Pour \(\vec{u} = \begin{pmatrix}3\\4\\0\end{pmatrix}\), on a \(\|\vec{u}\| = 5\), donc \(\hat{u} = \begin{pmatrix}0{,}6\\0{,}8\\0\end{pmatrix}\).</p>
+  <p>Le vecteur unitaire indique la <strong>direction</strong> d'une force sans son intensité.</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 1</span>
+  <p class="exo-titre">Coordonnées et normes</p>
+  <p>On donne les points \(P(2\,;\,-1\,;\,4)\) et \(Q(5\,;\,3\,;\,1)\) dans un repère orthonormé.</p>
+  <p>1) Calculer les coordonnées de \(\overrightarrow{PQ}\).</p>
+  <p>2) Calculer \(\|\overrightarrow{PQ}\|\). Donner une valeur exacte puis une valeur approchée au centième.</p>
+  <p>3) Déterminer le vecteur unitaire \(\hat{u}\) de même sens que \(\overrightarrow{PQ}\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(\overrightarrow{PQ} = \begin{pmatrix}5-2\\3-(-1)\\1-4\end{pmatrix} = \begin{pmatrix}3\\4\\-3\end{pmatrix}\).</p>
+    <p><strong>2)</strong> \(\|\overrightarrow{PQ}\| = \sqrt{9+16+9} = \sqrt{34} \approx 5{,}83\).</p>
+    <p><strong>3)</strong> \(\hat{u} = \dfrac{1}{\sqrt{34}}\begin{pmatrix}3\\4\\-3\end{pmatrix} \approx \begin{pmatrix}0{,}514\\0{,}686\\-0{,}514\end{pmatrix}\).</p>
+  </div>
+</div>
+
+<!-- ==================== 2. OPÉRATIONS VECTORIELLES ==================== -->
+<h2>2. Opérations vectorielles</h2>
+
+<h3>2.1 Addition et soustraction</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Addition de vecteurs</span><br>
+  Si \(\vec{u} = \begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix}\) et \(\vec{v} = \begin{pmatrix}x_2\\y_2\\z_2\end{pmatrix}\), alors :
+  \[\vec{u} + \vec{v} = \begin{pmatrix}x_1+x_2\\y_1+y_2\\z_1+z_2\end{pmatrix}\]
+  La <strong>relation de Chasles</strong> : \(\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}\).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Résultante de deux forces</span>
+  <p>Un noeud d'un treillis est soumis à deux forces :</p>
+  <p>\(\vec{F_1} = \begin{pmatrix}3\\-2\\1\end{pmatrix}\) kN &nbsp; et &nbsp; \(\vec{F_2} = \begin{pmatrix}-1\\5\\2\end{pmatrix}\) kN.</p>
+  <p>Résultante : \(\vec{R} = \vec{F_1} + \vec{F_2} = \begin{pmatrix}2\\3\\3\end{pmatrix}\) kN.</p>
+  <p>Norme : \(\|\vec{R}\| = \sqrt{4+9+9} = \sqrt{22} \approx 4{,}69\) kN.</p>
+</div>
+
+<h3>2.2 Multiplication par un scalaire</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Produit par un scalaire</span><br>
+  Pour \(\lambda \in \mathbb{R}\) et \(\vec{u} = \begin{pmatrix}x\\y\\z\end{pmatrix}\) :
+  \[\lambda\,\vec{u} = \begin{pmatrix}\lambda x\\\lambda y\\\lambda z\end{pmatrix}\]
+  Si \(\lambda > 0\) : même sens ; si \(\lambda < 0\) : sens opposé ; si \(\lambda = 0\) : vecteur nul.
+  <br>
+  <strong>Colinéarité :</strong> \(\vec{u}\) et \(\vec{v}\) sont colinéaires si et seulement si \(\vec{v} = \lambda\,\vec{u}\) pour un réel \(\lambda\).
+</div>
+
+<h3>2.3 Combinaison linéaire</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Combinaison linéaire</span><br>
+  Une <strong>combinaison linéaire</strong> de vecteurs \(\vec{u_1}, \vec{u_2}, \ldots, \vec{u_n}\) est un vecteur de la forme :
+  \[\vec{w} = \alpha_1\,\vec{u_1} + \alpha_2\,\vec{u_2} + \cdots + \alpha_n\,\vec{u_n} \quad (\alpha_i \in \mathbb{R})\]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Coplanarité par combinaison linéaire</span><br>
+  Trois vecteurs \(\vec{u}\), \(\vec{v}\), \(\vec{w}\) sont <strong>coplanaires</strong> si et seulement si l'un d'eux est combinaison linéaire des deux autres :
+  \[\vec{w} = \alpha\,\vec{u} + \beta\,\vec{v}\]
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 2</span>
+  <p class="exo-titre">Opérations vectorielles</p>
+  <p>On donne \(\vec{a} = \begin{pmatrix}2\\-1\\3\end{pmatrix}\), \(\vec{b} = \begin{pmatrix}1\\4\\-2\end{pmatrix}\), \(\vec{c} = \begin{pmatrix}5\\2\\4\end{pmatrix}\).</p>
+  <p>1) Calculer \(2\vec{a} - \vec{b}\).</p>
+  <p>2) Trouver \(\alpha, \beta\) tels que \(\vec{c} = \alpha\,\vec{a} + \beta\,\vec{b}\), ou conclure que c'est impossible.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(2\vec{a} - \vec{b} = \begin{pmatrix}4\\-2\\6\end{pmatrix} - \begin{pmatrix}1\\4\\-2\end{pmatrix} = \begin{pmatrix}3\\-6\\8\end{pmatrix}\).</p>
+    <p><strong>2)</strong> On résout \(\alpha\vec{a} + \beta\vec{b} = \vec{c}\) :<br>
+      \(2\alpha + \beta = 5\), \(-\alpha + 4\beta = 2\), \(3\alpha - 2\beta = 4\).<br>
+      De la 1re : \(\beta = 5 - 2\alpha\). Dans la 2e : \(-\alpha + 4(5-2\alpha) = 2 \Rightarrow -9\alpha = -18 \Rightarrow \alpha = 2\), \(\beta = 1\).<br>
+      Vérification (3e équation) : \(3 \times 2 - 2 \times 1 = 4\) ✓. Donc \(\vec{c} = 2\vec{a} + \vec{b}\).</p>
+  </div>
+</div>
+
+<!-- ==================== 3. PRODUIT SCALAIRE ==================== -->
+<h2>3. Produit scalaire</h2>
+
+<h3>3.1 Définition géométrique</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Produit scalaire (géométrique)</span><br>
+  Le <strong>produit scalaire</strong> de deux vecteurs \(\vec{u}\) et \(\vec{v}\) est le réel :
+  \[\vec{u} \cdot \vec{v} = \|\vec{u}\|\,\|\vec{v}\|\cos\theta\]
+  où \(\theta = (\vec{u},\vec{v})\) est l'angle entre les deux vecteurs (\(0 \leq \theta \leq \pi\)).
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention</span><br>
+  Le produit scalaire est un <strong>nombre réel</strong> (scalaire), pas un vecteur.
+  Il peut être positif, nul ou négatif selon l'angle \(\theta\).
+</div>
+
+<h3>3.2 Définition algébrique</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Calcul en coordonnées</span><br>
+  Si \(\vec{u} = \begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix}\) et \(\vec{v} = \begin{pmatrix}x_2\\y_2\\z_2\end{pmatrix}\) dans une base orthonormée :
+  \[\vec{u} \cdot \vec{v} = x_1 x_2 + y_1 y_2 + z_1 z_2\]
+</div>
+
+<div class="formule-box">
+  \[\vec{u} \cdot \vec{v} = x_1 x_2 + y_1 y_2 + z_1 z_2\]
+</div>
+
+<h3>3.3 Propriétés du produit scalaire</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés algébriques</span>
+  <ul>
+    <li><strong>Symétrie :</strong> \(\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}\)</li>
+    <li><strong>Bilinéarité :</strong> \((\alpha\vec{u} + \beta\vec{v}) \cdot \vec{w} = \alpha(\vec{u} \cdot \vec{w}) + \beta(\vec{v} \cdot \vec{w})\)</li>
+    <li><strong>Norme :</strong> \(\vec{u} \cdot \vec{u} = \|\vec{u}\|^2\)</li>
+    <li><strong>Identité remarquable :</strong> \(\|\vec{u} + \vec{v}\|^2 = \|\vec{u}\|^2 + 2\,\vec{u}\cdot\vec{v} + \|\vec{v}\|^2\)</li>
+  </ul>
+</div>
+
+<h3>3.4 Angle entre deux vecteurs</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Calculer l'angle entre deux vecteurs</span><br>
+  On utilise la formule :
+  \[\cos\theta = \frac{\vec{u} \cdot \vec{v}}{\|\vec{u}\|\,\|\vec{v}\|}\]
+  puis \(\theta = \arccos\!\left(\dfrac{\vec{u} \cdot \vec{v}}{\|\vec{u}\|\,\|\vec{v}\|}\right)\).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Angle d'about d'un chevron</span>
+  <p>Un agenceur bois doit tailler l'extrémité d'un chevron porté par \(\vec{u} = \begin{pmatrix}3\\4\\1\end{pmatrix}\) pour qu'il s'appuie sur une sablière portée par \(\vec{v} = \begin{pmatrix}1\\0\\0\end{pmatrix}\).</p>
+  <p>\(\vec{u} \cdot \vec{v} = 3\).</p>
+  <p>\(\|\vec{u}\| = \sqrt{9+16+1} = \sqrt{26}\), \(\|\vec{v}\| = 1\).</p>
+  <p>\(\cos\theta = \dfrac{3}{\sqrt{26}} \approx 0{,}588\), donc \(\theta \approx 54{,}0°\).</p>
+  <p>L'angle d'about (coupe) est \(90° - 54° = 36°\).</p>
+</div>
+
+<h3>3.5 Orthogonalité</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Orthogonalité</span><br>
+  Deux vecteurs non nuls \(\vec{u}\) et \(\vec{v}\) sont <strong>orthogonaux</strong> si et seulement si :
+  \[\vec{u} \cdot \vec{v} = 0\]
+  Ce qui équivaut à \(\theta = 90°\).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span>
+  <p>\(\vec{u} = \begin{pmatrix}2\\-1\\3\end{pmatrix}\) et \(\vec{v} = \begin{pmatrix}1\\5\\1\end{pmatrix}\).</p>
+  <p>\(\vec{u} \cdot \vec{v} = 2 - 5 + 3 = 0\). Les vecteurs sont orthogonaux.</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 3</span>
+  <p class="exo-titre">Produit scalaire et angle</p>
+  <p>Soient \(\vec{a} = \begin{pmatrix}1\\2\\2\end{pmatrix}\) et \(\vec{b} = \begin{pmatrix}4\\0\\-2\end{pmatrix}\).</p>
+  <p>1) Calculer \(\vec{a} \cdot \vec{b}\).</p>
+  <p>2) Calculer \(\|\vec{a}\|\) et \(\|\vec{b}\|\).</p>
+  <p>3) En déduire l'angle \(\theta = (\vec{a},\vec{b})\) en degrés.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong> \(\vec{a} \cdot \vec{b} = 4 + 0 - 4 = 0\). Les vecteurs sont orthogonaux.</p>
+    <p><strong>2)</strong> \(\|\vec{a}\| = \sqrt{1+4+4} = 3\) ; \(\|\vec{b}\| = \sqrt{16+0+4} = 2\sqrt{5}\).</p>
+    <p><strong>3)</strong> \(\cos\theta = 0\) donc \(\theta = 90°\). Cohérent avec la nullité du produit scalaire.</p>
+  </div>
+</div>
+
+<!-- ==================== 4. PRODUIT VECTORIEL ==================== -->
+<h2>4. Produit vectoriel</h2>
+
+<h3>4.1 Définition</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Produit vectoriel</span><br>
+  Le <strong>produit vectoriel</strong> \(\vec{u} \times \vec{v}\) de deux vecteurs
+  \(\vec{u} = \begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix}\) et \(\vec{v} = \begin{pmatrix}x_2\\y_2\\z_2\end{pmatrix}\)
+  est le vecteur :
+  \[\vec{u} \times \vec{v} = \begin{pmatrix} y_1 z_2 - z_1 y_2 \\ z_1 x_2 - x_1 z_2 \\ x_1 y_2 - y_1 x_2 \end{pmatrix}\]
+</div>
+
+<div class="formule-box">
+  \[\vec{u} \times \vec{v} = \begin{vmatrix}\vec{i} & \vec{j} & \vec{k}\\ x_1 & y_1 & z_1\\ x_2 & y_2 & z_2\end{vmatrix}\]
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Développement par cofacteurs</span><br>
+  Pour calculer le produit vectoriel composante par composante :
+  <ul>
+    <li>Composante \(i\) : \(y_1 z_2 - z_1 y_2\) (on supprime la 1re colonne)</li>
+    <li>Composante \(j\) : \(-(x_1 z_2 - z_1 x_2) = z_1 x_2 - x_1 z_2\) (signe moins !)</li>
+    <li>Composante \(k\) : \(x_1 y_2 - y_1 x_2\) (on supprime la 3e colonne)</li>
+  </ul>
+</div>
+
+<h3>4.2 Propriétés</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriétés du produit vectoriel</span>
+  <ul>
+    <li><strong>Anticommutativité :</strong> \(\vec{u} \times \vec{v} = -\vec{v} \times \vec{u}\)</li>
+    <li><strong>Bilinéarité :</strong> \((\alpha\vec{u}) \times \vec{v} = \alpha(\vec{u} \times \vec{v})\)</li>
+    <li><strong>Orthogonalité :</strong> \(\vec{u} \times \vec{v}\) est orthogonal à \(\vec{u}\) et à \(\vec{v}\)</li>
+    <li><strong>Auto-produit nul :</strong> \(\vec{u} \times \vec{u} = \vec{0}\)</li>
+    <li><strong>Colinéarité :</strong> \(\vec{u} \times \vec{v} = \vec{0}\) si et seulement si \(\vec{u}\) et \(\vec{v}\) sont colinéaires</li>
+  </ul>
+</div>
+
+<h3>4.3 Norme du produit vectoriel — Interprétation géométrique</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Norme et aire</span><br>
+  \[\|\vec{u} \times \vec{v}\| = \|\vec{u}\|\,\|\vec{v}\|\,|\sin\theta|\]
+  où \(\theta\) est l'angle entre \(\vec{u}\) et \(\vec{v}\).
+  <br><br>
+  <strong>Interprétation :</strong> \(\|\vec{u} \times \vec{v}\|\) est l'<strong>aire du parallélogramme</strong> construit sur \(\vec{u}\) et \(\vec{v}\).
+  L'aire du triangle \(OAB\) correspondant est \(\dfrac{1}{2}\|\vec{u} \times \vec{v}\|\).
+</div>
+
+<h3>4.4 Règle de la main droite (trièdre direct)</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Sens du produit vectoriel</span><br>
+  Dans un repère orthonormé direct, le sens de \(\vec{u} \times \vec{v}\) se détermine par la <strong>règle de la main droite</strong> :
+  <ul>
+    <li>L'index pointe dans la direction de \(\vec{u}\),</li>
+    <li>Le majeur dans la direction de \(\vec{v}\),</li>
+    <li>Le pouce indique le sens de \(\vec{u} \times \vec{v}\).</li>
+  </ul>
+  Formules de base : \(\vec{i}\times\vec{j} = \vec{k}\), \(\vec{j}\times\vec{k} = \vec{i}\), \(\vec{k}\times\vec{i} = \vec{j}\).
+</div>
+
+<h3>4.5 Application : moment d'une force</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Moment d'une force</span><br>
+  Le <strong>moment</strong> de la force \(\vec{F}\) par rapport à un point \(O\) est le vecteur :
+  \[\vec{M}_O(\vec{F}) = \overrightarrow{OP} \times \vec{F}\]
+  où \(P\) est un point d'application de \(\vec{F}\).
+  <br>La norme \(\|\vec{M}_O\| = d \times \|\vec{F}\|\) avec \(d\) = distance de \(O\) à la droite d'action.
+  <br>L'unité SI est le newton-mètre (N·m).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Serrage d'un boulon en génie civil</span>
+  <p>Un technicien exerce une force \(\vec{F} = \begin{pmatrix}0\\50\\0\end{pmatrix}\) N à l'extrémité d'une clé de longueur \(\overrightarrow{OP} = \begin{pmatrix}0{,}25\\0\\0\end{pmatrix}\) m.</p>
+  <p>
+    \(\vec{M}_O = \begin{pmatrix}0{,}25\\0\\0\end{pmatrix} \times \begin{pmatrix}0\\50\\0\end{pmatrix}
+    = \begin{pmatrix}0 \cdot 0 - 0 \cdot 50\\ 0 \cdot 0 - 0{,}25 \cdot 0\\ 0{,}25 \cdot 50 - 0 \cdot 0\end{pmatrix}
+    = \begin{pmatrix}0\\0\\12{,}5\end{pmatrix}\) N·m.
+  </p>
+  <p>Le moment est de \(12{,}5\) N·m, axé selon \(\vec{k}\) (sens de serrage).</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 4</span>
+  <p class="exo-titre">Produit vectoriel et normale à un plan</p>
+  <p>Un plan est défini par deux vecteurs \(\vec{u} = \begin{pmatrix}1\\2\\0\end{pmatrix}\) et \(\vec{v} = \begin{pmatrix}0\\1\\3\end{pmatrix}\).</p>
+  <p>1) Calculer \(\vec{n} = \vec{u} \times \vec{v}\).</p>
+  <p>2) Vérifier que \(\vec{n}\) est bien orthogonal à \(\vec{u}\) et à \(\vec{v}\).</p>
+  <p>3) Calculer l'aire du parallélogramme engendré par \(\vec{u}\) et \(\vec{v}\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1)</strong>
+      \(\vec{n} = \begin{pmatrix}2 \cdot 3 - 0 \cdot 1\\ 0 \cdot 0 - 1 \cdot 3\\ 1 \cdot 1 - 2 \cdot 0\end{pmatrix} = \begin{pmatrix}6\\-3\\1\end{pmatrix}\).
+    </p>
+    <p><strong>2)</strong>
+      \(\vec{n} \cdot \vec{u} = 6 \cdot 1 + (-3) \cdot 2 + 1 \cdot 0 = 6 - 6 = 0\) ✓ ;
+      \(\vec{n} \cdot \vec{v} = 6 \cdot 0 + (-3) \cdot 1 + 1 \cdot 3 = -3 + 3 = 0\) ✓.
+    </p>
+    <p><strong>3)</strong>
+      \(\|\vec{n}\| = \sqrt{36+9+1} = \sqrt{46} \approx 6{,}78\). Aire = \(\sqrt{46} \approx 6{,}78\) u².
+    </p>
+  </div>
+</div>
+
+<!-- ==================== 5. PRODUIT MIXTE ==================== -->
+<h2>5. Produit mixte</h2>
+
+<h3>5.1 Définition</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Produit mixte</span><br>
+  Le <strong>produit mixte</strong> de trois vecteurs \(\vec{u}\), \(\vec{v}\), \(\vec{w}\) est le scalaire :
+  \[[\vec{u},\vec{v},\vec{w}] = \vec{u} \cdot (\vec{v} \times \vec{w})\]
+  En coordonnées, si \(\vec{u} = (a_1,a_2,a_3)\), \(\vec{v} = (b_1,b_2,b_3)\), \(\vec{w} = (c_1,c_2,c_3)\) :
+  \[[\vec{u},\vec{v},\vec{w}] = \begin{vmatrix}a_1 & a_2 & a_3\\ b_1 & b_2 & b_3\\ c_1 & c_2 & c_3\end{vmatrix}\]
+</div>
+
+<div class="formule-box">
+  \[[\vec{u},\vec{v},\vec{w}] = a_1(b_2 c_3 - b_3 c_2) - a_2(b_1 c_3 - b_3 c_1) + a_3(b_1 c_2 - b_2 c_1)\]
+</div>
+
+<h3>5.2 Interprétation géométrique</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Volume du parallélépipède</span><br>
+  La valeur absolue du produit mixte est le <strong>volume du parallélépipède</strong> construit sur \(\vec{u}\), \(\vec{v}\), \(\vec{w}\) :
+  \[V = |[\vec{u},\vec{v},\vec{w}]|\]
+  Le volume du tétraèdre correspondant est \(V_T = \dfrac{1}{6}|[\vec{u},\vec{v},\vec{w}]|\).
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Coplanarité</span><br>
+  Trois vecteurs \(\vec{u}\), \(\vec{v}\), \(\vec{w}\) sont <strong>coplanaires</strong> si et seulement si :
+  \[[\vec{u},\vec{v},\vec{w}] = 0\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Volume d'un élément de charpente</span>
+  <p>Trois arêtes issues d'un noeud de charpente :</p>
+  <p>\(\vec{u} = \begin{pmatrix}2\\0\\0\end{pmatrix}\), \(\vec{v} = \begin{pmatrix}0\\3\\0\end{pmatrix}\), \(\vec{w} = \begin{pmatrix}1\\1\\4\end{pmatrix}\) (en mètres).</p>
+  <p>
+    \([\vec{u},\vec{v},\vec{w}] = \begin{vmatrix}2&0&0\\0&3&0\\1&1&4\end{vmatrix}
+    = 2(3 \cdot 4 - 0 \cdot 1) - 0 + 0 = 24.\)
+  </p>
+  <p>Volume du parallélépipède : \(V = 24\) m³. Volume du tétraèdre : \(V_T = 4\) m³.</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 5</span>
+  <p class="exo-titre">Coplanarité par produit mixte</p>
+  <p>Déterminer si les vecteurs \(\vec{a} = \begin{pmatrix}1\\2\\-1\end{pmatrix}\), \(\vec{b} = \begin{pmatrix}3\\1\\2\end{pmatrix}\), \(\vec{c} = \begin{pmatrix}5\\5\\0\end{pmatrix}\) sont coplanaires.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p>\([\vec{a},\vec{b},\vec{c}] = \begin{vmatrix}1&2&-1\\3&1&2\\5&5&0\end{vmatrix}\)</p>
+    <p>\(= 1(1\cdot0-2\cdot5) - 2(3\cdot0-2\cdot5) + (-1)(3\cdot5-1\cdot5)\)
+    \(= 1(-10) - 2(-10) + (-1)(10)\)
+    \(= -10 + 20 - 10 = 0.\)</p>
+    <p>Le produit mixte est nul : les trois vecteurs sont <strong>coplanaires</strong>.</p>
+  </div>
+</div>
+
+<!-- ==================== 6. DROITES ET PLANS ==================== -->
+<h2>6. Droites et plans dans l'espace</h2>
+
+<h3>6.1 Équation paramétrique d'une droite</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Droite paramétrique</span><br>
+  La droite \(\mathcal{D}\) passant par \(A(x_0,y_0,z_0)\) de vecteur directeur \(\vec{d} = \begin{pmatrix}l\\m\\n\end{pmatrix}\) a pour équation paramétrique :
+  \[\begin{cases}x = x_0 + lt \\ y = y_0 + mt \\ z = z_0 + nt\end{cases} \quad (t \in \mathbb{R})\]
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Représentation cartésienne</span><br>
+  Si \(l\), \(m\), \(n\) sont tous non nuls :
+  \[\frac{x - x_0}{l} = \frac{y - y_0}{m} = \frac{z - z_0}{n}\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Axe d'un tuyau en génie civil</span>
+  <p>Un tuyau passe par \(A(1,2,3)\) avec vecteur directeur \(\vec{d} = \begin{pmatrix}2\\-1\\4\end{pmatrix}\).</p>
+  <p>Équation paramétrique :
+    \(\begin{cases}x = 1 + 2t \\ y = 2 - t \\ z = 3 + 4t\end{cases}\)
+  </p>
+  <p>Vérification que \(B(5, 0, 11) \in \mathcal{D}\) : \(x=5 \Rightarrow t=2\) ; \(y=2-2=0\) ✓ ; \(z=3+8=11\) ✓.</p>
+</div>
+
+<h3>6.2 Équation cartésienne d'un plan</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Équation cartésienne d'un plan</span><br>
+  Un plan \(\mathcal{P}\) de vecteur normal \(\vec{n} = \begin{pmatrix}a\\b\\c\end{pmatrix}\) passant par \(A(x_0,y_0,z_0)\) a pour équation :
+  \[a(x - x_0) + b(y - y_0) + c(z - z_0) = 0\]
+  que l'on réécrit : \(ax + by + cz + d = 0\) avec \(d = -ax_0 - by_0 - cz_0\).
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Plan passant par trois points</span><br>
+  Pour déterminer l'équation du plan \(\mathcal{P}\) passant par trois points non alignés \(A\), \(B\), \(C\) :
+  <ol>
+    <li>Former les vecteurs \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).</li>
+    <li>Calculer le vecteur normal \(\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}\).</li>
+    <li>Écrire l'équation \(a(x-x_A)+b(y-y_A)+c(z-z_A) = 0\).</li>
+    <li>Vérifier avec les trois points.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Plan d'un versant de toiture</span>
+  <p>Points du bord d'un versant : \(A(0,0,3)\), \(B(4,0,1)\), \(C(4,6,1)\).</p>
+  <p>\(\overrightarrow{AB} = \begin{pmatrix}4\\0\\-2\end{pmatrix}\), \(\overrightarrow{AC} = \begin{pmatrix}4\\6\\-2\end{pmatrix}\).</p>
+  <p>
+    \(\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}
+    = \begin{pmatrix}0 \cdot (-2) - (-2) \cdot 6\\ (-2) \cdot 4 - 4 \cdot (-2)\\ 4 \cdot 6 - 0 \cdot 4\end{pmatrix}
+    = \begin{pmatrix}12\\0\\24\end{pmatrix} \parallel \begin{pmatrix}1\\0\\2\end{pmatrix}.\)
+  </p>
+  <p>Équation : \(1(x-0)+0(y-0)+2(z-3)=0\), soit \(x + 2z = 6\).</p>
+</div>
+
+<h3>6.3 Intersection droite/plan</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Intersection d'une droite et d'un plan</span><br>
+  <ol>
+    <li>Substituer les expressions paramétriques \(x(t)\), \(y(t)\), \(z(t)\) dans l'équation cartésienne du plan.</li>
+    <li>Résoudre en \(t\).</li>
+    <li>Injecter la valeur de \(t\) dans les équations paramétriques pour obtenir le point.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple</span>
+  <p>Droite : \(x = 1+2t\), \(y = 2-t\), \(z = 3+4t\). Plan : \(x + 2z = 6\).</p>
+  <p>Substitution : \((1+2t) + 2(3+4t) = 6 \Rightarrow 7 + 10t = 6 \Rightarrow t = -0{,}1\).</p>
+  <p>Intersection : \(I(0{,}8\,;\,2{,}1\,;\,2{,}6)\).</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 6</span>
+  <p class="exo-titre">Équation d'un plan en agencement bois</p>
+  <p>Un agenceur bois identifie trois coins d'un panneau oblique : \(A(1,0,2)\), \(B(3,1,0)\), \(C(0,2,1)\).</p>
+  <p>Trouver l'équation cartésienne du plan contenant ce panneau.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p>\(\overrightarrow{AB} = \begin{pmatrix}2\\1\\-2\end{pmatrix}\), \(\overrightarrow{AC} = \begin{pmatrix}-1\\2\\-1\end{pmatrix}\).</p>
+    <p>
+      \(\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}
+      = \begin{pmatrix}1 \cdot (-1) - (-2) \cdot 2\\ (-2) \cdot (-1) - 2 \cdot (-1)\\ 2 \cdot 2 - 1 \cdot (-1)\end{pmatrix}
+      = \begin{pmatrix}3\\4\\5\end{pmatrix}.\)
+    </p>
+    <p>Équation : \(3(x-1)+4(y-0)+5(z-2)=0\), soit \(3x+4y+5z = 13\).</p>
+    <p>Vérification : \(A: 3+0+10=13\) ✓ ; \(B: 9+4+0=13\) ✓ ; \(C: 0+8+5=13\) ✓.</p>
+  </div>
+</div>
+
+<!-- ==================== 7. APPLICATIONS MÉCANIQUES ==================== -->
+<h2>7. Applications mécaniques</h2>
+
+<h3>7.1 Résultante de forces</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Résultante</span><br>
+  La <strong>résultante</strong> d'un système de forces \(\vec{F_1}, \vec{F_2}, \ldots, \vec{F_n}\) est la somme vectorielle :
+  \[\vec{R} = \sum_{i=1}^{n} \vec{F_i}\]
+  Le système est en <strong>équilibre statique</strong> si et seulement si \(\vec{R} = \vec{0}\).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Noeud d'un treillis métallique</span>
+  <p>Un noeud est soumis à trois forces (en kN) :</p>
+  <p>\(\vec{F_1} = \begin{pmatrix}5\\0\\-3\end{pmatrix}\), \(\vec{F_2} = \begin{pmatrix}-2\\4\\1\end{pmatrix}\), \(\vec{F_3} = \begin{pmatrix}-3\\-4\\2\end{pmatrix}\).</p>
+  <p>\(\vec{R} = \begin{pmatrix}5-2-3\\0+4-4\\-3+1+2\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}\). Le noeud est en équilibre.</p>
+</div>
+
+<h3>7.2 Moment résultant</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Moment résultant</span><br>
+  Le moment résultant en un point \(O\) d'un système de forces est :
+  \[\vec{M}_O = \sum_{i=1}^n \overrightarrow{OP_i} \times \vec{F_i}\]
+  L'équilibre d'un solide requiert simultanément \(\vec{R} = \vec{0}\) et \(\vec{M}_O = \vec{0}\).
+</div>
+
+<h3>7.3 Barycentre (centre de gravité)</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Barycentre</span><br>
+  Le <strong>barycentre</strong> de \(n\) points \(A_i\) affectés de coefficients (masses ou charges) \(\lambda_i > 0\) est le point \(G\) vérifiant :
+  \[\sum_{i=1}^n \lambda_i \overrightarrow{GA_i} = \vec{0}\]
+  Ses coordonnées :
+  \[x_G = \frac{\displaystyle\sum_{i=1}^n \lambda_i x_{A_i}}{\displaystyle\sum_{i=1}^n \lambda_i}, \quad
+    y_G = \frac{\displaystyle\sum_{i=1}^n \lambda_i y_{A_i}}{\displaystyle\sum_{i=1}^n \lambda_i}, \quad
+    z_G = \frac{\displaystyle\sum_{i=1}^n \lambda_i z_{A_i}}{\displaystyle\sum_{i=1}^n \lambda_i}\]
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Centre de gravité d'une ferme de charpente</span>
+  <p>Trois noeuds chargés :</p>
+  <p>\(A(0,0,0)\) : \(\lambda_A = 10\) kN ; \(B(6,0,0)\) : \(\lambda_B = 15\) kN ; \(C(3,0,4)\) : \(\lambda_C = 5\) kN.</p>
+  <p>\(\Sigma \lambda_i = 30\) kN.</p>
+  <p>
+    \(x_G = \dfrac{0+90+15}{30} = 3{,}5\) m ; \(y_G = 0\) m ; \(z_G = \dfrac{0+0+20}{30} \approx 0{,}67\) m.
+  </p>
+  <p>Centre de gravité : \(G(3{,}5\,;\,0\,;\,0{,}67)\).</p>
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 7</span>
+  <p class="exo-titre">Équilibre d'un noeud de treillis</p>
+  <p>Un noeud est soumis à quatre forces (kN). Trois sont connues :</p>
+  <p>\(\vec{F_1} = \begin{pmatrix}3\\0\\-2\end{pmatrix}\), \(\vec{F_2} = \begin{pmatrix}-1\\4\\1\end{pmatrix}\), \(\vec{F_3} = \begin{pmatrix}0\\-2\\3\end{pmatrix}\).</p>
+  <p>Déterminer \(\vec{F_4}\) pour que le noeud soit en équilibre, et calculer \(\|\vec{F_4}\|\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p>L'équilibre impose \(\vec{F_4} = -(\vec{F_1}+\vec{F_2}+\vec{F_3}) = -\begin{pmatrix}2\\2\\2\end{pmatrix} = \begin{pmatrix}-2\\-2\\-2\end{pmatrix}\) kN.</p>
+    <p>\(\|\vec{F_4}\| = \sqrt{4+4+4} = 2\sqrt{3} \approx 3{,}46\) kN.</p>
+  </div>
+</div>
+
+<!-- ==================== 8. MATRICES DE ROTATION (B1) ==================== -->
+<h2>8. Matrices de rotation <small>(groupement B1)</small></h2>
+
+<h3>8.1 Transformation linéaire</h3>
+
+<div class="def">
+  <span class="label label-def">Définition — Application linéaire</span><br>
+  Une application \(f : \mathbb{R}^3 \to \mathbb{R}^3\) est <strong>linéaire</strong> si pour tous vecteurs \(\vec{u}\), \(\vec{v}\) et tout scalaire \(\lambda\) :
+  \[f(\vec{u} + \vec{v}) = f(\vec{u}) + f(\vec{v}) \quad \text{et} \quad f(\lambda\,\vec{u}) = \lambda\,f(\vec{u})\]
+  Dans une base fixée, toute transformation linéaire est représentée par une <strong>matrice \(3 \times 3\)</strong>.
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Matrice de rotation</span><br>
+  Une <strong>matrice de rotation</strong> \(R\) est une matrice \(3 \times 3\) orthogonale directe :
+  \[R^\top R = I_3 \quad \text{et} \quad \det(R) = +1\]
+  Elle conserve les normes (distances) et les orientations.
+</div>
+
+<h3>8.2 Rotations autour des axes de coordonnées</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Matrices de rotation élémentaires</span><br>
+  Rotation d'angle \(\theta\) autour de l'axe \(Oz\) :
+  \[R_z(\theta) = \begin{pmatrix}\cos\theta & -\sin\theta & 0\\ \sin\theta & \cos\theta & 0\\ 0 & 0 & 1\end{pmatrix}\]
+  Rotation d'angle \(\theta\) autour de l'axe \(Ox\) :
+  \[R_x(\theta) = \begin{pmatrix}1 & 0 & 0\\ 0 & \cos\theta & -\sin\theta\\ 0 & \sin\theta & \cos\theta\end{pmatrix}\]
+  Rotation d'angle \(\theta\) autour de l'axe \(Oy\) :
+  \[R_y(\theta) = \begin{pmatrix}\cos\theta & 0 & \sin\theta\\ 0 & 1 & 0\\ -\sin\theta & 0 & \cos\theta\end{pmatrix}\]
+</div>
+
+<h3>8.3 Application d'une rotation</h3>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Image d'un vecteur par rotation</span><br>
+  Pour calculer l'image \(\vec{v} = R\,\vec{u}\) :
+  \[\vec{v} = R \begin{pmatrix}x\\y\\z\end{pmatrix}\]
+  On effectue le produit matrice–vecteur (chaque composante est le produit scalaire d'une ligne de \(R\) par \(\vec{u}\)).
+</div>
+
+<div class="ex">
+  <span class="label label-ex">Exemple — Bras robotique CNC</span>
+  <p>Un bras robotique de découpe CNC pivote de \(90°\) autour de l'axe \(Oz\). Vecteur outil initial : \(\vec{u} = \begin{pmatrix}1\\0\\0\end{pmatrix}\).</p>
+  <p>
+    \[R_z(90°) = \begin{pmatrix}0 & -1 & 0\\ 1 & 0 & 0\\ 0 & 0 & 1\end{pmatrix}\]
+  </p>
+  <p>
+    \[\vec{v} = R_z(90°)\,\vec{u} = \begin{pmatrix}0\\1\\0\end{pmatrix}\]
+  </p>
+  <p>Après rotation de 90° autour de \(Oz\), l'axe \(\vec{x}\) devient l'axe \(\vec{y}\). Norme conservée : \(\|\vec{v}\| = 1 = \|\vec{u}\|\) ✓.</p>
+</div>
+
+<h3>8.4 Composition de rotations</h3>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Composition</span><br>
+  La composée de deux rotations \(R_1\) puis \(R_2\) est :
+  \[R = R_2 \cdot R_1\]
+  Le produit de deux matrices de rotation est encore une matrice de rotation.
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Non-commutativité</span><br>
+  En général \(R_2 R_1 \neq R_1 R_2\). L'ordre des rotations successives autour d'axes différents est important.
+</div>
+
+<div class="exo">
+  <span class="exo-num">Mini-exercice 8</span>
+  <p class="exo-titre">Rotation d'un vecteur</p>
+  <p>Soit \(\vec{u} = \begin{pmatrix}1\\1\\0\end{pmatrix}\). Calculer l'image de \(\vec{u}\) par la rotation \(R_z(45°)\).</p>
+  <p>Rappel : \(\cos 45° = \sin 45° = \dfrac{\sqrt{2}}{2} \approx 0{,}707\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+    <p>
+      \[R_z(45°) = \begin{pmatrix}\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & 0\\ \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & 0\\ 0 & 0 & 1\end{pmatrix}\]
+    </p>
+    <p>
+      \[\vec{v} = R_z(45°)\begin{pmatrix}1\\1\\0\end{pmatrix}
+      = \begin{pmatrix}\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2}\\ \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}\\ 0\end{pmatrix}
+      = \begin{pmatrix}0\\ \sqrt{2}\\ 0\end{pmatrix}\]
+    </p>
+    <p>Interprétation : \(\vec{u}(1,1,0)\) fait 45° avec l'axe \(\vec{x}\) ; après rotation de 45° autour de \(Oz\), il coïncide avec \(\vec{y}\). Norme conservée : \(\|(1,1,0)\| = \sqrt{2} = \|(0,\sqrt{2},0)\|\) ✓.</p>
+  </div>
+</div>
+
+<!-- ==================== SYNTHÈSE ==================== -->
+<h2>Synthèse du chapitre</h2>
+
+<div class="retenir">
+  <strong>À retenir — Calcul vectoriel dans l'espace</strong>
+  <table style="width:100%;border-collapse:collapse;margin-top:0.8em">
+    <thead>
+      <tr style="background:var(--p);color:#fff">
+        <th style="padding:6px 10px;text-align:left">Objet</th>
+        <th style="padding:6px 10px;text-align:left">Formule clé</th>
+        <th style="padding:6px 10px;text-align:left">Type de résultat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#f8fafc">
+        <td style="padding:5px 10px">Norme</td>
+        <td style="padding:5px 10px">\(\|\vec{u}\| = \sqrt{x^2+y^2+z^2}\)</td>
+        <td style="padding:5px 10px">Scalaire \(\geq 0\)</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px">Produit scalaire</td>
+        <td style="padding:5px 10px">\(\vec{u}\cdot\vec{v} = x_1x_2+y_1y_2+z_1z_2\)</td>
+        <td style="padding:5px 10px">Scalaire</td>
+      </tr>
+      <tr style="background:#f8fafc">
+        <td style="padding:5px 10px">Angle</td>
+        <td style="padding:5px 10px">\(\cos\theta = \dfrac{\vec{u}\cdot\vec{v}}{\|\vec{u}\|\|\vec{v}\|}\)</td>
+        <td style="padding:5px 10px">\(\theta \in [0;\pi]\)</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px">Produit vectoriel</td>
+        <td style="padding:5px 10px">\(\vec{u}\times\vec{v} = (y_1z_2-z_1y_2,\;z_1x_2-x_1z_2,\;x_1y_2-y_1x_2)\)</td>
+        <td style="padding:5px 10px">Vecteur \(\perp\vec{u}\) et \(\vec{v}\)</td>
+      </tr>
+      <tr style="background:#f8fafc">
+        <td style="padding:5px 10px">Produit mixte</td>
+        <td style="padding:5px 10px">\([\vec{u},\vec{v},\vec{w}] = \vec{u}\cdot(\vec{v}\times\vec{w})\)</td>
+        <td style="padding:5px 10px">Scalaire ; 0 si coplanaires</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px">Moment d'une force</td>
+        <td style="padding:5px 10px">\(\vec{M}_O = \overrightarrow{OP}\times\vec{F}\)</td>
+        <td style="padding:5px 10px">Vecteur (N·m)</td>
+      </tr>
+      <tr style="background:#f8fafc">
+        <td style="padding:5px 10px">Plan (vecteur normal)</td>
+        <td style="padding:5px 10px">\(ax+by+cz+d=0\), \(\vec{n}=(a,b,c)\)</td>
+        <td style="padding:5px 10px">Équation scalaire</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 10px">Rotation (axe \(Oz\))</td>
+        <td style="padding:5px 10px">\(R_z(\theta)\) matrice \(3\times3\), \(R^\top R = I_3\)</td>
+        <td style="padding:5px 10px">Conserve les normes</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== EXERCICE BILAN ==================== -->
+<h2>Exercice bilan — Analyse d'un noeud de treillis</h2>
+
+<div class="exo">
+  <span class="exo-num">Exercice bilan</span>
+  <p class="exo-titre">Treillis métallique de toiture industrielle</p>
+
+  <p>Un bureau d'études analyse le noeud \(N\) d'un treillis métallique. Les coordonnées sont en mètres dans un repère orthonormé.</p>
+
+  <p>Trois barres convergent en \(N(2\,;\,1\,;\,3)\) ; leurs autres extrémités sont :</p>
+  <ul>
+    <li>\(A(5\,;\,1\,;\,3)\) — barre horizontale selon \(\vec{x}\)</li>
+    <li>\(B(2\,;\,4\,;\,3)\) — barre verticale selon \(\vec{y}\)</li>
+    <li>\(C(2\,;\,1\,;\,7)\) — barre montante selon \(\vec{z}\)</li>
+  </ul>
+
+  <p>Les efforts dans les barres sont : \(F_A = 12\) kN (traction), \(F_B = 8\) kN (compression), \(F_C = 6\) kN (traction).</p>
+
+  <p><strong>Partie 1 — Vecteurs directeurs unitaires</strong></p>
+  <p>1) Calculer \(\overrightarrow{NA}\), \(\overrightarrow{NB}\), \(\overrightarrow{NC}\) et leurs normes.</p>
+  <p>2) Déterminer les vecteurs unitaires \(\hat{u}_A\), \(\hat{u}_B\), \(\hat{u}_C\).</p>
+
+  <p><strong>Partie 2 — Résultante des forces</strong></p>
+  <p>3) En traction, la force est orientée de \(N\) vers l'extrémité ; en compression, de l'extrémité vers \(N\). Exprimer \(\vec{F_A}\), \(\vec{F_B}\), \(\vec{F_C}\).</p>
+  <p>4) Calculer la résultante \(\vec{R}\) et sa norme. Conclure sur l'équilibre.</p>
+
+  <p><strong>Partie 3 — Orthogonalité et angles</strong></p>
+  <p>5) Montrer que les barres \(NA\), \(NB\), \(NC\) sont deux à deux orthogonales.</p>
+  <p>6) Calculer l'angle entre la résultante \(\vec{R}\) et la barre \(NA\).</p>
+
+  <p><strong>Partie 4 — Plan du treillis (B1)</strong></p>
+  <p>7) Déterminer l'équation cartésienne du plan \(\mathcal{P}\) contenant \(N\), \(A\) et \(B\).</p>
+  <p>8) Le point \(C\) appartient-il à \(\mathcal{P}\) ? Interpréter.</p>
+
+  <button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+  <div class="corr">
+
+    <p><strong>1)</strong>
+      \(\overrightarrow{NA} = \begin{pmatrix}3\\0\\0\end{pmatrix}\), \(\|\overrightarrow{NA}\| = 3\) m ;<br>
+      \(\overrightarrow{NB} = \begin{pmatrix}0\\3\\0\end{pmatrix}\), \(\|\overrightarrow{NB}\| = 3\) m ;<br>
+      \(\overrightarrow{NC} = \begin{pmatrix}0\\0\\4\end{pmatrix}\), \(\|\overrightarrow{NC}\| = 4\) m.
+    </p>
+
+    <p><strong>2)</strong>
+      \(\hat{u}_A = \begin{pmatrix}1\\0\\0\end{pmatrix}\),
+      \(\hat{u}_B = \begin{pmatrix}0\\1\\0\end{pmatrix}\),
+      \(\hat{u}_C = \begin{pmatrix}0\\0\\1\end{pmatrix}\).
+      (Ce sont les vecteurs de la base orthonormée — ce treillis est aligné sur les axes.)
+    </p>
+
+    <p><strong>3)</strong>
+      Traction \(A\) (sens \(N\to A\)) : \(\vec{F_A} = 12\,\hat{u}_A = \begin{pmatrix}12\\0\\0\end{pmatrix}\) kN.<br>
+      Compression \(B\) (sens \(B\to N\)) : \(\vec{F_B} = 8 \times (-\hat{u}_B) = \begin{pmatrix}0\\-8\\0\end{pmatrix}\) kN.<br>
+      Traction \(C\) (sens \(N\to C\)) : \(\vec{F_C} = 6\,\hat{u}_C = \begin{pmatrix}0\\0\\6\end{pmatrix}\) kN.
+    </p>
+
+    <p><strong>4)</strong>
+      \(\vec{R} = \begin{pmatrix}12\\-8\\6\end{pmatrix}\) kN.
+      \(\|\vec{R}\| = \sqrt{144+64+36} = \sqrt{244} = 2\sqrt{61} \approx 15{,}62\) kN.<br>
+      La résultante est non nulle : le noeud n'est pas en équilibre. Une quatrième barre ou une réaction d'appui \(-\vec{R}\) est nécessaire.
+    </p>
+
+    <p><strong>5)</strong>
+      \(\overrightarrow{NA} \cdot \overrightarrow{NB} = 0+0+0 = 0\) ✓ ;<br>
+      \(\overrightarrow{NA} \cdot \overrightarrow{NC} = 0+0+0 = 0\) ✓ ;<br>
+      \(\overrightarrow{NB} \cdot \overrightarrow{NC} = 0+0+0 = 0\) ✓.<br>
+      Les trois barres sont mutuellement orthogonales (elles portent les axes du repère).
+    </p>
+
+    <p><strong>6)</strong>
+      \(\vec{R} \cdot \overrightarrow{NA} = 12 \times 3 + (-8) \times 0 + 6 \times 0 = 36\).<br>
+      \(\|\vec{R}\| = 2\sqrt{61}\), \(\|\overrightarrow{NA}\| = 3\).<br>
+      \(\cos\alpha = \dfrac{36}{3 \times 2\sqrt{61}} = \dfrac{6}{\sqrt{61}} \approx 0{,}768\), donc \(\alpha \approx 39{,}8°\).
+    </p>
+
+    <p><strong>7)</strong>
+      \(\overrightarrow{NA} = \begin{pmatrix}3\\0\\0\end{pmatrix}\), \(\overrightarrow{NB} = \begin{pmatrix}0\\3\\0\end{pmatrix}\).<br>
+      \(\vec{n} = \overrightarrow{NA} \times \overrightarrow{NB} = \begin{pmatrix}0\\0\\9\end{pmatrix} \parallel \begin{pmatrix}0\\0\\1\end{pmatrix}\).<br>
+      Équation : \(0(x-2)+0(y-1)+1(z-3) = 0\), soit \(\boxed{z = 3}\).
+    </p>
+
+    <p><strong>8)</strong>
+      \(C(2,1,7)\) : \(z_C = 7 \neq 3\). Le point \(C\) n'appartient pas au plan \(z=3\).<br>
+      Interprétation : la barre \(NC\) est perpendiculaire au plan du treillis formé par \(N\), \(A\), \(B\). C'est une barre hors-plan (contreventement ou bielle), ce qui est cohérent avec \(\hat{u}_C = \vec{k} \perp \mathcal{P}\).
+    </p>
+  </div>
+</div>
+
+</div><!-- fin .c -->
 <script src="../../../nav.js"></script>
 </body>
 </html>
