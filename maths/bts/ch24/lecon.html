@@ -4,21 +4,450 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Ch24 – Graphes et ordonnancement – BTS</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}</style>
+<style>
+table.wide{width:100%;border-collapse:collapse}
+table.wide th,table.wide td{padding:.45rem .7rem;border:1px solid var(--p-border)}
+table.wide th{background:var(--p-bg);color:var(--p)}
+table.wide tr:nth-child(even) td{background:#f7f9fc}
+table.matrix{border-collapse:collapse;margin:.6rem auto;font-family:monospace}
+table.matrix th,table.matrix td{border:1px solid #93a5c0;padding:.35rem .6rem;text-align:center;min-width:2rem}
+table.matrix th{background:var(--p-bg);color:var(--p)}
+.graph-svg{display:block;margin:.8rem auto;max-width:100%;overflow:visible}
+.pert-wrap{overflow-x:auto;margin:1rem 0}
+table.pert{border-collapse:collapse;margin:0 auto}
+table.pert th,table.pert td{border:1px solid #93a5c0;padding:.4rem .8rem;text-align:center;font-size:.9rem}
+table.pert th{background:var(--p-bg);color:var(--p)}
+table.pert tr:nth-child(even) td{background:#f7f9fc}
+.gantt-wrap{overflow-x:auto;margin:1rem 0}
+table.gantt{border-collapse:collapse;font-size:.85rem}
+table.gantt th,table.gantt td{border:1px solid #93a5c0;padding:.3rem .5rem;white-space:nowrap}
+table.gantt th{background:var(--p-bg);color:var(--p);text-align:center}
+table.gantt .bar{background:#1e3a5f;border-radius:3px;height:1rem;display:block}
+table.gantt .bar-cr{background:#c0392b;border-radius:3px;height:1rem;display:block}
+code{background:#e8edf4;border-radius:3px;padding:.1rem .35rem;font-size:.92em;font-family:monospace}
+</style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">← Retour au sommaire BTS</a>
+<a href="../../../maths-bts.html" class="nb">← Retour au sommaire</a>
+
 <header>
   <h1>Chapitre 24 – Graphes et ordonnancement</h1>
-  <p class="sous-titre">BTS — Mathématiques</p>
+  <p class="sous-titre">BTS | Mathématiques | Groupements C1, C2</p>
 </header>
+
 <div class="objectifs">
-  <h3>🚧 En cours de rédaction</h3>
-  <p>Ce chapitre sera bientôt disponible. Revenez prochainement !</p>
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Maîtriser le vocabulaire des graphes orientés et non orientés.</li>
+    <li>Représenter un graphe par matrice d'adjacence ou liste d'adjacence.</li>
+    <li>Appliquer l'algorithme de Dijkstra pour trouver le plus court chemin.</li>
+    <li>Construire un arbre couvrant minimal (Kruskal, Prim).</li>
+    <li>Modéliser un projet par un réseau PERT, déterminer le chemin critique et les marges.</li>
+    <li>Construire et lire un diagramme de Gantt.</li>
+  </ul>
 </div>
+
+<div class="situation">
+  <strong>Situation professionnelle — Planification d'un chantier d'agencement bois</strong>
+  <p>Un chargé d'affaires dans une entreprise d'agencement bois doit planifier la pose d'une cuisine équipée sur mesure dans un appartement en rénovation. Le chantier comprend une vingtaine de tâches (dépose ancienne cuisine, traçage, pose des meubles bas, pose des meubles hauts, plomberie, électricité, carrelage, plan de travail, appareillage, finitions). Certaines tâches ne peuvent commencer que lorsque d'autres sont terminées. Il faut identifier le chemin critique pour respecter le délai contractuel de 10 jours ouvrés, et répartir les ressources (2 poseurs, 1 plombier, 1 électricien) sans surcharge. Les graphes PERT et le diagramme de Gantt sont les outils adaptés à cette situation.</p>
+</div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2>1. Définitions fondamentales</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Graphe</span>
+  <p>Un <strong>graphe</strong> \(G = (S, A)\) est composé de :</p>
+  <ul>
+    <li>Un ensemble \(S\) de <strong>sommets</strong> (ou nœuds, vertices).</li>
+    <li>Un ensemble \(A\) d'<strong>arêtes</strong> (graphe non orienté) ou d'<strong>arcs</strong> (graphe orienté, digraphe).</li>
+  </ul>
+  <p>Dans un <strong>graphe orienté</strong>, chaque arc \((u,v)\) va de \(u\) vers \(v\) : l'ordre compte.</p>
+  <p>Dans un <strong>graphe non orienté</strong>, l'arête \(\{u,v\}\) relie \(u\) et \(v\) sans direction.</p>
+  <p>Un <strong>graphe valué</strong> (ou pondéré) associe une valeur (poids, coût, durée) à chaque arête ou arc.</p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Vocabulaire des graphes</span>
+  <table class="wide">
+    <tr><th>Terme</th><th>Définition</th></tr>
+    <tr><td><strong>Degré d'un sommet</strong></td><td>Nombre d'arêtes incidentes à ce sommet. Dans un graphe orienté : demi-degré entrant et sortant.</td></tr>
+    <tr><td><strong>Chemin</strong></td><td>Suite de sommets consécutifs reliés par des arêtes/arcs.</td></tr>
+    <tr><td><strong>Chaîne</strong></td><td>Chemin dans un graphe non orienté.</td></tr>
+    <tr><td><strong>Circuit</strong></td><td>Chemin fermé dans un graphe orienté (premier = dernier sommet).</td></tr>
+    <tr><td><strong>Cycle</strong></td><td>Chaîne fermée dans un graphe non orienté.</td></tr>
+    <tr><td><strong>Connexité</strong></td><td>Graphe non orienté : il existe un chemin entre toute paire de sommets.</td></tr>
+    <tr><td><strong>Fortement connexe</strong></td><td>Graphe orienté : il existe un chemin orienté entre toute paire de sommets.</td></tr>
+    <tr><td><strong>Graphe complet</strong></td><td>Toute paire de sommets est reliée par une arête. Noté \(K_n\) (\(n\) sommets, \(\frac{n(n-1)}{2}\) arêtes).</td></tr>
+    <tr><td><strong>Graphe bipartite</strong></td><td>Sommets répartis en deux groupes ; les arêtes ne relient que des sommets de groupes différents.</td></tr>
+  </table>
+</div>
+
+<div class="prop">
+  <span class="label label-prop">Propriété — Lemme des poignées de mains</span>
+  <p>Dans tout graphe non orienté, la somme des degrés de tous les sommets est égale à deux fois le nombre d'arêtes :</p>
+  $$\sum_{v \in S} \deg(v) = 2|A|$$
+  <p>Conséquence : le nombre de sommets de degré impair est toujours pair.</p>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2>2. Représentations d'un graphe</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Matrice d'adjacence</span>
+  <p>Pour un graphe à \(n\) sommets numérotés \(1, \ldots, n\), la <strong>matrice d'adjacence</strong> \(M\) est une matrice \(n \times n\) telle que :</p>
+  $$M_{ij} = \begin{cases} 1 & \text{s'il existe un arc (arête) de } i \text{ vers } j \\ 0 & \text{sinon} \end{cases}$$
+  <p>Pour un graphe valué, on remplace 1 par le poids (et souvent \(\infty\) ou 0 pour l'absence d'arc).</p>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Matrice d'adjacence</span>
+  <p>Graphe orienté avec sommets \(\{1,2,3,4\}\) et arcs : \(1\to2\), \(1\to3\), \(2\to4\), \(3\to2\), \(3\to4\), \(4\to1\).</p>
+  <table class="matrix">
+    <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+    <tr><th>1</th><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><th>2</th><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><th>3</th><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+    <tr><th>4</th><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+  </table>
+  <p>La matrice d'un graphe non orienté est <strong>symétrique</strong> : \(M_{ij} = M_{ji}\).</p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Liste d'adjacence</span>
+  <p>La <strong>liste d'adjacence</strong> associe à chaque sommet la liste de ses voisins (successeurs). Plus économique en mémoire pour les graphes peu denses.</p>
+  <p>Exemple (même graphe) : \(1 \to [2, 3]\) ; \(2 \to [4]\) ; \(3 \to [2, 4]\) ; \(4 \to [1]\)</p>
+</div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2>3. Graphes particuliers</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Arbre et forêt</span>
+  <p>Un <strong>arbre</strong> est un graphe non orienté connexe sans cycle. Pour \(n\) sommets, il comporte exactement \(n-1\) arêtes.</p>
+  <p>Une <strong>forêt</strong> est un graphe acyclique non orienté (union d'arbres disjoints).</p>
+  <p>Un <strong>arbre enraciné</strong> a un sommet distingué appelé <strong>racine</strong>. Terminologie : père, fils, feuilles (sommets sans fils), profondeur.</p>
+  <p>Un <strong>arbre couvrant</strong> d'un graphe \(G\) est un arbre contenant tous les sommets de \(G\).</p>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Graphes eulériens et hamiltoniens</span>
+  <p><strong>Chemin eulérien</strong> : chemin passant une et une seule fois par chaque arête (problème des ponts de Königsberg).</p>
+  <p><strong>Condition</strong> (graphe non orienté connexe) : existence d'un chemin eulérien ssi exactement 0 ou 2 sommets ont un degré impair.</p>
+  <p><strong>Circuit eulérien</strong> : chemin eulérien fermé — ssi tous les sommets ont un degré pair.</p>
+  <p><strong>Chemin hamiltonien</strong> : chemin passant une et une seule fois par chaque <em>sommet</em>.</p>
+  <p>Il n'existe pas de critère simple pour l'existence d'un cycle hamiltonien (problème NP-difficile).</p>
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2>4. Algorithme de Dijkstra — Plus court chemin</h2>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Algorithme de Dijkstra</span>
+  <p>Calcule les plus courts chemins depuis un sommet source \(s\) dans un graphe valué à poids positifs.</p>
+  <p><strong>Initialisation :</strong></p>
+  <ul>
+    <li>\(d(s) = 0\), \(d(v) = +\infty\) pour tout autre sommet \(v\).</li>
+    <li>Ensemble des sommets non traités : \(Q = S\).</li>
+  </ul>
+  <p><strong>Itération :</strong></p>
+  <ol>
+    <li>Choisir dans \(Q\) le sommet \(u\) ayant la plus petite distance estimée \(d(u)\).</li>
+    <li>Retirer \(u\) de \(Q\) (sommet «&nbsp;définitivement traité&nbsp;»).</li>
+    <li>Pour chaque voisin \(v\) de \(u\) encore dans \(Q\) : si \(d(u) + w(u,v) < d(v)\) alors mettre à jour \(d(v) \leftarrow d(u) + w(u,v)\) et mémoriser \(u\) comme prédécesseur de \(v\).</li>
+    <li>Répéter jusqu'à ce que \(Q = \emptyset\) ou que le sommet cible soit traité.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Dijkstra sur un réseau routier simplifié</span>
+  <p>Réseau de 5 villes : A, B, C, D, E. Les distances (km) entre villes directement reliées :</p>
+  <table class="wide">
+    <tr><th>Arc</th><th>Poids</th><th>Arc</th><th>Poids</th></tr>
+    <tr><td>A → B</td><td>4</td><td>B → D</td><td>2</td></tr>
+    <tr><td>A → C</td><td>2</td><td>C → D</td><td>5</td></tr>
+    <tr><td>A → D</td><td>10</td><td>C → E</td><td>3</td></tr>
+    <tr><td>B → C</td><td>1</td><td>D → E</td><td>4</td></tr>
+  </table>
+  <p><strong>Exécution depuis A :</strong></p>
+  <table class="pert">
+    <tr><th>Étape</th><th>u traité</th><th>d(A)</th><th>d(B)</th><th>d(C)</th><th>d(D)</th><th>d(E)</th></tr>
+    <tr><td>Init</td><td>—</td><td>0</td><td>∞</td><td>∞</td><td>∞</td><td>∞</td></tr>
+    <tr><td>1</td><td>A</td><td>0</td><td>4</td><td>2</td><td>10</td><td>∞</td></tr>
+    <tr><td>2</td><td>C</td><td>0</td><td>3</td><td>2</td><td>7</td><td>5</td></tr>
+    <tr><td>3</td><td>B</td><td>0</td><td>3</td><td>2</td><td>5</td><td>5</td></tr>
+    <tr><td>4</td><td>D</td><td>0</td><td>3</td><td>2</td><td>5</td><td>5</td></tr>
+    <tr><td>5</td><td>E</td><td>0</td><td>3</td><td>2</td><td>5</td><td>5</td></tr>
+  </table>
+  <p>Plus court chemin A → E : <strong>A → C → E = 5 km</strong>. Plus court chemin A → D : <strong>A → C → B → D = 5 km</strong>.</p>
+</div>
+
+<div class="att">
+  <span class="label label-att">Attention — Dijkstra et poids négatifs</span>
+  <p>L'algorithme de Dijkstra ne fonctionne correctement qu'avec des <strong>poids positifs ou nuls</strong>. En présence de poids négatifs, utiliser l'algorithme de Bellman-Ford.</p>
+</div>
+
+<!-- ==================== SECTION 5 ==================== -->
+<h2>5. Arbre couvrant minimal</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Arbre couvrant minimal (ACM)</span>
+  <p>Dans un graphe non orienté connexe valué, l'<strong>arbre couvrant minimal</strong> (Minimum Spanning Tree, MST) est l'arbre couvrant dont la somme des poids des arêtes est minimale.</p>
+  <p>Applications : réseau de câblage minimal, réseau de distribution d'eau, interconnexion de sites.</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Algorithme de Kruskal</span>
+  <ol>
+    <li>Trier toutes les arêtes par poids croissant.</li>
+    <li>Partir d'un ensemble \(T\) vide (arêtes de l'ACM).</li>
+    <li>Pour chaque arête (dans l'ordre croissant) : l'ajouter à \(T\) <em>seulement si elle ne crée pas de cycle</em>.</li>
+    <li>S'arrêter quand \(|T| = n - 1\) arêtes (pour \(n\) sommets).</li>
+  </ol>
+  <p><em>Vérification de cycle</em> : utiliser une structure Union-Find (union par rang).</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Algorithme de Prim</span>
+  <ol>
+    <li>Choisir un sommet de départ quelconque. Initialiser l'ensemble \(V_{ACM} = \{s\}\).</li>
+    <li>Répéter jusqu'à couvrir tous les sommets :
+      <ul>
+        <li>Parmi toutes les arêtes reliant un sommet de \(V_{ACM}\) à un sommet hors de \(V_{ACM}\), choisir l'arête de poids minimal.</li>
+        <li>Ajouter le nouveau sommet à \(V_{ACM}\) et l'arête à l'ACM.</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — ACM par Kruskal (réseau d'alimentation d'atelier)</span>
+  <p>Un technicien doit relier 5 machines \(\{M_1, M_2, M_3, M_4, M_5\}\) par un réseau pneumatique de longueur minimale. Arêtes disponibles :</p>
+  <table class="wide">
+    <tr><th>Arête</th><th>Longueur (m)</th><th>Ajoutée ?</th></tr>
+    <tr><td>M1–M2</td><td>3</td><td>Oui (pas de cycle)</td></tr>
+    <tr><td>M2–M3</td><td>4</td><td>Oui</td></tr>
+    <tr><td>M1–M4</td><td>5</td><td>Oui</td></tr>
+    <tr><td>M3–M5</td><td>5</td><td>Oui</td></tr>
+    <tr><td>M2–M4</td><td>6</td><td>Non (cycle M1–M2–M4–M1)</td></tr>
+    <tr><td>M4–M5</td><td>7</td><td>Non (cycle déjà couvert)</td></tr>
+    <tr><td>M1–M3</td><td>8</td><td>Non</td></tr>
+  </table>
+  <p>ACM retenu : \(\{M_1M_2, M_2M_3, M_1M_4, M_3M_5\}\) — longueur totale : \(3+4+5+5 = 17\) m.</p>
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<h2>6. Ordonnancement — Méthode PERT</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Réseau PERT</span>
+  <p>Le <strong>réseau PERT</strong> (Program Evaluation and Review Technique) est un graphe orienté acyclique (DAG) représentant les tâches d'un projet et leurs contraintes d'antériorité.</p>
+  <ul>
+    <li><strong>Nœuds</strong> (cercles) : étapes (événements) du projet. Chaque nœud possède une date au plus tôt et une date au plus tard.</li>
+    <li><strong>Arcs</strong> : tâches, portant leur durée. On utilise parfois des <strong>tâches fictives</strong> (durée 0) pour exprimer des contraintes.</li>
+  </ul>
+</div>
+
+<div class="def">
+  <span class="label label-def">Définition — Chemin critique et marges</span>
+  <p>Le <strong>chemin critique</strong> est le chemin le plus long du début à la fin du projet. Il donne la durée minimale totale du projet. Les tâches sur ce chemin sont <strong>critiques</strong> : tout retard sur elles retarde l'ensemble du projet.</p>
+  <p>La <strong>marge totale</strong> d'une tâche est le retard maximal possible sans retarder la fin du projet :</p>
+  $$MT_i = \text{date au plus tard}_{\text{fin}} - \text{date au plus tôt}_{\text{début}} - \text{durée}_i$$
+  <p>La <strong>marge libre</strong> est le retard maximal possible sans retarder le début au plus tôt de la tâche suivante :</p>
+  $$ML_i = \text{date au plus tôt du successeur} - \text{date au plus tôt}_{\text{début}} - \text{durée}_i$$
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Construction et calcul PERT</span>
+  <ol>
+    <li>Lister toutes les tâches avec leurs durées et leurs antécédents.</li>
+    <li>Construire le graphe PERT (nœuds = étapes, arcs = tâches).</li>
+    <li><strong>Calcul des dates au plus tôt</strong> (forward pass, de gauche à droite) :<br>
+      Date au plus tôt du nœud = max des (date au plus tôt du nœud précédent + durée de l'arc entrant).</li>
+    <li><strong>Calcul des dates au plus tard</strong> (backward pass, de droite à gauche) :<br>
+      Date au plus tard du nœud = min des (date au plus tard du nœud suivant − durée de l'arc sortant).</li>
+    <li>Calculer les marges totales et libres de chaque tâche.</li>
+    <li>Le chemin critique est formé des tâches de marge totale nulle.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — PERT pour un chantier de pose de cuisine (C1)</span>
+  <p>Tâches du chantier (durées en jours ouvrés) :</p>
+  <table class="pert">
+    <tr><th>Tâche</th><th>Désignation</th><th>Durée (j)</th><th>Antécédents</th></tr>
+    <tr><td>A</td><td>Dépose ancienne cuisine</td><td>1</td><td>—</td></tr>
+    <tr><td>B</td><td>Traçage et repérage</td><td>0,5</td><td>A</td></tr>
+    <tr><td>C</td><td>Travaux plomberie (arrivées/évacuations)</td><td>1</td><td>A</td></tr>
+    <tr><td>D</td><td>Travaux électriques</td><td>1</td><td>A</td></tr>
+    <tr><td>E</td><td>Pose meubles bas</td><td>1,5</td><td>B, C, D</td></tr>
+    <tr><td>F</td><td>Pose meubles hauts</td><td>1</td><td>B</td></tr>
+    <tr><td>G</td><td>Pose plan de travail</td><td>0,5</td><td>E</td></tr>
+    <tr><td>H</td><td>Raccordements appareils</td><td>1</td><td>G, F</td></tr>
+    <tr><td>I</td><td>Finitions et réglages</td><td>0,5</td><td>H</td></tr>
+  </table>
+  <p><strong>Calcul des dates au plus tôt (en jours) :</strong></p>
+  <table class="pert">
+    <tr><th>Nœud (fin de tâche)</th><th>Date au plus tôt</th><th>Date au plus tard</th><th>Marge totale</th></tr>
+    <tr><td>Début</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>Fin A</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><td>Fin B</td><td>1,5</td><td>2</td><td>0,5</td></tr>
+    <tr><td>Fin C</td><td>2</td><td>2</td><td>0</td></tr>
+    <tr><td>Fin D</td><td>2</td><td>2</td><td>0</td></tr>
+    <tr><td>Fin E</td><td>3,5</td><td>3,5</td><td>0</td></tr>
+    <tr><td>Fin F</td><td>2,5</td><td>3</td><td>0,5</td></tr>
+    <tr><td>Fin G</td><td>4</td><td>4</td><td>0</td></tr>
+    <tr><td>Fin H</td><td>5</td><td>5</td><td>0</td></tr>
+    <tr><td>Fin I</td><td>5,5</td><td>5,5</td><td>0</td></tr>
+  </table>
+  <p><strong>Durée totale du chantier : 5,5 jours ouvrés.</strong></p>
+  <p><strong>Chemin critique</strong> (marges = 0) : A → C (ou D) → E → G → H → I</p>
+</div>
+
+<!-- ==================== SECTION 7 ==================== -->
+<h2>7. Diagramme de Gantt</h2>
+
+<div class="def">
+  <span class="label label-def">Définition — Diagramme de Gantt</span>
+  <p>Le <strong>diagramme de Gantt</strong> est une représentation graphique du planning d'un projet. L'axe horizontal représente le temps (jours, semaines…), l'axe vertical liste les tâches. Chaque tâche est représentée par une barre dont la longueur est proportionnelle à sa durée.</p>
+  <p>Il permet de visualiser :</p>
+  <ul>
+    <li>Les <strong>dates de début et fin</strong> de chaque tâche.</li>
+    <li>Les <strong>marges</strong> (en décalant les barres non critiques).</li>
+    <li>La <strong>charge des ressources</strong> (superposition des barres par ressource).</li>
+    <li>L'<strong>avancement</strong> du chantier (remplissage de la barre).</li>
+  </ul>
+</div>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Diagramme de Gantt du chantier cuisine</span>
+  <div class="gantt-wrap">
+    <table class="gantt">
+      <tr>
+        <th style="min-width:180px">Tâche</th>
+        <th>J1</th><th>J2</th><th>J3</th><th>J4</th><th>J5</th><th>J6</th>
+      </tr>
+      <tr>
+        <td>A — Dépose (1j)</td>
+        <td colspan="2" style="background:#1e3a5f;color:#fff;text-align:center;border-radius:4px">A</td>
+        <td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>B — Traçage (0,5j)</td>
+        <td></td>
+        <td style="background:#93a5c0;color:#1e3a5f;text-align:center;border-radius:4px">B</td>
+        <td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>C — Plomberie (1j) ★</td>
+        <td></td>
+        <td colspan="2" style="background:#c0392b;color:#fff;text-align:center;border-radius:4px">C ★</td>
+        <td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>D — Électricité (1j) ★</td>
+        <td></td>
+        <td colspan="2" style="background:#c0392b;color:#fff;text-align:center;border-radius:4px">D ★</td>
+        <td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>E — Meubles bas (1,5j) ★</td>
+        <td></td><td></td>
+        <td colspan="2" style="background:#c0392b;color:#fff;text-align:center;border-radius:4px">E ★</td>
+        <td></td><td></td>
+      </tr>
+      <tr>
+        <td>F — Meubles hauts (1j)</td>
+        <td></td><td></td>
+        <td colspan="2" style="background:#93a5c0;color:#1e3a5f;text-align:center;border-radius:4px">F (marge)</td>
+        <td></td><td></td>
+      </tr>
+      <tr>
+        <td>G — Plan de travail (0,5j) ★</td>
+        <td></td><td></td><td></td>
+        <td style="background:#c0392b;color:#fff;text-align:center;border-radius:4px">G ★</td>
+        <td></td><td></td>
+      </tr>
+      <tr>
+        <td>H — Raccordements (1j) ★</td>
+        <td></td><td></td><td></td>
+        <td colspan="2" style="background:#c0392b;color:#fff;text-align:center;border-radius:4px">H ★</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>I — Finitions (0,5j) ★</td>
+        <td></td><td></td><td></td><td></td>
+        <td style="background:#c0392b;color:#fff;text-align:center;border-radius:4px">I ★</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <p>★ = Tâche sur le chemin critique (barres en rouge). Les tâches B et F ont des marges (barres en gris-bleu) : elles peuvent être décalées sans allonger le projet.</p>
+</div>
+
+<div class="meth">
+  <span class="label label-meth">Méthode — Construction du Gantt depuis le PERT</span>
+  <ol>
+    <li>Placer d'abord les tâches critiques à leurs dates au plus tôt.</li>
+    <li>Placer les tâches non critiques en utilisant leur marge totale pour nivelé les ressources (éviter les pics de charge).</li>
+    <li>Vérifier que toutes les contraintes d'antériorité sont respectées.</li>
+    <li>Contrôler la charge journalière de chaque ressource (ne pas dépasser la capacité disponible).</li>
+  </ol>
+</div>
+
+<!-- ==================== SECTION 8 ==================== -->
+<h2>8. Application — Planification d'un chantier de charpente (C2)</h2>
+
+<div class="ex">
+  <span class="label label-def">Exemple — Chantier de charpente bois</span>
+  <p>Un charpentier doit réaliser la charpente d'un garage. Tâches principales :</p>
+  <table class="pert">
+    <tr><th>Tâche</th><th>Désignation</th><th>Durée (j)</th><th>Antécédents</th><th>Ressource</th></tr>
+    <tr><td>A</td><td>Étude et débit des bois</td><td>2</td><td>—</td><td>Charpentier 1+2</td></tr>
+    <tr><td>B</td><td>Taille des pièces (sablière, faîtage)</td><td>1</td><td>A</td><td>Charpentier 1</td></tr>
+    <tr><td>C</td><td>Taille des chevrons</td><td>1</td><td>A</td><td>Charpentier 2</td></tr>
+    <tr><td>D</td><td>Traitement et séchage du bois</td><td>1</td><td>A</td><td>—</td></tr>
+    <tr><td>E</td><td>Levage et pose des fermes</td><td>1</td><td>B, D</td><td>Charpentier 1+2+grue</td></tr>
+    <tr><td>F</td><td>Pose du faîtage et des pannes</td><td>0,5</td><td>E</td><td>Charpentier 1</td></tr>
+    <tr><td>G</td><td>Pose des chevrons</td><td>1</td><td>C, F</td><td>Charpentier 2</td></tr>
+    <tr><td>H</td><td>Pose du lattage et sous-toiture</td><td>1</td><td>G</td><td>Charpentier 1+2</td></tr>
+    <tr><td>I</td><td>Vérification et réception</td><td>0,5</td><td>H</td><td>Chef de chantier</td></tr>
+  </table>
+  <p><strong>Durée totale calculée par PERT : 7 jours ouvrés.</strong></p>
+  <p><strong>Chemin critique :</strong> A → D → E → F → G → H → I (les tâches B et C ont des marges).</p>
+  <p><strong>Analyse des ressources :</strong> Aux jours 1-2, les deux charpentiers sont occupés ensemble (débit des bois). Aux jours 3-4, ils peuvent travailler en parallèle (B et C séparément). La grue n'est nécessaire qu'au jour 5 (levage des fermes) — elle peut donc être louée uniquement pour ce jour, ce qui optimise le coût.</p>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Récapitulatif PERT / Gantt</strong>
+  <table class="wide">
+    <tr><th>Élément</th><th>Définition / Utilité</th></tr>
+    <tr><td>Date au plus tôt</td><td>Début minimal en respectant les antériorités (forward pass)</td></tr>
+    <tr><td>Date au plus tard</td><td>Début maximal sans retarder la fin du projet (backward pass)</td></tr>
+    <tr><td>Chemin critique</td><td>Suite de tâches de marge totale nulle — durée minimale du projet</td></tr>
+    <tr><td>Marge totale</td><td>Retard possible sur la tâche sans allonger le projet</td></tr>
+    <tr><td>Marge libre</td><td>Retard possible sans retarder la tâche suivante</td></tr>
+    <tr><td>Diagramme de Gantt</td><td>Visualisation du planning et de la charge des ressources</td></tr>
+  </table>
+</div>
+
+<div class="formule-box">
+  <strong>Synthèse du chapitre 24</strong>
+  <ul>
+    <li><strong>Graphe</strong> : \(G=(S,A)\) — sommets et arcs/arêtes. Représentation : matrice d'adjacence ou liste.</li>
+    <li><strong>Dijkstra</strong> : plus court chemin depuis une source, poids positifs. Complexité \(O(n^2)\) ou \(O((n+m)\log n)\) avec file de priorité.</li>
+    <li><strong>ACM</strong> : Kruskal (tri des arêtes) ou Prim (extension depuis la source).</li>
+    <li><strong>PERT</strong> : forward pass → dates au plus tôt ; backward pass → dates au plus tard ; chemin critique = marges nulles.</li>
+    <li><strong>Marge totale</strong> = date au plus tard du nœud suivant − date au plus tôt du nœud courant − durée.</li>
+    <li><strong>Gantt</strong> : représentation du planning ; utile pour le nivellement des ressources.</li>
+  </ul>
+</div>
+
 </div>
 <script src="../../../nav.js"></script>
 </body>
