@@ -3,586 +3,924 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch18 &#8211; Fiabilit&#233; &#8211; BTS</title>
+<title>Ch18 – Fiabilité – BTS</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>
 :root{--p:#1e3a5f;--p-bg:#eef2f7;--p-border:#93a5c0}
-table.tableau{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.93rem}
-table.tableau th,table.tableau td{border:1px solid #93a5c0;padding:.45rem .7rem;text-align:center}
-table.tableau th{background:var(--p-bg);color:var(--p);font-weight:700}
-table.tableau tr:nth-child(even){background:#f7f9fc}
-.fiab-schema{display:flex;align-items:center;justify-content:center;gap:0;margin:1.2rem auto;max-width:600px}
-.fiab-bloc{background:var(--p-bg);border:2px solid var(--p-border);border-radius:6px;padding:.5rem 1rem;font-weight:600;font-size:.92rem;color:var(--p);white-space:nowrap}
-.fiab-arrow{font-size:1.4rem;color:#64748b;margin:0 .3rem}
-.fiab-parall{display:flex;flex-direction:column;gap:.5rem;align-items:center;border:2px dashed var(--p-border);border-radius:8px;padding:.6rem 1rem}
-.fiab-parall .fiab-bloc{width:130px;text-align:center}
-.amdec-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid #93a5c0;border-radius:6px;overflow:hidden;margin:1rem 0;font-size:.88rem}
-.amdec-grid .cell{padding:.45rem .5rem;border-right:1px solid #c8d8e8;border-bottom:1px solid #c8d8e8;text-align:center}
-.amdec-grid .cell:nth-child(5n){border-right:none}
-.amdec-grid .head{background:var(--p-bg);color:var(--p);font-weight:700}
-.amdec-grid .crit-high{background:#fee2e2;color:#991b1b;font-weight:700}
-.amdec-grid .crit-med{background:#fef9c3;color:#713f12}
-.amdec-grid .crit-low{background:#dcfce7;color:#166534}
-.baignoire-wrap{background:#f8fafc;border:1px solid #93a5c0;border-radius:8px;padding:1rem;margin:1rem 0;text-align:center}
-.baignoire-wrap svg{max-width:500px;width:100%}
+.table-fid{width:100%;border-collapse:collapse;margin:.8em 0;font-size:.93em}
+.table-fid th{background:var(--p);color:#fff;padding:.55em .8em;text-align:center}
+.table-fid td{padding:.45em .8em;border-bottom:1px solid #dde3eb;text-align:center}
+.table-fid tr:nth-child(even){background:#f5f8fb}
+.table-fid td:first-child{text-align:left;font-weight:500}
+.table-amdec th{font-size:.82em;padding:.45em .5em}
+.table-amdec td{font-size:.82em;padding:.4em .5em}
+.formule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1em;margin:.8em 0}
+.formule-card{background:#fff;border:2px solid var(--p-border);border-radius:8px;padding:1em;text-align:center}
+.formule-card .titre{font-weight:700;color:var(--p);margin-bottom:.4em;font-size:.95em}
+.chart-wrap{background:#fff;border:1px solid var(--p-border);border-radius:8px;padding:.8em}
+.arbre-box{background:#fff;border:2px solid var(--p-border);border-radius:8px;padding:1em;margin:.8em 0}
+.badge-crit{display:inline-block;padding:.2em .6em;border-radius:4px;font-weight:700;font-size:.88em;color:#fff}
+.crit-faible{background:#2da44e}
+.crit-moyen{background:#e09000}
+.crit-fort{background:#c0392b}
+.schema-serie-parallele{background:#fff;border:2px solid var(--p-border);border-radius:8px;padding:1em;margin:.8em 0;overflow-x:auto}
 </style>
 </head>
 <body>
 <div class="c">
-<a href="../../../maths-bts.html" class="nb">&#8592; Retour au sommaire</a>
-
+<a href="../../../maths-bts.html" class="nb">&larr; Retour au sommaire</a>
 <header>
-  <h1>Chapitre 18 &#8211; Fiabilit&#233;</h1>
-  <p class="sous-titre">BTS | Math&#233;matiques | Groupement C1</p>
+  <h1>Chapitre 18 &ndash; Fiabilit&eacute;</h1>
+  <p class="sous-titre">BTS &nbsp;|&nbsp; Math&eacute;matiques &nbsp;|&nbsp; Groupement C1</p>
+  <p class="maj">Derni&egrave;re mise &agrave; jour&nbsp;: mars 2026</p>
 </header>
 
-<!-- OBJECTIFS -->
-<section class="objectifs">
-  <h2>Objectifs du chapitre</h2>
+<!-- ===================== OBJECTIFS ===================== -->
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
   <ul>
-    <li>D&#233;finir et calculer la fiabilit&#233; \(R(t)\), le taux de d&#233;faillance \(\lambda(t)\) et le MTTF.</li>
-    <li>Appliquer la loi exponentielle et la loi de Weibull &#224; des probl&#232;mes de dur&#233;e de vie.</li>
-    <li>Calculer la fiabilit&#233; de syst&#232;mes en s&#233;rie, en parall&#232;le et en configuration mixte.</li>
-    <li>Mettre en &#339;uvre une analyse AMDEC&#160;; lire un arbre de d&#233;faillances.</li>
+    <li>Conna&icirc;tre et utiliser les indicateurs de fiabilit&eacute; : \(R(t)\), \(\lambda(t)\), MTBF, MTTF, MTTR</li>
+    <li>Appliquer la loi exponentielle et ses propri&eacute;t&eacute;s (sans m&eacute;moire, taux constant)</li>
+    <li>Utiliser la loi de Weibull pour mod&eacute;liser les diff&eacute;rentes p&eacute;riodes de vie d&rsquo;un composant</li>
+    <li>Calculer la fiabilit&eacute; de syst&egrave;mes en s&eacute;rie, en parall&egrave;le et mixtes</li>
+    <li>Construire et interpr&eacute;ter un tableau AMDEC et calculer la criticit&eacute;</li>
+    <li>Analyser la d&eacute;faillance d&rsquo;un syst&egrave;me par arbre de d&eacute;faillances</li>
+    <li>Calculer la disponibilit&eacute; d&rsquo;un &eacute;quipement &agrave; partir du MTBF et du MTTR</li>
+    <li>Choisir une strat&eacute;gie de maintenance adapt&eacute;e &agrave; un contexte industriel</li>
   </ul>
-</section>
+</div>
 
-<!-- SITUATION PROFESSIONNELLE -->
+<!-- ===================== SITUATION PROFESSIONNELLE ===================== -->
 <div class="situation">
-  <strong>Situation professionnelle &#8212; Atelier d'agencement bois</strong><br>
-  Un technicien en agencement re&#231;oit une commande de 200&#160;&#233;l&#233;ments de mobilier avec liaison tenon-mortaise coll&#233;e. Le client exige une garantie de 5&#160;ans (43&#160;800&#160;h) avec une fiabilit&#233; minimale de 95&#160;%. Le technicien doit&#160;: (1)&#160;v&#233;rifier si la loi exponentielle de taux \(\lambda\) est compatible avec la garantie, (2)&#160;analyser le syst&#232;me par AMDEC pour identifier les modes de d&#233;faillance critiques, (3)&#160;&#233;valuer la fiabilit&#233; globale de l'assemblage.
+  <strong>Situation professionnelle</strong><br>
+  Sophie est ing&eacute;nieure de maintenance dans une entreprise de g&eacute;nie climatique industriel.
+  Elle est charg&eacute;e d&rsquo;analyser la fiabilit&eacute; d&rsquo;une centrale de traitement d&rsquo;air (CTA) compos&eacute;e de plusieurs
+  sous-syst&egrave;mes : compresseur, &eacute;changeur thermique, ventilateur et syst&egrave;me de r&eacute;gulation.
+  &Agrave; partir des historiques de pannes sur les cinq derni&egrave;res ann&eacute;es, Sophie doit&nbsp;:
+  &eacute;valuer la fiabilit&eacute; de chaque composant, d&eacute;terminer la configuration s&eacute;rie/parall&egrave;le du syst&egrave;me,
+  construire le tableau AMDEC pour identifier les points critiques et proposer un plan de maintenance
+  pr&eacute;ventive adapt&eacute;.
 </div>
 
-<!-- ===== PARTIE 1 : NOTION DE FIABILITÉ ===== -->
-<h2>1. Notion de fiabilit&#233;</h2>
-
-<h3>1.1 D&#233;finitions fondamentales</h3>
+<!-- ===================== 1. DÉFINITIONS ===================== -->
+<h2>1. D&eacute;finitions fondamentales</h2>
 
 <div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Fiabilit&#233;</span>
-  <p>Soit \(T\) la variable al&#233;atoire repr&#233;sentant la <strong>dur&#233;e de vie</strong> d'un composant ou syst&#232;me. La <strong>fiabilit&#233;</strong> au temps \(t\) est&#160;:</p>
-  \[
-    R(t) = P(T > t)
-  \]
-  <p>\(R(t)\) est la probabilit&#233; que le syst&#232;me fonctionne encore &#224; l'instant \(t\).</p>
-  <p>Propri&#233;t&#233;s&#160;: \(R(0) = 1\), \(R(+\infty) = 0\), \(R\) est d&#233;croissante.</p>
-</div>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Fonction de d&#233;faillance</span>
-  <p>La <strong>fonction de d&#233;faillance cumulée</strong> (ou CDF) est&#160;:</p>
-  \[
-    F(t) = P(T \leq t) = 1 - R(t)
-  \]
-  <p>La <strong>densité de probabilité</strong> de \(T\) est \(f(t) = F'(t) = -R'(t)\).</p>
+  <span class="label-def">Fiabilit&eacute; \(R(t)\)</span>
+  La <strong>fiabilit&eacute;</strong> d&rsquo;un composant est la probabilit&eacute; qu&rsquo;il fonctionne correctement
+  jusqu&rsquo;&agrave; l&rsquo;instant \(t\), sans d&eacute;faillance, dans ses conditions nominales d&rsquo;utilisation&nbsp;:
+  \[R(t) = P(T > t)\]
+  o&ugrave; \(T\) est la variable al&eacute;atoire &laquo;&thinsp;dur&eacute;e de vie&thinsp;&raquo; du composant.
+  On a toujours \(0 \leq R(t) \leq 1\), \(R(0) = 1\) et \(\displaystyle\lim_{t\to+\infty} R(t) = 0\).
 </div>
 
 <div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Taux de d&#233;faillance</span>
-  <p>Le <strong>taux de d&#233;faillance</strong> \(\lambda(t)\) repr&#233;sente la probabilit&#233; qu'un composant, ayant survécu jusqu'&#224; \(t\), défaille dans l'intervalle \([t, t+\mathrm{d}t[\)&#160;:</p>
-  \[
-    \lambda(t) = \frac{f(t)}{R(t)} = -\frac{R'(t)}{R(t)}
-  \]
-  <p>Unit&#233;s&#160;: d&#233;faillances par heure (dph) ou \(\mathrm{h}^{-1}\).</p>
+  <span class="label-def">Taux de d&eacute;faillance \(\lambda(t)\)</span>
+  Le <strong>taux de d&eacute;faillance</strong> (ou taux de hasard) est la probabilit&eacute; instantan&eacute;e
+  de d&eacute;faillance sachant que le composant fonctionnait jusqu&rsquo;&agrave; l&rsquo;instant \(t\)&nbsp;:
+  \[\lambda(t) = -\frac{R'(t)}{R(t)}\]
+  Il s&rsquo;exprime en d&eacute;faillances par unit&eacute; de temps (ex.&nbsp;: pannes/heure, pannes/ann&eacute;e).
+  On peut aussi &eacute;crire&nbsp;: \(R(t) = \exp\!\left(-\displaystyle\int_0^t \lambda(u)\,\mathrm{d}u\right)\).
 </div>
 
 <div class="def">
-  <span class="label label-def">D&#233;finition &#8212; MTTF (Mean Time To Failure)</span>
-  <p>L'esp&#233;rance de vie d'un composant non r&#233;parable est le <strong>MTTF</strong>&#160;:</p>
-  \[
-    \mathrm{MTTF} = E[T] = \int_0^{+\infty} R(t)\,\mathrm{d}t
-  \]
-  <p>Pour un composant r&#233;parable, on parle de <strong>MTBF</strong> (Mean Time Between Failures).</p>
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; Lien entre \(\lambda(t)\) et \(R(t)\)</span>
-  <p>&#192; partir de l'&#233;quation diff&#233;rentielle \(\lambda(t) = -R'(t)/R(t)\), on obtient&#160;:</p>
-  \[
-    R(t) = \exp\!\left(-\int_0^t \lambda(u)\,\mathrm{d}u\right)
-  \]
-</div>
-
-<!-- ===== PARTIE 2 : LOI EXPONENTIELLE ===== -->
-<h2>2. Loi exponentielle &#8212; Taux de d&#233;faillance constant</h2>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Loi exponentielle de paramètre \(\lambda\)</span>
-  <p>Si le taux de d&#233;faillance est <strong>constant</strong> \(\lambda(t) = \lambda > 0\), alors \(T\) suit une loi exponentielle et&#160;:</p>
-  \[
-    \boxed{R(t) = e^{-\lambda t}, \qquad F(t) = 1 - e^{-\lambda t}, \qquad f(t) = \lambda e^{-\lambda t}}
-  \]
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; MTTF de la loi exponentielle</span>
-  \[
-    \mathrm{MTTF} = \int_0^{+\infty} e^{-\lambda t}\,\mathrm{d}t = \frac{1}{\lambda}
-  \]
-  <p>Un composant de taux \(\lambda = 10^{-4}\) h\(^{-1}\) a un MTTF de \(10\,000\) heures.</p>
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; Absence de m&#233;moire</span>
-  <p>La loi exponentielle est la seule loi continue sans m&#233;moire&#160;:</p>
-  \[
-    P(T > s + t \mid T > s) = P(T > t) = e^{-\lambda t}
-  \]
-  <p>Un composant &#171;&#160;neuf&#160;&#187; et un composant ayant d&#233;j&#224; fonctionn&#233; \(s\) heures ont la m&#234;me probabilit&#233; de survivre encore \(t\) heures. Ce mod&#232;le est adapt&#233; aux d&#233;faillances al&#233;atoires (phase utile de vie).</p>
+  <span class="label-def">MTBF, MTTF, MTTR</span>
+  <ul>
+    <li>
+      <strong>MTBF</strong> (Mean Time Between Failures) — temps moyen entre deux d&eacute;faillances
+      d&rsquo;un composant r&eacute;parable&nbsp;:
+      \[\text{MTBF} = \int_0^{+\infty} R(t)\,\mathrm{d}t\]
+    </li>
+    <li>
+      <strong>MTTF</strong> (Mean Time To Failure) — m&ecirc;me formule, employ&eacute; pour les composants
+      non r&eacute;parables (dur&eacute;e de vie moyenne).
+    </li>
+    <li>
+      <strong>MTTR</strong> (Mean Time To Repair) — temps moyen n&eacute;cessaire pour r&eacute;parer un composant
+      d&eacute;faillant (dur&eacute;e moyenne d&rsquo;intervention).
+    </li>
+  </ul>
 </div>
 
 <div class="ex">
-  <strong>Exemple &#8212; Visserie d'assemblage</strong><br>
-  Des vis de fixation pour panneau d'agencement ont un taux de d&#233;faillance \(\lambda = 2{,}5 \times 10^{-6}\) h\(^{-1}\).
+  <strong>Exemple num&eacute;rique</strong><br>
+  Sur une ann&eacute;e (8760&nbsp;h), un compresseur tombe en panne 4 fois et les interventions durent
+  respectivement 3&nbsp;h, 5&nbsp;h, 4&nbsp;h et 6&nbsp;h.
   <ul>
-    <li>MTTF&#160;: \(\dfrac{1}{\lambda} = \dfrac{1}{2{,}5 \times 10^{-6}} = 400\,000\) h \(\approx 45{,}6\) ans.</li>
-    <li>Fiabilit&#233; &#224; 5&#160;ans (43&#160;800&#160;h)&#160;: \(R(43\,800) = e^{-2{,}5 \times 10^{-6} \times 43800} = e^{-0{,}1095} \approx 0{,}896\) soit 89,6&#160;%.</li>
-    <li>Fiabilit&#233; &#224; 10&#160;ans (87&#160;600&#160;h)&#160;: \(R(87\,600) = e^{-0{,}219} \approx 0{,}803\) soit 80,3&#160;%.</li>
+    <li>MTTR = \(\dfrac{3+5+4+6}{4} = 4{,}5\) h</li>
+    <li>Temps total de panne = 18&nbsp;h &rArr; temps de bon fonctionnement = 8760 &minus; 18 = 8742&nbsp;h</li>
+    <li>MTBF = \(\dfrac{8742}{4} \approx 2185{,}5\) h</li>
   </ul>
 </div>
 
-<div class="meth">
-  <span class="label label-meth">M&#233;thode &#8212; Trouver \(\lambda\) connaissant \(R(t_0)\)</span>
-  <p>Si l'on sait que \(R(t_0) = r_0\)&#160;:</p>
-  \[
-    e^{-\lambda t_0} = r_0 \implies \lambda = -\frac{\ln r_0}{t_0}
-  \]
-  <p><strong>Application&#160;:</strong> un assemblage tenon-mortaise doit avoir \(R(43\,800) \geq 0{,}95\).</p>
-  \[
-    \lambda \leq -\frac{\ln(0{,}95)}{43\,800} = \frac{0{,}05129}{43\,800} \approx 1{,}17 \times 10^{-6} \text{ h}^{-1}
-  \]
-</div>
+<!-- ===================== 2. MODÈLES DE DURÉE DE VIE ===================== -->
+<h2>2. Mod&egrave;les de dur&eacute;e de vie</h2>
 
-<div class="formule-box">
-  <strong>Formules cl&#233;s &#8212; Loi exponentielle</strong>
-  <table class="tableau">
-    <thead><tr><th>Quantit&#233;</th><th>Formule</th></tr></thead>
-    <tbody>
-      <tr><td>Fiabilit&#233;</td><td>\(R(t) = e^{-\lambda t}\)</td></tr>
-      <tr><td>Taux de d&#233;faillance</td><td>\(\lambda(t) = \lambda\) (constant)</td></tr>
-      <tr><td>MTTF</td><td>\(\mathrm{MTTF} = 1/\lambda\)</td></tr>
-      <tr><td>Temps pour \(R = r\)</td><td>\(t = -\ln(r)/\lambda\)</td></tr>
-      <tr><td>Médiane</td><td>\(t_{0{,}5} = \ln(2)/\lambda \approx 0{,}693/\lambda\)</td></tr>
-    </tbody>
-  </table>
-</div>
+<h3>2.1 Loi exponentielle</h3>
 
-<!-- ===== PARTIE 3 : LOI DE WEIBULL ===== -->
-<h2>3. Loi de Weibull</h2>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Loi de Weibull \((\beta, \eta)\)</span>
-  <p>La loi de Weibull &#224; deux param&#232;tres est caract&#233;ris&#233;e par&#160;:</p>
-  <ul>
-    <li>\(\beta > 0\)&#160;: <strong>param&#232;tre de forme</strong> (ou coefficient de Weibull)</li>
-    <li>\(\eta > 0\)&#160;: <strong>param&#232;tre d'&#233;chelle</strong> (dur&#233;e caract&#233;ristique, en h)</li>
-  </ul>
-  \[
-    \boxed{R(t) = e^{-(t/\eta)^\beta}, \qquad \lambda(t) = \frac{\beta}{\eta}\left(\frac{t}{\eta}\right)^{\beta-1}}
-  \]
+<div class="prop">
+  <span class="label-prop">Loi exponentielle de taux \(\lambda\)</span>
+  La loi exponentielle est le mod&egrave;le de fiabilit&eacute; le plus simple. Le taux de d&eacute;faillance est
+  <strong>constant</strong> au cours du temps&nbsp;:
+  \[R(t) = e^{-\lambda t} \qquad (t \geq 0,\; \lambda > 0)\]
+  Les caract&eacute;ristiques associ&eacute;es&nbsp;:
+  \[\text{MTBF} = \frac{1}{\lambda}, \qquad
+    F(t) = 1 - e^{-\lambda t}, \qquad
+    \lambda(t) = \lambda = \text{constante}\]
 </div>
 
 <div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; Interpr&#233;tation du param&#232;tre de forme \(\beta\)</span>
-  <table class="tableau">
-    <thead><tr><th>Valeur de \(\beta\)</th><th>Comportement de \(\lambda(t)\)</th><th>P&#233;riode de vie</th><th>Exemple</th></tr></thead>
+  <span class="label-prop">Propri&eacute;t&eacute; sans m&eacute;moire</span>
+  Pour la loi exponentielle&nbsp;:
+  \[P(T > t+s \mid T > t) = P(T > s) = e^{-\lambda s}\]
+  Un composant qui a fonctionn&eacute; pendant \(t\) heures a exactement la m&ecirc;me probabilit&eacute; de
+  fonctionner encore \(s\) heures qu&rsquo;un composant neuf.
+  Cette propri&eacute;t&eacute; est adapt&eacute;e &agrave; la <strong>p&eacute;riode de vie utile</strong> (taux de d&eacute;faillance constant).
+</div>
+
+<div class="ex">
+  <strong>Exemple&nbsp;: fiabilit&eacute; d&rsquo;une pompe</strong><br>
+  Un constructeur annonce un MTBF de 5000&nbsp;h pour une pompe hydraulique.
+  Taux de d&eacute;faillance&nbsp;: \(\lambda = \dfrac{1}{5000} = 2 \times 10^{-4}\) pannes/h.
+  <br><br>
+  Fiabilit&eacute; apr&egrave;s 1000&nbsp;h&nbsp;:
+  \[R(1000) = e^{-2\times10^{-4}\times 1000} = e^{-0{,}2} \approx 0{,}819\]
+  Il y a 81,9&nbsp;% de chance que la pompe fonctionne sans panne pendant 1000&nbsp;h.
+  <br><br>
+  Temps de bon fonctionnement avec 90&nbsp;% de fiabilit&eacute; (\(R(t) = 0{,}9\))&nbsp;:
+  \[0{,}9 = e^{-\lambda t} \Rightarrow t = \frac{-\ln 0{,}9}{\lambda} = \frac{0{,}1054}{2\times10^{-4}} \approx 527\text{ h}\]
+
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction d&eacute;taill&eacute;e</button>
+  <div class="corr">
+    <strong>D&eacute;tail des calculs</strong>
+    <ul>
+      <li>\(\lambda = 1/\text{MTBF} = 1/5000 = 0{,}0002\) h<sup>&minus;1</sup></li>
+      <li>\(R(1000) = e^{-0{,}0002 \times 1000} = e^{-0{,}2} \approx 0{,}8187\) soit 81,87&nbsp;%</li>
+      <li>Pour \(R(t) = 0{,}9\)&nbsp;: \(\ln(0{,}9) = -0{,}10536\)
+          donc \(t = 0{,}10536 / 0{,}0002 = 526{,}8\) h</li>
+    </ul>
+    Interpr&eacute;tation&nbsp;: pour garantir 90&nbsp;% de fiabilit&eacute;, il faut effectuer la maintenance
+    avant 527&nbsp;h de fonctionnement.
+  </div>
+</div>
+
+<h3>2.2 Loi de Weibull</h3>
+
+<div class="def">
+  <span class="label-def">Loi de Weibull</span>
+  La loi de Weibull g&eacute;n&eacute;ralise la loi exponentielle avec deux param&egrave;tres&nbsp;:
+  \[R(t) = \exp\!\left[-\left(\frac{t}{\eta}\right)^\beta\right] \qquad (t \geq 0)\]
+  <ul>
+    <li>\(\beta\) (<em>param&egrave;tre de forme</em>) contr&ocirc;le l&rsquo;&eacute;volution du taux de d&eacute;faillance</li>
+    <li>\(\eta\) (<em>param&egrave;tre d&rsquo;&eacute;chelle</em>, dur&eacute;e caract&eacute;ristique) : instant auquel \(R = e^{-1} \approx 63{,}2\,\%\) ont d&eacute;failli</li>
+  </ul>
+  Taux de d&eacute;faillance&nbsp;: \(\lambda(t) = \dfrac{\beta}{\eta}\left(\dfrac{t}{\eta}\right)^{\beta-1}\)
+</div>
+
+<div class="prop">
+  <span class="label-prop">Interpr&eacute;tation du param&egrave;tre \(\beta\)</span>
+  <table class="table-fid">
+    <thead><tr><th>Valeur de \(\beta\)</th><th>\(\lambda(t)\)</th><th>P&eacute;riode de vie</th><th>Causes typiques</th></tr></thead>
     <tbody>
-      <tr><td>\(\beta &lt; 1\)</td><td>D&#233;croissant</td><td>Mortalit&#233; infantile</td><td>D&#233;fauts de fabrication</td></tr>
-      <tr><td>\(\beta = 1\)</td><td>Constant (loi expo.)</td><td>Vie utile</td><td>D&#233;faillances al&#233;atoires</td></tr>
-      <tr><td>\(\beta &gt; 1\)</td><td>Croissant</td><td>Vieillissement</td><td>Usure, fatigue, fluage</td></tr>
-      <tr><td>\(\beta \approx 3{,}5\)</td><td>Courbe en cloche</td><td>Vieillissement normal&#233;</td><td>M&#233;canique classique</td></tr>
+      <tr><td>\(\beta < 1\)</td><td>D&eacute;croissant</td><td>Jeunesse (rodage)</td><td>D&eacute;fauts de fabrication, erreurs d&rsquo;installation</td></tr>
+      <tr><td>\(\beta = 1\)</td><td>Constant</td><td>Vie utile</td><td>D&eacute;faillances al&eacute;atoires (loi exponentielle)</td></tr>
+      <tr><td>\(\beta > 1\)</td><td>Croissant</td><td>Vieillissement</td><td>Usure, fatigue, corrosion</td></tr>
+      <tr><td>\(\beta = 2\)</td><td>Lin&eacute;aire croissant</td><td>Vieillissement</td><td>Usure progressive</td></tr>
+      <tr><td>\(\beta = 3{,}5\)</td><td>Proche loi normale</td><td>Vieillissement accus&eacute;</td><td>Fatigue m&eacute;canique</td></tr>
     </tbody>
   </table>
 </div>
 
-<div class="baignoire-wrap">
-  <strong>Courbe en baignoire &#8212; &#233;volution de \(\lambda(t)\) sur la vie d'un composant</strong>
-  <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg" aria-label="Courbe en baignoire">
-    <!-- axes -->
-    <line x1="40" y1="150" x2="450" y2="150" stroke="#475569" stroke-width="1.5"/>
-    <line x1="40" y1="20" x2="40" y2="155" stroke="#475569" stroke-width="1.5"/>
-    <text x="455" y="154" font-size="12" fill="#475569">t</text>
-    <text x="30" y="16" font-size="12" fill="#475569">&#955;(t)</text>
-    <!-- Courbe baignoire -->
-    <path d="M 50,40 C 70,110 100,130 150,130 L 300,130 C 350,130 380,110 440,40"
-          fill="none" stroke="#1e3a5f" stroke-width="2.5"/>
-    <!-- Zones -->
-    <rect x="50" y="20" width="100" height="130" fill="#fee2e2" fill-opacity="0.3"/>
-    <rect x="150" y="20" width="150" height="130" fill="#dcfce7" fill-opacity="0.3"/>
-    <rect x="300" y="20" width="140" height="130" fill="#fef9c3" fill-opacity="0.3"/>
-    <!-- Labels zones -->
-    <text x="72" y="170" font-size="10" fill="#991b1b" font-weight="bold">Jeunesse</text>
-    <text x="187" y="170" font-size="10" fill="#166534" font-weight="bold">Vie utile</text>
-    <text x="325" y="170" font-size="10" fill="#713f12" font-weight="bold">Vieillissement</text>
-    <!-- Beta labels -->
-    <text x="57" y="55" font-size="9" fill="#1e3a5f">&#946; &lt; 1</text>
-    <text x="200" y="125" font-size="9" fill="#1e3a5f">&#946; = 1</text>
-    <text x="380" y="55" font-size="9" fill="#1e3a5f">&#946; &gt; 1</text>
+<p>MTBF de Weibull&nbsp;: \(\;\text{MTTF} = \eta\,\Gamma\!\left(1 + \dfrac{1}{\beta}\right)\)
+o&ugrave; \(\Gamma\) est la fonction Gamma (\(\Gamma(n+1) = n!\) pour les entiers).</p>
+
+<h3>2.3 Courbe en baignoire</h3>
+
+<div class="def">
+  <span class="label-def">Courbe en baignoire</span>
+  La courbe en baignoire repr&eacute;sente l&rsquo;&eacute;volution du taux de d&eacute;faillance \(\lambda(t)\) au cours de la vie d&rsquo;un composant.
+  Elle comprend trois phases&nbsp;:
+  <ol>
+    <li><strong>Phase de jeunesse</strong> (ou rodage)&nbsp;: \(\lambda(t)\) d&eacute;croissant (&beta;&nbsp;&lt;&nbsp;1)</li>
+    <li><strong>Vie utile</strong>&nbsp;: \(\lambda(t)\) pratiquement constant (&beta;&nbsp;=&nbsp;1)</li>
+    <li><strong>Vieillissement</strong>&nbsp;: \(\lambda(t)\) croissant (&beta;&nbsp;&gt;&nbsp;1)</li>
+  </ol>
+</div>
+
+<div class="chart-wrap" style="max-width:620px;margin:1em auto">
+  <canvas id="baignoireChart"></canvas>
+</div>
+
+<!-- ===================== 3. DIAGRAMMES DE FIABILITÉ ===================== -->
+<h2>3. Diagrammes de fiabilit&eacute;</h2>
+
+<h3>3.1 Syst&egrave;me en s&eacute;rie</h3>
+
+<div class="def">
+  <span class="label-def">Fiabilit&eacute; d&rsquo;un syst&egrave;me en s&eacute;rie</span>
+  Dans un syst&egrave;me en s&eacute;rie, <strong>tous</strong> les composants doivent fonctionner pour que le syst&egrave;me fonctionne.
+  La d&eacute;faillance d&rsquo;un seul composant entra&icirc;ne la d&eacute;faillance du syst&egrave;me.
+  Si les composants sont ind&eacute;pendants&nbsp;:
+  \[R_s(t) = R_1(t) \cdot R_2(t) \cdots R_n(t) = \prod_{i=1}^n R_i(t)\]
+</div>
+
+<div class="schema-serie-parallele">
+  <strong>Sch&eacute;ma d&rsquo;un syst&egrave;me en s&eacute;rie</strong>
+  <svg viewBox="0 0 500 80" width="500" height="80" xmlns="http://www.w3.org/2000/svg" style="margin:.8em auto;display:block">
+    <defs>
+      <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L0,8 L8,4 z" fill="#555"/>
+      </marker>
+    </defs>
+    <!-- Trait d'entrée -->
+    <line x1="10" y1="40" x2="50" y2="40" stroke="#555" stroke-width="2" marker-end="url(#a3)"/>
+    <text x="5" y="36" font-size="11" font-family="Arial,sans-serif" fill="#555">E</text>
+    <!-- Bloc 1 -->
+    <rect x="52" y="24" width="80" height="32" rx="5" fill="#eef2f7" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="92" y="44" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#1e3a5f">C1 — R₁</text>
+    <!-- Flèche -->
+    <line x1="132" y1="40" x2="168" y2="40" stroke="#555" stroke-width="2" marker-end="url(#a3)"/>
+    <!-- Bloc 2 -->
+    <rect x="170" y="24" width="80" height="32" rx="5" fill="#eef2f7" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="210" y="44" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#1e3a5f">C2 — R₂</text>
+    <!-- Flèche -->
+    <line x1="250" y1="40" x2="286" y2="40" stroke="#555" stroke-width="2" marker-end="url(#a3)"/>
+    <!-- Bloc 3 -->
+    <rect x="288" y="24" width="80" height="32" rx="5" fill="#eef2f7" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="328" y="44" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#1e3a5f">C3 — R₃</text>
+    <!-- Sortie -->
+    <line x1="368" y1="40" x2="420" y2="40" stroke="#555" stroke-width="2" marker-end="url(#a3)"/>
+    <text x="425" y="36" font-size="11" font-family="Arial,sans-serif" fill="#555">S</text>
+    <!-- Formule -->
+    <text x="250" y="75" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#333">Rs = R₁ × R₂ × R₃</text>
   </svg>
 </div>
 
-<div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; MTTF de la loi de Weibull</span>
-  \[
-    \mathrm{MTTF} = \eta \cdot \Gamma\!\left(1 + \frac{1}{\beta}\right)
-  \]
-  <p>o&#249; \(\Gamma\) est la fonction Gamma (\(\Gamma(n) = (n-1)!\) pour \(n\) entier).</p>
-  <p>Pour \(\beta = 1\)&#160;: \(\mathrm{MTTF} = \eta \cdot \Gamma(2) = \eta \cdot 1 = \eta = 1/\lambda\). On retrouve bien la loi exponentielle.</p>
+<div class="att">
+  <span class="label-att">Attention</span>
+  La fiabilit&eacute; d&rsquo;un syst&egrave;me en s&eacute;rie est <strong>toujours inf&eacute;rieure</strong> &agrave; la fiabilit&eacute; du composant
+  le moins fiable. Plus on ajoute de composants en s&eacute;rie, plus le syst&egrave;me est fragile.
 </div>
 
-<div class="ex">
-  <strong>Exemple &#8212; Liaison tenon-mortaise coll&#233;e</strong><br>
-  Des tests de vieillissement acc&#233;l&#233;r&#233; donnent \(\beta = 2{,}5\) et \(\eta = 60\,000\) h pour une colle structurale.
-  <ul>
-    <li>\(\beta = 2{,}5 &gt; 1\)&#160;: mode vieillissement (usure de la colle).</li>
-    <li>Fiabilit&#233; &#224; 5 ans (43&#160;800&#160;h)&#160;:
-    \[R(43\,800) = e^{-(43800/60000)^{2{,}5}} = e^{-(0{,}73)^{2{,}5}} = e^{-0{,}474} \approx 0{,}623\]</li>
-    <li>Taux de d&#233;faillance &#224; 43&#160;800&#160;h&#160;:
-    \[\lambda(43\,800) = \frac{2{,}5}{60\,000}\left(\frac{43\,800}{60\,000}\right)^{1{,}5} \approx 1{,}78 \times 10^{-5} \text{ h}^{-1}\]</li>
-  </ul>
-  <p class="att-inline">La fiabilit&#233; de 62,3&#160;% est tr&#232;s inf&#233;rieure &#224; l'objectif de 95&#160;%&#160;: la colle actuelle est inadapt&#233;e.</p>
-</div>
-
-<div class="meth">
-  <span class="label label-meth">M&#233;thode &#8212; Papier de Weibull (lin&#233;arisation)</span>
-  <p>En posant \(Y = \ln\!\bigl(-\ln R(t)\bigr)\) et \(X = \ln t\)&#160;:</p>
-  \[
-    Y = \beta X - \beta \ln\eta
-  \]
-  <p>La repr&#233;sentation \(Y\) en fonction de \(X\) est lin&#233;aire&#160;: la pente est \(\beta\) et l'ordonn&#233;e &#224; l'origine est \(-\beta\ln\eta\).</p>
-  <p>Cette lin&#233;arisation permet d'estimer \(\beta\) et \(\eta\) par r&#233;gression lin&#233;aire sur des donn&#233;es de pannes.</p>
-</div>
-
-<!-- ===== PARTIE 4 : FIABILITÉ DES SYSTÈMES ===== -->
-<h2>4. Fiabilit&#233; des syst&#232;mes</h2>
-
-<h3>4.1 Syst&#232;me en s&#233;rie</h3>
+<h3>3.2 Syst&egrave;me en parall&egrave;le (redondance active)</h3>
 
 <div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Syst&#232;me en s&#233;rie</span>
-  <p>Un syst&#232;me est en <strong>s&#233;rie</strong> si la d&#233;faillance d'un seul composant entra&#238;ne la d&#233;faillance de l'ensemble. Les composants sont ind&#233;pendants.</p>
+  <span class="label-def">Fiabilit&eacute; d&rsquo;un syst&egrave;me en parall&egrave;le</span>
+  Dans un syst&egrave;me en parall&egrave;le, le syst&egrave;me fonctionne d&egrave;s qu&rsquo;<strong>au moins un</strong> composant fonctionne.
+  \[R_p(t) = 1 - \prod_{i=1}^n (1-R_i(t)) = 1 - F_1(t)\cdot F_2(t)\cdots F_n(t)\]
+  Pour deux composants identiques de fiabilit&eacute; \(R\)&nbsp;:
+  \[R_p = 1 - (1-R)^2 = 2R - R^2 > R\]
 </div>
 
-<div class="fiab-schema">
-  <div class="fiab-arrow">&#9658;</div>
-  <div class="fiab-bloc">R&#8321;</div>
-  <div class="fiab-arrow">&#8594;</div>
-  <div class="fiab-bloc">R&#8322;</div>
-  <div class="fiab-arrow">&#8594;</div>
-  <div class="fiab-bloc">R&#8323;</div>
-  <div class="fiab-arrow">&#9658;</div>
+<div class="schema-serie-parallele">
+  <strong>Sch&eacute;ma d&rsquo;un syst&egrave;me en parall&egrave;le</strong>
+  <svg viewBox="0 0 400 130" width="400" height="130" xmlns="http://www.w3.org/2000/svg" style="margin:.8em auto;display:block">
+    <defs>
+      <marker id="a4" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L0,8 L8,4 z" fill="#555"/>
+      </marker>
+    </defs>
+    <line x1="5" y1="65" x2="50" y2="65" stroke="#555" stroke-width="2"/>
+    <text x="2" y="62" font-size="11" font-family="Arial,sans-serif" fill="#555">E</text>
+    <!-- Nœud d'entrée -->
+    <line x1="50" y1="65" x2="50" y2="30" stroke="#555" stroke-width="2"/>
+    <line x1="50" y1="65" x2="50" y2="100" stroke="#555" stroke-width="2"/>
+    <!-- Voie haute C1 -->
+    <line x1="50" y1="30" x2="90" y2="30" stroke="#555" stroke-width="2" marker-end="url(#a4)"/>
+    <rect x="92" y="14" width="100" height="32" rx="5" fill="#eef2f7" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="142" y="34" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#1e3a5f">C1 — R₁</text>
+    <line x1="192" y1="30" x2="240" y2="30" stroke="#555" stroke-width="2"/>
+    <!-- Voie basse C2 -->
+    <line x1="50" y1="100" x2="90" y2="100" stroke="#555" stroke-width="2" marker-end="url(#a4)"/>
+    <rect x="92" y="84" width="100" height="32" rx="5" fill="#eef2f7" stroke="#1e3a5f" stroke-width="2"/>
+    <text x="142" y="104" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" fill="#1e3a5f">C2 — R₂</text>
+    <line x1="192" y1="100" x2="240" y2="100" stroke="#555" stroke-width="2"/>
+    <!-- Nœud de sortie -->
+    <line x1="240" y1="30" x2="240" y2="65" stroke="#555" stroke-width="2"/>
+    <line x1="240" y1="100" x2="240" y2="65" stroke="#555" stroke-width="2"/>
+    <line x1="240" y1="65" x2="340" y2="65" stroke="#555" stroke-width="2" marker-end="url(#a4)"/>
+    <text x="345" y="62" font-size="11" font-family="Arial,sans-serif" fill="#555">S</text>
+    <text x="195" y="125" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#333">Rp = 1−(1−R₁)(1−R₂)</text>
+  </svg>
 </div>
 
-<div class="formule-box">
-  <strong>Fiabilit&#233; d'un syst&#232;me en s&#233;rie :</strong>
-  \[
-    R_S(t) = \prod_{i=1}^n R_i(t) = R_1(t) \times R_2(t) \times \cdots \times R_n(t)
-  \]
-  <p>La fiabilit&#233; du syst&#232;me est <strong>inf&#233;rieure</strong> &#224; celle du composant le moins fiable. Elle d&#233;cro&#238;t rapidement avec le nombre de composants.</p>
-</div>
+<h3>3.3 Syst&egrave;mes mixtes (s&eacute;rie-parall&egrave;le)</h3>
+
+<p>On calcule la fiabilit&eacute; des groupes en parall&egrave;le en premier, puis on assemble en s&eacute;rie,
+ou vice versa, en identifiant la structure du syst&egrave;me.</p>
 
 <div class="ex">
-  <strong>Exemple &#8212; Assemblage de 3 &#233;l&#233;ments en s&#233;rie</strong><br>
-  Un meuble d'agencement comporte 3 liaisons en s&#233;rie&#160;: tenon-mortaise (\(R_1 = 0{,}98\)), quincaillerie (\(R_2 = 0{,}99\)), chant coll&#233; (\(R_3 = 0{,}97\)).
-  \[
-    R_S = 0{,}98 \times 0{,}99 \times 0{,}97 = 0{,}9409 \approx 94{,}1\,\%
-  \]
-  <p>Le syst&#232;me global n'atteint pas l'objectif de 95&#160;%. On doit am&#233;liorer la liaison chant coll&#233;.</p>
-</div>
+  <strong>Exemple&nbsp;: syst&egrave;me hydraulique</strong><br>
+  Un circuit hydraulique comprend&nbsp;: deux pompes en parall&egrave;le (R<sub>1</sub> = R<sub>2</sub> = 0,90),
+  puis un filtre en s&eacute;rie (R<sub>3</sub> = 0,95), puis deux vannes en parall&egrave;le (R<sub>4</sub> = R<sub>5</sub> = 0,98).
+  <br><br>
+  &Eacute;tape 1 &mdash; groupe pompes&nbsp;:
+  \[R_{12} = 1 - (1-0{,}90)^2 = 1 - 0{,}01 = 0{,}99\]
+  &Eacute;tape 2 &mdash; groupe vannes&nbsp;:
+  \[R_{45} = 1 - (1-0{,}98)^2 = 1 - 0{,}0004 = 0{,}9996\]
+  &Eacute;tape 3 &mdash; syst&egrave;me global (s&eacute;rie)&nbsp;:
+  \[R_s = R_{12} \times R_3 \times R_{45} = 0{,}99 \times 0{,}95 \times 0{,}9996 \approx 0{,}939\]
 
-<div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; Cas exponentiel en s&#233;rie</span>
-  <p>Si tous les composants suivent une loi exponentielle de taux \(\lambda_i\), le syst&#232;me en s&#233;rie suit aussi une loi exponentielle&#160;:</p>
-  \[
-    R_S(t) = e^{-(\lambda_1 + \lambda_2 + \cdots + \lambda_n)t}, \qquad \lambda_S = \sum_{i=1}^n \lambda_i
-  \]
-</div>
-
-<h3>4.2 Syst&#232;me en parall&#232;le (redondance active)</h3>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Syst&#232;me en parall&#232;le</span>
-  <p>Un syst&#232;me est en <strong>parall&#232;le</strong> (redondance active) s'il faut que <em>tous</em> les composants tombent en panne pour que le syst&#232;me défaille. Il suffit d'un composant fonctionnel.</p>
-</div>
-
-<div class="fiab-schema" style="flex-direction:column">
-  <div class="fiab-arrow">&#9658;</div>
-  <div class="fiab-parall">
-    <div class="fiab-bloc">R&#8321;</div>
-    <div class="fiab-bloc">R&#8322;</div>
-    <div class="fiab-bloc">R&#8323;</div>
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir le d&eacute;tail de la v&eacute;rification</button>
+  <div class="corr">
+    <strong>V&eacute;rification num&eacute;rique</strong>
+    <ul>
+      <li>\(R_{12} = 1 - (1-0{,}9)\times(1-0{,}9) = 1 - 0{,}1 \times 0{,}1 = 1 - 0{,}01 = 0{,}99\)</li>
+      <li>\(R_{45} = 1 - (1-0{,}98)^2 = 1 - 0{,}02^2 = 1 - 0{,}0004 = 0{,}9996\)</li>
+      <li>\(R_s = 0{,}99 \times 0{,}95 \times 0{,}9996 = 0{,}9405 \times 0{,}9996 \approx 0{,}9401\)</li>
+    </ul>
+    La redondance des pompes a permis d&rsquo;am&eacute;liorer la fiabilit&eacute; de 0,90 &agrave; 0,99 pour ce groupe.
+    C&rsquo;est le filtre (maillon le plus faible, R = 0,95) qui limite la fiabilit&eacute; globale.
   </div>
-  <div class="fiab-arrow">&#9658;</div>
 </div>
 
-<div class="formule-box">
-  <strong>Fiabilit&#233; d'un syst&#232;me en parall&#232;le :</strong>
-  \[
-    R_P(t) = 1 - \prod_{i=1}^n \bigl[1 - R_i(t)\bigr] = 1 - (1-R_1)(1-R_2)\cdots(1-R_n)
-  \]
-  <p>La fiabilit&#233; en parall&#232;le est <strong>sup&#233;rieure</strong> &#224; celle du meilleur composant. La redondance am&#233;liore la fiabilit&#233; au prix d'un co&#251;t suppl&#233;mentaire.</p>
-</div>
+<h3>3.4 Redondance active vs passive</h3>
 
-<div class="ex">
-  <strong>Exemple &#8212; Double vantail de porte d'agencement</strong><br>
-  Deux verrous identiques (\(R_1 = R_2 = 0{,}92\)) sont mont&#233;s en parall&#232;le (la porte reste ferm&#233;e si au moins un verrou fonctionne).
-  \[
-    R_P = 1 - (1 - 0{,}92)^2 = 1 - 0{,}0064 = 0{,}9936 \approx 99{,}4\,\%
-  \]
-  <p>La redondance a fait passer la fiabilit&#233; de 92&#160;% &#224; 99,4&#160;%.</p>
-</div>
-
-<h3>4.3 Syst&#232;mes mixtes</h3>
-
-<div class="meth">
-  <span class="label label-meth">M&#233;thode &#8212; D&#233;composition des syst&#232;mes mixtes</span>
-  <ol>
-    <li>D&#233;composer le sch&#233;ma en blocs &#233;l&#233;mentaires (sous-syst&#232;mes en s&#233;rie ou parall&#232;le).</li>
-    <li>Calculer la fiabilit&#233; de chaque sous-syst&#232;me.</li>
-    <li>Combiner les sous-syst&#232;mes dans l'ordre.</li>
-  </ol>
-</div>
-
-<div class="ex">
-  <strong>Exemple &#8212; Structure de meuble mixte</strong><br>
-  Un syst&#232;me comporte&#160;: un bloc A en parall&#232;le (\(R_1 = R_2 = 0{,}90\)), suivi d'un composant B (\(R_3 = 0{,}98\)) en s&#233;rie.
+<div class="def">
+  <span class="label-def">Types de redondance</span>
   <ul>
-    <li>Bloc A en parall&#232;le&#160;: \(R_A = 1 - (1-0{,}90)^2 = 1 - 0{,}01 = 0{,}99\)</li>
-    <li>Syst&#232;me global en s&#233;rie&#160;: \(R_S = R_A \times R_3 = 0{,}99 \times 0{,}98 = 0{,}9702 \approx 97{,}0\,\%\)</li>
+    <li>
+      <strong>Redondance active</strong>&nbsp;: tous les composants fonctionnent en m&ecirc;me temps.
+      Le syst&egrave;me continue &agrave; fonctionner tant qu&rsquo;il en reste au moins un.
+      Mod&egrave;le&nbsp;: syst&egrave;me en parall&egrave;le classique.
+    </li>
+    <li>
+      <strong>Redondance passive (de secours)</strong>&nbsp;: un seul composant fonctionne &agrave; la fois.
+      En cas de d&eacute;faillance, un composant de secours (stand-by) prend le relais.
+      Le composant de secours ne vieillit pas en attente (hypoth&egrave;se simplificatrice).
+    </li>
   </ul>
 </div>
 
-<div class="retenir">
-  <strong>&#192; retenir &#8212; Formules fiabilit&#233; des syst&#232;mes</strong>
-  <table class="tableau">
-    <thead><tr><th>Configuration</th><th>Formule</th><th>Effet</th></tr></thead>
+<!-- ===================== 4. AMDEC ===================== -->
+<h2>4. Analyse AMDEC</h2>
+
+<div class="def">
+  <span class="label-def">AMDEC &mdash; Analyse des Modes de D&eacute;faillance, de leurs Effets et de leur Criticit&eacute;</span>
+  L&rsquo;AMDEC est une m&eacute;thode syst&eacute;matique d&rsquo;analyse des risques qui recense pour chaque composant&nbsp;:
+  <ul>
+    <li>Les <strong>modes de d&eacute;faillance</strong> : comment le composant peut-il tomber en panne ?</li>
+    <li>Les <strong>effets</strong> sur le syst&egrave;me et l&rsquo;utilisateur</li>
+    <li>Les <strong>causes</strong> de la d&eacute;faillance</li>
+    <li>L&rsquo;<strong>indice de criticit&eacute;</strong> \(C = G \times F \times D\)</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Indices de l&rsquo;AMDEC</span>
+  <table class="table-fid">
+    <thead><tr><th>Indice</th><th>Signification</th><th>Valeurs (1 &agrave; 4)</th></tr></thead>
     <tbody>
-      <tr><td>S&#233;rie (\(n\) composants)</td><td>\(R_S = \prod R_i\)</td><td>Diminue la fiabilit&#233;</td></tr>
-      <tr><td>Parall&#232;le (\(n\) identiques)</td><td>\(R_P = 1 - (1-R)^n\)</td><td>Augmente la fiabilit&#233;</td></tr>
-      <tr><td>S&#233;rie expo.</td><td>\(\lambda_S = \sum \lambda_i\)</td><td>Taux additifs</td></tr>
+      <tr><td><strong>G</strong></td><td>Gravit&eacute; de l&rsquo;effet sur le syst&egrave;me/utilisateur</td><td>1&nbsp;=&nbsp;mineur, 2&nbsp;=&nbsp;significatif, 3&nbsp;=&nbsp;critique, 4&nbsp;=&nbsp;catastrophique</td></tr>
+      <tr><td><strong>F</strong></td><td>Fr&eacute;quence (probabilit&eacute;) d&rsquo;occurrence de la d&eacute;faillance</td><td>1&nbsp;=&nbsp;rare, 2&nbsp;=&nbsp;peu fr&eacute;quent, 3&nbsp;=&nbsp;fr&eacute;quent, 4&nbsp;=&nbsp;tr&egrave;s fr&eacute;quent</td></tr>
+      <tr><td><strong>D</strong></td><td>D&eacute;tectabilit&eacute; (facilit&eacute; &agrave; d&eacute;tecter avant d&eacute;faillance)</td><td>1&nbsp;=&nbsp;d&eacute;tection facile, 4&nbsp;=&nbsp;non d&eacute;tectable</td></tr>
+      <tr><td><strong>C</strong></td><td>Criticit&eacute; = G &times; F &times; D</td><td>Min 1, max 64 — seuil d&rsquo;alerte souvent fix&eacute; &agrave; C &ge; 12 ou C &ge; 16</td></tr>
     </tbody>
   </table>
 </div>
 
-<!-- ===== PARTIE 5 : AMDEC ===== -->
-<h2>5. Analyse AMDEC</h2>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; AMDEC</span>
-  <p>L'<strong>AMDEC</strong> (Analyse des Modes de D&#233;faillance, de leurs Effets et de leur Criticit&#233;) est une m&#233;thode pr&#233;ventive et syst&#233;matique d'analyse des risques. Elle identifie les modes de d&#233;faillance potentiels d'un syst&#232;me, leurs causes, leurs effets, et les classe selon leur criticit&#233;.</p>
-  <p>Elle peut &#234;tre appliqu&#233;e&#160;: &#224; la conception (<em>AMDEC produit</em>), &#224; la fabrication (<em>AMDEC proc&#233;d&#233;</em>), &#224; la maintenance (<em>AMDEC machine</em>).</p>
-</div>
-
-<h3>5.1 Indice de criticit&#233;</h3>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Criticit&#233;</span>
-  <p>L'indice de criticit&#233; \(C\) (ou IPR&#160;: Indice de Priorit&#233; du Risque) est le produit de trois cotations, chacune not&#233;e de 1 &#224; 10&#160;:</p>
-  \[
-    \boxed{C = G \times O \times D}
-  \]
-  <ul>
-    <li>\(G\)&#160;: <strong>Gravit&#233;</strong> des effets (1 = n&#233;gligeable, 10 = catastrophique)</li>
-    <li>\(O\)&#160;: <strong>Occurrence</strong> (fr&#233;quence d'apparition de la cause, 1 = rare, 10 = fr&#233;quent)</li>
-    <li>\(D\)&#160;: <strong>D&#233;tectabilit&#233;</strong> inverse (capacit&#233; &#224; ne PAS d&#233;tecter, 1 = d&#233;tection certaine, 10 = ind&#233;tectable)</li>
-  </ul>
-  <p>Un IPR &#233;lev&#233; signale un risque prioritaire &#224; traiter. En g&#233;n&#233;ral&#160;: \(C \leq 40\) (acceptable), \(40 &lt; C \leq 100\) (&#224; surveiller), \(C &gt; 100\) (action corrective imm&#233;diate).</p>
-</div>
-
 <div class="ex">
-  <strong>Exemple &#8212; AMDEC d'un meuble d'agencement (syst&#232;me de fermeture)</strong>
-  <div class="amdec-grid">
-    <div class="cell head">&#201;l&#233;ment</div>
-    <div class="cell head">Mode de d&#233;faillance</div>
-    <div class="cell head">Cause possible</div>
-    <div class="cell head">Effet</div>
-    <div class="cell head">G &#215; O &#215; D = C</div>
-
-    <div class="cell">Tenon-mortaise coll&#233;e</div>
-    <div class="cell">D&#233;collement</div>
-    <div class="cell">Mauvaise pr&#233;paration surface, colle p&#233;rim&#233;e</div>
-    <div class="cell">Ouverture du meuble, risque de chute</div>
-    <div class="cell crit-high">7 &#215; 4 &#215; 5 = 140</div>
-
-    <div class="cell">Vis de fixation</div>
-    <div class="cell">Desserrage</div>
-    <div class="cell">Vibrations, surcharge</div>
-    <div class="cell">Jeu excessif, bruit</div>
-    <div class="cell crit-med">4 &#215; 5 &#215; 3 = 60</div>
-
-    <div class="cell">Charni&#232;re</div>
-    <div class="cell">Rupture axe</div>
-    <div class="cell">Mat&#233;riau sous-dimensionn&#233;</div>
-    <div class="cell">Porte tomb&#233;e</div>
-    <div class="cell crit-high">8 &#215; 2 &#215; 7 = 112</div>
-
-    <div class="cell">Glissi&#232;re</div>
-    <div class="cell">Blocage</div>
-    <div class="cell">Corps &#233;tranger, d&#233;r&#232;glement</div>
-    <div class="cell">Tiroir non fonctionnel</div>
-    <div class="cell crit-med">3 &#215; 6 &#215; 4 = 72</div>
-
-    <div class="cell">Chant coll&#233;</div>
-    <div class="cell">D&#233;collement du chant</div>
-    <div class="cell">Humidit&#233;, choc thermique</div>
-    <div class="cell">Aspect in&#233;sth&#233;tique, blessure</div>
-    <div class="cell crit-low">3 &#215; 3 &#215; 3 = 27</div>
-  </div>
-  <p><strong>Actions prioritaires&#160;:</strong> tenon-mortaise (\(C = 140\)) et charni&#232;re (\(C = 112\)) doivent faire l'objet de plans d'action imm&#233;diats (proc&#233;dure de contr&#244;le, changement de mat&#233;riau ou de proc&#233;d&#233;).</p>
-</div>
-
-<div class="meth">
-  <span class="label label-meth">M&#233;thode &#8212; D&#233;marche AMDEC en 6 &#233;tapes</span>
-  <ol>
-    <li><strong>D&#233;finir le syst&#232;me&#160;:</strong> p&#233;rim&#232;tre, conditions d'utilisation, objectifs de fiabilit&#233;.</li>
-    <li><strong>D&#233;composer en &#233;l&#233;ments fonctionnels&#160;:</strong> organigramme fonctionnel.</li>
-    <li><strong>Lister les modes de d&#233;faillance</strong> pour chaque &#233;l&#233;ment.</li>
-    <li><strong>Identifier les causes et effets</strong> (analyse causes-cons&#233;quences).</li>
-    <li><strong>Coter G, O, D</strong> et calculer \(C = G \times O \times D\).</li>
-    <li><strong>Mettre en place les actions correctives</strong> pour les IPR les plus &#233;lev&#233;s, puis recalculer.</li>
-  </ol>
-</div>
-
-<!-- ===== PARTIE 6 : ARBRES DE DEFAILLANCES ===== -->
-<h2>6. Diagrammes de fiabilit&#233; et arbres de d&#233;faillances</h2>
-
-<h3>6.1 Blocs de fiabilit&#233;</h3>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Diagramme de bloc de fiabilit&#233; (DBF)</span>
-  <p>Un <strong>diagramme de blocs de fiabilit&#233;</strong> (RBD&#160;: Reliability Block Diagram) repr&#233;sente graphiquement comment les composants contribuent au fonctionnement du syst&#232;me. Chaque bloc repr&#233;sente un composant&#160;; les blocs en s&#233;rie forment un chemin, les blocs en parall&#232;le forment des chemins alternatifs.</p>
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; Lien DBF / formules</span>
-  <ul>
-    <li>Chemin unique de gauche &#224; droite&#160;: syst&#232;me en s&#233;rie, \(R_S = \prod R_i\).</li>
-    <li>Chemins alternatifs (parall&#232;les)&#160;: syst&#232;me en redondance, \(R_P = 1 - \prod (1-R_i)\).</li>
-    <li>La fiabilit&#233; se calcule en r&#233;duisant progressivement le sch&#233;ma.</li>
-  </ul>
-</div>
-
-<h3>6.2 Arbres de d&#233;faillances (FTA)</h3>
-
-<div class="def">
-  <span class="label label-def">D&#233;finition &#8212; Arbre de d&#233;faillances</span>
-  <p>Un <strong>arbre de d&#233;faillances</strong> (FTA&#160;: Fault Tree Analysis) est une repr&#233;sentation graphique en arbre qui d&#233;crit les combinaisons d'&#233;v&#233;nements pouvant conduire &#224; un &#233;v&#233;nement sommet (d&#233;faillance du syst&#232;me).</p>
-  <p>Deux portes logiques principales&#160;:</p>
-  <ul>
-    <li><strong>Porte ET (AND)&#160;:</strong> la d&#233;faillance n'a lieu que si <em>tous</em> les &#233;v&#233;nements entrants se produisent simultan&#233;ment. Correspond &#224; une redondance (parall&#232;le).</li>
-    <li><strong>Porte OU (OR)&#160;:</strong> la d&#233;faillance a lieu si <em>au moins un</em> des &#233;v&#233;nements entrants se produit. Correspond &#224; un syst&#232;me en s&#233;rie.</li>
-  </ul>
-</div>
-
-<div class="prop">
-  <span class="label label-prop">Propri&#233;t&#233; &#8212; Calcul de probabilit&#233; sur l'arbre</span>
-  <p>Soit \(q_i = 1 - R_i\) la probabilit&#233; de d&#233;faillance du composant \(i\)&#160;:</p>
-  <ul>
-    <li><strong>Porte OU&#160;:</strong> \(q_{\mathrm{sys}} = 1 - \prod_i (1 - q_i) = 1 - \prod_i R_i\) &nbsp;&#8594;&nbsp; syst&#232;me en s&#233;rie.</li>
-    <li><strong>Porte ET&#160;:</strong> \(q_{\mathrm{sys}} = \prod_i q_i\) &nbsp;&#8594;&nbsp; syst&#232;me en parall&#232;le.</li>
-  </ul>
-</div>
-
-<div class="ex">
-  <strong>Exemple &#8212; Arbre de d&#233;faillances d'une structure d'agencement</strong><br>
-  &#201;v&#233;nement sommet&#160;: <em>&#201;croulement de l'&#233;tag&#232;re</em>.<br>
-  <table class="tableau" style="max-width:420px">
-    <thead><tr><th>Niveau</th><th>&#201;v&#233;nement</th><th>Type</th><th>\(q\)</th></tr></thead>
+  <strong>Exemple de tableau AMDEC &mdash; Centrale de Traitement d&rsquo;Air (CTA)</strong>
+  <div style="overflow-x:auto">
+  <table class="table-fid table-amdec">
+    <thead>
+      <tr>
+        <th>Composant</th>
+        <th>Mode de d&eacute;faillance</th>
+        <th>Effet sur le syst&egrave;me</th>
+        <th>Cause probable</th>
+        <th>G</th>
+        <th>F</th>
+        <th>D</th>
+        <th>C = G&times;F&times;D</th>
+        <th>Niveau</th>
+      </tr>
+    </thead>
     <tbody>
-      <tr><td>Sommet</td><td>&#201;croulement</td><td>OU des deux sous-&#233;v&#233;nements</td><td>&#8212;</td></tr>
-      <tr><td>Branche A</td><td>Rupture des deux tasseaux (redondance)</td><td>ET (porte AND)</td><td>\(q_A = q_1 \times q_2\)</td></tr>
-      <tr><td>Branche B</td><td>Rupture du panneau</td><td>&#201;v&#233;nement de base</td><td>\(q_3 = 0{,}005\)</td></tr>
-      <tr><td>Feuille 1</td><td>Tasseau gauche rompu</td><td>&#201;v&#233;nement de base</td><td>\(q_1 = 0{,}02\)</td></tr>
-      <tr><td>Feuille 2</td><td>Tasseau droit rompu</td><td>&#201;v&#233;nement de base</td><td>\(q_2 = 0{,}02\)</td></tr>
+      <tr>
+        <td>Compresseur</td>
+        <td>Grippage</td>
+        <td>Arr&ecirc;t total de la CTA</td>
+        <td>Manque d&rsquo;huile, surcharge thermique</td>
+        <td>4</td><td>2</td><td>2</td>
+        <td><strong>16</strong></td>
+        <td><span class="badge-crit crit-fort">Fort</span></td>
+      </tr>
+      <tr>
+        <td>Filtre &agrave; air</td>
+        <td>Colmatage</td>
+        <td>Perte de d&eacute;bit, mauvaise qualit&eacute; d&rsquo;air</td>
+        <td>D&eacute;faut de maintenance pr&eacute;ventive</td>
+        <td>2</td><td>4</td><td>2</td>
+        <td><strong>16</strong></td>
+        <td><span class="badge-crit crit-fort">Fort</span></td>
+      </tr>
+      <tr>
+        <td>Ventilateur</td>
+        <td>D&eacute;s&eacute;quilibrage</td>
+        <td>Vibrations, usure roulements</td>
+        <td>Encrassement des pales</td>
+        <td>3</td><td>3</td><td>2</td>
+        <td><strong>18</strong></td>
+        <td><span class="badge-crit crit-fort">Fort</span></td>
+      </tr>
+      <tr>
+        <td>Sonde de temp&eacute;rature</td>
+        <td>D&eacute;rive du signal</td>
+        <td>Mauvaise r&eacute;gulation, inconfort</td>
+        <td>Vieillissement du capteur</td>
+        <td>2</td><td>2</td><td>3</td>
+        <td><strong>12</strong></td>
+        <td><span class="badge-crit crit-moyen">Moyen</span></td>
+      </tr>
+      <tr>
+        <td>&Eacute;changeur thermique</td>
+        <td>Fuite</td>
+        <td>Perte de fluide frigopor.</td>
+        <td>Corrosion, chocs</td>
+        <td>4</td><td>1</td><td>2</td>
+        <td><strong>8</strong></td>
+        <td><span class="badge-crit crit-faible">Faible</span></td>
+      </tr>
+      <tr>
+        <td>Courroie d&rsquo;entra&icirc;nement</td>
+        <td>Rupture</td>
+        <td>Arr&ecirc;t du ventilateur</td>
+        <td>Usure normale, mauvaise tension</td>
+        <td>3</td><td>2</td><td>1</td>
+        <td><strong>6</strong></td>
+        <td><span class="badge-crit crit-faible">Faible</span></td>
+      </tr>
     </tbody>
   </table>
-  <p>Calcul&#160;:</p>
+  </div>
+  <strong>Conclusion AMDEC</strong>&nbsp;: le ventilateur (C&nbsp;=&nbsp;18), le compresseur et le filtre (C&nbsp;=&nbsp;16)
+  d&eacute;passent le seuil d&rsquo;alerte fix&eacute; &agrave; 12. Ces trois composants doivent &ecirc;tre prioritaires dans le plan de maintenance.
+</div>
+
+<!-- ===================== 5. ARBRE DE DÉFAILLANCES ===================== -->
+<h2>5. Analyse par arbres de d&eacute;faillances</h2>
+
+<div class="def">
+  <span class="label-def">Arbre de d&eacute;faillances (Fault Tree Analysis)</span>
+  Un arbre de d&eacute;faillances est un mod&egrave;le graphique d&eacute;ductif qui repr&eacute;sente toutes les
+  combinaisons de d&eacute;faillances de composants pouvant conduire &agrave; un &eacute;v&eacute;nement ind&eacute;sirable
+  (l&rsquo;<strong>&eacute;v&eacute;nement sommet</strong>).
+</div>
+
+<div class="prop">
+  <span class="label-prop">Portes logiques</span>
+  <table class="table-fid">
+    <thead><tr><th>Porte</th><th>Symbole</th><th>Condition de sortie</th><th>Calcul probabilit&eacute;</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>ET (AND)</strong></td>
+        <td>&#x22D2; (D aplati)</td>
+        <td>La sortie est vraie si <em>tous</em> les entr&eacute;es sont vraies</td>
+        <td>\(P_s = P_1 \times P_2 \times \cdots \times P_n\)</td>
+      </tr>
+      <tr>
+        <td><strong>OU (OR)</strong></td>
+        <td>&#x22D3; (D arrondi)</td>
+        <td>La sortie est vraie si <em>au moins une</em> entr&eacute;e est vraie</td>
+        <td>\(P_s = 1 - (1-P_1)(1-P_2)\cdots(1-P_n)\)</td>
+      </tr>
+    </tbody>
+  </table>
+  Pour des &eacute;v&eacute;nements ind&eacute;pendants de faibles probabilit&eacute;s&nbsp;:
+  porte OU&nbsp;: \(P_s \approx P_1 + P_2 + \cdots + P_n\).
+</div>
+
+<div class="arbre-box">
+  <strong>Exemple&nbsp;: arbre de d&eacute;faillances — arr&ecirc;t de la CTA</strong>
+  <svg viewBox="0 0 500 310" width="500" height="310" xmlns="http://www.w3.org/2000/svg" style="margin:.8em auto;display:block">
+    <defs>
+      <marker id="a5" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+        <path d="M0,0 L0,8 L8,4 z" fill="#555"/>
+      </marker>
+    </defs>
+    <!-- Événement sommet -->
+    <rect x="160" y="5" width="180" height="36" rx="18" fill="#c0392b" stroke="#8b0000" stroke-width="2"/>
+    <text x="250" y="28" text-anchor="middle" fill="white" font-size="11" font-family="Arial,sans-serif">Arrêt de la CTA</text>
+
+    <!-- Porte OU -->
+    <path d="M215,42 Q250,55 285,42" fill="#f0a000" stroke="#c07000" stroke-width="2"/>
+    <path d="M215,42 Q215,58 250,62 Q285,58 285,42" fill="#f0a000" stroke="#c07000" stroke-width="2"/>
+    <text x="250" y="57" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial,sans-serif">OU</text>
+    <line x1="250" y1="41" x2="250" y2="42" stroke="#c07000" stroke-width="2"/>
+    <line x1="250" y1="62" x2="250" y2="80" stroke="#555" stroke-width="1.5"/>
+    <!-- Ligne vers gauche et droite depuis porte OU -->
+    <line x1="250" y1="80" x2="130" y2="80" stroke="#555" stroke-width="1.5"/>
+    <line x1="250" y1="80" x2="370" y2="80" stroke="#555" stroke-width="1.5"/>
+
+    <!-- Branche gauche : Défaillance mécaniqe (porte ET) -->
+    <line x1="130" y1="80" x2="130" y2="100" stroke="#555" stroke-width="1.5"/>
+    <!-- Porte ET gauche -->
+    <rect x="100" y="100" width="60" height="28" rx="4" fill="#0969da" stroke="#0056a0" stroke-width="2"/>
+    <text x="130" y="118" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial,sans-serif">ET</text>
+    <line x1="130" y1="128" x2="130" y2="148" stroke="#555" stroke-width="1.5"/>
+    <line x1="130" y1="148" x2="80" y2="148" stroke="#555" stroke-width="1.5"/>
+    <line x1="130" y1="148" x2="180" y2="148" stroke="#555" stroke-width="1.5"/>
+    <line x1="80" y1="148" x2="80" y2="168" stroke="#555" stroke-width="1.5"/>
+    <line x1="180" y1="148" x2="180" y2="168" stroke="#555" stroke-width="1.5"/>
+    <!-- Événements élémentaires gauche -->
+    <ellipse cx="80" cy="195" rx="58" ry="24" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="80" y="191" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">Grippag. compresseur</text>
+    <text x="80" y="203" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">P₁ = 0,02</text>
+    <ellipse cx="180" cy="195" rx="58" ry="24" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="180" y="191" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">Rupture courroie</text>
+    <text x="180" y="203" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">P₂ = 0,03</text>
+
+    <!-- Branche droite : Défaillance électrique -->
+    <line x1="370" y1="80" x2="370" y2="100" stroke="#555" stroke-width="1.5"/>
+    <!-- Porte OU droite -->
+    <path d="M340,100 Q370,113 400,100" fill="#f0a000" stroke="#c07000" stroke-width="2"/>
+    <path d="M340,100 Q340,116 370,120 Q400,116 400,100" fill="#f0a000" stroke="#c07000" stroke-width="2"/>
+    <text x="370" y="115" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial,sans-serif">OU</text>
+    <line x1="370" y1="120" x2="370" y2="148" stroke="#555" stroke-width="1.5"/>
+    <line x1="370" y1="148" x2="310" y2="148" stroke="#555" stroke-width="1.5"/>
+    <line x1="370" y1="148" x2="430" y2="148" stroke="#555" stroke-width="1.5"/>
+    <line x1="310" y1="148" x2="310" y2="168" stroke="#555" stroke-width="1.5"/>
+    <line x1="430" y1="148" x2="430" y2="168" stroke="#555" stroke-width="1.5"/>
+    <!-- Événements élémentaires droite -->
+    <ellipse cx="310" cy="195" rx="55" ry="24" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="310" y="191" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">Panne alimentation</text>
+    <text x="310" y="203" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">P₃ = 0,01</text>
+    <ellipse cx="430" cy="195" rx="55" ry="24" fill="#fde8e8" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="430" y="191" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">Défaut régulateur</text>
+    <text x="430" y="203" text-anchor="middle" font-size="9" font-family="Arial,sans-serif">P₄ = 0,015</text>
+
+    <!-- Légende calcul -->
+    <text x="130" y="250" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#333">P_ET = P₁×P₂ = 0,0006</text>
+    <text x="370" y="250" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#333">P_OU ≈ P₃+P₄ = 0,025</text>
+    <text x="250" y="280" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#1e3a5f" font-weight="bold">P(arrêt CTA) ≈ 0,0006 + 0,025 = 0,0256</text>
+  </svg>
+</div>
+
+<div class="ex">
+  <strong>Calcul de la probabilit&eacute; de l&rsquo;&eacute;v&eacute;nement sommet</strong>
   <ul>
-    <li>Branche A (ET)&#160;: \(q_A = 0{,}02 \times 0{,}02 = 4 \times 10^{-4}\)</li>
-    <li>Sommet (OU)&#160;: \(q_{\mathrm{sys}} = 1 - (1 - q_A)(1 - q_3) = 1 - 0{,}9996 \times 0{,}995 \approx 0{,}00540\)</li>
-    <li>Fiabilit&#233;&#160;: \(R_{\mathrm{sys}} = 1 - 0{,}00540 = 0{,}9946 \approx 99{,}5\,\%\)</li>
+    <li>Branche m&eacute;canique (porte ET)&nbsp;: \(P_{ET} = P_1 \times P_2 = 0{,}02 \times 0{,}03 = 6 \times 10^{-4}\)</li>
+    <li>Branche &eacute;lectrique (porte OU)&nbsp;: \(P_{OU} = 1 - (1-0{,}01)(1-0{,}015) \approx 0{,}025\)</li>
+    <li>&Eacute;v&eacute;nement sommet (porte OU des deux branches)&nbsp;:
+      \[P_{\text{arr&ecirc;t}} \approx P_{ET} + P_{OU} = 6\times10^{-4} + 0{,}025 \approx 2{,}56\,\%\]
+    </li>
   </ul>
 </div>
 
-<!-- ===== PARTIE 7 : APPLICATIONS C1 ===== -->
-<h2>7. Applications C1 &#8212; Agencement et structures bois</h2>
+<!-- ===================== 6. DISPONIBILITÉ ===================== -->
+<h2>6. Disponibilit&eacute;</h2>
 
-<h3>7.1 Assemblages bois &#8212; Dur&#233;e de vie et garantie</h3>
+<div class="def">
+  <span class="label-def">Disponibilit&eacute; \(D\)</span>
+  La <strong>disponibilit&eacute;</strong> est la probabilit&eacute; qu&rsquo;un &eacute;quipement soit en &eacute;tat de fonctionner
+  &agrave; un instant donn&eacute; (ou sur une p&eacute;riode). Elle tient compte &agrave; la fois de la fiabilit&eacute; et
+  de la maintenabilit&eacute;&nbsp;:
+  \[D = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}}\]
+</div>
+
+<div class="def">
+  <span class="label-def">Maintenabilit&eacute; \(M(t)\)</span>
+  La <strong>maintenabilit&eacute;</strong> est la probabilit&eacute; qu&rsquo;une r&eacute;paration soit effectu&eacute;e en un temps
+  inf&eacute;rieur ou &eacute;gal &agrave; \(t\). En supposant un taux de r&eacute;paration constant \(\mu\)&nbsp;:
+  \[M(t) = 1 - e^{-\mu t} \qquad \text{avec } \mu = \frac{1}{\text{MTTR}}\]
+</div>
+
+<div class="formule-grid">
+  <div class="formule-card">
+    <div class="titre">Disponibilit&eacute;</div>
+    \[D = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}}\]
+  </div>
+  <div class="formule-card">
+    <div class="titre">Taux de r&eacute;paration \(\mu\)</div>
+    \[\mu = \frac{1}{\text{MTTR}}\]
+  </div>
+  <div class="formule-card">
+    <div class="titre">Indisponibilit&eacute; \(U\)</div>
+    \[U = 1 - D = \frac{\text{MTTR}}{\text{MTBF} + \text{MTTR}}\]
+  </div>
+</div>
+
+<div class="ex">
+  <strong>Exemple&nbsp;: disponibilit&eacute; du compresseur de la CTA</strong><br>
+  MTBF = 2185 h (calcul&eacute; en &sect;1), MTTR = 4,5 h.
+  \[D = \frac{2185}{2185 + 4{,}5} = \frac{2185}{2189{,}5} \approx 0{,}9979\]
+  La CTA est disponible 99,79&nbsp;% du temps, soit environ 18&nbsp;h d&rsquo;indisponibilit&eacute; par an.
+
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir les indicateurs d&eacute;taill&eacute;s</button>
+  <div class="corr">
+    <strong>Bilan annuel (8760 h)</strong>
+    <ul>
+      <li>Nb de pannes estim&eacute; = 8760 / MTBF = 8760 / 2185 &asymp; 4 pannes/an</li>
+      <li>Dur&eacute;e totale de r&eacute;paration = 4 &times; 4,5 = 18 h/an</li>
+      <li>Temps de bon fonctionnement = 8760 &minus; 18 = 8742 h/an</li>
+      <li>Disponibilit&eacute; = 8742 / 8760 &asymp; 99,79&nbsp;%</li>
+      <li>Maintenabilit&eacute; pour une r&eacute;paration en moins de 8h&nbsp;:
+          \(M(8) = 1 - e^{-8/4{,}5} = 1 - e^{-1{,}78} \approx 1 - 0{,}169 \approx 0{,}831\)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== 7. MÉTHODES DE MAINTENANCE ===================== -->
+<h2>7. Strat&eacute;gies de maintenance</h2>
+
+<div class="def">
+  <span class="label-def">Types de maintenance</span>
+  <table class="table-fid">
+    <thead>
+      <tr><th>Type</th><th>Description</th><th>Avantages</th><th>Inconv&eacute;nients</th><th>Utilisation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Corrective</strong></td>
+        <td>Intervention apr&egrave;s la panne</td>
+        <td>Aucun co&ucirc;t si pas de panne</td>
+        <td>Arr&ecirc;ts impr&eacute;vus, co&ucirc;ts &eacute;lev&eacute;s en urgence</td>
+        <td>Composants peu critiques, &agrave; faible co&ucirc;t</td>
+      </tr>
+      <tr>
+        <td><strong>Pr&eacute;ventive syst&eacute;matique</strong></td>
+        <td>Intervention &agrave; intervalles fixes (temps ou cycles)</td>
+        <td>Planification facile, &eacute;vite les pannes</td>
+        <td>Peut remplacer des pi&egrave;ces encore bonnes</td>
+        <td>Composants dont la fiabilit&eacute; suit Weibull (&beta;&nbsp;&gt;&nbsp;1)</td>
+      </tr>
+      <tr>
+        <td><strong>Pr&eacute;ventive conditionnelle (pr&eacute;dictive)</strong></td>
+        <td>Intervention selon l&rsquo;&eacute;tat r&eacute;el du composant (capteurs, vibrations&hellip;)</td>
+        <td>Optimise les remplacement, &eacute;vite les pannes</td>
+        <td>N&eacute;cessite des capteurs et un traitement des donn&eacute;es</td>
+        <td>Composants critiques, coûteux, accessibles &agrave; l&rsquo;instrumentation</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Choix de la strat&eacute;gie selon la courbe en baignoire</span>
+  <ul>
+    <li><strong>Phase de jeunesse (\(\beta < 1\))</strong>&nbsp;: maintenance corrective ou am&eacute;lioration du processus de fabrication/installation.</li>
+    <li><strong>Vie utile (\(\beta = 1\))</strong>&nbsp;: les pannes sont al&eacute;atoires ; la maintenance pr&eacute;ventive syst&eacute;matique n&rsquo;apporte pas de b&eacute;n&eacute;fice (propri&eacute;t&eacute; sans m&eacute;moire). Pr&eacute;f&eacute;rer la surveillance conditionnelle.</li>
+    <li><strong>Vieillissement (\(\beta > 1\))</strong>&nbsp;: la maintenance pr&eacute;ventive syst&eacute;matique est efficace (remplacement avant la fin de vie).</li>
+  </ul>
+</div>
+
+<!-- ===================== 8. APPLICATION INDUSTRIELLE ===================== -->
+<h2>8. Application industrielle &mdash; Fiabilit&eacute; de la CTA compl&egrave;te</h2>
 
 <div class="situation">
-  <strong>Situation &#8212; Garantie produit pour 200 meubles de cuisine</strong><br>
-  Un atelier fabrique des caissons avec 4 assemblages par caisson (&#233;querres + vis). Chaque assemblage a une fiabilit&#233; individuelle \(R_{\mathrm{asm}} = 0{,}994\) sur 5 ans. Le caisson est fonctionnel si les 4 assemblages tiennent. Le client commande 200 caissons.
-</div>
-
-<div class="ex">
-  <strong>Calcul de fiabilit&#233; syst&#232;me</strong>
-  <ol>
-    <li>Fiabilit&#233; d'un caisson (4 assemblages en s&#233;rie)&#160;:
-      \[R_{\mathrm{caisson}} = (0{,}994)^4 = 0{,}9762 \approx 97{,}6\,\%\]</li>
-    <li>Nombre de caissons d&#233;faillants attendus sur 200&#160;:
-      \[N_{\mathrm{d&#233;f}} = 200 \times (1 - 0{,}9762) = 200 \times 0{,}0238 \approx 4{,}8\]</li>
-    <li>Probabilit&#233; qu'aucun caisson ne défaille (200 caissons ind&#233;pendants)&#160;:
-      \[P(\text{z&#233;ro d&#233;faillance}) = (0{,}9762)^{200} \approx e^{200 \ln(0{,}9762)} \approx e^{-4{,}79} \approx 0{,}008\]</li>
-    <li>Conclusion&#160;: il est quasi-certain qu'il y aura des d&#233;faillances sous garantie. Pour viser \(\leq 2\) d&#233;faillances sur 200, il faut \(R_{\mathrm{asm}} \geq (1 - 2/200)^{1/4} = 0{,}99^{0{,}25} \approx 0{,}9975\).</li>
-  </ol>
-</div>
-
-<h3>7.2 Structures d'agencement &#8212; Analyse globale</h3>
-
-<div class="ex">
-  <strong>Situation &#8212; Rayonnage de biblioth&#232;que</strong><br>
-  Un rayonnage de biblioth&#232;que est mod&#233;lis&#233; ainsi&#160;:
+  <strong>Donn&eacute;es constructeur</strong><br>
+  Pour la centrale de traitement d&rsquo;air (CTA), Sophie dispose des donn&eacute;es suivantes &agrave; 2000&nbsp;h
+  de fonctionnement&nbsp;:
   <ul>
-    <li>Structure portante (2 montants en parall&#232;le, \(R_{m} = 0{,}999\) chacun)</li>
-    <li>En s&#233;rie avec&#160;: 5 tablettes (en s&#233;rie, \(R_t = 0{,}995\) chacune)</li>
-    <li>En s&#233;rie avec&#160;: syst&#232;me d'ancrage mural (\(R_a = 0{,}998\))</li>
+    <li>Compresseur (loi exponentielle)&nbsp;: MTBF = 5000 h &rArr; \(R_1(2000) = e^{-2000/5000} = e^{-0{,}4} \approx 0{,}670\)</li>
+    <li>Ventilateur (Weibull, &beta; = 2, &eta; = 3000 h)&nbsp;: \(R_2(2000) = e^{-(2000/3000)^2} = e^{-0{,}444} \approx 0{,}641\)</li>
+    <li>Filtre (loi exponentielle, MTBF = 3000 h)&nbsp;: \(R_3(2000) = e^{-2000/3000} = e^{-0{,}667} \approx 0{,}513\)</li>
+    <li>R&eacute;gulation (loi exponentielle, MTBF = 10000 h)&nbsp;: \(R_4(2000) = e^{-2000/10000} = e^{-0{,}2} \approx 0{,}819\)</li>
   </ul>
-  <p><strong>Calcul&#160;:</strong></p>
-  <ol>
-    <li>Montants en parall&#232;le&#160;: \(R_M = 1 - (1-0{,}999)^2 = 1 - 10^{-6} \approx 0{,}999\,999\)</li>
-    <li>Tablettes en s&#233;rie&#160;: \(R_T = (0{,}995)^5 \approx 0{,}9752\)</li>
-    <li>Syst&#232;me global&#160;: \(R = R_M \times R_T \times R_a = 0{,}999\,999 \times 0{,}9752 \times 0{,}998 \approx 0{,}9733 \approx 97{,}3\,\%\)</li>
-  </ol>
-  <p><strong>Goulot d'&#233;tranglement&#160;:</strong> les tablettes (\(R_T = 97{,}5\,\%\)) sont le maillon faible. R&#233;duire leur nombre ou am&#233;liorer leur fiabilit&#233; aura le plus grand impact.</p>
 </div>
 
-<h3>7.3 Tableau de synth&#232;se &#8212; Param&#232;tres de fiabilit&#233;</h3>
+<div class="ex">
+  <strong>Calcul de la fiabilit&eacute; syst&egrave;me</strong><br>
+  Architecture&nbsp;: compresseur et ventilateur en parall&egrave;le (groupe 1), puis filtre et r&eacute;gulation en s&eacute;rie.
+  <br><br>
+  <strong>&Eacute;tape 1 &mdash; Groupe compresseur + ventilateur (parall&egrave;le)</strong>&nbsp;:
+  \[R_{12} = 1 - (1-0{,}670)(1-0{,}641) = 1 - 0{,}330 \times 0{,}359 = 1 - 0{,}118 = 0{,}882\]
+  <strong>&Eacute;tape 2 &mdash; Syst&egrave;me global (s&eacute;rie)</strong>&nbsp;:
+  \[R_s = R_{12} \times R_3 \times R_4 = 0{,}882 \times 0{,}513 \times 0{,}819\]
+  \[R_s = 0{,}882 \times 0{,}420 \approx 0{,}371\]
+  <strong>Interpr&eacute;tation&nbsp;:</strong> &agrave; 2000&nbsp;h, la fiabilit&eacute; de la CTA n&rsquo;est plus que de 37,1&nbsp;%.
+  Le filtre (R&nbsp;=&nbsp;51,3&nbsp;%) est le maillon le plus faible et doit &ecirc;tre remplac&eacute; en priorit&eacute;.
 
+  <button class="bc" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir l&rsquo;impact d&rsquo;une maintenance pr&eacute;ventive</button>
+  <div class="corr">
+    <strong>Impact d&rsquo;un remplacement pr&eacute;ventif du filtre &agrave; 1500 h</strong><br>
+    Si le filtre est remplac&eacute; &agrave; 1500&nbsp;h (remise &agrave; neuf), sa fiabilit&eacute; repart &agrave; 1 (composant neuf).
+    &Agrave; 2000&nbsp;h, il n&rsquo;a que 500&nbsp;h de fonctionnement&nbsp;:
+    \[R_3'(500) = e^{-500/3000} = e^{-0{,}167} \approx 0{,}846\]
+    Nouveau calcul de la fiabilit&eacute; syst&egrave;me&nbsp;:
+    \[R_s' = 0{,}882 \times 0{,}846 \times 0{,}819 \approx 0{,}611\]
+    La maintenance pr&eacute;ventive du filtre fait passer la fiabilit&eacute; de 37,1&nbsp;% &agrave; 61,1&nbsp;% &agrave; 2000&nbsp;h.
+    <strong>Gain de +24 points de fiabilit&eacute;</strong> pour le co&ucirc;t d&rsquo;un seul filtre.
+  </div>
+</div>
+
+<!-- ===================== GRAPHIQUE WEIBULL ===================== -->
+<h3>Courbe de fiabilit&eacute; de Weibull selon \(\beta\)</h3>
+<div class="chart-wrap" style="max-width:620px;margin:1em auto">
+  <canvas id="weibullChart"></canvas>
+</div>
+
+<!-- ===================== MÉTHODE ===================== -->
+<div class="meth">
+  <span class="label-meth">M&eacute;thode</span>
+  <strong>Construire et analyser un diagramme de fiabilit&eacute;</strong>
+  <ol>
+    <li><strong>Identifier les composants</strong> du syst&egrave;me et leurs param&egrave;tres (\(\lambda\), MTBF ou param&egrave;tres Weibull).</li>
+    <li><strong>D&eacute;terminer la structure</strong>&nbsp;: s&eacute;rie (maillon faible), parall&egrave;le (redondance), ou mixte.</li>
+    <li><strong>Calculer \(R_i(t)\)</strong> pour chaque composant &agrave; l&rsquo;instant consid&eacute;r&eacute;.
+        Loi expo.&nbsp;: \(R_i(t) = e^{-t/\text{MTBF}_i}\). Weibull&nbsp;: \(R_i(t) = e^{-(t/\eta_i)^{\beta_i}}\).</li>
+    <li><strong>Calculer la fiabilit&eacute; des groupes</strong>&nbsp;:
+        S&eacute;rie&nbsp;: produit. Parall&egrave;le&nbsp;: \(1-\prod(1-R_i)\).</li>
+    <li><strong>Assembler les groupes</strong> pour obtenir \(R_s(t)\).</li>
+    <li><strong>Identifier le maillon faible</strong>&nbsp;: le composant avec la plus faible fiabilit&eacute; en configuration s&eacute;rie.</li>
+    <li><strong>Calculer la disponibilit&eacute;</strong>&nbsp;: \(D = \text{MTBF}/(\text{MTBF}+\text{MTTR})\).</li>
+    <li><strong>Proposer des actions</strong>&nbsp;: redondance sur les maillons faibles critiques, plan de maintenance pr&eacute;ventive.</li>
+  </ol>
+</div>
+
+<!-- ===================== À RETENIR ===================== -->
 <div class="retenir">
-  <strong>&#192; retenir &#8212; R&#233;capitulatif des lois et formules</strong>
-  <table class="tableau">
-    <thead>
-      <tr><th>Loi</th><th>\(R(t)\)</th><th>\(\lambda(t)\)</th><th>MTTF</th><th>Param&#232;tres</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Exponentielle</td><td>\(e^{-\lambda t}\)</td><td>\(\lambda\) (cst)</td><td>\(1/\lambda\)</td><td>\(\lambda &gt; 0\)</td></tr>
-      <tr><td>Weibull</td><td>\(e^{-(t/\eta)^\beta}\)</td><td>\(\dfrac{\beta}{\eta}\!\left(\dfrac{t}{\eta}\right)^{\beta-1}\)</td><td>\(\eta\,\Gamma(1+1/\beta)\)</td><td>\(\beta, \eta &gt; 0\)</td></tr>
-    </tbody>
-  </table>
-  <table class="tableau">
-    <thead>
-      <tr><th>Syst&#232;me</th><th>Fiabilit&#233;</th><th>\(\lambda_S\) (loi expo.)</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>S&#233;rie</td><td>\(\prod R_i\)</td><td>\(\sum \lambda_i\)</td></tr>
-      <tr><td>Parall&#232;le</td><td>\(1 - \prod(1-R_i)\)</td><td>&#8212; (non additifs)</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="att">
-  <span class="label label-att">Attention &#8212; Hypoth&#232;ses des mod&#232;les</span>
-  <ul>
-    <li>La loi exponentielle suppose un taux constant&#160;: valide uniquement en p&#233;riode de vie utile (zone plate de la courbe en baignoire).</li>
-    <li>Les formules s&#233;rie/parall&#232;le supposent les composants <strong>ind&#233;pendants</strong>&#160;: v&#233;rifier l'absence de causes communes de d&#233;faillance.</li>
-    <li>L'AMDEC est une m&#233;thode subjective&#160;: les cotations G, O, D doivent &#234;tre d&#233;finies avec une grille de crit&#232;res pr&#233;cis et valid&#233;es par l'&#233;quipe.</li>
-    <li>Le MTTF n'est PAS le temps avant lequel le composant ne peut pas tomber en panne&#160;: c'est une esp&#233;rance. \(P(T \leq \mathrm{MTTF}) \approx 63\,\%\) pour la loi exponentielle.</li>
+  <strong>&Agrave; retenir &mdash; Fiabilit&eacute;</strong>
+  <div class="formule-grid">
+    <div class="formule-card">
+      <div class="titre">Fiabilit&eacute;</div>
+      \[R(t) = P(T > t)\]
+    </div>
+    <div class="formule-card">
+      <div class="titre">Taux de d&eacute;faillance</div>
+      \[\lambda(t) = -\frac{R'(t)}{R(t)}\]
+    </div>
+    <div class="formule-card">
+      <div class="titre">Loi exponentielle</div>
+      \[R(t) = e^{-\lambda t},\quad \text{MTBF}=\frac{1}{\lambda}\]
+    </div>
+    <div class="formule-card">
+      <div class="titre">Loi de Weibull</div>
+      \[R(t) = e^{-(t/\eta)^\beta}\]
+    </div>
+    <div class="formule-card">
+      <div class="titre">S&eacute;rie</div>
+      \[R_s = R_1 \cdot R_2 \cdots R_n\]
+    </div>
+    <div class="formule-card">
+      <div class="titre">Parall&egrave;le</div>
+      \[R_p = 1 - \prod_{i=1}^n(1-R_i)\]
+    </div>
+    <div class="formule-card">
+      <div class="titre">AMDEC</div>
+      \[C = G \times F \times D\]
+    </div>
+    <div class="formule-card">
+      <div class="titre">Disponibilit&eacute;</div>
+      \[D = \frac{\text{MTBF}}{\text{MTBF}+\text{MTTR}}\]
+    </div>
+  </div>
+  <ul style="margin-top:.8em">
+    <li>La loi exponentielle (\(\lambda\) constant) mod&eacute;lise la <strong>vie utile</strong> ; propri&eacute;t&eacute; sans m&eacute;moire.</li>
+    <li>Weibull avec \(\beta &lt; 1\) = jeunesse ; \(\beta = 1\) = vie utile ; \(\beta &gt; 1\) = vieillissement.</li>
+    <li>La <strong>courbe en baignoire</strong> justifie les trois phases et les strat&eacute;gies de maintenance associ&eacute;es.</li>
+    <li>En s&eacute;rie&nbsp;: la fiabilit&eacute; est limit&eacute;e par le maillon le plus faible.</li>
+    <li>La redondance (parall&egrave;le) am&eacute;liore la fiabilit&eacute; mais augmente le co&ucirc;t.</li>
+    <li>L&rsquo;AMDEC permet de hi&eacute;rarchiser les actions de maintenance selon la criticit&eacute; \(C = G \times F \times D\).</li>
   </ul>
 </div>
 
-</div>
+</div><!-- fin .c -->
+
+<script>
+// --- Courbe en baignoire ---
+const ctxB = document.getElementById('baignoireChart');
+if (ctxB) {
+  const t = Array.from({length: 100}, (_, i) => (i + 1) * 0.5);
+
+  // Phases : jeunesse (Weibull β<1), vie utile (constant), vieillissement (Weibull β>1)
+  function weibullHazard(t, beta, eta) {
+    return (beta / eta) * Math.pow(t / eta, beta - 1);
+  }
+
+  // Courbe en baignoire composite
+  const baignoire = t.map(ti => {
+    if (ti <= 10) {
+      return weibullHazard(ti + 0.5, 0.5, 4) * 0.8;      // jeunesse
+    } else if (ti <= 35) {
+      return 0.08 + 0.005 * Math.random();                  // vie utile
+    } else {
+      return 0.08 + weibullHazard(ti - 35, 2.5, 20) * 0.3; // vieillissement
+    }
+  });
+
+  // Lissage simple
+  const smoothed = baignoire.map((v, i) => {
+    const window = baignoire.slice(Math.max(0, i-2), i+3);
+    return window.reduce((a, b) => a + b, 0) / window.length;
+  });
+
+  new Chart(ctxB, {
+    type: 'line',
+    data: {
+      labels: t.map(v => v.toFixed(1)),
+      datasets: [{
+        label: 'Taux de défaillance λ(t)',
+        data: smoothed,
+        borderColor: '#c0392b',
+        backgroundColor: 'rgba(192,57,43,0.08)',
+        borderWidth: 2.5,
+        pointRadius: 0,
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Courbe en baignoire — Taux de défaillance λ(t)',
+          font: { size: 14 }
+        },
+        legend: { display: false },
+        annotation: {}
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Temps t' },
+          ticks: {
+            maxTicksLimit: 10,
+            callback: (val, i) => [0,10,20,35,50].includes(Math.floor(t[i] || 0)) ? t[i] : ''
+          }
+        },
+        y: {
+          title: { display: true, text: 'λ(t)' },
+          min: 0
+        }
+      }
+    }
+  });
+
+  // Ajouter les légendes de phase via un deuxième canvas overlay n'est pas possible,
+  // on utilise une légende textuelle ci-dessous dans le HTML
+}
+
+// --- Courbe de Weibull selon β ---
+const ctxW = document.getElementById('weibullChart');
+if (ctxW) {
+  const temps = Array.from({length: 100}, (_, i) => (i + 1) * 0.5);
+  const eta = 20;
+
+  function weibullR(t, beta, eta) {
+    return Math.exp(-Math.pow(t / eta, beta));
+  }
+
+  new Chart(ctxW, {
+    type: 'line',
+    data: {
+      labels: temps.map(v => v.toFixed(1)),
+      datasets: [
+        {
+          label: 'β = 0,5 (jeunesse)',
+          data: temps.map(t => weibullR(t, 0.5, eta)),
+          borderColor: '#2da44e', backgroundColor: 'transparent',
+          borderWidth: 2, pointRadius: 0, tension: 0.3
+        },
+        {
+          label: 'β = 1 (exponentielle)',
+          data: temps.map(t => weibullR(t, 1.0, eta)),
+          borderColor: '#0969da', backgroundColor: 'transparent',
+          borderWidth: 2, pointRadius: 0, tension: 0.3, borderDash: [6,3]
+        },
+        {
+          label: 'β = 2 (vieillissement modéré)',
+          data: temps.map(t => weibullR(t, 2.0, eta)),
+          borderColor: '#e09000', backgroundColor: 'transparent',
+          borderWidth: 2, pointRadius: 0, tension: 0.3
+        },
+        {
+          label: 'β = 3,5 (vieillissement prononcé)',
+          data: temps.map(t => weibullR(t, 3.5, eta)),
+          borderColor: '#c0392b', backgroundColor: 'transparent',
+          borderWidth: 2, pointRadius: 0, tension: 0.3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Fiabilité R(t) — Loi de Weibull (η = 20) selon β',
+          font: { size: 14 }
+        },
+        legend: { position: 'top' }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Temps t' },
+          ticks: { maxTicksLimit: 12 }
+        },
+        y: {
+          title: { display: true, text: 'Fiabilité R(t)' },
+          min: 0,
+          max: 1
+        }
+      }
+    }
+  });
+}
+</script>
 <script src="../../../nav.js"></script>
 </body>
 </html>
