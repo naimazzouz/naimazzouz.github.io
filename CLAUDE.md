@@ -117,7 +117,9 @@ Seules les classes vraiment spécifiques à une page peuvent rester inline.
 
 ## DIFFÉRENCIATION PÉDAGOGIQUE (Terminale)
 
-Le système de différenciation propose 3 niveaux d'adaptation :
+La différenciation s'applique **uniquement aux exercices et aux DS**. Les cours (lecon.html) restent identiques pour tous — le programme est le même, seule la pratique est adaptée.
+
+Le système propose 3 niveaux d'adaptation :
 
 | Niveau | Profil cible | Contenu |
 |---|---|---|
