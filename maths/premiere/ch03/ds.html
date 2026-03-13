@@ -48,16 +48,16 @@
   <span class="comp comp-com">COM – Communiquer</span>
 </div>
 
-<!-- ═══════════ EXERCICE 1 ═══════════ -->
+<!-- ═══════════════ EXERCICE 1 ═══════════════ -->
 <div class="partie">
 <div class="partie-header">
   <span class="partie-title">Exercice 1 – Progression salariale</span>
   <span class="pts">8 points</span>
 </div>
 
-<p>Un technicien en installation thermique est embauché avec un salaire mensuel net de <strong>1 450 €</strong>. Son contrat prévoit une augmentation de <strong>60 €</strong> par an.</p>
+<p>Un menuisier agenceur est embauché avec un salaire mensuel net de <strong>1 450 €</strong>. Son employeur lui garantit une augmentation de <strong>35 € par mois</strong> chaque année.</p>
 
-<p>On note \(u_n\) le salaire mensuel en euros après \(n\) années d'ancienneté (\(u_0 = 1\,450\)).</p>
+<p>On note \(u_n\) le salaire mensuel net (en euros) au bout de \(n\) années. Ainsi \(u_0 = 1\,450\).</p>
 
 <p><strong>1.</strong> <span class="comp comp-app">APP</span> Calculer \(u_1\), \(u_2\) et \(u_3\). <span class="bareme">(1,5 pt)</span></p>
 <span class="answer-line"></span>
@@ -70,96 +70,98 @@
 <p><strong>3.</strong> <span class="comp comp-rea">REA</span> Exprimer \(u_n\) en fonction de \(n\). <span class="bareme">(1,5 pt)</span></p>
 <span class="answer-line"></span>
 
-<p><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer le salaire mensuel après 10 ans d'ancienneté. <span class="bareme">(1 pt)</span></p>
+<p><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer le salaire mensuel au bout de 10 ans. <span class="bareme">(1 pt)</span></p>
 <span class="answer-line"></span>
 
-<p><strong>5.</strong> <span class="comp comp-ana">ANA</span> Au bout de combien d'années le salaire dépassera-t-il 2 000 € ? <span class="bareme">(1,5 pt)</span></p>
+<p><strong>5.</strong> <span class="comp comp-ana">ANA</span> Calculer la somme totale des salaires mensuels perçus pendant les 5 premières années (de \(u_0\) à \(u_4\)). <span class="bareme">(2,5 pts)</span></p>
 <span class="answer-line"></span>
-<span class="answer-line"></span>
-
-<p><strong>6.</strong> <span class="comp comp-com">COM</span> Calculer le total des salaires perçus pendant les 5 premières années (de \(u_0\) à \(u_4\)), sachant que la somme des \(n\) premiers termes d'une suite arithmétique vaut \(S = \dfrac{n}{2}(u_0 + u_{n-1})\). <span class="bareme">(1 pt)</span></p>
 <span class="answer-line"></span>
 <span class="answer-line"></span>
 
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr" style="display:none">
 <p><strong>1.</strong>
-\(u_1 = 1\,450 + 60 = 1\,510\) € ;
-\(u_2 = 1\,510 + 60 = 1\,570\) € ;
-\(u_3 = 1\,570 + 60 = 1\,630\) €.</p>
-<p><strong>2.</strong> La suite \((u_n)\) est <strong>arithmétique</strong> de premier terme \(u_0 = 1\,450\) et de raison \(r = 60\).</p>
-<p><strong>3.</strong> \(u_n = u_0 + n \times r = 1\,450 + 60n\)</p>
-<p><strong>4.</strong> \(u_{10} = 1\,450 + 60 \times 10 = 1\,450 + 600 = 2\,050\) €.</p>
-<p><strong>5.</strong> On résout \(1\,450 + 60n > 2\,000\), soit \(60n > 550\), donc \(n > 9{,}17\).
-Le salaire dépassera 2 000 € au bout de <strong>10 ans</strong>.</p>
-<p><strong>6.</strong> \(S = \dfrac{5}{2}(u_0 + u_4) = \dfrac{5}{2}(1\,450 + 1\,690) = \dfrac{5}{2} \times 3\,140 = 7\,850\) €.
-Le total des salaires mensuels sur 5 ans est de 7 850 €. (En salaire annuel : \(7\,850 \times 12 = 94\,200\) €.)</p>
+\(u_1 = 1\,450 + 35 = 1\,485\) €<br>
+\(u_2 = 1\,485 + 35 = 1\,520\) €<br>
+\(u_3 = 1\,520 + 35 = 1\,555\) €</p>
+
+<p><strong>2.</strong> Chaque terme est obtenu en ajoutant 35 au précédent : \(u_{n+1} = u_n + 35\).
+La suite \((u_n)\) est <strong>arithmétique</strong> de premier terme \(u_0 = 1\,450\) et de raison \(r = 35\).</p>
+
+<p><strong>3.</strong> \(u_n = u_0 + n \times r = 1\,450 + 35n\).</p>
+
+<p><strong>4.</strong> \(u_{10} = 1\,450 + 35 \times 10 = 1\,450 + 350 = 1\,800\) €.</p>
+
+<p><strong>5.</strong> On calcule \(S = u_0 + u_1 + u_2 + u_3 + u_4\).<br>
+Formule : \(S = \dfrac{(n+1)(u_0 + u_n)}{2}\) avec \(n = 4\) (5 termes, de \(u_0\) à \(u_4\)).</p>
+<p>\(u_4 = 1\,450 + 35 \times 4 = 1\,590\) €</p>
+<p>\(S = \dfrac{5 \times (1\,450 + 1\,590)}{2} = \dfrac{5 \times 3\,040}{2} = \dfrac{15\,200}{2} = 7\,600\) €.</p>
+<p>La somme des salaires mensuels sur 5 ans est de <strong>7 600 €</strong>. (Note : il s'agit des salaires mensuels successifs, pas du revenu total annuel.)</p>
 </div>
 </div>
 
-<!-- ═══════════ EXERCICE 2 ═══════════ -->
+<!-- ═══════════════ EXERCICE 2 ═══════════════ -->
 <div class="partie">
 <div class="partie-header">
   <span class="partie-title">Exercice 2 – Dépréciation d'un véhicule utilitaire</span>
   <span class="pts">12 points</span>
 </div>
 
-<p>Une entreprise d'agencement achète un véhicule utilitaire neuf à <strong>28 000 €</strong>. Chaque année, le véhicule perd <strong>15 %</strong> de sa valeur.</p>
+<p>Un artisan plombier-chauffagiste achète un véhicule utilitaire neuf au prix de <strong>24 000 €</strong>. Chaque année, le véhicule perd <strong>15 %</strong> de sa valeur.</p>
 
-<p>On note \(v_n\) la valeur du véhicule (en euros) après \(n\) années (\(v_0 = 28\,000\)).</p>
+<p>On note \(v_n\) la valeur du véhicule (en euros) au bout de \(n\) années. Ainsi \(v_0 = 24\,000\).</p>
 
-<p><strong>1.</strong> <span class="comp comp-app">APP</span> Exprimer \(v_1\) en fonction de \(v_0\) puis calculer sa valeur. <span class="bareme">(1,5 pt)</span></p>
-<span class="answer-line"></span>
-<span class="answer-line"></span>
-
-<p><strong>2.</strong> <span class="comp comp-rea">REA</span> Calculer \(v_2\) et \(v_3\). Arrondir au centime. <span class="bareme">(1,5 pt)</span></p>
+<p><strong>1.</strong> <span class="comp comp-app">APP</span> Calculer \(v_1\) et \(v_2\). Arrondir au centime. <span class="bareme">(2 pts)</span></p>
 <span class="answer-line"></span>
 <span class="answer-line"></span>
 
-<p><strong>3.</strong> <span class="comp comp-ana">ANA</span> Quelle est la nature de la suite \((v_n)\) ? Préciser le premier terme et la raison. <span class="bareme">(1,5 pt)</span></p>
+<p><strong>2.</strong> <span class="comp comp-ana">ANA</span> Justifier que la suite \((v_n)\) est géométrique. Préciser le premier terme et la raison. <span class="bareme">(2 pts)</span></p>
 <span class="answer-line"></span>
 <span class="answer-line"></span>
 
-<p><strong>4.</strong> <span class="comp comp-rea">REA</span> Exprimer \(v_n\) en fonction de \(n\). <span class="bareme">(1,5 pt)</span></p>
+<p><strong>3.</strong> <span class="comp comp-rea">REA</span> Exprimer \(v_n\) en fonction de \(n\). <span class="bareme">(1,5 pt)</span></p>
 <span class="answer-line"></span>
 
-<p><strong>5.</strong> <span class="comp comp-rea">REA</span> Calculer la valeur du véhicule après 5 ans. Arrondir à l'euro. <span class="bareme">(1,5 pt)</span></p>
-<span class="answer-line"></span>
+<p><strong>4.</strong> <span class="comp comp-rea">REA</span> Calculer la valeur du véhicule au bout de 5 ans. Arrondir à l'euro. <span class="bareme">(1,5 pt)</span></p>
 <span class="answer-line"></span>
 
-<p><strong>6.</strong> <span class="comp comp-rea">REA</span> Compléter le tableau de valeurs ci-dessous (arrondir à l'euro) : <span class="bareme">(1,5 pt)</span></p>
-<table style="width:100%;border-collapse:collapse;margin:12px 0;text-align:center">
-<tr style="background:var(--p);color:#fff"><th style="padding:8px;border:1px solid #ccc">Année \(n\)</th><td style="padding:8px;border:1px solid #ccc">0</td><td style="padding:8px;border:1px solid #ccc">1</td><td style="padding:8px;border:1px solid #ccc">2</td><td style="padding:8px;border:1px solid #ccc">3</td><td style="padding:8px;border:1px solid #ccc">4</td><td style="padding:8px;border:1px solid #ccc">5</td></tr>
-<tr><th style="padding:8px;border:1px solid #ccc;background:var(--p-bg)">\(v_n\) (€)</th><td style="padding:8px;border:1px solid #ccc">28 000</td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td><td style="padding:8px;border:1px solid #ccc"></td></tr>
+<p><strong>5.</strong> <span class="comp comp-ana">ANA</span> L'artisan souhaite revendre le véhicule quand sa valeur passe en dessous de 8 000 €. Compléter le tableau ci-dessous pour déterminer au bout de combien d'années il doit revendre. <span class="bareme">(3 pts)</span></p>
+
+<table class="styled-table" style="margin:16px auto;text-align:center">
+<thead><tr><th>\(n\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead>
+<tbody><tr><td>\(v_n\) (€)</td><td>24 000</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
 </table>
-
-<p><strong>7.</strong> <span class="comp comp-ana">ANA</span> L'entreprise souhaite revendre le véhicule quand sa valeur passe sous 10 000 €. À l'aide du tableau ou par le calcul, déterminer au bout de combien d'années cela se produit. <span class="bareme">(2 pts)</span></p>
-<span class="answer-line"></span>
-<span class="answer-line"></span>
 <span class="answer-line"></span>
 
-<p><strong>8.</strong> <span class="comp comp-val">VAL</span> Un collègue affirme : « Au bout de 10 ans, le véhicule ne vaut plus rien. » A-t-il raison ? Justifier. <span class="bareme">(1 pt)</span></p>
+<p><strong>6.</strong> <span class="comp comp-val">VAL</span> Vérifier le résultat de la question 5 en résolvant l'inéquation \(v_n < 8\,000\) à l'aide de la calculatrice ou par essais successifs. <span class="bareme">(2 pts)</span></p>
 <span class="answer-line"></span>
 <span class="answer-line"></span>
 
 <button class="bc" onclick="toggle(this)">Voir la correction</button>
 <div class="corr" style="display:none">
-<p><strong>1.</strong> \(v_1 = v_0 \times (1 - 0{,}15) = v_0 \times 0{,}85 = 28\,000 \times 0{,}85 = 23\,800\) €.</p>
-<p><strong>2.</strong>
-\(v_2 = 23\,800 \times 0{,}85 = 20\,230\) € ;
-\(v_3 = 20\,230 \times 0{,}85 = 17\,195{,}50\) €.</p>
-<p><strong>3.</strong> La suite \((v_n)\) est <strong>géométrique</strong> de premier terme \(v_0 = 28\,000\) et de raison \(q = 0{,}85\).</p>
-<p><strong>4.</strong> \(v_n = v_0 \times q^n = 28\,000 \times 0{,}85^n\)</p>
-<p><strong>5.</strong> \(v_5 = 28\,000 \times 0{,}85^5 = 28\,000 \times 0{,}443\,705 \approx 12\,424\) €.</p>
-<p><strong>6.</strong> Tableau complété :</p>
-<table style="width:100%;border-collapse:collapse;margin:12px 0;text-align:center">
-<tr style="background:var(--p);color:#fff"><th style="padding:8px;border:1px solid #ccc">\(n\)</th><td style="padding:8px;border:1px solid #ccc">0</td><td style="padding:8px;border:1px solid #ccc">1</td><td style="padding:8px;border:1px solid #ccc">2</td><td style="padding:8px;border:1px solid #ccc">3</td><td style="padding:8px;border:1px solid #ccc">4</td><td style="padding:8px;border:1px solid #ccc">5</td></tr>
-<tr><th style="padding:8px;border:1px solid #ccc;background:var(--p-bg)">\(v_n\) (€)</th><td style="padding:8px;border:1px solid #ccc">28 000</td><td style="padding:8px;border:1px solid #ccc">23 800</td><td style="padding:8px;border:1px solid #ccc">20 230</td><td style="padding:8px;border:1px solid #ccc">17 196</td><td style="padding:8px;border:1px solid #ccc">14 616</td><td style="padding:8px;border:1px solid #ccc">12 424</td></tr>
+<p><strong>1.</strong> Le véhicule perd 15 % chaque année, il conserve donc 85 % de sa valeur :<br>
+\(v_1 = 24\,000 \times 0{,}85 = 20\,400\) €<br>
+\(v_2 = 20\,400 \times 0{,}85 = 17\,340\) €</p>
+
+<p><strong>2.</strong> Chaque année, on multiplie la valeur par 0,85 :
+\(v_{n+1} = v_n \times 0{,}85\).
+La suite \((v_n)\) est <strong>géométrique</strong> de premier terme \(v_0 = 24\,000\) et de raison \(q = 0{,}85\).</p>
+
+<p><strong>3.</strong> \(v_n = v_0 \times q^n = 24\,000 \times 0{,}85^n\).</p>
+
+<p><strong>4.</strong> \(v_5 = 24\,000 \times 0{,}85^5 = 24\,000 \times 0{,}443\,705\ldots \approx 10\,649\) €.</p>
+
+<p><strong>5.</strong> Tableau complété :</p>
+<table class="styled-table" style="margin:8px auto;text-align:center;font-size:.9em">
+<thead><tr><th>\(n\)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead>
+<tbody><tr><td>\(v_n\)</td><td>24 000</td><td>20 400</td><td>17 340</td><td>14 739</td><td>12 528</td><td>10 649</td><td>9 052</td><td>7 694</td></tr></tbody>
 </table>
-<p><strong>7.</strong> On cherche \(n\) tel que \(28\,000 \times 0{,}85^n < 10\,000\), soit \(0{,}85^n < \dfrac{10\,000}{28\,000} \approx 0{,}3571\).
-Par essais : \(0{,}85^6 \approx 0{,}3771\) et \(0{,}85^7 \approx 0{,}3206\).
-La valeur passe sous 10 000 € au bout de <strong>7 ans</strong> (\(v_7 \approx 8\,976\) €).</p>
-<p><strong>8.</strong> Non. \(v_{10} = 28\,000 \times 0{,}85^{10} \approx 5\,584\) €. Le véhicule conserve une valeur résiduelle. Avec une suite géométrique de raison positive, la valeur ne sera jamais nulle (elle tend vers 0 sans l'atteindre).</p>
+<p>\(v_6 = 9\,052\) € (supérieur à 8 000) et \(v_7 = 7\,694\) € (inférieur à 8 000).
+L'artisan doit revendre au bout de <strong>7 ans</strong>.</p>
+
+<p><strong>6.</strong> On résout \(24\,000 \times 0{,}85^n < 8\,000\), soit \(0{,}85^n < \dfrac{1}{3}\).
+Par essais : \(0{,}85^6 \approx 0{,}377 > \frac{1}{3}\) et \(0{,}85^7 \approx 0{,}321 < \frac{1}{3}\).
+Donc \(n \geq 7\) : le résultat est confirmé, c'est au bout de <strong>7 ans</strong>.</p>
 </div>
 </div>
 
