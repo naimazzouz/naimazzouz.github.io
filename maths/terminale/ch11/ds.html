@@ -35,6 +35,110 @@
   <div class="dh-item">&#128196; <strong>Documents :</strong> non autoris&eacute;s</div>
 </div>
 
+<!-- ================================================================
+     DS SOCLE — très guidé, mêmes compétences
+     ================================================================ -->
+<div class="diff-socle">
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 1 &ndash; Produit scalaire avec les coordonn&eacute;es (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <p>On donne les vecteurs \(\vec{u}\begin{pmatrix}3\\4\end{pmatrix}\) et \(\vec{v}\begin{pmatrix}2\\-1\end{pmatrix}\).</p>
+
+  <div class="q"><strong>1. (2 pts)</strong> Compl&eacute;ter le calcul du produit scalaire \(\vec{u} \cdot \vec{v}\) :</div>
+  <p style="font-size:.93em">
+    \(\vec{u} \cdot \vec{v} = \boxed{\phantom{3}} \times \boxed{\phantom{2}} + \boxed{\phantom{4}} \times (\boxed{\phantom{-1}})\)<br>
+    \(\vec{u} \cdot \vec{v} = \boxed{\phantom{6}} + (\boxed{\phantom{-4}}) = \boxed{\phantom{2}}\)
+  </p>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer la norme de \(\vec{u}\). Compl&eacute;ter :</div>
+  <p class="consigne" style="font-size:.9em"><strong>Rappel :</strong> \(\|\vec{u}\| = \sqrt{x^2 + y^2}\)</p>
+  <p style="font-size:.93em">
+    \(\|\vec{u}\| = \sqrt{\boxed{\phantom{3}}^2 + \boxed{\phantom{4}}^2} = \sqrt{\boxed{\phantom{9}} + \boxed{\phantom{16}}} = \sqrt{\boxed{\phantom{25}}} = \boxed{\phantom{5}}\)
+  </p>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer la norme de \(\vec{v}\) (arrondir au dixi&egrave;me) :</div>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>4. (2 pts)</strong> En d&eacute;duire l'angle \(\theta\) entre \(\vec{u}\) et \(\vec{v}\). Compl&eacute;ter :</div>
+  <p class="consigne" style="font-size:.9em"><strong>Formule :</strong> \(\cos\theta = \dfrac{\vec{u} \cdot \vec{v}}{\|\vec{u}\| \times \|\vec{v}\|}\)</p>
+  <p style="font-size:.93em">
+    \(\cos\theta = \dfrac{\boxed{\phantom{2}}}{\boxed{\phantom{5}} \times \boxed{\phantom{2{,}24}}} = \dfrac{2}{\boxed{\phantom{11{,}18}}} \approx \boxed{\phantom{0{,}179}}\)<br>
+    \(\theta = \arccos(\boxed{\phantom{0{,}179}}) \approx \boxed{\phantom{80}}°\)
+  </p>
+
+  <div class="q"><strong>5. (2 pts)</strong> On donne \(\vec{w}\begin{pmatrix}4\\-3\end{pmatrix}\). Les vecteurs \(\vec{u}\) et \(\vec{w}\) sont-ils perpendiculaires ? Compl&eacute;ter :</div>
+  <p style="font-size:.93em">
+    \(\vec{u} \cdot \vec{w} = 3 \times \boxed{\phantom{4}} + 4 \times (\boxed{\phantom{-3}}) = \boxed{\phantom{12}} + (\boxed{\phantom{-12}}) = \boxed{\phantom{0}}\)<br>
+    Le produit scalaire &hellip;&hellip; 0, donc les vecteurs &hellip;&hellip;&hellip;&hellip;
+  </p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\vec{u} \cdot \vec{v} = 3 \times 2 + 4 \times (-1) = 6 - 4 = 2\).</p>
+    <p><strong>2.</strong> \(\|\vec{u}\| = \sqrt{9 + 16} = \sqrt{25} = 5\).</p>
+    <p><strong>3.</strong> \(\|\vec{v}\| = \sqrt{4 + 1} = \sqrt{5} \approx 2{,}24\).</p>
+    <p><strong>4.</strong> \(\cos\theta = \dfrac{2}{5 \times 2{,}24} = \dfrac{2}{11{,}18} \approx 0{,}179\). \(\theta = \arccos(0{,}179) \approx 80°\).</p>
+    <p><strong>5.</strong> \(\vec{u} \cdot \vec{w} = 12 - 12 = 0\). Le produit scalaire vaut 0, donc les vecteurs sont perpendiculaires (orthogonaux).</p>
+  </div>
+</div>
+
+<div class="partie">
+  <div class="partie-header">
+    <span class="partie-title">Exercice 2 &ndash; Perpendicularit&eacute; en menuiserie (guid&eacute;)</span>
+    <span class="pts">10 points</span>
+  </div>
+
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur r&eacute;alise le plan d'un meuble d'angle. Sur le plan (unit&eacute; : 1 cm), les coins du meuble sont \(A(0\,;\,0)\), \(B(80\,;\,0)\) et \(C(80\,;\,60)\). Une &eacute;tag&egrave;re diagonale relie \(A\) &agrave; \(C\).
+  </div>
+
+  <div class="q"><strong>1. (2 pts)</strong> Calculer le vecteur \(\overrightarrow{AB}\) et le vecteur \(\overrightarrow{AC}\). Compl&eacute;ter :</div>
+  <p style="font-size:.93em">
+    \(\overrightarrow{AB} = \begin{pmatrix}\boxed{\phantom{80}}\\\boxed{\phantom{0}}\end{pmatrix}\) &emsp;
+    \(\overrightarrow{AC} = \begin{pmatrix}\boxed{\phantom{80}}\\\boxed{\phantom{60}}\end{pmatrix}\)
+  </p>
+
+  <div class="q"><strong>2. (2 pts)</strong> Calculer les vecteurs \(\overrightarrow{BA}\) et \(\overrightarrow{BC}\), puis v&eacute;rifier que l'angle en \(B\) est droit :</div>
+  <p style="font-size:.93em">
+    \(\overrightarrow{BA} = \begin{pmatrix}\boxed{\phantom{-80}}\\\boxed{\phantom{0}}\end{pmatrix}\) &emsp;
+    \(\overrightarrow{BC} = \begin{pmatrix}\boxed{\phantom{0}}\\\boxed{\phantom{60}}\end{pmatrix}\)<br>
+    \(\overrightarrow{BA} \cdot \overrightarrow{BC} = \boxed{\phantom{-80}} \times \boxed{\phantom{0}} + \boxed{\phantom{0}} \times \boxed{\phantom{60}} = \boxed{\phantom{0}}\)
+  </p>
+
+  <div class="q"><strong>3. (2 pts)</strong> Calculer la longueur de l'&eacute;tag&egrave;re diagonale \(AC\) (en cm) :</div>
+  <p style="font-size:.93em">
+    \(AC = \|\overrightarrow{AC}\| = \sqrt{\boxed{\phantom{80}}^2 + \boxed{\phantom{60}}^2} = \sqrt{\boxed{\phantom{6400}} + \boxed{\phantom{3600}}} = \sqrt{\boxed{\phantom{10000}}} = \boxed{\phantom{100}}\) cm
+  </p>
+
+  <div class="q"><strong>4. (2 pts)</strong> Calculer l'angle \(\alpha\) que fait l'&eacute;tag&egrave;re diagonale avec le c&ocirc;t&eacute; \([AB]\) :</div>
+  <p class="consigne" style="font-size:.9em"><strong>M&eacute;thode :</strong> \(\cos\alpha = \dfrac{\overrightarrow{AB} \cdot \overrightarrow{AC}}{\|\overrightarrow{AB}\| \times \|\overrightarrow{AC}\|}\)</p>
+  <span class="answer-line"></span>
+  <span class="answer-line"></span>
+
+  <div class="q"><strong>5. (2 pts)</strong> Le menuisier veut fixer une &eacute;querre &agrave; 45° depuis \(A\). Cette &eacute;querre suit la direction \(\vec{e}\begin{pmatrix}1\\1\end{pmatrix}\). Est-elle perpendiculaire au c&ocirc;t&eacute; \([AB]\) ?</div>
+  <span class="answer-line"></span>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}80\\0\end{pmatrix}\) et \(\overrightarrow{AC} = \begin{pmatrix}80\\60\end{pmatrix}\).</p>
+    <p><strong>2.</strong> \(\overrightarrow{BA} = \begin{pmatrix}-80\\0\end{pmatrix}\) et \(\overrightarrow{BC} = \begin{pmatrix}0\\60\end{pmatrix}\). \(\overrightarrow{BA} \cdot \overrightarrow{BC} = (-80) \times 0 + 0 \times 60 = 0\). L'angle en \(B\) est droit.</p>
+    <p><strong>3.</strong> \(AC = \sqrt{6400 + 3600} = \sqrt{10000} = 100\) cm.</p>
+    <p><strong>4.</strong> \(\overrightarrow{AB} \cdot \overrightarrow{AC} = 80 \times 80 + 0 \times 60 = 6400\). \(\cos\alpha = \dfrac{6400}{80 \times 100} = \dfrac{6400}{8000} = 0{,}8\). \(\alpha = \arccos(0{,}8) \approx 37°\).</p>
+    <p><strong>5.</strong> \(\overrightarrow{AB} \cdot \vec{e} = 80 \times 1 + 0 \times 1 = 80 \neq 0\). L'&eacute;querre n'est pas perpendiculaire au c&ocirc;t&eacute; \([AB]\) (elle fait un angle de 45° avec l'horizontale, pas 90°).</p>
+  </div>
+</div>
+
+</div><!-- fin diff-socle -->
+
+<!-- ================================================================
+     DS STANDARD — le DS existant
+     ================================================================ -->
+<div class="diff-standard">
+
 <!-- ===== EXERCICE 1 ===== -->
 <div class="partie">
   <div class="partie-header">
