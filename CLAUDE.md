@@ -200,6 +200,7 @@ Avant de générer du contenu, consulter les fichiers dans `/prompts/` :
 |---|---|
 | `prompts/prompt-cours.md` | Structure d'une page de cours |
 | `prompts/prompt-exercices.md` | Structure d'une page d'exercices |
+| `prompts/prompt-simulation.md` | Structure d'une simulation interactive (4 types) |
 | `prompts/prompt-filiere-2mama.md` | Contextes pro Seconde MAMA (menuiserie/agencement) |
 | `prompts/prompt-filiere-era-ma.md` | Contextes pro Première & Terminale ERA/MA (agencement/bois) |
 | `prompts/prompt-filiere-ticcer.md` | Contextes pro Première & Terminale ICCER (chauffage/énergie) |
