@@ -306,7 +306,7 @@ function updateCost() {
       labels: sources.map(s => s.name),
       datasets: [
         { label: 'Coût électricité (\u20AC)', data: costs.map(c => c.elec.toFixed(2)), backgroundColor: ['#fbbf24', '#a78bfa', '#38bdf8'] },
-        { label: 'Cout ampoules (\u20AC)', data: costs.map(c => c.ampoules.toFixed(2)), backgroundColor: ['#f59e0b', '#7c3aed', '#0284c7'] }
+        { label: 'Coût ampoules (\u20AC)', data: costs.map(c => c.ampoules.toFixed(2)), backgroundColor: ['#f59e0b', '#7c3aed', '#0284c7'] }
       ]
     },
     options: {

@@ -105,8 +105,14 @@ const $ = id => document.getElementById(id);
 const cvT = $('cvTransfo');
 const ctxT = cvT.getContext('2d');
 let animFrame = 0;
+let animId = null;
+
+function startTransformerAnimation() {
+  if (!animId) animId = requestAnimationFrame(drawTransformer);
+}
 
 function drawTransformer() {
+  animId = null;
   const W = cvT.width, H = cvT.height;
   const dpr = window.devicePixelRatio || 1;
   cvT.style.width = W + 'px';
@@ -246,7 +252,10 @@ function drawTransformer() {
   ctxT.textAlign = 'center';
   ctxT.fillText('m = N2/N1 = ' + m.toFixed(2), 410, 309);
 
-  requestAnimationFrame(drawTransformer);
+  // Only continue animation if U1 > 0 (electrons flowing)
+  if (U1 > 0) {
+    animId = requestAnimationFrame(drawTransformer);
+  }
 }
 
 function update() {
@@ -266,6 +275,9 @@ function update() {
   if (m > 1) { typeLabel = 'Élévateur'; typeBadge = '<span class="badge badge-up">Élévateur (m > 1)</span>'; }
   else if (m < 1) { typeLabel = 'Abaisseur'; typeBadge = '<span class="badge badge-down">Abaisseur (m < 1)</span>'; }
   else { typeLabel = 'Isolement'; typeBadge = '<span class="badge badge-eq">Isolement (m = 1)</span>'; }
+
+  // Restart animation when parameters change
+  startTransformerAnimation();
 
   $('resTransfo').innerHTML = `
     <p><strong>Rapport de transformation :</strong> m = N2 / N1 = ${N2} / ${N1} = <span class="val">${m.toFixed(3)}</span> ${typeBadge}</p>
@@ -371,7 +383,6 @@ function drawTransportChart(R) {
 // Init
 update();
 updateTransport();
-drawTransformer();
 </script>
 </body>
 </html>

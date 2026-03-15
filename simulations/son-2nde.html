@@ -319,8 +319,22 @@ function animate() {
   animId = requestAnimationFrame(animate);
 }
 
+function startAnimation() {
+  if (!animId) animId = requestAnimationFrame(animate);
+}
+
+function stopAnimation() {
+  if (animId) { cancelAnimationFrame(animId); animId = null; }
+}
+
+// Pause animation when tab is hidden to save CPU
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopAnimation();
+  else startAnimation();
+});
+
 update();
-animate();
+startAnimation();
 </script>
 </body>
 </html>
