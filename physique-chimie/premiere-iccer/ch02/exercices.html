@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Exercices – Transport de l'énergie électrique | Première ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body><div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch02 – Transporter l'énergie sous forme électrique</h1>
+  <p class="sous-titre">Exercices | Première Bac Pro ICCER – Effet Joule, pertes en ligne, transformateur</p>
+</header>
+
+<!-- ===== RAPPELS ===== -->
+<div class="retenir">
+  <strong>Rappels du cours</strong>
+  <ul>
+    <li><strong>Pertes Joule :</strong> \(P_J = R \times I^2\) (en W)</li>
+    <li><strong>Énergie dissipée :</strong> \(E_J = R \times I^2 \times t\)</li>
+    <li><strong>Transport :</strong> à puissance \(P\) constante, \(I = \dfrac{P}{U}\). Plus \(U\) est grand, plus \(I\) est petit, moins il y a de pertes.</li>
+    <li><strong>Transformateur idéal :</strong> \(\dfrac{U_2}{U_1} = \dfrac{n_2}{n_1}\) et \(U_1 \times I_1 = U_2 \times I_2\)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!--                   EXERCICES COMMUNS                           -->
+<!-- ============================================================ -->
+<h2>Exercices communs</h2>
+
+<div class="exo">
+  <strong>Exercice 1 – Le réseau électrique</strong>
+  <p>Compléter le schéma du réseau avec les mots : <em>élévateur, abaisseur, 400 kV, 20 kV, 230 V, centrale, utilisateur</em>.</p>
+  <p style="text-align:center;">
+    ............... → Transformateur ............... → Transport ............... → Transformateur ............... → Distribution ............... → Transformateur ............... → ............... (...............)
+  </p>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p style="text-align:center;">
+      <strong>Centrale</strong> → Transformateur <strong>élévateur</strong> → Transport <strong>400 kV</strong> → Transformateur <strong>abaisseur</strong> → Distribution <strong>20 kV</strong> → Transformateur <strong>abaisseur</strong> → <strong>Utilisateur</strong> (<strong>230 V</strong>)
+    </p>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 – Vrai ou Faux</strong>
+  <p>Indiquer si chaque affirmation est vraie ou fausse. Corriger les affirmations fausses.</p>
+  <ol>
+    <li>L'effet Joule est la production de chaleur par un conducteur traversé par un courant.</li>
+    <li>Les pertes en ligne sont proportionnelles au courant.</li>
+    <li>On transporte l'électricité en haute tension pour réduire les pertes.</li>
+    <li>Un transformateur abaisseur augmente la tension.</li>
+    <li>Dans un transformateur idéal, la puissance est conservée.</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li><strong>Vrai.</strong></li>
+      <li><strong>Faux.</strong> Les pertes en ligne sont proportionnelles au <strong>carré</strong> du courant (\(P_J = R \times I^2\)).</li>
+      <li><strong>Vrai.</strong></li>
+      <li><strong>Faux.</strong> Un transformateur <strong>abaisseur</strong> diminue la tension. C'est un transformateur <strong>élévateur</strong> qui augmente la tension.</li>
+      <li><strong>Vrai.</strong></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                       NIVEAU SOCLE                            -->
+<!-- ============================================================ -->
+<h2>Exercices guidés pas à pas</h2>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice S1 – Pertes Joule dans un câble : calcul guidé</strong>
+  <p>Un câble électrique de résistance \(R = 2\;\Omega\) est traversé par un courant \(I = 10\) A.</p>
+
+  <p><strong>1.</strong> Quelle est la formule de la puissance dissipée par effet Joule ?</p>
+  <p><strong>2.</strong> Compléter le calcul :</p>
+  <p>\(P_J = R \times I^2 = ....... \times .......^2 = ....... \times ....... = ....... \text{ W}\)</p>
+  <p><strong>3.</strong> Le câble fonctionne pendant 5 heures. Calculer l'énergie dissipée :</p>
+  <p>\(E_J = P_J \times t = ....... \times ....... = ....... \text{ Wh} = ....... \text{ kWh}\)</p>
+
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_J = R \times I^2\)</p>
+    <p><strong>2.</strong> \(P_J = 2 \times 10^2 = 2 \times 100 = 200 \text{ W}\)</p>
+    <p><strong>3.</strong> \(E_J = 200 \times 5 = 1\,000 \text{ Wh} = 1 \text{ kWh}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice S2 – Transformateur : calcul guidé</strong>
+  <p>Un transformateur abaisseur reçoit une tension \(U_1 = 20\,000\) V et délivre une tension \(U_2 = 400\) V. Le courant au primaire est \(I_1 = 5\) A.</p>
+
+  <p><strong>1.</strong> Le transformateur est-il élévateur ou abaisseur ? Justifier.</p>
+  <p><strong>2.</strong> Calculer le rapport de transformation :</p>
+  <p>\(m = \dfrac{U_2}{U_1} = \dfrac{.......}{.......} = .......\)</p>
+  <p><strong>3.</strong> En utilisant la conservation de la puissance, compléter :</p>
+  <p>\(U_1 \times I_1 = U_2 \times I_2\)</p>
+  <p>\(I_2 = \dfrac{U_1 \times I_1}{U_2} = \dfrac{....... \times .......}{.......} = ....... \text{ A}\)</p>
+  <p><strong>4.</strong> Calculer la puissance transmise :</p>
+  <p>\(P = U_2 \times I_2 = ....... \times ....... = ....... \text{ W} = ....... \text{ kW}\)</p>
+
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(U_2 < U_1\) donc c'est un transformateur <strong>abaisseur</strong>.</p>
+    <p><strong>2.</strong> \(m = \dfrac{400}{20\,000} = 0{,}02\)</p>
+    <p><strong>3.</strong> \(I_2 = \dfrac{20\,000 \times 5}{400} = 250 \text{ A}\)</p>
+    <p><strong>4.</strong> \(P = 400 \times 250 = 100\,000 \text{ W} = 100 \text{ kW}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice S3 – Comparer deux tensions de transport</strong>
+  <p>On transporte une puissance \(P = 100\,000\) W. La résistance de la ligne est \(R = 4\;\Omega\). Compléter le tableau :</p>
+  <table>
+    <thead><tr><th></th><th>Tension = 1 000 V</th><th>Tension = 10 000 V</th></tr></thead>
+    <tbody>
+      <tr><td>\(I = \dfrac{P}{U}\)</td><td>\(\dfrac{100\,000}{1\,000} = ....... \text{ A}\)</td><td>\(\dfrac{100\,000}{10\,000} = ....... \text{ A}\)</td></tr>
+      <tr><td>\(P_J = R \times I^2\)</td><td>\(4 \times .......^2 = ....... \text{ W}\)</td><td>\(4 \times .......^2 = ....... \text{ W}\)</td></tr>
+    </tbody>
+  </table>
+  <p>Conclusion : en multipliant la tension par ......., les pertes sont divisées par .......</p>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th></th><th>Tension = 1 000 V</th><th>Tension = 10 000 V</th></tr></thead>
+      <tbody>
+        <tr><td>\(I = \dfrac{P}{U}\)</td><td>\(100 \text{ A}\)</td><td>\(10 \text{ A}\)</td></tr>
+        <tr><td>\(P_J = R \times I^2\)</td><td>\(4 \times 100^2 = 40\,000 \text{ W}\)</td><td>\(4 \times 10^2 = 400 \text{ W}\)</td></tr>
+      </tbody>
+    </table>
+    <p>Conclusion : en multipliant la tension par <strong>10</strong>, les pertes sont divisées par <strong>100</strong> (\(10^2\)).</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                       NIVEAU STANDARD                         -->
+<!-- ============================================================ -->
+<h2>Exercices d'application</h2>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice N1 – Raccordement d'une PAC</strong>
+  <p>Un technicien chauffagiste raccorde une pompe à chaleur de 4 500 W sous 230 V. Le câble mesure 25 m (aller-retour : 50 m) et a une résistance de 0,35 \(\Omega\).</p>
+  <ol>
+    <li>Calculer l'intensité du courant dans le câble.</li>
+    <li>Calculer la puissance dissipée par effet Joule dans le câble.</li>
+    <li>Exprimer cette perte en pourcentage de la puissance transportée.</li>
+    <li>Calculer l'énergie perdue en un mois (30 jours) si la PAC fonctionne 8 h par jour. Donner le résultat en kWh.</li>
+    <li>Calculer le coût annuel de ces pertes au tarif de 0,22 €/kWh (365 jours).</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(I = \dfrac{4\,500}{230} \approx 19{,}6 \text{ A}\)</li>
+      <li>\(P_J = 0{,}35 \times 19{,}6^2 = 0{,}35 \times 384 \approx 134 \text{ W}\)</li>
+      <li>\(\dfrac{134}{4\,500} \times 100 \approx 3{,}0\;\%\)</li>
+      <li>\(E_J = 0{,}134 \times 8 \times 30 = 32{,}2 \text{ kWh}\)</li>
+      <li>\(E_{an} = 0{,}134 \times 8 \times 365 = 391 \text{ kWh}\). Coût = \(391 \times 0{,}22 \approx 86 \text{ €/an}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice N2 – Poste de transformation d'un lotissement</strong>
+  <p>Le poste de transformation d'un lotissement reçoit une tension de 20 000 V et délivre 230 V. Il alimente 30 maisons qui consomment en moyenne 5 kW chacune.</p>
+  <ol>
+    <li>Calculer la puissance totale appelée par le lotissement.</li>
+    <li>Calculer le courant au secondaire (côté 230 V).</li>
+    <li>Calculer le courant au primaire (côté 20 kV).</li>
+    <li>Calculer le rapport de transformation. Est-il élévateur ou abaisseur ?</li>
+    <li>Le primaire est alimenté par un câble de résistance 1,2 \(\Omega\). Calculer les pertes Joule dans ce câble.</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(P = 30 \times 5 = 150 \text{ kW} = 150\,000 \text{ W}\)</li>
+      <li>\(I_2 = \dfrac{150\,000}{230} \approx 652 \text{ A}\)</li>
+      <li>\(I_1 = \dfrac{150\,000}{20\,000} = 7{,}5 \text{ A}\)</li>
+      <li>\(m = \dfrac{230}{20\,000} = 0{,}0115\). Comme \(m < 1\), c'est un transformateur <strong>abaisseur</strong>.</li>
+      <li>\(P_J = 1{,}2 \times 7{,}5^2 = 1{,}2 \times 56{,}25 = 67{,}5 \text{ W}\). Les pertes sont très faibles grâce à la haute tension.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice N3 – Section de câble et échauffement</strong>
+  <p>Un installateur thermique doit choisir la section d'un câble en cuivre de 30 m (aller-retour 60 m) pour alimenter un système de climatisation de 3 500 W sous 230 V. La résistivité du cuivre est \(\rho = 1{,}7 \times 10^{-8}\;\Omega \cdot \text{m}\).</p>
+  <p>Il hésite entre deux sections :</p>
+  <ul>
+    <li>Câble de 2,5 mm² (\(S = 2{,}5 \times 10^{-6}\) m²)</li>
+    <li>Câble de 4 mm² (\(S = 4 \times 10^{-6}\) m²)</li>
+  </ul>
+  <ol>
+    <li>Calculer la résistance de chaque câble avec \(R = \rho \times \dfrac{L}{S}\).</li>
+    <li>Calculer l'intensité du courant.</li>
+    <li>Calculer les pertes Joule pour chaque câble.</li>
+    <li>Quel câble conseillez-vous ? Justifier.</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>
+        Câble 2,5 mm² : \(R = 1{,}7 \times 10^{-8} \times \dfrac{60}{2{,}5 \times 10^{-6}} = 0{,}408\;\Omega\)<br>
+        Câble 4 mm² : \(R = 1{,}7 \times 10^{-8} \times \dfrac{60}{4 \times 10^{-6}} = 0{,}255\;\Omega\)
+      </li>
+      <li>\(I = \dfrac{3\,500}{230} \approx 15{,}2 \text{ A}\)</li>
+      <li>
+        Câble 2,5 mm² : \(P_J = 0{,}408 \times 15{,}2^2 = 0{,}408 \times 231 \approx 94 \text{ W}\)<br>
+        Câble 4 mm² : \(P_J = 0{,}255 \times 15{,}2^2 = 0{,}255 \times 231 \approx 59 \text{ W}\)
+      </li>
+      <li>Le câble de 4 mm² est préférable : il dissipe moins de chaleur (59 W contre 94 W), ce qui réduit les pertes et le risque d'échauffement. De plus, pour un courant de 15,2 A, la norme NF C 15-100 impose une section minimale de 2,5 mm² (max 20 A), mais 4 mm² offre une meilleure marge de sécurité.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                   NIVEAU APPROFONDISSEMENT                    -->
+<!-- ============================================================ -->
+<h2>Exercices d'approfondissement</h2>
+
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <strong>Exercice A1 – Alimentation d'un site isolé</strong>
+  <p>Un technicien en énergies renouvelables doit alimenter un refuge de montagne situé à 2 km d'un poste de transformation. Le refuge consomme une puissance maximale de 8 kW. Le câble en cuivre a une section de 16 mm² et une résistivité de \(1{,}7 \times 10^{-8}\;\Omega \cdot \text{m}\).</p>
+  <p>Deux options sont envisagées :</p>
+  <ul>
+    <li><strong>Option A :</strong> Transport en basse tension 230 V</li>
+    <li><strong>Option B :</strong> Transport en 20 kV avec un transformateur abaisseur au refuge</li>
+  </ul>
+  <ol>
+    <li>Calculer la résistance totale du câble (aller-retour = 4 km).</li>
+    <li>Pour l'option A, calculer le courant, les pertes Joule et le pourcentage de pertes.</li>
+    <li>Pour l'option B, calculer le courant, les pertes Joule et le pourcentage de pertes.</li>
+    <li>Comparer les deux options. Laquelle est viable ? Justifier.</li>
+    <li>Si le refuge fonctionne en moyenne 12 h/jour pendant 200 jours par an, calculer le coût annuel des pertes pour chaque option (tarif 0,22 €/kWh).</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(R = 1{,}7 \times 10^{-8} \times \dfrac{4\,000}{16 \times 10^{-6}} = 4{,}25\;\Omega\)</li>
+      <li>
+        Option A : \(I = \dfrac{8\,000}{230} \approx 34{,}8 \text{ A}\)<br>
+        \(P_J = 4{,}25 \times 34{,}8^2 = 4{,}25 \times 1\,211 \approx 5\,147 \text{ W}\)<br>
+        Pertes : \(\dfrac{5\,147}{8\,000} \times 100 = 64{,}3\;\%\) — <strong>inacceptable</strong>
+      </li>
+      <li>
+        Option B : \(I = \dfrac{8\,000}{20\,000} = 0{,}4 \text{ A}\)<br>
+        \(P_J = 4{,}25 \times 0{,}4^2 = 4{,}25 \times 0{,}16 = 0{,}68 \text{ W}\)<br>
+        Pertes : \(\dfrac{0{,}68}{8\,000} \times 100 = 0{,}009\;\%\) — <strong>négligeable</strong>
+      </li>
+      <li>L'option A est irréalisable : plus de 64 % de l'énergie serait perdue en chaleur dans le câble. L'option B est la seule viable, les pertes sont quasi nulles.</li>
+      <li>
+        Option A : \(E_J = 5{,}147 \times 12 \times 200 = 12\,353 \text{ kWh}\), coût = \(12\,353 \times 0{,}22 = 2\,718 \text{ €/an}\)<br>
+        Option B : \(E_J = 0{,}00068 \times 12 \times 200 = 1{,}6 \text{ kWh}\), coût = \(1{,}6 \times 0{,}22 = 0{,}35 \text{ €/an}\)
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <strong>Exercice A2 – Problème ouvert : choix d'un transformateur (type BTS)</strong>
+  <p>Une entreprise d'installation thermique doit équiper un bâtiment neuf. Les besoins sont :</p>
+  <ul>
+    <li>Chauffage PAC : 12 kW</li>
+    <li>Ventilation : 3 kW</li>
+    <li>Éclairage et prises : 8 kW</li>
+    <li>Chauffe-eau solaire (appoint électrique) : 2 kW</li>
+  </ul>
+  <p>Le bâtiment est raccordé au réseau 20 kV. Un poste de transformation dédié doit être installé.</p>
+  <ol>
+    <li>Calculer la puissance totale nécessaire.</li>
+    <li>Le coefficient de simultanéité est de 0,7 (tous les appareils ne fonctionnent pas en même temps). Calculer la puissance appelée.</li>
+    <li>Déterminer la puissance normalisée du transformateur à installer (les puissances normalisées sont : 25 kVA, 50 kVA, 100 kVA, 160 kVA).</li>
+    <li>Calculer le courant au primaire et au secondaire du transformateur choisi.</li>
+    <li>Le câble entre le réseau et le transformateur mesure 150 m (aller-retour 300 m) en cuivre de section 10 mm². Calculer les pertes Joule. Conclure.</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(P_{\text{totale}} = 12 + 3 + 8 + 2 = 25 \text{ kW}\)</li>
+      <li>\(P_{\text{appelée}} = 25 \times 0{,}7 = 17{,}5 \text{ kW}\)</li>
+      <li>Il faut choisir un transformateur de puissance normalisée supérieure à 17,5 kW. On choisit <strong>25 kVA</strong>.</li>
+      <li>
+        Primaire : \(I_1 = \dfrac{25\,000}{20\,000} = 1{,}25 \text{ A}\)<br>
+        Secondaire : \(I_2 = \dfrac{25\,000}{400} = 62{,}5 \text{ A}\) (en triphasé 400 V)
+      </li>
+      <li>
+        \(R = 1{,}7 \times 10^{-8} \times \dfrac{300}{10 \times 10^{-6}} = 0{,}51\;\Omega\)<br>
+        \(P_J = 0{,}51 \times 1{,}25^2 = 0{,}51 \times 1{,}5625 \approx 0{,}80 \text{ W}\)<br>
+        Les pertes sont négligeables (0,003 % de la puissance) grâce au transport en 20 kV.
+      </li>
+    </ol>
+  </div>
+</div>
+
+<footer>
+  <p>Première Bac Pro ICCER – Groupement 1 | Physique-Chimie – Chapitre 2 | maths-sciences-lp.github.io</p>
+</footer>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

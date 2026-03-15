@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Énergie et puissance électrique – Cours | Première ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Chapitre 1 – Distinguer énergie et puissance électrique</h1>
+  <p class="sous-titre">Première Bac Pro ICCER &nbsp;|&nbsp; Physique – Électricité &nbsp;|&nbsp; Énergie et puissance en régime continu</p>
+</header>
+
+<!-- ===== OBJECTIFS ===== -->
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Mesurer et calculer la puissance électrique reçue par un appareil en régime continu</li>
+    <li>Établir expérimentalement la relation \(P = U \times I\)</li>
+    <li>Calculer l'énergie électrique consommée pendant une durée donnée : \(E = P \times t\)</li>
+    <li>Connaître les unités : le joule (J) et le kilowattheure (kWh)</li>
+    <li>Appliquer ces notions à des situations professionnelles liées au chauffage et à l'installation thermique</li>
+  </ul>
+</div>
+
+<!-- ===== SITUATION PROFESSIONNELLE ===== -->
+<div class="situation">
+  <strong>Situation professionnelle</strong>
+  <p>
+    Léa, technicienne chauffagiste en deuxième année de Bac Pro, effectue un stage chez <em>ThermoConfort SARL</em>, une entreprise spécialisée dans l'installation de systèmes de chauffage et de pompes à chaleur. Son tuteur lui confie une mission :
+  </p>
+  <p>
+    Un client souhaite installer un <strong>chauffe-eau électrique à accumulation</strong> (ballon d'eau chaude) de 200 litres dans sa maison. La plaque signalétique indique :
+  </p>
+  <ul>
+    <li>Alimentation : <strong>230 V</strong> en courant continu redressé</li>
+    <li>Résistance chauffante : <strong>2 300 W</strong></li>
+  </ul>
+  <p>Le tuteur demande à Léa :</p>
+  <ol>
+    <li>Quel courant circule dans la résistance chauffante ?</li>
+    <li>Combien d'énergie électrique sera consommée pour chauffer l'eau pendant 4 heures ?</li>
+    <li>Quel sera le coût de cette consommation au tarif heures creuses (0,18 €/kWh) ?</li>
+  </ol>
+  <p><em>Ces questions trouveront une réponse complète au fil de ce chapitre.</em></p>
+</div>
+
+<!-- ===== 1. RAPPELS COURANT CONTINU ===== -->
+<h2>1. Rappels sur le courant continu</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <strong>Le courant continu</strong> est un courant électrique dont le sens et l'intensité restent constants au cours du temps. Il est produit par des piles, des batteries ou des alimentations stabilisées.
+</div>
+
+<p>Deux grandeurs fondamentales caractérisent un circuit électrique :</p>
+
+<ul>
+  <li><strong>La tension \(U\)</strong> (en volts, V) : c'est la différence de potentiel entre deux points du circuit. Elle se mesure avec un <strong>voltmètre</strong> branché <strong>en dérivation</strong>.</li>
+  <li><strong>L'intensité \(I\)</strong> (en ampères, A) : c'est le débit de charges électriques dans le conducteur. Elle se mesure avec un <strong>ampèremètre</strong> branché <strong>en série</strong>.</li>
+</ul>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  Ne jamais confondre tension et intensité. Un voltmètre se branche toujours <strong>en dérivation</strong> (en parallèle) et un ampèremètre toujours <strong>en série</strong>. Inverser les branchements peut endommager les appareils de mesure.
+</div>
+
+<!-- ===== 2. PUISSANCE ÉLECTRIQUE ===== -->
+<h2>2. La puissance électrique</h2>
+
+<h3>2.1 Qu'est-ce que la puissance ?</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  La <strong>puissance électrique</strong> \(P\) d'un appareil représente la quantité d'énergie qu'il consomme (ou fournit) <strong>par unité de temps</strong>. Elle s'exprime en <strong>watts</strong> (W).
+</div>
+
+<p>Plus un appareil est puissant, plus il consomme d'énergie rapidement. Par exemple, un radiateur de 2 000 W consomme deux fois plus d'énergie par seconde qu'un radiateur de 1 000 W.</p>
+
+<div class="ex">
+  <strong>Analogie :</strong> La puissance est comparable au débit d'un robinet. Un robinet grand ouvert (forte puissance) remplit un seau plus vite qu'un robinet à peine ouvert (faible puissance). Le volume d'eau dans le seau correspond à l'énergie totale consommée.
+</div>
+
+<h3>2.2 Relation entre puissance, tension et intensité</h3>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  En régime continu, la puissance électrique reçue par un appareil est égale au <strong>produit de la tension à ses bornes par l'intensité du courant</strong> qui le traverse :
+</div>
+
+<div class="formule-box">
+  \[ P = U \times I \]
+  <p>avec : \(P\) en watts (W), \(U\) en volts (V), \(I\) en ampères (A)</p>
+</div>
+
+<div class="meth">
+  <span class="label-meth">Méthode</span>
+  <strong>Vérification expérimentale de la relation \(P = U \times I\)</strong>
+  <ol>
+    <li>Monter un circuit avec une alimentation réglable, une résistance chauffante, un voltmètre en dérivation et un ampèremètre en série.</li>
+    <li>Mesurer la puissance affichée par le wattmètre (ou lue sur l'alimentation).</li>
+    <li>Pour chaque mesure, noter \(U\), \(I\) et calculer le produit \(U \times I\).</li>
+    <li>Comparer avec la puissance mesurée : on constate que \(P \approx U \times I\).</li>
+  </ol>
+</div>
+
+<p>On peut aussi exprimer la tension ou l'intensité à partir de la puissance :</p>
+
+<div class="formule-box">
+  \[ U = \frac{P}{I} \qquad \text{et} \qquad I = \frac{P}{U} \]
+</div>
+
+<div class="ex">
+  <strong>Exemple 1 :</strong> Un convecteur électrique fonctionne sous une tension de 230 V et consomme une puissance de 1 500 W. Calculer l'intensité du courant.
+  <p>
+    \(I = \dfrac{P}{U} = \dfrac{1\,500}{230} \approx 6{,}5 \text{ A}\)
+  </p>
+</div>
+
+<div class="ex">
+  <strong>Exemple 2 :</strong> Un circulateur de chauffage central fonctionne sous 24 V et absorbe un courant de 3,5 A. Calculer sa puissance.
+  <p>
+    \(P = U \times I = 24 \times 3{,}5 = 84 \text{ W}\)
+  </p>
+</div>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  La puissance indiquée sur la plaque signalétique d'un appareil est sa <strong>puissance nominale</strong> : c'est la puissance pour laquelle il a été conçu pour fonctionner de manière optimale. Un fonctionnement à une tension différente modifie la puissance réellement reçue.
+</div>
+
+<!-- ===== 3. ÉNERGIE ÉLECTRIQUE ===== -->
+<h2>3. L'énergie électrique</h2>
+
+<h3>3.1 Relation entre énergie, puissance et durée</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  L'<strong>énergie électrique</strong> \(E\) est la quantité totale d'énergie consommée (ou fournie) par un appareil pendant une certaine durée. C'est le produit de la puissance par le temps de fonctionnement.
+</div>
+
+<div class="formule-box">
+  \[ E = P \times t \]
+  <p>avec : \(E\) en joules (J), \(P\) en watts (W), \(t\) en secondes (s)</p>
+</div>
+
+<p>On peut aussi écrire, en remplaçant \(P\) par \(U \times I\) :</p>
+
+<div class="formule-box">
+  \[ E = U \times I \times t \]
+</div>
+
+<div class="ex">
+  <strong>Exemple 3 :</strong> Un sèche-serviettes de 750 W fonctionne pendant 2 heures. Calculer l'énergie consommée en joules.
+  <p>
+    On convertit d'abord la durée : \(t = 2 \text{ h} = 2 \times 3\,600 = 7\,200 \text{ s}\)
+  </p>
+  <p>
+    \(E = P \times t = 750 \times 7\,200 = 5\,400\,000 \text{ J} = 5{,}4 \text{ MJ}\)
+  </p>
+</div>
+
+<h3>3.2 Le joule et le kilowattheure</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  <ul>
+    <li>Le <strong>joule</strong> (J) est l'unité d'énergie du Système International (SI). C'est l'énergie consommée par un appareil de 1 W pendant 1 s.</li>
+    <li>Le <strong>kilowattheure</strong> (kWh) est une unité pratique utilisée pour la facturation de l'énergie électrique. C'est l'énergie consommée par un appareil de 1 kW pendant 1 h.</li>
+  </ul>
+</div>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  <strong>Conversion entre joules et kilowattheures :</strong>
+</div>
+
+<div class="formule-box">
+  \[ 1 \text{ kWh} = 1\,000 \times 3\,600 = 3\,600\,000 \text{ J} = 3{,}6 \text{ MJ} \]
+</div>
+
+<div class="meth">
+  <span class="label-meth">Méthode</span>
+  <strong>Choisir la bonne unité :</strong>
+  <ul>
+    <li>Pour calculer en <strong>joules</strong> : exprimer \(P\) en W et \(t\) en secondes.</li>
+    <li>Pour calculer en <strong>kWh</strong> : exprimer \(P\) en kW et \(t\) en heures.</li>
+  </ul>
+  La deuxième méthode est bien plus pratique pour les calculs de coûts d'énergie.
+</div>
+
+<div class="ex">
+  <strong>Exemple 4 :</strong> Reprenons le sèche-serviettes de 750 W fonctionnant 2 h. Calculer l'énergie en kWh.
+  <p>
+    \(P = 750 \text{ W} = 0{,}75 \text{ kW}\)
+  </p>
+  <p>
+    \(E = P \times t = 0{,}75 \times 2 = 1{,}5 \text{ kWh}\)
+  </p>
+  <p>Vérification : \(1{,}5 \times 3\,600\,000 = 5\,400\,000 \text{ J}\). On retrouve le même résultat.</p>
+</div>
+
+<div class="ex">
+  <strong>Exemple 5 — Contexte professionnel :</strong> Un installateur thermique met en service un plancher chauffant électrique de puissance 1 200 W. Le client souhaite connaître le coût de fonctionnement sur une journée (8 h de chauffe) au tarif de 0,22 €/kWh.
+  <p>
+    \(E = P \times t = 1{,}2 \times 8 = 9{,}6 \text{ kWh}\)
+  </p>
+  <p>
+    Coût = \(E \times \text{tarif} = 9{,}6 \times 0{,}22 = 2{,}11 \text{ €}\)
+  </p>
+</div>
+
+<!-- ===== 4. MESURER LA PUISSANCE ET L'ÉNERGIE ===== -->
+<h2>4. Mesurer la puissance et l'énergie</h2>
+
+<h3>4.1 Le wattmètre</h3>
+
+<p>Le <strong>wattmètre</strong> est l'appareil qui mesure directement la puissance électrique. Il possède quatre bornes :</p>
+<ul>
+  <li>Deux bornes « courant » branchées <strong>en série</strong> (comme un ampèremètre)</li>
+  <li>Deux bornes « tension » branchées <strong>en dérivation</strong> (comme un voltmètre)</li>
+</ul>
+
+<h3>4.2 Le compteur d'énergie</h3>
+
+<p>Le <strong>compteur d'énergie</strong> (compteur EDF, compteur Linky) mesure l'énergie en kWh. Il totalise en permanence la consommation : la différence de relevé entre deux dates donne l'énergie consommée pendant cette période.</p>
+
+<div class="ex">
+  <strong>Exemple 6 :</strong> Le compteur d'un logement indique 15 234 kWh le 1er janvier et 16 012 kWh le 1er février. L'énergie consommée en janvier est :
+  <p>
+    \(E = 16\,012 - 15\,234 = 778 \text{ kWh}\)
+  </p>
+</div>
+
+<!-- ===== 5. RENDEMENT ===== -->
+<h2>5. Rendement d'un appareil électrique</h2>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  Le <strong>rendement</strong> \(\eta\) (lettre grecque « êta ») d'un appareil est le rapport entre l'énergie utile (ou la puissance utile) et l'énergie totale consommée (ou la puissance totale).
+</div>
+
+<div class="formule-box">
+  \[ \eta = \frac{P_{\text{utile}}}{P_{\text{totale}}} = \frac{E_{\text{utile}}}{E_{\text{totale}}} \]
+  <p>Le rendement est un nombre sans unité, compris entre 0 et 1 (souvent exprimé en %).</p>
+</div>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  Aucun appareil n'a un rendement de 100 %. Une partie de l'énergie est toujours dissipée sous forme de chaleur (effet Joule), de bruit ou de vibrations.
+</div>
+
+<div class="ex">
+  <strong>Exemple 7 — Pompe à chaleur :</strong> Un technicien CVC installe une pompe à chaleur (PAC) qui consomme 1 200 W de puissance électrique et fournit 4 200 W de puissance thermique.
+  <p>
+    Pour une PAC, on parle de <strong>coefficient de performance (COP)</strong> plutôt que de rendement :
+  </p>
+  <p>
+    \(\text{COP} = \dfrac{P_{\text{thermique}}}{P_{\text{électrique}}} = \dfrac{4\,200}{1\,200} = 3{,}5\)
+  </p>
+  <p>
+    La PAC restitue 3,5 fois plus d'énergie thermique qu'elle ne consomme d'énergie électrique. C'est possible car elle puise de l'énergie dans l'air extérieur.
+  </p>
+</div>
+
+<!-- ===== 6. APPLICATIONS PROFESSIONNELLES ===== -->
+<h2>6. Applications professionnelles</h2>
+
+<h3>6.1 Dimensionner une protection électrique</h3>
+
+<p>Connaître la puissance d'un appareil permet de calculer l'intensité du courant et donc de choisir le <strong>disjoncteur</strong> et la <strong>section de câble</strong> adaptés.</p>
+
+<div class="ex">
+  <strong>Exemple 8 :</strong> Un plombier chauffagiste doit raccorder un chauffe-eau de 2 300 W sous 230 V. Quel disjoncteur choisir ?
+  <p>
+    \(I = \dfrac{P}{U} = \dfrac{2\,300}{230} = 10 \text{ A}\)
+  </p>
+  <p>On choisit un disjoncteur de <strong>16 A</strong> (calibre normalisé supérieur à 10 A) et un câble de section 2,5 mm².</p>
+</div>
+
+<h3>6.2 Estimer une facture d'énergie</h3>
+
+<div class="meth">
+  <span class="label-meth">Méthode</span>
+  <strong>Calculer le coût de fonctionnement d'un appareil :</strong>
+  <ol>
+    <li>Convertir la puissance en kW : diviser par 1 000.</li>
+    <li>Calculer l'énergie en kWh : \(E = P_{\text{kW}} \times t_{\text{h}}\).</li>
+    <li>Multiplier par le tarif au kWh pour obtenir le coût.</li>
+  </ol>
+</div>
+
+<div class="ex">
+  <strong>Exemple 9 — Retour à la situation professionnelle :</strong>
+  <p>Répondons aux questions de Léa sur le chauffe-eau de 2 300 W fonctionnant 4 h :</p>
+  <ol>
+    <li><strong>Intensité :</strong> \(I = \dfrac{P}{U} = \dfrac{2\,300}{230} = 10 \text{ A}\)</li>
+    <li><strong>Énergie :</strong> \(E = P \times t = 2{,}3 \times 4 = 9{,}2 \text{ kWh}\)</li>
+    <li><strong>Coût :</strong> \(9{,}2 \times 0{,}18 = 1{,}66 \text{ €}\)</li>
+  </ol>
+</div>
+
+<h3>6.3 Comparer des systèmes de chauffage</h3>
+
+<div class="ex">
+  <strong>Exemple 10 :</strong> Un technicien de maintenance énergétique compare deux radiateurs pour un bureau de 15 m² :
+  <ul>
+    <li><strong>Radiateur A :</strong> convecteur classique, 1 500 W, rendement 95 %</li>
+    <li><strong>Radiateur B :</strong> panneau rayonnant, 1 200 W, rendement 98 %</li>
+  </ul>
+  <p>Puissance utile du radiateur A : \(P_{\text{utile}} = 1\,500 \times 0{,}95 = 1\,425 \text{ W}\)</p>
+  <p>Puissance utile du radiateur B : \(P_{\text{utile}} = 1\,200 \times 0{,}98 = 1\,176 \text{ W}\)</p>
+  <p>Pour 8 h de fonctionnement par jour pendant 30 jours :</p>
+  <ul>
+    <li>Radiateur A : \(E = 1{,}5 \times 8 \times 30 = 360 \text{ kWh}\), coût = \(360 \times 0{,}22 = 79{,}20 \text{ €}\)</li>
+    <li>Radiateur B : \(E = 1{,}2 \times 8 \times 30 = 288 \text{ kWh}\), coût = \(288 \times 0{,}22 = 63{,}36 \text{ €}\)</li>
+  </ul>
+  <p>Le radiateur B est plus économique malgré une puissance utile légèrement inférieure, car il consomme moins.</p>
+</div>
+
+<!-- ===== À RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li>La <strong>puissance électrique</strong> se calcule avec \(P = U \times I\) (en watts).</li>
+    <li>L'<strong>énergie électrique</strong> se calcule avec \(E = P \times t\).</li>
+    <li>En joules : \(P\) en W et \(t\) en s. En kWh : \(P\) en kW et \(t\) en h.</li>
+    <li>\(1 \text{ kWh} = 3{,}6 \times 10^6 \text{ J}\)</li>
+    <li>Le <strong>rendement</strong> \(\eta = \dfrac{P_{\text{utile}}}{P_{\text{totale}}}\) est toujours inférieur à 1.</li>
+    <li>Savoir calculer la puissance permet de dimensionner les protections et d'estimer les coûts d'énergie.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Première Bac Pro ICCER – Groupement 1 | Physique-Chimie – Chapitre 1 | maths-sciences-lp.github.io</p>
+</footer>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

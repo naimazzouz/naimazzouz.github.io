@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – Transport de l'énergie électrique – Cours | Première ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Chapitre 2 – Transporter l'énergie sous forme électrique</h1>
+  <p class="sous-titre">Première Bac Pro ICCER &nbsp;|&nbsp; Physique – Électricité &nbsp;|&nbsp; Transport et distribution de l'énergie</p>
+</header>
+
+<!-- ===== OBJECTIFS ===== -->
+<div class="objectifs">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Décrire le schéma simplifié du réseau de distribution d'énergie électrique</li>
+    <li>Justifier l'intérêt du transport de l'énergie sous haute tension</li>
+    <li>Connaître le rôle d'un transformateur (élévateur ou abaisseur de tension)</li>
+    <li>Calculer la puissance dissipée par effet Joule dans les lignes de transport</li>
+    <li>Comprendre pourquoi les pertes en ligne diminuent quand la tension augmente</li>
+  </ul>
+</div>
+
+<!-- ===== SITUATION PROFESSIONNELLE ===== -->
+<div class="situation">
+  <strong>Situation professionnelle</strong>
+  <p>
+    Mehdi, technicien chauffagiste en stage chez <em>ÉnergiePlus</em>, accompagne son tuteur sur un chantier de raccordement d'une pompe à chaleur (PAC) géothermique dans un lotissement neuf. En arrivant sur le site, il observe un poste de transformation Enedis au bout de la rue.
+  </p>
+  <p>Son tuteur lui explique que l'électricité qui arrive à la maison a parcouru des centaines de kilomètres depuis la centrale. Mehdi se demande :</p>
+  <ol>
+    <li>Pourquoi transporte-t-on l'électricité en haute tension (225 000 V ou 400 000 V) alors que les appareils fonctionnent en 230 V ?</li>
+    <li>Que se passe-t-il dans le transformateur du quartier ?</li>
+    <li>Pourquoi les câbles chauffent-ils et est-ce un problème ?</li>
+  </ol>
+  <p><em>Ces questions trouveront une réponse complète au fil de ce chapitre.</em></p>
+</div>
+
+<!-- ===== 1. RÉSEAU DE DISTRIBUTION ===== -->
+<h2>1. Le réseau de distribution d'énergie électrique</h2>
+
+<h3>1.1 De la centrale à la prise</h3>
+
+<p>L'énergie électrique est produite dans des <strong>centrales</strong> (nucléaires, hydrauliques, éoliennes, solaires, thermiques) puis transportée jusqu'aux utilisateurs. Le réseau comporte plusieurs étapes :</p>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  Le <strong>réseau de distribution d'énergie électrique</strong> est l'ensemble des lignes et postes de transformation qui relient les centrales de production aux consommateurs. Il se décompose en :
+  <ul>
+    <li><strong>Transport</strong> (très haute tension : 225 kV et 400 kV) : grandes distances</li>
+    <li><strong>Répartition</strong> (haute tension : 63 kV et 90 kV) : alimentation des régions</li>
+    <li><strong>Distribution</strong> (moyenne tension : 20 kV) : alimentation des quartiers</li>
+    <li><strong>Livraison</strong> (basse tension : 230 V / 400 V) : alimentation des habitations et petits locaux professionnels</li>
+  </ul>
+</div>
+
+<h3>1.2 Schéma simplifié du réseau</h3>
+
+<p>Le schéma du réseau peut être résumé ainsi :</p>
+
+<div class="formule-box">
+  <p style="text-align:center;font-size:0.95em;">
+    <strong>Centrale</strong> (10-20 kV)
+    → <em>Transformateur élévateur</em>
+    → <strong>Transport THT</strong> (225-400 kV)
+    → <em>Transformateur abaisseur</em>
+    → <strong>Répartition HT</strong> (63-90 kV)
+    → <em>Transformateur abaisseur</em>
+    → <strong>Distribution MT</strong> (20 kV)
+    → <em>Transformateur abaisseur</em>
+    → <strong>Livraison BT</strong> (230/400 V)
+    → <strong>Utilisateur</strong>
+  </p>
+</div>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  La tension est <strong>élevée</strong> en sortie de centrale pour le transport, puis <strong>abaissée</strong> par étapes jusqu'à l'utilisateur. Chaque changement de tension est réalisé par un <strong>transformateur</strong>.
+</div>
+
+<!-- ===== 2. EFFET JOULE ET PERTES EN LIGNE ===== -->
+<h2>2. L'effet Joule et les pertes en ligne</h2>
+
+<h3>2.1 Qu'est-ce que l'effet Joule ?</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  L'<strong>effet Joule</strong> est l'échauffement d'un conducteur lorsqu'il est traversé par un courant électrique. L'énergie électrique est partiellement convertie en énergie thermique (chaleur).
+</div>
+
+<p>Tout conducteur possède une <strong>résistance</strong> \(R\) (en ohms, \(\Omega\)). Lorsqu'un courant \(I\) le traverse, une puissance est dissipée sous forme de chaleur :</p>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  La puissance dissipée par effet Joule dans un conducteur de résistance \(R\) traversé par un courant d'intensité \(I\) est :
+</div>
+
+<div class="formule-box">
+  \[ P_J = R \times I^2 \]
+  <p>avec : \(P_J\) en watts (W), \(R\) en ohms (\(\Omega\)), \(I\) en ampères (A)</p>
+</div>
+
+<div class="ex">
+  <strong>Exemple 1 :</strong> Un câble d'alimentation a une résistance totale de 0,5 \(\Omega\). Il est traversé par un courant de 20 A. Calculer la puissance dissipée par effet Joule.
+  <p>
+    \(P_J = R \times I^2 = 0{,}5 \times 20^2 = 0{,}5 \times 400 = 200 \text{ W}\)
+  </p>
+  <p>Le câble dissipe 200 W sous forme de chaleur : c'est de l'énergie perdue.</p>
+</div>
+
+<h3>2.2 Les pertes en ligne</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  Les <strong>pertes en ligne</strong> (ou pertes Joule) sont l'énergie dissipée sous forme de chaleur dans les câbles du réseau de transport et de distribution. Elles représentent environ 2 à 3 % de l'énergie totale transportée en France.
+</div>
+
+<p>L'énergie perdue par effet Joule pendant une durée \(t\) est :</p>
+
+<div class="formule-box">
+  \[ E_J = P_J \times t = R \times I^2 \times t \]
+</div>
+
+<div class="att">
+  <span class="label-att">Attention</span>
+  La formule \(P_J = R \times I^2\) montre que les pertes dépendent du <strong>carré</strong> de l'intensité. Si le courant double, les pertes sont multipliées par 4. C'est un point essentiel pour comprendre l'intérêt du transport en haute tension.
+</div>
+
+<!-- ===== 3. INTÉRÊT DU TRANSPORT EN HAUTE TENSION ===== -->
+<h2>3. Pourquoi transporter en haute tension ?</h2>
+
+<h3>3.1 Raisonnement à puissance constante</h3>
+
+<p>La puissance transportée est \(P = U \times I\). Pour transporter une même puissance \(P\), on peut :</p>
+<ul>
+  <li>Utiliser une <strong>faible tension</strong> avec un <strong>fort courant</strong> : \(I = \dfrac{P}{U}\) est grand</li>
+  <li>Utiliser une <strong>haute tension</strong> avec un <strong>faible courant</strong> : \(I = \dfrac{P}{U}\) est petit</li>
+</ul>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  À puissance transportée égale, <strong>plus la tension est élevée, plus le courant est faible</strong>, et donc <strong>plus les pertes Joule sont réduites</strong>.
+</div>
+
+<div class="ex">
+  <strong>Exemple 2 :</strong> On doit transporter une puissance de 10 MW sur une ligne de résistance \(R = 5\;\Omega\). Comparons deux cas :
+</div>
+
+<table>
+  <thead><tr><th></th><th>Basse tension (20 kV)</th><th>Haute tension (400 kV)</th></tr></thead>
+  <tbody>
+    <tr><td>\(I = \dfrac{P}{U}\)</td><td>\(\dfrac{10\,000\,000}{20\,000} = 500 \text{ A}\)</td><td>\(\dfrac{10\,000\,000}{400\,000} = 25 \text{ A}\)</td></tr>
+    <tr><td>\(P_J = R \times I^2\)</td><td>\(5 \times 500^2 = 1\,250\,000 \text{ W}\)</td><td>\(5 \times 25^2 = 3\,125 \text{ W}\)</td></tr>
+    <tr><td>Pertes (% de P)</td><td>\(\dfrac{1\,250\,000}{10\,000\,000} = 12{,}5\;\%\)</td><td>\(\dfrac{3\,125}{10\,000\,000} = 0{,}03\;\%\)</td></tr>
+  </tbody>
+</table>
+
+<div class="retenir">
+  <strong>Conclusion</strong>
+  <p>En multipliant la tension par 20 (de 20 kV à 400 kV), le courant est divisé par 20 et les pertes Joule sont divisées par \(20^2 = 400\). C'est pourquoi on transporte l'électricité en <strong>très haute tension</strong>.</p>
+</div>
+
+<!-- ===== 4. LE TRANSFORMATEUR ===== -->
+<h2>4. Le transformateur</h2>
+
+<h3>4.1 Rôle du transformateur</h3>
+
+<div class="def">
+  <span class="label-def">Définition</span>
+  Un <strong>transformateur</strong> est un appareil électrique qui permet de modifier la valeur d'une tension alternative. Il est constitué de deux bobinages (primaire et secondaire) enroulés autour d'un noyau de fer.
+</div>
+
+<p>Il existe deux types de transformateurs :</p>
+
+<ul>
+  <li><strong>Transformateur élévateur :</strong> la tension de sortie est supérieure à la tension d'entrée. Utilisé en sortie de centrale pour augmenter la tension de transport.</li>
+  <li><strong>Transformateur abaisseur :</strong> la tension de sortie est inférieure à la tension d'entrée. Utilisé dans les postes de transformation pour réduire la tension jusqu'à 230 V.</li>
+</ul>
+
+<h3>4.2 Rapport de transformation</h3>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  Le rapport de transformation \(m\) est le rapport entre la tension de sortie \(U_2\) et la tension d'entrée \(U_1\) :
+</div>
+
+<div class="formule-box">
+  \[ m = \frac{U_2}{U_1} = \frac{n_2}{n_1} \]
+  <p>avec : \(n_1\) = nombre de spires au primaire, \(n_2\) = nombre de spires au secondaire</p>
+  <p>Si \(m > 1\) : transformateur <strong>élévateur</strong>. Si \(m < 1\) : transformateur <strong>abaisseur</strong>.</p>
+</div>
+
+<h3>4.3 Conservation de la puissance (transformateur idéal)</h3>
+
+<div class="prop">
+  <span class="label-prop">Propriété</span>
+  Pour un transformateur idéal (sans pertes), la puissance est conservée :
+</div>
+
+<div class="formule-box">
+  \[ P_1 = P_2 \quad \Longrightarrow \quad U_1 \times I_1 = U_2 \times I_2 \]
+  <p>Si la tension augmente, le courant diminue proportionnellement (et inversement).</p>
+</div>
+
+<div class="ex">
+  <strong>Exemple 3 :</strong> Un transformateur élévateur reçoit une tension de 20 kV et la porte à 400 kV. Le courant au primaire est de 500 A. Calculer le courant au secondaire.
+  <p>
+    \(U_1 \times I_1 = U_2 \times I_2\)
+  </p>
+  <p>
+    \(I_2 = \dfrac{U_1 \times I_1}{U_2} = \dfrac{20\,000 \times 500}{400\,000} = 25 \text{ A}\)
+  </p>
+  <p>La tension a été multipliée par 20, le courant a bien été divisé par 20.</p>
+</div>
+
+<div class="ex">
+  <strong>Exemple 4 — Contexte professionnel :</strong> Un installateur thermique raccorde un système de ventilation dans un bâtiment industriel. Le poste de transformation du site abaisse la tension de 20 000 V à 400 V.
+  <p>
+    Le rapport de transformation est : \(m = \dfrac{400}{20\,000} = 0{,}02\)
+  </p>
+  <p>
+    Comme \(m < 1\), c'est bien un transformateur <strong>abaisseur</strong>.
+  </p>
+</div>
+
+<!-- ===== 5. APPLICATIONS ===== -->
+<h2>5. Applications professionnelles</h2>
+
+<h3>5.1 Câbles de raccordement et échauffement</h3>
+
+<p>En installation thermique, le choix de la <strong>section de câble</strong> est essentiel. Un câble de section trop faible a une résistance élevée, ce qui provoque :</p>
+<ul>
+  <li>Des <strong>pertes Joule</strong> importantes (gaspillage d'énergie)</li>
+  <li>Un <strong>échauffement</strong> du câble (risque d'incendie)</li>
+  <li>Une <strong>chute de tension</strong> (l'appareil ne reçoit pas la tension nominale)</li>
+</ul>
+
+<div class="ex">
+  <strong>Exemple 5 :</strong> Un technicien CVC raccorde une PAC de 3 000 W sous 230 V avec un câble de 20 m (aller-retour 40 m) de section 2,5 mm². La résistivité du cuivre est \(\rho = 1{,}7 \times 10^{-8}\;\Omega \cdot \text{m}\).
+  <p>
+    Résistance du câble : \(R = \rho \times \dfrac{L}{S} = 1{,}7 \times 10^{-8} \times \dfrac{40}{2{,}5 \times 10^{-6}} = 0{,}27\;\Omega\)
+  </p>
+  <p>
+    Courant : \(I = \dfrac{P}{U} = \dfrac{3\,000}{230} \approx 13 \text{ A}\)
+  </p>
+  <p>
+    Pertes Joule : \(P_J = R \times I^2 = 0{,}27 \times 13^2 = 0{,}27 \times 169 \approx 45{,}6 \text{ W}\)
+  </p>
+</div>
+
+<h3>5.2 Impact environnemental</h3>
+
+<p>Les pertes en ligne du réseau français représentent environ 11 TWh par an (environ 2,5 % de la production). Réduire ces pertes contribue à :</p>
+<ul>
+  <li>Diminuer la production d'énergie nécessaire</li>
+  <li>Réduire les émissions de CO₂ associées</li>
+  <li>Limiter les coûts pour le consommateur</li>
+</ul>
+
+<!-- ===== À RETENIR ===== -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <ul>
+    <li>L'énergie électrique est transportée de la centrale à l'utilisateur via un réseau à plusieurs niveaux de tension.</li>
+    <li>L'<strong>effet Joule</strong> \(P_J = R \times I^2\) provoque des pertes de chaleur dans les câbles.</li>
+    <li>Les pertes dépendent du <strong>carré du courant</strong> : si \(I\) double, les pertes quadruplent.</li>
+    <li>On transporte en <strong>haute tension</strong> pour réduire le courant et donc les pertes.</li>
+    <li>Les <strong>transformateurs</strong> élèvent la tension en sortie de centrale et l'abaissent avant distribution.</li>
+    <li>Pour un transformateur idéal : \(U_1 \times I_1 = U_2 \times I_2\) (conservation de la puissance).</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Première Bac Pro ICCER – Groupement 1 | Physique-Chimie – Chapitre 2 | maths-sciences-lp.github.io</p>
+</footer>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

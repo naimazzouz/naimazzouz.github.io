@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch01 – Exercices – Énergie et puissance électrique | Première ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body><div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch01 – Distinguer énergie et puissance électrique</h1>
+  <p class="sous-titre">Exercices | Première Bac Pro ICCER – Puissance P = UI, Énergie E = Pt, kWh</p>
+</header>
+
+<!-- ===== RAPPELS ===== -->
+<div class="retenir">
+  <strong>Rappels du cours</strong>
+  <ul>
+    <li><strong>Puissance :</strong> \(P = U \times I\) (en W)</li>
+    <li><strong>Énergie :</strong> \(E = P \times t\) — en J si \(t\) en s, en kWh si \(P\) en kW et \(t\) en h</li>
+    <li><strong>Conversion :</strong> \(1 \text{ kWh} = 3\,600\,000 \text{ J} = 3{,}6 \text{ MJ}\)</li>
+    <li><strong>Intensité :</strong> \(I = \dfrac{P}{U}\) — <strong>Tension :</strong> \(U = \dfrac{P}{I}\)</li>
+    <li><strong>Rendement :</strong> \(\eta = \dfrac{P_{\text{utile}}}{P_{\text{totale}}}\)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!--                   EXERCICES COMMUNS                           -->
+<!-- ============================================================ -->
+<h2>Exercices communs</h2>
+
+<div class="exo">
+  <strong>Exercice 1 – Conversions d'unités</strong>
+  <p>Convertir les énergies suivantes :</p>
+  <ol>
+    <li>2,5 kWh en joules</li>
+    <li>7 200 000 J en kWh</li>
+    <li>500 Wh en joules</li>
+    <li>18 MJ en kWh</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(2{,}5 \text{ kWh} = 2{,}5 \times 3\,600\,000 = 9\,000\,000 \text{ J} = 9 \text{ MJ}\)</li>
+      <li>\(7\,200\,000 \text{ J} = \dfrac{7\,200\,000}{3\,600\,000} = 2 \text{ kWh}\)</li>
+      <li>\(500 \text{ Wh} = 0{,}5 \text{ kWh} = 0{,}5 \times 3\,600\,000 = 1\,800\,000 \text{ J}\)</li>
+      <li>\(18 \text{ MJ} = 18\,000\,000 \text{ J} = \dfrac{18\,000\,000}{3\,600\,000} = 5 \text{ kWh}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <strong>Exercice 2 – Lecture de plaques signalétiques</strong>
+  <p>Un technicien chauffagiste relève les plaques signalétiques de trois appareils :</p>
+  <table>
+    <thead><tr><th>Appareil</th><th>Tension</th><th>Puissance</th></tr></thead>
+    <tbody>
+      <tr><td>Radiateur soufflant</td><td>230 V</td><td>2 000 W</td></tr>
+      <tr><td>Circulateur de chauffage</td><td>230 V</td><td>60 W</td></tr>
+      <tr><td>Thermostat connecté</td><td>5 V</td><td>2,5 W</td></tr>
+    </tbody>
+  </table>
+  <p>Calculer l'intensité du courant pour chaque appareil.</p>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p>On utilise \(I = \dfrac{P}{U}\) :</p>
+    <ul>
+      <li>Radiateur soufflant : \(I = \dfrac{2\,000}{230} \approx 8{,}7 \text{ A}\)</li>
+      <li>Circulateur : \(I = \dfrac{60}{230} \approx 0{,}26 \text{ A}\)</li>
+      <li>Thermostat : \(I = \dfrac{2{,}5}{5} = 0{,}5 \text{ A}\)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                       NIVEAU SOCLE                            -->
+<!-- ============================================================ -->
+<h2>Exercices guidés pas à pas</h2>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice S1 – Chauffe-eau : calcul guidé</strong>
+  <p>Un plombier chauffagiste installe un chauffe-eau électrique de 2 000 W sous une tension de 230 V. Le chauffe-eau fonctionne pendant 5 heures en heures creuses.</p>
+
+  <p><strong>Partie A – Puissance et intensité</strong></p>
+  <p>1. Quelle est la formule qui relie la puissance \(P\), la tension \(U\) et l'intensité \(I\) ?</p>
+  <p>2. Compléter le calcul de l'intensité :</p>
+  <p>\(I = \dfrac{P}{U} = \dfrac{.......}{.......} = ....... \text{ A}\)</p>
+
+  <p><strong>Partie B – Énergie</strong></p>
+  <p>3. Quelle est la formule de l'énergie électrique ?</p>
+  <p>4. Convertir la puissance en kW : \(P = 2\,000 \text{ W} = ....... \text{ kW}\)</p>
+  <p>5. Compléter le calcul d'énergie :</p>
+  <p>\(E = P \times t = ....... \times ....... = ....... \text{ kWh}\)</p>
+  <p>6. Calculer le coût au tarif heures creuses de 0,18 €/kWh :</p>
+  <p>Coût = \(E \times \text{tarif} = ....... \times 0{,}18 = ....... \text{ €}\)</p>
+
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p>1. \(P = U \times I\)</p>
+    <p>2. \(I = \dfrac{P}{U} = \dfrac{2\,000}{230} \approx 8{,}7 \text{ A}\)</p>
+    <p>3. \(E = P \times t\)</p>
+    <p>4. \(P = 2\,000 \text{ W} = 2 \text{ kW}\)</p>
+    <p>5. \(E = 2 \times 5 = 10 \text{ kWh}\)</p>
+    <p>6. Coût = \(10 \times 0{,}18 = 1{,}80 \text{ €}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice S2 – Radiateur électrique : tableau guidé</strong>
+  <p>Un installateur thermique vérifie le fonctionnement de radiateurs électriques dans un appartement. Compléter le tableau suivant :</p>
+  <table>
+    <thead><tr><th>Pièce</th><th>\(U\) (V)</th><th>\(I\) (A)</th><th>\(P\) (W)</th><th>Durée (h)</th><th>\(E\) (kWh)</th></tr></thead>
+    <tbody>
+      <tr><td>Salon</td><td>230</td><td>8,7</td><td>?</td><td>6</td><td>?</td></tr>
+      <tr><td>Chambre</td><td>230</td><td>?</td><td>1 000</td><td>8</td><td>?</td></tr>
+      <tr><td>Salle de bain</td><td>230</td><td>4,3</td><td>?</td><td>2</td><td>?</td></tr>
+    </tbody>
+  </table>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Pièce</th><th>\(U\) (V)</th><th>\(I\) (A)</th><th>\(P\) (W)</th><th>Durée (h)</th><th>\(E\) (kWh)</th></tr></thead>
+      <tbody>
+        <tr><td>Salon</td><td>230</td><td>8,7</td><td>\(230 \times 8{,}7 = 2\,001\) W</td><td>6</td><td>\(2{,}001 \times 6 = 12 \text{ kWh}\)</td></tr>
+        <tr><td>Chambre</td><td>230</td><td>\(\frac{1\,000}{230} \approx 4{,}3\) A</td><td>1 000</td><td>8</td><td>\(1 \times 8 = 8 \text{ kWh}\)</td></tr>
+        <tr><td>Salle de bain</td><td>230</td><td>4,3</td><td>\(230 \times 4{,}3 = 989\) W</td><td>2</td><td>\(0{,}989 \times 2 \approx 1{,}98 \text{ kWh}\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice S3 – Joules et kWh : conversion guidée</strong>
+  <p>Un appareil de puissance 500 W fonctionne pendant 30 minutes.</p>
+  <p>1. Convertir la durée en secondes : \(t = 30 \text{ min} = 30 \times ....... = ....... \text{ s}\)</p>
+  <p>2. Calculer l'énergie en joules : \(E = P \times t = 500 \times ....... = ....... \text{ J}\)</p>
+  <p>3. Convertir la durée en heures : \(t = 30 \text{ min} = ....... \text{ h}\)</p>
+  <p>4. Convertir la puissance en kW : \(P = ....... \text{ kW}\)</p>
+  <p>5. Calculer l'énergie en kWh : \(E = ....... \times ....... = ....... \text{ kWh}\)</p>
+  <p>6. Vérifier : \(E_{\text{kWh}} \times 3\,600\,000 = ....... \text{ J}\). Retrouve-t-on le résultat de la question 2 ?</p>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p>1. \(t = 30 \times 60 = 1\,800 \text{ s}\)</p>
+    <p>2. \(E = 500 \times 1\,800 = 900\,000 \text{ J}\)</p>
+    <p>3. \(t = 30 \text{ min} = 0{,}5 \text{ h}\)</p>
+    <p>4. \(P = 0{,}5 \text{ kW}\)</p>
+    <p>5. \(E = 0{,}5 \times 0{,}5 = 0{,}25 \text{ kWh}\)</p>
+    <p>6. \(0{,}25 \times 3\,600\,000 = 900\,000 \text{ J}\). Oui, on retrouve bien le même résultat.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                       NIVEAU STANDARD                         -->
+<!-- ============================================================ -->
+<h2>Exercices d'application</h2>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice N1 – Installation de chauffage collectif</strong>
+  <p>Un technicien CVC intervient dans un immeuble équipé de 12 convecteurs électriques de 1 500 W et 4 sèche-serviettes de 750 W. Tous fonctionnent sous 230 V.</p>
+  <ol>
+    <li>Calculer la puissance totale de l'installation.</li>
+    <li>Calculer l'intensité totale appelée par l'ensemble des appareils.</li>
+    <li>Les convecteurs fonctionnent en moyenne 10 h par jour et les sèche-serviettes 3 h par jour. Calculer l'énergie totale consommée en une journée (en kWh).</li>
+    <li>Calculer le coût mensuel (30 jours) au tarif de 0,22 €/kWh.</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(P_{\text{totale}} = 12 \times 1\,500 + 4 \times 750 = 18\,000 + 3\,000 = 21\,000 \text{ W} = 21 \text{ kW}\)</li>
+      <li>\(I = \dfrac{P}{U} = \dfrac{21\,000}{230} \approx 91{,}3 \text{ A}\)</li>
+      <li>Convecteurs : \(E_1 = 12 \times 1{,}5 \times 10 = 180 \text{ kWh}\)<br>
+          Sèche-serviettes : \(E_2 = 4 \times 0{,}75 \times 3 = 9 \text{ kWh}\)<br>
+          Total : \(E = 180 + 9 = 189 \text{ kWh/jour}\)</li>
+      <li>Coût mensuel = \(189 \times 30 \times 0{,}22 = 1\,247{,}40 \text{ €}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice N2 – Comparaison de deux chauffe-eau</strong>
+  <p>Un installateur thermique propose deux chauffe-eau à un client :</p>
+  <ul>
+    <li><strong>Modèle A :</strong> résistance blindée, 2 400 W, rendement 92 %</li>
+    <li><strong>Modèle B :</strong> résistance stéatite, 2 200 W, rendement 97 %</li>
+  </ul>
+  <p>Les deux fonctionnent sous 230 V pendant 5 h par jour en heures creuses (0,18 €/kWh).</p>
+  <ol>
+    <li>Calculer l'intensité du courant pour chaque modèle.</li>
+    <li>Calculer la puissance utile (thermique) de chaque modèle.</li>
+    <li>Calculer l'énergie consommée par jour et par an (365 jours) pour chaque modèle.</li>
+    <li>Calculer le coût annuel d'électricité pour chaque modèle.</li>
+    <li>Le modèle B coûte 150 € de plus à l'achat. En combien d'années l'économie d'énergie rembourse-t-elle ce surcoût ?</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>Modèle A : \(I = \frac{2\,400}{230} \approx 10{,}4 \text{ A}\)<br>
+          Modèle B : \(I = \frac{2\,200}{230} \approx 9{,}6 \text{ A}\)</li>
+      <li>Modèle A : \(P_u = 2\,400 \times 0{,}92 = 2\,208 \text{ W}\)<br>
+          Modèle B : \(P_u = 2\,200 \times 0{,}97 = 2\,134 \text{ W}\)</li>
+      <li>Modèle A : \(E_j = 2{,}4 \times 5 = 12 \text{ kWh/jour}\), \(E_a = 12 \times 365 = 4\,380 \text{ kWh/an}\)<br>
+          Modèle B : \(E_j = 2{,}2 \times 5 = 11 \text{ kWh/jour}\), \(E_a = 11 \times 365 = 4\,015 \text{ kWh/an}\)</li>
+      <li>Modèle A : \(4\,380 \times 0{,}18 = 788{,}40 \text{ €/an}\)<br>
+          Modèle B : \(4\,015 \times 0{,}18 = 722{,}70 \text{ €/an}\)</li>
+      <li>Économie annuelle = \(788{,}40 - 722{,}70 = 65{,}70 \text{ €}\)<br>
+          Amortissement = \(\frac{150}{65{,}70} \approx 2{,}3 \text{ ans}\)<br>
+          Le surcoût est remboursé en environ <strong>2 ans et 4 mois</strong>.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice N3 – Consommation d'un logement</strong>
+  <p>Voici les appareils électriques d'un logement avec leur durée de fonctionnement quotidienne :</p>
+  <table>
+    <thead><tr><th>Appareil</th><th>Puissance</th><th>Durée/jour</th></tr></thead>
+    <tbody>
+      <tr><td>Chauffage électrique</td><td>3 000 W</td><td>8 h</td></tr>
+      <tr><td>Chauffe-eau</td><td>2 000 W</td><td>4 h</td></tr>
+      <tr><td>Éclairage</td><td>200 W</td><td>5 h</td></tr>
+      <tr><td>Réfrigérateur</td><td>150 W</td><td>12 h</td></tr>
+      <tr><td>Télévision</td><td>100 W</td><td>4 h</td></tr>
+    </tbody>
+  </table>
+  <ol>
+    <li>Calculer l'énergie consommée par chaque appareil en une journée (en kWh).</li>
+    <li>Calculer l'énergie totale journalière.</li>
+    <li>Calculer le coût mensuel (30 jours) au tarif de 0,22 €/kWh.</li>
+    <li>Quel appareil consomme le plus ? Proposer une solution pour réduire cette dépense.</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>
+        Chauffage : \(3 \times 8 = 24 \text{ kWh}\)<br>
+        Chauffe-eau : \(2 \times 4 = 8 \text{ kWh}\)<br>
+        Éclairage : \(0{,}2 \times 5 = 1 \text{ kWh}\)<br>
+        Réfrigérateur : \(0{,}15 \times 12 = 1{,}8 \text{ kWh}\)<br>
+        Télévision : \(0{,}1 \times 4 = 0{,}4 \text{ kWh}\)
+      </li>
+      <li>\(E_{\text{total}} = 24 + 8 + 1 + 1{,}8 + 0{,}4 = 35{,}2 \text{ kWh/jour}\)</li>
+      <li>Coût mensuel = \(35{,}2 \times 30 \times 0{,}22 = 232{,}32 \text{ €}\)</li>
+      <li>Le chauffage consomme le plus (24 kWh, soit 68 % du total). On peut réduire cette dépense en installant une pompe à chaleur (COP de 3 à 4), en améliorant l'isolation ou en utilisant un thermostat programmable.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                   NIVEAU APPROFONDISSEMENT                    -->
+<!-- ============================================================ -->
+<h2>Exercices d'approfondissement</h2>
+
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <strong>Exercice A1 – Dimensionnement d'une installation thermique</strong>
+  <p>Un installateur de pompes à chaleur doit équiper un local professionnel de 120 m². La déperdition thermique est estimée à 50 W/m². Le client hésite entre deux solutions :</p>
+  <ul>
+    <li><strong>Solution 1 :</strong> Chauffage électrique direct (convecteurs), rendement 95 %</li>
+    <li><strong>Solution 2 :</strong> Pompe à chaleur air/eau, COP = 3,8, puissance électrique absorbée 2 200 W</li>
+  </ul>
+  <p>Le local fonctionne 10 h par jour, 250 jours par an. Tarif électricité : 0,22 €/kWh.</p>
+  <ol>
+    <li>Calculer les besoins thermiques totaux du local.</li>
+    <li>Pour la solution 1, calculer la puissance électrique nécessaire (en tenant compte du rendement).</li>
+    <li>Pour la solution 2, vérifier que la PAC couvre les besoins thermiques.</li>
+    <li>Calculer l'énergie annuelle consommée et le coût annuel pour chaque solution.</li>
+    <li>La PAC coûte 8 500 € et les convecteurs 2 000 €. Calculer le temps de retour sur investissement de la PAC par rapport aux convecteurs.</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>Besoins thermiques = \(120 \times 50 = 6\,000 \text{ W} = 6 \text{ kW}\)</li>
+      <li>Solution 1 : \(P_{\text{élec}} = \dfrac{6\,000}{0{,}95} \approx 6\,316 \text{ W} \approx 6{,}32 \text{ kW}\)</li>
+      <li>Solution 2 : \(P_{\text{therm}} = P_{\text{élec}} \times \text{COP} = 2\,200 \times 3{,}8 = 8\,360 \text{ W}\)<br>
+          \(8\,360 \text{ W} > 6\,000 \text{ W}\) : la PAC couvre largement les besoins.</li>
+      <li>
+        Solution 1 : \(E = 6{,}32 \times 10 \times 250 = 15\,800 \text{ kWh/an}\)<br>
+        Coût = \(15\,800 \times 0{,}22 = 3\,476 \text{ €/an}\)<br>
+        Solution 2 : \(E = 2{,}2 \times 10 \times 250 = 5\,500 \text{ kWh/an}\)<br>
+        Coût = \(5\,500 \times 0{,}22 = 1\,210 \text{ €/an}\)
+      </li>
+      <li>
+        Surcoût PAC = \(8\,500 - 2\,000 = 6\,500 \text{ €}\)<br>
+        Économie annuelle = \(3\,476 - 1\,210 = 2\,266 \text{ €}\)<br>
+        Retour sur investissement = \(\dfrac{6\,500}{2\,266} \approx 2{,}9 \text{ ans}\)<br>
+        La PAC est rentabilisée en environ <strong>3 ans</strong>.
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <strong>Exercice A2 – Étude énergétique complète (type BTS)</strong>
+  <p>Un technicien de maintenance énergétique étudie la consommation d'un petit immeuble de bureaux. Il relève les compteurs pendant une semaine de travail (5 jours) :</p>
+  <ul>
+    <li>Compteur lundi 8 h : 42 350 kWh</li>
+    <li>Compteur vendredi 18 h : 43 290 kWh</li>
+  </ul>
+  <p>L'immeuble est alimenté en 230 V et comporte :</p>
+  <ul>
+    <li>Un système de chauffage centralisé de puissance 15 kW fonctionnant 8 h/jour</li>
+    <li>L'éclairage et les équipements bureautiques (consommation à déterminer)</li>
+  </ul>
+  <ol>
+    <li>Calculer l'énergie totale consommée pendant la semaine.</li>
+    <li>Calculer l'énergie consommée par le chauffage pendant cette semaine.</li>
+    <li>En déduire l'énergie consommée par l'éclairage et les équipements bureautiques.</li>
+    <li>Calculer la puissance moyenne de l'éclairage et des équipements bureautiques sachant qu'ils fonctionnent 10 h par jour.</li>
+    <li>Le propriétaire envisage de remplacer le chauffage par une PAC de COP 4. Calculer l'économie annuelle réalisée (250 jours de travail, tarif 0,22 €/kWh).</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(E_{\text{totale}} = 43\,290 - 42\,350 = 940 \text{ kWh}\)</li>
+      <li>\(E_{\text{chauffage}} = 15 \times 8 \times 5 = 600 \text{ kWh}\)</li>
+      <li>\(E_{\text{autres}} = 940 - 600 = 340 \text{ kWh}\)</li>
+      <li>\(P_{\text{autres}} = \dfrac{340}{10 \times 5} = \dfrac{340}{50} = 6{,}8 \text{ kW}\)</li>
+      <li>
+        Avec la PAC, pour fournir 15 kW de chaleur : \(P_{\text{élec PAC}} = \dfrac{15}{4} = 3{,}75 \text{ kW}\)<br>
+        Énergie chauffage actuel par an : \(15 \times 8 \times 250 = 30\,000 \text{ kWh}\)<br>
+        Énergie PAC par an : \(3{,}75 \times 8 \times 250 = 7\,500 \text{ kWh}\)<br>
+        Économie : \((30\,000 - 7\,500) \times 0{,}22 = 22\,500 \times 0{,}22 = 4\,950 \text{ €/an}\)
+      </li>
+    </ol>
+  </div>
+</div>
+
+<footer>
+  <p>Première Bac Pro ICCER – Groupement 1 | Physique-Chimie – Chapitre 1 | maths-sciences-lp.github.io</p>
+</footer>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

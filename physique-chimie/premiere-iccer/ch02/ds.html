@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch02 – DS – Transport de l'énergie électrique | Première ICCER</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}</style>
+</head>
+<body><div class="c">
+<a href="../../../pc-1ere-iccer.html" class="nb">← Retour au sommaire</a>
+
+<header>
+  <h1>Ch02 – Transporter l'énergie sous forme électrique</h1>
+  <p class="sous-titre">Devoir surveillé | Première Bac Pro ICCER – Effet Joule, pertes en ligne, transformateur</p>
+</header>
+
+<div class="att">
+  <span class="label-att">Consignes</span>
+  Durée : 1 heure. Calculatrice autorisée. Pour chaque calcul : écrire la formule, remplacer par les valeurs, calculer et indiquer l'unité.
+</div>
+
+<!-- ============================================================ -->
+<!--                       NIVEAU SOCLE                            -->
+<!-- ============================================================ -->
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice 1 – Effet Joule dans un câble (6 points)</strong>
+  <p>Un câble de résistance \(R = 0{,}8\;\Omega\) est traversé par un courant de 15 A pendant 3 heures.</p>
+
+  <p><strong>1.</strong> Compléter avec les mots : <em>chaleur, résistance, courant, effet Joule</em>.</p>
+  <p>Lorsqu'un ............... traverse un conducteur qui possède une ..............., le conducteur s'échauffe. Ce phénomène s'appelle l'............... : l'énergie électrique est transformée en ...............</p>
+
+  <p><strong>2.</strong> Compléter le calcul de la puissance dissipée :</p>
+  <p>\(P_J = R \times I^2 = ....... \times .......^2 = ....... \times ....... = ....... \text{ W}\)</p>
+
+  <p><strong>3.</strong> Calculer l'énergie dissipée en 3 heures :</p>
+  <p>\(E_J = P_J \times t = ....... \times ....... = ....... \text{ Wh} = ....... \text{ kWh}\)</p>
+
+  <p><strong>4.</strong> Cette énergie perdue est-elle utile ? Pourquoi ?</p>
+
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Lorsqu'un <em>courant</em> traverse un conducteur qui possède une <em>résistance</em>, le conducteur s'échauffe. Ce phénomène s'appelle l'<em>effet Joule</em> : l'énergie électrique est transformée en <em>chaleur</em>.</p>
+    <p><strong>2.</strong> \(P_J = 0{,}8 \times 15^2 = 0{,}8 \times 225 = 180 \text{ W}\)</p>
+    <p><strong>3.</strong> \(E_J = 180 \times 3 = 540 \text{ Wh} = 0{,}54 \text{ kWh}\)</p>
+    <p><strong>4.</strong> Non, cette énergie est perdue sous forme de chaleur dans le câble. Elle n'est pas utile car elle ne sert pas à alimenter l'appareil raccordé.</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice 2 – Transformateur : lecture guidée (4 points)</strong>
+  <p>Un transformateur a les caractéristiques suivantes :</p>
+  <ul>
+    <li>Tension au primaire : \(U_1 = 20\,000\) V</li>
+    <li>Tension au secondaire : \(U_2 = 230\) V</li>
+  </ul>
+  <p><strong>1.</strong> Ce transformateur est-il élévateur ou abaisseur ? Entourer la bonne réponse et justifier.</p>
+  <p><strong>2.</strong> Calculer le rapport de transformation : \(m = \dfrac{U_2}{U_1} = \dfrac{.......}{.......} = .......\)</p>
+  <p><strong>3.</strong> Le courant au primaire est \(I_1 = 3\) A. Calculer la puissance au primaire :</p>
+  <p>\(P_1 = U_1 \times I_1 = ....... \times ....... = ....... \text{ W}\)</p>
+  <p><strong>4.</strong> En admettant que le transformateur est idéal (\(P_1 = P_2\)), calculer le courant au secondaire :</p>
+  <p>\(I_2 = \dfrac{P_2}{U_2} = \dfrac{.......}{.......} = ....... \text{ A}\)</p>
+
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(U_2 = 230 \text{ V} < U_1 = 20\,000 \text{ V}\). C'est un transformateur <strong>abaisseur</strong>.</p>
+    <p><strong>2.</strong> \(m = \dfrac{230}{20\,000} = 0{,}0115\)</p>
+    <p><strong>3.</strong> \(P_1 = 20\,000 \times 3 = 60\,000 \text{ W} = 60 \text{ kW}\)</p>
+    <p><strong>4.</strong> \(I_2 = \dfrac{60\,000}{230} \approx 261 \text{ A}\)</p>
+  </div>
+</div>
+
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <strong>Exercice 3 – Réseau électrique (4 points)</strong>
+  <p>Relier chaque élément du réseau à sa tension :</p>
+  <table>
+    <thead><tr><th>Élément</th><th>Tension</th></tr></thead>
+    <tbody>
+      <tr><td>Transport longue distance</td><td>230 V</td></tr>
+      <tr><td>Distribution dans les quartiers</td><td>400 kV</td></tr>
+      <tr><td>Alimentation d'une maison</td><td>20 kV</td></tr>
+    </tbody>
+  </table>
+  <p>Expliquer en une phrase pourquoi on utilise la haute tension pour le transport.</p>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p>Transport longue distance → <strong>400 kV</strong><br>
+    Distribution dans les quartiers → <strong>20 kV</strong><br>
+    Alimentation d'une maison → <strong>230 V</strong></p>
+    <p>On utilise la haute tension pour le transport car cela réduit le courant et donc les pertes par effet Joule dans les câbles (\(P_J = R \times I^2\)).</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                       NIVEAU STANDARD                         -->
+<!-- ============================================================ -->
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice 1 – Alimentation d'un atelier (7 points)</strong>
+  <p>Un plombier chauffagiste possède un atelier alimenté par un câble de 40 m (aller-retour 80 m) en cuivre de section 6 mm². La résistivité du cuivre est \(\rho = 1{,}7 \times 10^{-8}\;\Omega \cdot \text{m}\). L'atelier consomme une puissance de 6 000 W sous 230 V.</p>
+  <ol>
+    <li>Calculer la résistance du câble. (1,5 pt)</li>
+    <li>Calculer l'intensité du courant. (1 pt)</li>
+    <li>Calculer la puissance dissipée par effet Joule dans le câble. (1,5 pt)</li>
+    <li>Exprimer les pertes en pourcentage de la puissance totale. (1 pt)</li>
+    <li>L'atelier fonctionne 8 h par jour, 250 jours par an. Calculer le coût annuel des pertes au tarif de 0,22 €/kWh. (2 pts)</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(R = 1{,}7 \times 10^{-8} \times \dfrac{80}{6 \times 10^{-6}} = 0{,}227\;\Omega\)</li>
+      <li>\(I = \dfrac{6\,000}{230} \approx 26{,}1 \text{ A}\)</li>
+      <li>\(P_J = 0{,}227 \times 26{,}1^2 = 0{,}227 \times 681 \approx 155 \text{ W}\)</li>
+      <li>\(\dfrac{155}{6\,000} \times 100 \approx 2{,}6\;\%\)</li>
+      <li>\(E_J = 0{,}155 \times 8 \times 250 = 310 \text{ kWh/an}\). Coût = \(310 \times 0{,}22 = 68{,}20 \text{ €/an}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <strong>Exercice 2 – Transformateur d'un bâtiment industriel (7 points)</strong>
+  <p>Un bâtiment industriel est équipé d'un poste de transformation qui reçoit 20 000 V et délivre 400 V. Le bâtiment comporte :</p>
+  <ul>
+    <li>3 pompes à chaleur de 5 kW chacune</li>
+    <li>Un système de ventilation de 4 kW</li>
+    <li>Éclairage et prises : 6 kW</li>
+  </ul>
+  <ol>
+    <li>Calculer la puissance totale demandée. (1 pt)</li>
+    <li>Calculer le courant au secondaire (côté 400 V). (1,5 pt)</li>
+    <li>Calculer le courant au primaire (côté 20 kV) pour un transformateur idéal. (1,5 pt)</li>
+    <li>Si le courant était transporté en 400 V depuis le réseau (sans transformateur) sur un câble de résistance 2 \(\Omega\), calculer les pertes Joule. (1,5 pt)</li>
+    <li>Comparer avec les pertes en 20 kV sur le même câble. Conclure. (1,5 pt)</li>
+  </ol>
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <ol>
+      <li>\(P = 3 \times 5 + 4 + 6 = 25 \text{ kW}\)</li>
+      <li>\(I_2 = \dfrac{25\,000}{400} = 62{,}5 \text{ A}\)</li>
+      <li>\(I_1 = \dfrac{25\,000}{20\,000} = 1{,}25 \text{ A}\)</li>
+      <li>En 400 V : \(P_J = 2 \times 62{,}5^2 = 2 \times 3\,906 = 7\,812 \text{ W}\), soit 31 % de pertes.</li>
+      <li>En 20 kV : \(P_J = 2 \times 1{,}25^2 = 2 \times 1{,}5625 = 3{,}1 \text{ W}\), soit 0,01 % de pertes.<br>
+      Les pertes en 20 kV sont environ 2 500 fois plus faibles. Le transformateur est indispensable.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--                   NIVEAU APPROFONDISSEMENT                    -->
+<!-- ============================================================ -->
+
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <strong>Exercice 1 – Étude complète d'un réseau local (14 points)</strong>
+  <p>Un technicien de maintenance énergétique étudie l'alimentation électrique d'un petit centre commercial composé de 5 boutiques. Le poste de transformation reçoit 20 kV du réseau et délivre 230 V.</p>
+
+  <p><strong>Partie A – Le transformateur (4 points)</strong></p>
+  <p>Le transformateur a 4 000 spires au primaire et 46 spires au secondaire.</p>
+  <ol>
+    <li>Calculer le rapport de transformation. Vérifier qu'il correspond bien au rapport des tensions. (1 pt)</li>
+    <li>La puissance totale appelée est de 45 kW. Calculer les courants au primaire et au secondaire. (2 pts)</li>
+    <li>En réalité, le transformateur a un rendement de 97 %. Calculer la puissance perdue dans le transformateur. (1 pt)</li>
+  </ol>
+
+  <p><strong>Partie B – Les pertes en ligne (5 points)</strong></p>
+  <p>Le câble entre le réseau 20 kV et le transformateur mesure 500 m (aller-retour 1 km) en aluminium de section 50 mm². La résistivité de l'aluminium est \(\rho = 2{,}8 \times 10^{-8}\;\Omega \cdot \text{m}\).</p>
+  <ol start="4">
+    <li>Calculer la résistance du câble. (1,5 pt)</li>
+    <li>Calculer les pertes Joule dans ce câble. (1,5 pt)</li>
+    <li>Calculer l'énergie perdue en un an (fonctionnement 12 h/jour, 310 jours/an) et son coût au tarif de 0,19 €/kWh. (2 pts)</li>
+  </ol>
+
+  <p><strong>Partie C – Réflexion (5 points)</strong></p>
+  <ol start="7">
+    <li>Si le centre commercial était alimenté directement en 230 V (sans transformateur), calculer le courant et les pertes Joule dans le même câble. (2 pts)</li>
+    <li>Comparer les pertes des deux situations. Calculer le facteur de réduction. (1,5 pt)</li>
+    <li>Proposer deux mesures pour réduire encore les pertes en ligne (hors changement de tension). (1,5 pt)</li>
+  </ol>
+
+  <button class="bc">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Partie A</strong></p>
+    <ol>
+      <li>\(m = \dfrac{n_2}{n_1} = \dfrac{46}{4\,000} = 0{,}0115\) et \(\dfrac{U_2}{U_1} = \dfrac{230}{20\,000} = 0{,}0115\). Les deux rapports sont égaux.</li>
+      <li>\(I_1 = \dfrac{45\,000}{20\,000} = 2{,}25 \text{ A}\) et \(I_2 = \dfrac{45\,000}{230} \approx 196 \text{ A}\)</li>
+      <li>Puissance perdue = \(45\,000 \times (1 - 0{,}97) = 45\,000 \times 0{,}03 = 1\,350 \text{ W}\)</li>
+    </ol>
+    <p><strong>Partie B</strong></p>
+    <ol start="4">
+      <li>\(R = 2{,}8 \times 10^{-8} \times \dfrac{1\,000}{50 \times 10^{-6}} = 0{,}56\;\Omega\)</li>
+      <li>\(P_J = 0{,}56 \times 2{,}25^2 = 0{,}56 \times 5{,}0625 \approx 2{,}8 \text{ W}\)</li>
+      <li>\(E_J = 0{,}0028 \times 12 \times 310 = 10{,}4 \text{ kWh/an}\). Coût = \(10{,}4 \times 0{,}19 \approx 1{,}98 \text{ €/an}\)</li>
+    </ol>
+    <p><strong>Partie C</strong></p>
+    <ol start="7">
+      <li>\(I = \dfrac{45\,000}{230} \approx 196 \text{ A}\). \(P_J = 0{,}56 \times 196^2 = 0{,}56 \times 38\,416 \approx 21\,513 \text{ W}\)</li>
+      <li>Facteur de réduction = \(\dfrac{21\,513}{2{,}8} \approx 7\,683\). Les pertes sont environ 7 700 fois plus faibles en 20 kV. Ce facteur correspond au carré du rapport de tension : \(\left(\dfrac{20\,000}{230}\right)^2 \approx 7\,561\).</li>
+      <li>On peut réduire les pertes en : (1) augmentant la section du câble pour diminuer sa résistance ; (2) utilisant un conducteur de meilleure conductivité (cuivre au lieu d'aluminium).</li>
+    </ol>
+  </div>
+</div>
+
+<footer>
+  <p>Première Bac Pro ICCER – Groupement 1 | Physique-Chimie – Chapitre 2 | maths-sciences-lp.github.io</p>
+</footer>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>
