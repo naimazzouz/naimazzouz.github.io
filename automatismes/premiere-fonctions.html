@@ -38,8 +38,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#155e75;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -93,7 +93,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(f(2) = 7\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(f(2) = 4\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -104,12 +104,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(f(-1) = -6\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(f(-1) = 5\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Calculer le coefficient directeur de la droite passant par \(A(1\;;\;3)\) et \(B(4\;;\;9)\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(m = \frac{y_B - y_A}{x_B - x_A} = \frac{9 - 3}{4 - 1} = \frac{6}{3}\)<br>
           <b>\(m = 2\)</b>
@@ -123,13 +123,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Les deux droites ont le même coefficient directeur m = 3, donc elles sont parallèles.')">A) Oui</button>
           <button class="qo" onclick="qcm(this,false,'Elles ont le même coefficient directeur m = 3.')">B) Non</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash images.<br>
         a) \(f(x) = 3x - 1\), \(f(0) = \)? &nbsp;&nbsp; b) \(f(x) = x^2\), \(f(-3) = \)? &nbsp;&nbsp; c) \(f(x) = -2x + 10\), \(f(5) = \)? &nbsp;&nbsp; d) \(f(x) = x^2 + 1\), \(f(1) = \)?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(f(0) = 3 \times 0 - 1 = \mathbf{-1}\)<br>
           b) \(f(-3) = (-3)^2 = \mathbf{9}\)<br>
@@ -155,12 +155,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) Ni l'un ni l'autre</button>
           <button class="qo" onclick="qcm(this,false,'')">D) On ne peut pas savoir</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Soit \(f(x) = x^2 - 4x + 3\). Calculer \(f(0)\), \(f(1)\), \(f(2)\), \(f(3)\), \(f(4)\). Déterminer le signe de \(f(x)\) pour ces valeurs.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(f(0) = 0 - 0 + 3 = \mathbf{3}\) (positif)<br>
           \(f(1) = 1 - 4 + 3 = \mathbf{0}\)<br>
@@ -181,12 +181,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(m = 2\), \(p = 7\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(m = -2\), \(p = -7\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Graphiquement, on lit que les courbes de \(f\) et \(g\) se coupent en \(x = -1\) et \(x = 3\). Donner les solutions de \(f(x) = g(x)\). Pour quelles valeurs de \(x\) a-t-on \(f(x) > g(x)\) si la courbe de \(f\) est au-dessus de celle de \(g\) sur \(]-1\;;\;3[\) ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>Solutions de \(f(x) = g(x)\) :</b> \(x = -1\) et \(x = 3\) (points d'intersection).<br><br>
           <b>\(f(x) > g(x)\)</b> lorsque la courbe de \(f\) est au-dessus de celle de \(g\) :<br>
@@ -198,7 +198,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash lectures graphiques.<br>
         a) Coeff. directeur de la droite passant par \((0\;;\;1)\) et \((2\;;\;5)\) &nbsp;&nbsp; b) \(f(x) = 4x - 3\), résoudre \(f(x) = 0\) &nbsp;&nbsp; c) Ordonnée à l'origine de \(y = -x + 8\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(m = \frac{5-1}{2-0} = \frac{4}{2} = \mathbf{2}\)<br>
           b) \(4x - 3 = 0 \Rightarrow 4x = 3 \Rightarrow x = \mathbf{\frac{3}{4} = 0{,}75}\)<br>
@@ -223,7 +223,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Sur [0;3], f passe de 5 à −1 : elle traverse 0 → 1 solution. Sur [3;6], f passe de −1 à 4 : elle traverse 0 → 1 solution. Total : 2.')">C) 2</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 3</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -231,7 +231,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
         \(x\) : 0 → 2 → 5<br>
         \(f(x)\) : 1 ↗ 7 ↘ 3<br>
         Décrire l'allure de la courbe (sens de variation, extremum, valeurs remarquables).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>La courbe part du point (0 ; 1).</b><br>
           Elle <b>monte</b> (f croissante) jusqu'au point <b>(2 ; 7)</b> qui est un <b>maximum</b>.<br>
@@ -250,12 +250,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) Constante</button>
           <button class="qo" onclick="qcm(this,false,'')">D) On ne peut pas savoir</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> On lit graphiquement que la droite \(y = c\) (avec \(c = 2\)) coupe la courbe de \(f\) en \(x = 1\) et \(x = 5\). La courbe de \(f\) est en dessous de la droite \(y = 2\) pour \(x \in ]1\;;\;5[\). Résoudre \(f(x) < 2\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Les points d'intersection sont \(x = 1\) et \(x = 5\), donc \(f(1) = 2\) et \(f(5) = 2\).<br><br>
           La courbe de \(f\) est <b>en dessous</b> de la droite \(y = 2\) entre ces deux points.<br><br>
@@ -267,7 +267,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash mélanges.<br>
         a) \(f(x) = -5x + 2\) : sens de variation ? &nbsp;&nbsp; b) Coeff. directeur de la droite passant par \((3\;;\;1)\) et \((7\;;\;9)\) ? &nbsp;&nbsp; c) \(f(x) = x^2 - 1\), \(f(-2) = \)? &nbsp;&nbsp; d) \(y = 2x + 3\) et \(y = 2x - 1\) : parallèles ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(m = -5 < 0\) → <b>décroissante</b><br>
           b) \(m = \frac{9-1}{7-3} = \frac{8}{4} = \mathbf{2}\)<br>

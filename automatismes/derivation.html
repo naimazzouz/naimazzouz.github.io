@@ -38,8 +38,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#991b1b;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -97,7 +97,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 2\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = x^3\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -108,7 +108,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'La dérivée de toute constante est 0 : la droite y=7 est horizontale, sa pente est nulle.')">C) \(f'(x) = 0\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = 7x\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -119,12 +119,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 0\)</button>
           <button class="qo" onclick="qcm(this,true,'(ax)′ = a, donc (3x)′ = 3.')">D) \(f'(x) = 3\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Dériver \(f(x) = 5x^2\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \((5x^2)' = 5 \times (x^2)' = 5 \times 2x\)<br>
           \(\mathbf{f'(x) = 10x}\)
@@ -135,7 +135,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : dériver mentalement chaque fonction.<br>
         a) \(f(x) = x^3\) &nbsp;&nbsp; b) \(f(x) = 4x\) &nbsp;&nbsp; c) \(f(x) = 2x^2\) &nbsp;&nbsp; d) \(f(x) = 10\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(f'(x) = 3x^2\)<br>
           b) \(f'(x) = 4\)<br>
@@ -161,12 +161,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 6x - 1\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = 6x\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Dériver \(g(x) = x^3 - 4x + 5\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \((x^3)' = 3x^2\) &nbsp; \((-4x)' = -4\) &nbsp; \((5)' = 0\)<br>
           \(\mathbf{g'(x) = 3x^2 - 4}\)
@@ -182,7 +182,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) f′(2) = 8</button>
           <button class="qo" onclick="qcm(this,false,'')">D) f′(2) = 16</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -193,13 +193,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(4x^2 - x\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(12x^3 - 2x\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : dériver rapidement chaque fonction.<br>
         a) \(f(x) = x^2 - 5x + 4\) &nbsp;&nbsp; b) \(f(x) = 2x^3 + 3x\) &nbsp;&nbsp; c) \(f(x) = -x^2 + 4\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(f'(x) = 2x - 5\)<br>
           b) \(f'(x) = 6x^2 + 3\)<br>
@@ -218,7 +218,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q1.</span> \(f(x) = x^2 - 4x + 3\). Calculer f'(x), puis déterminer le signe de f'(x). Que peut-on en déduire sur les variations de f ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(f'(x) = 2x - 4\)<br>
           \(f'(x) = 0 \Rightarrow 2x - 4 = 0 \Rightarrow x = 2\)<br>
@@ -231,7 +231,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Pour \(g(x) = -2x^2 + 8x\), calculer g'(x) et trouver la valeur de x pour laquelle g'(x) = 0. Que représente ce point ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(g'(x) = -4x + 8\)<br>
           \(g'(x) = 0 \Rightarrow -4x + 8 = 0 \Rightarrow x = 2\)<br>
@@ -249,13 +249,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'3x²=6 → x²=2 → x=√2≈1,41 ou x=−√2≈−1,41')">C) \(x = \sqrt{2}\) et \(x = -\sqrt{2}\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) x = 6</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Flash-dérivation : donner f'(x) puis calculer f'(0) et f'(1) pour :<br>
         a) \(f(x) = 2x^2 - 3x + 1\) &nbsp;&nbsp; b) \(f(x) = x^3 - x\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>a)</b> \(f'(x) = 4x - 3\)<br>
           \(f'(0) = -3\) &nbsp; \(f'(1) = 4 - 3 = 1\)<br><br>
@@ -273,7 +273,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Dériver 3x²−4x+7 donne 6x−4. ✓')">C) \(f(x) = 3x^2 - 4x + 7\)</button>
           <button class="qo" onclick="qcm(this,false,'Dériver 3x²+7 donne 6x ≠ 6x−4.')">D) \(f(x) = 3x^2 + 7\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
     </div>

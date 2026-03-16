@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Automatismes de statistiques pour Seconde Bac Pro – moyenne, médiane, étendue, diagrammes. QCM et exercices corrigés.">
+<title>Automatismes – Statistiques – Seconde Bac Pro</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--p:#0056b3;--s:#2f855a;--d:#155e75;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.7}
+.c{max-width:860px;margin:auto;background:#fff;padding:30px 35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:26px;padding-bottom:14px}
+.surtitre{margin:0 0 4px;color:#718096;font-size:.85em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
+.sous-titre{margin:0;color:#718096;font-size:.88em}
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:#155e75;text-decoration:none;font-size:.83em;font-weight:700;padding:5px 11px;border-radius:6px;background:#ecfeff;border:1px solid #a5f3fc;transition:.15s}
+.nav-haut a:hover{background:#cffafe}
+.fml{background:#ecfeff;border:1.5px solid var(--p);border-radius:8px;padding:12px 18px;margin:14px 0;font-size:.94em}
+.alerte{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9em}
+.bloc-niveau{border:2px solid #e2e8f0;border-radius:10px;margin:22px 0;overflow:hidden}
+.bloc-niveau-header{padding:11px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1em;border-bottom:1px solid #e2e8f0}
+.n1 .bloc-niveau-header{background:#d1fae5;color:#065f46;border-bottom-color:#a7f3d0}
+.n2 .bloc-niveau-header{background:#dbeafe;color:#1e40af;border-bottom-color:#93c5fd}
+.n3 .bloc-niveau-header{background:#f3e8ff;color:#6d28d9;border-bottom-color:#d8b4fe}
+.bloc-niveau-body{padding:16px 18px}
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;margin:10px 0}
+.exo-q{margin:0 0 8px;font-weight:600;font-size:.97em}
+.exo-q .num{color:var(--p);margin-right:4px}
+details{margin-top:6px}
+details summary{cursor:pointer;color:#155e75;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
+.corr b{color:#065f46}
+.qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.qo{padding:6px 16px;border-radius:6px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9em;transition:.15s;font-family:inherit}
+.qo:hover:not(:disabled){border-color:var(--p);background:#ecfeff}
+.qo.ok{background:#d1fae5;border-color:var(--s);color:#065f46;font-weight:700}
+.qo.ko{background:#fee2e2;border-color:var(--p);color:#991b1b}
+.qo:disabled{cursor:default}
+.fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
+.fb.ok{color:var(--s)}.fb.ko{color:var(--p)}
+table.stat{border-collapse:collapse;margin:8px 0;font-size:.92em}
+table.stat th,table.stat td{border:1px solid #cbd5e1;padding:5px 12px;text-align:center}
+table.stat th{background:#ebf5ff;color:#1e40af;font-weight:700}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="index.html">← Automatismes</a>
+    <a href="../maths-2nde-mama.html">↗ Maths 2nde</a>
+  </nav>
+
+  <header>
+    <p class="surtitre">⚡ Automatismes – Seconde Bac Pro</p>
+    <h1>📊 Statistiques</h1>
+    <p class="sous-titre">Mise à jour : 16 mars 2026</p>
+  </header>
+
+  <div class="alerte">
+    <strong>Objectif :</strong> Maîtriser le vocabulaire statistique, calculer moyenne, médiane, étendue et lire des diagrammes.
+  </div>
+
+  <div class="fml">
+    <strong>📋 Formulaire express</strong>
+    <p style="margin:8px 0 4px"><b>Moyenne :</b> \(\bar{x} = \dfrac{\text{somme des valeurs}}{\text{nombre de valeurs}}\) &nbsp; ou avec effectifs : \(\bar{x} = \dfrac{\sum n_i \times x_i}{\sum n_i}\)</p>
+    <p style="margin:4px 0"><b>Médiane :</b> valeur qui partage la série ordonnée en deux moitiés égales</p>
+    <p style="margin:4px 0"><b>Étendue :</b> \(e = x_{\max} - x_{\min}\)</p>
+    <p style="margin:4px 0"><b>Effectif cumulé croissant (ECC) :</b> somme des effectifs jusqu'à la valeur considérée</p>
+  </div>
+
+  <!-- ═══ NIVEAU 1 ═══ -->
+  <div class="bloc-niveau n1">
+    <div class="bloc-niveau-header">🟢 Niveau 1 — Bases</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Un menuisier découpe 5 planches. Leurs longueurs en cm sont : 120 ; 135 ; 128 ; 140 ; 122. Quelle est la moyenne de ces longueurs ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 128 cm</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 130 cm</button>
+          <button class="qo" onclick="qcm(this,true,'Somme : 120 + 135 + 128 + 140 + 122 = 645. Moyenne : 645 ÷ 5 = 129 cm.')">C) 129 cm</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 131 cm</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Voici les notes d'un élève : 8 ; 11 ; 14 ; 9 ; 13. Quelle est la médiane ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,true,'On ordonne : 8 ; 9 ; 11 ; 13 ; 14. La valeur du milieu (3ᵉ sur 5) est 11.')">A) 11</button>
+          <button class="qo" onclick="qcm(this,false,'La médiane n\'est pas la moyenne. Il faut ordonner et prendre la valeur centrale.')">B) 11,5</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 13</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 9</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Voici les températures relevées pendant 6 jours : 12 ; 15 ; 11 ; 18 ; 14 ; 16. Calculer la moyenne et l'étendue.</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Moyenne :</b> \(\dfrac{12 + 15 + 11 + 18 + 14 + 16}{6} = \dfrac{86}{6} \approx \mathbf{14{,}3}\) <b>°C</b><br>
+          <b>Étendue :</b> \(18 - 11 = \mathbf{7}\) <b>°C</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Un diagramme en barres montre les ventes de 4 produits : A = 25, B = 40, C = 15, D = 20. Quel produit a le plus grand effectif ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) Produit A</button>
+          <button class="qo" onclick="qcm(this,true,'Le produit B a l\'effectif le plus élevé : 40.')">B) Produit B</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) Produit C</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) Produit D</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
+        a) Moyenne de 4 ; 6 ; 8 ? &nbsp;&nbsp; b) Médiane de 3 ; 5 ; 7 ; 9 ? &nbsp;&nbsp; c) Étendue de 22 ; 35 ; 18 ; 29 ? &nbsp;&nbsp; d) Effectif total si les effectifs sont 5 ; 8 ; 12 ; 3 ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(\dfrac{4 + 6 + 8}{3} = \dfrac{18}{3} = \mathbf{6}\)<br>
+          b) 4 valeurs : médiane = moyenne des 2ᵉ et 3ᵉ : \(\dfrac{5 + 7}{2} = \mathbf{6}\)<br>
+          c) \(35 - 18 = \mathbf{17}\)<br>
+          d) \(5 + 8 + 12 + 3 = \mathbf{28}\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 2 ═══ -->
+  <div class="bloc-niveau n2">
+    <div class="bloc-niveau-header">🔵 Niveau 2 — Entraînement</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Voici les notes d'une classe avec leurs effectifs :</p>
+        <table class="stat">
+          <tr><th>Note</th><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td></tr>
+          <tr><th>Effectif</th><td>3</td><td>7</td><td>10</td><td>5</td><td>2</td></tr>
+        </table>
+        <p class="exo-q">Quelle est la moyenne de cette série ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          Effectif total : \(3 + 7 + 10 + 5 + 2 = 27\)<br>
+          Somme pondérée : \(8 \times 3 + 10 \times 7 + 12 \times 10 + 14 \times 5 + 16 \times 2\)<br>
+          \(= 24 + 70 + 120 + 70 + 32 = 316\)<br>
+          Moyenne : \(\dfrac{316}{27} \approx \mathbf{11{,}7}\)
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Avec la même série que Q1, déterminer la médiane en utilisant les effectifs cumulés croissants.</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <table class="stat">
+            <tr><th>Note</th><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td></tr>
+            <tr><th>Effectif</th><td>3</td><td>7</td><td>10</td><td>5</td><td>2</td></tr>
+            <tr><th>ECC</th><td>3</td><td>10</td><td>20</td><td>25</td><td>27</td></tr>
+          </table>
+          27 valeurs : la médiane est la 14ᵉ valeur (rang \(\frac{27+1}{2} = 14\)).<br>
+          L'ECC atteint 10 pour la note 10, puis 20 pour la note 12.<br>
+          La 14ᵉ valeur est donc <b>12</b>.
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Un métreur relève les épaisseurs (en mm) de 8 panneaux : 18 ; 19 ; 18 ; 20 ; 21 ; 18 ; 19 ; 20. Quelle est l'étendue de cette série ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 2 mm</button>
+          <button class="qo" onclick="qcm(this,true,'Min = 18, Max = 21. Étendue : 21 − 18 = 3 mm.')">B) 3 mm</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 4 mm</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 1 mm</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Un histogramme représente la répartition des durées de trajet (en min) des élèves. On lit :</p>
+        <table class="stat">
+          <tr><th>Durée (min)</th><td>[0 ; 10[</td><td>[10 ; 20[</td><td>[20 ; 30[</td><td>[30 ; 40[</td></tr>
+          <tr><th>Effectif</th><td>4</td><td>12</td><td>8</td><td>6</td></tr>
+        </table>
+        <p class="exo-q">Combien d'élèves ont un trajet de moins de 20 minutes ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 12</button>
+          <button class="qo" onclick="qcm(this,true,'Élèves avec trajet < 20 min : 4 + 12 = 16.')">B) 16</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 24</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 20</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
+        a) Moyenne pondérée : valeurs 5, 10, 15 avec effectifs 2, 3, 1 ? &nbsp;&nbsp; b) Étendue de 3,2 ; 4,7 ; 3,8 ; 5,1 ; 4,0 ? &nbsp;&nbsp; c) 30 élèves : médiane au rang ? &nbsp;&nbsp; d) ECC : effectifs 6, 4, 10. Donner les ECC.</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(\dfrac{5 \times 2 + 10 \times 3 + 15 \times 1}{2 + 3 + 1} = \dfrac{10 + 30 + 15}{6} = \dfrac{55}{6} \approx \mathbf{9{,}2}\)<br>
+          b) \(5{,}1 - 3{,}2 = \mathbf{1{,}9}\)<br>
+          c) 30 valeurs (pair) : médiane = moyenne des 15ᵉ et 16ᵉ valeurs, soit <b>rang 15 et 16</b><br>
+          d) ECC : <b>6</b> ; \(6 + 4 =\) <b>10</b> ; \(10 + 10 =\) <b>20</b>
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 3 ═══ -->
+  <div class="bloc-niveau n3">
+    <div class="bloc-niveau-header">🟣 Niveau 3 — Automatisation</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Deux machines découpent des tasseaux. On mesure les longueurs (en cm) de 5 tasseaux par machine :</p>
+        <table class="stat">
+          <tr><th></th><td>T1</td><td>T2</td><td>T3</td><td>T4</td><td>T5</td></tr>
+          <tr><th>Machine A</th><td>60,2</td><td>59,8</td><td>60,1</td><td>59,9</td><td>60,0</td></tr>
+          <tr><th>Machine B</th><td>61,5</td><td>58,3</td><td>60,8</td><td>59,2</td><td>60,2</td></tr>
+        </table>
+        <p class="exo-q">Calculer la moyenne et l'étendue de chaque machine. Laquelle est la plus régulière ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Machine A :</b><br>
+          Moyenne : \(\dfrac{60{,}2 + 59{,}8 + 60{,}1 + 59{,}9 + 60{,}0}{5} = \dfrac{300{,}0}{5} = \mathbf{60{,}0}\) cm<br>
+          Étendue : \(60{,}2 - 59{,}8 = \mathbf{0{,}4}\) cm<br><br>
+          <b>Machine B :</b><br>
+          Moyenne : \(\dfrac{61{,}5 + 58{,}3 + 60{,}8 + 59{,}2 + 60{,}2}{5} = \dfrac{300{,}0}{5} = \mathbf{60{,}0}\) cm<br>
+          Étendue : \(61{,}5 - 58{,}3 = \mathbf{3{,}2}\) cm<br><br>
+          Les deux machines ont la même moyenne (60,0 cm), mais la <b>machine A est plus régulière</b> car son étendue (0,4 cm) est beaucoup plus faible que celle de la machine B (3,2 cm).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Un artisan menuisier contrôle l'épaisseur (en mm) de 30 plaques de contreplaqué :</p>
+        <table class="stat">
+          <tr><th>Épaisseur (mm)</th><td>14,8</td><td>14,9</td><td>15,0</td><td>15,1</td><td>15,2</td></tr>
+          <tr><th>Effectif</th><td>2</td><td>6</td><td>13</td><td>7</td><td>2</td></tr>
+        </table>
+        <p class="exo-q">a) Calculer la moyenne. &nbsp; b) Déterminer la médiane. &nbsp; c) La tolérance du fabricant est ± 0,3 mm autour de 15 mm. Le lot est-il conforme ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>a) Moyenne :</b><br>
+          \(\bar{x} = \dfrac{14{,}8 \times 2 + 14{,}9 \times 6 + 15{,}0 \times 13 + 15{,}1 \times 7 + 15{,}2 \times 2}{30}\)<br>
+          \(= \dfrac{29{,}6 + 89{,}4 + 195{,}0 + 105{,}7 + 30{,}4}{30} = \dfrac{450{,}1}{30} \approx \mathbf{15{,}003}\) <b>mm</b><br><br>
+          <b>b) Médiane :</b><br>
+          30 valeurs (pair) : moyenne des 15ᵉ et 16ᵉ valeurs.<br>
+          ECC : 2 ; 8 ; 21 ; 28 ; 30.<br>
+          Les 15ᵉ et 16ᵉ valeurs sont dans la classe « 15,0 mm » (ECC passe de 8 à 21).<br>
+          Médiane = <b>15,0 mm</b><br><br>
+          <b>c) Conformité :</b><br>
+          Tolérance : [14,7 ; 15,3]. Toutes les épaisseurs mesurées (de 14,8 à 15,2) sont dans cet intervalle.<br>
+          <b>Le lot est conforme.</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Un élève obtient les notes suivantes avec des coefficients différents :</p>
+        <table class="stat">
+          <tr><th>Matière</th><td>Maths</td><td>Français</td><td>Atelier</td><td>Sciences</td></tr>
+          <tr><th>Note</th><td>12</td><td>14</td><td>16</td><td>10</td></tr>
+          <tr><th>Coefficient</th><td>3</td><td>2</td><td>5</td><td>2</td></tr>
+        </table>
+        <p class="exo-q">Quelle est la moyenne pondérée de cet élève ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'C\'est la moyenne simple, pas la moyenne pondérée.')">A) 13</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 12,5</button>
+          <button class="qo" onclick="qcm(this,true,'(12×3 + 14×2 + 16×5 + 10×2) ÷ (3+2+5+2) = (36+28+80+20) ÷ 12 = 164 ÷ 12 ≈ 13,67.')">C) 13,67</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 14,2</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Deux équipes de sport mesurent leurs temps au 100 m (en secondes) :</p>
+        <table class="stat">
+          <tr><th>Équipe Rouge</th><td>12,5</td><td>13,1</td><td>12,8</td><td>12,9</td><td>13,2</td></tr>
+          <tr><th>Équipe Bleue</th><td>11,8</td><td>14,0</td><td>12,0</td><td>13,5</td><td>13,2</td></tr>
+        </table>
+        <p class="exo-q">a) Quelle équipe a la meilleure moyenne ? &nbsp; b) Quelle équipe est la plus homogène ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Équipe Rouge :</b><br>
+          Moyenne : \(\dfrac{12{,}5 + 13{,}1 + 12{,}8 + 12{,}9 + 13{,}2}{5} = \dfrac{64{,}5}{5} = \mathbf{12{,}9}\) s<br>
+          Étendue : \(13{,}2 - 12{,}5 = \mathbf{0{,}7}\) s<br><br>
+          <b>Équipe Bleue :</b><br>
+          Moyenne : \(\dfrac{11{,}8 + 14{,}0 + 12{,}0 + 13{,}5 + 13{,}2}{5} = \dfrac{64{,}5}{5} = \mathbf{12{,}9}\) s<br>
+          Étendue : \(14{,}0 - 11{,}8 = \mathbf{2{,}2}\) s<br><br>
+          a) Les deux équipes ont la <b>même moyenne</b> (12,9 s).<br>
+          b) L'<b>Équipe Rouge est plus homogène</b> : son étendue (0,7 s) est bien inférieure à celle de l'Équipe Bleue (2,2 s).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
+        a) Moyenne pondérée : valeurs 10 et 15 avec coefficients 4 et 6 ? &nbsp;&nbsp; b) Série : 7 ; 7 ; 8 ; 9 ; 9 ; 10. Médiane ? &nbsp;&nbsp; c) Étendue de 102 ; 98 ; 105 ; 100 ; 97 ? &nbsp;&nbsp; d) Un lot de vis a une moyenne de 25 mm et une étendue de 0,2 mm. Le lot est-il régulier ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(\dfrac{10 \times 4 + 15 \times 6}{4 + 6} = \dfrac{40 + 90}{10} = \dfrac{130}{10} = \mathbf{13}\)<br>
+          b) 6 valeurs : moyenne des 3ᵉ et 4ᵉ : \(\dfrac{8 + 9}{2} = \mathbf{8{,}5}\)<br>
+          c) \(105 - 97 = \mathbf{8}\)<br>
+          d) <b>Oui</b>, le lot est très régulier : l'étendue (0,2 mm) est très faible par rapport à la moyenne (25 mm), ce qui indique une bonne homogénéité de fabrication.
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function qcm(btn, ok, expl) {
+  const opts = btn.closest('.qcm-opts');
+  opts.querySelectorAll('.qo').forEach(b => { b.disabled = true; });
+  const fb = opts.nextElementSibling;
+  if (ok) { btn.classList.add('ok'); fb.className = 'fb ok'; fb.textContent = '✓ Correct ! ' + (expl || ''); }
+  else { btn.classList.add('ko'); fb.className = 'fb ko'; fb.textContent = '✗ Incorrect. ' + (expl || ''); }
+}
+</script>
+<script src="../nav.js"></script>
+</body>
+</html>

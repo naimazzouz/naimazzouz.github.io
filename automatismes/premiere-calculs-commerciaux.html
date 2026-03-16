@@ -38,8 +38,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#4338ca;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -93,7 +93,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 6 €</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 30 €</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -104,12 +104,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 2 030 €</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 2 003 €</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> On place 5 000 € à un taux annuel de 2 % pendant 6 mois. Calculer l'intérêt et la valeur acquise.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           6 mois = 0,5 an<br>
           \(I = C \times t \times n = 5\,000 \times 0{,}02 \times 0{,}5\)<br>
@@ -127,13 +127,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'t = I / (C × n) = 400 / (10 000 × 1) = 0,04 = 4 %.')">C) 4 %</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 40 %</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash calculs intérêts.<br>
         a) I pour C = 1 000 €, t = 5 %, n = 1 an &nbsp;&nbsp; b) Valeur acquise pour C = 3 000 €, I = 90 € &nbsp;&nbsp; c) I pour C = 4 000 €, t = 2 %, n = 3 ans &nbsp;&nbsp; d) t si C = 2 000 €, I = 100 €, n = 1 an</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(I = 1\,000 \times 0{,}05 \times 1 = \mathbf{50}\) €<br>
           b) VA = \(3\,000 + 90 = \mathbf{3\,090}\) €<br>
@@ -159,12 +159,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 1 440 €</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 800 €</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Un placement rapporte 150 € d'intérêts en 6 mois à un taux annuel de 3 %. Retrouver le capital placé.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           6 mois = 0,5 an<br>
           \(I = C \times t \times n\)<br>
@@ -184,7 +184,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'n = I / (C × t) = 750 / (6 000 × 0,05) = 750 / 300 = 2,5 ans.')">C) 2,5 ans</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 3 ans</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -192,7 +192,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
         – Placement A : 5 000 € à 3 % pendant 2 ans<br>
         – Placement B : 4 000 € à 4 % pendant 2 ans<br>
         Lequel rapporte le plus ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>Placement A :</b> \(I_A = 5\,000 \times 0{,}03 \times 2 = 300\) €<br>
           <b>Placement B :</b> \(I_B = 4\,000 \times 0{,}04 \times 2 = 320\) €<br><br>
@@ -204,7 +204,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash.<br>
         a) I pour C = 12 000 €, t = 2,5 %, n = 1 an &nbsp;&nbsp; b) VA pour C = 7 000 €, t = 3 %, n = 2 ans &nbsp;&nbsp; c) n si C = 5 000 €, t = 4 %, I = 400 €</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(I = 12\,000 \times 0{,}025 \times 1 = \mathbf{300}\) €<br>
           b) \(I = 7\,000 \times 0{,}03 \times 2 = 420\) € → VA = \(7\,000 + 420 = \mathbf{7\,420}\) €<br>
@@ -229,12 +229,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 180 €</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 22,50 €</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Un fournisseur propose un escompte commercial : une facture de 10 000 € payée 60 jours avant l'échéance bénéficie d'un escompte au taux de 6 % par an. Calculer le montant de l'escompte et le prix net à payer.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>Escompte :</b><br>
           \(E = \text{Valeur nominale} \times t \times \frac{j}{360}\)<br>
@@ -255,7 +255,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 3 225 €</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 3 067,50 €</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -263,7 +263,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
         – Placement A : 15 000 € à 2 % pendant 18 mois<br>
         – Placement B : 15 000 € à 3 % pendant 10 mois<br>
         Quel placement produit le plus d'intérêts ? Lequel offre le meilleur rendement mensuel ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>Placement A :</b><br>
           \(I_A = 15\,000 \times 0{,}02 \times \frac{18}{12} = 15\,000 \times 0{,}02 \times 1{,}5 = \mathbf{450}\) €<br>
@@ -280,7 +280,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash mélanges.<br>
         a) Agios : découvert 2 000 € pendant 10 jours à 9 %/an (base 360) &nbsp;&nbsp; b) I pour 6 000 € à 1,5 % pendant 8 mois &nbsp;&nbsp; c) VA pour 20 000 € à 3,5 % pendant 1 an</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(I = 2\,000 \times 0{,}09 \times \frac{10}{360} = \mathbf{5}\) €<br>
           b) \(I = 6\,000 \times 0{,}015 \times \frac{8}{12} = 6\,000 \times 0{,}015 \times 0{,}6\overline{6} = \mathbf{60}\) €<br>

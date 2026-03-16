@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Automatismes sur les suites numériques pour Première Bac Pro – suites arithmétiques, géométriques, raison, terme général. QCM et exercices corrigés.">
+<title>Automatismes – Suites numériques – Première Bac Pro</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--p:#7c3aed;--s:#2f855a;--d:#5b21b6;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.7}
+.c{max-width:860px;margin:auto;background:#fff;padding:30px 35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:26px;padding-bottom:14px}
+.surtitre{margin:0 0 4px;color:#718096;font-size:.85em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
+.sous-titre{margin:0;color:#718096;font-size:.88em}
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:#5b21b6;text-decoration:none;font-size:.83em;font-weight:700;padding:5px 11px;border-radius:6px;background:#f5f0ff;border:1px solid #c4b5fd;transition:.15s}
+.nav-haut a:hover{background:#ede9fe}
+.fml{background:#faf5ff;border:1.5px solid var(--p);border-radius:8px;padding:12px 18px;margin:14px 0;font-size:.94em}
+.fml-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px}
+@media(max-width:560px){.fml-grid{grid-template-columns:1fr}}
+.fml-row{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:5px 0;border-bottom:1px solid #c4b5fd;align-items:center;font-size:.93em}
+.fml-row:last-child{border-bottom:none}
+.fml-f{font-weight:600;color:#5b21b6}
+.fml-df{color:#1e40af}
+.alerte{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9em}
+.bloc-niveau{border:2px solid #e2e8f0;border-radius:10px;margin:22px 0;overflow:hidden}
+.bloc-niveau-header{padding:11px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1em;border-bottom:1px solid #e2e8f0}
+.n1 .bloc-niveau-header{background:#d1fae5;color:#065f46;border-bottom-color:#a7f3d0}
+.n2 .bloc-niveau-header{background:#dbeafe;color:#1e40af;border-bottom-color:#93c5fd}
+.n3 .bloc-niveau-header{background:#f3e8ff;color:#6d28d9;border-bottom-color:#d8b4fe}
+.bloc-niveau-body{padding:16px 18px}
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;margin:10px 0}
+.exo-q{margin:0 0 8px;font-weight:600;font-size:.97em}
+.exo-q .num{color:var(--p);margin-right:4px}
+details{margin-top:6px}
+details summary{cursor:pointer;color:#5b21b6;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
+.corr b{color:#065f46}
+.qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.qo{padding:6px 16px;border-radius:6px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9em;transition:.15s;font-family:inherit}
+.qo:hover:not(:disabled){border-color:var(--p);background:#faf5ff}
+.qo.ok{background:#d1fae5;border-color:var(--s);color:#065f46;font-weight:700}
+.qo.ko{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+.qo:disabled{cursor:default}
+.fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
+.fb.ok{color:var(--s)}.fb.ko{color:#dc2626}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="index.html">← Automatismes</a>
+    <a href="../maths-1ere-pro.html">↗ Maths 1ère</a>
+  </nav>
+
+  <header>
+    <p class="surtitre">⚡ Automatismes – Première Bac Pro</p>
+    <h1>📈 Suites numériques</h1>
+    <p class="sous-titre">Mise à jour : 16 mars 2026</p>
+  </header>
+
+  <div class="alerte">
+    <strong>Objectif :</strong> Reconnaître et manipuler les suites arithmétiques et géométriques — calculer un terme, trouver la raison, modéliser une situation.
+  </div>
+
+  <div class="fml">
+    <strong>📋 Formulaire</strong>
+    <div class="fml-grid" style="margin-top:10px">
+      <div class="fml-row"><span class="fml-f">Suite arithmétique</span><span class="fml-df">\(u_n = u_0 + n \times r\)</span></div>
+      <div class="fml-row"><span class="fml-f">Suite géométrique</span><span class="fml-df">\(u_n = u_0 \times q^n\)</span></div>
+      <div class="fml-row"><span class="fml-f">Somme arithmétique</span><span class="fml-df">\(S = n \times \dfrac{\text{premier} + \text{dernier}}{2}\)</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 1 ═══ -->
+  <div class="bloc-niveau n1">
+    <div class="bloc-niveau-header">🟢 Niveau 1 — Bases</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> La suite \((u_n)\) est définie par : \(u_0 = 3\), \(u_1 = 7\), \(u_2 = 11\), \(u_3 = 15\). Cette suite est-elle arithmétique ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,true,'On vérifie : 7−3 = 4, 11−7 = 4, 15−11 = 4. La différence est constante, donc la suite est arithmétique de raison r = 4.')">A) Oui, de raison \(r = 4\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) Oui, de raison \(r = 3\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) Non, ce n\'est pas arithmétique</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) Oui, de raison \(r = 7\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Une suite arithmétique a pour premier terme \(u_0 = 5\) et pour raison \(r = 3\). Quel est le terme \(u_1\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(u_1 = 3\)</button>
+          <button class="qo" onclick="qcm(this,true,'u₁ = u₀ + r = 5 + 3 = 8.')">B) \(u_1 = 8\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(u_1 = 15\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(u_1 = 2\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> On donne la suite : \(u_0 = 10\), \(u_1 = 6\), \(u_2 = 2\), \(u_3 = -2\). Quelle est la raison \(r\) ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          On calcule la différence entre deux termes consécutifs :<br>
+          \(u_1 - u_0 = 6 - 10 = -4\)<br>
+          \(u_2 - u_1 = 2 - 6 = -4\)<br>
+          \(u_3 - u_2 = -2 - 2 = -4\)<br>
+          La différence est constante, donc la suite est arithmétique.<br>
+          <b>La raison est \(r = -4\).</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Une suite arithmétique a pour premier terme \(u_0 = 2\) et pour raison \(r = 5\). Calculer \(u_4\).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(u_4 = 10\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) \(u_4 = 20\)</button>
+          <button class="qo" onclick="qcm(this,true,'u₄ = u₀ + 4 × r = 2 + 4 × 5 = 2 + 20 = 22.')">C) \(u_4 = 22\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(u_4 = 25\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash calculs — Suite arithmétique \(u_0 = 1\), \(r = 6\).<br>
+        a) \(u_1 = ?\) &nbsp;&nbsp; b) \(u_2 = ?\) &nbsp;&nbsp; c) \(u_3 = ?\) &nbsp;&nbsp; d) \(u_{10} = ?\)</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          Formule : \(u_n = u_0 + n \times r = 1 + 6n\)<br>
+          a) \(u_1 = 1 + 6 \times 1 = \mathbf{7}\)<br>
+          b) \(u_2 = 1 + 6 \times 2 = \mathbf{13}\)<br>
+          c) \(u_3 = 1 + 6 \times 3 = \mathbf{19}\)<br>
+          d) \(u_{10} = 1 + 6 \times 10 = \mathbf{61}\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 2 ═══ -->
+  <div class="bloc-niveau n2">
+    <div class="bloc-niveau-header">🔵 Niveau 2 — Entraînement</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Une suite arithmétique vérifie \(u_0 = -3\) et \(r = 4\). Quelle est l'expression de \(u_n\) en fonction de \(n\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(u_n = 4n\)</button>
+          <button class="qo" onclick="qcm(this,true,'u_n = u_0 + n × r = −3 + 4n.')">B) \(u_n = -3 + 4n\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(u_n = -3 \times 4n\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(u_n = 4n + 3\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Calculer la somme des 6 premiers termes de la suite arithmétique : \(2\;;\;5\;;\;8\;;\;11\;;\;14\;;\;17\).</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          On utilise la formule : \(S = n \times \dfrac{\text{premier} + \text{dernier}}{2}\)<br><br>
+          Ici, \(n = 6\) termes, premier terme = 2, dernier terme = 17 :<br>
+          \(S = 6 \times \dfrac{2 + 17}{2} = 6 \times \dfrac{19}{2} = 6 \times 9{,}5\)<br>
+          <b>\(S = 57\)</b><br><br>
+          Vérification : \(2 + 5 + 8 + 11 + 14 + 17 = 57\) ✓
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> La suite \((v_n)\) est définie par : \(v_0 = 3\), \(v_1 = 6\), \(v_2 = 12\), \(v_3 = 24\). Cette suite est-elle géométrique ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) Non</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) Oui, de raison \(q = 3\)</button>
+          <button class="qo" onclick="qcm(this,true,'On vérifie : 6/3 = 2, 12/6 = 2, 24/12 = 2. Le rapport est constant, donc la suite est géométrique de raison q = 2.')">C) Oui, de raison \(q = 2\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) Oui, de raison \(q = 6\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Une suite géométrique a pour premier terme \(v_0 = 5\) et pour raison \(q = 3\). Calculer \(v_3\).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(v_3 = 45\)</button>
+          <button class="qo" onclick="qcm(this,true,'v₃ = v₀ × q³ = 5 × 3³ = 5 × 27 = 135.')">B) \(v_3 = 135\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(v_3 = 15\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(v_3 = 125\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash suites — Identifier le type et la raison de chaque suite.<br>
+        a) \(4\;;\;7\;;\;10\;;\;13\) &nbsp;&nbsp; b) \(2\;;\;10\;;\;50\;;\;250\) &nbsp;&nbsp; c) \(100\;;\;90\;;\;80\;;\;70\)</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) Différences : \(7-4=3\), \(10-7=3\), \(13-10=3\) → <b>arithmétique, \(r = 3\)</b><br>
+          b) Rapports : \(10/2=5\), \(50/10=5\), \(250/50=5\) → <b>géométrique, \(q = 5\)</b><br>
+          c) Différences : \(90-100=-10\), \(80-90=-10\), \(70-80=-10\) → <b>arithmétique, \(r = -10\)</b>
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 3 ═══ -->
+  <div class="bloc-niveau n3">
+    <div class="bloc-niveau-header">🟣 Niveau 3 — Automatisation</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Un menuisier agenceur fabrique des étagères. La première semaine, il en produit 8. Chaque semaine, il en produit 3 de plus que la semaine précédente. Combien d'étagères produit-il la 6<sup>e</sup> semaine ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 20</button>
+          <button class="qo" onclick="qcm(this,true,'Suite arithmétique : u₀ = 8, r = 3. On cherche u₅ (la 6e semaine correspond à n = 5). u₅ = 8 + 5 × 3 = 8 + 15 = 23.')">B) 23</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 26</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 18</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Un installateur thermique facture un forfait de 200 € la première année d'entretien d'une chaudière. Chaque année, le tarif augmente de 15 €. Modéliser cette situation par une suite et calculer le tarif la 10<sup>e</sup> année.</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          On note \(u_n\) le tarif l'année \(n\), avec \(n = 0\) pour la 1<sup>re</sup> année.<br><br>
+          <b>Modèle :</b> Suite arithmétique avec \(u_0 = 200\) et \(r = 15\).<br>
+          Terme général : \(u_n = 200 + 15n\)<br><br>
+          <b>Tarif la 10<sup>e</sup> année</b> (c'est \(u_9\), car la 1<sup>re</sup> année est \(u_0\)) :<br>
+          \(u_9 = 200 + 15 \times 9 = 200 + 135\)<br>
+          <b>\(u_9 = 335\) €</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Un artisan menuisier achète une machine à 12 000 €. Sa valeur perd 20 % chaque année. Quelle est la valeur de la machine après 3 ans ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 6 000 €</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 7 200 €</button>
+          <button class="qo" onclick="qcm(this,true,'Perdre 20 % revient à multiplier par 0,8. Suite géométrique : v₀ = 12 000, q = 0,8. v₃ = 12 000 × 0,8³ = 12 000 × 0,512 = 6 144 €.')">C) 6 144 €</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 4 800 €</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Un technicien chauffagiste installe des radiateurs dans un immeuble. Il pose 4 radiateurs le 1<sup>er</sup> jour, puis 2 de plus chaque jour. Au bout de combien de jours aura-t-il posé au moins 50 radiateurs au total ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          Nombre de radiateurs posés le jour \(n\) (en partant de \(n = 0\)) :<br>
+          \(u_n = 4 + 2n\) &nbsp; (suite arithmétique, \(u_0 = 4\), \(r = 2\))<br><br>
+          Nombre total après \(n+1\) jours (somme des \(n+1\) premiers termes) :<br>
+          \(S = (n+1) \times \dfrac{u_0 + u_n}{2} = (n+1) \times \dfrac{4 + (4 + 2n)}{2} = (n+1) \times \dfrac{8 + 2n}{2}\)<br>
+          \(S = (n+1)(4 + n)\)<br><br>
+          On cherche \(n\) tel que \((n+1)(n+4) \geq 50\) :<br>
+          Pour \(n = 5\) : \(6 \times 9 = 54 \geq 50\) ✓<br>
+          Pour \(n = 4\) : \(5 \times 8 = 40 < 50\) ✗<br><br>
+          <b>Il faut 6 jours</b> (jours 0 à 5) pour poser au moins 50 radiateurs (54 exactement).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash problèmes.<br>
+        a) Suite arithmétique : \(u_0 = 50\), \(r = -8\). À quel rang \(n\) a-t-on \(u_n = 2\) ?<br>
+        b) Suite géométrique : \(v_0 = 1\,000\), \(q = 0{,}5\). Calculer \(v_4\).<br>
+        c) Somme des 5 premiers termes de la suite \(3\;;\;7\;;\;11\;;\;15\;;\;19\).</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(u_n = 50 + n \times (-8) = 50 - 8n\)<br>
+          \(50 - 8n = 2 \Rightarrow 8n = 48 \Rightarrow n = \mathbf{6}\)<br><br>
+          b) \(v_4 = 1\,000 \times 0{,}5^4 = 1\,000 \times 0{,}0625 = \mathbf{62{,}5}\)<br><br>
+          c) \(S = 5 \times \dfrac{3 + 19}{2} = 5 \times 11 = \mathbf{55}\)<br>
+          Vérification : \(3 + 7 + 11 + 15 + 19 = 55\) ✓
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function qcm(btn, ok, expl) {
+  const opts = btn.closest('.qcm-opts');
+  opts.querySelectorAll('.qo').forEach(b => { b.disabled = true; });
+  const fb = opts.nextElementSibling;
+  if (ok) { btn.classList.add('ok'); fb.className = 'fb ok'; fb.textContent = '✓ Correct ! ' + (expl || ''); }
+  else { btn.classList.add('ko'); fb.className = 'fb ko'; fb.textContent = '✗ Incorrect. ' + (expl || ''); }
+}
+</script>
+<script src="../nav.js"></script>
+</body>
+</html>

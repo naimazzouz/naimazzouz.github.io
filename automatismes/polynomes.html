@@ -33,8 +33,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#92400e;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -93,7 +93,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Forme ax²+bx+c : coefficient de x² est 2, de x est −3, constante est 5.')">C) a=2, b=−3, c=5</button>
           <button class="qo" onclick="qcm(this,false,'')">D) a=−3, b=2, c=5</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -104,7 +104,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Δ = (−5)² − 4×1×4 = 25 − 16 = 9')">C) Δ = 9</button>
           <button class="qo" onclick="qcm(this,false,'')">D) Δ = −9</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -115,7 +115,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Δ > 0 ⟹ deux solutions distinctes.')">C) Deux solutions distinctes</button>
           <button class="qo" onclick="qcm(this,false,'')">D) Trois solutions</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -141,13 +141,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">B) Une seule (Δ = 0)</button>
           <button class="qo" onclick="qcm(this,true,'La courbe coupe l\'axe en deux points distincts → deux solutions.')">C) Deux solutions (Δ &gt; 0)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : calculer Δ pour chaque trinôme.<br>
         a) \(x^2 - 4x + 4\) &nbsp;&nbsp; b) \(x^2 + x + 1\) &nbsp;&nbsp; c) \(2x^2 - 6x + 4\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(\Delta = (-4)^2 - 4 \times 1 \times 4 = 16 - 16 = \mathbf{0}\) → une racine double<br>
           b) \(\Delta = 1^2 - 4 \times 1 \times 1 = 1 - 4 = \mathbf{-3}\) → pas de racine réelle<br>
@@ -167,7 +167,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q1.</span> Résoudre \(x^2 - 5x + 4 = 0\).<br>
         On a vu que \(\Delta = 9\). Calculer \(x_1\) et \(x_2\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(\sqrt{\Delta} = \sqrt{9} = 3\)<br>
           \(x_1 = \dfrac{-(-5) - 3}{2 \times 1} = \dfrac{5-3}{2} = \dfrac{2}{2} = \mathbf{1}\)<br>
@@ -184,12 +184,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Δ = 0 → racine double x₀ = −(−4)/(2×1) = 2')">B) Une racine double : x₀ = 2</button>
           <button class="qo" onclick="qcm(this,false,'Δ = 0 ≥ 0, il y a bien une solution.')">C) Pas de solution réelle</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Les racines d'un trinôme sont \(x_1 = -3\) et \(x_2 = 5\), avec \(a = 1\). Écrire la forme factorisée.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Forme factorisée : \(f(x) = a(x - x_1)(x - x_2)\)<br>
           \(f(x) = 1 \times (x - (-3))(x - 5)\)<br>
@@ -206,12 +206,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">B) Δ = 0, une solution</button>
           <button class="qo" onclick="qcm(this,true,'Δ = 2²−4×1×5 = 4−20 = −16 < 0 : pas de racine réelle.')">C) Δ = −16, aucune solution</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> La parabole \(f(x) = 2(x-1)(x+3)\) coupe l'axe des x en quels points ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           La forme factorisée permet de lire directement les racines :<br>
           \(f(x) = 0 \Leftrightarrow (x - 1) = 0\) ou \((x + 3) = 0\)<br>
@@ -231,7 +231,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q1.</span> Résoudre complètement \(3x^2 - 6x + 3 = 0\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a=3, b=−6, c=3<br>
           \(\Delta = (-6)^2 - 4 \times 3 \times 3 = 36 - 36 = 0\)<br>
@@ -244,7 +244,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Flash-calcul : pour chaque trinôme, donner sans calcul détaillé le nombre de solutions (0, 1 ou 2).<br>
         a) \(x^2 - 10x + 25\) &nbsp; b) \(x^2 + x - 6\) &nbsp; c) \(x^2 + 4\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(\Delta = 100 - 100 = 0\) → <b>1 solution</b> (racine double x₀ = 5)<br>
           b) \(\Delta = 1 + 24 = 25 > 0\) → <b>2 solutions</b> (x₁ = 2, x₂ = −3)<br>
@@ -255,7 +255,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Résoudre \(2x^2 + 5x - 3 = 0\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a=2, b=5, c=−3<br>
           \(\Delta = 25 + 24 = 49\), \(\sqrt{\Delta} = 7\)<br>
@@ -268,7 +268,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Une entreprise modélise son bénéfice par \(B(x) = -x^2 + 8x - 12\) où x est la quantité (en centaines) vendue. Pour quelles valeurs de x le bénéfice est-il nul ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a=−1, b=8, c=−12<br>
           \(\Delta = 64 - 48 = 16\), \(\sqrt{\Delta} = 4\)<br>
@@ -288,7 +288,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'(x+1)(x−6) = x²−5x−6 ≠ x²−x−6')">C) (x + 1)(x − 6)</button>
           <button class="qo" onclick="qcm(this,true,'(x+2)(x−3) = x²−3x+2x−6 = x²−x−6 ✓')">D) (x + 2)(x − 3)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
     </div>

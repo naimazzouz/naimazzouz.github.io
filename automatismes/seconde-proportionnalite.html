@@ -32,8 +32,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#155e75;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -85,7 +85,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'10,80 € serait le prix de 6 kg.')">C) 10,80 €</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 7,20 €</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -96,12 +96,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 16 cm</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,16 m</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Un article coûte 45 € et augmente de 20 %. Quel est le nouveau prix ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Augmentation : \(45 \times \dfrac{20}{100} = 45 \times 0{,}2 = 9\) €<br>
           Nouveau prix : \(45 + 9 = \mathbf{54}\) <b>€</b>
@@ -117,13 +117,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 12</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 8</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) 2 kg coûtent 6 €. Prix de 7 kg ? &nbsp;&nbsp; b) \(f(x) = x^2\), \(f(-3)\) = ? &nbsp;&nbsp; c) 30 % de 60 ? &nbsp;&nbsp; d) Échelle 1/100, 5 cm sur le plan = ? m</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) Prix au kg : 6 ÷ 2 = 3 €. Pour 7 kg : 3 × 7 = <b>21 €</b><br>
           b) \(f(-3) = (-3)^2 = \mathbf{9}\)<br>
@@ -149,12 +149,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Réduction : 60 − 45 = 15 €. Taux : 15 ÷ 60 = 0,25 = 25 %.')">C) 25 %</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 33 %</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Soit \(f(x) = 3x - 2\). Trouver \(x\) tel que \(f(x) = 7\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           On résout \(3x - 2 = 7\)<br>
           \(3x = 9\)<br>
@@ -172,12 +172,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 4</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 8</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Un plan est à l'échelle 1/200. Un salon mesure 3,5 cm × 2 cm sur le plan. Quelles sont les dimensions réelles ? Quelle est l'aire réelle ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Longueur réelle : \(3{,}5 \times 200 = 700\) cm = <b>7 m</b><br>
           Largeur réelle : \(2 \times 200 = 400\) cm = <b>4 m</b><br>
@@ -189,7 +189,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) \(f(x) = -2x + 5\). \(f(0)\) = ? \(f(3)\) = ? &nbsp;&nbsp; b) 4<sup>e</sup> proportionnelle : \(\dfrac{3}{x} = \dfrac{5}{20}\) &nbsp;&nbsp; c) Remise de 30 % sur 85 € ? &nbsp;&nbsp; d) Coefficient directeur entre \(A(1\,;3)\) et \(B(4\,;9)\) ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(f(0) = -2 \times 0 + 5 = \mathbf{5}\) ; \(f(3) = -2 \times 3 + 5 = \mathbf{-1}\)<br>
           b) \(5x = 3 \times 20 = 60\) donc \(x = \mathbf{12}\)<br>
@@ -215,12 +215,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 199,80 €</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 190 €</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Le chiffre d'affaires d'une entreprise passe de 45 000 € à 52 000 €. Calculer le taux d'évolution.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Variation : \(52\,000 - 45\,000 = 7\,000\) €<br>
           Taux d'évolution : \(\dfrac{7\,000}{45\,000} \approx 0{,}1556\)<br>
@@ -237,12 +237,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(x = 1\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) Pas de solution</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Un peintre utilise 0,3 L de peinture par m². Le pot coûte 12 €/L. Il doit peindre un mur de 8 m². Combien de litres faut-il ? Quel est le prix total ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Volume nécessaire : \(0{,}3 \times 8 = \mathbf{2{,}4}\) <b>L</b><br>
           Prix total : \(2{,}4 \times 12 = \mathbf{28{,}80}\) <b>€</b>
@@ -253,7 +253,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) Deux augmentations successives de +10 % puis +10 % : équivaut à +? % au total &nbsp;&nbsp; b) \(f(x) = x^2 - 4\), résoudre \(f(x) = 0\) &nbsp;&nbsp; c) \(\dfrac{3}{8}\) en pourcentage ? &nbsp;&nbsp; d) Longueur réelle 6 m, échelle 1/150, taille sur le plan ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(1{,}1 \times 1{,}1 = 1{,}21\) soit <b>+21 %</b> (et non +20 %)<br>
           b) \(x^2 - 4 = 0 \Rightarrow x^2 = 4 \Rightarrow \mathbf{x = 2}\) ou \(\mathbf{x = -2}\)<br>

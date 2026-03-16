@@ -38,8 +38,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#5b21b6;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -93,7 +93,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(x = 7\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(x = 3\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -104,12 +104,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(x = -7\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(x = 7\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Résoudre l'inéquation \(4x - 3 < 9\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(4x - 3 < 9\)<br>
           \(4x < 9 + 3\)<br>
@@ -128,13 +128,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(x^2 + 8x + 8\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(2x + 8\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash équations simples.<br>
         a) \(5x = 20\) &nbsp;&nbsp; b) \(x + 7 = 3\) &nbsp;&nbsp; c) \(2x - 1 = 9\) &nbsp;&nbsp; d) \(-x = 6\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(x = 20 \div 5 = \mathbf{4}\)<br>
           b) \(x = 3 - 7 = \mathbf{-4}\)<br>
@@ -160,12 +160,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \((x - 3)^2\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(x(x - 9)\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Résoudre \(-5x + 2 \geq 12\). Attention à l'inversion du signe !</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(-5x + 2 \geq 12\)<br>
           \(-5x \geq 12 - 2\)<br>
@@ -185,12 +185,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'(x−2)(x+7) = x² + 7x − 2x − 14 = x² + 5x − 14.')">C) \(x^2 + 5x - 14\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(x^2 + 5x + 14\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Factoriser \(x^2 - 25\), puis résoudre \(x^2 - 25 = 0\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>Factorisation :</b> \(x^2 - 25 = x^2 - 5^2 = (x - 5)(x + 5)\)<br><br>
           <b>Résolution :</b> \((x - 5)(x + 5) = 0\)<br>
@@ -204,7 +204,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash développer + factoriser.<br>
         a) Développer \((x + 1)(x + 4)\) &nbsp;&nbsp; b) Factoriser \(x^2 - 16\) &nbsp;&nbsp; c) Développer \((x - 3)(x + 3)\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \((x+1)(x+4) = x^2 + 4x + x + 4 = \mathbf{x^2 + 5x + 4}\)<br>
           b) \(x^2 - 16 = x^2 - 4^2 = \mathbf{(x-4)(x+4)}\)<br>
@@ -229,12 +229,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(x = 1{,}6\) m</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(x = 1{,}5\) m</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Résoudre simultanément : \(2x + 1 > 5\) et \(3x - 4 < 11\). Donner l'ensemble des solutions commun.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>Inéquation 1 :</b> \(2x + 1 > 5 \Rightarrow 2x > 4 \Rightarrow x > 2\)<br>
           <b>Inéquation 2 :</b> \(3x - 4 < 11 \Rightarrow 3x < 15 \Rightarrow x < 5\)<br><br>
@@ -252,12 +252,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'4x² = (2x)² et 9 = 3², donc 4x²−9 = (2x)²−3² = (2x−3)(2x+3).')">C) \((2x - 3)(2x + 3)\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \((x - 3)(4x + 3)\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Développer et réduire : \((3x - 2)(x + 4) - (x^2 + 5x)\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>Étape 1 — Développer \((3x - 2)(x + 4)\) :</b><br>
           \(= 3x \times x + 3x \times 4 - 2 \times x - 2 \times 4\)<br>
@@ -274,7 +274,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash mélanges.<br>
         a) Résoudre \(7x - 3 = 18\) &nbsp;&nbsp; b) Factoriser \(x^2 - 49\) &nbsp;&nbsp; c) Développer \((x + 6)(x - 6)\) &nbsp;&nbsp; d) Résoudre \(-3x > 12\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(7x = 21\), \(x = \mathbf{3}\)<br>
           b) \(x^2 - 49 = x^2 - 7^2 = \mathbf{(x-7)(x+7)}\)<br>

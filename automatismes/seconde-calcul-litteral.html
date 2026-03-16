@@ -38,8 +38,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#7c3aed;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -93,7 +93,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(3x+8\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(8x\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -104,12 +104,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Le plus grand facteur commun est 6 : 6x + 18 = 6(x + 3).')">C) \(6(x+3)\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(2(3x+9)\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Réduire l'expression \(4x+3-2x+7\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           On regroupe les termes en \(x\) et les constantes :<br>
           \(4x - 2x + 3 + 7 = \mathbf{2x + 10}\)
@@ -125,13 +125,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(x = 30\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(x = 40\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : répondre mentalement.<br>
         a) Résoudre \(x+8=3\) &nbsp;&nbsp; b) Résoudre \(-3x=12\) &nbsp;&nbsp; c) Développer \(-2(3x-4)\) &nbsp;&nbsp; d) Factoriser \(x^2-5x\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(x = 3 - 8 = \mathbf{-5}\)<br>
           b) \(x = \dfrac{12}{-3} = \mathbf{-4}\)<br>
@@ -157,12 +157,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Si d = v × t, on divise par t : v = d / t.')">C) \(v = \dfrac{d}{t}\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(v = d \times t\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> On donne \(U = R \times I\) et \(P = U \times I\). Exprimer \(P\) en fonction de \(R\) et \(I\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           On remplace \(U\) par \(R \times I\) dans \(P = U \times I\) :<br>
           \(P = (R \times I) \times I = R \times I^2\)<br>
@@ -179,12 +179,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(x^2 + 5x - 6\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(x^2 - x - 6\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Résoudre \(3x + 7 = 2x - 5\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           On regroupe les termes en \(x\) d'un côté :<br>
           \(3x - 2x = -5 - 7\)<br>
@@ -197,7 +197,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : répondre mentalement.<br>
         a) Développer \(4(2x-1)\) &nbsp;&nbsp; b) Factoriser \(12x-8\) &nbsp;&nbsp; c) Réduire \(3x^2+2x-x^2+5x\) &nbsp;&nbsp; d) Résoudre \(7x=-21\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(4\times 2x + 4\times(-1) = \mathbf{8x - 4}\)<br>
           b) Facteur commun 4 : \(\mathbf{4(3x - 2)}\)<br>
@@ -223,12 +223,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(3x = L - 10\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(4x = L - 10\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> La formule du périmètre d'un rectangle est \(P = 2(L + l)\).<br>a) Exprimer \(L\) en fonction de \(P\) et \(l\).<br>b) Application : \(P = 48\) cm et \(l = 10\) cm. Trouver \(L\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>a)</b> \(P = 2(L + l)\)<br>
           \(\dfrac{P}{2} = L + l\)<br>
@@ -247,12 +247,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'Factorisation incomplète : x n\'est pas le plus grand facteur commun.')">C) \(x(3x + 9)\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(9x(x + 1)\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Un chauffagiste utilise la formule \(P = m \times c \times \Delta T\) pour calculer l'énergie nécessaire au chauffage de l'eau.<br>Données : \(m = 50\) kg, \(c = 4\,180\) J/(kg·°C), \(\Delta T = 30\)°C.<br>a) Calculer \(P\).<br>b) Exprimer \(\Delta T\) en fonction de \(P\), \(m\) et \(c\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>a)</b> \(P = 50 \times 4\,180 \times 30\)<br>
           \(P = 50 \times 125\,400 = \mathbf{6\,270\,000\text{ J}} = 6{,}27\text{ MJ}\)<br><br>
@@ -266,7 +266,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul : répondre rapidement.<br>
         a) Résoudre \(5(x-2) = 3x+4\) &nbsp;&nbsp; b) Développer et réduire \((2x+1)(x-3)\) &nbsp;&nbsp; c) Factoriser \(15x^2-10x\) &nbsp;&nbsp; d) Si \(A = \pi r^2\), exprimer \(r\)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>a)</b> \(5x - 10 = 3x + 4\) → \(2x = 14\) → \(\mathbf{x = 7}\)<br>
           <b>b)</b> \(2x^2 - 6x + x - 3 = \mathbf{2x^2 - 5x - 3}\)<br>

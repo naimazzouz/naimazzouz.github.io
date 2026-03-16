@@ -69,6 +69,13 @@ header p{margin:0;opacity:.85;font-size:.95em}
 .th-geom1{border-color:#d8b4fe}.th-geom1 h3{color:#5b21b6}.th-geom1 a{background:#5b21b6}
 .th-comm{border-color:#f0abfc}.th-comm h3{color:#a21caf}.th-comm a{background:#a21caf}
 
+/* Couleurs par thème – Première (ajouts) */
+.th-suit1{border-color:#c4b5fd}.th-suit1 h3{color:#7c3aed}.th-suit1 a{background:#7c3aed}
+.th-deriv1{border-color:#ddd6fe}.th-deriv1 h3{color:#6d28d9}.th-deriv1 a{background:#6d28d9}
+
+/* Couleurs par thème – Seconde (ajout) */
+.th-stat2{border-color:#bfdbfe}.th-stat2 h3{color:#1e40af}.th-stat2 a{background:#1e40af}
+
 /* Couleurs par thème – Terminale */
 .th-proba{border-color:#bae6fd}.th-proba h3{color:#0284c7}.th-proba a{background:#0284c7}
 .th-suites{border-color:#bbf7d0}.th-suites h3{color:#16a34a}.th-suites a{background:#16a34a}
@@ -76,6 +83,8 @@ header p{margin:0;opacity:.85;font-size:.95em}
 .th-deriv{border-color:#fecaca}.th-deriv h3{color:#dc2626}.th-deriv a{background:#dc2626}
 .th-vect{border-color:#e9d5ff}.th-vect h3{color:#7c3aed}.th-vect a{background:#7c3aed}
 .th-explog{border-color:#a5f3fc}.th-explog h3{color:#0e7490}.th-explog a{background:#0e7490}
+.th-trigo{border-color:#c7d2fe}.th-trigo h3{color:#4338ca}.th-trigo a{background:#4338ca}
+.th-integ{border-color:#fde68a}.th-integ h3{color:#b45309}.th-integ a{background:#b45309}
 
 /* Badges niveaux */
 .niveaux{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;margin-bottom:10px}
@@ -133,7 +142,7 @@ header p{margin:0;opacity:.85;font-size:.95em}
 
   <!-- ==================== SECONDE ==================== -->
   <div class="tab-content active" id="content-seconde">
-    <h2 class="section-title" style="color:#0056b3;border-color:#0056b3">Les 5 thèmes – Seconde</h2>
+    <h2 class="section-title" style="color:#0056b3;border-color:#0056b3">Les 6 thèmes – Seconde</h2>
     <div class="grid">
 
       <div class="card th-calc">
@@ -206,12 +215,26 @@ header p{margin:0;opacity:.85;font-size:.95em}
         <a href="seconde-geometrie.html">S'entraîner →</a>
       </div>
 
+      <div class="card th-stat2">
+        <div>
+          <div class="card-icon">📊</div>
+          <h3>Statistiques</h3>
+          <p>Calculer moyenne, médiane, étendue, lire un diagramme et interpréter des séries statistiques.</p>
+          <div class="niveaux">
+            <span class="nbadge n1">Bases</span>
+            <span class="nbadge n2">Entraînement</span>
+            <span class="nbadge n3">Automatisation</span>
+          </div>
+        </div>
+        <a href="seconde-statistiques.html">S'entraîner →</a>
+      </div>
+
     </div>
   </div>
 
   <!-- ==================== PREMIERE ==================== -->
   <div class="tab-content" id="content-premiere">
-    <h2 class="section-title" style="color:#7c3aed;border-color:#7c3aed">Les 5 thèmes – Première</h2>
+    <h2 class="section-title" style="color:#7c3aed;border-color:#7c3aed">Les 7 thèmes – Première</h2>
     <div class="grid">
 
       <div class="card th-stat1">
@@ -284,12 +307,40 @@ header p{margin:0;opacity:.85;font-size:.95em}
         <a href="premiere-calculs-commerciaux.html">S'entraîner →</a>
       </div>
 
+      <div class="card th-suit1">
+        <div>
+          <div class="card-icon">📈</div>
+          <h3>Suites numériques</h3>
+          <p>Reconnaître et calculer les termes d'une suite arithmétique ou géométrique, trouver la raison et le terme général.</p>
+          <div class="niveaux">
+            <span class="nbadge n1">Bases</span>
+            <span class="nbadge n2">Entraînement</span>
+            <span class="nbadge n3">Automatisation</span>
+          </div>
+        </div>
+        <a href="premiere-suites.html">S'entraîner →</a>
+      </div>
+
+      <div class="card th-deriv1">
+        <div>
+          <div class="card-icon">📉</div>
+          <h3>Dérivation</h3>
+          <p>Calculer un taux de variation, un nombre dérivé, l'équation d'une tangente et étudier les variations.</p>
+          <div class="niveaux">
+            <span class="nbadge n1">Bases</span>
+            <span class="nbadge n2">Entraînement</span>
+            <span class="nbadge n3">Automatisation</span>
+          </div>
+        </div>
+        <a href="premiere-derivation.html">S'entraîner →</a>
+      </div>
+
     </div>
   </div>
 
   <!-- ==================== TERMINALE ==================== -->
   <div class="tab-content" id="content-terminale">
-    <h2 class="section-title" style="color:#0969da;border-color:#0969da">Les 6 thèmes – Terminale</h2>
+    <h2 class="section-title" style="color:#0969da;border-color:#0969da">Les 8 thèmes – Terminale</h2>
     <div class="grid">
 
       <div class="card th-proba">
@@ -374,6 +425,34 @@ header p{margin:0;opacity:.85;font-size:.95em}
           </div>
         </div>
         <a href="terminale-exp-log.html">S'entraîner →</a>
+      </div>
+
+      <div class="card th-trigo">
+        <div>
+          <div class="card-icon">📐</div>
+          <h3>Trigonométrie</h3>
+          <p>Convertir degrés/radians, valeurs remarquables de cos et sin, cercle trigonométrique, résoudre des équations.</p>
+          <div class="niveaux">
+            <span class="nbadge n1">Bases</span>
+            <span class="nbadge n2">Entraînement</span>
+            <span class="nbadge n3">Automatisation</span>
+          </div>
+        </div>
+        <a href="terminale-trigonometrie.html">S'entraîner →</a>
+      </div>
+
+      <div class="card th-integ">
+        <div>
+          <div class="card-icon">∫</div>
+          <h3>Calcul intégral</h3>
+          <p>Trouver une primitive, calculer une intégrale définie, interpréter géométriquement une aire sous la courbe.</p>
+          <div class="niveaux">
+            <span class="nbadge n1">Bases</span>
+            <span class="nbadge n2">Entraînement</span>
+            <span class="nbadge n3">Automatisation</span>
+          </div>
+        </div>
+        <a href="terminale-integration.html">S'entraîner →</a>
       </div>
 
     </div>
