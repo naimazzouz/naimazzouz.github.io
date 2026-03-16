@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Automatismes de dérivation pour Première Bac Pro – nombre dérivé, tangente, taux de variation. QCM et exercices corrigés.">
+<title>Automatismes – Dérivation – Première Bac Pro</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+:root{--p:#7c3aed;--s:#2f855a;--d:#5b21b6;--o:#d97706;--t:#2d3748}
+body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:var(--t);margin:0;padding:20px;line-height:1.7}
+.c{max-width:860px;margin:auto;background:#fff;padding:30px 35px;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+header{text-align:center;border-bottom:3px solid var(--p);margin-bottom:26px;padding-bottom:14px}
+.surtitre{margin:0 0 4px;color:#718096;font-size:.85em;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
+.sous-titre{margin:0;color:#718096;font-size:.88em}
+.nav-haut{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.nav-haut a{color:#5b21b6;text-decoration:none;font-size:.83em;font-weight:700;padding:5px 11px;border-radius:6px;background:#f5f0ff;border:1px solid #c4b5fd;transition:.15s}
+.nav-haut a:hover{background:#ede9fe}
+.fml{background:#faf5ff;border:1.5px solid var(--p);border-radius:8px;padding:12px 18px;margin:14px 0;font-size:.94em}
+.fml-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px}
+@media(max-width:560px){.fml-grid{grid-template-columns:1fr}}
+.fml-row{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:5px 0;border-bottom:1px solid #c4b5fd;align-items:center;font-size:.93em}
+.fml-row:last-child{border-bottom:none}
+.fml-f{font-weight:600;color:#5b21b6}
+.fml-df{color:#1e40af}
+.alerte{background:#fffbeb;border-left:4px solid var(--o);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9em}
+.bloc-niveau{border:2px solid #e2e8f0;border-radius:10px;margin:22px 0;overflow:hidden}
+.bloc-niveau-header{padding:11px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:1em;border-bottom:1px solid #e2e8f0}
+.n1 .bloc-niveau-header{background:#d1fae5;color:#065f46;border-bottom-color:#a7f3d0}
+.n2 .bloc-niveau-header{background:#dbeafe;color:#1e40af;border-bottom-color:#93c5fd}
+.n3 .bloc-niveau-header{background:#f3e8ff;color:#6d28d9;border-bottom-color:#d8b4fe}
+.bloc-niveau-body{padding:16px 18px}
+.exo{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:13px 16px;margin:10px 0}
+.exo-q{margin:0 0 8px;font-weight:600;font-size:.97em}
+.exo-q .num{color:var(--p);margin-right:4px}
+details{margin-top:6px}
+details summary{cursor:pointer;color:#5b21b6;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
+.corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
+.corr b{color:#065f46}
+.qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.qo{padding:6px 16px;border-radius:6px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9em;transition:.15s;font-family:inherit}
+.qo:hover:not(:disabled){border-color:var(--p);background:#faf5ff}
+.qo.ok{background:#d1fae5;border-color:var(--s);color:#065f46;font-weight:700}
+.qo.ko{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+.qo:disabled{cursor:default}
+.fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
+.fb.ok{color:var(--s)}.fb.ko{color:#dc2626}
+</style>
+</head>
+<body>
+<div class="c">
+
+  <nav class="nav-haut">
+    <a href="index.html">← Automatismes</a>
+    <a href="../maths-1ere-pro.html">↗ Maths 1ère</a>
+  </nav>
+
+  <header>
+    <p class="surtitre">⚡ Automatismes – Première Bac Pro</p>
+    <h1>📉 Dérivation</h1>
+    <p class="sous-titre">Mise à jour : 16 mars 2026</p>
+  </header>
+
+  <div class="alerte">
+    <strong>Objectif :</strong> Calculer un taux de variation, déterminer un nombre dérivé, écrire l'équation d'une tangente et exploiter le signe de la dérivée.
+  </div>
+
+  <div class="fml">
+    <strong>📋 Formulaire</strong>
+    <div class="fml-grid" style="margin-top:10px">
+      <div class="fml-row"><span class="fml-f">Taux de variation</span><span class="fml-df">\(\dfrac{f(b)-f(a)}{b-a}\)</span></div>
+      <div class="fml-row"><span class="fml-f">Nombre dérivé</span><span class="fml-df">\(f'(a) = \displaystyle\lim_{h \to 0}\dfrac{f(a+h)-f(a)}{h}\)</span></div>
+      <div class="fml-row"><span class="fml-f">Tangente en \(a\)</span><span class="fml-df">\(y = f'(a)(x - a) + f(a)\)</span></div>
+      <div class="fml-row"><span class="fml-f">\((x^2)' = 2x\)</span><span class="fml-df">\((ax + b)' = a\)</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 1 ═══ -->
+  <div class="bloc-niveau n1">
+    <div class="bloc-niveau-header">🟢 Niveau 1 — Bases</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Soit \(f(x) = x^2\). Calculer le taux de variation de \(f\) entre \(x = 1\) et \(x = 3\).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(2\)</button>
+          <button class="qo" onclick="qcm(this,true,'\\(\\frac{f(3)-f(1)}{3-1} = \\frac{9-1}{2} = \\frac{8}{2} = 4\\).')">B) \(4\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(8\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(6\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Sur le graphique d'une fonction \(f\), la tangente au point d'abscisse \(a = 2\) a un coefficient directeur de \(5\). Que vaut \(f'(2)\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(f'(2) = 2\)</button>
+          <button class="qo" onclick="qcm(this,true,'Le nombre dérivé f\'(a) est le coefficient directeur de la tangente au point d\'abscisse a.')">B) \(f'(2) = 5\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(f'(2) = 10\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) On ne peut pas savoir</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Le nombre dérivé \(f'(a)\) correspond géométriquement à :</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) L'ordonnée du point</button>
+          <button class="qo" onclick="qcm(this,true,'f\'(a) est le coefficient directeur (la pente) de la tangente à la courbe au point d\'abscisse a.')">B) La pente de la tangente</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) L'aire sous la courbe</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) La distance à l'origine</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Soit \(f(x) = 3x + 7\). Quelle est la dérivée \(f'(x)\) ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,true,'Pour f(x) = ax + b, on a f\'(x) = a. Ici a = 3.')">A) \(f'(x) = 3\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) \(f'(x) = 7\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 3x\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = 10\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash taux de variation.<br>
+        Calculer le taux de variation de chaque fonction entre les valeurs indiquées.<br>
+        a) \(f(x) = 2x + 1\) entre \(x = 0\) et \(x = 4\) &nbsp;&nbsp;
+        b) \(g(x) = x^2\) entre \(x = 2\) et \(x = 5\) &nbsp;&nbsp;
+        c) \(h(x) = -x + 6\) entre \(x = 1\) et \(x = 3\)</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(\dfrac{f(4)-f(0)}{4-0} = \dfrac{9-1}{4} = \dfrac{8}{4} = \mathbf{2}\)<br><br>
+          b) \(\dfrac{g(5)-g(2)}{5-2} = \dfrac{25-4}{3} = \dfrac{21}{3} = \mathbf{7}\)<br><br>
+          c) \(\dfrac{h(3)-h(1)}{3-1} = \dfrac{3-5}{2} = \dfrac{-2}{2} = \mathbf{-1}\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 2 ═══ -->
+  <div class="bloc-niveau n2">
+    <div class="bloc-niveau-header">🔵 Niveau 2 — Entraînement</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Soit \(f(x) = x^2 - 3x + 2\). Calculer \(f'(x)\).</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(f'(x) = x^2 - 3\)</button>
+          <button class="qo" onclick="qcm(this,true,'On dérive terme à terme : (x²)\' = 2x, (-3x)\' = -3, (2)\' = 0. Donc f\'(x) = 2x - 3.')">B) \(f'(x) = 2x - 3\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) \(f'(x) = 2x + 2\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(f'(x) = 2x - 1\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Soit \(f(x) = x^2 + 4x\). Calculer \(f'(2)\).</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Étape 1 — Dériver :</b> \(f'(x) = 2x + 4\)<br><br>
+          <b>Étape 2 — Remplacer \(x\) par 2 :</b><br>
+          \(f'(2) = 2 \times 2 + 4 = 4 + 4 = \mathbf{8}\)<br><br>
+          Le coefficient directeur de la tangente à la courbe au point d'abscisse 2 vaut 8.
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Soit \(f(x) = x^2 - 2x + 5\). Déterminer l'équation de la tangente à la courbe au point d'abscisse \(a = 3\).</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Étape 1 — Calculer \(f(3)\) :</b><br>
+          \(f(3) = 9 - 6 + 5 = 8\)<br><br>
+          <b>Étape 2 — Calculer \(f'(x)\) puis \(f'(3)\) :</b><br>
+          \(f'(x) = 2x - 2\)<br>
+          \(f'(3) = 6 - 2 = 4\)<br><br>
+          <b>Étape 3 — Appliquer la formule \(y = f'(a)(x-a) + f(a)\) :</b><br>
+          \(y = 4(x - 3) + 8\)<br>
+          \(y = 4x - 12 + 8\)<br>
+          <b>\(y = 4x - 4\)</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Soit \(f(x) = -x^2 + 6x\). On sait que \(f'(x) = -2x + 6\). Pour quelle valeur de \(x\) la tangente est-elle horizontale ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) \(x = -3\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) \(x = 6\)</button>
+          <button class="qo" onclick="qcm(this,true,'Tangente horizontale ⇔ f\'(x) = 0. On résout -2x + 6 = 0, soit 2x = 6, donc x = 3.')">C) \(x = 3\)</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) \(x = 0\)</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash dérivées.<br>
+        Donner la dérivée de chaque fonction.<br>
+        a) \(f(x) = 5x - 8\) &nbsp;&nbsp;
+        b) \(g(x) = x^2 + x\) &nbsp;&nbsp;
+        c) \(h(x) = -3x^2 + 4x - 1\)</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(f'(x) = \mathbf{5}\)<br><br>
+          b) \(g'(x) = 2x + 1 = \mathbf{2x + 1}\)<br><br>
+          c) \(h'(x) = -3 \times 2x + 4 = \mathbf{-6x + 4}\)
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ NIVEAU 3 ═══ -->
+  <div class="bloc-niveau n3">
+    <div class="bloc-niveau-header">🟣 Niveau 3 — Automatisation</div>
+    <div class="bloc-niveau-body">
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q1.</span> Un menuisier agenceur fabrique des étagères. Le coût de production (en euros) pour \(x\) étagères est modélisé par \(C(x) = 2x^2 - 20x + 80\) pour \(1 \leq x \leq 12\). Déterminer le nombre d'étagères qui minimise le coût.</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 4 étagères</button>
+          <button class="qo" onclick="qcm(this,true,'C\'(x) = 4x − 20. On résout C\'(x) = 0 : 4x = 20, x = 5. C\'(x) < 0 pour x < 5 et C\'(x) > 0 pour x > 5 → minimum en x = 5.')">B) 5 étagères</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 6 étagères</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 10 étagères</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q2.</span> Soit \(f(x) = x^2 - 6x + 5\) et \(f'(x) = 2x - 6\). Étudier le signe de \(f'(x)\) et en déduire les variations de \(f\) sur \([0\;;\;8]\).</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Signe de \(f'(x) = 2x - 6\) :</b><br>
+          \(f'(x) = 0 \Leftrightarrow 2x - 6 = 0 \Leftrightarrow x = 3\)<br>
+          \(f'(x) < 0\) pour \(x < 3\) (la fonction décroît)<br>
+          \(f'(x) > 0\) pour \(x > 3\) (la fonction croît)<br><br>
+          <b>Tableau de variations :</b><br>
+          \(f\) est <b>décroissante</b> sur \([0\;;\;3]\) et <b>croissante</b> sur \([3\;;\;8]\).<br><br>
+          <b>Minimum :</b> \(f(3) = 9 - 18 + 5 = -4\).<br>
+          La fonction admet un <b>minimum de \(-4\)</b> en \(x = 3\).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q3.</span> Un installateur thermique étudie la température \(T\) (en °C) d'un local après la mise en route du chauffage. On modélise : \(T(t) = -t^2 + 10t + 15\) où \(t\) est le temps en heures (\(0 \leq t \leq 10\)). Au bout de combien de temps la température atteint-elle son maximum ? Quelle est cette température ?</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Étape 1 — Dériver :</b> \(T'(t) = -2t + 10\)<br><br>
+          <b>Étape 2 — Résoudre \(T'(t) = 0\) :</b><br>
+          \(-2t + 10 = 0 \Rightarrow t = 5\)<br><br>
+          <b>Étape 3 — Vérifier le signe de \(T'(t)\) :</b><br>
+          \(T'(t) > 0\) pour \(t < 5\) → \(T\) croissante<br>
+          \(T'(t) < 0\) pour \(t > 5\) → \(T\) décroissante<br>
+          Donc \(t = 5\) correspond bien à un <b>maximum</b>.<br><br>
+          <b>Étape 4 — Calculer la température maximale :</b><br>
+          \(T(5) = -25 + 50 + 15 = \mathbf{40\,°C}\)<br><br>
+          La température maximale est de <b>40 °C</b>, atteinte au bout de <b>5 heures</b>.
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q4.</span> Soit \(f(x) = -2x^2 + 8x + 1\). Déterminer l'équation de la tangente au point d'abscisse \(a = 1\), puis vérifier que cette tangente passe par le point \((0\;;\;5)\).</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          <b>Étape 1 — \(f(1)\) :</b> \(f(1) = -2 + 8 + 1 = 7\)<br><br>
+          <b>Étape 2 — \(f'(x)\) puis \(f'(1)\) :</b><br>
+          \(f'(x) = -4x + 8\)<br>
+          \(f'(1) = -4 + 8 = 4\)<br><br>
+          <b>Étape 3 — Équation de la tangente :</b><br>
+          \(y = f'(1)(x - 1) + f(1) = 4(x - 1) + 7 = 4x - 4 + 7\)<br>
+          <b>\(y = 4x + 3\)</b><br><br>
+          <b>Vérification :</b> pour \(x = 0\), \(y = 4 \times 0 + 3 = 3 \neq 5\).<br>
+          La tangente <b>ne passe pas</b> par le point \((0\;;\;5)\) mais par \((0\;;\;3)\).
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q5.</span> Flash variations et extremums.<br>
+        Pour chaque fonction, donner \(f'(x)\), trouver la valeur de \(x\) où \(f'(x) = 0\), et préciser s'il s'agit d'un minimum ou d'un maximum.<br>
+        a) \(f(x) = x^2 - 4x + 7\) &nbsp;&nbsp;
+        b) \(g(x) = -x^2 + 2x + 3\) &nbsp;&nbsp;
+        c) \(h(x) = 3x^2 + 6x - 1\)</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(f'(x) = 2x - 4\). \(f'(x) = 0 \Rightarrow x = \mathbf{2}\).<br>
+          \(f'(x) < 0\) pour \(x < 2\), \(f'(x) > 0\) pour \(x > 2\) → <b>minimum</b> en \(x = 2\), \(f(2) = 4 - 8 + 7 = 3\).<br><br>
+          b) \(g'(x) = -2x + 2\). \(g'(x) = 0 \Rightarrow x = \mathbf{1}\).<br>
+          \(g'(x) > 0\) pour \(x < 1\), \(g'(x) < 0\) pour \(x > 1\) → <b>maximum</b> en \(x = 1\), \(g(1) = -1 + 2 + 3 = 4\).<br><br>
+          c) \(h'(x) = 6x + 6\). \(h'(x) = 0 \Rightarrow x = \mathbf{-1}\).<br>
+          \(h'(x) < 0\) pour \(x < -1\), \(h'(x) > 0\) pour \(x > -1\) → <b>minimum</b> en \(x = -1\), \(h(-1) = 3 - 6 - 1 = -4\).
+        </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function qcm(btn, ok, expl) {
+  const opts = btn.closest('.qcm-opts');
+  opts.querySelectorAll('.qo').forEach(b => { b.disabled = true; });
+  const fb = opts.nextElementSibling;
+  if (ok) { btn.classList.add('ok'); fb.className = 'fb ok'; fb.textContent = '✓ Correct ! ' + (expl || ''); }
+  else { btn.classList.add('ko'); fb.className = 'fb ko'; fb.textContent = '✗ Incorrect. ' + (expl || ''); }
+}
+</script>
+<script src="../nav.js"></script>
+</body>
+</html>

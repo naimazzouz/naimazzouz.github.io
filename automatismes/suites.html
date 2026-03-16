@@ -34,8 +34,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:var(--p);font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -93,7 +93,7 @@ th{background:#eef2f7;font-weight:700}
           <button class="qo" onclick="qcm(this,true,'u₁ = u₀ + r = 5 + 3 = 8')">C) 8</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 15</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -104,12 +104,12 @@ th{background:#eef2f7;font-weight:700}
           <button class="qo" onclick="qcm(this,true,'5−2=3, 8−5=3, 11−8=3. La différence est constante : r = 3.')">C) Oui, r = 3</button>
           <button class="qo" onclick="qcm(this,false,'')">D) Oui, r = 5</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Suite arithmétique : \(u_0 = 10\), \(r = -2\). Écrire les 4 premiers termes : \(u_0, u_1, u_2, u_3\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(u_0 = 10\)<br>
           \(u_1 = 10 + (-2) = 8\)<br>
@@ -128,7 +128,7 @@ th{background:#eef2f7;font-weight:700}
           <button class="qo" onclick="qcm(this,true,'u₅ = 3 + 5 × 4 = 3 + 20 = 23')">C) 23</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 27</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -139,7 +139,7 @@ th{background:#eef2f7;font-weight:700}
           <button class="qo" onclick="qcm(this,false,'r = 0 donne une suite constante.')">C) Nulle</button>
           <button class="qo" onclick="qcm(this,false,'')">D) Quelconque</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -147,7 +147,7 @@ th{background:#eef2f7;font-weight:700}
         a) \(u_n = 2 + n \times 5\) → \(u_4\) = ?<br>
         b) \(u_n = 100 - 3n\) → \(u_{10}\) = ?<br>
         c) \(u_0 = 7, r = 6\) → \(u_3\) = ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(u_4 = 2 + 4 \times 5 = 2 + 20 = \mathbf{22}\)<br>
           b) \(u_{10} = 100 - 3 \times 10 = 100 - 30 = \mathbf{70}\)<br>
@@ -166,7 +166,7 @@ th{background:#eef2f7;font-weight:700}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q1.</span> Un ouvrier gagne 1 500 € en janvier. Son salaire augmente de 80 € par mois. Quel sera son salaire en juillet (mois n°6) ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Suite arithmétique : \(u_0 = 1500\) (janvier = mois 0), \(r = 80\)<br>
           Juillet = mois 6 : \(u_6 = 1500 + 6 \times 80 = 1500 + 480 = \mathbf{1\,980\ €}\)
@@ -181,7 +181,7 @@ th{background:#eef2f7;font-weight:700}
           <tr><th>\(u_n\)</th><td>6</td><td>10</td><td>14</td><td>18</td><td>22</td></tr>
         </table>
         <p style="margin:6px 0 4px;font-size:.92em;">Si oui, donner \(u_0\) et la raison r. Puis calculer \(u_{20}\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Différences : 10−6 = 4 ; 14−10 = 4 ; etc. → <b>Suite arithmétique, r = 4, u₀ = 6</b><br>
           \(u_{20} = 6 + 20 \times 4 = 6 + 80 = \mathbf{86}\)
@@ -197,12 +197,12 @@ th{background:#eef2f7;font-weight:700}
           <button class="qo" onclick="qcm(this,false,'')">C) n = 50</button>
           <button class="qo" onclick="qcm(this,false,'')">D) n = 45</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Une suite arithmétique vérifie \(u_3 = 19\) et \(u_4 = 23\). Trouver la raison r et \(u_0\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(r = u_4 - u_3 = 23 - 19 = \mathbf{4}\)<br>
           On remonte : \(u_0 = u_3 - 3r = 19 - 3 \times 4 = 19 - 12 = \mathbf{7}\)<br>
@@ -213,7 +213,7 @@ th{background:#eef2f7;font-weight:700}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Interpréter : la suite \(u_n = 200 + 15n\) représente le nombre de km parcourus après n semaines. Quel est le sens physique de 200 ? De 15 ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           <b>200</b> = \(u_0\) = km parcourus au départ (semaine 0), avant de commencer à compter.<br>
           <b>15</b> = raison r = km parcourus <em>par semaine</em> (augmentation constante).<br>
@@ -232,7 +232,7 @@ th{background:#eef2f7;font-weight:700}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q1.</span> Thomas économise 50 € le 1er mois, puis augmente son épargne de 20 € par mois. Combien aura-t-il économisé au total sur 6 mois (mois 1 à 6) ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Termes : \(u_1 = 50, u_2 = 70, \ldots, u_6 = 50 + 5 \times 20 = 150\)<br>
           Somme 6 termes : \(S = 6 \times \dfrac{u_1 + u_6}{2} = 6 \times \dfrac{50 + 150}{2} = 6 \times 100 = \mathbf{600\ €}\)
@@ -248,12 +248,12 @@ th{background:#eef2f7;font-weight:700}
           <button class="qo" onclick="qcm(this,false,'')">C) 10</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 50</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Une machine produit 120 pièces la 1re heure, puis augmente sa cadence de 8 pièces par heure. Combien de pièces produit-elle à la 10e heure ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(u_0 = 120\) (1re heure = rang 0), \(r = 8\)<br>
           10e heure = rang 9 : \(u_9 = 120 + 9 \times 8 = 120 + 72 = \mathbf{192}\) pièces
@@ -269,7 +269,7 @@ th{background:#eef2f7;font-weight:700}
           <button class="qo" onclick="qcm(this,false,'u_n = 5 − 3n est linéaire en n : c\'est arithmétique (r = −3).')">C) \(u_n = 5 - 3n\)</button>
           <button class="qo" onclick="qcm(this,false,'u_n = 100 est une suite constante : c\'est arithmétique (r = 0).')">D) \(u_n = 100\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -277,7 +277,7 @@ th{background:#eef2f7;font-weight:700}
         a) \(u_n = 3n + 7\) : valeur de \(u_{100}\) ?<br>
         b) Suite arithmétique décroissante avec \(u_0 = 500\) et \(r = -10\) : valeur de \(u_{50}\) ?<br>
         c) \(u_5 = 41\) et \(r = 7\) : valeur de \(u_6\) ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(u_{100} = 3 \times 100 + 7 = \mathbf{307}\)<br>
           b) \(u_{50} = 500 + 50 \times (-10) = 500 - 500 = \mathbf{0}\)<br>

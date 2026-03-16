@@ -32,8 +32,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#065f46;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -84,7 +84,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Aire = côté² = 7² = 49 cm².')">C) 49 cm²</button>
           <button class="qo" onclick="qcm(this,false,'343 serait le volume d\'un cube.')">D) 343 cm²</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -95,12 +95,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'Aire = L × ℓ = 5 × 3 = 15 m².')">C) 15 m²</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 30 m²</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Calculer l'aire d'un disque de rayon 4 cm (arrondir à l'unité).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(\mathcal{A} = \pi r^2 = \pi \times 4^2 = 16\pi \approx \mathbf{50}\) <b>cm²</b>
         </div>
@@ -115,13 +115,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) √7 cm</button>
           <button class="qo" onclick="qcm(this,false,'25 est c², pas c.')">D) 25 cm</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) Aire d'un triangle de base 10 cm et hauteur 6 cm &nbsp;&nbsp; b) \(\sqrt{169 - 25}\) &nbsp;&nbsp; c) Un carré a une aire de 64 cm² : côté ? &nbsp;&nbsp; d) Périmètre d'un disque de rayon 5 cm</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(\dfrac{10 \times 6}{2} = \mathbf{30}\) <b>cm²</b><br>
           b) \(\sqrt{169 - 25} = \sqrt{144} = \mathbf{12}\)<br>
@@ -147,12 +147,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 1,2</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 3,75</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Un triangle rectangle a une hypoténuse de 13 cm et un côté de 5 cm. Calculer l'autre côté, puis l'aire du triangle.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(b^2 = 13^2 - 5^2 = 169 - 25 = 144\)<br>
           \(b = \sqrt{144} = \mathbf{12}\) <b>cm</b><br>
@@ -169,12 +169,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) ≈ 157 cm²</button>
           <button class="qo" onclick="qcm(this,false,'C\'est le périmètre du disque.')">D) ≈ 31,4 cm²</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Un escalier : chaque marche fait 17 cm de haut et 28 cm de profondeur. Calculer la longueur de la « pente » (hypoténuse d'une marche). Hauteur totale pour 14 marches ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Hypoténuse d'une marche : \(\sqrt{17^2 + 28^2} = \sqrt{289 + 784} = \sqrt{1073} \approx \mathbf{32{,}8}\) <b>cm</b><br>
           Hauteur totale : \(14 \times 17 = \mathbf{238}\) <b>cm</b> = 2,38 m
@@ -185,7 +185,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) Diagonale d'un carré de côté 6 cm &nbsp;&nbsp; b) Thalès : \(\dfrac{4}{10} = \dfrac{x}{15}\) &nbsp;&nbsp; c) Aire d'un terrain en L : 8×12 + 5×4 &nbsp;&nbsp; d) Périmètre d'un triangle équilatéral de côté 9 cm</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(d = 6\sqrt{2} \approx \mathbf{8{,}49}\) <b>cm</b><br>
           b) \(x = \dfrac{4 \times 15}{10} = \mathbf{6}\)<br>
@@ -211,12 +211,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) √7 m</button>
           <button class="qo" onclick="qcm(this,false,'25 est c², pas c.')">D) 25 m</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Un terrain trapézoïdal a des bases de 12 m et 8 m, une hauteur de 6 m. Calculer son aire. Puis, sachant que les côtés obliques mesurent 7 m chacun, calculer le périmètre (clôture).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Aire du trapèze : \(\dfrac{(12 + 8) \times 6}{2} = \dfrac{20 \times 6}{2} = \mathbf{60}\) <b>m²</b><br>
           Périmètre : \(12 + 8 + 7 + 7 = \mathbf{34}\) <b>m</b>
@@ -232,12 +232,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 125 cm²</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 9 cm²</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Un tuyau a un rayon extérieur de 5 cm et un rayon intérieur de 3 cm. Calculer l'aire de la section (couronne circulaire).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Aire de la couronne : \(\pi R^2 - \pi r^2 = \pi(R^2 - r^2)\)<br>
           \(= \pi(5^2 - 3^2) = \pi(25 - 9) = 16\pi \approx \mathbf{50{,}3}\) <b>cm²</b>
@@ -248,7 +248,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) Diagonale d'un rectangle 9 × 12 &nbsp;&nbsp; b) Aire d'une couronne (\(R = 10\), \(r = 6\)) &nbsp;&nbsp; c) Pythagore : côtés 5 et 12, hypoténuse ? &nbsp;&nbsp; d) Hauteur d'un triangle équilatéral de côté 8 cm</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(\sqrt{9^2 + 12^2} = \sqrt{81 + 144} = \sqrt{225} = \mathbf{15}\)<br>
           b) \(\pi(10^2 - 6^2) = \pi(100 - 36) = 64\pi \approx \mathbf{201{,}1}\) <b>cm²</b><br>

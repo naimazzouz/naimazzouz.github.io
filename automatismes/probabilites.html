@@ -39,8 +39,8 @@ h2{font-size:1.1em;color:var(--p);border-left:4px solid var(--p);padding-left:10
 details{margin-top:6px}
 details summary{cursor:pointer;color:var(--p);font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 /* QCM */
@@ -102,7 +102,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,false,'3/6 serait la probabilité d\'obtenir un nombre ≤ 3.')">C) 3/6</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 1/2</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -113,12 +113,12 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,true,'P(Ā) = 1 − 0,35 = 0,65')">C) 0,65</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,5</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Dans une classe de 25 élèves, 10 portent des lunettes. Un élève est tiré au sort. Quelle est la probabilité qu'il porte des lunettes ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">\(P = \dfrac{10}{25} = \dfrac{2}{5} = 0{,}4\)<br>Il y a 10 cas favorables (portent des lunettes) sur 25 cas possibles (total élèves).</div>
         </details>
       </div>
@@ -131,12 +131,12 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,false,'')">C) 0,5</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 100</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> On tire une carte dans un jeu de 52 cartes. Quelle est la probabilité de tirer un as ? (Il y a 4 as dans le jeu.)</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">\(P(\text{as}) = \dfrac{4}{52} = \dfrac{1}{13} \approx 0{,}077\)<br>4 cas favorables (4 as) sur 52 cas possibles (52 cartes).</div>
         </details>
       </div>
@@ -149,7 +149,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,false,'')">C) 1,7</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,07</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
     </div>
@@ -162,7 +162,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q1.</span> P(A) = 0,4 et P(B) = 0,3. Les événements A et B sont <strong>incompatibles</strong>. Calculer P(A ∪ B).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">A et B incompatibles ⟹ \(P(A \cap B) = 0\)<br>\(P(A \cup B) = P(A) + P(B) = 0{,}4 + 0{,}3 = \mathbf{0{,}7}\)</div>
         </details>
       </div>
@@ -175,7 +175,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,true,'P(A∪B) = 0,6 + 0,5 − 0,2 = 0,9')">C) 0,9</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,7</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -187,7 +187,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <tr><td class="th-row">Total</td><td>60</td><td>40</td><td>100</td></tr>
         </table>
         <p style="margin:6px 0 4px;font-size:.92em;">a) P(Garçon) = ?&nbsp;&nbsp; b) P(Sport) = ?&nbsp;&nbsp; c) P(Garçon et Sport) = ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(P(\text{Garçon}) = \dfrac{45}{100} = 0{,}45\)<br>
           b) \(P(\text{Sport}) = \dfrac{60}{100} = 0{,}6\)<br>
@@ -198,7 +198,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Un sac contient 4 boules rouges, 3 bleues et 3 vertes. On tire une boule au hasard. Calculer P(rouge) et P(non rouge).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Total : 4 + 3 + 3 = 10 boules<br>
           \(P(\text{rouge}) = \dfrac{4}{10} = 0{,}4\)<br>
@@ -215,7 +215,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,false,'')">C) P(A ∪ B) = 1</button>
           <button class="qo" onclick="qcm(this,false,'')">D) P(A) × P(B) = 0</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -226,7 +226,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,true,'P(conforme) = 1 − P(défectueuse) = 1 − 0,03 = 0,97')">C) 0,97</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,3</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
     </div>
@@ -245,12 +245,12 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,false,'')">C) 0,65</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 3</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> P(A) = 0,6 et P(B|A) = 0,5. Calculer P(A ∩ B).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           On utilise la formule : \(P(A \cap B) = P(A) \times P(B|A)\)<br>
           \(P(A \cap B) = 0{,}6 \times 0{,}5 = \mathbf{0{,}3}\)
@@ -266,7 +266,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <tr><td class="th-row">Test négatif</td><td>5</td><td>45</td><td>50</td></tr>
           <tr><td class="th-row">Total</td><td>50</td><td>50</td><td>100</td></tr>
         </table>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           P(Positif | Malade) = probabilité d'être positif <em>parmi les malades</em><br>
           \(P(\text{Positif} | \text{Malade}) = \dfrac{P(\text{Positif} \cap \text{Malade})}{P(\text{Malade})} = \dfrac{45/100}{50/100} = \dfrac{45}{50} = 0{,}9\)<br>
@@ -283,12 +283,12 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
           <button class="qo" onclick="qcm(this,false,'')">C) 0,11</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 1,1</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> On tire une carte dans un jeu de 52 cartes. Événement A : cœur. Événement B : figure (valet, dame, roi). Calculer P(A), P(B) et P(A ∩ B). Sont-ils incompatibles ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Il y a 13 cœurs, 12 figures (4 × 3), 3 figures de cœur (valet, dame, roi de cœur).<br>
           \(P(A) = \dfrac{13}{52} = \dfrac{1}{4}\) &nbsp;|&nbsp; \(P(B) = \dfrac{12}{52} = \dfrac{3}{13}\) &nbsp;|&nbsp; \(P(A \cap B) = \dfrac{3}{52}\)<br>
@@ -300,7 +300,7 @@ td.th-row{font-weight:700;background:#f7fafc;text-align:left;padding-left:10px}
       <div class="exo">
         <p class="exo-q"><span class="num">Q6.</span> Flash-calcul : donnez immédiatement P(Ā) pour chaque valeur de P(A).<br>
         a) P(A) = 0,2 &nbsp;&nbsp; b) P(A) = 3/4 &nbsp;&nbsp; c) P(A) = 0,08 &nbsp;&nbsp; d) P(A) = 1</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(P(\bar{A}) = 1 - 0{,}2 = \mathbf{0{,}8}\)<br>
           b) \(P(\bar{A}) = 1 - \dfrac{3}{4} = \mathbf{\dfrac{1}{4}}\)<br>

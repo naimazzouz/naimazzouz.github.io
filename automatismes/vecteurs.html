@@ -33,8 +33,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#6d28d9;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -93,12 +93,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'AB = (4−1 ; 6−2) = (3 ; 4)')">C) \(\begin{pmatrix} 3 \\ 4 \end{pmatrix}\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(\begin{pmatrix} -3 \\ -4 \end{pmatrix}\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> \(\vec{u} = \begin{pmatrix} 2 \\ -1 \end{pmatrix}\) et \(\vec{v} = \begin{pmatrix} 3 \\ 5 \end{pmatrix}\). Calculer \(\vec{u} + \vec{v}\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(\vec{u} + \vec{v} = \begin{pmatrix} 2+3 \\ -1+5 \end{pmatrix} = \begin{pmatrix} 5 \\ 4 \end{pmatrix}\)
         </div>
@@ -113,7 +113,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'2×(3;−2) = (6;−4)')">C) \(\begin{pmatrix} 6 \\ -4 \end{pmatrix}\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(\begin{pmatrix} 9 \\ -4 \end{pmatrix}\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -124,7 +124,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(\begin{pmatrix} 3 \\ 4 \end{pmatrix}\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(\begin{pmatrix} 0 \\ 0 \end{pmatrix}\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -132,7 +132,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
         a) A(0 ; 0) et B(3 ; −2) : \(\overrightarrow{AB}\) = ?<br>
         b) M(5 ; 1) et N(2 ; 4) : \(\overrightarrow{MN}\) = ?<br>
         c) P(−1 ; 3) et Q(2 ; 3) : \(\overrightarrow{PQ}\) = ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(\overrightarrow{AB} = \begin{pmatrix} 3-0 \\ -2-0 \end{pmatrix} = \begin{pmatrix} 3 \\ -2 \end{pmatrix}\)<br>
           b) \(\overrightarrow{MN} = \begin{pmatrix} 2-5 \\ 4-1 \end{pmatrix} = \begin{pmatrix} -3 \\ 3 \end{pmatrix}\)<br>
@@ -157,7 +157,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) \(\overrightarrow{CA}\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(\vec{0}\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -168,12 +168,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'AB+BC = AC, puis AC+CA = AA = vecteur nul.')">C) \(\vec{0}\)</button>
           <button class="qo" onclick="qcm(this,false,'')">D) \(\overrightarrow{BC}\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> \(\vec{u} = \begin{pmatrix} 2 \\ 3 \end{pmatrix}\) et \(\vec{v} = \begin{pmatrix} -1 \\ 4 \end{pmatrix}\). Calculer \(\vec{u} - \vec{v}\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(\vec{u} - \vec{v} = \vec{u} + (-\vec{v}) = \begin{pmatrix} 2-(-1) \\ 3-4 \end{pmatrix} = \begin{pmatrix} 3 \\ -1 \end{pmatrix}\)
         </div>
@@ -182,7 +182,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> A(1 ; 2) et B(5 ; 8). Calculer \(\overrightarrow{AB}\), puis trouver le milieu I de [AB].</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(\overrightarrow{AB} = \begin{pmatrix} 5-1 \\ 8-2 \end{pmatrix} = \begin{pmatrix} 4 \\ 6 \end{pmatrix}\)<br>
           Milieu I : \(x_I = \dfrac{1+5}{2} = 3\) &nbsp; \(y_I = \dfrac{2+8}{2} = 5\)<br>
@@ -199,7 +199,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'||u|| = √(3²+4²) = √(9+16) = √25 = 5')">C) 5</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 25</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
     </div>
@@ -212,7 +212,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q1.</span> A(2 ; 1), B(6 ; 5), C(4 ; 3). Vérifier si A, B, C sont alignés en calculant \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(\overrightarrow{AB} = \begin{pmatrix} 4 \\ 4 \end{pmatrix}\) &nbsp; \(\overrightarrow{AC} = \begin{pmatrix} 2 \\ 2 \end{pmatrix}\)<br>
           On remarque que \(\overrightarrow{AC} = \dfrac{1}{2}\,\overrightarrow{AB}\)<br>
@@ -229,7 +229,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'Vérifier : −1/2 × 6 = −3 ✓ et −1/2 × (−4) = 2 ✓')">B) Non, ils ne sont pas colinéaires</button>
           <button class="qo" onclick="qcm(this,false,'')">C) Oui, \(\vec{v} = 2\,\vec{u}\)</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -237,7 +237,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
         a) \(\overrightarrow{MA} + \overrightarrow{AN}\)<br>
         b) \(\overrightarrow{PQ} + \overrightarrow{QR} + \overrightarrow{RS}\)<br>
         c) \(\overrightarrow{AB} - \overrightarrow{CB}\) (rappel : \(-\overrightarrow{CB} = \overrightarrow{BC}\))</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(\overrightarrow{MA} + \overrightarrow{AN} = \overrightarrow{MN}\)<br>
           b) \(\overrightarrow{PQ} + \overrightarrow{QR} + \overrightarrow{RS} = \overrightarrow{PS}\)<br>
@@ -248,7 +248,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> On connaît \(\overrightarrow{AB} = \begin{pmatrix} 4 \\ -2 \end{pmatrix}\) et A(1 ; 5). Trouver les coordonnées de B.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(\overrightarrow{AB} = \begin{pmatrix} x_B - x_A \\ y_B - y_A \end{pmatrix} = \begin{pmatrix} 4 \\ -2 \end{pmatrix}\)<br>
           \(x_B = x_A + 4 = 1 + 4 = 5\)<br>
@@ -260,7 +260,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> \(\vec{u} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}\) et \(\vec{v} = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\). Calculer \(2\vec{u} + 3\vec{v}\), puis sa norme.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(2\vec{u} = \begin{pmatrix} 2 \\ -4 \end{pmatrix}\) &nbsp; \(3\vec{v} = \begin{pmatrix} 9 \\ 3 \end{pmatrix}\)<br>
           \(2\vec{u} + 3\vec{v} = \begin{pmatrix} 2+9 \\ -4+3 \end{pmatrix} = \begin{pmatrix} 11 \\ -1 \end{pmatrix}\)<br>

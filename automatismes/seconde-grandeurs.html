@@ -32,8 +32,8 @@ h1{margin:0 0 5px;color:var(--p);font-size:1.55em}
 details{margin-top:6px}
 details summary{cursor:pointer;color:#92400e;font-size:.86em;font-weight:600;list-style:none;padding:3px 0;user-select:none}
 details summary::-webkit-details-marker{display:none}
-details summary::before{content:'▸ Voir la réponse'}
-details[open] summary::before{content:'▾ Masquer la réponse'}
+details summary{display:flex;align-items:center;gap:4px}details summary::before{content:'▸'}
+details[open] summary::before{content:'▾'}
 .corr{background:#f0fff4;border-left:4px solid var(--s);padding:9px 13px;border-radius:0 8px 8px 0;margin-top:8px;font-size:.91em;line-height:1.55}
 .corr b{color:#065f46}
 .qcm-opts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
@@ -85,7 +85,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 3 500</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,035</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
@@ -96,12 +96,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'1 m² = 10 000 cm², donc 2 m² = 20 000 cm².')">C) 20 000</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 200 000</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q3.</span> Convertir 5 000 cm³ en litres.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           \(1\,\text{L} = 1\,\text{dm}^3 = 1\,000\,\text{cm}^3\)<br>
           \(5\,000 \div 1\,000 = \mathbf{5}\) <b>L</b>
@@ -117,13 +117,13 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,true,'1 m = 1 000 mm, donc 1 850 ÷ 1 000 = 1,85 m.')">C) 1,85</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,185</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) 0,72 km en m &nbsp;&nbsp; b) 45 000 mm² en cm² &nbsp;&nbsp; c) 80 L en m³ &nbsp;&nbsp; d) 3,2 dm³ en L</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(0{,}72 \times 1\,000 = \mathbf{720}\) <b>m</b><br>
           b) \(45\,000 \div 100 = \mathbf{450}\) <b>cm²</b><br>
@@ -149,12 +149,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 15,4 m²</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 12 m²</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Un réservoir cylindrique a un rayon de 30 cm et une hauteur de 1,2 m. Quel est son volume en litres ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           On convertit tout en cm : \(r = 30\) cm, \(h = 120\) cm.<br>
           \(V = \pi r^2 h = \pi \times 30^2 \times 120 = \pi \times 108\,000 \approx 339\,292\) cm³<br>
@@ -171,12 +171,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 250</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 0,25</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Un panneau mesure 150 cm × 80 cm. Exprimer son aire en m², dm² et cm².</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Aire : \(150 \times 80 = \mathbf{12\,000}\) <b>cm²</b><br>
           En dm² : \(12\,000 \div 100 = \mathbf{120}\) <b>dm²</b><br>
@@ -188,7 +188,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) 4 500 mL en L &nbsp;&nbsp; b) 2,5 m³ en dm³ &nbsp;&nbsp; c) Périmètre d'un terrain 25 m × 40 m en km &nbsp;&nbsp; d) 7,2 t en kg</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(4\,500 \div 1\,000 = \mathbf{4{,}5}\) <b>L</b><br>
           b) \(2{,}5 \times 1\,000 = \mathbf{2\,500}\) <b>dm³</b><br>
@@ -214,12 +214,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 350</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 42</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q2.</span> Un tuyau a un diamètre intérieur de 22 mm et une longueur de 15 m. Quel volume d'eau peut-il contenir (en L) ?</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Rayon : \(r = 11\) mm = \(1{,}1\) cm<br>
           Longueur : \(15\) m = \(1\,500\) cm<br>
@@ -238,12 +238,12 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
           <button class="qo" onclick="qcm(this,false,'')">C) 0,126 L</button>
           <button class="qo" onclick="qcm(this,false,'')">D) 2,52 L</button>
         </div>
-        <p class="fb"></p>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
       <div class="exo">
         <p class="exo-q"><span class="num">Q4.</span> Une dalle de béton mesure 6 m × 4 m × 0,12 m. Calculer son volume en m³, en litres, puis sa masse sachant que la densité du béton est 2 400 kg/m³.</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           Volume : \(6 \times 4 \times 0{,}12 = \mathbf{2{,}88}\) <b>m³</b><br>
           En litres : \(2{,}88 \times 1\,000 = \mathbf{2\,880}\) <b>L</b><br>
@@ -255,7 +255,7 @@ details[open] summary::before{content:'▾ Masquer la réponse'}
       <div class="exo">
         <p class="exo-q"><span class="num">Q5.</span> Flash-calcul :<br>
         a) 15 ha en m² &nbsp;&nbsp; b) 0,5 cm³ en mm³ &nbsp;&nbsp; c) 1 200 g en kg &nbsp;&nbsp; d) 90 km/h en m/s</p>
-        <details><summary></summary>
+        <details><summary>Voir la réponse</summary>
         <div class="corr">
           a) \(1\,\text{ha} = 10\,000\,\text{m}^2\), donc \(15 \times 10\,000 = \mathbf{150\,000}\) <b>m²</b><br>
           b) \(1\,\text{cm}^3 = 1\,000\,\text{mm}^3\), donc \(0{,}5 \times 1\,000 = \mathbf{500}\) <b>mm³</b><br>
