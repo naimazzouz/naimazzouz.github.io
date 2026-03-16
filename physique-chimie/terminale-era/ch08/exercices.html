@@ -9,13 +9,7 @@
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9;--s-bg:#e0f2fe;--s-border:#7dd3fc}
-.methode{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:14px;margin:16px 0}
-.methode strong{color:#d97706}
-.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0}
-.attention strong{color:#be123c}
-
-.svg-container{text-align:center;margin:20px 0}
-.chart-container{max-width:620px;margin:20px auto}</style>
+</style>
 </head>
 <body>
 <div class="c">
@@ -53,7 +47,7 @@
 
 <!-- SCHEMA SVG -->
 <h2>Schéma – Affaiblissement acoustique d'une paroi</h2>
-<div class="svg-container">
+<div class="svg-wrap">
 <svg width="600" height="180" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma d'affaiblissement acoustique d'une paroi">
   <!-- Fond -->
   <rect x="0" y="0" width="600" height="180" fill="#f8fafc" rx="8"/>
@@ -95,7 +89,7 @@
 
 <!-- CHART MASSE / R -->
 <h2>Loi de masse – Évolution de R avec la masse surfacique</h2>
-<div class="chart-container">
+<div class="chart-wrap">
   <canvas id="chartSon" height="260"></canvas>
 </div>
 
@@ -230,7 +224,7 @@
   <p class="q"><strong>3.</strong> En déduire le niveau sonore \(L\) en dB.</p>
   <p class="q"><strong>4.</strong> Ce niveau sonore est-il supérieur au seuil réglementaire en atelier (85 dB) ?</p>
 
-  <div class="methode">
+  <div class="meth">
     <strong>Méthode – Calcul d'un niveau en dB :</strong>
     <ol style="margin:6px 0 0 0">
       <li>Calculer le rapport \(\dfrac{I}{I_0}\).</li>
@@ -265,7 +259,7 @@
   <p class="q"><strong>2.</strong> Calculer l'intensité sonore \(I\) en W/m².</p>
   <p class="q"><strong>3.</strong> Comparer cette intensité à celle de l'exercice 1 (\(I = 10^{-6} \text{ W/m}^2\)). L'atelier est-il beaucoup plus bruyant ?</p>
 
-  <div class="attention">
+  <div class="att">
     <strong>Attention :</strong> Les décibels ne sont PAS additifs linéairement ! 80 dB n'est pas "2 fois 40 dB". La relation est logarithmique : 80 dB correspond à une intensité 10 000 fois supérieure à 40 dB.
   </div>
 
@@ -326,7 +320,7 @@
   <p class="q"><strong>3.</strong> Quel \(R\) minimal faudrait-il pour respecter la réglementation ?</p>
   <p class="q"><strong>4.</strong> Citer deux matériaux pouvant constituer une paroi avec \(R > 40 \text{ dB}\).</p>
 
-  <div class="methode">
+  <div class="meth">
     <strong>Méthode – Isolation acoustique :</strong>
     <p style="margin:4px 0">Formule simplifiée : \(L_2 = L_1 - R\). Pour trouver le R nécessaire :
       \[ R_\text{min} = L_1 - L_\text{objectif} \]
@@ -395,7 +389,7 @@
   <p class="q"><strong>3.</strong> Proposer un matériau adapté pour les panneaux de la cabine. Donner ses caractéristiques.</p>
   <p class="q"><strong>4.</strong> La cabine doit avoir des ouvertures (ventilation, accès). Quel problème acoustique cela pose-t-il ? Comment y remédier ?</p>
 
-  <div class="methode">
+  <div class="meth">
     <strong>Méthode – Loi de masse (approximation) :</strong>
     <p style="margin:4px 0">En partant de \(R_0\) à \(m_{s0}\), pour atteindre \(R_\text{cible}\) :
       \[\Delta R = R_\text{cible} - R_0 = 6 \times \log_2\!\left(\frac{m_s}{m_{s0}}\right)\]
@@ -430,17 +424,17 @@
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 7</span>
-    <span class="exo-title">Efficacité des EPI auditifs</span>
+    <span class="exo-title">Efficacité des EPI auditifs en atelier bois</span>
     <span class="diff diff-3">Niveau 3</span>
   </div>
-  <p>Dans un atelier de mécanique, le niveau sonore mesuré est de \(L_\text{atelier} = 95 \text{ dB}\). Un technicien porte un casque anti-bruit dont l'indice SNR (Single Number Rating) est de 33 dB.</p>
+  <p>Dans un atelier de menuiserie, le niveau sonore mesuré à proximité d'une toupie en fonctionnement est de \(L_\text{atelier} = 95 \text{ dB}\). Un menuisier agenceur porte un casque anti-bruit dont l'indice SNR (Single Number Rating) est de 33 dB.</p>
   <p>Le SNR représente l'atténuation du casque dans des conditions normales. En pratique, on applique un facteur de déclassement : le niveau reçu est \(L_\text{reçu} = L_\text{atelier} - \dfrac{\text{SNR}}{2}\) (formule simplifiée INRS).</p>
-  <p class="q"><strong>1.</strong> Calculer le niveau sonore reçu par le technicien avec la formule simplifiée.</p>
+  <p class="q"><strong>1.</strong> Calculer le niveau sonore reçu par le menuisier avec la formule simplifiée.</p>
   <p class="q"><strong>2.</strong> Ce niveau est-il inférieur au seuil réglementaire de 85 dB ?</p>
-  <p class="q"><strong>3.</strong> Si le technicien porte le casque seulement 75 % du temps de travail, calculer le niveau d'exposition effectif. (Formule : \(L_\text{eff} = L_\text{reçu} + 10 \cdot \log\!\left(0{,}75 + 0{,}25 \times 10^{(L_\text{atelier}-L_\text{reçu})/10}\right)\))</p>
-  <p class="q"><strong>4.</strong> Quelles mesures collectives (non portées par l'individu) peut-on mettre en place pour réduire le bruit à la source ?</p>
+  <p class="q"><strong>3.</strong> Si le menuisier porte le casque seulement 75 % du temps de travail, calculer le niveau d'exposition effectif. (Formule : \(L_\text{eff} = L_\text{reçu} + 10 \cdot \log\!\left(0{,}75 + 0{,}25 \times 10^{(L_\text{atelier}-L_\text{reçu})/10}\right)\))</p>
+  <p class="q"><strong>4.</strong> Quelles mesures collectives (non portées par l'individu) peut-on mettre en place pour réduire le bruit à la source dans un atelier de menuiserie ?</p>
 
-  <div class="attention">
+  <div class="att">
     <strong>Attention :</strong> Les EPI (équipements de protection individuelle) sont un dernier recours, pas une solution prioritaire. La réglementation (Code du travail, art. R4152-2) impose d'abord de réduire le bruit à la source par des mesures collectives.
   </div>
 
@@ -455,31 +449,31 @@
       \[ = 78{,}5 + 10 \times 1{,}076 \approx \mathbf{89{,}3 \text{ dB}} \]
       En portant le casque seulement 75 % du temps, le niveau effectif dépasse 85 dB ! Le port doit être continu.
     </p>
-    <p><strong>4.</strong> Mesures collectives :
-      <br>• <strong>Encoffrement</strong> de la machine bruyante (cabine insonorisante).
-      <br>• <strong>Silencieux</strong> sur les échappements et circuits d'air comprimé.
-      <br>• <strong>Matériaux amortissants</strong> (plots antivibratoires sous les machines).
-      <br>• <strong>Cloisons absorbantes</strong> dans l'atelier pour réduire la réverbération.
-      <br>• <strong>Organisation du travail :</strong> rotation des postes, limitation du temps d'exposition.
+    <p><strong>4.</strong> Mesures collectives en atelier de menuiserie :
+      <br>• <strong>Encoffrement</strong> des machines bruyantes (toupie, dégauchisseuse, raboteuse).
+      <br>• <strong>Aspiration centralisée</strong> bien dimensionnée (réduit aussi le bruit des aspirateurs individuels).
+      <br>• <strong>Plots antivibratoires</strong> sous les machines pour limiter la transmission au sol.
+      <br>• <strong>Panneaux absorbants</strong> au plafond et sur les murs de l'atelier pour réduire la réverbération.
+      <br>• <strong>Organisation du travail :</strong> rotation des postes, limitation du temps d'exposition aux machines les plus bruyantes.
     </p>
   </div>
 </div>
 
 <!-- SECTION CONTEXTUALISEE ERA-MA -->
-<h2>Exercices contextualisés – Acoustique industrielle</h2>
+<h2>Exercices contextualisés – Acoustique en atelier bois</h2>
 
 <!-- EXERCICE 8 -->
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 8</span>
-    <span class="exo-title">Atelier de soudage robotisé – Actions correctives</span>
+    <span class="exo-title">Atelier de débit de panneaux – Actions correctives</span>
     <span class="diff diff-2">Niveau 2</span>
   </div>
-  <p>Un atelier de soudage robotisé a été mesuré à \(L = 88 \text{ dB}\). La valeur limite réglementaire pour une exposition journalière de 8h est de 85 dB (valeur limite d'exposition, Code du travail).</p>
+  <p>Un atelier de débit de panneaux équipé d'une scie à format a été mesuré à \(L = 88 \text{ dB}\). La valeur limite réglementaire pour une exposition journalière de 8h est de 85 dB (valeur limite d'exposition, Code du travail).</p>
   <p class="q"><strong>1.</strong> De combien de dB le niveau mesuré dépasse-t-il la valeur limite ?</p>
   <p class="q"><strong>2.</strong> Calculer le rapport des intensités correspondant à cet écart.</p>
-  <p class="q"><strong>3.</strong> Un capot acoustique est installé sur le robot de soudage. Quel \(R\) minimal doit-il avoir pour ramener le niveau à 85 dB ?</p>
-  <p class="q"><strong>4.</strong> En parallèle, l'employeur envisage une rotation des opérateurs : chaque opérateur passe 4h dans l'atelier bruyant (88 dB) et 4h en salle de contrôle (60 dB). Calculer le niveau d'exposition quotidien équivalent \(L_{eq}\) :
+  <p class="q"><strong>3.</strong> Un capot acoustique est installé sur la scie à format. Quel \(R\) minimal doit-il avoir pour ramener le niveau à 85 dB ?</p>
+  <p class="q"><strong>4.</strong> En parallèle, l'employeur envisage une rotation des postes : chaque menuisier passe 4h en zone de débit (88 dB) et 4h au bureau d'études ou en salle d'exposition (60 dB). Calculer le niveau d'exposition quotidien équivalent \(L_{eq}\) :
     \[ L_{eq} = 10 \cdot \log\!\left(\frac{t_1}{T} \cdot 10^{L_1/10} + \frac{t_2}{T} \cdot 10^{L_2/10}\right) \]
     avec \(T = 8 \text{ h}\), \(t_1 = 4 \text{ h}\), \(t_2 = 4 \text{ h}\).
   </p>
@@ -551,7 +545,7 @@
 </div><!-- fin diff-appro -->
 
 <!-- ENCADRES -->
-<div class="attention">
+<div class="att">
   <strong>Attention – Les dB ne s'additionnent pas !</strong>
   <ul style="margin:6px 0 0 0">
     <li>On ne peut pas additionner des niveaux en dB directement : 70 dB + 70 dB ≠ 140 dB.</li>
@@ -561,7 +555,7 @@
   </ul>
 </div>
 
-<div class="methode">
+<div class="meth">
   <strong>Méthode – Résumé des formules essentielles</strong>
   <ul style="margin:6px 0 0 0">
     <li>Niveau : \(L = 10 \cdot \log\!\left(\dfrac{I}{I_0}\right)\), \(I_0 = 10^{-12} \text{ W/m}^2\)</li>
