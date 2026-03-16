@@ -30,9 +30,6 @@
 
 .donnees{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.9em}
 .donnees strong{color:#92400e}
-.attention{background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:14px;margin:16px 0;font-size:.9em}
-.attention strong{color:#be123c}
-
 .comp-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;font-size:.82em}
 .comp-legend span{padding:3px 9px;border-radius:4px;font-weight:600}
 @media print{.nb{display:none}.rep-zone{background:#fff}}</style>
@@ -290,7 +287,7 @@
 
 <table class="bareme-table">
   <tr><th>Exercice</th><th>Questions</th><th>Compétences</th><th>Points</th></tr>
-  <tr><td>Exercice 1 — Niveau sonore d'une cabine de soudage</td><td>Q1 à Q4</td><td>APP, REA, ANA, VAL</td><td>10 pts</td></tr>
+  <tr><td>Exercice 1 — Niveau sonore d'un atelier de menuiserie</td><td>Q1 à Q4</td><td>APP, REA, ANA, VAL</td><td>10 pts</td></tr>
   <tr><td>Exercice 2 — Choix d'une cloison isolante</td><td>Q1 à Q4</td><td>APP, REA, ANA, COM</td><td>10 pts</td></tr>
   <tr><td colspan="3"><strong>Total</strong></td><td><strong>20 pts</strong></td></tr>
 </table>
@@ -299,12 +296,12 @@
 <div class="exo">
   <div class="exo-header">
     <span class="exo-num">Exercice 1</span>
-    <span class="exo-title">Niveau sonore d'une cabine de soudage robotisé</span>
+    <span class="exo-title">Niveau sonore d'un atelier de menuiserie</span>
     <span class="pts">10 points</span>
   </div>
 
   <div class="intro-box">
-    <strong>Contexte :</strong> Un atelier de soudage robotisé est équipé de deux robots de soudage MIG qui fonctionnent simultanément. Chaque robot génère un niveau sonore de \(L_1 = L_2 = 85\,\text{dB}\) mesuré à 1 m. La réglementation française (Code du travail) fixe le seuil d'exposition quotidienne à <strong>87 dB(A)</strong> au poste de travail. Le technicien doit vérifier la conformité réglementaire et proposer des solutions si nécessaire.
+    <strong>Contexte :</strong> Un atelier de menuiserie est équipé de deux machines à bois (une dégauchisseuse et une raboteuse) qui fonctionnent simultanément. Chaque machine génère un niveau sonore de \(L_1 = L_2 = 85\,\text{dB}\) mesuré à 1 m. La réglementation française (Code du travail) fixe le seuil d'exposition quotidienne à <strong>87 dB(A)</strong> au poste de travail. Le menuisier agenceur doit vérifier la conformité réglementaire et proposer des solutions si nécessaire.
   </div>
 
   <p class="q">
@@ -351,15 +348,15 @@
     <span class="comp comp-val">VAL</span>
     Le seuil réglementaire au poste de travail est de 87 dB(A).<br>
     a) Comparer le niveau total calculé à la question 3 avec le seuil réglementaire. La cabine est-elle conforme ?<br>
-    b) Si la cabine n'est pas conforme, proposer <strong>deux mesures</strong> de prévention ou de réduction du bruit pour le poste de travail (solutions techniques ou organisationnelles).
+    b) Si l'atelier n'est pas conforme, proposer <strong>deux mesures</strong> de prévention ou de réduction du bruit pour le poste de travail (solutions techniques ou organisationnelles).
     <span class="pts-q">4 pts</span>
   </p>
   <div class="rep-zone" style="min-height:100px">...</div>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>\(L_{total} = 88\,\text{dB} &gt; 87\,\text{dB}\) (seuil réglementaire)</p>
-    <p>La cabine n'est <strong>PAS conforme</strong>.</p>
-    <p><strong>Propositions :</strong> ajouter une paroi absorbante pour réduire de 1 à 2 dB, mettre en place des EPI (bouchons d'oreilles SNR ≥ 3 dB), réduire le niveau à la source (paramètres de soudage), éloigner les postes de travail.</p>
+    <p>L'atelier n'est <strong>PAS conforme</strong>.</p>
+    <p><strong>Propositions :</strong> installer des capots acoustiques sur les machines, mettre en place des EPI (bouchons d'oreilles SNR ≥ 3 dB), ajouter des panneaux absorbants au plafond pour limiter la réverbération, organiser une rotation des postes pour réduire le temps d'exposition.</p>
   </div>
 </div>
 
@@ -372,7 +369,7 @@
   </div>
 
   <div class="intro-box">
-    <strong>Contexte :</strong> Pour réduire le niveau sonore dans les zones de travail adjacentes à la cellule de soudage robotisé, l'entreprise envisage d'installer une cloison isolante autour de la cellule. Le niveau sonore à l'intérieur de la cellule est \(L_1 = 95\,\text{dB}\). L'objectif est d'obtenir un niveau sonore \(L_2 \leq 80\,\text{dB}\) à l'extérieur de la cloison. Le tableau suivant présente les caractéristiques de quatre cloisons possibles.
+    <strong>Contexte :</strong> Pour réduire le niveau sonore dans les zones de travail adjacentes à l'atelier de débit, l'entreprise envisage d'installer une cloison isolante entre l'atelier et le bureau de réception des clients. Le niveau sonore dans l'atelier est \(L_1 = 95\,\text{dB}\). L'objectif est d'obtenir un niveau sonore \(L_2 \leq 80\,\text{dB}\) dans le bureau. Le tableau suivant présente les caractéristiques de quatre cloisons possibles.
   </div>
 
   <table>
@@ -431,13 +428,13 @@
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <p>\(L_2 = L_1 - R = 95 - 30 = 65\,\text{dB}\)</p>
-    <p>65 dB ≤ 80 dB → Cette cloison hypothétique (R=30 dB) serait suffisante pour atteindre l'objectif.</p>
+    <p>65 dB ≤ 80 dB → Cette cloison hypothétique (R=30 dB) serait suffisante pour atteindre l'objectif dans le bureau.</p>
   </div>
 
   <p class="q">
     <span class="q-num">3.</span>
     <span class="comp comp-ana">ANA</span>
-    En utilisant le tableau des cloisons, calculer le niveau sonore \(L_2\) obtenu avec chacune des quatre cloisons pour \(L_1 = 95\,\text{dB}\). Compléter le tableau ci-dessous et indiquer pour chaque cloison si l'objectif (\(L_2 \leq 80\,\text{dB}\)) est atteint.
+    En utilisant le tableau des cloisons, calculer le niveau sonore \(L_2\) obtenu dans le bureau avec chacune des quatre cloisons pour \(L_1 = 95\,\text{dB}\). Compléter le tableau ci-dessous et indiquer pour chaque cloison si l'objectif (\(L_2 \leq 80\,\text{dB}\)) est atteint.
     <span class="pts-q">3 pts</span>
   </p>
   <div class="rep-zone" style="min-height:130px">
@@ -677,7 +674,7 @@
 
 </div>
 <script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
-<script src="/nav.js"></script>
+<script src="../../../nav.js"></script>
 <script src="../../../diff.js"></script>
 </body>
 </html>

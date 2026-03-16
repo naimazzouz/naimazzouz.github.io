@@ -9,10 +9,6 @@
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#2da44e;--p-bg:#f0fff4;--p-border:#86efac;--s:#0ea5e9;--s-bg:#e0f2fe;--s-border:#7dd3fc}
-details.solution{margin-top:8px}
-details.solution summary{cursor:pointer;color:var(--p);font-weight:600;font-size:.9em}
-details.solution p{background:#f0fff4;border-radius:6px;padding:10px;margin-top:6px}
-
 input[type=range]{accent-color:var(--p);width:200px}
 .db-display{font-size:1.1em;font-weight:700;color:var(--p);min-width:80px}</style>
 </head>
@@ -581,47 +577,47 @@ new Chart(document.getElementById('chartR').getContext('2d'), {
 
 <div class="exo">
   <strong>Exercice 1.</strong> Un mur de béton reçoit un niveau sonore de 75 dB côté source et transmet 40 dB de l'autre côté. Calculer l'indice d'affaiblissement acoustique R.
-  <details class="solution">
-    <summary>Voir la réponse</summary>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
     <p>
       \[ R = L_i - L_t = 75 - 40 = \mathbf{35 \text{ dB}} \]
       Ce mur a un affaiblissement de 35 dB. Cela correspond approximativement à une cloison légère ou une brique creuse 10 cm.
     </p>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
   <strong>Exercice 2.</strong> Pour remplacer les fenêtres d'un appartement situé le long d'une avenue passante, un menuisier hésite entre un simple vitrage (R = 25 dB) et un double vitrage (R = 32 dB). Lequel isole le mieux ? Quel est le gain en dB ?
-  <details class="solution">
-    <summary>Voir la réponse</summary>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
     <p>
       Le <strong>double vitrage</strong> isole mieux. Le gain est :<br>
       Gain = 32 − 25 = <strong>7 dB</strong><br>
       Un gain de 7 dB correspond à une réduction d'intensité sonore d'un facteur ~5. L'oreille perçoit le son comme nettement moins fort.
     </p>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
   <strong>Exercice 3.</strong> Qu'est-ce que la "loi de masse" en acoustique du bâtiment ? Donner un exemple concret.
-  <details class="solution">
-    <summary>Voir la réponse</summary>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
     <p>
       La <strong>loi de masse</strong> stipule que plus une paroi est lourde (masse surfacique en kg/m² élevée), meilleure est son isolation acoustique. En doublant la masse surfacique, on gagne environ +6 dB sur R.<br><br>
       <strong>Exemple :</strong> Un mur béton de 15 cm pèse ~360 kg/m² et offre R ≈ 52 dB. Un mur béton de 20 cm pèse ~480 kg/m² et offre R ≈ 57 dB. En augmentant la masse de 33 %, on gagne ~5 dB.
     </p>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
   <strong>Exercice 4.</strong> Une cloison a un coefficient d'atténuation τ = 0,01. Calculer son indice d'affaiblissement acoustique R.
-  <details class="solution">
-    <summary>Voir la réponse</summary>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
     <p>
       \[ R = -20 \times \log(\tau) = -20 \times \log(0{,}01) = -20 \times (-2) = \mathbf{40 \text{ dB}} \]
       Cette cloison a R = 40 dB, ce qui correspond à une bonne cloison en brique ou en béton léger.
     </p>
-  </details>
+  </div>
 </div>
 
 <!-- ===== À RETENIR FINAL ===== -->
@@ -641,6 +637,7 @@ new Chart(document.getElementById('chartR').getContext('2d'), {
 <p style="text-align:center;margin-top:30px;font-size:.82em;color:#a0aec0">Chapitre 8 – Physique | Bac Pro ERA-MA Terminale | Groupement 3</p>
 
 </div>
-<script src="/nav.js"></script>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
+<script src="../../../nav.js"></script>
 </body>
 </html>
