@@ -10,10 +10,6 @@
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
 .exo .exo-num{font-weight:700;color:var(--p);font-size:.85em;text-transform:uppercase;margin-bottom:4px}
-details.corr summary{cursor:pointer;font-weight:600;color:var(--s);font-size:.88em;margin-top:10px;padding:4px 0}
-details.corr summary:hover{text-decoration:underline}
-details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);padding:10px 14px;margin-top:6px;border-radius:0 6px 6px 0;font-size:.9em}
-
 .anim-wrap canvas{border-radius:8px;max-width:100%}
 .anim-controls{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
 .anim-btn{background:#0369a1;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.88em;font-weight:600}
@@ -959,16 +955,14 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <li>Si l&rsquo;entrep&ocirc;t fait 60 m de long, combien de temps le chariot met-il pour traverser l&rsquo;entrep&ocirc;t ?</li>
     <li>Un pi&eacute;ton marche &agrave; 1,2 m/s. Quelle est sa vitesse en km/h ? Le chariot va-t-il plus vite ou moins vite que le pi&eacute;ton ?</li>
   </ol>
-  <details class="corr">
-    <summary>Voir la correction</summary>
-    <div class="corr-body">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       <ol>
         <li>\( v = \dfrac{4{,}5}{3{,}6} \approx \mathbf{1{,}25\ \text{m/s}} \)</li>
         <li>\( \Delta t = \dfrac{d}{v} = \dfrac{60}{1{,}25} = \mathbf{48\ \text{s}} \)</li>
         <li>\( v_{\text{km/h}} = 1{,}2 \times 3{,}6 = \mathbf{4{,}32\ \text{km/h}} \). Le chariot (4,5 km/h) va <strong>plus vite</strong> que le pi&eacute;ton (4,32 km/h), mais de peu.</li>
       </ol>
-    </div>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
@@ -981,16 +975,14 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <li>Combien de temps faut-il pour usiner un panneau de 2,4 m de longueur ?</li>
     <li>Convertir la vitesse d&rsquo;avance en m/min (m&egrave;tres par minute).</li>
   </ol>
-  <details class="corr">
-    <summary>Voir la correction</summary>
-    <div class="corr-body">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       <ol>
         <li>\( d = v \times \Delta t = 0{,}4 \times 12 = \mathbf{4{,}8\ \text{m}} \)</li>
         <li>\( \Delta t = \dfrac{d}{v} = \dfrac{2{,}4}{0{,}4} = \mathbf{6\ \text{s}} \)</li>
         <li>1 min = 60 s donc \( v = 0{,}4 \times 60 = \mathbf{24\ \text{m/min}} \)</li>
       </ol>
-    </div>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
@@ -1012,17 +1004,15 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <li>Calculer la vitesse (en m/s) entre les positions 4 et 5.</li>
     <li>La vitesse augmente-t-elle ? Cela confirme-t-il votre r&eacute;ponse en 1) ?</li>
   </ol>
-  <details class="corr">
-    <summary>Voir la correction</summary>
-    <div class="corr-body">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       <ol>
         <li>Les distances augmentent r&eacute;guli&egrave;rement (4, 8, 12, 16, 20 cm) &rArr; la pi&egrave;ce s&rsquo;&eacute;loigne de plus en plus &rArr; mouvement <strong>acc&eacute;l&eacute;r&eacute;</strong>.</li>
         <li>d = 12 cm = 0,12 m ; \( v_{2\to3} = \dfrac{0{,}12}{0{,}2} = \mathbf{0{,}6\ \text{m/s}} \)</li>
         <li>d = 20 cm = 0,20 m ; \( v_{4\to5} = \dfrac{0{,}20}{0{,}2} = \mathbf{1{,}0\ \text{m/s}} \)</li>
         <li>La vitesse est pass&eacute;e de 0,6 m/s &agrave; 1,0 m/s : elle <strong>augmente</strong>, ce qui confirme bien un mouvement <strong>acc&eacute;l&eacute;r&eacute;</strong>.</li>
       </ol>
-    </div>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
@@ -1042,9 +1032,8 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <li>Calculer la dur&eacute;e de transport d&rsquo;un panneau.</li>
     <li>Combien de panneaux peuvent &ecirc;tre transport&eacute;s en 1 heure ?</li>
   </ol>
-  <details class="corr">
-    <summary>Voir la correction</summary>
-    <div class="corr-body">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       <strong>Partie A</strong>
       <ol>
         <li>\( v = \dfrac{24}{60} = \mathbf{0{,}4\ \text{m/s}} \)</li>
@@ -1056,8 +1045,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
         <li>\( \Delta t = \dfrac{12}{0{,}3} = \mathbf{40\ \text{s}} \)</li>
         <li>En 1 h = 3600 s : \( n = \dfrac{3600}{40} = \mathbf{90\ \text{panneaux/h}} \)</li>
       </ol>
-    </div>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
@@ -1070,16 +1058,14 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
     <li>Calculer la vitesse lin&eacute;aire en bord de fraise (en m/s).</li>
     <li>Un cycliste roule sur des roues de diam&egrave;tre 66 cm. Ses roues tournent &agrave; 180 tr/min. Calculer la vitesse du v&eacute;lo en m/s, puis en km/h.</li>
   </ol>
-  <details class="corr">
-    <summary>Voir la correction</summary>
-    <div class="corr-body">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       <ol>
         <li>\( n = \dfrac{12\,000}{60} = \mathbf{200\ \text{tr/s}} \)</li>
         <li>\( v = \pi \times 0{,}02 \times 200 \approx \mathbf{12{,}6\ \text{m/s}} \approx 45\ \text{km/h}\)</li>
         <li>\( n = 180/60 = 3\ \text{tr/s} \). \( v = \pi \times 0{,}66 \times 3 \approx \mathbf{6{,}22\ \text{m/s}} \approx 22{,}4\ \text{km/h}\)</li>
       </ol>
-    </div>
-  </details>
+  </div>
 </div>
 
 </div><!-- fin .c -->
@@ -1346,6 +1332,7 @@ details.corr .corr-body{background:#f0fff4;border-left:4px solid var(--s);paddin
 })();
 </script>
 
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
 <script src="../../../nav.js"></script>
 </body>
 </html>

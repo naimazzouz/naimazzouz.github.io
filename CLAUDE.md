@@ -120,15 +120,28 @@ Seules les classes vraiment spécifiques à une page peuvent rester inline.
 
 ---
 
-## DIFFÉRENCIATION PÉDAGOGIQUE (Première & Terminale)
+## DIFFÉRENCIATION PÉDAGOGIQUE (Seconde, Première & Terminale)
 
 ### Philosophie
 
-La différenciation s'applique **uniquement aux exercices (exercices.html) et aux DS (ds.html)**.
-Les cours (lecon.html) restent **identiques pour tous** : le programme est le même, c'est le socle commun de savoir. La différenciation ne porte pas sur le savoir transmis mais sur le **niveau de pratique** :
+La différenciation s'applique à **tous les niveaux** (Seconde, Première, Terminale) et concerne principalement les **exercices (exercices.html)** et les **DS (ds.html)**, mais peut aussi apparaître dans les **activités** et **certaines parties du cours**.
+
+L'objectif est de permettre à des élèves de niveaux différents d'utiliser les mêmes ressources tout en ayant des niveaux de difficulté adaptés.
+
+**Principes fondamentaux :**
+- Le contenu doit rester **lisible, clair et structuré** — la différenciation ne doit pas rendre les pages confuses ou trop chargées.
 - On ne simplifie pas le cours pour les élèves en difficulté — on leur donne un cours identique avec des exercices plus guidés.
 - On n'ajoute pas de théorie supplémentaire pour les élèves en poursuite — on leur donne des exercices plus ouverts et formalisés.
 - Ne jamais créer de « cours au rabais » : un élève socle doit avoir accès au même savoir pour pouvoir progresser.
+
+### Formes de différenciation
+
+La différenciation peut prendre plusieurs formes :
+
+1. **Niveau de difficulté progressif** : exercices de base → intermédiaires → avancés
+2. **Variété des contextes** : professionnels, scientifiques, vie quotidienne
+3. **Aides pédagogiques** : indices, rappels de méthode, étapes guidées
+4. **Parcours possibles** : exercices accessibles à tous + exercices d'approfondissement pour les élèves plus à l'aise
 
 ### Les 3 niveaux
 

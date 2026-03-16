@@ -22,8 +22,6 @@ ol.steps{list-style:none;counter-reset:step;padding:0;margin:10px 0}
 
 td.tl{text-align:left}
 
-details[open] summary{margin-bottom:6px}
-
 .erreur-item{display:flex;gap:12px;align-items:flex-start;margin:10px 0;background:#fff5f5;border-radius:6px;padding:12px}
 .erreur-item .ico{font-size:1.3em;flex-shrink:0;margin-top:1px}
 .erreur-item .txt{flex:1}
@@ -343,44 +341,38 @@ details[open] summary{margin-bottom:6px}
 <div class="exo">
   <strong>Exercice 1 – Équation simple</strong><br>
   Résoudre : \(6x - 9 = 21\)
-  <details>
-    <summary>Voir la solution</summary>
-    <div class="correct">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       \(6x = 21 + 9 = 30\)<br>
       \(x = \dfrac{30}{6} = 5\)<br>
       Vérification : \(6 \times 5 - 9 = 30 - 9 = 21\) ✔
-    </div>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
   <strong>Exercice 2 – Problème professionnel</strong><br>
   Un menuisier achète des poignées de meuble à 3,50 € pièce. Il paye en plus 8 € de port.
   Sa commande s'élève à 57,50 €. Combien a-t-il commandé de poignées ?
-  <details>
-    <summary>Voir la solution</summary>
-    <div class="correct">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       Inconnue : \(x\) = nombre de poignées.<br>
       Équation : \(3{,}50x + 8 = 57{,}50\)<br>
       \(3{,}50x = 49{,}50\)<br>
       \(x = \dfrac{49{,}50}{3{,}50} = 14{,}14\ldots\)<br>
       Comme le nombre de poignées est entier : <strong>14 poignées</strong>.
-    </div>
-  </details>
+  </div>
 </div>
 
 <div class="exo">
   <strong>Exercice 3 – Avec membres de chaque côté</strong><br>
   Résoudre : \(4x - 7 = x + 8\)
-  <details>
-    <summary>Voir la solution</summary>
-    <div class="correct">
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
       \(4x - x = 8 + 7\)<br>
       \(3x = 15\)<br>
       \(x = 5\)<br>
       Vérification : \(4 \times 5 - 7 = 13\) et \(5 + 8 = 13\) ✔
-    </div>
-  </details>
+  </div>
 </div>
 
 
@@ -403,7 +395,7 @@ details[open] summary{margin-bottom:6px}
   Résoudre \(2x - 5 = 0\) revient à trouver l'abscisse du point où la droite \(f(x) = 2x - 5\) coupe l'axe des abscisses (\(y = 0\)).
 </p>
 
-<div class="chart-wrapper">
+<div class="chart-wrap">
   <canvas id="chartEq"></canvas>
 </div>
 
@@ -503,5 +495,6 @@ details[open] summary{margin-bottom:6px}
 
 </div><!-- fin .c -->
 <script src="../../../nav.js"></script>
+<script>function toggle(b){var d=b.nextElementSibling;if(d.style.display==='block'){d.style.display='none';b.textContent='Voir la correction'}else{d.style.display='block';b.textContent='Masquer la correction'}}</script>
 </body>
 </html>
