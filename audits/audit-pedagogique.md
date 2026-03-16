@@ -1,7 +1,7 @@
 # Audit Pedagogique Global
 
 **Date** : 2026-03-16
-**Derniere mise a jour** : 2026-03-16 (session 2)
+**Derniere mise a jour** : 2026-03-16 (session 4)
 **Perimetre** : qualite des cours, clarte pedagogique, coherence inter-niveaux, progression 2nde-1ere-Tle, exemples, contextes professionnels
 **Methode** : lecture integrale ou partielle de 50+ fichiers lecon.html, analyses statistiques CSS, comparaison inter-sections
 **Rapports detailles** : `audit-pedagogique-maths.md`, `audit-pedagogique-pc.md`
@@ -17,14 +17,14 @@ Le site presente une **qualite pedagogique globalement bonne** (note moyenne 4/5
 | Section | Note | Cours complets | Points cles |
 |---|---|---|---|
 | **Maths Seconde** | 4/5 | 14/14 (100%) | Excellentes animations, CSS ancien dans ch02-ch05 |
-| **Maths Premiere** | 3.5/5 | 7/9 (78%) | 2 chapitres stubs (ch05, ch09) — critique |
+| **Maths Premiere** | 4/5 | 9/9 (100%) | ch05 et ch09 redigés (2026-03-16), diff. ajoutee |
 | **Maths Terminale** | 4/5 | 11/11 (100%) | Programme complementaire complet, double contexte ICCER/ERA |
 | **PC Seconde** | 4/5 | 14/14 (100%) | SVG de qualite, redefinitions CSS inline |
 | **PC 1ere ICCER** | 4.5/5 | 10/10 (100%) | Situations pro exemplaires, labels inconsistants |
 | **PC 1ere ERA** | 4/5 | 10/10 (100%) | Contextes menuiserie parfaits, moins de `.meth` |
 | **PC Tle ICCER** | 4.5/5 | 8/8 (100%) | Niveau scientifique eleve, interactivite |
-| **PC Tle ERA** | 3.5/5 | 8/8 (100%) | Peu de `.meth`, `.appli` au lieu de `.situation` |
-| **Moyenne** | **4.0/5** | **82/84 (98%)** | |
+| **PC Tle ERA** | 4/5 | 8/8 (100%) | `.appli`→`.situation` corrige, `.meth` ajoutes (ch01-ch06) |
+| **Moyenne** | **4.1/5** | **84/84 (100%)** | |
 
 ---
 
