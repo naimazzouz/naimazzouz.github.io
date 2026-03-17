@@ -66,6 +66,33 @@ Ajouter des encadrés pédagogiques :
 
 ---
 
+## DIFFÉRENCIATION PÉDAGOGIQUE
+
+La différenciation s'applique à **tous les niveaux** (Seconde, Première, Terminale).
+
+### Les 3 niveaux de différenciation
+
+| Niveau | Profil cible | Contenu |
+|---|---|---|
+| **Socle** | Élèves en difficulté | Exercices très guidés, étape par étape, calculs amorcés, tableaux pré-remplis, contextes du quotidien |
+| **Standard** | Majorité de la classe | Exercices du programme, contextes professionnels variés, rédaction attendue |
+| **Approfondissement** | Poursuite BTS/MC | Problèmes ouverts, mise en équation autonome, questions type BTS |
+
+### Formes possibles de différenciation
+
+1. **Niveau de difficulté progressif** : exercices de base → intermédiaires → avancés
+2. **Variété des contextes** : professionnels, scientifiques, vie quotidienne
+3. **Aides pédagogiques** : indices, rappels de méthode, étapes guidées
+4. **Parcours possibles** : exercices accessibles à tous + exercices d'approfondissement
+
+### Mise en œuvre technique
+
+Utiliser les classes CSS `diff-socle`, `diff-standard`, `diff-appro` pour tagger les blocs par niveau (voir CLAUDE.md pour les détails techniques).
+
+Le contenu doit rester **lisible, clair et structuré** — la différenciation ne doit pas rendre les pages confuses ou trop chargées.
+
+---
+
 ## CONTRAINTES PÉDAGOGIQUES
 
 - niveau lycée professionnel

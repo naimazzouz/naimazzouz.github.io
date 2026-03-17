@@ -133,6 +133,15 @@ Les cours (lecon.html) restent **identiques pour tous** : le programme est le m�
 - On n'ajoute pas de théorie supplémentaire pour les élèves en poursuite — on leur donne des exercices plus ouverts et formalisés.
 - Ne jamais créer de « cours au rabais » : un élève socle doit avoir accès au même savoir pour pouvoir progresser.
 
+### Formes de différenciation
+
+La différenciation peut prendre plusieurs formes :
+
+1. **Niveau de difficulté progressif** : exercices de base → intermédiaires → avancés
+2. **Variété des contextes** : professionnels, scientifiques, vie quotidienne
+3. **Aides pédagogiques** : indices, rappels de méthode, étapes guidées
+4. **Parcours possibles** : exercices accessibles à tous + exercices d'approfondissement pour les élèves plus à l'aise
+
 ### Les 3 niveaux
 
 | Niveau | Profil cible | Contenu (exercices & DS) |
