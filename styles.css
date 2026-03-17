@@ -690,6 +690,84 @@ body.mode-appro .diff-standard { display: none !important; }
 }
 .plus-loin strong { color: #6d28d9; }
 
+/* ── Situation professionnelle ── */
+.situation-pro {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid #d97706;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.situation-pro::before {
+  content: "Situation professionnelle";
+  display: block;
+  font-weight: 700;
+  color: #92400e;
+  font-size: .93em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.sp-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 14px;
+  font-size: .92em;
+  margin-bottom: 12px;
+}
+.sp-label { font-weight: 600; color: #4a5568; white-space: nowrap; }
+
+/* ── Erreurs fréquentes ── */
+.erreur-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 10px 0;
+  background: #fff5f5;
+  border-radius: 6px;
+  padding: 12px;
+}
+.erreur-item .ico { font-size: 1.3em; flex-shrink: 0; margin-top: 1px; }
+.erreur-item .txt { flex: 1; }
+.erreur-item .txt strong { color: var(--d); }
+
+/* ── Hors programme / Pour aller plus loin ── */
+.hors-prog {
+  background: #faf5ff;
+  border: 2px dashed #9f7aea;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.hors-prog::before {
+  content: "Pour aller plus loin (hors programme)";
+  display: block;
+  font-weight: 700;
+  color: #6d28d9;
+  font-size: .9em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+/* ── Lien simulation ── */
+.simu-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ebf5ff;
+  border: 1px solid #93c5fd;
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: var(--p);
+  font-weight: 600;
+  font-size: .9em;
+  transition: .2s;
+  margin: 4px;
+}
+.simu-link:hover { background: var(--p); color: #fff; }
+
 /* ── Media queries ── */
 @media (max-width: 600px) {
   body { padding: 12px; }

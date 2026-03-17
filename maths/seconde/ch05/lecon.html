@@ -9,31 +9,9 @@
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
-.situation-pro{background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);border:2px solid #d97706;border-radius:10px;padding:18px 22px;margin:20px 0}
-.situation-pro::before{content:"🪵 Situation professionnelle";display:block;font-weight:700;color:#92400e;font-size:.93em;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em}
-.sp-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92em;margin-bottom:12px}
-.sp-label{font-weight:600;color:#4a5568;white-space:nowrap}
-
-.objectifs li{margin:4px 0}
-
 ol.steps{list-style:none;counter-reset:step;padding:0;margin:10px 0}
 .step{counter-increment:step;padding:8px 10px 8px 2.4em;position:relative;margin:5px 0;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0}
-.step::before{content:counter(step);position:absolute;left:.6em;font-weight:700;color:#fff;background:var(--p);width:1.3em;height:1.3em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;top:50%;transform:translateY(-50%)}
-
-td.tl{text-align:left}
-
-.erreur-item{display:flex;gap:12px;align-items:flex-start;margin:10px 0;background:#fff5f5;border-radius:6px;padding:12px}
-.erreur-item .ico{font-size:1.3em;flex-shrink:0;margin-top:1px}
-.erreur-item .txt{flex:1}
-.erreur-item .txt strong{color:var(--d)}
-
-.hors-prog{background:#faf5ff;border:2px dashed #9f7aea;border-radius:8px;padding:16px 20px;margin:18px 0}
-.hors-prog::before{content:"⭐ Pour aller plus loin (hors programme)";display:block;font-weight:700;color:#6d28d9;font-size:.9em;margin-bottom:10px;text-transform:uppercase;letter-spacing:.03em}
-
-.correct{background:#d1fae5;color:#065f46;font-weight:600;padding:8px 12px;border-radius:6px;border-left:4px solid var(--s);margin-top:8px}
-
-.simu-link{display:inline-flex;align-items:center;gap:8px;background:#ebf5ff;border:1px solid #93c5fd;border-radius:8px;padding:10px 16px;text-decoration:none;color:var(--p);font-weight:600;font-size:.9em;transition:.2s;margin:4px}
-.simu-link:hover{background:var(--p);color:#fff}</style>
+.step::before{content:counter(step);position:absolute;left:.6em;font-weight:700;color:#fff;background:var(--p);width:1.3em;height:1.3em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;top:50%;transform:translateY(-50%)}</style>
 </head>
 <body>
 <div class="c">
@@ -143,6 +121,7 @@ td.tl{text-align:left}
   <br><br>
   On pose \(x\) = prix d'une vis (en €). L'équation est : \(8x = 4{,}80\)
   \[ x = \frac{4{,}80}{8} = 0{,}60 \text{ €} \]
+  <strong>Vérification :</strong> \(8 \times 0{,}60 = 4{,}80\) ✔<br>
   <strong>Réponse :</strong> une vis coûte 0,60 €.
 </div>
 
@@ -165,20 +144,20 @@ td.tl{text-align:left}
 
 <div class="ex">
   <span class="label label-ex">Exemple 3 – Planches de bois</span><br>
-  Un artisan achète plusieurs planches identiques à 8,50 € pièce. Les frais de livraison sont de 12 €.
-  Il a payé en tout 63,50 €. Combien a-t-il acheté de planches ?
+  Un artisan achète plusieurs planches identiques à 8,50 € pièce. Les frais de livraison sont de 15 €.
+  Il a payé en tout 66 €. Combien a-t-il acheté de planches ?
   <br><br>
   <strong>Étape 1 – Inconnue :</strong> on pose \(x\) = nombre de planches achetées.
   <br><br>
   <strong>Étape 2 – Équation :</strong>
-  \[ 8{,}50x + 12 = 63{,}50 \]
+  \[ 8{,}50x + 15 = 66 \]
   <br>
   <strong>Étape 3 – Résolution :</strong>
-  \[ 8{,}50x = 63{,}50 - 12 = 51{,}50 \]
-  \[ x = \frac{51{,}50}{8{,}50} = 6{,}06\ldots \approx 6 \]
+  \[ 8{,}50x = 66 - 15 = 51 \]
+  \[ x = \frac{51}{8{,}50} = 6 \]
   <br>
   <strong>Étape 4 – Vérification :</strong>
-  \[ 8{,}50 \times 6 + 12 = 51 + 12 = 63 \approx 63{,}50 \text{ ✔ (légère différence due à l'arrondi)} \]
+  \[ 8{,}50 \times 6 + 15 = 51 + 15 = 66 \text{ ✔} \]
   <br>
   <strong>Étape 5 – Conclusion :</strong> L'artisan a acheté <strong>6 planches</strong>.
 </div>
@@ -480,31 +459,26 @@ td.tl{text-align:left}
 <h2>Simulations interactives</h2>
 <p>Entraîne-toi avec les outils interactifs de ce chapitre :</p>
 <div>
-  <a href="simu-balance.html" class="simu-link">⚖️ Balance d'équation</a>
-  <a href="simu-graphe-equation.html" class="simu-link">📈 Résolution graphique</a>
-  <a href="simu-entrainement.html" class="simu-link">🎯 Générateur d'équations</a>
-  <a href="ch05_simulation.html" class="simu-link">🔗 Toutes les simulations Ch05</a>
+  <a href="../../../simulations/equations.html" class="simu-link">🔢 Résolveur d'équations</a>
+  <a href="../../../simulations/entrainement.html" class="simu-link">🎯 Entraînement équations</a>
+  <a href="simulation.html" class="simu-link">🔗 Toutes les simulations Ch05</a>
 </div>
 
 <!-- NAV -->
 <div class="nav-footer">
-  <a href="ch04_lecon.html" class="nav-btn">← Ch04 – Cours précédent</a>
+  <a href="../ch04/lecon.html" class="nav-btn">← Ch04 – Cours précédent</a>
   <a href="../../../maths-2nde-mama.html" class="nav-btn">Sommaire</a>
-  <a href="ch05_exos.html" class="nav-btn">Exercices Ch05 →</a>
+  <a href="exercices.html" class="nav-btn">Exercices Ch05 →</a>
 </div>
 
 </div><!-- fin .c -->
 <script src="../../../nav.js"></script>
-
-
-<!-- Simulations interactives -->
-<div class="retenir" style="border-color:var(--p);background:var(--p-bg)">
-  <h3>Simulations interactives</h3>
-  <ul style="list-style:none;padding:0;margin:0">
-    <li style="margin:.4em 0"><a href="../../../simulations/entrainement.html" target="_blank" style="color:var(--p);font-weight:600;text-decoration:underline">Entraînement — Équations du premier degré</a></li>
-    <li style="margin:.4em 0"><a href="../../../simulations/equations.html" target="_blank" style="color:var(--p);font-weight:600;text-decoration:underline">Résolveur d'équations</a></li>
-  </ul>
-</div>
-
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </body>
 </html>
