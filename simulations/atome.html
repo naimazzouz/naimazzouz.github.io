@@ -282,7 +282,7 @@
         function selectElement(z) {
             document.getElementById('range-p').value = z;
             // On ajuste les neutrons sur l'isotope le plus courant
-            const nDefault = stableIsotopes[z] ? stableIsotopes[z][stableIsotopes[z].length-1] : z;
+            const nDefault = stableIsotopes[z] ? stableIsotopes[z][0] : z;
             document.getElementById('range-n').value = nDefault;
             document.getElementById('range-e').value = z;
             update();

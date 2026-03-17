@@ -1,8 +1,8 @@
 # Audit Simulations Interactives
 
 **Date** : 2026-03-16
-**Dernière mise à jour** : 2026-03-16 (session 4)
-**Périmètre** : dossier `simulations/` — 63 fichiers HTML
+**Dernière mise à jour** : 2026-03-17
+**Périmètre** : dossier `simulations/` — 64 fichiers HTML
 **Méthode** : Lecture et analyse de l'ensemble des 63 simulations, vérification du référencement depuis les pages de cours, analyse de la couverture par chapitre.
 
 ---
@@ -49,7 +49,7 @@
 | 24 | `complexes.html` | Nombres complexes (plan complexe) | Ch10 | Non | Bonne |
 | 25 | `scalaire.html` | Produit scalaire | Ch11 | Non | Bonne |
 
-### Physique-Chimie — Seconde (10 simulations)
+### Physique-Chimie — Seconde (11 simulations)
 
 | # | Fichier | Notion illustrée | Chapitre | Référencée | Pertinence |
 |---|---|---|---|---|---|
@@ -57,11 +57,12 @@
 | 27 | `signal-alternatif.html` | Oscilloscope virtuel, u(t) = Umax sin(2πft) | Ch04 | Non | Très bonne |
 | 28 | `mouvement.html` | Mouvement et trajectoire, v = d/t | Ch05 | Non | Bonne |
 | 29 | `forces.html` | Forces et équilibre, P = mg | Ch06 | Non | Bonne |
-| 30 | `concentration.html` | Solutions chimiques, Cm = m/V | Ch08 | Non | Bonne |
-| 31 | `son-2nde.html` | Caractéristiques d'un son, v = d/t | Ch09 | Non | Bonne |
-| 32 | `transferts-thermiques.html` | 3 modes de transfert thermique | Ch11 | Non | Bonne |
-| 33 | `changement-etat.html` | Courbe de chauffage, changements d'état | Ch12 | Non | Bonne |
-| 34 | `refraction.html` | Réflexion et réfraction, loi de Snell-Descartes | Ch13 | Non | Très bonne |
+| 30 | `liaisons-chimiques.html` | Liaisons covalente vs ionique, molécules | Ch07 | **Oui** | Très bonne |
+| 31 | `concentration.html` | Solutions chimiques, Cm = m/V | Ch08 | Non | Bonne |
+| 32 | `son-2nde.html` | Caractéristiques d'un son, v = d/t | Ch09 | Non | Bonne |
+| 33 | `transferts-thermiques.html` | 3 modes de transfert thermique | Ch11 | Non | Bonne |
+| 34 | `changement-etat.html` | Courbe de chauffage, changements d'état | Ch12 | Non | Bonne |
+| 35 | `refraction.html` | Réflexion et réfraction, loi de Snell-Descartes | Ch13 | Non | Très bonne |
 
 ### Physique-Chimie — Première ICCER (5 simulations)
 
@@ -218,6 +219,9 @@ Simulations mentionnant un chapitre sans niveau ou un niveau sans chapitre :
 
 - **2026-03-16** : Retiré nav.js des 26 simulations non autonomes (atome-couches, atome, balance, chaleur, changement-etat, debit, dephasage, effet-joule, entrainement-ineq, entrainement, equations, gaz, graphe-equation, inegalite, melangeur, modeles-atome, moteur, ohm, oxydoreduction, pression, puissance, rayonnement, redressement, serre, son, traceur)
 - **2026-03-16** : Lié 59 simulations orphelines à 79 pages de cours (toutes les sections maths et physique-chimie). Les simulations sont désormais accessibles via un encadré en fin de chaque lecon.html correspondante.
+- **2026-03-17** : Corrigé fuite mémoire d'animation dans `modeles-atome.html` (variable `animationFrame` unique → tableau `animationFrames[]` pour annuler toutes les animations au changement de modèle).
+- **2026-03-17** : Corrigé sélection d'isotope dans `atome.html` (`stableIsotopes[z][length-1]` → `stableIsotopes[z][0]` pour sélectionner l'isotope le plus courant au lieu du plus lourd).
+- **2026-03-17** : Créé `liaisons-chimiques.html` — simulation interactive sur les types de liaisons chimiques (covalente vs ionique), 6 molécules (H₂O, CO₂, CH₄, O₂, N₂, NaCl), ancrage Ch07 PC Seconde. Ajouté à `simulations.html`.
 
 ---
 
@@ -247,10 +251,10 @@ Simulations mentionnant un chapitre sans niveau ou un niveau sans chapitre :
 
 | Indicateur | Valeur |
 |---|---|
-| Nombre total de simulations | **63** |
-| Référencées depuis un cours | **63** (100 %) |
+| Nombre total de simulations | **64** |
+| Référencées depuis un cours | **64** (100 %) |
 | Orphelines | **0** (0 %) |
-| Listées dans `simulations.html` | **63** (100 %) |
+| Listées dans `simulations.html` | **64** (100 %) |
 | Sans niveau/chapitre | **0** (0 %) |
 | Avec métadonnées incomplètes | **12** (19 %) |
 | ~~Incluant `nav.js` (non-conforme)~~ | **0** (corrigé 2026-03-16) |
@@ -264,7 +268,7 @@ Simulations mentionnant un chapitre sans niveau ou un niveau sans chapitre :
 | Maths Seconde | 15 | 14 | Bonne |
 | Maths Première | 1 | 9 | **Très faible** |
 | Maths Terminale | 9 | 11 | Bonne |
-| PC Seconde | 10 | 14 | Moyenne |
+| PC Seconde | 11 | 14 | Moyenne |
 | PC Première ICCER | 5 | 10 | Moyenne |
 | PC Première ERA | 1 | 10 | **Très faible** |
 | PC Terminale ICCER | 8 | 8 | **Excellente** |

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Types de liaisons chimiques – Simulation – 2nde Bac Pro</title>
+<style>
+:root {
+  --primary:#6f42c1; --covalent:#2563eb; --ionic:#e85d04;
+  --bg:#f8fafc; --card:#fff; --text:#1e293b; --muted:#64748b;
+}
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); margin:0; padding:20px; line-height:1.6; }
+
+.sim-container { max-width:960px; margin:auto; }
+.btn-back { display:inline-block; margin-bottom:14px; text-decoration:none; color:var(--primary); font-size:.85em; font-weight:700; }
+
+header { text-align:center; border-bottom:3px solid var(--primary); padding-bottom:14px; margin-bottom:20px; }
+h1 { margin:0 0 4px; color:var(--primary); font-size:1.5em; }
+.sous-titre { color:var(--muted); font-size:.9em; margin:0; }
+
+/* Objectifs */
+.objectifs { background:#f5f0ff; border:1px solid #c4b5fd; border-radius:8px; padding:12px 16px; margin-bottom:18px; font-size:.9em; }
+.objectifs ul { margin:4px 0 0; padding-left:18px; }
+
+/* Tabs */
+.tabs { display:flex; gap:0; border-bottom:2px solid #e2e8f0; margin-bottom:20px; }
+.tab-btn { padding:10px 20px; border:none; background:none; cursor:pointer; font-size:.9em; font-weight:600; color:var(--muted); border-bottom:3px solid transparent; margin-bottom:-2px; transition:.2s; }
+.tab-btn.active { color:var(--primary); border-bottom-color:var(--primary); }
+.tab-btn:hover:not(.active) { color:var(--text); background:#f8fafc; }
+
+/* Cards */
+.card { background:var(--card); border-radius:12px; padding:24px; border:1px solid #e2e8f0; box-shadow:0 2px 8px rgba(0,0,0,.05); margin-bottom:16px; }
+
+/* Molecule selector */
+.mol-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:8px; margin:12px 0; }
+.mol-btn { padding:10px 8px; border-radius:8px; border:2px solid #e2e8f0; background:#fff; cursor:pointer; text-align:center; transition:.2s; }
+.mol-btn:hover { border-color:var(--primary); background:#f5f0ff; }
+.mol-btn.active { border-color:var(--primary); background:#ede9fe; }
+.mol-btn .formula { font-size:1.15em; font-weight:700; color:var(--primary); }
+.mol-btn .name { font-size:.78em; color:var(--muted); }
+
+/* SVG area */
+.view-area { background:#0f172a; border-radius:12px; margin:16px 0; overflow:hidden; text-align:center; min-height:320px; position:relative; }
+.view-area svg { display:block; margin:0 auto; }
+
+/* Legend */
+.legend { display:flex; gap:14px; flex-wrap:wrap; margin:10px 0; font-size:.82em; align-items:center; }
+.legend-item { display:flex; align-items:center; gap:5px; }
+.legend-dot { width:14px; height:14px; border-radius:50%; display:inline-block; }
+
+/* Info panel */
+.info-panel { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+.info-box { background:#f1f5f9; border-radius:8px; padding:12px; font-size:.9em; }
+.info-box b { color:var(--primary); }
+
+/* Bond type badges */
+.badge-cov { display:inline-block; background:#dbeafe; color:#1d4ed8; padding:3px 10px; border-radius:4px; font-size:.82em; font-weight:700; }
+.badge-ion { display:inline-block; background:#ffedd5; color:#c2410c; padding:3px 10px; border-radius:4px; font-size:.82em; font-weight:700; }
+
+/* Comparison tab */
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px; }
+.compare-card { border-radius:10px; padding:18px; }
+.compare-cov { background:#eff6ff; border:2px solid var(--covalent); }
+.compare-ion { background:#fff7ed; border:2px solid var(--ionic); }
+.compare-card h3 { margin:0 0 8px; font-size:1.05em; }
+.compare-cov h3 { color:var(--covalent); }
+.compare-ion h3 { color:var(--ionic); }
+.compare-card ul { margin:6px 0; padding-left:18px; font-size:.9em; }
+
+/* Description */
+.desc-box { background:#f5f0ff; border-left:4px solid var(--primary); border-radius:0 8px 8px 0; padding:14px 16px; margin:12px 0; font-size:.92em; min-height:60px; }
+
+/* Responsive */
+@media(max-width:700px){
+  .info-panel, .compare-grid { grid-template-columns:1fr; }
+  .mol-grid { grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); }
+  .view-area { min-height:260px; }
+}
+@media(max-width:480px){
+  .tabs { flex-wrap:wrap; }
+  .tab-btn { flex:1; text-align:center; font-size:.82em; padding:8px 6px; }
+}
+</style>
+</head>
+<body>
+<div class="sim-container">
+<a href="../simulations.html" class="btn-back">&#8592; Retour au labo de simulations</a>
+
+<header>
+  <h1>Types de liaisons chimiques</h1>
+  <p class="sous-titre">2nde Bac Pro &middot; Physique-Chimie &middot; Ch07 &ndash; Structure de la mati&egrave;re</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectif :</strong> Comprendre comment les atomes se lient pour former des mol&eacute;cules ou des compos&eacute;s ioniques.
+  <ul>
+    <li><strong>Liaison covalente</strong> : deux atomes <em>partagent</em> des &eacute;lectrons</li>
+    <li><strong>Liaison ionique</strong> : un atome <em>c&egrave;de</em> des &eacute;lectrons &agrave; un autre</li>
+  </ul>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" id="tabExplore" onclick="switchTab('explore')">Mol&eacute;cules</button>
+  <button class="tab-btn" id="tabCompare" onclick="switchTab('compare')">Covalente vs Ionique</button>
+</div>
+
+<!-- ══════ TAB 1 : Explorer les molécules ══════ -->
+<div id="panelExplore">
+
+<div class="card">
+  <strong style="font-size:.85em;color:var(--muted);text-transform:uppercase;letter-spacing:.03em">Choisis une mol&eacute;cule :</strong>
+  <div class="mol-grid" id="molGrid"></div>
+</div>
+
+<!-- Visualisation -->
+<div class="view-area">
+  <svg id="molSvg" viewBox="0 0 600 320" width="100%" height="320"></svg>
+</div>
+
+<!-- Légende -->
+<div class="legend">
+  <strong style="font-size:.85em">L&eacute;gende :</strong>
+  <span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span> Oxyg&egrave;ne</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#f8fafc;border:2px solid #94a3b8"></span> Hydrog&egrave;ne</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#1e293b"></span> Carbone</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#22c55e"></span> Chlore</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#a855f7"></span> Sodium</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span> Azote</span>
+</div>
+
+<!-- Description -->
+<div class="desc-box" id="descBox">
+  S&eacute;lectionne une mol&eacute;cule ci-dessus pour voir sa structure et comprendre ses liaisons.
+</div>
+
+<!-- Info -->
+<div class="info-panel" id="infoPanel">
+  <div class="info-box">Formule : <b id="infoFormula">&mdash;</b></div>
+  <div class="info-box">Type de liaison : <b id="infoBondType">&mdash;</b></div>
+  <div class="info-box">Nombre d'atomes : <b id="infoAtoms">&mdash;</b></div>
+  <div class="info-box">&Eacute;lectrons partag&eacute;s : <b id="infoElectrons">&mdash;</b></div>
+</div>
+
+</div><!-- fin panelExplore -->
+
+<!-- ══════ TAB 2 : Comparaison ══════ -->
+<div id="panelCompare" style="display:none">
+
+<div class="card">
+  <h2 style="color:var(--primary);margin:0 0 12px;font-size:1.2em">Deux types de liaisons chimiques</h2>
+  <p style="font-size:.92em;color:var(--muted)">Les atomes se lient pour atteindre une configuration &eacute;lectronique <strong>stable</strong> (r&egrave;gle du duet ou de l'octet).</p>
+
+  <div class="compare-grid">
+    <div class="compare-card compare-cov">
+      <h3>Liaison covalente</h3>
+      <div class="view-area" style="min-height:180px;margin:10px 0">
+        <svg id="svgCov" viewBox="0 0 300 180" width="100%" height="180"></svg>
+      </div>
+      <ul>
+        <li>Les atomes <strong>partagent</strong> des &eacute;lectrons</li>
+        <li>Se forme entre <strong>non-m&eacute;taux</strong></li>
+        <li>Exemples : H<sub>2</sub>O, CO<sub>2</sub>, CH<sub>4</sub>, O<sub>2</sub></li>
+        <li>R&eacute;sultat : une <strong>mol&eacute;cule</strong> (neutre)</li>
+      </ul>
+    </div>
+
+    <div class="compare-card compare-ion">
+      <h3>Liaison ionique</h3>
+      <div class="view-area" style="min-height:180px;margin:10px 0">
+        <svg id="svgIon" viewBox="0 0 300 180" width="100%" height="180"></svg>
+      </div>
+      <ul>
+        <li>Un atome <strong>c&egrave;de</strong> des &eacute;lectrons &agrave; l'autre</li>
+        <li>Se forme entre un <strong>m&eacute;tal</strong> et un <strong>non-m&eacute;tal</strong></li>
+        <li>Exemples : NaCl, CaO, MgCl<sub>2</sub></li>
+        <li>R&eacute;sultat : des <strong>ions</strong> (charges + et &minus;)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="desc-box" style="margin-top:16px">
+    <strong>Retenir :</strong> Dans une liaison <em>covalente</em>, les &eacute;lectrons sont <strong>mis en commun</strong>.
+    Dans une liaison <em>ionique</em>, un &eacute;lectron est <strong>transf&eacute;r&eacute;</strong> d'un atome &agrave; l'autre, cr&eacute;ant un cation (+) et un anion (&minus;).
+  </div>
+</div>
+
+</div><!-- fin panelCompare -->
+
+</div><!-- fin sim-container -->
+
+<script>
+/* ============================================================
+   TYPES DE LIAISONS CHIMIQUES — Simulation interactive
+   2nde Bac Pro — Ch07 Structure de la matière
+   ============================================================ */
+
+// ── Données des molécules ──
+const molecules = [
+  {
+    id:'h2o', formula:'H₂O', name:'Eau', bondType:'covalent',
+    atoms:[
+      {el:'O', x:300, y:140, r:28, color:'#ef4444'},
+      {el:'H', x:200, y:100, r:18, color:'#e2e8f0', stroke:'#94a3b8'},
+      {el:'H', x:400, y:100, r:18, color:'#e2e8f0', stroke:'#94a3b8'}
+    ],
+    bonds:[[0,1],[0,2]],
+    atomCount:3, sharedElectrons:4,
+    desc:'La molécule d\'eau est formée de 2 atomes d\'hydrogène liés à 1 atome d\'oxygène par des liaisons covalentes simples. Chaque H partage 1 électron avec O (2 liaisons × 2 électrons = 4 électrons partagés).'
+  },
+  {
+    id:'co2', formula:'CO₂', name:'Dioxyde de carbone', bondType:'covalent',
+    atoms:[
+      {el:'C', x:300, y:140, r:24, color:'#1e293b', textColor:'#fff'},
+      {el:'O', x:170, y:140, r:28, color:'#ef4444'},
+      {el:'O', x:430, y:140, r:28, color:'#ef4444'}
+    ],
+    bonds:[[0,1,'double'],[0,2,'double']],
+    atomCount:3, sharedElectrons:8,
+    desc:'Le CO₂ contient 2 doubles liaisons covalentes entre le carbone et chaque oxygène. Chaque double liaison met en commun 4 électrons (2 paires). Total : 8 électrons partagés.'
+  },
+  {
+    id:'ch4', formula:'CH₄', name:'Méthane', bondType:'covalent',
+    atoms:[
+      {el:'C', x:300, y:150, r:24, color:'#1e293b', textColor:'#fff'},
+      {el:'H', x:200, y:80,  r:18, color:'#e2e8f0', stroke:'#94a3b8'},
+      {el:'H', x:400, y:80,  r:18, color:'#e2e8f0', stroke:'#94a3b8'},
+      {el:'H', x:200, y:230, r:18, color:'#e2e8f0', stroke:'#94a3b8'},
+      {el:'H', x:400, y:230, r:18, color:'#e2e8f0', stroke:'#94a3b8'}
+    ],
+    bonds:[[0,1],[0,2],[0,3],[0,4]],
+    atomCount:5, sharedElectrons:8,
+    desc:'Le méthane est la molécule la plus simple de la chimie organique : 1 atome de carbone lié à 4 atomes d\'hydrogène par 4 liaisons covalentes simples. C\'est le principal composant du gaz naturel.'
+  },
+  {
+    id:'o2', formula:'O₂', name:'Dioxygène', bondType:'covalent',
+    atoms:[
+      {el:'O', x:230, y:140, r:28, color:'#ef4444'},
+      {el:'O', x:370, y:140, r:28, color:'#ef4444'}
+    ],
+    bonds:[[0,1,'double']],
+    atomCount:2, sharedElectrons:4,
+    desc:'Le dioxygène est formé de 2 atomes d\'oxygène reliés par une double liaison covalente. C\'est le gaz que nous respirons, essentiel à la combustion et à la vie.'
+  },
+  {
+    id:'n2', formula:'N₂', name:'Diazote', bondType:'covalent',
+    atoms:[
+      {el:'N', x:230, y:140, r:26, color:'#3b82f6'},
+      {el:'N', x:370, y:140, r:26, color:'#3b82f6'}
+    ],
+    bonds:[[0,1,'triple']],
+    atomCount:2, sharedElectrons:6,
+    desc:'Le diazote est formé de 2 atomes d\'azote reliés par une triple liaison covalente (6 électrons partagés). C\'est le gaz majoritaire de l\'atmosphère (78 %). Cette triple liaison est très solide.'
+  },
+  {
+    id:'nacl', formula:'NaCl', name:'Chlorure de sodium', bondType:'ionic',
+    atoms:[
+      {el:'Na⁺', x:220, y:140, r:26, color:'#a855f7'},
+      {el:'Cl⁻', x:380, y:140, r:30, color:'#22c55e'}
+    ],
+    bonds:[[0,1,'ionic']],
+    atomCount:2, sharedElectrons:0,
+    desc:'Le sel de cuisine (NaCl) est un composé ionique. Le sodium (métal) cède 1 électron au chlore (non-métal). Il se forme un cation Na⁺ et un anion Cl⁻ maintenus ensemble par attraction électrostatique.'
+  }
+];
+
+let currentMol = null;
+
+// ── Initialisation ──
+function init() {
+  const grid = document.getElementById('molGrid');
+  molecules.forEach(m => {
+    const btn = document.createElement('button');
+    btn.className = 'mol-btn';
+    btn.id = 'btn-' + m.id;
+    btn.innerHTML = '<div class="formula">' + m.formula + '</div><div class="name">' + m.name + '</div>';
+    btn.onclick = () => selectMol(m.id);
+    grid.appendChild(btn);
+  });
+  // Draw comparison SVGs
+  drawCovalentDemo();
+  drawIonicDemo();
+}
+
+function selectMol(id) {
+  currentMol = molecules.find(m => m.id === id);
+  if (!currentMol) return;
+
+  // Update buttons
+  document.querySelectorAll('.mol-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + id).classList.add('active');
+
+  // Draw
+  drawMolecule(currentMol);
+
+  // Info
+  document.getElementById('descBox').textContent = currentMol.desc;
+  document.getElementById('infoFormula').textContent = currentMol.formula;
+  document.getElementById('infoBondType').innerHTML = currentMol.bondType === 'covalent'
+    ? '<span class="badge-cov">Covalente</span>'
+    : '<span class="badge-ion">Ionique</span>';
+  document.getElementById('infoAtoms').textContent = currentMol.atomCount;
+  document.getElementById('infoElectrons').textContent = currentMol.sharedElectrons === 0
+    ? 'Transfert (pas de partage)' : currentMol.sharedElectrons;
+}
+
+// ── Dessin SVG d'une molécule ──
+function drawMolecule(mol) {
+  const svg = document.getElementById('molSvg');
+  svg.innerHTML = '';
+
+  // Liaisons
+  mol.bonds.forEach(b => {
+    const a1 = mol.atoms[b[0]], a2 = mol.atoms[b[1]];
+    const type = b[2] || 'single';
+    drawBond(svg, a1, a2, type);
+  });
+
+  // Atomes
+  mol.atoms.forEach(a => {
+    drawAtom(svg, a);
+  });
+}
+
+function drawBond(svg, a1, a2, type) {
+  const dx = a2.x - a1.x, dy = a2.y - a1.y;
+  const len = Math.sqrt(dx*dx + dy*dy);
+  const nx = -dy/len, ny = dx/len; // normal
+
+  if (type === 'ionic') {
+    // Dashed line for ionic
+    const line = svgEl('line', {
+      x1:a1.x, y1:a1.y, x2:a2.x, y2:a2.y,
+      stroke:'#fbbf24', 'stroke-width':3, 'stroke-dasharray':'8,6', opacity:0.8
+    });
+    svg.appendChild(line);
+    // Arrow showing electron transfer
+    const mx = (a1.x + a2.x)/2, my = (a1.y + a2.y)/2;
+    const arrow = svgEl('text', {
+      x:mx, y:my - 20, fill:'#fbbf24', 'font-size':'16', 'text-anchor':'middle', 'font-weight':'bold'
+    });
+    arrow.textContent = 'e⁻ →';
+    svg.appendChild(arrow);
+    return;
+  }
+
+  const offsets = type === 'triple' ? [-6,0,6] : type === 'double' ? [-4,4] : [0];
+
+  offsets.forEach(off => {
+    const line = svgEl('line', {
+      x1: a1.x + nx*off, y1: a1.y + ny*off,
+      x2: a2.x + nx*off, y2: a2.y + ny*off,
+      stroke:'#94a3b8', 'stroke-width':3, 'stroke-linecap':'round'
+    });
+    svg.appendChild(line);
+  });
+
+  // Shared electron pairs (dots)
+  const pairCount = offsets.length;
+  for (let i = 0; i < pairCount; i++) {
+    const t = 0.5;
+    const bx = a1.x + dx*t + nx*offsets[i];
+    const by = a1.y + dy*t + ny*offsets[i];
+    // Two dots per bond
+    [-3,3].forEach(d => {
+      const dot = svgEl('circle', {
+        cx: bx + nx*d, cy: by + ny*d, r:2.5,
+        fill:'#60a5fa', opacity:0.9
+      });
+      svg.appendChild(dot);
+    });
+  }
+}
+
+function drawAtom(svg, a) {
+  // Glow
+  const glow = svgEl('circle', {
+    cx:a.x, cy:a.y, r:a.r+6,
+    fill:a.color, opacity:0.15
+  });
+  svg.appendChild(glow);
+
+  // Main circle
+  const circle = svgEl('circle', {
+    cx:a.x, cy:a.y, r:a.r,
+    fill:a.color,
+    stroke: a.stroke || 'rgba(255,255,255,0.3)',
+    'stroke-width': 2
+  });
+  svg.appendChild(circle);
+
+  // Label
+  const text = svgEl('text', {
+    x:a.x, y:a.y+1,
+    fill: a.textColor || '#fff',
+    'font-size': a.r < 22 ? '13' : '16',
+    'font-weight':'bold',
+    'text-anchor':'middle',
+    'dominant-baseline':'central'
+  });
+  text.textContent = a.el;
+  svg.appendChild(text);
+}
+
+// ── Dessin comparaison : covalente (H₂) ──
+function drawCovalentDemo() {
+  const svg = document.getElementById('svgCov');
+  svg.innerHTML = '';
+
+  // Two H atoms sharing electrons
+  const h1 = {el:'H', x:110, y:90, r:22, color:'#e2e8f0', stroke:'#94a3b8', textColor:'#1e293b'};
+  const h2 = {el:'H', x:190, y:90, r:22, color:'#e2e8f0', stroke:'#94a3b8', textColor:'#1e293b'};
+
+  // Bond line
+  const line = svgEl('line', {x1:h1.x,y1:h1.y,x2:h2.x,y2:h2.y,stroke:'#94a3b8','stroke-width':3});
+  svg.appendChild(line);
+
+  // Shared electrons
+  const mx = 150;
+  [82,98].forEach(y => {
+    const dot = svgEl('circle', {cx:mx, cy:y, r:3.5, fill:'#60a5fa'});
+    svg.appendChild(dot);
+  });
+
+  drawAtom(svg, h1);
+  drawAtom(svg, h2);
+
+  // Label
+  const lbl = svgEl('text', {x:150,y:145,fill:'#93c5fd','font-size':'13','text-anchor':'middle','font-weight':'600'});
+  lbl.textContent = 'H₂ — partage de 2 e⁻';
+  svg.appendChild(lbl);
+}
+
+// ── Dessin comparaison : ionique (Na⁺ Cl⁻) ──
+function drawIonicDemo() {
+  const svg = document.getElementById('svgIon');
+  svg.innerHTML = '';
+
+  const na = {el:'Na⁺', x:110, y:90, r:24, color:'#a855f7'};
+  const cl = {el:'Cl⁻', x:190, y:90, r:28, color:'#22c55e'};
+
+  // Dashed attraction line
+  const line = svgEl('line', {
+    x1:na.x, y1:na.y, x2:cl.x, y2:cl.y,
+    stroke:'#fbbf24', 'stroke-width':2.5, 'stroke-dasharray':'6,5', opacity:0.7
+  });
+  svg.appendChild(line);
+
+  // Electron arrow
+  const arr = svgEl('text', {x:150, y:65, fill:'#fbbf24', 'font-size':'14', 'text-anchor':'middle', 'font-weight':'bold'});
+  arr.textContent = 'e⁻ →';
+  svg.appendChild(arr);
+
+  // + and - signs
+  const plus = svgEl('text', {x:na.x, y:60, fill:'#a855f7', 'font-size':'18', 'text-anchor':'middle', 'font-weight':'bold'});
+  plus.textContent = '+';
+  svg.appendChild(plus);
+  const minus = svgEl('text', {x:cl.x, y:60, fill:'#22c55e', 'font-size':'22', 'text-anchor':'middle', 'font-weight':'bold'});
+  minus.textContent = '−';
+  svg.appendChild(minus);
+
+  drawAtom(svg, na);
+  drawAtom(svg, cl);
+
+  // Label
+  const lbl = svgEl('text', {x:150,y:150,fill:'#fcd34d','font-size':'13','text-anchor':'middle','font-weight':'600'});
+  lbl.textContent = 'NaCl — transfert de 1 e⁻';
+  svg.appendChild(lbl);
+}
+
+// ── Helpers SVG ──
+function svgEl(tag, attrs) {
+  const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k,v] of Object.entries(attrs)) el.setAttribute(k, v);
+  return el;
+}
+
+// ── Tabs ──
+function switchTab(tab) {
+  const explore = tab === 'explore';
+  document.getElementById('panelExplore').style.display = explore ? '' : 'none';
+  document.getElementById('panelCompare').style.display = explore ? 'none' : '';
+  document.getElementById('tabExplore').classList.toggle('active', explore);
+  document.getElementById('tabCompare').classList.toggle('active', !explore);
+}
+
+// ── Lancement ──
+init();
+</script>
+</body>
+</html>

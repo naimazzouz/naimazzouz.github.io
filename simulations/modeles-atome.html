@@ -159,7 +159,7 @@
     </div>
 
     <script>
-        let animationFrame;
+        let animationFrames = [];
 
         const models = {
             dalton: {
@@ -194,7 +194,8 @@
             const desc = document.getElementById('desc-box');
             const context = document.getElementById('history-context');
             
-            if (animationFrame) cancelAnimationFrame(animationFrame);
+            animationFrames.forEach(id => cancelAnimationFrame(id));
+            animationFrames = [];
             
             document.querySelectorAll('.btn-model').forEach(b => b.classList.remove('active'));
             document.getElementById('btn-' + modelId).classList.add('active');
@@ -252,7 +253,7 @@
                 const rotatedX = x * Math.cos(tilt) - y * Math.sin(tilt);
                 const rotatedY = x * Math.sin(tilt) + y * Math.cos(tilt);
                 e.style.transform = `translate(${rotatedX}px, ${rotatedY}px)`;
-                animationFrame = requestAnimationFrame(animate);
+                animationFrames.push(requestAnimationFrame(animate));
             }
             animate();
         }
@@ -274,7 +275,7 @@
                     angle += 0.02;
                     e.style.left = (radius + Math.cos(angle) * radius - 3) + 'px';
                     e.style.top = (radius + Math.sin(angle) * radius - 3) + 'px';
-                    animationFrame = requestAnimationFrame(animate);
+                    animationFrames.push(requestAnimationFrame(animate));
                 }
                 animate();
             }
@@ -303,7 +304,7 @@
                         obj.timer = 5 + Math.random() * 20;
                     }
                 });
-                animationFrame = requestAnimationFrame(animate);
+                animationFrames.push(requestAnimationFrame(animate));
             }
             function normalRandom() {
                 let u = 0, v = 0;
