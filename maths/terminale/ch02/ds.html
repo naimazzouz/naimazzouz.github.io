@@ -197,12 +197,15 @@
   </ul>
   <p>On note \(S\) l'événement « le client est satisfait ».</p>
 
-  <div class="q"><strong>1. (2 pts)</strong> Traduire la situation par un arbre pondéré complet.</div>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
+  <div class="q"><strong>1. (2 pts)</strong> Compléter l'arbre pondéré suivant :</div>
+  <div class="chemin" style="font-size:.93em">
+    ├── Particulier P (\(\boxed{\phantom{0,6}}\))<br>
+    │    ├── Satisfait S (\(\boxed{\phantom{0,85}}\))<br>
+    │    └── \(\overline{S}\) (\(\boxed{\phantom{0,15}}\))<br>
+    └── Professionnel R (\(\boxed{\phantom{0,4}}\))<br>
+    &emsp;&emsp;&emsp;├── Satisfait S (\(\boxed{\phantom{0,72}}\))<br>
+    &emsp;&emsp;&emsp;└── \(\overline{S}\) (\(\boxed{\phantom{0,28}}\))
+  </div>
 
   <div class="q"><strong>2. (2 pts)</strong> Calculer \(P(P \cap S)\), la probabilité qu'un client choisi au hasard soit un particulier satisfait.</div>
   <span class="answer-line"></span>
@@ -275,10 +278,16 @@
   <span class="answer-line"></span>
   <span class="answer-line"></span>
 
-  <div class="q"><strong>3. (3 pts)</strong> En déduire la probabilité qu'au moins un composant tombe en panne. Construire l'arbre pondéré correspondant.</div>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
+  <div class="q"><strong>3. (3 pts)</strong> En déduire la probabilité qu'au moins un composant tombe en panne. Compléter l'arbre pondéré :</div>
+  <div class="chemin" style="font-size:.93em">
+    ├── Chaudière en panne C (\(\boxed{\phantom{0,08}}\))<br>
+    │    ├── Thermostat en panne T (\(\boxed{\phantom{0,12}}\)) → \(P(C \cap T) = \boxed{\phantom{0,0096}}\)<br>
+    │    └── \(\overline{T}\) (\(\boxed{\phantom{0,88}}\)) → \(P(C \cap \overline{T}) = \) ………<br>
+    └── \(\overline{C}\) (\(\boxed{\phantom{0,92}}\))<br>
+    &emsp;&emsp;&emsp;├── T (\(\boxed{\phantom{0,12}}\)) → \(P(\overline{C} \cap T) = \) ………<br>
+    &emsp;&emsp;&emsp;└── \(\overline{T}\) (\(\boxed{\phantom{0,88}}\)) → \(P(\overline{C} \cap \overline{T}) = \) ………
+  </div>
+  <div class="reponse-box">\(P(\text{au moins 1 panne}) = 1 - P(\overline{C} \cap \overline{T}) = \) ………</div>
 
   <div class="q"><strong>4. (3 pts)</strong> Un contrat de maintenance coûte 200 € par an. Une réparation coûte 1 500 € en moyenne. À l'aide du calcul de probabilité, le contrat est-il rentable pour le client ? Justifier par le calcul de l'espérance du coût sans contrat.</div>
   <span class="answer-line"></span>
@@ -306,10 +315,15 @@
     <li>L'entreprise B réalise le reste, dont \(78\,\%\) conformes.</li>
   </ul>
 
-  <div class="q"><strong>1. (2 pts)</strong> Construire l'arbre pondéré complet.</div>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
-  <span class="answer-line"></span>
+  <div class="q"><strong>1. (2 pts)</strong> Compléter l'arbre pondéré :</div>
+  <div class="chemin" style="font-size:.93em">
+    ├── Entreprise A (\(\boxed{\phantom{0,65}}\))<br>
+    │    ├── Conforme (\(\boxed{\phantom{0,92}}\))<br>
+    │    └── Non conforme (\(\boxed{\phantom{0,08}}\))<br>
+    └── Entreprise B (\(\boxed{\phantom{0,35}}\))<br>
+    &emsp;&emsp;&emsp;├── Conforme (\(\boxed{\phantom{0,78}}\))<br>
+    &emsp;&emsp;&emsp;└── Non conforme (\(\boxed{\phantom{0,22}}\))
+  </div>
 
   <div class="q"><strong>2. (2 pts)</strong> Calculer la probabilité qu'une installation choisie au hasard soit conforme (formule des probabilités totales).</div>
   <span class="answer-line"></span>
