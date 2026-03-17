@@ -1,7 +1,7 @@
 # Audit Pédagogique des Exercices
 
 **Date** : 2026-03-16
-**Dernière mise à jour** : 2026-03-16 (session 5)
+**Dernière mise à jour** : 2026-03-17
 **Périmètre** : exercices.html et ds.html — 8 sections (maths seconde/première/terminale, physique-chimie seconde/première-iccer/première-era/terminale-iccer/terminale-era)
 **Méthode** : échantillonnage de 2-3 fichiers exercices.html et 2-3 fichiers ds.html par section, lecture et analyse qualitative.
 
@@ -244,6 +244,10 @@ L'inventaire complet (2026-03-16) révèle un taux de couverture global de **41.
 
 - **2026-03-16** : Ajout de diff.js dans les 18 fichiers exercices.html et ds.html de maths/premiere (ch01-ch09)
 - **2026-03-16** : Inventaire complet `.exo` vs `.corr` réalisé — 3 479 exercices, 1 433 corrections, 41.2% couverture globale
+- **2026-03-17** : Corrige l'erreur numérique dans maths/terminale/ch02/exercices.html Ex 12 (0,8473 → 0,84778 et valeurs dérivées)
+- **2026-03-17** : Corrige les fautes d'accord « encrassés » → « encrassé » dans maths/terminale/ch02/exercices.html Ex 8
+- **2026-03-17** : Ajoute les tags de différenciation (tag-socle/tag-standard/tag-appro) dans maths/terminale/ch02/ds.html
+- **2026-03-17** : Harmonise l'indentation des arbres de probabilités (NBSP → &emsp;) dans exercices.html et ds.html de ch02
 
 ---
 

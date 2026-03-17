@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ch02 – Exercices – Probabilités</title>
+<title>Ch02 – Exercices – Probabilités – Terminale Bac Pro</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
@@ -284,8 +284,8 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
     │    ├── Conforme (0,95)<br>
     │    └── Défectueuse (0,05)<br>
     └── Fournisseur F2 (0,3)<br>
-        ├── Conforme (0,90)<br>
-        └── Défectueuse (0,10)
+    &emsp;&emsp;&emsp;├── Conforme (0,90)<br>
+    &emsp;&emsp;&emsp;└── Défectueuse (0,10)
   </div>
 
   <div class="consigne"><strong>1.</strong> Quelle proportion des vannes vient du fournisseur F1 ?</div>
@@ -549,8 +549,8 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   </ul>
   <div class="consigne">
     <strong>1.</strong> Calculer \(P(\text{G4} \cap \text{E})\) et \(P(\text{F7} \cap \text{E})\).<br>
-    <strong>2.</strong> Calculer \(P(\text{E})\) (probabilité qu’un filtre pris au hasard soit encrassés).<br>
-    <strong>3.</strong> On sait qu’un filtre est encrassés. Calculer la probabilité qu’il soit de type F7 : \(P_{\text{E}}(\text{F7})\).<br>
+    <strong>2.</strong> Calculer \(P(\text{E})\) (probabilité qu’un filtre pris au hasard soit encrassé).<br>
+    <strong>3.</strong> On sait qu’un filtre est encrassé. Calculer la probabilité qu’il soit de type F7 : \(P_{\text{E}}(\text{F7})\).<br>
     <strong>4.</strong> Interpréter ce résultat pour le technicien.
   </div>
   <div class="formule">
@@ -772,19 +772,19 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
       <p><strong>1.</strong> Ch et Po sont indépendants :<br>
       \(P(\text{Ch} \cap \text{Po}) = 0{,}05 \times 0{,}08 =\) <span class="reponse">\(0{,}004\)</span></p>
       <p><strong>2.</strong> Aucune panne — tous les contraires se réalisent :<br>
-      \(P(\bar{\text{Ch}} \cap \bar{\text{Po}} \cap \bar{\text{Va}}) = 0{,}95 \times 0{,}92 \times 0{,}97 =\) <span class="reponse">\(0{,}8473\)</span></p>
-      <p>84,73 % de chances qu’aucun appareil ne tombe en panne.</p>
+      \(P(\bar{\text{Ch}} \cap \bar{\text{Po}} \cap \bar{\text{Va}}) = 0{,}95 \times 0{,}92 \times 0{,}97 =\) <span class="reponse">\(0{,}84778\)</span></p>
+      <p>Environ 84,8 % de chances qu’aucun appareil ne tombe en panne.</p>
       <p><strong>3.</strong> « Au moins une panne » = contraire de « aucune panne » :<br>
-      \(P(\text{au moins une panne}) = 1 - 0{,}8473 =\) <span class="reponse">\(0{,}1527\)</span></p>
-      <p>Environ 15,27 % de chances qu’au moins un appareil tombe en panne.</p>
+      \(P(\text{au moins une panne}) = 1 - 0{,}84778 =\) <span class="reponse">\(0{,}15222\)</span></p>
+      <p>Environ 15,2 % de chances qu’au moins un appareil tombe en panne.</p>
       <p><strong>4.</strong> Analyse économique sur 1 000 installations :</p>
       <ul>
         <li>Coût de la révision préventive : \(1000 \times 150 = \mathbf{150\,000\,\text{€}}\)</li>
-        <li>Nombre moyen de pannes sans révision : \(1000 \times 0{,}1527 \approx 153\) pannes</li>
-        <li>Coût moyen des pannes : \(153 \times 600 = \mathbf{91\,800\,\text{€}}\)</li>
+        <li>Nombre moyen de pannes sans révision : \(1000 \times 0{,}15222 \approx 152\) pannes</li>
+        <li>Coût moyen des pannes : \(152 \times 600 = \mathbf{91\,200\,\text{€}}\)</li>
       </ul>
-      <p>La révision coûte 150 000 €, les pannes attendues ne coûtent que 91 800 €. <span class="reponse">La révision systématique n’est pas rentable ici.</span></p>
-      <div class="att">Si le coût d’une panne était de 1 200 € (pannes plus graves) : \(153 \times 1200 = 183\,600 > 150\,000\) → la révision deviendrait rentable. Le seuil dépend du coût de la panne.</div>
+      <p>La révision coûte 150 000 €, les pannes attendues ne coûtent que 91 200 €. <span class="reponse">La révision systématique n’est pas rentable ici.</span></p>
+      <div class="att">Si le coût d’une panne était de 1 200 € (pannes plus graves) : \(152 \times 1200 = 182\,400 > 150\,000\) → la révision deviendrait rentable. Le seuil dépend du coût de la panne.</div>
     </div>
   </details>
 </div>

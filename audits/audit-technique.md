@@ -230,6 +230,8 @@ Le site repose sur des liens `<a>` et boutons `<button>` standards, naturellemen
 - **2026-03-17** : Convertit 396 entités HTML en UTF-8 dans maths/seconde/ch05/ds.html (185) et exercices.html (211)
 - **2026-03-17** : Centralise dans styles.css les classes .situation-pro, .sp-grid, .sp-label, .erreur-item, .hors-prog, .simu-link (utilisées dans 11+ fichiers)
 - **2026-03-17** : Nettoie le CSS inline de maths/seconde/ch05/lecon.html (28→4 lignes), ch04/lecon.html et ch06/lecon.html (suppression des doublons)
+- **2026-03-17** : Remplace .hprog (classe inline) par .hors-prog (classe centralisée dans styles.css) dans maths/terminale/ch02/lecon.html
+- **2026-03-17** : Ajoute « Terminale Bac Pro » aux balises `<title>` de maths/terminale/ch02/ (lecon.html, exercices.html, ds.html)
 
 ---
 
