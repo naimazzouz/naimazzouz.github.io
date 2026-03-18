@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch11 – QCM – Figures planes : périmètres et aires – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}
+
+.qcm-header{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.qcm-header .dh-item{display:flex;align-items:center;gap:6px}
+.qcm-header strong{color:var(--p)}
+.q-block{border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px;margin:16px 0;background:#fff}
+.q-block h3{margin:0 0 10px;font-size:1em;color:var(--p)}
+.q-block .theme{font-size:.78em;color:#718096;margin-bottom:8px;font-style:italic}
+.options label{display:block;padding:8px 12px;margin:4px 0;border-radius:6px;cursor:pointer;border:1.5px solid #e2e8f0;transition:background .15s,border-color .15s;font-size:.95em}
+.options label:hover{background:var(--p-bg);border-color:var(--p-border)}
+.options input[type="radio"]{margin-right:8px;accent-color:var(--p)}
+.options label.correct{background:#d1fae5;border-color:#34d399}
+.options label.incorrect{background:#fee2e2;border-color:#f87171}
+.q-feedback{margin-top:8px;padding:8px 12px;border-radius:6px;font-size:.88em;display:none}
+.q-feedback.ok{background:#d1fae5;color:#065f46;display:block}
+.q-feedback.ko{background:#fee2e2;color:#991b1b;display:block}
+.btn-valider{background:var(--p);color:#fff;border:none;padding:10px 28px;border-radius:8px;font-size:1em;font-weight:700;cursor:pointer;margin-top:20px;display:block}
+.btn-valider:hover{opacity:.85}
+.btn-reset{background:#e2e8f0;color:#374151;border:none;padding:8px 20px;border-radius:8px;font-size:.9em;cursor:pointer;margin-top:8px}
+.btn-reset:hover{background:#cbd5e1}
+.score-box{margin-top:24px;padding:18px 24px;border-radius:10px;text-align:center;font-size:1.15em;font-weight:700;display:none}
+.score-box.show{display:block}
+.score-good{background:#d1fae5;color:#065f46;border:2px solid #34d399}
+.score-avg{background:#fef3c7;color:#92400e;border:2px solid #fcd34d}
+.score-low{background:#fee2e2;color:#991b1b;border:2px solid #f87171}
+@media print{.nb,.btn-valider,.btn-reset,.diff-toggle-wrap{display:none}.options label{border:1px solid #ccc}}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>QCM – Figures planes : périmètres et aires</h1>
+  <p class="sous-titre">Chapitre 11 | Seconde Bac Pro MAMA | Mathématiques</p>
+</header>
+
+<div class="qcm-header">
+  <div class="dh-item">⏱ <strong>Durée :</strong> 15–20 min</div>
+  <div class="dh-item">📄 <strong>15 questions</strong></div>
+  <div class="dh-item">🧮 <strong>Calculatrice autorisée</strong></div>
+</div>
+
+<p style="font-size:.9em;color:#4a5568">Pour chaque question, cochez la <strong>seule bonne réponse</strong> puis cliquez sur « Valider le QCM » en bas de page.</p>
+
+<!-- ========================= SOCLE ========================= -->
+<div class="diff-socle">
+<span class="tag-socle">Socle</span>
+
+<form id="qcm-socle">
+
+<div class="q-block" data-correct="b">
+  <h3>Question 1</h3>
+  <p class="theme">Vocabulaire – Périmètre</p>
+  <p>Le périmètre d'une figure plane, c'est :</p>
+  <div class="options">
+    <label><input type="radio" name="s1" value="a"> la surface qu'elle occupe</label>
+    <label><input type="radio" name="s1" value="b"> la longueur totale de son contour</label>
+    <label><input type="radio" name="s1" value="c"> la longueur de son plus grand côté</label>
+    <label><input type="radio" name="s1" value="d"> la diagonale de la figure</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 2</h3>
+  <p class="theme">Vocabulaire – Aire</p>
+  <p>L'aire d'une figure, c'est :</p>
+  <div class="options">
+    <label><input type="radio" name="s2" value="a"> la mesure de sa superficie (en cm², m²…)</label>
+    <label><input type="radio" name="s2" value="b"> la longueur de son contour</label>
+    <label><input type="radio" name="s2" value="c"> le nombre de côtés de la figure</label>
+    <label><input type="radio" name="s2" value="d"> la longueur de sa diagonale</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="c">
+  <h3>Question 3</h3>
+  <p class="theme">Formule – Périmètre du rectangle</p>
+  <p>Le périmètre d'un rectangle de longueur \(L\) et de largeur \(l\) est :</p>
+  <div class="options">
+    <label><input type="radio" name="s3" value="a"> \(P = L + l\)</label>
+    <label><input type="radio" name="s3" value="b"> \(P = L \times l\)</label>
+    <label><input type="radio" name="s3" value="c"> \(P = 2(L + l)\)</label>
+    <label><input type="radio" name="s3" value="d"> \(P = 4 \times L\)</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="d">
+  <h3>Question 4</h3>
+  <p class="theme">Calcul – Périmètre du rectangle</p>
+  <p>Un rectangle mesure 6 m de long et 4 m de large. Son périmètre vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="s4" value="a"> 10 m</label>
+    <label><input type="radio" name="s4" value="b"> 24 m²</label>
+    <label><input type="radio" name="s4" value="c"> 24 m</label>
+    <label><input type="radio" name="s4" value="d"> 20 m</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 5</h3>
+  <p class="theme">Calcul – Aire du rectangle</p>
+  <p>Un rectangle mesure 6 m de long et 4 m de large. Son aire vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="s5" value="a"> 24 m²</label>
+    <label><input type="radio" name="s5" value="b"> 20 m²</label>
+    <label><input type="radio" name="s5" value="c"> 10 m²</label>
+    <label><input type="radio" name="s5" value="d"> 24 m</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="b">
+  <h3>Question 6</h3>
+  <p class="theme">Formule – Périmètre du carré</p>
+  <p>Le périmètre d'un carré de côté \(a\) est :</p>
+  <div class="options">
+    <label><input type="radio" name="s6" value="a"> \(P = a^2\)</label>
+    <label><input type="radio" name="s6" value="b"> \(P = 4a\)</label>
+    <label><input type="radio" name="s6" value="c"> \(P = 2a\)</label>
+    <label><input type="radio" name="s6" value="d"> \(P = a + 4\)</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="c">
+  <h3>Question 7</h3>
+  <p class="theme">Calcul – Aire du carré</p>
+  <p>Un carré a un côté de 5 cm. Son aire vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="s7" value="a"> 20 cm²</label>
+    <label><input type="radio" name="s7" value="b"> 10 cm²</label>
+    <label><input type="radio" name="s7" value="c"> 25 cm²</label>
+    <label><input type="radio" name="s7" value="d"> 20 cm</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="b">
+  <h3>Question 8</h3>
+  <p class="theme">Formule – Aire du triangle</p>
+  <p>L'aire d'un triangle de base \(b\) et de hauteur \(h\) est :</p>
+  <div class="options">
+    <label><input type="radio" name="s8" value="a"> \(\mathcal{A} = b \times h\)</label>
+    <label><input type="radio" name="s8" value="b"> \(\mathcal{A} = \dfrac{b \times h}{2}\)</label>
+    <label><input type="radio" name="s8" value="c"> \(\mathcal{A} = 2 \times b \times h\)</label>
+    <label><input type="radio" name="s8" value="d"> \(\mathcal{A} = b + h\)</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 9</h3>
+  <p class="theme">Calcul – Aire du triangle</p>
+  <p>Un triangle a une base de 10 cm et une hauteur de 6 cm. Son aire vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="s9" value="a"> 30 cm²</label>
+    <label><input type="radio" name="s9" value="b"> 60 cm²</label>
+    <label><input type="radio" name="s9" value="c"> 16 cm²</label>
+    <label><input type="radio" name="s9" value="d"> 30 cm</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="d">
+  <h3>Question 10</h3>
+  <p class="theme">Formule – Périmètre du cercle</p>
+  <p>Le périmètre (circonférence) d'un cercle de rayon \(r\) est :</p>
+  <div class="options">
+    <label><input type="radio" name="s10" value="a"> \(P = \pi r^2\)</label>
+    <label><input type="radio" name="s10" value="b"> \(P = 4\pi r\)</label>
+    <label><input type="radio" name="s10" value="c"> \(P = \pi r\)</label>
+    <label><input type="radio" name="s10" value="d"> \(P = 2\pi r\)</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="c">
+  <h3>Question 11</h3>
+  <p class="theme">Formule – Aire du disque</p>
+  <p>L'aire d'un disque de rayon \(r\) est :</p>
+  <div class="options">
+    <label><input type="radio" name="s11" value="a"> \(\mathcal{A} = 2\pi r\)</label>
+    <label><input type="radio" name="s11" value="b"> \(\mathcal{A} = \pi d\)</label>
+    <label><input type="radio" name="s11" value="c"> \(\mathcal{A} = \pi r^2\)</label>
+    <label><input type="radio" name="s11" value="d"> \(\mathcal{A} = 2\pi r^2\)</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="b">
+  <h3>Question 12</h3>
+  <p class="theme">Conversion – Unités d'aire</p>
+  <p>1 m² est égal à :</p>
+  <div class="options">
+    <label><input type="radio" name="s12" value="a"> 100 cm²</label>
+    <label><input type="radio" name="s12" value="b"> 10 000 cm²</label>
+    <label><input type="radio" name="s12" value="c"> 1 000 cm²</label>
+    <label><input type="radio" name="s12" value="d"> 10 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 13</h3>
+  <p class="theme">Angles – Somme dans un triangle</p>
+  <p>Dans un triangle, la somme des trois angles est toujours égale à :</p>
+  <div class="options">
+    <label><input type="radio" name="s13" value="a"> 180°</label>
+    <label><input type="radio" name="s13" value="b"> 360°</label>
+    <label><input type="radio" name="s13" value="c"> 90°</label>
+    <label><input type="radio" name="s13" value="d"> 270°</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="d">
+  <h3>Question 14</h3>
+  <p class="theme">Attention – Hauteur d'un triangle</p>
+  <p>La hauteur d'un triangle, c'est :</p>
+  <div class="options">
+    <label><input type="radio" name="s14" value="a"> le plus grand côté du triangle</label>
+    <label><input type="radio" name="s14" value="b"> le côté oblique du triangle</label>
+    <label><input type="radio" name="s14" value="c"> la moitié de la base</label>
+    <label><input type="radio" name="s14" value="d"> la perpendiculaire abaissée de un sommet sur la base</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="c">
+  <h3>Question 15</h3>
+  <p class="theme">Contexte quotidien – Plinthe</p>
+  <p>Une pièce rectangulaire fait 5 m × 3 m. On veut poser des plinthes tout autour. Quelle longueur de plinthe faut-il ?</p>
+  <div class="options">
+    <label><input type="radio" name="s15" value="a"> 8 m</label>
+    <label><input type="radio" name="s15" value="b"> 15 m²</label>
+    <label><input type="radio" name="s15" value="c"> 16 m</label>
+    <label><input type="radio" name="s15" value="d"> 15 m</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<button type="button" class="btn-valider" onclick="corriger('qcm-socle','score-socle')">Valider le QCM</button>
+<button type="button" class="btn-reset" onclick="reinitialiser('qcm-socle','score-socle')">Recommencer</button>
+<div class="score-box" id="score-socle"></div>
+</form>
+</div>
+
+<!-- ========================= STANDARD ========================= -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<form id="qcm-standard">
+
+<div class="q-block" data-correct="c">
+  <h3>Question 1</h3>
+  <p class="theme">Calcul – Périmètre du rectangle</p>
+  <p>Un poseur de parquet doit acheter des plinthes pour une pièce de 4,5 m × 3,2 m. Le périmètre vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n1" value="a"> 7,7 m</label>
+    <label><input type="radio" name="n1" value="b"> 14,4 m</label>
+    <label><input type="radio" name="n1" value="c"> 15,4 m</label>
+    <label><input type="radio" name="n1" value="d"> 14,4 m²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 2</h3>
+  <p class="theme">Calcul – Aire du rectangle</p>
+  <p>Un menuisier doit couvrir un panneau rectangulaire de 1,2 m × 0,8 m en placage. L'aire à couvrir est :</p>
+  <div class="options">
+    <label><input type="radio" name="n2" value="a"> 0,96 m²</label>
+    <label><input type="radio" name="n2" value="b"> 4 m</label>
+    <label><input type="radio" name="n2" value="c"> 2 m²</label>
+    <label><input type="radio" name="n2" value="d"> 0,96 m</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="b">
+  <h3>Question 3</h3>
+  <p class="theme">Calcul – Aire du triangle</p>
+  <p>Un habillage triangulaire a une base de 80 cm et une hauteur de 55 cm. Son aire vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n3" value="a"> 4 400 cm²</label>
+    <label><input type="radio" name="n3" value="b"> 2 200 cm²</label>
+    <label><input type="radio" name="n3" value="c"> 135 cm²</label>
+    <label><input type="radio" name="n3" value="d"> 2 200 cm</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="d">
+  <h3>Question 4</h3>
+  <p class="theme">Calcul – Périmètre du cercle</p>
+  <p>Un miroir circulaire a un diamètre de 60 cm. Son périmètre (arrondi au cm) est environ :</p>
+  <div class="options">
+    <label><input type="radio" name="n4" value="a"> 94 cm</label>
+    <label><input type="radio" name="n4" value="b"> 377 cm</label>
+    <label><input type="radio" name="n4" value="c"> 2 827 cm²</label>
+    <label><input type="radio" name="n4" value="d"> 189 cm</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 5</h3>
+  <p class="theme">Calcul – Aire du disque</p>
+  <p>Un disque a un rayon de 10 cm. Son aire (arrondie au cm²) est environ :</p>
+  <div class="options">
+    <label><input type="radio" name="n5" value="a"> 314 cm²</label>
+    <label><input type="radio" name="n5" value="b"> 628 cm²</label>
+    <label><input type="radio" name="n5" value="c"> 63 cm²</label>
+    <label><input type="radio" name="n5" value="d"> 100 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="c">
+  <h3>Question 6</h3>
+  <p class="theme">Formule – Aire du trapèze</p>
+  <p>L'aire d'un trapèze de grande base \(B\), petite base \(b\) et hauteur \(h\) est :</p>
+  <div class="options">
+    <label><input type="radio" name="n6" value="a"> \(\mathcal{A} = B \times b \times h\)</label>
+    <label><input type="radio" name="n6" value="b"> \(\mathcal{A} = (B + b) \times h\)</label>
+    <label><input type="radio" name="n6" value="c"> \(\mathcal{A} = \dfrac{(B + b) \times h}{2}\)</label>
+    <label><input type="radio" name="n6" value="d"> \(\mathcal{A} = \dfrac{B \times h}{2}\)</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="b">
+  <h3>Question 7</h3>
+  <p class="theme">Calcul – Aire du trapèze</p>
+  <p>Un trapèze a pour grande base 12 cm, petite base 8 cm et hauteur 5 cm. Son aire vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n7" value="a"> 100 cm²</label>
+    <label><input type="radio" name="n7" value="b"> 50 cm²</label>
+    <label><input type="radio" name="n7" value="c"> 60 cm²</label>
+    <label><input type="radio" name="n7" value="d"> 30 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="d">
+  <h3>Question 8</h3>
+  <p class="theme">Calcul – Aire du parallélogramme</p>
+  <p>Un parallélogramme a une base de 9 cm et une hauteur de 6 cm. Son aire vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n8" value="a"> 30 cm²</label>
+    <label><input type="radio" name="n8" value="b"> 27 cm²</label>
+    <label><input type="radio" name="n8" value="c"> 15 cm²</label>
+    <label><input type="radio" name="n8" value="d"> 54 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 9</h3>
+  <p class="theme">Conversion – Unités d'aire</p>
+  <p>Convertir 3,5 m² en cm² :</p>
+  <div class="options">
+    <label><input type="radio" name="n9" value="a"> 35 000 cm²</label>
+    <label><input type="radio" name="n9" value="b"> 350 cm²</label>
+    <label><input type="radio" name="n9" value="c"> 3 500 cm²</label>
+    <label><input type="radio" name="n9" value="d"> 3 500 000 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="c">
+  <h3>Question 10</h3>
+  <p class="theme">Angles – Trouver un angle manquant</p>
+  <p>Dans un triangle, deux angles mesurent 48° et 65°. Le troisième angle vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n10" value="a"> 113°</label>
+    <label><input type="radio" name="n10" value="b"> 77°</label>
+    <label><input type="radio" name="n10" value="c"> 67°</label>
+    <label><input type="radio" name="n10" value="d"> 57°</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="b">
+  <h3>Question 11</h3>
+  <p class="theme">Contexte professionnel – Surface de parquet</p>
+  <p>Un poseur de parquet doit couvrir une pièce de 4,5 m × 3,2 m. Il prévoit 10 % de chutes. Combien de m² commander ?</p>
+  <div class="options">
+    <label><input type="radio" name="n11" value="a"> 14,4 m²</label>
+    <label><input type="radio" name="n11" value="b"> 15,84 m²</label>
+    <label><input type="radio" name="n11" value="c"> 17,28 m²</label>
+    <label><input type="radio" name="n11" value="d"> 13,0 m²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="d">
+  <h3>Question 12</h3>
+  <p class="theme">Attention – Hauteur ≠ côté</p>
+  <p>Un parallélogramme a un côté oblique de 7 cm, une base de 10 cm et une hauteur de 5 cm. Son aire vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n12" value="a"> 70 cm²</label>
+    <label><input type="radio" name="n12" value="b"> 35 cm²</label>
+    <label><input type="radio" name="n12" value="c"> 17,5 cm²</label>
+    <label><input type="radio" name="n12" value="d"> 50 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="a">
+  <h3>Question 13</h3>
+  <p class="theme">Formule – Losange</p>
+  <p>L'aire d'un losange dont les diagonales mesurent 8 cm et 6 cm vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n13" value="a"> 24 cm²</label>
+    <label><input type="radio" name="n13" value="b"> 48 cm²</label>
+    <label><input type="radio" name="n13" value="c"> 14 cm²</label>
+    <label><input type="radio" name="n13" value="d"> 28 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="c">
+  <h3>Question 14</h3>
+  <p class="theme">Contexte professionnel – Baguette d'encadrement</p>
+  <p>Un ébéniste fabrique un cadre circulaire de rayon 25 cm. La longueur de baguette nécessaire (arrondie au cm) est environ :</p>
+  <div class="options">
+    <label><input type="radio" name="n14" value="a"> 79 cm</label>
+    <label><input type="radio" name="n14" value="b"> 1 963 cm²</label>
+    <label><input type="radio" name="n14" value="c"> 157 cm</label>
+    <label><input type="radio" name="n14" value="d"> 250 cm</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<div class="q-block" data-correct="b">
+  <h3>Question 15</h3>
+  <p class="theme">Erreur fréquente – Conversion d'unités</p>
+  <p>Un élève écrit : « 1 m = 100 cm donc 1 m² = 100 cm² ». Cette affirmation est :</p>
+  <div class="options">
+    <label><input type="radio" name="n15" value="a"> correcte</label>
+    <label><input type="radio" name="n15" value="b"> fausse, car 1 m² = 10 000 cm²</label>
+    <label><input type="radio" name="n15" value="c"> fausse, car 1 m² = 1 000 cm²</label>
+    <label><input type="radio" name="n15" value="d"> fausse, car 1 m² = 200 cm²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+<button type="button" class="btn-valider" onclick="corriger('qcm-socle','score-socle')">Valider le QCM</button>
+<button type="button" class="btn-reset" onclick="reinitialiser('qcm-socle','score-socle')">Recommencer</button>
+<div class="score-box" id="score-socle"></div>
+</form>
+</div>
+
+<!-- ========================= STANDARD ========================= -->
+<div class="diff-standard">
+<span class="tag-standard">Standard</span>
+
+<form id="qcm-standard">
+
+<div class="q-block" data-correct="c">
+  <h3>Question 1</h3>
+  <p class="theme">Calcul – Périmètre du rectangle</p>
+  <p>Un poseur de parquet doit acheter des plinthes pour une pièce de 4,5 m × 3,2 m. Le périmètre vaut :</p>
+  <div class="options">
+    <label><input type="radio" name="n1" value="a"> 7,7 m</label>
+    <label><input type="radio" name="n1" value="b"> 14,4 m</label>
+    <label><input type="radio" name="n1" value="c"> 15,4 m</label>
+    <label><input type="radio" name="n1" value="d"> 14,4 m²</label>
+  </div>
+  <div class="q-feedback"></div>
+</div>
+
+Oops, I realize I'm duplicating the standard section. Let me fix this.
