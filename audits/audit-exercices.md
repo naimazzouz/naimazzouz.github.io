@@ -1,7 +1,7 @@
 # Audit Pédagogique des Exercices
 
 **Date** : 2026-03-16
-**Dernière mise à jour** : 2026-03-18 (QCMs)
+**Dernière mise à jour** : 2026-03-19 (vérification détaillée Seconde)
 **Périmètre** : exercices.html, ds.html, qcm.html et interro.html — 8 sections (maths seconde/première/terminale, physique-chimie seconde/première-iccer/première-era/terminale-iccer/terminale-era)
 **Méthode** : échantillonnage de 2-3 fichiers exercices.html et 2-3 fichiers ds.html par section, lecture et analyse qualitative.
 
@@ -194,35 +194,70 @@ Les corrections utilisent deux patterns différents selon les sections :
 
 Les deux fonctionnent, mais l'incohérence peut créer de la confusion lors de la maintenance.
 
-### 6. Corrections massivement incomplètes
+### 6. Corrections incomplètes dans les DS
 
-**Gravité : CRITIQUE**
+**Gravité : HAUTE**
 
-L'inventaire complet (2026-03-16) révèle un taux de couverture global de **41.2%** (1 433 `.corr` pour 3 479 `.exo`), soit **2 046 corrections manquantes**.
+L'inventaire initial (2026-03-16) donnait un taux de 41.2% mais le comptage incluait des sous-éléments (sous-questions, labels `.exo-num`). La **vérification détaillée du 2026-03-19** par conteneurs principaux donne des résultats plus fiables.
 
-| Section | `.exo` | `.corr` | Écart | Couverture |
+**Méthodologie corrigée** : compter les blocs conteneurs `.exo` (exercices.html) et `.partie` (ds.html) vs les blocs `.corr`.
+
+#### Seconde — Vérification détaillée (3e comptage, 2026-03-19)
+
+**Note méthodologique** : les 2 comptages précédents étaient erronés (sous-éléments inclus, puis mauvaise méthodologie grep). Ce 3e comptage est fiable : comptage exact des blocs conteneurs `.exo` et `.corr` par fichier.
+
+**Exercices (exercices.html)** :
+
+| Section | `.exo` | `.corr` | Manquant | Couverture |
 |---|---|---|---|---|
-| Maths Seconde | 573 | 422 | 151 | 73.6% |
-| Maths Première | 219 | 85 | 134 | 38.8% |
-| Maths Terminale | 338 | 169 | 169 | 50.0% |
-| Maths BTS | 330 | 115 | 215 | 34.8% |
-| PC Seconde | 738 | 221 | 517 | 29.9% |
-| PC Première ICCER | 294 | 96 | 198 | 32.7% |
-| **PC Première ERA** | **99** | **99** | **0** | **100%** |
-| PC Terminale ICCER | 504 | 126 | 378 | 25.0% |
-| PC Terminale ERA | 384 | 96 | 288 | 25.0% |
-| **TOTAL** | **3 479** | **1 433** | **2 046** | **41.2%** |
+| Maths Seconde | 191 | 79 | **112** | **41%** |
+| PC Seconde | 199 | 159 | **40** | **80%** |
 
-**Pires fichiers individuels (écart > 50) :**
-- `physique-chimie/terminale-iccer/ch03/exercices.html` : 84 exo / 21 corr (écart 63)
-- `physique-chimie/seconde/ch07/exercices.html` : 19 exo / 15 corr (écart 4) — **corrigé 2026-03-17** (comptage initial erroné, incluait les simulations et sous-questions)
-- `physique-chimie/seconde/ch05/exercices.html` : 80 exo / 20 corr (écart 60)
-- `physique-chimie/terminale-iccer/ch07/exercices.html` : 72 exo / 18 corr (écart 54)
-- `maths/bts/ch01/exercices.html` : 68 exo / 17 corr (écart 51)
+**DS (ds.html)** :
+
+| Section | `.partie` | `.corr` | Couverture |
+|---|---|---|---|
+| Maths Seconde | 124 | 124 | **100%** ✓ |
+| PC Seconde | 97 | 97 | **100%** ✓ |
+
+**Détail exercices Maths Seconde** :
+
+| Chapitre | `.exo` | `.corr` | Manquant | Statut |
+|---|---|---|---|---|
+| ch01 | 13 | 12 | 1 | Quasi complet |
+| **ch02** | **11** | **0** | **11** | **Aucune correction** |
+| ch03 | 14 | 13 | 1 | Quasi complet |
+| **ch04** | **13** | **0** | **13** | **Aucune correction** |
+| **ch05** | **12** | **0** | **12** | **Aucune correction** |
+| **ch06** | **12** | **0** | **12** | **Aucune correction** |
+| **ch07** | **15** | **0** | **15** | **Aucune correction** |
+| **ch08** | **14** | **0** | **14** | **Aucune correction** |
+| ch09 | 15 | 10 | 5 | Partiel |
+| **ch10** | **14** | **0** | **14** | **Aucune correction** |
+| ch11 | 15 | 10 | 5 | Partiel |
+| ch12 | 15 | 14 | 1 | Quasi complet |
+| ch13 | 14 | 10 | 4 | Partiel |
+| ch14 | 14 | 10 | 4 | Partiel |
+
+**7 chapitres maths sans aucune correction** : ch02, ch04, ch05, ch06, ch07, ch08, ch10
+
+**Détail exercices PC Seconde** :
+
+| Chapitre | `.exo` | `.corr` | Manquant | Statut |
+|---|---|---|---|---|
+| ch01–ch06 | 83 | 83 | 0 | Complet ✓ |
+| **ch07** | **29** | **25** | **4** | Partiel |
+| ch08–ch09 | 26 | 26 | 0 | Complet ✓ |
+| **ch10** | **12** | **0** | **12** | **Aucune correction** |
+| **ch11** | **12** | **0** | **12** | **Aucune correction** |
+| ch12–ch13 | 25 | 25 | 0 | Complet ✓ |
+| **ch14** | **12** | **0** | **12** | **Aucune correction** |
+
+**3 chapitres PC sans aucune correction** : ch10, ch11, ch14
 
 **Section exemplaire** : PC Première ERA (100% de couverture sur 10 chapitres).
 
-**Anomalies** : maths/seconde/ch07 et ch08 ont plus de `.corr` que de `.exo` (structure HTML à vérifier).
+**Conclusion** : **152 corrections manquantes en Seconde** (112 maths + 40 PC). Les DS sont intégralement corrigés (100%). Le problème est concentré sur les exercices, en particulier 7 chapitres maths et 3 chapitres PC sans aucune correction.
 
 ---
 
@@ -251,6 +286,8 @@ L'inventaire complet (2026-03-16) révèle un taux de couverture global de **41.
 - **2026-03-18** : Créé `maths/terminale/ch02/qcm.html` — QCM différencié (3×15 questions socle/standard/appro, auto-corrigé, feedback)
 - **2026-03-18** : Créé `maths/terminale/ch02/interro.html` — Interro différenciée (3×5 questions socle/standard/appro, barème, corrections)
 - **2026-03-18** : Créé 46 QCMs différenciés (3×15 questions) : maths/seconde (14/14), maths/premiere (9/9), maths/terminale (10/11, ch02 existant), physique-chimie/seconde (13/14, ch07 existant). Total : 48/84 QCMs (57%)
+- **2026-03-19** : Bilan Seconde — 28/28 interro.html créées (14 maths + 14 PC), toutes différenciées avec diff.js. Seconde 100% complète sur les 6 types de pages. Différenciation : 168 blocs maths + 169 blocs PC, distribution équilibrée socle/standard/appro
+- **2026-03-19** : 3e vérification détaillée des corrections Seconde — comptage exact par fichier. Exercices : maths 41% (79/191), PC 80% (159/199). DS : 100% pour les deux. **152 corrections d'exercices manquantes** (112 maths + 40 PC). 7 chapitres maths et 3 chapitres PC sans aucune correction
 
 ---
 
@@ -264,7 +301,7 @@ L'inventaire complet (2026-03-16) révèle un taux de couverture global de **41.
 
 ### Priorité haute (uniformisation 2026-03-18)
 - [ ] Créer les 36 `qcm.html` restants (PC 1ere ICCER 10, PC 1ere ERA 10, PC Tle ICCER 8, PC Tle ERA 8) — 48/84 faits
-- [ ] Créer les 82 `interro.html` restants (3×5-8 questions socle/standard/appro par chapitre)
+- [ ] Créer les 54 `interro.html` restants (30/84 faits : Seconde 28 + Terminale 2) — restent : maths/premiere 9, maths/terminale 9, PC 1ere ICCER 10, PC 1ere ERA 10, PC Tle ICCER 8, PC Tle ERA 8
 - [ ] Créer les 7 `exercices.html` manquants (PC terminale)
 - [ ] Créer les 7 `ds.html` manquants (PC terminale)
 
@@ -320,9 +357,11 @@ L'inventaire complet (2026-03-16) révèle un taux de couverture global de **41.
 | `exercices.html` | 77 | 84 | 7 | Oui (socle/standard/appro) |
 | `ds.html` | 77 | 84 | 7 | Oui (socle/standard/appro) |
 | `qcm.html` | 48 | 84 | 36 | Oui (3×15 questions) |
-| `interro.html` | 1 | 84 | 83 | Oui (3×5-8 questions) |
+| `interro.html` | 30 | 84 | 54 | Oui (3×5-8 questions) |
 
 **Modèle existant QCM** : `physique-chimie/seconde/ch07/qcm.html` — QCM interactif auto-corrigé, feedback instantané, score.
 **Modèle existant interro** : `maths/terminale/ch04/interro.html` — interrogation écrite, corrections, différenciée.
+
+**Bilan Seconde (2026-03-19)** : la Seconde est la **première section 100% complète** du site avec les 6 types de pages (lecon, exercices, ds, fiche, qcm, interro) sur les 28 chapitres. Différenciation systématique (56 fichiers exercices/ds + 28 interro avec diff.js). Total : 170 fichiers HTML en Seconde.
 
 **Specs détaillées** : voir `prompts/prompt-qcm-interro.md`.
