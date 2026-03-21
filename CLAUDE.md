@@ -1,7 +1,9 @@
 # CLAUDE.md — Site pédagogique Maths & Sciences LP
 
-Espace pédagogique pour les classes de Bac Professionnel (Seconde, Première et Terminale).
+Espace pédagogique pour les classes de Bac Professionnel (Seconde, Première, Terminale) et BTS.
 Ce fichier est lu automatiquement par Claude Code à chaque session.
+
+**État du site (mars 2026) :** ~673 pages HTML, 99+ chapitres, 64 simulations, 22 automatismes.
 
 ---
 
@@ -10,25 +12,35 @@ Ce fichier est lu automatiquement par Claude Code à chaque session.
 ```
 /
 ├── styles.css                  ← Feuille de style partagée (NE PAS supprimer)
+├── print.css                   ← Feuille de style d'impression (A4, polycopiés)
 ├── nav.js                      ← Navigation auto-générée (NE PAS modifier sans raison)
 ├── nav.css                     ← Styles de navigation
 ├── diff.js                     ← Toggle différenciation pédagogique (socle/standard/appro)
+├── qcm.js                     ← Fonctions partagées pour les QCM interactifs
 ├── index.html                  ← Page d'accueil
+├── maths-*.html / pc-*.html    ← Pages sommaire par matière/niveau
 ├── maths/
 │   ├── seconde/ch01..ch14/
 │   ├── premiere/ch01..ch09/
-│   └── terminale/ch01..ch11/
+│   ├── terminale/ch01..ch11/
+│   └── bts/ch01..ch25/         ← Cours BTS (maths uniquement)
 ├── physique-chimie/
 │   ├── seconde/ch01..ch14/
 │   ├── premiere-iccer/ch01..ch10/  ← groupement 1 (ICCER)
 │   ├── premiere-era/ch01..ch10/    ← groupement 3 (ERA-MA)
 │   ├── terminale-iccer/ch01..ch08/
 │   └── terminale-era/ch01..ch08/
-├── simulations/                ← Pages interactives (Canvas/SVG/JS)
+├── simulations/                ← Pages interactives (Canvas/SVG/JS) — 64 simulations
+├── automatismes/               ← Exercices d'entraînement rapide par thème — 22 pages
 ├── prompts/                    ← Prompts pédagogiques de référence
-├── pdf/                        ← Programmes officiels Bac Pro
+├── pdf/                        ← Programmes officiels Bac Pro & BTS
 ├── audits/                     ← Audits qualité (documents vivants)
-└── scripts/extract_css.py      ← Outil de maintenance CSS
+├── scripts/                    ← Outils de maintenance
+│   ├── extract_css.py          ← Nettoyage CSS doublons
+│   ├── add_print_css.py        ← Ajout automatique de print.css aux pages
+│   ├── generate-pdf.js         ← Génération PDF des cours
+│   └── link_simulations.py     ← Liaison simulations ↔ chapitres
+└── .claude/commands/           ← Commandes personnalisées Claude Code (skills)
 ```
 
 ### Structure d'un chapitre (`subject/level/chNN/`)
@@ -46,6 +58,27 @@ Chaque dossier de chapitre peut contenir les fichiers suivants :
 | `simulation.html` | Simulation interactive liée au chapitre | Optionnel — si pertinent |
 
 **Objectif :** chaque chapitre devrait à terme contenir les 7 fichiers ci-dessus.
+
+### Pages sommaire (racine)
+
+Les pages de type `maths-2nde-mama.html`, `pc-1ere-iccer.html`, etc. servent de sommaire par matière/niveau. Elles listent les chapitres avec liens vers leçons, exercices, DS, etc.
+
+Autres pages utilitaires à la racine :
+- `simulations.html` — Index des simulations interactives
+- `groupements.html` — Groupements de filières Bac Pro
+- `ccf-convocations.html` — Convocations CCF
+- `cv-eleve.html` — Générateur de CV élève
+- `lettre-motivation-parcoursup.html` — Aide à la rédaction Parcoursup
+- `python.html` — Page Python
+- `logicie.html` — Logiciels
+
+### Section BTS (`maths/bts/`)
+
+25 chapitres de mathématiques pour BTS. Même structure que les chapitres Bac Pro mais sans différenciation pédagogique (pas de diff.js).
+
+### Automatismes (`automatismes/`)
+
+22 pages d'exercices d'entraînement rapide (calcul mental, automatismes) organisées par niveau et thème. Pages autonomes avec leur propre `index.html`.
 
 ---
 
@@ -228,7 +261,9 @@ Avant de générer du contenu, consulter les fichiers dans `/prompts/` :
 |---|---|
 | `prompts/prompt-cours.md` | Structure d'une page de cours |
 | `prompts/prompt-exercices.md` | Structure d'une page d'exercices |
+| `prompts/prompt-qcm-interro.md` | Structure d'un QCM ou d'une interrogation |
 | `prompts/prompt-simulation.md` | Structure d'une simulation interactive (4 types) |
+| `prompts/prompt-superviseur.md` | Prompt de supervision globale du projet |
 | `prompts/prompt-filiere-2mama.md` | Contextes pro Seconde MAMA (menuiserie/agencement) |
 | `prompts/prompt-filiere-era-ma.md` | Contextes pro Première & Terminale ERA/MA (agencement/bois) |
 | `prompts/prompt-filiere-ticcer.md` | Contextes pro Première & Terminale ICCER (chauffage/énergie) |
@@ -305,11 +340,34 @@ Une simulation doit toujours servir à :
 2. **Ne jamais redéfinir les classes de `styles.css`** dans les pages
 3. **Respecter la structure des dossiers** : `subject/level/chNN/pagetype.html`
 4. **Ajouter `<script src="../../../nav.js"></script>`** en fin de `<body>` sur toutes les pages de cours
-5. **Chart.js** : `<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>` si graphiques
-6. **MathJax** : inclure le script si la page contient des formules mathématiques
+5. **Ajouter `<link rel="stylesheet" href="../../../print.css">`** pour le support impression
+6. **QCM** : inclure `<script src="../../../qcm.js"></script>` dans les pages `qcm.html` — définir un objet global `explications` avec les clés correspondant aux `name` des radios
+7. **Chart.js** : `<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>` si graphiques
+8. **MathJax** : inclure le script si la page contient des formules mathématiques
 
-### Maintenance CSS
-Si de nouvelles classes communes sont ajoutées à plusieurs pages, les centraliser dans `styles.css` et lancer `python3 scripts/extract_css.py` pour nettoyer les doublons.
+### Scripts de maintenance
+
+| Script | Usage |
+|---|---|
+| `python3 scripts/extract_css.py` | Nettoyer les doublons CSS inline → styles.css |
+| `python3 scripts/add_print_css.py` | Ajouter print.css aux pages qui ne l'ont pas |
+| `python3 scripts/link_simulations.py` | Vérifier/ajouter les liens simulations ↔ chapitres |
+| `node scripts/generate-pdf.js` | Générer les PDF des cours |
+
+### Commandes Claude Code personnalisées
+
+Les fichiers dans `.claude/commands/` définissent des skills invocables via `/nom-commande` :
+
+| Commande | Usage |
+|---|---|
+| `/new-chapter` | Créer la structure d'un nouveau chapitre |
+| `/generate-qcm` | Générer un QCM (`qcm.html`) |
+| `/generate-interro` | Générer une interrogation (`interro.html`) |
+| `/generate-fiche` | Générer une fiche résumé (`fiche.html`) |
+| `/audit-chapter` | Auditer un chapitre |
+| `/update-audit` | Mettre à jour un fichier d'audit |
+| `/css-cleanup` | Nettoyer les styles CSS inline |
+| `/check-sigles` | Vérifier les sigles de filière interdits |
 
 ---
 
@@ -344,6 +402,8 @@ Les audits dans `/audits/` sont le **tableau de bord central du projet**. Ils ne
 | `audits/audit-pedagogique-pc.md` | Détail pédagogique — cours de physique-chimie |
 | `audits/audit-exercices.md` | Corrections, DS, complétude, qualité |
 | `audits/audit-simulations.md` | Simulations interactives, ancrage pédagogique |
+| `audits/audit-uniformisation.md` | Uniformisation des formats et conventions |
+| `audits/plan-amelioration-seconde.md` | Plan d'amélioration spécifique Seconde |
 
 ### Règle de mise à jour obligatoire
 
