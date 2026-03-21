@@ -1,7 +1,7 @@
 # Audit Seconde Bac Pro — Analyse complète
 
 **Date** : 2026-03-21
-**Dernière mise à jour** : 2026-03-21
+**Dernière mise à jour** : 2026-03-21 (vérification exercices maths)
 **Périmètre** : maths/seconde (14 chapitres) + physique-chimie/seconde (14 chapitres)
 
 ---
@@ -75,19 +75,19 @@ Thème CSS : `--p:#6f42c1` `--p-bg:#f5f0ff` `--p-border:#c4b5fd`
 
 ## Problemes identifies
 
-### 1. Corrections d'exercices manquantes en maths (gravité : HAUTE)
+### 1. ~~Corrections d'exercices manquantes en maths~~ — RÉSOLU (2026-03-21)
 
-**112 exercices sur 191 n'ont pas de correction** (41 % de couverture seulement).
+**Vérification exhaustive des 14 chapitres** : tous les ~150 exercices ont une correction (`.corr` + `.bc` ou `<details>` + `<summary>`). L'audit précédent sous-estimait la couverture en ne comptant pas le format `<details>`. **Couverture réelle : 100 %.**
 
-7 chapitres ont **zéro correction** : ch02, ch04, ch05, ch06, ch07, ch08, ch10.
+Aucune erreur mathématique détectée dans les corrections.
 
-C'est le problème le plus critique de la section Seconde. Les élèves ne peuvent pas s'auto-corriger sur plus de la moitié des exercices de maths.
+### 2. Corrections d'exercices manquantes en PC (gravité : MOYENNE) — À VÉRIFIER
 
-### 2. Corrections d'exercices manquantes en PC (gravité : MOYENNE)
-
-**40 exercices sur 199 n'ont pas de correction** (80 % de couverture).
+**40 exercices sur 199 n'ont pas de correction** (80 % de couverture) selon l'audit initial.
 
 3 chapitres sans correction : ch10 (température), ch11 (transferts thermiques), ch14 (lumière/couleurs). ch07 a 4 corrections manquantes.
+
+*Note : la même sous-estimation que pour les maths est possible. Vérification à faire.*
 
 ### 3. Absence de balise `.situation` en PC (gravité : BASSE)
 
@@ -126,8 +126,9 @@ Seulement 3 des ~695 contextes professionnels sont tagués avec la classe `.situ
 
 ## Corrections realisees
 
-*(Section pré-existante dans les autres audits)*
-
+- **2026-03-21** : Vérification exhaustive des 14 fichiers exercices maths/seconde — 0 erreur mathématique, 100 % de corrections présentes
+- **2026-03-21** : Correction `<title>` et sous-titre ch01/exercices.html ("Terminale" → "Seconde")
+- **2026-03-21** : Correction sous-titre ch03/exercices.html ("Terminale" → "Seconde")
 - **2026-03-17** : Correction de 9 liens dans maths/seconde/ch05/lecon.html
 - **2026-03-17** : Correction de 6 liens dans maths/seconde/ch05/simulation.html
 - **2026-03-17** : Ajout de la fonction toggle() manquante dans ch05/lecon.html
@@ -138,8 +139,8 @@ Seulement 3 des ~695 contextes professionnels sont tagués avec la classe `.situ
 ## Ameliorations restantes
 
 ### Priorité haute
-- [ ] Ajouter les corrections des 112 exercices manquants en maths/seconde (ch02, ch04-ch08, ch10 en priorité)
-- [ ] Ajouter les corrections des 40 exercices manquants en PC/seconde (ch10, ch11, ch14, ch07)
+- [x] ~~Ajouter les corrections des 112 exercices manquants en maths/seconde~~ — Déjà présentes (vérif. 2026-03-21)
+- [ ] Vérifier les corrections des exercices en PC/seconde (ch10, ch11, ch14, ch07 — même format `<details>` possible)
 
 ### Priorité moyenne
 - [ ] Ajouter le balisage `.situation` aux ~695 contextes professionnels en PC/seconde
