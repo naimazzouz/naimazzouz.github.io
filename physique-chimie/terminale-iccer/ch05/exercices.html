@@ -434,6 +434,107 @@
   </div>
 </div>
 
+<!-- ───── Standard – Exercice 18 ───── -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Pression dans un ballon d'eau chaude sanitaire</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un installateur thermique vérifie un ballon d'eau chaude sanitaire. Le ballon est alimenté par le réseau d'eau à \(P_{\text{réseau}} = 3\ \text{bar}\). Le groupe de sécurité est taré à \(P_{\text{sécu}} = 7\ \text{bar}\). Le ballon est rempli d'eau froide à 15 °C (\(V_1 = 200\ \text{L}\)). En fonctionnement, l'eau atteint 65 °C et son volume augmente de \(\Delta V = 3{,}5\ \text{L}\).</p>
+  <p class="q"><strong>1.</strong> Calculer le pourcentage d'augmentation de volume de l'eau lors du chauffage.</p>
+  <p class="q"><strong>2.</strong> Si le groupe de sécurité est bloqué et que l'air au-dessus de l'eau (volume initial \(V_{\text{air}} = 5\ \text{L}\)) est comprimé, calculer la nouvelle pression de l'air en appliquant Boyle-Mariotte. On suppose \(P_{\text{air,initial}} = 3\ \text{bar}\).</p>
+  <p class="q"><strong>3.</strong> Le groupe de sécurité se déclenche-t-il ? Justifier.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\dfrac{\Delta V}{V_1} \times 100 = \dfrac{3{,}5}{200} \times 100 = \mathbf{1{,}75\ \%}\)</p>
+    <p><strong>2.</strong> Le volume d'air passe de \(V_1 = 5\ \text{L}\) à \(V_2 = 5 - 3{,}5 = 1{,}5\ \text{L}\).
+    <br>\(P_2 = \dfrac{P_1 \times V_1}{V_2} = \dfrac{3 \times 5}{1{,}5} = \mathbf{10\ \text{bar}}\)</p>
+    <p><strong>3.</strong> \(P_2 = 10\ \text{bar} > P_{\text{sécu}} = 7\ \text{bar}\) : oui, le groupe de sécurité <strong>se déclenche</strong>. C'est pourquoi il ne faut jamais bloquer le groupe de sécurité.</p>
+  </div>
+</div>
+
+<!-- ───── Standard – Exercice 19 ───── -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Hauteur manométrique d'une colonne d'eau</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>On souhaite exprimer des pressions en « mètres de colonne d'eau » (mCE), unité courante en chauffage. On donne \(\rho_{\text{eau}} = 1\,000\ \text{kg/m}^3\), \(g = 9{,}81\ \text{m/s}^2\).</p>
+  <p class="q"><strong>1.</strong> Calculer la pression exercée par une colonne d'eau de \(h = 1\ \text{m}\) en Pa.</p>
+  <p class="q"><strong>2.</strong> Combien de mCE correspondent à 1 bar ?</p>
+  <p class="q"><strong>3.</strong> Un circulateur de chauffage fournit une hauteur manométrique de 6 mCE. Exprimer cette pression en Pa et en bar.</p>
+  <p class="q"><strong>4.</strong> La perte de charge du circuit est de 45 000 Pa. Exprimer cette perte en mCE. Le circulateur est-il suffisant ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = \rho g h = 1\,000 \times 9{,}81 \times 1 = \mathbf{9\,810\ \text{Pa}}\)</p>
+    <p><strong>2.</strong> \(h = \dfrac{P}{\rho g} = \dfrac{10^5}{1\,000 \times 9{,}81} \approx \mathbf{10{,}2\ \text{mCE}}\)</p>
+    <p><strong>3.</strong> \(P = 1\,000 \times 9{,}81 \times 6 = \mathbf{58\,860\ \text{Pa}} \approx \mathbf{0{,}589\ \text{bar}}\)</p>
+    <p><strong>4.</strong> \(h = \dfrac{45\,000}{9\,810} \approx \mathbf{4{,}59\ \text{mCE}}\). Le circulateur fournit 6 mCE > 4,59 mCE : il est <strong>suffisant</strong>.</p>
+  </div>
+</div>
+
+<!-- ───── Standard – Exercice 20 ───── -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Pression dans un circuit de climatisation</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un technicien CVC vérifie les pressions d'un circuit de climatisation. Le manomètre basse pression (BP) indique \(P_{\text{rel,BP}} = 4{,}5\ \text{bar}\) et le manomètre haute pression (HP) indique \(P_{\text{rel,HP}} = 18\ \text{bar}\). On donne \(P_{\text{atm}} = 1{,}013\ \text{bar}\).</p>
+  <p class="q"><strong>1.</strong> Calculer les pressions absolues côté BP et côté HP.</p>
+  <p class="q"><strong>2.</strong> Calculer le rapport des pressions absolues \(\dfrac{P_{\text{HP}}}{P_{\text{BP}}}\) (appelé taux de compression).</p>
+  <p class="q"><strong>3.</strong> Si le gaz occupe un volume \(V_{\text{BP}} = 2{,}0\ \text{L}\) côté BP, quel volume occupe-t-il côté HP ? (Compression isotherme approchée.)</p>
+  <p class="q"><strong>4.</strong> Le taux de compression ne doit pas dépasser 4,5 pour protéger le compresseur. La condition est-elle respectée ?</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_{\text{BP}} = 4{,}5 + 1{,}013 = \mathbf{5{,}513\ \text{bar}}\)
+    <br>\(P_{\text{HP}} = 18 + 1{,}013 = \mathbf{19{,}013\ \text{bar}}\)</p>
+    <p><strong>2.</strong> \(\dfrac{P_{\text{HP}}}{P_{\text{BP}}} = \dfrac{19{,}013}{5{,}513} \approx \mathbf{3{,}45}\)</p>
+    <p><strong>3.</strong> \(V_{\text{HP}} = \dfrac{P_{\text{BP}} \times V_{\text{BP}}}{P_{\text{HP}}} = \dfrac{5{,}513 \times 2{,}0}{19{,}013} \approx \mathbf{0{,}580\ \text{L}}\)</p>
+    <p><strong>4.</strong> \(3{,}45 < 4{,}5\) : la condition est <strong>respectée</strong>.</p>
+  </div>
+</div>
+
+<!-- ───── Standard – Exercice 21 ───── -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Pression au fond d'un ballon de stockage solaire</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un installateur de panneaux solaires thermiques raccorde un ballon de stockage vertical de hauteur \(H = 1{,}80\ \text{m}\). Le ballon est rempli d'un mélange eau-glycol de masse volumique \(\rho = 1\,040\ \text{kg/m}^3\). La pression en haut du ballon est \(P_0 = 2{,}0\ \text{bar}\). On prend \(g = 9{,}81\ \text{m/s}^2\).</p>
+  <p class="q"><strong>1.</strong> Calculer la pression due à la colonne de fluide \(\Delta P = \rho g H\) en Pa puis en bar.</p>
+  <p class="q"><strong>2.</strong> Calculer la pression absolue au fond du ballon.</p>
+  <p class="q"><strong>3.</strong> La soupape de sécurité du circuit solaire est tarée à \(6\ \text{bar}\). Le ballon peut-il fonctionner sans déclencher la soupape ? Justifier.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\Delta P = 1\,040 \times 9{,}81 \times 1{,}80 = \mathbf{18\,364\ \text{Pa}} \approx \mathbf{0{,}184\ \text{bar}}\)</p>
+    <p><strong>2.</strong> \(P_{\text{fond}} = 2{,}0 + 0{,}184 = \mathbf{2{,}184\ \text{bar}}\)</p>
+    <p><strong>3.</strong> \(P_{\text{fond}} = 2{,}184\ \text{bar} < 6\ \text{bar}\) : le ballon fonctionne <strong>sans déclencher la soupape</strong>. La marge est confortable.</p>
+  </div>
+</div>
+
+<!-- ───── Standard – Exercice 22 ───── -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Détente d'un gaz dans une bouteille de fluide frigorigène</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un technicien de maintenance utilise une bouteille de fluide frigorigène R32. La bouteille contient du gaz à \(P_1 = 15\ \text{bar}\) dans un volume \(V_1 = 0{,}80\ \text{L}\) (phase gazeuse). Il transfère le gaz dans le circuit (volume \(V_2 = 3{,}5\ \text{L}\)) à température constante.</p>
+  <p class="q"><strong>1.</strong> Appliquer la loi de Boyle-Mariotte pour calculer la pression finale \(P_2\) dans le circuit.</p>
+  <p class="q"><strong>2.</strong> Convertir \(P_2\) en Pa.</p>
+  <p class="q"><strong>3.</strong> S'agit-il d'une compression ou d'une détente ? Justifier en comparant volumes et pressions.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_2 = \dfrac{P_1 \times V_1}{V_2} = \dfrac{15 \times 0{,}80}{3{,}5} \approx \mathbf{3{,}43\ \text{bar}}\)</p>
+    <p><strong>2.</strong> \(P_2 = 3{,}43 \times 10^5 = \mathbf{343\,000\ \text{Pa}}\)</p>
+    <p><strong>3.</strong> Le volume augmente (\(V_2 > V_1\)) et la pression diminue (\(P_2 < P_1\)) : il s'agit d'une <strong>détente</strong>.</p>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════ -->
 <!--              NIVEAU APPROFONDISSEMENT              -->
 <!-- ═══════════════════════════════════════════════════ -->
