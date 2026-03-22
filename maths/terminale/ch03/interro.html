@@ -431,6 +431,74 @@
   </div>
 </div>
 
+<h3 class="sujet-header">Sujet B</h3>
+<p><strong>Barème :</strong> 20 points</p>
+
+<div class="exo">
+  <h2>Question 1 <span class="pts">(5 points)</span></h2>
+  <p>Un atelier de menuiserie achète une raboteuse industrielle neuve à 18 000 €. Elle perd 12 % de sa valeur chaque année. L'atelier souhaite la revendre quand sa valeur descend sous 6 000 €.</p>
+  <p>a) Écrire le terme général \(u_n\) de la suite.</p>
+  <p>b) Calculer \(u_4\) et \(u_9\). Encadrer l'année à partir de laquelle \(u_n < 6\,000\).</p>
+  <p>c) Déterminer par essais successifs l'année exacte.</p>
+  <p>d) Calculer la valeur totale des dépréciations cumulées sur les 9 premières années : \(u_0 - u_9\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(u_n = 18\,000 \times 0{,}88^n\)</p>
+    <p>b) \(u_4 = 18\,000 \times 0{,}88^4 \approx 10\,798\,€ > 6\,000\) et \(u_9 = 18\,000 \times 0{,}88^9 \approx 5\,656\,€ < 6\,000\).</p>
+    <p>c) \(u_8 = 18\,000 \times 0{,}88^8 \approx 6\,427\,€ > 6\,000\) et \(u_9 \approx 5\,656 < 6\,000\). La raboteuse passe sous 6 000 € à l'<strong>année 9</strong>.</p>
+    <p>d) Dépréciation cumulée : \(18\,000 - 5\,656 = \mathbf{12\,344\,€}\).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="pts">(5 points)</span></h2>
+  <p>Le loyer d'un local artisanal est de 12 000 € la première année. Il augmente de 3 % chaque année.</p>
+  <p>a) Identifier \(u_1\) et \(q\). Écrire \(u_n\) en fonction de \(n\).</p>
+  <p>b) Calculer le loyer à la 8e année.</p>
+  <p>c) Calculer le total des loyers versés sur les 8 premières années à l'aide de la formule de la somme.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(u_1 = 12\,000\), \(q = 1{,}03\). Le loyer de la \(n\)-ième année est \(u_n = 12\,000 \times 1{,}03^{n-1}\).</p>
+    <p>b) \(u_8 = 12\,000 \times 1{,}03^7 = 12\,000 \times 1{,}2299 \approx \mathbf{14\,759\,€}\)</p>
+    <p>c) Somme de \(u_1\) à \(u_8\) (8 termes, premier terme 12 000, raison 1,03) :</p>
+    <p>\(S = 12\,000 \times \dfrac{1 - 1{,}03^8}{1 - 1{,}03} = 12\,000 \times \dfrac{1 - 1{,}2668}{-0{,}03} = 12\,000 \times 8{,}892 \approx \mathbf{106\,710\,€}\)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="pts">(5 points)</span></h2>
+  <p>Un plombier chauffagiste installe un système solaire thermique pour 10 000 €. Ce système permet une économie de 500 € la première année, et cette économie augmente de 3 % chaque année.</p>
+  <p>a) Montrer que les économies annuelles forment une suite géométrique. Donner \(u_1\) et \(q\).</p>
+  <p>b) Calculer le total des économies cumulées sur 12 ans.</p>
+  <p>c) Au bout de combien d'années les économies cumulées dépassent-elles le coût d'installation ? (Tester \(n = 14, 15, 16\).)</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) Chaque année, l'économie est multipliée par \(1{,}03\). Donc \(u_{n+1} = u_n \times 1{,}03\). C'est une suite géométrique : \(u_1 = 500\), \(q = 1{,}03\).</p>
+    <p>b) \(S_{12} = 500 \times \dfrac{1 - 1{,}03^{12}}{1 - 1{,}03} = 500 \times \dfrac{1 - 1{,}4258}{-0{,}03} = 500 \times 14{,}192 \approx \mathbf{7\,096\,€}\)</p>
+    <p>c) \(S_{14} = 500 \times \dfrac{1 - 1{,}03^{14}}{-0{,}03} \approx 500 \times 17{,}086 \approx 8\,543 < 10\,000\).</p>
+    <p>\(S_{15} \approx 500 \times 18{,}599 \approx 9\,299 < 10\,000\).</p>
+    <p>\(S_{16} \approx 500 \times 20{,}157 \approx 10\,078 > 10\,000\).</p>
+    <p>Les économies cumulées dépassent le coût d'installation au bout de la <strong>16e année</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="pts">(5 points)</span></h2>
+  <p>Un capital de 15 000 € est placé à intérêts composés au taux annuel de \(t\,\%\). Après 6 ans, le capital atteint 19 500 €.</p>
+  <p>a) Écrire l'équation vérifiée par \(q\) : \(15\,000 \times q^6 = 19\,500\).</p>
+  <p>b) En déduire \(q^6 = ...\)</p>
+  <p>c) Utiliser la calculatrice pour trouver \(q\) : \(q = (...)^{1/6}\). En déduire le taux annuel \(t\).</p>
+  <p>d) Après combien d'années le capital dépassera-t-il 25 000 € ? (Tester dans le tableau de valeurs.)</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(15\,000 \times q^6 = 19\,500\)</p>
+    <p>b) \(q^6 = \dfrac{19\,500}{15\,000} = 1{,}30\)</p>
+    <p>c) \(q = 1{,}30^{1/6} \approx \mathbf{1{,}045}\). Donc le taux annuel est \(t = (1{,}045 - 1) \times 100 = \mathbf{4{,}5\,\%}\).</p>
+    <p>d) On cherche \(n\) tel que \(u_n = 15\,000 \times 1{,}045^n \geq 25\,000\), soit \(1{,}045^n \geq \dfrac{5}{3} \approx 1{,}667\).</p>
+    <p>\(1{,}045^{11} \approx 1{,}623 < 1{,}667\) et \(1{,}045^{12} \approx 1{,}696 > 1{,}667\). Le capital dépasse 25 000 € après <strong>12 ans</strong>.</p>
+  </div>
+</div>
+
 </div>
 
 </div><!-- fin .c -->
