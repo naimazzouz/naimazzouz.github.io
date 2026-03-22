@@ -1016,6 +1016,180 @@
   </details>
 </div>
 
+<!-- Exercice 10 -->
+<div class="exo">
+  <div class="exo-num">Exercice 10</div>
+  <div class="exo-titre">&Eacute;clairage d'un terrain de sport &mdash; probl&egrave;me complet</div>
+  <div class="enonce">
+    <span class="context-tag">Sport &mdash; &Eacute;nergie</span>
+    <p>Un gymnase municipal de <strong>800 m&sup2;</strong> doit &ecirc;tre &eacute;clair&eacute; &agrave; <strong>300 lx</strong> au sol (norme pour la comp&eacute;tition sportive). On compare deux solutions :</p>
+    <table>
+      <thead><tr><th>Solution</th><th>Technologie</th><th>Flux par luminaire (lm)</th><th>Puissance (W)</th><th>Dur&eacute;e de vie (h)</th><th>Prix unitaire (&euro;)</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Halog&egrave;ne m&eacute;tallique</td><td>20 000</td><td>250</td><td>6 000</td><td>120</td></tr>
+        <tr><td>B</td><td>LED haute puissance</td><td>20 000</td><td>140</td><td>50 000</td><td>350</td></tr>
+      </tbody>
+    </table>
+    <p>Le facteur de d&eacute;pr&eacute;ciation est de 0,80 pour les deux solutions. L'&eacute;clairage fonctionne <strong>2 000 h/an</strong>. Le prix de l'&eacute;lectricit&eacute; est <strong>0,18 &euro;/kWh</strong>.</p>
+    <p class="q"><strong>Q1.</strong> Calculer le flux total n&eacute;cessaire (apr&egrave;s d&eacute;pr&eacute;ciation) pour 300 lx sur 800 m&sup2;.</p>
+    <p class="q"><strong>Q2.</strong> En d&eacute;duire le flux initial &agrave; installer, puis le nombre de luminaires pour chaque solution.</p>
+    <p class="q"><strong>Q3.</strong> Calculer le co&ucirc;t &eacute;lectrique annuel de chaque solution.</p>
+    <p class="q"><strong>Q4.</strong> Calculer le co&ucirc;t total sur 10 ans (achat + &eacute;lectricit&eacute; + remplacement). En combien d'ann&eacute;es la solution LED est-elle rentabilis&eacute;e ?</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Q1.</strong> Flux utile : \(\Phi = 300 \times 800 = 240\,000\) lm. Flux initial : \(\Phi_0 = 240\,000 / 0{,}80 = \mathbf{300\,000}\) lm.</p>
+      <p><strong>Q2.</strong> Nombre de luminaires : \(n = \lceil 300\,000 / 20\,000 \rceil = \mathbf{15}\) pour les deux solutions.</p>
+      <p><strong>Q3.</strong> Solution A : \(P = 15 \times 250 = 3\,750\) W = 3,75 kW. Co&ucirc;t/an = \(3{,}75 \times 2\,000 \times 0{,}18 = \mathbf{1\,350}\) &euro;.</p>
+      <p>Solution B : \(P = 15 \times 140 = 2\,100\) W = 2,1 kW. Co&ucirc;t/an = \(2{,}1 \times 2\,000 \times 0{,}18 = \mathbf{756}\) &euro;.</p>
+      <p><strong>Q4.</strong> Sur 10 ans (20 000 h) :</p>
+      <p>Solution A : remplacements = \(\lceil 20\,000/6\,000 \rceil = 4\) jeux &rarr; achat = \(4 \times 15 \times 120 = 7\,200\) &euro;. &Eacute;lectricit&eacute; = \(10 \times 1\,350 = 13\,500\) &euro;. <strong>Total A = 20 700 &euro;</strong>.</p>
+      <p>Solution B : pas de remplacement (50 000 h) &rarr; achat = \(15 \times 350 = 5\,250\) &euro;. &Eacute;lectricit&eacute; = \(10 \times 756 = 7\,560\) &euro;. <strong>Total B = 12 810 &euro;</strong>.</p>
+      <p>&Eacute;conomie annuelle LED : \(1\,350 - 756 = 594\) &euro;. Surco&ucirc;t achat : \(5\,250 - 1\,800 = 3\,450\) &euro; (premier achat halog&egrave;ne = \(15 \times 120\)). Rentabilisation : \(3\,450 / 594 \approx \mathbf{5{,}8}\) ans, soit environ <strong>6 ans</strong>.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 11 -->
+<div class="exo">
+  <div class="exo-num">Exercice 11</div>
+  <div class="exo-titre">Contr&ocirc;le qualit&eacute; par cam&eacute;ra CCD &mdash; r&eacute;solution et d&eacute;faut</div>
+  <div class="enonce">
+    <span class="context-tag">Atelier de menuiserie &mdash; Contr&ocirc;le qualit&eacute;</span>
+    <p>En fin de cha&icirc;ne de fabrication, une cam&eacute;ra CCD contr&ocirc;le la surface des panneaux de bois pour d&eacute;tecter les d&eacute;fauts (rayures, n&oelig;uds, taches). Le capteur CCD a les caract&eacute;ristiques suivantes :</p>
+    <ul>
+      <li>R&eacute;solution : 2 048 &times; 1 536 pixels</li>
+      <li>Le champ de vision couvre une surface de 40 cm &times; 30 cm sur le panneau</li>
+    </ul>
+    <p class="q"><strong>Q1.</strong> Calculer le nombre total de pixels du capteur.</p>
+    <p class="q"><strong>Q2.</strong> Calculer la taille d'un pixel sur le panneau (en mm), dans la direction horizontale.</p>
+    <p class="q"><strong>Q3.</strong> Un d&eacute;faut doit mesurer au moins 3 pixels de large pour &ecirc;tre d&eacute;tect&eacute; de mani&egrave;re fiable. Quelle est la plus petite taille de d&eacute;faut d&eacute;tectable (en mm) ?</p>
+    <p class="q"><strong>Q4.</strong> L'&eacute;clairage du poste de contr&ocirc;le doit &ecirc;tre homog&egrave;ne et intense. Expliquer pourquoi une variation d'&eacute;clairement pourrait cr&eacute;er de &laquo; faux d&eacute;fauts &raquo; sur l'image.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Q1.</strong> \(2\,048 \times 1\,536 = \mathbf{3\,145\,728}\) pixels &asymp; 3,1 m&eacute;gapixels.</p>
+      <p><strong>Q2.</strong> Champ horizontal = 400 mm pour 2 048 pixels. Taille d'un pixel = \(\dfrac{400}{2\,048} \approx \mathbf{0{,}195}\) mm &asymp; 0,20 mm.</p>
+      <p><strong>Q3.</strong> Taille minimale = \(3 \times 0{,}195 \approx \mathbf{0{,}59}\) mm &asymp; 0,6 mm.</p>
+      <p><strong>Q4.</strong> Une zone moins &eacute;clair&eacute;e appara&icirc;t plus sombre sur l'image CCD. Le logiciel d'analyse peut interpr&eacute;ter cette ombre comme un d&eacute;faut de surface (tache, rayure). Un &eacute;clairage homog&egrave;ne et puissant (&ge; 750 lx) &eacute;vite ces faux positifs.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 12 -->
+<div class="exo">
+  <div class="exo-num">Exercice 12</div>
+  <div class="exo-titre">Fibre optique et transmission de donn&eacute;es</div>
+  <div class="enonce">
+    <span class="context-tag">Technologie &mdash; T&eacute;l&eacute;communications</span>
+    <p>Une fibre optique transmet des donn&eacute;es en utilisant un laser infrarouge &agrave; \(\lambda = 1\,550\) nm. La lumi&egrave;re se propage dans la fibre &agrave; une vitesse \(v = 2{,}00 \times 10^8\) m/s (inf&eacute;rieure &agrave; \(c\) &agrave; cause du mat&eacute;riau).</p>
+    <p class="q"><strong>Q1.</strong> Calculer la fr&eacute;quence du laser. Utiliser \(c = 3{,}00 \times 10^8\) m/s (la fr&eacute;quence ne change pas dans le mat&eacute;riau).</p>
+    <p class="q"><strong>Q2.</strong> Ce rayonnement est-il visible ? Dans quelle partie du spectre se situe-t-il ?</p>
+    <p class="q"><strong>Q3.</strong> La fibre relie deux b&acirc;timents distants de 500 m. Calculer le temps de propagation du signal dans la fibre.</p>
+    <p class="q"><strong>Q4.</strong> Calculer l'indice de r&eacute;fraction \(n\) de la fibre, sachant que \(n = c / v\). Commenter.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Q1.</strong> \(f = \dfrac{c}{\lambda} = \dfrac{3{,}00 \times 10^8}{1{,}550 \times 10^{-6}} \approx \mathbf{1{,}94 \times 10^{14}}\) Hz</p>
+      <p><strong>Q2.</strong> \(\lambda = 1\,550\) nm &gt; 700 nm : c'est de l'<strong>infrarouge</strong>, invisible &agrave; l'&oelig;il nu. C'est dans l'infrarouge proche, tr&egrave;s utilis&eacute; en t&eacute;l&eacute;communications car l'att&eacute;nuation est minimale dans la silice.</p>
+      <p><strong>Q3.</strong> \(t = \dfrac{d}{v} = \dfrac{500}{2{,}00 \times 10^8} = \mathbf{2{,}50 \times 10^{-6}}\) s = 2,5 &mu;s</p>
+      <p><strong>Q4.</strong> \(n = \dfrac{3{,}00 \times 10^8}{2{,}00 \times 10^8} = \mathbf{1{,}50}\). L'indice est sup&eacute;rieur &agrave; 1 : la lumi&egrave;re est ralentie dans la fibre par rapport au vide. C'est typique de la silice utilis&eacute;e en fibre optique.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 13 -->
+<div class="exo">
+  <div class="exo-num">Exercice 13</div>
+  <div class="exo-titre">Panneau solaire et spectre lumineux</div>
+  <div class="enonce">
+    <span class="context-tag">&Eacute;nergie renouvelable</span>
+    <p>Un panneau solaire photovolta&iuml;que convertit la lumi&egrave;re en &eacute;lectricit&eacute; gr&acirc;ce &agrave; des cellules en silicium. Le silicium absorbe les photons dont la longueur d'onde est inf&eacute;rieure &agrave; \(\lambda_{\max} = 1\,100\) nm.</p>
+    <p class="q"><strong>Q1.</strong> Les photons de lumi&egrave;re visible (380&ndash;700 nm) sont-ils absorb&eacute;s par le silicium ? Justifier.</p>
+    <p class="q"><strong>Q2.</strong> Calculer la fr&eacute;quence minimale des photons absorb&eacute;s par le silicium.</p>
+    <p class="q"><strong>Q3.</strong> Le spectre solaire contient aussi des photons infrarouges &agrave; \(\lambda = 2\,000\) nm. Sont-ils absorb&eacute;s ? Quel est l'impact sur le rendement du panneau ?</p>
+    <p class="q"><strong>Q4.</strong> Un atelier de menuiserie installe 10 panneaux de 300 W sur son toit. L'ensoleillement moyen est de 4 h &eacute;quivalentes par jour. Calculer l'&eacute;nergie produite par jour puis par an (en kWh).</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Q1.</strong> Oui, car 380&ndash;700 nm &lt; 1 100 nm. Tous les photons visibles ont une longueur d'onde inf&eacute;rieure au seuil du silicium.</p>
+      <p><strong>Q2.</strong> \(f_{\min} = \dfrac{c}{\lambda_{\max}} = \dfrac{3{,}00 \times 10^8}{1{,}100 \times 10^{-6}} \approx \mathbf{2{,}73 \times 10^{14}}\) Hz</p>
+      <p><strong>Q3.</strong> \(\lambda = 2\,000\) nm &gt; 1 100 nm : ces photons ne sont <strong>pas absorb&eacute;s</strong>. Ils traversent le silicium ou le chauffent sans produire d'&eacute;lectricit&eacute;. Cela limite le <strong>rendement</strong> du panneau (le silicium ne peut pas convertir toute l'&eacute;nergie solaire).</p>
+      <p><strong>Q4.</strong> Puissance totale : \(10 \times 300 = 3\,000\) W = 3 kW. &Eacute;nergie/jour : \(3 \times 4 = 12\) kWh. &Eacute;nergie/an : \(12 \times 365 = \mathbf{4\,380}\) kWh.</p>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 14 -->
+<div class="exo">
+  <div class="exo-num">Exercice 14</div>
+  <div class="exo-titre">Synth&egrave;se additive et soustractive &mdash; probl&egrave;me de synth&egrave;se</div>
+  <div class="enonce">
+    <span class="context-tag">Atelier de menuiserie &mdash; Exposition</span>
+    <p>Un architecte d'int&eacute;rieur am&eacute;nage un stand d'exposition de meubles. Il utilise &agrave; la fois des <strong>projecteurs LED RGB</strong> (synth&egrave;se additive) et des <strong>panneaux peints</strong> (synth&egrave;se soustractive) pour cr&eacute;er l'ambiance.</p>
+    <p class="q"><strong>Q1.</strong> Le projecteur LED &eacute;met du rouge et du vert. Quelle couleur de lumi&egrave;re obtient-on sur le mur blanc ? S'agit-il de synth&egrave;se additive ou soustractive ?</p>
+    <p class="q"><strong>Q2.</strong> Le peintre m&eacute;lange de la peinture cyan et de la peinture jaune pour le fond du stand. Quelle couleur obtient-il ? Quelle synth&egrave;se est en jeu ?</p>
+    <p class="q"><strong>Q3.</strong> On projette la lumi&egrave;re jaune (R+V) de la Q1 sur le panneau vert de la Q2. L'&oelig;il voit-il du vert, du jaune ou une autre couleur ? Expliquer en utilisant les notions d'absorption et de diffusion.</p>
+    <p class="q"><strong>Q4.</strong> On &eacute;teint le projecteur. Le panneau est maintenant &eacute;clair&eacute; uniquement par un spot rouge. De quelle couleur appara&icirc;t le panneau vert ? Justifier.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Q1.</strong> R + V en synth&egrave;se additive donne du <strong>jaune</strong>. Le mur blanc diffuse toute la lumi&egrave;re re&ccedil;ue.</p>
+      <p><strong>Q2.</strong> C + J en synth&egrave;se soustractive donne du <strong>vert</strong>. Les pigments absorbent le rouge et le bleu, ne diffusant que le vert.</p>
+      <p><strong>Q3.</strong> La lumi&egrave;re jaune contient du rouge et du vert. Le panneau vert absorbe le rouge et diffuse le vert. L'&oelig;il voit donc du <strong>vert</strong>.</p>
+      <p><strong>Q4.</strong> Le panneau vert absorbe le rouge et ne diffuse que le vert. Comme il ne re&ccedil;oit que du rouge, il absorbe tout : le panneau appara&icirc;t <strong>noir</strong> (ou tr&egrave;s sombre).</p>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 15 -->
+<div class="exo">
+  <div class="exo-num">Exercice 15</div>
+  <div class="exo-titre">Bilan &eacute;nerg&eacute;tique d'un &eacute;clairage d'atelier &mdash; type BTS</div>
+  <div class="enonce">
+    <span class="context-tag">Atelier de menuiserie &mdash; Gestion &eacute;nerg&eacute;tique</span>
+    <p>Un atelier de menuiserie d'agencement comprend quatre zones avec des besoins diff&eacute;rents :</p>
+    <table>
+      <thead><tr><th>Zone</th><th>Surface (m&sup2;)</th><th>&Eacute;clairement requis (lx)</th><th>Dur&eacute;e d'utilisation (h/jour)</th></tr></thead>
+      <tbody>
+        <tr><td>D&eacute;bit / usinage</td><td>80</td><td>300</td><td>8</td></tr>
+        <tr><td>Assemblage</td><td>40</td><td>500</td><td>8</td></tr>
+        <tr><td>Finition / peinture</td><td>25</td><td>1 000</td><td>6</td></tr>
+        <tr><td>Stockage</td><td>60</td><td>100</td><td>4</td></tr>
+      </tbody>
+    </table>
+    <p>Toutes les zones sont &eacute;quip&eacute;es de LED d'efficacit&eacute; 120 lm/W. Facteur de d&eacute;pr&eacute;ciation : 0,80. L'atelier fonctionne 250 jours/an.</p>
+    <p class="q"><strong>Q1.</strong> Pour chaque zone, calculer le flux lumineux initial n&eacute;cessaire.</p>
+    <p class="q"><strong>Q2.</strong> En d&eacute;duire la puissance &eacute;lectrique d'&eacute;clairage de chaque zone.</p>
+    <p class="q"><strong>Q3.</strong> Calculer l'&eacute;nergie &eacute;lectrique totale consomm&eacute;e pour l'&eacute;clairage sur une ann&eacute;e (en kWh).</p>
+    <p class="q"><strong>Q4.</strong> Au tarif de 0,22 &euro;/kWh, calculer le co&ucirc;t annuel de l'&eacute;clairage.</p>
+    <p class="q"><strong>Q5.</strong> L'ancien &eacute;clairage fluorescent avait une efficacit&eacute; de 60 lm/W. Quel aurait &eacute;t&eacute; le co&ucirc;t annuel ? Calculer l'&eacute;conomie r&eacute;alis&eacute;e en passant aux LED.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>&#9654; Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>Q1.</strong> Flux initial = \(\dfrac{E \times S}{0{,}80}\)</p>
+      <p>D&eacute;bit : \(\dfrac{300 \times 80}{0{,}80} = 30\,000\) lm &nbsp;|&nbsp; Assemblage : \(\dfrac{500 \times 40}{0{,}80} = 25\,000\) lm</p>
+      <p>Finition : \(\dfrac{1\,000 \times 25}{0{,}80} = 31\,250\) lm &nbsp;|&nbsp; Stockage : \(\dfrac{100 \times 60}{0{,}80} = 7\,500\) lm</p>
+      <p><strong>Q2.</strong> Puissance = Flux / efficacit&eacute;</p>
+      <p>D&eacute;bit : 30 000/120 = 250 W &nbsp;|&nbsp; Assemblage : 25 000/120 &asymp; 208 W &nbsp;|&nbsp; Finition : 31 250/120 &asymp; 260 W &nbsp;|&nbsp; Stockage : 7 500/120 &asymp; 63 W</p>
+      <p><strong>Q3.</strong> &Eacute;nergie par zone = P &times; h/jour &times; 250 jours</p>
+      <p>D&eacute;bit : 250 &times; 8 &times; 250 = 500 000 Wh = 500 kWh</p>
+      <p>Assemblage : 208 &times; 8 &times; 250 = 416 000 Wh = 416 kWh</p>
+      <p>Finition : 260 &times; 6 &times; 250 = 390 000 Wh = 390 kWh</p>
+      <p>Stockage : 63 &times; 4 &times; 250 = 63 000 Wh = 63 kWh</p>
+      <p>Total : <strong>1 369 kWh</strong></p>
+      <p><strong>Q4.</strong> Co&ucirc;t = 1 369 &times; 0,22 = <strong>301 &euro;/an</strong></p>
+      <p><strong>Q5.</strong> Avec fluorescent (60 lm/W), les puissances doublent &rarr; &eacute;nergie totale &asymp; 2 738 kWh &rarr; co&ucirc;t = 602 &euro;/an. &Eacute;conomie annuelle : \(602 - 301 = \mathbf{301}\) &euro;, soit <strong>50 %</strong> d'&eacute;conomie.</p>
+    </div>
+  </details>
+</div>
+
 </div><!-- fin diff-appro -->
 
 
