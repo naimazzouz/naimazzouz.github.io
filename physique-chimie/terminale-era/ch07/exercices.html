@@ -896,6 +896,175 @@
   </div>
 </div>
 
+<!-- EXERCICE 18 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Bilan de puissance d'une liaison WiFi sur chantier</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un conducteur de travaux installe un point d'accès WiFi sur un chantier de rénovation d'un hôtel. Le point d'accès émet à la fréquence \(f = 2{,}4\) GHz avec une puissance \(P_e = 100\) mW. Le récepteur (tablette du chef de chantier) a une sensibilité minimale de \(P_r^{\min} = 0{,}001\) mW.</p>
+  <p class="q"><strong>1.</strong> Exprimer la puissance d'émission en dBm. On donne : \(P(\text{dBm}) = 10 \cdot \log\!\left(\dfrac{P}{1\text{ mW}}\right)\).</p>
+  <p class="q"><strong>2.</strong> Exprimer la sensibilité du récepteur en dBm.</p>
+  <p class="q"><strong>3.</strong> Calculer la marge de liaison maximale \(ML = P_e(\text{dBm}) - P_r^{\min}(\text{dBm})\).</p>
+  <p class="q"><strong>4.</strong> On estime les pertes suivantes : traversée d'un mur en plâtre (3 dB), traversée d'un plancher béton (12 dB), affaiblissement en espace libre sur 20 m (66 dB). L'atténuation totale est-elle supportable ?</p>
+  <p class="q"><strong>5.</strong> Si on ajoute un deuxième mur en plâtre et un mur en béton armé (18 dB), la liaison fonctionne-t-elle encore ? Proposer une solution.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P_e = 10 \cdot \log\!\left(\dfrac{100}{1}\right) = 10 \times 2 = \mathbf{20 \text{ dBm}}\)</p>
+    <p><strong>2.</strong> \(P_r^{\min} = 10 \cdot \log\!\left(\dfrac{0{,}001}{1}\right) = 10 \times (-3) = \mathbf{-30 \text{ dBm}}\)</p>
+    <p><strong>3.</strong> \(ML = 20 - (-30) = \mathbf{50 \text{ dB}}\)</p>
+    <p><strong>4.</strong> Atténuation totale : \(3 + 12 + 66 = 81\) dB. La marge disponible n'est que de 50 dB &lt; 81 dB : la liaison <strong>ne fonctionne pas</strong>.</p>
+    <p><strong>5.</strong> Avec les obstacles supplémentaires : \(81 + 3 + 18 = 102\) dB, soit 52 dB de plus que la marge. La liaison est impossible. Solutions possibles :
+      <br>– Installer un <strong>répéteur WiFi</strong> (ou point d'accès relais) à mi-chemin
+      <br>– Utiliser un câble Ethernet pour relier un second point d'accès au-delà des murs
+      <br>– Passer en WiFi 2,4 GHz (meilleure pénétration des murs) avec antenne directionnelle
+    </p>
+  </div>
+</div>
+
+<!-- EXERCICE 19 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Comparaison son et lumière – Retard sur chantier</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Sur un chantier de construction, un ouvrier frappe avec un marteau sur une poutre métallique à \(d = 500\) m d'un collègue. Le collègue voit le coup (lumière) avant d'entendre le bruit (son).</p>
+  <p>Données : vitesse du son dans l'air \(v_s = 340\) m/s ; vitesse de la lumière \(c = 3 \times 10^8\) m/s.</p>
+  <p class="q"><strong>1.</strong> Calculer le temps mis par la lumière pour parcourir 500 m.</p>
+  <p class="q"><strong>2.</strong> Calculer le temps mis par le son pour parcourir 500 m.</p>
+  <p class="q"><strong>3.</strong> En déduire le décalage temporel entre la vision du coup et l'audition du bruit.</p>
+  <p class="q"><strong>4.</strong> Un système de talkie-walkie (ondes radio, \(c = 3 \times 10^8\) m/s) est utilisé entre les deux ouvriers. Le son émis par le talkie arrive-t-il avant ou après le son direct ? Justifier.</p>
+  <p class="q"><strong>5.</strong> Lors d'un orage, on observe l'éclair 4 secondes avant d'entendre le tonnerre. À quelle distance se situe l'impact de la foudre ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t_\text{lumière} = \dfrac{d}{c} = \dfrac{500}{3 \times 10^8} \approx 1{,}67 \times 10^{-6} \text{ s} \approx \mathbf{1{,}7 \text{ µs}}\)</p>
+    <p><strong>2.</strong> \(t_\text{son} = \dfrac{d}{v_s} = \dfrac{500}{340} \approx \mathbf{1{,}47 \text{ s}}\)</p>
+    <p><strong>3.</strong> Décalage : \(\Delta t = t_\text{son} - t_\text{lumière} \approx 1{,}47 - 0{,}0000017 \approx \mathbf{1{,}47 \text{ s}}\). Le temps de propagation de la lumière est négligeable. On voit le coup environ <strong>1,5 seconde</strong> avant d'entendre le bruit.</p>
+    <p><strong>4.</strong> Le talkie-walkie transmet par ondes radio (vitesse \(c\)). Le signal arrive en ~1,7 µs, soit quasi instantanément. Le son du talkie arrive donc <strong>bien avant</strong> le son direct qui met 1,47 s à parcourir 500 m dans l'air.</p>
+    <p><strong>5.</strong> L'éclair (lumière) arrive quasi instantanément. Le tonnerre (son) met 4 s. Distance : \(d = v_s \times t = 340 \times 4 = \mathbf{1\,360 \text{ m} \approx 1{,}4 \text{ km}}\).</p>
+  </div>
+</div>
+
+<!-- EXERCICE 20 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Débit et temps de transfert – Projet d'agencement</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un cabinet d'architectes d'intérieur doit transférer les fichiers d'un projet d'agencement complet vers un atelier de fabrication de mobilier. Le projet comprend :</p>
+  <ul>
+    <li>Plans 2D : 50 fichiers de 5 Mo chacun</li>
+    <li>Modèles 3D : 20 fichiers de 150 Mo chacun</li>
+    <li>Photos HD du chantier : 200 fichiers de 8 Mo chacun</li>
+  </ul>
+  <p>On rappelle : \(1 \text{ Mo} = 8 \text{ Mbit}\) ; \(1 \text{ Go} = 1\,000 \text{ Mo}\).</p>
+  <p class="q"><strong>1.</strong> Calculer la taille totale du projet en Mo, puis en Go.</p>
+  <p class="q"><strong>2.</strong> Convertir cette taille en Mbit.</p>
+  <p class="q"><strong>3.</strong> Calculer le temps de transfert avec : a) un lien ADSL (6 Mbit/s) ; b) la fibre optique (1 Gbit/s = 1 000 Mbit/s). Donner les résultats en minutes.</p>
+  <p class="q"><strong>4.</strong> L'atelier n'a que l'ADSL. Proposer une solution alternative pour transférer les fichiers rapidement (sans changer de connexion).</p>
+  <p class="q"><strong>5.</strong> Si le cabinet investit dans la fibre et transfère 10 projets similaires par mois, combien de temps total gagne-t-il par mois par rapport à l'ADSL ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Taille totale :
+      <br>Plans : \(50 \times 5 = 250\) Mo
+      <br>Modèles 3D : \(20 \times 150 = 3\,000\) Mo
+      <br>Photos : \(200 \times 8 = 1\,600\) Mo
+      <br>Total : \(250 + 3\,000 + 1\,600 = \mathbf{4\,850 \text{ Mo} = 4{,}85 \text{ Go}}\)
+    </p>
+    <p><strong>2.</strong> \(4\,850 \times 8 = \mathbf{38\,800 \text{ Mbit}}\)</p>
+    <p><strong>3.</strong>
+      <br>a) ADSL : \(t = \dfrac{38\,800}{6} \approx 6\,467 \text{ s} \approx \mathbf{107{,}8 \text{ min} \approx 1 \text{h} 48 \text{min}}\)
+      <br>b) Fibre : \(t = \dfrac{38\,800}{1\,000} = 38{,}8 \text{ s} \approx \mathbf{0{,}65 \text{ min}}\)
+    </p>
+    <p><strong>4.</strong> Solutions alternatives : copier les fichiers sur un <strong>disque dur externe ou une clé USB</strong> et l'apporter physiquement à l'atelier (« sneakernet »). Un disque USB 3.0 transfère à ~5 Gbit/s, soit environ 8 secondes pour ce volume.</p>
+    <p><strong>5.</strong> Gain mensuel : \(10 \times (107{,}8 - 0{,}65) = 10 \times 107{,}15 \approx \mathbf{1\,072 \text{ min} \approx 17{,}9 \text{ heures}}\) gagnées par mois.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 21 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Fibre multimode vs monomode – Choix technique</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Un fabricant de meubles souhaite relier trois bâtiments par fibre optique : l'atelier de fabrication, l'entrepôt (à 150 m) et le bureau commercial (à 1,2 km). L'installateur propose deux types de fibre :</p>
+  <table>
+    <tr><th>Caractéristique</th><th>Fibre multimode (OM3)</th><th>Fibre monomode (OS2)</th></tr>
+    <tr><td>Diamètre du cœur</td><td>50 µm</td><td>9 µm</td></tr>
+    <tr><td>Débit maximal</td><td>10 Gbit/s</td><td>100 Gbit/s</td></tr>
+    <tr><td>Distance max (10 Gbit/s)</td><td>300 m</td><td>40 km</td></tr>
+    <tr><td>Atténuation</td><td>3,5 dB/km (à 850 nm)</td><td>0,35 dB/km (à 1310 nm)</td></tr>
+    <tr><td>Coût émetteur/récepteur</td><td>~50 €</td><td>~200 €</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Pour la liaison atelier → entrepôt (150 m), quel type de fibre convient ? Justifier par la distance.</p>
+  <p class="q"><strong>2.</strong> Pour la liaison atelier → bureau commercial (1,2 km à 10 Gbit/s), quel type de fibre est nécessaire ? Pourquoi ?</p>
+  <p class="q"><strong>3.</strong> Calculer l'atténuation due au câble pour la liaison de 1,2 km avec chaque type de fibre.</p>
+  <p class="q"><strong>4.</strong> Si la puissance injectée est \(P_e = 0{,}5\) mW, calculer la puissance reçue \(P_s\) après 1,2 km de fibre monomode. On donne \(10^{-0{,}042} \approx 0{,}908\).</p>
+  <p class="q"><strong>5.</strong> L'entreprise prévoit de passer à 40 Gbit/s dans 5 ans. Quel type de fibre est le meilleur investissement à long terme ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Pour 150 m : la fibre <strong>multimode OM3</strong> convient (distance max 300 m &gt; 150 m) et elle est moins chère (émetteur ~50 €). La monomode convient aussi mais est surdimensionnée.</p>
+    <p><strong>2.</strong> Pour 1,2 km à 10 Gbit/s : la fibre <strong>monomode OS2</strong> est nécessaire. La multimode est limitée à 300 m en 10 Gbit/s, insuffisant pour 1 200 m.</p>
+    <p><strong>3.</strong>
+      <br>Multimode : \(A = 3{,}5 \times 1{,}2 = \mathbf{4{,}2 \text{ dB}}\)
+      <br>Monomode : \(A = 0{,}35 \times 1{,}2 = \mathbf{0{,}42 \text{ dB}}\)
+      <br>La monomode a une atténuation 10 fois plus faible.
+    </p>
+    <p><strong>4.</strong> \(P_s = P_e \times 10^{-A/10} = 0{,}5 \times 10^{-0{,}042} = 0{,}5 \times 0{,}908 = \mathbf{0{,}454 \text{ mW}}\). Seulement 9 % de perte sur 1,2 km.</p>
+    <p><strong>5.</strong> La fibre <strong>monomode OS2</strong> est le meilleur investissement : elle supporte 100 Gbit/s et des distances de 40 km, ce qui offre une grande marge pour les évolutions futures (40 Gbit/s dans 5 ans). Le surcoût des émetteurs (~200 € vs ~50 €) est négligeable face au coût total d'installation.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 22 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Spectre électromagnétique et applications métier – Synthèse</span>
+    <span class="diff diff-3">Niveau 3</span>
+  </div>
+  <p>Le spectre électromagnétique regroupe toutes les ondes EM classées par fréquence. Le tableau ci-dessous présente différentes bandes utilisées dans le bâtiment et l'agencement :</p>
+  <table>
+    <tr><th>Bande</th><th>Fréquence</th><th>Application</th></tr>
+    <tr><td>Ondes radio FM</td><td>~100 MHz</td><td>Radio de chantier</td></tr>
+    <tr><td>Bande ISM (Zigbee, Z-Wave)</td><td>868 MHz</td><td>Domotique, capteurs</td></tr>
+    <tr><td>WiFi / Bluetooth</td><td>2,4 GHz</td><td>Réseau sans fil</td></tr>
+    <tr><td>WiFi 5 GHz</td><td>5 GHz</td><td>Réseau haut débit</td></tr>
+    <tr><td>Infrarouge (fibre)</td><td>~193 THz</td><td>Fibre optique (1550 nm)</td></tr>
+    <tr><td>Lumière visible</td><td>~500 THz</td><td>Éclairage, Li-Fi</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer la longueur d'onde de chacune des six bandes. Présenter les résultats dans un tableau.</p>
+  <p class="q"><strong>2.</strong> Classer ces ondes de la plus grande longueur d'onde à la plus petite. Quel lien observe-t-on entre fréquence et longueur d'onde ?</p>
+  <p class="q"><strong>3.</strong> Un mur en béton de 20 cm atténue fortement les ondes dont la longueur d'onde est inférieure à ~10 cm. Quelles bandes du tableau sont les plus affectées ?</p>
+  <p class="q"><strong>4.</strong> Le Li-Fi (Light Fidelity) utilise la lumière visible pour transmettre des données. Citer un avantage et un inconvénient par rapport au WiFi pour l'aménagement d'un bureau.</p>
+  <p class="q"><strong>5.</strong> Pourquoi la fibre optique utilise-t-elle l'infrarouge (1550 nm) plutôt que la lumière visible pour transmettre l'information ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\lambda = c / f\) avec \(c = 3 \times 10^8\) m/s :</p>
+    <table>
+      <tr><th>Bande</th><th>Fréquence</th><th>Longueur d'onde</th></tr>
+      <tr><td>Radio FM</td><td>100 MHz</td><td>\(\lambda = 3 \times 10^8 / 10^8 = \mathbf{3 \text{ m}}\)</td></tr>
+      <tr><td>ISM (868 MHz)</td><td>868 MHz</td><td>\(\lambda = 3 \times 10^8 / 8{,}68 \times 10^8 \approx \mathbf{0{,}346 \text{ m} = 34{,}6 \text{ cm}}\)</td></tr>
+      <tr><td>WiFi 2,4 GHz</td><td>2,4 GHz</td><td>\(\lambda = 3 \times 10^8 / 2{,}4 \times 10^9 = \mathbf{0{,}125 \text{ m} = 12{,}5 \text{ cm}}\)</td></tr>
+      <tr><td>WiFi 5 GHz</td><td>5 GHz</td><td>\(\lambda = 3 \times 10^8 / 5 \times 10^9 = \mathbf{0{,}06 \text{ m} = 6 \text{ cm}}\)</td></tr>
+      <tr><td>Infrarouge fibre</td><td>193 THz</td><td>\(\lambda = 3 \times 10^8 / 1{,}93 \times 10^{14} \approx \mathbf{1{,}55 \times 10^{-6} \text{ m} = 1{,}55 \text{ µm}}\)</td></tr>
+      <tr><td>Lumière visible</td><td>500 THz</td><td>\(\lambda = 3 \times 10^8 / 5 \times 10^{14} = \mathbf{6 \times 10^{-7} \text{ m} = 0{,}6 \text{ µm}}\)</td></tr>
+    </table>
+    <p><strong>2.</strong> Classement décroissant de \(\lambda\) : Radio FM (3 m) &gt; ISM (34,6 cm) &gt; WiFi 2,4 GHz (12,5 cm) &gt; WiFi 5 GHz (6 cm) &gt; IR fibre (1,55 µm) &gt; Lumière (0,6 µm). Plus la fréquence augmente, plus la longueur d'onde diminue : <strong>\(\lambda\) et \(f\) sont inversement proportionnels</strong>.</p>
+    <p><strong>3.</strong> Les ondes de \(\lambda < 10\) cm sont : <strong>WiFi 5 GHz</strong> (6 cm), <strong>infrarouge</strong> et <strong>lumière visible</strong>. Le WiFi 2,4 GHz (12,5 cm) est à la limite. Le WiFi 5 GHz est significativement atténué par les murs en béton.</p>
+    <p><strong>4.</strong> <strong>Avantage du Li-Fi :</strong> bande passante très large (débit potentiel de plusieurs Gbit/s), pas d'interférence avec les ondes radio, sécurisé (la lumière ne traverse pas les murs). <strong>Inconvénient :</strong> nécessite une ligne de vue directe (la lumière ne traverse pas les obstacles opaques), portée limitée à la pièce éclairée.</p>
+    <p><strong>5.</strong> La fibre optique utilise l'infrarouge à 1550 nm car à cette longueur d'onde, l'<strong>atténuation du verre est minimale</strong> (~0,2 dB/km). La lumière visible subirait une atténuation plus importante dans le verre de silice. De plus, les composants optoélectroniques (lasers, photodiodes) sont optimisés pour cette longueur d'onde.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-appro -->
 
 <!-- ENCADRES -->
