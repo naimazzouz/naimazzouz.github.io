@@ -944,6 +944,181 @@ svg text{font-family:'Segoe UI',sans-serif}
   </details>
 </div>
 
+<!-- EXO A3 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Calcul avec la loi de la CTN – Formule exponentielle</span>
+  </div>
+  <div class="mama-tag">Contexte technique – Calcul avancé</div>
+  <div class="enonce">
+    <p>Une CTN utilisée dans une étuve de séchage a les caractéristiques suivantes : \( R_0 = 10\,\text{kΩ} \) à \( T_0 = 25\,\text{°C} \), constante \( B = 3\,950\,\text{K} \).</p>
+    <p>La loi de la CTN est : \( R = R_0 \cdot \exp\!\left[B\!\left(\dfrac{1}{T} - \dfrac{1}{T_0}\right)\right] \) avec T en Kelvin.</p>
+    <p class="q"><strong>a)</strong> Convertir \( T_0 = 25\,\text{°C} \) et \( T_1 = 60\,\text{°C} \) en Kelvin.</p>
+    <p class="q"><strong>b)</strong> Calculer \( \dfrac{1}{T_1} - \dfrac{1}{T_0} \). Donner le résultat avec 4 décimales significatives.</p>
+    <p class="q"><strong>c)</strong> En déduire la résistance R à 60 °C. Vérifier que R est bien inférieure à \( R_0 \).</p>
+    <p class="q"><strong>d)</strong> Calculer de même R à 100 °C. Comparer avec la valeur à 60 °C et commenter la décroissance.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> \( T_0 = 25 + 273 = 298\,\text{K} \) ; \( T_1 = 60 + 273 = 333\,\text{K} \)</p>
+      <p><strong>b)</strong> \( \dfrac{1}{333} - \dfrac{1}{298} = 0{,}003003 - 0{,}003356 = \mathbf{-0{,}000353\,\text{K}^{-1}} \)</p>
+      <p><strong>c)</strong> \( R = 10\,000 \times e^{3\,950 \times (-0{,}000353)} = 10\,000 \times e^{-1{,}394} = 10\,000 \times 0{,}248 \approx \mathbf{2{,}48\,\text{kΩ}} \). Bien inférieur à 10 kΩ : la CTN diminue avec T.</p>
+      <p><strong>d)</strong> À 100 °C : \( T_2 = 373\,\text{K} \). \( \dfrac{1}{373} - \dfrac{1}{298} = -0{,}000677 \). \( R = 10\,000 \times e^{3\,950 \times (-0{,}000677)} = 10\,000 \times e^{-2{,}674} \approx 10\,000 \times 0{,}069 = \mathbf{0{,}69\,\text{kΩ}} \). La décroissance est très rapide : R passe de 2,48 kΩ à 0,69 kΩ entre 60 et 100 °C. La relation est exponentielle (non linéaire).</p>
+    </div>
+  </details>
+</div>
+
+<!-- EXO A4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 23</span>
+    <span class="exo-title">Pont diviseur de tension et CTN – Mesure indirecte</span>
+  </div>
+  <div class="mama-tag">Contexte technique – Électronique</div>
+  <div class="enonce">
+    <p>Pour mesurer la température avec un microcontrôleur, on réalise un <strong>pont diviseur de tension</strong> avec la CTN et une résistance fixe \( R_f = 10\,\text{kΩ} \). La tension d'alimentation est \( E = 5\,\text{V} \).</p>
+    <p>La tension mesurée aux bornes de la CTN est : \( V_{\text{CTN}} = E \times \dfrac{R_{\text{CTN}}}{R_f + R_{\text{CTN}}} \)</p>
+    <p>La CTN a les valeurs : R(20 °C) = 12 kΩ, R(40 °C) = 5 kΩ, R(60 °C) = 2,2 kΩ, R(80 °C) = 1,1 kΩ.</p>
+    <p class="q"><strong>a)</strong> Calculer \( V_{\text{CTN}} \) à 20 °C.</p>
+    <p class="q"><strong>b)</strong> Calculer \( V_{\text{CTN}} \) à 60 °C.</p>
+    <p class="q"><strong>c)</strong> Comment évolue la tension \( V_{\text{CTN}} \) quand la température augmente ? Justifier.</p>
+    <p class="q"><strong>d)</strong> Le microcontrôleur lit une tension de 1,8 V. Par interpolation, estimer la température de la CTN.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> \( V_{\text{CTN}} = 5 \times \dfrac{12}{10 + 12} = 5 \times \dfrac{12}{22} = \mathbf{2{,}73 \text{ V}} \)</p>
+      <p><strong>b)</strong> \( V_{\text{CTN}} = 5 \times \dfrac{2{,}2}{10 + 2{,}2} = 5 \times \dfrac{2{,}2}{12{,}2} = \mathbf{0{,}90 \text{ V}} \)</p>
+      <p><strong>c)</strong> Quand T augmente, \( R_{\text{CTN}} \) diminue (CTN), donc la fraction \( \dfrac{R_{\text{CTN}}}{R_f + R_{\text{CTN}}} \) diminue, et \( V_{\text{CTN}} \) <strong>diminue</strong>.</p>
+      <p><strong>d)</strong> À 40 °C : \( V = 5 \times \dfrac{5}{15} = 1{,}67 \text{ V} \). À 20 °C : V = 2,73 V. V = 1,8 V est entre 1,67 V (40 °C) et 2,73 V (20 °C), plus proche de 40 °C. Par interpolation : \( T \approx 40 - 20 \times \dfrac{1{,}8 - 1{,}67}{2{,}73 - 1{,}67} = 40 - 20 \times 0{,}12 \approx \mathbf{38 \text{ °C}} \)</p>
+    </div>
+  </details>
+</div>
+
+<!-- EXO A5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 24</span>
+    <span class="exo-title">Rendement d'un système de chauffage et température</span>
+  </div>
+  <div class="mama-tag">Contexte énergie – Problème ouvert</div>
+  <div class="enonce">
+    <p>Un système de chauffage d'atelier fonctionne avec un rendement qui dépend de la température extérieure. Le tableau suivant donne la puissance consommée pour maintenir l'atelier à 19 °C :</p>
+    <table>
+      <tr><th>T extérieure (°C)</th><th>−5</th><th>0</th><th>5</th><th>10</th><th>15</th></tr>
+      <tr><th>Puissance (kW)</th><td>12</td><td>9,5</td><td>7</td><td>4,5</td><td>2</td></tr>
+    </table>
+    <p class="q"><strong>a)</strong> Convertir les températures extérieures −5 °C et 15 °C en Kelvin.</p>
+    <p class="q"><strong>b)</strong> Calculer l'écart de température \( \Delta T = T_{\text{intérieur}} - T_{\text{extérieur}} \) pour chaque cas. Cet écart est-il le même en °C et en K ?</p>
+    <p class="q"><strong>c)</strong> Tracer l'allure de la courbe Puissance = f(ΔT). La relation est-elle approximativement linéaire ?</p>
+    <p class="q"><strong>d)</strong> Estimer la puissance nécessaire si la température extérieure est de −10 °C (extrapolation).</p>
+    <p class="q"><strong>e)</strong> Le prix de l'électricité est 0,20 €/kWh. Calculer le coût journalier de chauffage (24 h) quand il fait 0 °C dehors.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> −5 °C → \( -5 + 273 = \mathbf{268\,\text{K}} \) ; 15 °C → \( 15 + 273 = \mathbf{288\,\text{K}} \)</p>
+      <p><strong>b)</strong> ΔT pour −5 °C : \( 19 - (-5) = 24 \text{ °C} = 24 \text{ K} \). Pour 15 °C : \( 19 - 15 = 4 \text{ °C} = 4 \text{ K} \). <strong>Oui</strong>, l'écart est le même en °C et en K.</p>
+      <p><strong>c)</strong> ΔT : 24, 19, 14, 9, 4 °C → Puissance : 12, 9.5, 7, 4.5, 2 kW. La relation est approximativement <strong>linéaire</strong> : la puissance augmente d'environ 0,5 kW par degré d'écart supplémentaire.</p>
+      <p><strong>d)</strong> À −10 °C : ΔT = 29 °C. Par extrapolation linéaire : \( P \approx 12 + 0{,}5 \times 5 = \mathbf{14{,}5\,\text{kW}} \)</p>
+      <p><strong>e)</strong> À 0 °C : P = 9,5 kW. Coût = \( 9{,}5 \times 24 \times 0{,}20 = \mathbf{45{,}60\,\text{€}} \) par jour.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EXO A6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 25</span>
+    <span class="exo-title">Étalonnage d'une CTN – Protocole expérimental</span>
+  </div>
+  <div class="mama-tag">Contexte technique – Métrologie</div>
+  <div class="enonce">
+    <p>Un technicien doit vérifier l'étalonnage d'une CTN neuve avant de l'installer dans un régulateur d'étuve. Il dispose d'un bain thermostaté, d'un thermomètre de référence certifié et d'un ohmmètre.</p>
+    <p class="q"><strong>a)</strong> Décrire le protocole expérimental en 5 étapes pour tracer la courbe R(T) de la CTN.</p>
+    <p class="q"><strong>b)</strong> Le technicien obtient les mesures suivantes :</p>
+    <table>
+      <tr><th>T (°C)</th><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th><th>80</th></tr>
+      <tr><th>R (kΩ)</th><td>12,5</td><td>8,3</td><td>5,7</td><td>4,0</td><td>2,9</td><td>2,1</td><td>1,6</td></tr>
+    </table>
+    <p>Le constructeur annonce R(25 °C) = 10 kΩ ± 5 %. Par interpolation, estimer R(25 °C) d'après les mesures. La CTN est-elle conforme ?</p>
+    <p class="q"><strong>c)</strong> Calculer la sensibilité moyenne de la CTN entre 40 et 60 °C : \( S = \dfrac{\Delta R}{\Delta T} \) en kΩ/°C.</p>
+    <p class="q"><strong>d)</strong> Comparer cette sensibilité avec celle entre 60 et 80 °C. Que constate-t-on ? Pourquoi ?</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> Protocole :<br>
+      1. Plonger la CTN et le thermomètre de référence dans le bain thermostaté.<br>
+      2. Régler le bain à une température donnée (ex. 20 °C) et attendre la stabilisation.<br>
+      3. Relever la température exacte sur le thermomètre de référence.<br>
+      4. Mesurer la résistance de la CTN avec l'ohmmètre.<br>
+      5. Répéter pour chaque point de mesure (30, 40, 50, 60, 70, 80 °C).</p>
+      <p><strong>b)</strong> Interpolation entre 20 °C (12,5 kΩ) et 30 °C (8,3 kΩ) à mi-chemin (25 °C) : \( R(25) \approx \dfrac{12{,}5 + 8{,}3}{2} = \mathbf{10{,}4\,\text{kΩ}} \). Tolérance : 10 ± 5 % = [9,5 ; 10,5] kΩ. R = 10,4 kΩ est dans l'intervalle → la CTN est <strong>conforme</strong>.</p>
+      <p><strong>c)</strong> \( S_{40-60} = \dfrac{2{,}9 - 5{,}7}{60 - 40} = \dfrac{-2{,}8}{20} = \mathbf{-0{,}14\,\text{kΩ/°C}} \)</p>
+      <p><strong>d)</strong> \( S_{60-80} = \dfrac{1{,}6 - 2{,}9}{80 - 60} = \dfrac{-1{,}3}{20} = \mathbf{-0{,}065\,\text{kΩ/°C}} \). La sensibilité diminue (en valeur absolue) quand T augmente. C'est dû à la <strong>décroissance exponentielle</strong> : la CTN est plus sensible à basse température qu'à haute température.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EXO A7 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 26</span>
+    <span class="exo-title">Système de régulation automatique – Analyse fonctionnelle</span>
+  </div>
+  <div class="mama-tag">Contexte professionnel – Type BTS</div>
+  <div class="enonce">
+    <p>Un système de régulation de température d'étuve comprend : un capteur CTN, un régulateur numérique, une résistance chauffante de 3 kW et un ventilateur de brassage.</p>
+    <p>Le régulateur fonctionne en mode « tout ou rien » avec une hystérésis de ±2 °C autour de la consigne.</p>
+    <p>Consigne : 80 °C. Le chauffage s'allume quand T &lt; 78 °C et s'éteint quand T &gt; 82 °C.</p>
+    <p class="q"><strong>a)</strong> Expliquer ce qu'est l'hystérésis et pourquoi elle est nécessaire dans un système de régulation.</p>
+    <p class="q"><strong>b)</strong> La CTN du régulateur a R(78 °C) = 1,8 kΩ et R(82 °C) = 1,5 kΩ. Le régulateur compare R mesurée aux seuils. Compléter : chauffage ON si R …… 1,8 kΩ ; chauffage OFF si R …… 1,5 kΩ.</p>
+    <p class="q"><strong>c)</strong> Tracer l'allure de la courbe T(t) lors du démarrage de l'étuve (T initiale = 20 °C, consigne 80 °C). Indiquer les phases de montée, oscillation et régime permanent.</p>
+    <p class="q"><strong>d)</strong> Le régulateur affiche une erreur « sonde déconnectée ». La CTN lit R → ∞. Le chauffage est-il bloqué ON ou OFF ? Quel est le risque pour le bois en cours de séchage ?</p>
+    <p class="q"><strong>e)</strong> Proposer une amélioration du système pour éviter la surchauffe en cas de panne du capteur.</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> L'hystérésis est un <strong>écart intentionnel</strong> entre le seuil d'allumage et le seuil d'extinction. Elle évite que le chauffage s'allume et s'éteigne sans cesse (phénomène de « pompage ») quand la température oscille autour de la consigne.</p>
+      <p><strong>b)</strong> CTN : R diminue quand T augmente. T &lt; 78 °C → R &gt; 1,8 kΩ : chauffage <strong>ON</strong> si R &gt; 1,8 kΩ. T &gt; 82 °C → R &lt; 1,5 kΩ : chauffage <strong>OFF</strong> si R &lt; 1,5 kΩ.</p>
+      <p><strong>c)</strong> La courbe T(t) montre : 1) Phase de montée rapide (20 → 78 °C), chauffage en continu. 2) Oscillations entre 78 et 82 °C (le chauffage s'allume et s'éteint alternativement). 3) Régime permanent : T oscille dans la bande ±2 °C autour de 80 °C.</p>
+      <p><strong>d)</strong> R → ∞ → le régulateur interprète T très froide → chauffage bloqué <strong>ON</strong>. Risque : surchauffe incontrôlée de l'étuve, dégradation des fibres du bois, voire risque d'incendie.</p>
+      <p><strong>e)</strong> Solutions possibles : installer un <strong>thermostat de sécurité mécanique</strong> indépendant qui coupe le chauffage au-delà de 100 °C, ou utiliser une <strong>CTP</strong> de sécurité en plus de la CTN de régulation, ou encore un <strong>deuxième capteur redondant</strong> avec alarme en cas de divergence entre les deux mesures.</p>
+    </div>
+  </details>
+</div>
+
+<!-- EXO A8 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 27</span>
+    <span class="exo-title">Dimensionnement d'un système de mesure – Projet Arduino</span>
+  </div>
+  <div class="mama-tag">Contexte technique – Projet numérique</div>
+  <div class="enonce">
+    <p>Un élève de BTS souhaite réaliser un afficheur de température pour l'atelier de son lycée à l'aide d'un Arduino et d'un capteur LM35. Le LM35 délivre \( V = 10\,\text{mV/°C} \times \theta \). L'entrée analogique de l'Arduino convertit une tension de 0 à 5 V en une valeur numérique de 0 à 1023.</p>
+    <p class="q"><strong>a)</strong> Quelle est la résolution de l'Arduino en mV ? (Calculer le plus petit écart de tension détectable.)</p>
+    <p class="q"><strong>b)</strong> En déduire la résolution en température : quel est le plus petit écart de température que le système peut détecter ?</p>
+    <p class="q"><strong>c)</strong> L'Arduino lit la valeur numérique N = 205. Calculer la tension correspondante, puis la température.</p>
+    <p class="q"><strong>d)</strong> La plage de mesure utile en atelier est 5–40 °C. Quelles sont les tensions correspondantes en sortie du LM35 ? Quelle fraction de la plage 0–5 V de l'Arduino est réellement utilisée ?</p>
+    <p class="q"><strong>e)</strong> Proposer une modification du circuit pour améliorer la résolution dans cette plage utile (sans changer d'Arduino).</p>
+  </div>
+  <details class="corr-wrap">
+    <summary>▶ Voir la correction</summary>
+    <div class="corr-body">
+      <p><strong>a)</strong> Résolution = \( \dfrac{5\,000\,\text{mV}}{1\,023} \approx \mathbf{4{,}89\,\text{mV}} \)</p>
+      <p><strong>b)</strong> Le LM35 donne 10 mV/°C. Résolution en T = \( \dfrac{4{,}89}{10} \approx \mathbf{0{,}49\,\text{°C}} \). Le système détecte des variations d'environ 0,5 °C.</p>
+      <p><strong>c)</strong> \( V = \dfrac{205}{1\,023} \times 5 = \mathbf{1{,}002\,\text{V}} \). Température : \( \theta = \dfrac{1\,002\,\text{mV}}{10} = \mathbf{100{,}2\,\text{°C}} \).</p>
+      <p><strong>d)</strong> À 5 °C : V = 50 mV. À 40 °C : V = 400 mV. Fraction utilisée : \( \dfrac{400 - 50}{5\,000} = \dfrac{350}{5\,000} = \mathbf{7\,\%} \) de la plage. On n'utilise que 7 % de la résolution de l'Arduino.</p>
+      <p><strong>e)</strong> Utiliser un <strong>amplificateur opérationnel</strong> pour amplifier le signal du LM35 et l'adapter à la plage 0–5 V. Par exemple, un gain de 10 donnerait 500 mV à 5 °C et 4 000 mV à 40 °C, utilisant ainsi 70 % de la plage et améliorant la résolution d'un facteur 10 (soit ≈ 0,05 °C).</p>
+    </div>
+  </details>
+</div>
+
 </div><!-- fin diff-appro -->
 
 
