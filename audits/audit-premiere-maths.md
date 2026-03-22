@@ -117,13 +117,35 @@ La page `maths-1ere-pro.html` (sommaire) est complète avec les 9 chapitres et l
 
 Cependant, l'index des simulations (`simulations.html`) ne référence qu'**1 simulation** explicitement liée à Maths Première (ch06 — Dérivée), alors que 6 chapitres ont des simulations liées.
 
-### 5. Blocs `.att` peu présents dans les cours (gravité : BASSE)
+### 5. Mini-exercices absents dans certains cours (gravité : MOYENNE)
+
+Certains cours n'intègrent pas de mini-exercices corrigés dans le corps de la leçon :
+
+| Chapitre | Mini-exercices dans lecon.html |
+|---|---|
+| ch01 | ❌ Aucun |
+| ch02 | ✅ 5 mini-exercices |
+| ch03 | ✅ 6 mini-exercices |
+| ch04 | ❌ Aucun |
+| ch05 | ❌ Aucun |
+| ch06 | ✅ 5 mini-exercices |
+| ch07 | ⚠ 2 mini-exercices (sans bouton de correction) |
+| ch08 | ✅ 5 mini-exercices |
+| ch09 | ❌ Aucun |
+
+**Chapitres sans mini-exercices** : ch01, ch04, ch05, ch09
+
+### 6. Exercices : système de niveaux hétérogène (gravité : MOYENNE)
+
+Les exercices.html de ch01 à ch08 utilisent un système de **niveau-header** (niv1/niv2/niv3/niv4) au lieu des balises `diff-socle/diff-standard/diff-appro` requises par le CLAUDE.md. Seul ch09 utilise le système conforme. Les deux systèmes coexistent, ce qui crée une incohérence.
+
+### 7. Blocs `.att` peu présents dans les cours (gravité : BASSE)
 
 Contrairement aux cours de Seconde qui utilisent systématiquement les blocs d'attention aux erreurs fréquentes, seuls quelques chapitres de Première en ont :
-- ch01 : aucun `.att`
+- ch01 : 3 blocs `.att`
 - ch02 : 1 bloc `.att` (événements non incompatibles)
 - ch03 : 1 bloc `.att` (ne pas confondre arithmétique/géométrique)
-- ch05 : 1 bloc `.att` (ce qui n'est pas un polynôme de degré 2)
+- ch05 : 3 blocs `.att`
 - ch08 : 1 bloc `.att` (ordre des lettres dans un vecteur)
 
 ---
@@ -140,7 +162,7 @@ Contrairement aux cours de Seconde qui utilisent systématiquement les blocs d'a
 ## Ameliorations restantes
 
 ### Priorité haute
-- [ ] Ajouter la différenciation (diff-socle/standard/appro) aux **8 fichiers exercices.html** (ch01 à ch08)
+- [ ] Convertir les exercices.html de ch01-ch08 du système `niv-header` vers les balises `diff-socle/diff-standard/diff-appro` (modèle : ch09)
 - [ ] Ajouter la différenciation aux **9 fichiers ds.html** (ch01 à ch09)
 
 ### Priorité moyenne
@@ -150,7 +172,9 @@ Contrairement aux cours de Seconde qui utilisent systématiquement les blocs d'a
 - [ ] Mettre à jour l'index des simulations pour référencer toutes les simulations liées à Première
 
 ### Priorité basse
-- [ ] Ajouter des blocs `.att` (erreurs fréquentes) dans les cours de ch01, ch04, ch06, ch07
+- [ ] Ajouter des mini-exercices corrigés dans les leçons de ch01, ch04, ch05, ch09
+- [ ] Ajouter les boutons de correction manquants dans ch07/lecon.html (2 exercices sans toggle)
+- [ ] Ajouter des blocs `.att` (erreurs fréquentes) dans les cours de ch04, ch06, ch07
 - [ ] Vérifier que les QCM ont des explications pédagogiquement progressives (socle < standard < appro)
 - [ ] Harmoniser la numérotation des sections dans les cours (certains utilisent "I, II, III", d'autres "1, 2, 3")
 
