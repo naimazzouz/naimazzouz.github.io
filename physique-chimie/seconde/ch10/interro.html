@@ -431,6 +431,85 @@
   </div>
 </div>
 
+<h3 class="sujet-header">Sujet B</h3>
+<p><strong>Barème :</strong> 20 points</p>
+
+<div class="exo">
+  <h2>Question 1 <span class="pts">(4 points)</span></h2>
+  <p>Une CTN a une résistance \(R_0 = 12 \text{ kΩ}\) à \(T_0 = 20 \text{ °C}\) et une constante \(B = 3\,800 \text{ K}\). La formule est :</p>
+  <p>\[ R = R_0 \times e^{B\left(\frac{1}{T} - \frac{1}{T_0}\right)} \]</p>
+  <p>a) Convertir \(T_0 = 20 \text{ °C}\) et \(T = 50 \text{ °C}\) en Kelvin.</p>
+  <p>b) Calculer \(\dfrac{1}{T} - \dfrac{1}{T_0}\).</p>
+  <p>c) En déduire la résistance \(R\) à 50 °C.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(T_0 = 20 + 273 = 293 \text{ K}\). \(T = 50 + 273 = 323 \text{ K}\).</p>
+    <p>b) \(\dfrac{1}{323} - \dfrac{1}{293} = 0{,}003096 - 0{,}003413 = -0{,}000317 \text{ K}^{-1}\)</p>
+    <p>c) \(B \times \left(\dfrac{1}{T} - \dfrac{1}{T_0}\right) = 3\,800 \times (-0{,}000317) = -1{,}205\)</p>
+    <p>\(R = 12\,000 \times e^{-1{,}205} = 12\,000 \times 0{,}300 \approx \mathbf{3{,}59 \text{ kΩ}}\)</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="pts">(5 points)</span></h2>
+  <p>Un technicien de maintenance surveille la température d'un moteur de ponceuse industrielle. Un thermocouple de type K est fixé sur le carter. Les mesures relevées sont :</p>
+  <table>
+    <tr><th>Temps (min)</th><th>0</th><th>5</th><th>10</th><th>15</th><th>20</th></tr>
+    <tr><td><strong>T (°C)</strong></td><td>25</td><td>40</td><td>58</td><td>85</td><td>120</td></tr>
+  </table>
+  <p>a) Convertir toutes les températures en Kelvin.</p>
+  <p>b) La température maximale admissible pour le carter est 100 °C. À quel moment environ ce seuil est-il dépassé ?</p>
+  <p>c) Que doit faire le technicien ? Proposer une action corrective.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) 298 K, 313 K, 331 K, 358 K, 393 K.</p>
+    <p>b) Entre 15 min (85 °C) et 20 min (120 °C), le seuil de 100 °C est dépassé. Estimation : vers <strong>17 minutes</strong>.</p>
+    <p>c) Le technicien doit <strong>arrêter la machine</strong> pour éviter la surchauffe du moteur. Action corrective : <strong>vérifier le système de ventilation</strong> du moteur (filtre encrassé, ailettes de refroidissement bouchées) et contrôler la charge mécanique.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="pts">(4 points)</span></h2>
+  <p>Un système Arduino est équipé d'un capteur LM35 pour réguler la température d'un séchoir. Le convertisseur analogique-numérique (CAN) de l'Arduino fonctionne sur 10 bits (valeurs de 0 à 1 023) avec une tension de référence de 5 V.</p>
+  <p>a) Quelle est la résolution en tension du CAN (tension par pas) ?</p>
+  <p>b) Le LM35 donne 10 mV/°C. En déduire la résolution en température du système.</p>
+  <p>c) Le CAN affiche la valeur numérique 180. Quelle est la température mesurée ?</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) Résolution = \(\dfrac{5}{1\,023} \approx \mathbf{4{,}89 \text{ mV}}\) par pas.</p>
+    <p>b) Résolution en température = \(\dfrac{4{,}89}{10} \approx \mathbf{0{,}49 \text{ °C}}\) par pas.</p>
+    <p>c) Tension : \(V = 180 \times 4{,}89 = 880{,}2 \text{ mV}\). Température : \(\theta = \dfrac{880{,}2}{10} \approx \mathbf{88{,}0 \text{ °C}}\).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="pts">(4 points)</span></h2>
+  <p>Un installateur thermique compare deux capteurs pour surveiller la température d'un plancher chauffant entre 25 et 45 °C :</p>
+  <ul>
+    <li>Capteur A : CTN, \(R_0 = 15 \text{ kΩ}\) à 25 °C, \(B = 4\,100 \text{ K}\)</li>
+    <li>Capteur B : LM35, sensibilité 10 mV/°C</li>
+  </ul>
+  <p>a) Quel capteur offre la meilleure sensibilité dans cette plage de température ? Justifier.</p>
+  <p>b) Quel avantage principal a le LM35 par rapport à la CTN ?</p>
+  <p>c) Lequel recommanderiez-vous pour cette application ? Justifier.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) La <strong>CTN</strong> offre une meilleure sensibilité dans la plage 25-45 °C car sa résistance varie de plusieurs kΩ pour quelques degrés, tandis que le LM35 ne varie que de quelques dizaines de millivolts.</p>
+    <p>b) Le <strong>LM35</strong> a une relation <strong>linéaire</strong> entre la tension et la température, ce qui simplifie le traitement par le régulateur (pas besoin de table de correspondance).</p>
+    <p>c) Le <strong>LM35</strong> est recommandé car la plage 25-45 °C est modeste et la linéarité facilite l'intégration dans un système de régulation automatique. La CTN serait préférable si une sensibilité maximale était nécessaire.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="pts">(3 points)</span></h2>
+  <p>La cuisson de certaines colles à bois nécessite un maintien précis à 120 °C pendant 30 minutes. Expliquer pourquoi un thermocouple serait préférable à une CTN pour cette application. Quel type de régulation proposez-vous ?</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>La température de 120 °C est en limite haute de la zone optimale d'une CTN (sensibilité décroissante au-delà de 100 °C). Un <strong>thermocouple</strong> de type K est plus adapté car sa plage de mesure couvre largement cette température et il reste précis.</p>
+    <p>On propose une <strong>boucle de régulation</strong> : le thermocouple mesure la température, le régulateur compare à la consigne de 120 °C et ajuste la puissance de chauffage. Un minuteur coupe le chauffage après 30 minutes. Ce système garantit une polymérisation homogène de la colle.</p>
+  </div>
+</div>
+
 </div>
 
 </div><!-- fin .c -->
