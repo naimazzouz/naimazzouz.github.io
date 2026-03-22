@@ -217,6 +217,113 @@
   </div>
 </div>
 
+<!-- EX S5 -->
+<div class="exo">
+  <div class="exo-num">Exercice 8</div>
+  <div class="exo-titre">Calculer l'hypoténuse — valeurs non entières — guidé</div>
+  <p>Un triangle MNP est rectangle en M. On donne \(MN = 4\) cm et \(MP = 7\) cm.</p>
+  <p>Étape 1 — Quel est le plus grand côté (l'hypoténuse) ? \(\ldots\ldots\)</p>
+  <p>Étape 2 — Écrire la formule : \(NP^2 = MN^2 + MP^2\)</p>
+  <p>Étape 3 — Calculer : \(NP^2 = 4^2 + 7^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)</p>
+  <p>Étape 4 — Extraire la racine : \(NP = \sqrt{\ldots\ldots} \approx \ldots\ldots\) cm (arrondir au dixième)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Étape 1 — L'hypoténuse est <strong>NP</strong> (côté opposé à l'angle droit en M).</p>
+    <p>Étape 2 — \(NP^2 = MN^2 + MP^2\)</p>
+    <p>Étape 3 — \(NP^2 = 4^2 + 7^2 = 16 + 49 = 65\)</p>
+    <p>Étape 4 — \(NP = \sqrt{65} \approx \mathbf{8{,}1 \text{ cm}}\)</p>
+    <p>Ici le résultat n'est pas un nombre entier : c'est normal, tous les résultats ne sont pas « ronds ».</p>
+  </div>
+</div>
+
+<!-- EX S6 -->
+<div class="exo">
+  <div class="exo-num">Exercice 9</div>
+  <div class="exo-titre">Trouver le côté manquant — tableau guidé (2)</div>
+  <p>Dans un triangle rectangle en A, l'hypoténuse est BC. Complète le tableau.</p>
+  <table>
+    <tr><th>BC</th><th>AB</th><th>\(BC^2\)</th><th>\(AB^2\)</th><th>\(AC^2 = BC^2 - AB^2\)</th><th>AC</th></tr>
+    <tr><td>15 cm</td><td>9 cm</td><td>\(15^2 = \ldots\)</td><td>\(9^2 = \ldots\)</td><td>\(\ldots - \ldots = \ldots\)</td><td>\(\ldots\) cm</td></tr>
+    <tr><td>25 cm</td><td>7 cm</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\) cm</td></tr>
+    <tr><td>20 cm</td><td>12 cm</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\)</td><td>\(\ldots\) cm</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>BC</th><th>AB</th><th>\(BC^2\)</th><th>\(AB^2\)</th><th>\(AC^2\)</th><th>AC</th></tr>
+      <tr><td>15 cm</td><td>9 cm</td><td>225</td><td>81</td><td>144</td><td><strong>12 cm</strong></td></tr>
+      <tr><td>25 cm</td><td>7 cm</td><td>625</td><td>49</td><td>576</td><td><strong>24 cm</strong></td></tr>
+      <tr><td>20 cm</td><td>12 cm</td><td>400</td><td>144</td><td>256</td><td><strong>16 cm</strong></td></tr>
+    </table>
+    <p>Le triplet (7, 24, 25) est un triplet pythagoricien remarquable.</p>
+  </div>
+</div>
+
+<!-- EX S7 -->
+<div class="exo">
+  <div class="exo-num">Exercice 10</div>
+  <div class="exo-titre">Réciproque guidée — Triangle rectangle ou pas ?</div>
+  <p>Pour chaque triangle, suis les étapes pour déterminer s'il est rectangle.</p>
+  <p><strong>Triangle 1 :</strong> côtés 6 cm, 8 cm, 10 cm.</p>
+  <p>Étape 1 — Le plus grand côté est : \(\ldots\ldots\) cm</p>
+  <p>Étape 2 — Grand côté au carré : \(\ldots\ldots^2 = \ldots\ldots\)</p>
+  <p>Étape 3 — Somme des carrés des deux autres : \(\ldots\ldots^2 + \ldots\ldots^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)</p>
+  <p>Étape 4 — Conclusion : ……</p>
+  <br>
+  <p><strong>Triangle 2 :</strong> côtés 5 cm, 7 cm, 9 cm.</p>
+  <p>Même méthode : ……</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <span class="etape">Triangle 1 : 6, 8, 10</span>
+    <p>Étape 1 — Le plus grand côté est <strong>10 cm</strong>.</p>
+    <p>Étape 2 — \(10^2 = 100\).</p>
+    <p>Étape 3 — \(6^2 + 8^2 = 36 + 64 = 100\).</p>
+    <p>Étape 4 — \(100 = 100\) ✓ → Le triangle <strong>est rectangle</strong>. C'est le triplet (3, 4, 5) × 2.</p>
+    <span class="etape">Triangle 2 : 5, 7, 9</span>
+    <p>Le plus grand côté est <strong>9 cm</strong>.</p>
+    <p>\(9^2 = 81\). Et \(5^2 + 7^2 = 25 + 49 = 74\).</p>
+    <p>\(81 \neq 74\) → Le triangle <strong>n'est pas rectangle</strong>.</p>
+  </div>
+</div>
+
+<!-- EX S8 -->
+<div class="exo">
+  <div class="exo-num">Exercice 11</div>
+  <div class="exo-titre">Échelle contre un mur — guidé pas à pas</div>
+  <p>Une échelle de <strong>5 m</strong> est appuyée contre un mur. Son pied est à <strong>3 m</strong> du mur.</p>
+  <p><strong>1.</strong> Dessine la situation : l'échelle, le mur et le sol forment un triangle rectangle. Quel est le côté le plus long (l'hypoténuse) ?</p>
+  <p style="margin-left:20px">L'hypoténuse est : \(\ldots\ldots\)</p>
+  <p><strong>2.</strong> Complète : on connaît l'hypoténuse (\(\ldots\ldots\) m) et un côté (\(\ldots\ldots\) m). On cherche la hauteur \(h\).</p>
+  <p><strong>3.</strong> Calcule : \(h^2 = \ldots\ldots^2 - \ldots\ldots^2 = \ldots\ldots - \ldots\ldots = \ldots\ldots\)</p>
+  <p><strong>4.</strong> Donc \(h = \sqrt{\ldots\ldots} = \ldots\ldots\) m</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> L'hypoténuse est <strong>l'échelle</strong> (5 m) : c'est le plus grand côté, opposé à l'angle droit entre le sol et le mur.</p>
+    <p><strong>2.</strong> On connaît l'hypoténuse (5 m) et le pied au sol (3 m). On cherche la hauteur \(h\) atteinte sur le mur.</p>
+    <p><strong>3.</strong> \(h^2 = 5^2 - 3^2 = 25 - 9 = 16\)</p>
+    <p><strong>4.</strong> \(h = \sqrt{16} = \mathbf{4 \text{ m}}\)</p>
+    <p>L'échelle atteint le mur à <strong>4 m</strong> de hauteur. On retrouve le triplet (3, 4, 5).</p>
+  </div>
+</div>
+
+<!-- EX S9 -->
+<div class="exo">
+  <div class="exo-num">Exercice 12</div>
+  <div class="exo-titre">Terrain de sport — diagonale d'un rectangle — guidé</div>
+  <p>Un terrain de basket mesure <strong>28 m</strong> de long et <strong>15 m</strong> de large. Un joueur traverse le terrain en diagonale.</p>
+  <p><strong>1.</strong> Le terrain est un rectangle. Le triangle formé par la longueur, la largeur et la diagonale est rectangle. Quel est l'angle droit ?</p>
+  <p style="margin-left:20px">L'angle droit est à : \(\ldots\ldots\)</p>
+  <p><strong>2.</strong> Calcule \(d^2\) : \(d^2 = 28^2 + 15^2 = \ldots\ldots + \ldots\ldots = \ldots\ldots\)</p>
+  <p><strong>3.</strong> Calcule \(d\) : \(d = \sqrt{\ldots\ldots} \approx \ldots\ldots\) m (arrondir au dixième)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> L'angle droit est au <strong>coin du rectangle</strong> (un rectangle a 4 angles droits).</p>
+    <p><strong>2.</strong> \(d^2 = 28^2 + 15^2 = 784 + 225 = 1\,009\)</p>
+    <p><strong>3.</strong> \(d = \sqrt{1\,009} \approx \mathbf{31{,}8 \text{ m}}\)</p>
+    <p>La diagonale du terrain mesure environ <strong>31,8 m</strong>. C'est plus long que la longueur du terrain !</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================
