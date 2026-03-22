@@ -1,7 +1,7 @@
 # Audit complet — Mathématiques Première Bac Pro
 
 **Date** : 2026-03-22
-**Dernière mise à jour** : 2026-03-22
+**Dernière mise à jour** : 2026-03-22 (v2 — après corrections priorités hautes)
 **Périmètre** : Tous les fichiers de `maths/premiere/` (ch01 à ch09)
 **Méthode** : Lecture intégrale de tous les fichiers, audit structurel, pédagogique et technique
 
@@ -22,8 +22,8 @@
 | Type | Présent | Contenu réel | Différenciation |
 |---|---|---|---|
 | `lecon.html` | 9/9 ✅ | 9/9 ✅ | N/A (pas de diff sur les cours) |
-| `exercices.html` | 9/9 ✅ | 9/9 ✅ | ⚠ 1/9 (ch09 uniquement) |
-| `ds.html` | 9/9 ✅ | 9/9 ✅ | ❌ 0/9 |
+| `exercices.html` | 9/9 ✅ | 9/9 ✅ | ✅ 9/9 (socle/standard/appro) |
+| `ds.html` | 9/9 ✅ | 9/9 ✅ | ✅ 9/9 (socle/standard/appro) |
 | `fiche.html` | 9/9 ✅ | 9/9 ✅ | N/A |
 | `qcm.html` | 9/9 ✅ | 9/9 ✅ | ✅ 9/9 (3 niveaux, 45 questions) |
 | `interro.html` | 9/9 ✅ | 9/9 ✅ | ✅ 9/9 (3 niveaux, /20) |
@@ -79,21 +79,13 @@ Tous les fichiers utilisent le thème Première Pro : `--p:#0969da; --p-bg:#dbea
 
 ## Problemes identifies
 
-### 1. Différenciation absente dans exercices.html (gravité : HAUTE)
+### ~~1. Différenciation absente dans exercices.html~~ — CORRIGÉ 2026-03-22
 
-**8 chapitres sur 9** (ch01 à ch08) n'implémentent pas la différenciation pédagogique dans `exercices.html`. Le script `diff.js` est chargé mais les blocs `.diff-socle`, `.diff-standard`, `.diff-appro` ne sont pas présents.
+~~8 chapitres sur 9 n'implémentaient pas la différenciation.~~ → **Corrigé** : les 9 chapitres ont maintenant les balises `diff-socle`, `diff-standard`, `diff-appro` avec des exercices guidés (socle), des exercices standard intermédiaires (créés pour ch02-ch08), et des exercices avancés (appro).
 
-Seul **ch09** (Trigonométrie) a une différenciation complète avec 3 niveaux.
+### ~~2. Différenciation absente dans ds.html~~ — CORRIGÉ 2026-03-22
 
-**Fichiers concernés** : `ch01/exercices.html` à `ch08/exercices.html`
-
-**Impact** : Les élèves ne peuvent pas voir des exercices adaptés à leur niveau. Tous voient le même contenu.
-
-### 2. Différenciation absente dans ds.html (gravité : HAUTE)
-
-**Aucun des 9 DS** n'implémente la différenciation. Tous les élèves reçoivent le même sujet, ce qui est contraire à la philosophie du site.
-
-**Fichiers concernés** : `ch01/ds.html` à `ch09/ds.html`
+~~Aucun des 9 DS n'implémentait la différenciation.~~ → **Corrigé** : les 9 DS ont maintenant 3 versions (socle guidée /20, standard /20, approfondissement BTS /20) avec corrections complètes.
 
 ### 3. Simulations manquantes — 3 chapitres non couverts (gravité : MOYENNE)
 
@@ -156,14 +148,16 @@ Contrairement aux cours de Seconde qui utilisent systématiquement les blocs d'a
 - **2026-03-22** : Création des 8 fiches manquantes (ch02 à ch09) — complétude 9/9
 - **2026-03-22** : Création des 9 QCM avec différenciation 3 niveaux (45 questions chacun)
 - **2026-03-22** : Création des 9 interrogations avec différenciation et barème /20
+- **2026-03-22** : Ajout différenciation exercices.html (ch01-ch08) — balises diff-socle/standard/appro + exercices standard intermédiaires
+- **2026-03-22** : Ajout différenciation ds.html (ch01-ch09) — versions socle guidée, standard, approfondissement BTS (/20 chacune)
 
 ---
 
 ## Ameliorations restantes
 
 ### Priorité haute
-- [ ] Convertir les exercices.html de ch01-ch08 du système `niv-header` vers les balises `diff-socle/diff-standard/diff-appro` (modèle : ch09)
-- [ ] Ajouter la différenciation aux **9 fichiers ds.html** (ch01 à ch09)
+- [x] ~~Convertir les exercices.html de ch01-ch08 vers diff-socle/standard/appro~~ — **FAIT 2026-03-22**
+- [x] ~~Ajouter la différenciation aux 9 fichiers ds.html~~ — **FAIT 2026-03-22**
 
 ### Priorité moyenne
 - [ ] Créer une simulation pour ch02 (Probabilités) — arbre de probabilités interactif
