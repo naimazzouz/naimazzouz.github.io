@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#0969da;--p-bg:#dbeafe;--p-border:#93c5fd}
 .pts{font-size:.82em;color:#718096;font-weight:normal}
+.sujet-header{background:var(--p);color:#fff;padding:.5em 1em;border-radius:6px;margin:1.5em 0 1em;font-size:1.15em}
 </style>
 </head>
 <body>
@@ -28,6 +29,8 @@
 <div class="diff-socle">
 <span class="tag-socle">Socle</span>
 <p><strong>Bar&egrave;me :</strong> 20 points</p>
+
+<h3 class="sujet-header">Sujet A</h3>
 
 <div class="exo">
   <h2>Question 1 <span class="pts">(4 points)</span></h2>
@@ -100,12 +103,87 @@
   </div>
 </div>
 
+<h3 class="sujet-header">Sujet B</h3>
+
+<div class="exo">
+  <h2>Question 1 <span class="pts">(4 points)</span></h2>
+  <div class="meth"><strong>Rappel :</strong> Un polyn&ocirc;me de degr&eacute; 2 s'&eacute;crit \(f(x) = ax^2 + bx + c\) avec \(a \neq 0\). Le coefficient \(a\) est le coefficient de \(x^2\), \(b\) celui de \(x\), et \(c\) est le terme constant.</div>
+  <p>Pour chaque fonction, identifier les coefficients \(a\), \(b\) et \(c\) :</p>
+  <p>a) \(f(x) = 5x^2 + 3x - 1\) &rarr; \(a = ...\), \(b = ...\), \(c = ...\)</p>
+  <p>b) \(g(x) = -2x^2 + 9\) &rarr; \(a = ...\), \(b = ...\), \(c = ...\)</p>
+  <p>c) La fonction \(h(x) = 4x - 3\) est-elle un polyn&ocirc;me de degr&eacute; 2 ? Justifier.</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(a = \mathbf{5}\), \(b = \mathbf{3}\), \(c = \mathbf{-1}\)</p>
+    <p>b) \(a = \mathbf{-2}\), \(b = \mathbf{0}\), \(c = \mathbf{9}\)</p>
+    <p>c) <strong>Non.</strong> Il n'y a pas de terme en \(x^2\) (\(a = 0\)). C'est un polyn&ocirc;me de degr&eacute; 1 (fonction affine).</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 <span class="pts">(4 points)</span></h2>
+  <div class="meth"><strong>Rappel :</strong> Si \(a > 0\), la parabole s'ouvre vers le haut (minimum). Si \(a < 0\), elle s'ouvre vers le bas (maximum).</div>
+  <p>Pour chaque fonction, indiquer le sens d'ouverture de la parabole et si le sommet est un minimum ou un maximum :</p>
+  <p>a) \(f(x) = 3x^2 + 2x - 4\) &rarr; \(a = 3\), donc la parabole s'ouvre vers le ... et le sommet est un ...</p>
+  <p>b) \(g(x) = -5x^2 + 7x\) &rarr; \(a = ...\), donc la parabole s'ouvre vers le ... et le sommet est un ...</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(a = 3 > 0\), la parabole s'ouvre vers le <strong>haut</strong> et le sommet est un <strong>minimum</strong>.</p>
+    <p>b) \(a = -5 < 0\), la parabole s'ouvre vers le <strong>bas</strong> et le sommet est un <strong>maximum</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 <span class="pts">(4 points)</span></h2>
+  <div class="meth"><strong>Rappel :</strong> Le sommet a pour abscisse \(x_S = -\dfrac{b}{2a}\). L'ordonn&eacute;e est \(y_S = f(x_S)\).</div>
+  <p>Soit \(f(x) = x^2 - 4x + 3\). Ici \(a = 1\), \(b = -4\), \(c = 3\).</p>
+  <p>a) Calculer \(x_S = -\dfrac{-4}{2 \times 1} = \dfrac{...}{...} = ...\)</p>
+  <p>b) Calculer \(f(x_S) = (...)^2 - 4 \times (...) + 3 = ...\)</p>
+  <p>c) Donner les coordonn&eacute;es du sommet \(S(...\,;\,...)\).</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(x_S = -\dfrac{-4}{2} = \dfrac{4}{2} = \mathbf{2}\)</p>
+    <p>b) \(f(2) = 4 - 8 + 3 = \mathbf{-1}\)</p>
+    <p>c) Le sommet est \(S(\mathbf{2}\,;\,\mathbf{-1})\). Comme \(a = 1 > 0\), c'est un <strong>minimum</strong>.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 <span class="pts">(4 points)</span></h2>
+  <div class="meth"><strong>Rappel :</strong> Tester si un nombre est racine : calculer \(f(x_0)\). Si \(f(x_0) = 0\), c'est une racine.</div>
+  <p>Soit \(f(x) = x^2 - 7x + 12\).</p>
+  <p>a) Calculer \(f(3) = (3)^2 - 7 \times 3 + 12 = ...\). Le nombre 3 est-il racine ?</p>
+  <p>b) Calculer \(f(4) = (4)^2 - 7 \times 4 + 12 = ...\). Le nombre 4 est-il racine ?</p>
+  <p>c) Calculer \(f(1) = ...\). Le nombre 1 est-il racine ?</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(f(3) = 9 - 21 + 12 = \mathbf{0}\). Oui, \(x = 3\) est une <strong>racine</strong>.</p>
+    <p>b) \(f(4) = 16 - 28 + 12 = \mathbf{0}\). Oui, \(x = 4\) est une <strong>racine</strong>.</p>
+    <p>c) \(f(1) = 1 - 7 + 12 = \mathbf{6} \neq 0\). Non, \(x = 1\) n'est <strong>pas</strong> une racine.</p>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 <span class="pts">(4 points)</span></h2>
+  <div class="meth"><strong>Rappel :</strong> Forme factoris&eacute;e : \(f(x) = a(x - x_1)(x - x_2)\) o&ugrave; \(x_1\) et \(x_2\) sont les racines.</div>
+  <p>On a trouv&eacute; que \(f(x) = x^2 - 7x + 12\) a pour racines \(x_1 = 3\) et \(x_2 = 4\), avec \(a = 1\).</p>
+  <p>a) &Eacute;crire la forme factoris&eacute;e : \(f(x) = 1 \times (x - ...)(x - ...) = ...\)</p>
+  <p>b) V&eacute;rifier en d&eacute;veloppant : \((x - 3)(x - 4) = x^2 - 4x - 3x + 12 = ...\)</p>
+  <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+  <div class="corr">
+    <p>a) \(f(x) = (x - 3)(x - 4)\)</p>
+    <p>b) \((x-3)(x-4) = x^2 - 4x - 3x + 12 = x^2 - 7x + 12\) &#10003;</p>
+  </div>
+</div>
+
 </div>
 
 <!-- ========================= STANDARD ========================= -->
 <div class="diff-standard">
 <span class="tag-standard">Standard</span>
 <p><strong>Bar&egrave;me :</strong> 20 points</p>
+
+<h3 class="sujet-header">Sujet A</h3>
 
 <div class="exo">
   <h2>Question 1 <span class="pts">(4 points)</span></h2>
