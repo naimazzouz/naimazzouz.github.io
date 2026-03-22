@@ -200,6 +200,165 @@
   </div>
 </div>
 
+<!-- EXERCICE S4 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S4</span>
+    <span class="exo-title">Loi de masse – Pas à pas</span>
+  </div>
+  <p>Un artisan menuisier installe une cloison en placo-plâtre de masse surfacique \(m_s = 20 \text{ kg/m}^2\). L'indice d'affaiblissement de cette cloison est \(R = 28 \text{ dB}\).</p>
+  <p><strong>On rappelle :</strong> si la masse surfacique double, \(R\) augmente de 6 dB.</p>
+
+  <p class="q"><strong>Étape 1 :</strong> On remplace la cloison par une paroi deux fois plus lourde (\(m_s = 40 \text{ kg/m}^2\)). Compléter :</p>
+  <p>\(R_\text{nouveau} = R + 6 = \ldots + \ldots = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 2 :</strong> On double encore la masse (\(m_s = 80 \text{ kg/m}^2\)). Compléter :</p>
+  <p>\(R_\text{nouveau} = \ldots + 6 = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 3 :</strong> Compléter le tableau récapitulatif.</p>
+  <table>
+    <tr><th>Masse surfacique (kg/m²)</th><th>R (dB)</th></tr>
+    <tr><td>20</td><td>28</td></tr>
+    <tr><td>40</td><td>…</td></tr>
+    <tr><td>80</td><td>…</td></tr>
+  </table>
+
+  <p class="q"><strong>Étape 4 :</strong> Pour isoler un bureau du bruit d'un atelier, il faut au moins \(R = 35 \text{ dB}\). Quelle masse surfacique faut-il choisir parmi celles du tableau ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong>
+      \[R_\text{nouveau} = 28 + 6 = \mathbf{34 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 2 :</strong>
+      \[R_\text{nouveau} = 34 + 6 = \mathbf{40 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 3 :</strong></p>
+    <table>
+      <tr><th>Masse surfacique (kg/m²)</th><th>R (dB)</th></tr>
+      <tr><td>20</td><td>28</td></tr>
+      <tr><td>40</td><td>34</td></tr>
+      <tr><td>80</td><td>40</td></tr>
+    </table>
+    <p><strong>Étape 4 :</strong> Il faut \(R \geq 35\) dB. La paroi à 40 kg/m² donne 34 dB (insuffisant). La paroi à 80 kg/m² donne 40 dB → <strong>il faut choisir \(m_s = 80 \text{ kg/m}^2\)</strong>.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S5 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S5</span>
+    <span class="exo-title">Comparer des matériaux – Lecture de tableau</span>
+  </div>
+  <p>Un poseur de cuisines doit choisir un matériau pour séparer une cuisine ouverte d'un salon. Voici les données :</p>
+  <table>
+    <tr><th>Matériau</th><th>R (dB)</th></tr>
+    <tr><td>Plaque de plâtre simple (13 mm)</td><td>25</td></tr>
+    <tr><td>Bois massif (40 mm)</td><td>30</td></tr>
+    <tr><td>Double vitrage standard</td><td>32</td></tr>
+    <tr><td>Parpaing enduit (20 cm)</td><td>45</td></tr>
+  </table>
+  <p>Le niveau sonore de la cuisine en activité est \(L_1 = 75 \text{ dB}\). On veut \(L_2 \leq 50 \text{ dB}\) dans le salon.</p>
+
+  <p class="q"><strong>Étape 1 :</strong> Calculer le \(R\) minimal nécessaire.</p>
+  <p>\(R_\text{min} = L_1 - L_2 = \ldots - \ldots = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 2 :</strong> Souligner dans le tableau les matériaux qui conviennent (\(R \geq R_\text{min}\)).</p>
+
+  <p class="q"><strong>Étape 3 :</strong> Quel est le matériau le plus léger qui convient ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong>
+      \[R_\text{min} = 75 - 50 = \mathbf{25 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 2 :</strong> Tous les matériaux ont \(R \geq 25\) dB, donc tous conviennent. La plaque de plâtre est juste à la limite (25 dB = 25 dB).</p>
+    <p><strong>Étape 3 :</strong> Le matériau le plus léger est la <strong>plaque de plâtre simple</strong> (13 mm), mais elle est pile à la limite. En pratique, on choisira le <strong>bois massif</strong> (40 mm, R = 30 dB) pour avoir une marge de 5 dB.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S6 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S6</span>
+    <span class="exo-title">Seuil de danger – Vrai ou faux guidé</span>
+  </div>
+  <p>Pour chaque affirmation, entourer <strong>VRAI</strong> ou <strong>FAUX</strong> et corriger si nécessaire.</p>
+
+  <p class="q"><strong>a)</strong> Le seuil de danger pour l'audition est de 85 dB en exposition prolongée. <strong>VRAI / FAUX</strong></p>
+  <p class="q"><strong>b)</strong> 80 dB + 80 dB = 160 dB. <strong>VRAI / FAUX</strong></p>
+  <p class="q"><strong>c)</strong> Si \(R = 40\) dB et \(L_1 = 95\) dB, alors \(L_2 = 55\) dB. <strong>VRAI / FAUX</strong></p>
+  <p class="q"><strong>d)</strong> Doubler la masse d'une paroi ajoute 3 dB à son indice R. <strong>VRAI / FAUX</strong></p>
+  <p class="q"><strong>e)</strong> Une intensité de \(I = 10^{-5} \text{ W/m}^2\) correspond à un niveau de 70 dB. <strong>VRAI / FAUX</strong></p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> <strong>VRAI.</strong> Le Code du travail fixe le seuil de danger à 85 dB(A) pour une exposition de 8 h.</p>
+    <p><strong>b)</strong> <strong>FAUX.</strong> Les décibels ne s'additionnent pas directement. 80 dB + 80 dB = 83 dB (deux sources identiques → +3 dB).</p>
+    <p><strong>c)</strong> <strong>VRAI.</strong> \(L_2 = L_1 - R = 95 - 40 = 55\) dB.</p>
+    <p><strong>d)</strong> <strong>FAUX.</strong> Doubler la masse ajoute environ <strong>6 dB</strong> (pas 3 dB). C'est doubler le nombre de <em>sources identiques</em> qui ajoute 3 dB.</p>
+    <p><strong>e)</strong> <strong>VRAI.</strong> \(L = 10 \cdot \log\!\left(\dfrac{10^{-5}}{10^{-12}}\right) = 10 \cdot \log(10^7) = 10 \times 7 = 70\) dB.</p>
+  </div>
+</div>
+
+<!-- EXERCICE S7 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S7</span>
+    <span class="exo-title">Additionner 4 machines identiques – Pas à pas</span>
+  </div>
+  <p>Dans un atelier de fabrication de meubles, 4 ponceuses identiques fonctionnent en même temps. Chaque ponceuse produit un niveau sonore de \(L = 78 \text{ dB}\).</p>
+  <p><strong>On rappelle :</strong> \(L_\text{total} = L + 10 \cdot \log(n)\) et \(\log(4) \approx 0{,}602\).</p>
+
+  <p class="q"><strong>Étape 1 :</strong> Combien de sources ? \(n = \ldots\)</p>
+
+  <p class="q"><strong>Étape 2 :</strong> Calculer \(10 \times \log(n)\).</p>
+  <p>\(10 \times \log(4) = 10 \times 0{,}602 = \ldots\)</p>
+
+  <p class="q"><strong>Étape 3 :</strong> Calculer le niveau total.</p>
+  <p>\(L_\text{total} = 78 + \ldots = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 4 :</strong> Le seuil de danger (85 dB) est-il dépassé ? Entourer : <strong>OUI / NON</strong></p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \(n = 4\).</p>
+    <p><strong>Étape 2 :</strong> \(10 \times \log(4) = 10 \times 0{,}602 = 6{,}02\).</p>
+    <p><strong>Étape 3 :</strong>
+      \[L_\text{total} = 78 + 6{,}02 \approx \mathbf{84 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 4 :</strong> 84 dB &lt; 85 dB → <strong>NON</strong>, le seuil de danger n'est pas dépassé, mais on est très proche. Le port de protections auditives est recommandé (seuil d'action de 80 dB).</p>
+  </div>
+</div>
+
+<!-- EXERCICE S8 -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice S8</span>
+    <span class="exo-title">Trouver R minimal – Pas à pas</span>
+  </div>
+  <p>Un fabricant de mobilier travaille dans un atelier où le bruit atteint \(L_1 = 88 \text{ dB}\). Il souhaite installer une cloison pour créer un espace de repos où le niveau sonore ne dépasse pas \(L_2 = 60 \text{ dB}\).</p>
+
+  <p class="q"><strong>Étape 1 :</strong> Écrire la formule \(L_2 = L_1 - R\).</p>
+
+  <p class="q"><strong>Étape 2 :</strong> Isoler R dans cette formule.</p>
+  <p>\(R = L_1 - L_2 = \ldots - \ldots = \ldots \text{ dB}\)</p>
+
+  <p class="q"><strong>Étape 3 :</strong> Un panneau en bois aggloméré de 19 mm a \(R = 24 \text{ dB}\). Est-il suffisant ? Entourer : <strong>OUI / NON</strong></p>
+
+  <p class="q"><strong>Étape 4 :</strong> Un panneau sandwich (bois + laine de roche) a \(R = 35 \text{ dB}\). Est-il suffisant ? Entourer : <strong>OUI / NON</strong></p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \(L_2 = L_1 - R\).</p>
+    <p><strong>Étape 2 :</strong>
+      \[R = L_1 - L_2 = 88 - 60 = \mathbf{28 \text{ dB}}\]
+    </p>
+    <p><strong>Étape 3 :</strong> Le panneau bois aggloméré a \(R = 24\) dB, or il faut \(R \geq 28\) dB. Donc 24 &lt; 28 → <strong>NON</strong>, insuffisant.</p>
+    <p><strong>Étape 4 :</strong> Le panneau sandwich a \(R = 35\) dB &ge; 28 dB → <strong>OUI</strong>, il est suffisant, avec une marge de 7 dB.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ============================================ -->
@@ -409,6 +568,183 @@
     <p><strong>4.</strong> Problème : une ouverture (même petite) est un "pont acoustique" qui réduit drastiquement l'isolation globale. Une ouverture de 1 % de la surface peut diviser l'isolation par 10 (−10 dB).
       <br>Remèdes : silencieux acoustiques sur les gaines de ventilation (déflecteurs absorbants), sas d'entrée avec deux portes, joints acoustiques sur toutes les ouvertures.
     </p>
+  </div>
+</div>
+
+<!-- EXERCICE 7 (Standard) -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Calcul de niveau sonore – Raboteuse</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un menuisier agenceur utilise une raboteuse qui génère une intensité sonore \(I = 5 \times 10^{-4} \text{ W/m}^2\) à 1 m de la machine.</p>
+  <p class="q"><strong>1.</strong> Calculer le rapport \(\dfrac{I}{I_0}\) avec \(I_0 = 10^{-12} \text{ W/m}^2\).</p>
+  <p class="q"><strong>2.</strong> En déduire le niveau sonore \(L\) en dB.</p>
+  <p class="q"><strong>3.</strong> Ce niveau dépasse-t-il le seuil de danger ? Le port de protections auditives est-il obligatoire ?</p>
+  <p class="q"><strong>4.</strong> À 2 m de la machine, l'intensité est divisée par 4. Calculer le nouveau niveau sonore et conclure.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong>
+      \[\frac{I}{I_0} = \frac{5 \times 10^{-4}}{10^{-12}} = 5 \times 10^{8}\]
+    </p>
+    <p><strong>2.</strong>
+      \[L = 10 \cdot \log(5 \times 10^{8}) = 10 \cdot (\log 5 + 8) = 10 \times (0{,}699 + 8) = 10 \times 8{,}699 \approx \mathbf{87 \text{ dB}}\]
+    </p>
+    <p><strong>3.</strong> 87 dB &gt; 85 dB → le seuil de danger est dépassé. Le port de protections auditives est <strong>obligatoire</strong>.</p>
+    <p><strong>4.</strong> À 2 m : \(I_2 = \dfrac{5 \times 10^{-4}}{4} = 1{,}25 \times 10^{-4}\) W/m².
+      \[L_2 = 10 \cdot \log\!\left(\frac{1{,}25 \times 10^{-4}}{10^{-12}}\right) = 10 \cdot \log(1{,}25 \times 10^{8}) = 10 \times 8{,}097 \approx \mathbf{81 \text{ dB}}\]
+      À 2 m, le niveau passe sous 85 dB, mais reste élevé. L'éloignement réduit le niveau de 6 dB (diviser l'intensité par 4 → −6 dB).
+    </p>
+  </div>
+</div>
+
+<!-- EXERCICE 8 (Standard) -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Double vitrage – Comparaison simple / double</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un installateur d'agencement remplace les fenêtres d'un show-room situé en bordure de route. Le niveau sonore extérieur est \(L_1 = 78 \text{ dB}\). L'objectif est d'obtenir \(L_2 \leq 45 \text{ dB}\) à l'intérieur.</p>
+  <table>
+    <tr><th>Type de vitrage</th><th>R (dB)</th></tr>
+    <tr><td>Simple vitrage (6 mm)</td><td>28</td></tr>
+    <tr><td>Double vitrage standard (4/16/4 mm)</td><td>32</td></tr>
+    <tr><td>Double vitrage acoustique (6/20/4 mm feuilleté)</td><td>38</td></tr>
+  </table>
+  <p class="q"><strong>1.</strong> Calculer l'indice d'affaiblissement minimal \(R_\text{min}\).</p>
+  <p class="q"><strong>2.</strong> Pour chaque vitrage, calculer le niveau \(L_2\) dans le show-room.</p>
+  <p class="q"><strong>3.</strong> Quel(s) vitrage(s) respectent l'objectif ?</p>
+  <p class="q"><strong>4.</strong> Le client préfère le double vitrage standard pour des raisons de coût. L'objectif est-il atteint ? Que peut-on proposer en complément ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(R_\text{min} = L_1 - L_2 = 78 - 45 = \mathbf{33 \text{ dB}}\)</p>
+    <p><strong>2.</strong> Niveaux dans le show-room :
+      <br>• Simple vitrage : \(L_2 = 78 - 28 = 50\) dB
+      <br>• Double vitrage standard : \(L_2 = 78 - 32 = 46\) dB
+      <br>• Double vitrage acoustique : \(L_2 = 78 - 38 = 40\) dB
+    </p>
+    <p><strong>3.</strong> Seul le <strong>double vitrage acoustique</strong> (\(L_2 = 40\) dB &le; 45 dB) respecte l'objectif.</p>
+    <p><strong>4.</strong> Le double vitrage standard donne 46 dB &gt; 45 dB, l'objectif n'est pas atteint (dépassement de 1 dB). On peut proposer en complément : rideaux acoustiques épais, joints de fenêtre renforcés, ou un panneau de doublage intérieur absorbant. Mais la solution la plus fiable reste le double vitrage acoustique.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 9 (Standard) -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Plusieurs sources identiques – Scies à ruban</span>
+    <span class="diff diff-1">Niveau 1</span>
+  </div>
+  <p>Un atelier d'agencement dispose de scies à ruban identiques. Chacune génère un niveau sonore de \(L = 80 \text{ dB}\).</p>
+  <p class="q"><strong>1.</strong> Calculer le niveau total pour 2 scies en fonctionnement. On donne \(\log(2) \approx 0{,}301\).</p>
+  <p class="q"><strong>2.</strong> Calculer le niveau total pour 5 scies en fonctionnement. On donne \(\log(5) \approx 0{,}699\).</p>
+  <p class="q"><strong>3.</strong> Calculer le niveau total pour 10 scies. On donne \(\log(10) = 1\).</p>
+  <p class="q"><strong>4.</strong> Compléter la phrase : « Multiplier le nombre de sources par 10, c'est ajouter … dB au niveau sonore. »</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(L_\text{total} = 80 + 10 \times 0{,}301 = 80 + 3{,}01 \approx \mathbf{83 \text{ dB}}\)</p>
+    <p><strong>2.</strong> \(L_\text{total} = 80 + 10 \times 0{,}699 = 80 + 6{,}99 \approx \mathbf{87 \text{ dB}}\)</p>
+    <p><strong>3.</strong> \(L_\text{total} = 80 + 10 \times 1 = \mathbf{90 \text{ dB}}\)</p>
+    <p><strong>4.</strong> Multiplier le nombre de sources par 10, c'est ajouter <strong>10 dB</strong> au niveau sonore. C'est une règle fondamentale de l'acoustique logarithmique.</p>
+  </div>
+</div>
+
+<!-- EXERCICE 10 (Standard) -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Isolation d'un atelier de ponçage – Réglementation</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un atelier de ponçage génère un niveau sonore de \(L_1 = 94 \text{ dB}\). Une cloison le sépare d'un espace de stockage où travaillent des manutentionnaires (seuil : 85 dB).</p>
+  <p class="q"><strong>1.</strong> Quel \(R\) minimal faut-il pour que le niveau dans l'espace de stockage ne dépasse pas 85 dB ?</p>
+  <p class="q"><strong>2.</strong> La cloison existante a \(R = 12 \text{ dB}\). Calculer le niveau \(L_2\) dans l'espace de stockage.</p>
+  <p class="q"><strong>3.</strong> L'entreprise double la masse surfacique de la cloison. Quel est le nouveau \(R\) ? Le niveau \(L_2\) est-il maintenant conforme ?</p>
+  <p class="q"><strong>4.</strong> Si la cloison doublée reste insuffisante, proposer une solution complémentaire sans toucher à la cloison.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(R_\text{min} = L_1 - L_\text{objectif} = 94 - 85 = \mathbf{9 \text{ dB}}\)</p>
+    <p><strong>2.</strong> \(L_2 = 94 - 12 = \mathbf{82 \text{ dB}}\). Le niveau est inférieur à 85 dB, la cloison existante suffit réglementairement.</p>
+    <p><strong>3.</strong> En doublant la masse : \(R = 12 + 6 = 18\) dB.
+      \[L_2 = 94 - 18 = \mathbf{76 \text{ dB}}\]
+      76 dB &lt; 85 dB : conforme et avec une marge confortable de 9 dB.
+    </p>
+    <p><strong>4.</strong> Solutions complémentaires sans toucher à la cloison :
+      <br>• Encoffrer la ponceuse (capot acoustique).
+      <br>• Installer des panneaux absorbants au plafond de l'atelier de ponçage.
+      <br>• Poser des plots antivibratoires sous la ponceuse.
+    </p>
+  </div>
+</div>
+
+<!-- EXERCICE 11 (Standard) -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Coefficient τ et indice R</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>On rappelle la relation entre le coefficient d'atténuation \(\tau\) et l'indice d'affaiblissement \(R\) :
+    \[R = -20 \cdot \log(\tau)\]
+  </p>
+  <p class="q"><strong>1.</strong> Un mur en béton laisse passer 1 % de la pression acoustique (\(\tau = 0{,}01\)). Calculer \(R\).</p>
+  <p class="q"><strong>2.</strong> Un panneau de bois a \(\tau = 0{,}1\). Calculer \(R\).</p>
+  <p class="q"><strong>3.</strong> Quel matériau isole le mieux ? Justifier.</p>
+  <p class="q"><strong>4.</strong> Si une cloison a \(R = 30\) dB, calculer \(\tau\). Quelle fraction de la pression acoustique traverse ?</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong>
+      \[R = -20 \cdot \log(0{,}01) = -20 \times (-2) = \mathbf{40 \text{ dB}}\]
+    </p>
+    <p><strong>2.</strong>
+      \[R = -20 \cdot \log(0{,}1) = -20 \times (-1) = \mathbf{20 \text{ dB}}\]
+    </p>
+    <p><strong>3.</strong> Le mur en béton (\(R = 40\) dB) isole <strong>beaucoup mieux</strong> que le panneau de bois (\(R = 20\) dB). Un écart de 20 dB signifie que le béton transmet 100 fois moins de puissance sonore.</p>
+    <p><strong>4.</strong> On isole \(\tau\) :
+      \[\log(\tau) = -\frac{R}{20} = -\frac{30}{20} = -1{,}5\]
+      \[\tau = 10^{-1{,}5} \approx \mathbf{0{,}032}\]
+      Environ 3,2 % de la pression acoustique traverse la cloison.
+    </p>
+  </div>
+</div>
+
+<!-- EXERCICE 12 (Standard) -->
+<div class="exo">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Aménagement d'un bureau dans un atelier de menuiserie</span>
+    <span class="diff diff-2">Niveau 2</span>
+  </div>
+  <p>Un artisan menuisier souhaite créer un bureau administratif dans un coin de son atelier. L'atelier produit un niveau sonore de \(L_1 = 86 \text{ dB}\) lorsque la scie et la dégauchisseuse fonctionnent. Le bureau doit respecter le seuil de 65 dB.</p>
+  <p>L'artisan hésite entre deux solutions :</p>
+  <ul>
+    <li><strong>Solution A :</strong> Cloison en panneaux OSB (18 mm), \(R = 22\) dB, coût : 40 €/m²</li>
+    <li><strong>Solution B :</strong> Cloison double en placo-plâtre + laine de verre, \(R = 38\) dB, coût : 75 €/m²</li>
+  </ul>
+  <p class="q"><strong>1.</strong> Calculer \(R_\text{min}\) pour respecter la réglementation bureau.</p>
+  <p class="q"><strong>2.</strong> Pour chaque solution, calculer le niveau \(L_2\) dans le bureau et indiquer si la réglementation est respectée.</p>
+  <p class="q"><strong>3.</strong> La surface de cloison à construire est de 8 m². Calculer le coût de chaque solution.</p>
+  <p class="q"><strong>4.</strong> Quelle solution recommander ? Justifier en tenant compte du coût et de l'efficacité.</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(R_\text{min} = L_1 - L_2 = 86 - 65 = \mathbf{21 \text{ dB}}\)</p>
+    <p><strong>2.</strong>
+      <br>• Solution A : \(L_2 = 86 - 22 = 64\) dB &le; 65 dB → conforme (marge de 1 dB seulement).
+      <br>• Solution B : \(L_2 = 86 - 38 = 48\) dB &le; 65 dB → conforme (marge de 17 dB).
+    </p>
+    <p><strong>3.</strong>
+      <br>• Solution A : \(8 \times 40 = 320\) €
+      <br>• Solution B : \(8 \times 75 = 600\) €
+    </p>
+    <p><strong>4.</strong> La <strong>solution B</strong> est recommandée. La solution A respecte la réglementation de justesse (1 dB de marge), ce qui ne laisse aucune tolérance si le bruit augmente (machine supplémentaire, usure des joints). La solution B offre un confort acoustique réel (48 dB, proche du silence) pour un surcoût raisonnable (280 € de plus). En contexte professionnel, la marge de sécurité est essentielle.</p>
   </div>
 </div>
 
