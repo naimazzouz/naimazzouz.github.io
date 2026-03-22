@@ -139,6 +139,17 @@ Sur 27 chapitres, seul `maths/terminale/ch02/qcm.html` inclut `qcm.js`. Tous les
 
 **Impact** : Fonctionnel. La factorisation via `qcm.js` pourrait reduire la duplication de code.
 
+### 9. Textes de navigation inconsistants en Maths Terminale (gravite : BASSE)
+
+Les textes du bouton retour varient d'un chapitre a l'autre :
+- « RETOUR SOMMAIRE » (ch01-ch03, ch09)
+- « Retour au sommaire » (ch04-ch05, ch08, ch10-ch11)
+- « Retour au cours de Terminale » (ch06)
+- « Retour au programme » (ch07)
+
+**Impact** : Esthetique uniquement, pas fonctionnel (tous pointent vers le bon fichier).
+**Correction** : Standardiser a « Retour au sommaire ».
+
 ---
 
 ## Verification technique
