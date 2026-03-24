@@ -269,6 +269,153 @@
   </details>
 </div>
 
+
+<!-- S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Simplifier des expressions avec les propriétés de exp (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Propriétés : \(\text{e}^{a+b} = \text{e}^a \times \text{e}^b\)  |  \(\text{e}^{a-b} = \dfrac{\text{e}^a}{\text{e}^b}\)  |  \(\text{e}^0 = 1\)  |  \(\text{e}^{-a} = \dfrac{1}{\text{e}^a}\)
+  </div>
+  <div class="consigne">
+    Simplifier chaque expression :<br><br>
+    <strong>a)</strong> \(\text{e}^2 \times \text{e}^3\)<br>
+    On additionne les exposants : \(\text{e}^2 \times \text{e}^3 = \text{e}^{2+\boxed{\phantom{3}}} = \text{e}^{\boxed{\phantom{5}}}\)<br><br>
+    <strong>b)</strong> \(\dfrac{\text{e}^7}{\text{e}^4}\)<br>
+    On soustrait les exposants : \(\dfrac{\text{e}^7}{\text{e}^4} = \text{e}^{7-\boxed{\phantom{4}}} = \text{e}^{\boxed{\phantom{3}}}\)<br><br>
+    <strong>c)</strong> \((\text{e}^2)^3\)<br>
+    On multiplie les exposants : \((\text{e}^2)^3 = \text{e}^{2 \times \boxed{\phantom{3}}} = \text{e}^{\boxed{\phantom{6}}}\)<br><br>
+    <strong>d)</strong> \(\text{e}^5 \times \text{e}^{-2}\)<br>
+    \(\text{e}^5 \times \text{e}^{-2} = \text{e}^{5+(-2)} = \text{e}^{\boxed{\phantom{3}}}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> <span class="reponse">\(\text{e}^5\)</span></p>
+    <p><strong>b)</strong> <span class="reponse">\(\text{e}^3\)</span></p>
+    <p><strong>c)</strong> <span class="reponse">\(\text{e}^6\)</span></p>
+    <p><strong>d)</strong> <span class="reponse">\(\text{e}^3\)</span></p>
+  </div>
+</div>
+
+<!-- S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Résoudre des équations logarithmiques (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Méthode</span>
+    <strong>Résoudre \(\ln(x) = k\) :</strong> On applique l'exponentielle des deux membres → \(x = \text{e}^k\).<br>
+    Rappel : \(\ln\) et \(\text{e}^{\cdot}\) sont des fonctions réciproques : \(\ln(\text{e}^k) = k\) et \(\text{e}^{\ln x} = x\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Résoudre \(\ln(x) = 2\). Compléter :<br>
+    <p style="font-size:.93em">
+      On applique l'exponentielle : \(\text{e}^{\ln(x)} = \text{e}^2\)<br>
+      Donc \(x = \text{e}^{\boxed{\phantom{2}}} \approx \boxed{\phantom{7{,}39}}\)
+    </p>
+    <strong>2.</strong> Résoudre \(\ln(x) = 0\). Compléter :<br>
+    <p style="font-size:.93em">
+      \(x = \text{e}^{\boxed{\phantom{0}}} = \boxed{\phantom{1}}\)
+    </p>
+    <strong>3.</strong> Résoudre \(\ln(x) = -1\). Compléter :<br>
+    <p style="font-size:.93em">
+      \(x = \text{e}^{-1} = \dfrac{1}{\text{e}} \approx \boxed{\phantom{0{,}37}}\)
+    </p>
+    <strong>4.</strong> L'équation \(\ln(x) = 5\) a-t-elle une solution ? Calculer cette solution (à 2 décimales près).<br>
+    <span class="answer-line"></span>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(x = \text{e}^2 \approx 7{,}39\)</span></p>
+    <p><strong>2.</strong> <span class="reponse">\(x = \text{e}^0 = 1\)</span></p>
+    <p><strong>3.</strong> <span class="reponse">\(x = \text{e}^{-1} \approx 0{,}37\)</span></p>
+    <p><strong>4.</strong> Oui, car \(\ln\) est définie sur \(]0\,;\,+\infty[\). <span class="reponse">\(x = \text{e}^5 \approx 148{,}41\)</span></p>
+  </div>
+</div>
+
+<!-- S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Lire une courbe exponentielle — croissance et décroissance</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un plombier chauffagiste chauffe un ballon d'eau chaude. La température (en °C) monte selon le modèle \(T(t) = 60 - 40\,\text{e}^{-0{,}2t}\) où \(t\) est en minutes.
+  </div>
+  <div class="meth">
+    <span class="label-meth">Lecture du modèle \(T(t) = a - b\,\text{e}^{-kt}\)</span>
+    Température initiale (\(t = 0\)) : \(T(0) = a - b\).<br>
+    Température limite (\(t \to +\infty\)) : \(T \to a\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la température initiale de l'eau.<br>
+    <p style="font-size:.93em">
+      \(T(0) = 60 - 40 \times \text{e}^0 = 60 - 40 \times \boxed{\phantom{1}} = \boxed{\phantom{20}}\) °C
+    </p>
+    <strong>2.</strong> Vers quelle température tend l'eau quand \(t \to +\infty\) ?<br>
+    <p style="font-size:.93em">
+      \(\text{e}^{-0{,}2t} \to \boxed{\phantom{0}}\) quand \(t \to +\infty\), donc \(T \to \boxed{\phantom{60}}\) °C
+    </p>
+    <strong>3.</strong> Calculer \(T(5)\) et \(T(10)\).<br>
+    <span class="answer-line"></span>
+    <strong>4.</strong> La douche peut être utilisée à partir de 50 °C. Résoudre \(T(t) = 50\).<br>
+    <p style="font-size:.93em">
+      \(60 - 40\,\text{e}^{-0{,}2t} = 50\)<br>
+      \(40\,\text{e}^{-0{,}2t} = 60 - 50 = \boxed{\phantom{10}}\)<br>
+      \(\text{e}^{-0{,}2t} = \dfrac{10}{40} = \boxed{\phantom{0{,}25}}\)<br>
+      \(-0{,}2t = \ln(0{,}25) \approx \boxed{\phantom{-1{,}386}}\)<br>
+      \(t \approx \dfrac{1{,}386}{0{,}2} = \boxed{\phantom{6{,}93}}\) min
+    </p>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(T(0) = 20\) °C</span></p>
+    <p><strong>2.</strong> L'eau tend vers <span class="reponse">60 °C</span> (température du ballon réglé).</p>
+    <p><strong>3.</strong> \(T(5) = 60 - 40\,\text{e}^{-1} \approx 60 - 14{,}7 \approx\) <span class="reponse">\(45{,}3\) °C</span>. \(T(10) = 60 - 40\,\text{e}^{-2} \approx 60 - 5{,}4 \approx\) <span class="reponse">\(54{,}6\) °C</span>.</p>
+    <p><strong>4.</strong> <span class="reponse">\(t \approx 6{,}93\) minutes</span>. L'eau est utilisable après environ 7 minutes.</p>
+  </div>
+</div>
+
+<!-- S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Identifier les valeurs remarquables de ln et exp (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Valeurs importantes : \(\text{e}^0 = 1\)  |  \(\text{e}^1 = \text{e} \approx 2{,}718\)  |  \(\ln(1) = 0\)  |  \(\ln(\text{e}) = 1\)  |  \(\text{e}^{\ln a} = a\)  |  \(\ln(\text{e}^k) = k\)
+  </div>
+  <div class="consigne">
+    Sans calculatrice, compléter :<br><br>
+    <strong>a)</strong> \(\text{e}^{\ln 7} = \boxed{\phantom{7}}\)<br>
+    <strong>b)</strong> \(\ln(\text{e}^{10}) = \boxed{\phantom{10}}\)<br>
+    <strong>c)</strong> \(\ln(\text{e}^{-3}) = \boxed{\phantom{-3}}\)<br>
+    <strong>d)</strong> \(\text{e}^{\ln(0{,}5)} = \boxed{\phantom{0{,}5}}\)<br>
+    <strong>e)</strong> \(\ln(1) + \text{e}^0 = \boxed{\phantom{0}} + \boxed{\phantom{1}} = \boxed{\phantom{1}}\)<br>
+    <strong>f)</strong> Si \(\text{e}^x = \text{e}^4\), alors \(x = \boxed{\phantom{4}}\)<br>
+    <strong>g)</strong> Si \(\ln(x) = \ln(5)\), alors \(x = \boxed{\phantom{5}}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> <span class="reponse">7</span></p>
+    <p><strong>b)</strong> <span class="reponse">10</span></p>
+    <p><strong>c)</strong> <span class="reponse">−3</span></p>
+    <p><strong>d)</strong> <span class="reponse">0,5</span></p>
+    <p><strong>e)</strong> \(\ln(1) = 0\) et \(\text{e}^0 = 1\), donc la somme = <span class="reponse">1</span></p>
+    <p><strong>f)</strong> La fonction \(\text{e}^x\) est injective (strictement croissante), donc <span class="reponse">\(x = 4\)</span></p>
+    <p><strong>g)</strong> La fonction \(\ln\) est injective, donc <span class="reponse">\(x = 5\)</span></p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ========== STANDARD ========== -->
@@ -356,6 +503,200 @@
       <p><strong>d)</strong> <span class="reponse">\(k'(x) = \dfrac{2}{x} - 1\)</span> pour \(x > 0\).</p>
   </div>
   </details>
+</div>
+
+<!-- ST4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Propriétés du logarithme — développer et factoriser</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Utiliser les propriétés de \(\ln\) pour transformer chaque expression :</p>
+  <div class="consigne">
+    <strong>a)</strong> Développer \(\ln\left(\dfrac{x^3}{y^2}\right)\)<br>
+    <strong>b)</strong> Factoriser \(\ln(4) + 2\ln(3)\)<br>
+    <strong>c)</strong> Simplifier \(\ln(\text{e}^{2x+1})\)<br>
+    <strong>d)</strong> Exprimer \(\ln(\sqrt{x})\) sous forme d'un multiple de \(\ln(x)\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(\ln\left(\dfrac{x^3}{y^2}\right) = \ln(x^3) - \ln(y^2) =\) <span class="reponse">\(3\ln(x) - 2\ln(y)\)</span></p>
+    <p><strong>b)</strong> \(\ln(4) + 2\ln(3) = \ln(4) + \ln(9) = \ln(4 \times 9) =\) <span class="reponse">\(\ln(36)\)</span></p>
+    <p><strong>c)</strong> <span class="reponse">\(\ln(\text{e}^{2x+1}) = 2x + 1\)</span></p>
+    <p><strong>d)</strong> \(\ln(\sqrt{x}) = \ln(x^{1/2}) =\) <span class="reponse">\(\dfrac{1}{2}\ln(x)\)</span></p>
+  </div>
+</div>
+
+<!-- ST5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Étudier les variations de f(x) = e^(-x) + x</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>On considère la fonction \(f(x) = \text{e}^{-x} + x\) définie sur \(\mathbb{R}\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(f'(x)\).<br>
+    <strong>2.</strong> Résoudre \(f'(x) = 0\) (chercher \(x\) tel que \(\text{e}^{-x} = 1\)).<br>
+    <strong>3.</strong> Dresser le tableau de variations de \(f\) sur \([-2\,;\,4]\).<br>
+    <strong>4.</strong> Calculer le minimum de \(f\).
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(f'(x) = -\text{e}^{-x} + 1\)</span></p>
+    <p><strong>2.</strong> \(f'(x) = 0\) ⟹ \(\text{e}^{-x} = 1 = \text{e}^0\) ⟹ <span class="reponse">\(x = 0\)</span></p>
+    <p><strong>3.</strong><br>
+    Pour \(x < 0\) : \(\text{e}^{-x} > 1\) donc \(f'(x) < 0\) → \(f\) décroissante.<br>
+    Pour \(x > 0\) : \(\text{e}^{-x} < 1\) donc \(f'(x) > 0\) → \(f\) croissante.
+    <table>
+      <tr><th>\(x\)</th><td>−2</td><td></td><td>0</td><td></td><td>4</td></tr>
+      <tr><th>\(f'(x)\)</th><td></td><td>−</td><td>0</td><td>+</td><td></td></tr>
+      <tr><th>\(f(x)\)</th><td>\(\approx 7{,}39\)</td><td>↘</td><td>1</td><td>↗</td><td>\(\approx 4{,}02\)</td></tr>
+    </table></p>
+    <p><strong>4.</strong> Minimum = <span class="reponse">\(f(0) = \text{e}^0 + 0 = 1\)</span></p>
+  </div>
+</div>
+
+<!-- ST6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Résoudre des équations mêlant exp et ln</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="consigne">
+    Résoudre chaque équation (donner la valeur exacte puis approchée à \(10^{-2}\)) :<br>
+    <strong>a)</strong> \(\text{e}^{2x} - 5\text{e}^x + 6 = 0\)<br>
+    <em>Indication : poser \(X = \text{e}^x\) et résoudre l'équation du second degré en \(X\).</em><br>
+    <strong>b)</strong> \(\ln(x) + \ln(x-1) = \ln(6)\)<br>
+    <em>Indication : utiliser \(\ln a + \ln b = \ln(ab)\).</em><br>
+    <strong>c)</strong> \(\text{e}^x = \text{e}^{2-x}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> Posons \(X = \text{e}^x\) : \(X^2 - 5X + 6 = 0\) → \((X-2)(X-3) = 0\) → \(X = 2\) ou \(X = 3\)<br>
+    \(\text{e}^x = 2\) → <span class="reponse">\(x = \ln 2 \approx 0{,}69\)</span>   ou   \(\text{e}^x = 3\) → <span class="reponse">\(x = \ln 3 \approx 1{,}10\)</span></p>
+    <p><strong>b)</strong> \(\ln(x(x-1)) = \ln(6)\) → \(x^2 - x = 6\) → \(x^2 - x - 6 = 0\) → \((x-3)(x+2) = 0\)<br>
+    \(x = 3\) (valide car \(x > 1\)) ou \(x = -2\) (invalide car \(\ln(x)\) non défini pour \(x < 0\))<br>
+    <span class="reponse">\(x = 3\)</span></p>
+    <p><strong>c)</strong> \(\text{e}^x = \text{e}^{2-x}\) ⟹ \(x = 2 - x\) ⟹ \(2x = 2\) ⟹ <span class="reponse">\(x = 1\)</span></p>
+  </div>
+</div>
+
+<!-- ST7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Dériver des fonctions exponentielles composées — contexte professionnel</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien de maintenance énergétique modélise l'efficacité d'un isolant en fonction de son épaisseur. La résistance thermique suit une loi exponentielle, et il doit calculer la dérivée pour trouver l'épaisseur optimale.
+  </div>
+  <div class="consigne">
+    Calculer la dérivée de chaque fonction :<br>
+    <strong>a)</strong> \(f(x) = \text{e}^{3x-2}\)<br>
+    <strong>b)</strong> \(g(x) = 3\text{e}^{-0{,}5x} + 2x\)<br>
+    <strong>c)</strong> \(h(x) = x^2\,\text{e}^x\)<br>
+    <strong>d)</strong> \(k(x) = \ln(x^2 + 4)\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(u = 3x-2\), \(u' = 3\). <span class="reponse">\(f'(x) = 3\text{e}^{3x-2}\)</span></p>
+    <p><strong>b)</strong> <span class="reponse">\(g'(x) = -1{,}5\text{e}^{-0{,}5x} + 2\)</span></p>
+    <p><strong>c)</strong> Produit : \((x^2)' \cdot \text{e}^x + x^2 \cdot (\text{e}^x)' = 2x\text{e}^x + x^2\text{e}^x\). <span class="reponse">\(h'(x) = \text{e}^x(2x + x^2) = x\text{e}^x(x+2)\)</span></p>
+    <p><strong>d)</strong> \(u = x^2 + 4\), \(u' = 2x\). <span class="reponse">\(k'(x) = \dfrac{2x}{x^2 + 4}\)</span></p>
+  </div>
+</div>
+
+<!-- ST8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 15</span>
+    <span class="exo-title">Croissance de la population bactérienne</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien en traitement de l'eau surveille la prolifération d'une bactérie dans un circuit de chauffage. Le nombre de bactéries (en milliers) est modélisé par \(N(t) = 2\,\text{e}^{0{,}3t}\) où \(t\) est le temps en heures.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Quelle est la population initiale ?<br>
+    <strong>2.</strong> Calculer \(N(5)\) et \(N(10)\). La croissance s'accélère-t-elle ?<br>
+    <strong>3.</strong> Le traitement doit être déclenché quand \(N(t) \geq 50\) (milliers). Résoudre cette inéquation.<br>
+    <strong>4.</strong> Calculer \(N'(t)\). Interpréter : la population augmente-t-elle plus vite au début ou après plusieurs heures ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(N(0) = 2\,000\) bactéries</span></p>
+    <p><strong>2.</strong> \(N(5) = 2\text{e}^{1{,}5} \approx 2 \times 4{,}48 \approx\) <span class="reponse">\(8{,}96\) milliers</span>.<br>
+    \(N(10) = 2\text{e}^{3} \approx 2 \times 20{,}09 \approx\) <span class="reponse">\(40{,}17\) milliers</span>.<br>
+    La population plus que quadruple entre \(t=5\) et \(t=10\) → la croissance s'accélère.</p>
+    <p><strong>3.</strong> \(2\text{e}^{0{,}3t} \geq 50\) → \(\text{e}^{0{,}3t} \geq 25\) → \(0{,}3t \geq \ln(25)\) → <span class="reponse">\(t \geq \dfrac{\ln 25}{0{,}3} \approx 10{,}73\) heures</span></p>
+    <p><strong>4.</strong> <span class="reponse">\(N'(t) = 0{,}6\,\text{e}^{0{,}3t}\)</span> → \(N'(t)\) augmente avec \(t\) : <span class="reponse">la population s'accroît de plus en plus vite</span> (croissance exponentielle).</p>
+  </div>
+</div>
+
+<!-- ST9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Comparaison exp et ln — étude graphique</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>On considère les fonctions \(f(x) = \text{e}^x\) et \(g(x) = \ln(x)\) pour \(x > 0\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Rappeler la dérivée de \(f\) et de \(g\).<br>
+    <strong>2.</strong> Expliquer pourquoi les courbes de \(f\) et \(g\) sont symétriques par rapport à la droite \(y = x\).<br>
+    <strong>3.</strong> Résoudre \(\text{e}^x = x^2\) numériquement en complétant le tableau :<br>
+    <table>
+      <tr><th>\(x\)</th><td>−0,7</td><td>−0,5</td><td>−0,3</td><td>1,1</td><td>1,3</td></tr>
+      <tr><th>\(\text{e}^x\)</th><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><th>\(x^2\)</th><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    À quel(s) endroit(s) les courbes se croisent-elles approximativement ?<br>
+    <strong>4.</strong> Pour \(x > 0\), laquelle des deux fonctions \(\text{e}^x\) ou \(\ln(x)\) croît plus vite ? Justifier en comparant les dérivées.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(f'(x) = \text{e}^x\)</span> et <span class="reponse">\(g'(x) = \dfrac{1}{x}\)</span></p>
+    <p><strong>2.</strong> \(g = f^{-1}\) (fonctions réciproques). Deux fonctions réciproques ont des courbes symétriques par rapport à la droite \(y = x\).</p>
+    <p><strong>3.</strong><br>
+    <table>
+      <tr><th>\(x\)</th><td>−0,7</td><td>−0,5</td><td>−0,3</td><td>1,1</td><td>1,3</td></tr>
+      <tr><th>\(\text{e}^x\)</th><td>0,497</td><td>0,607</td><td>0,741</td><td>3,004</td><td>3,669</td></tr>
+      <tr><th>\(x^2\)</th><td>0,49</td><td>0,25</td><td>0,09</td><td>1,21</td><td>1,69</td></tr>
+    </table>
+    Croisements : autour de <span class="reponse">\(x \approx -0{,}70\)</span> (où \(\text{e}^x \approx x^2\)) et entre 1 et 2 (la première intersection visible est vers \(x \approx -0{,}70\)).</p>
+    <p><strong>4.</strong> Pour \(x > 1\) : \(\text{e}^x > 1\) et \(\dfrac{1}{x} < 1\). La dérivée de \(\text{e}^x\) est bien plus grande. <span class="reponse">\(\text{e}^x\) croît beaucoup plus vite que \(\ln(x)\)</span>.</p>
+  </div>
+</div>
+
+<!-- ST10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Modèle de croissance logistique simplifié</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un ingénieur thermicien modélise l'évolution du taux d'adoption d'une nouvelle technologie de chauffage (pompes à chaleur) dans une région. La fonction \(P(t) = \dfrac{100}{1 + 9\,\text{e}^{-0{,}5t}}\) représente le pourcentage de foyers équipés (\(t\) en années).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(P(0)\). Quel était le taux initial d'adoption ?<br>
+    <strong>2.</strong> Calculer \(P(4)\) et \(P(10)\) (arrondir à 1 décimale).<br>
+    <strong>3.</strong> Vers quel pourcentage tend \(P(t)\) quand \(t \to +\infty\) ? (Indice : que vaut \(\text{e}^{-0{,}5t}\) ?).<br>
+    <strong>4.</strong> Résoudre \(P(t) = 50\) pour trouver la date à laquelle la moitié des foyers sera équipée.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(0) = \dfrac{100}{1 + 9\,\text{e}^0} = \dfrac{100}{10} =\) <span class="reponse">\(10\,\%\)</span> de foyers équipés au départ.</p>
+    <p><strong>2.</strong> \(P(4) = \dfrac{100}{1 + 9\,\text{e}^{-2}} \approx \dfrac{100}{1 + 9 \times 0{,}1353} \approx \dfrac{100}{2{,}218} \approx\) <span class="reponse">\(45{,}1\,\%\)</span><br>
+    \(P(10) = \dfrac{100}{1 + 9\,\text{e}^{-5}} \approx \dfrac{100}{1 + 9 \times 0{,}0067} \approx \dfrac{100}{1{,}060} \approx\) <span class="reponse">\(94{,}3\,\%\)</span></p>
+    <p><strong>3.</strong> Quand \(t \to +\infty\), \(\text{e}^{-0{,}5t} \to 0\), donc \(P(t) \to \dfrac{100}{1} =\) <span class="reponse">\(100\,\%\)</span> (saturation du marché).</p>
+    <p><strong>4.</strong> \(P(t) = 50\) → \(\dfrac{100}{1 + 9\,\text{e}^{-0{,}5t}} = 50\) → \(1 + 9\,\text{e}^{-0{,}5t} = 2\) → \(9\,\text{e}^{-0{,}5t} = 1\) → \(\text{e}^{-0{,}5t} = \dfrac{1}{9}\)<br>
+    \(-0{,}5t = \ln(1/9) = -\ln(9)\) → <span class="reponse">\(t = \dfrac{2\ln(9)}{1} = 2\ln(9) \approx 4{,}39\) années</span></p>
+  </div>
 </div>
 
 <!-- NIVEAU 3 -->

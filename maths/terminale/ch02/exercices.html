@@ -340,6 +340,109 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
   </details>
 </div>
 
+<!-- SOCLE S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Utiliser la formule de probabilité conditionnelle — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Méthode :</strong> La probabilité conditionnelle de A sachant B vaut :<br>
+    \(P_B(A) = \dfrac{P(A \cap B)}{P(B)}\)
+  </div>
+  <p>Dans un stock de 150 tuyaux, 90 sont en cuivre et 60 en PVC. Parmi les tuyaux en cuivre, 6 sont fissurés. Parmi les tuyaux en PVC, 4 sont fissurés.</p>
+  <div class="consigne"><strong>1.</strong> Calculer \(P(\text{cuivre})\) :</div>
+  <p style="font-size:.93em">\(P(\text{cuivre}) = \dfrac{\boxed{\phantom{90}}}{\boxed{\phantom{150}}} = \boxed{\phantom{0,6}}\)</p>
+  <div class="consigne"><strong>2.</strong> Calculer \(P(\text{cuivre} \cap \text{fissuré})\) :</div>
+  <p style="font-size:.93em">\(P(\text{cuivre} \cap \text{fissuré}) = \dfrac{\boxed{\phantom{6}}}{\boxed{\phantom{150}}} = \boxed{\phantom{0,04}}\)</p>
+  <div class="consigne"><strong>3.</strong> Calculer \(P_{\text{cuivre}}(\text{fissuré})\) = probabilité qu'un tuyau soit fissuré, sachant qu'il est en cuivre :</div>
+  <p style="font-size:.93em">\(P_{\text{cuivre}}(\text{fissuré}) = \dfrac{P(\text{cuivre} \cap \text{fissuré})}{P(\text{cuivre})} = \dfrac{\boxed{\phantom{0,04}}}{\boxed{\phantom{0,6}}} = \boxed{\phantom{0,067}}\)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{cuivre}) = 90/150 = \)<span class="reponse">\(0{,}6\)</span></p>
+    <p><strong>2.</strong> \(P(\text{cuivre} \cap \text{fissuré}) = 6/150 = \)<span class="reponse">\(0{,}04\)</span></p>
+    <p><strong>3.</strong> \(P_{\text{cuivre}}(\text{fissuré}) = 0{,}04 / 0{,}6 = \)<span class="reponse">\(0{,}067\)</span> ≈ 6,7 %<br>
+    On peut aussi le calculer directement : \(6/90 = 0{,}067\) ✓</p>
+  </div>
+</div>
+
+<!-- SOCLE S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Vérifier l'indépendance de deux événements — pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Méthode :</strong> A et B sont <strong>indépendants</strong> si \(P(A \cap B) = P(A) \times P(B)\).<br>
+    On compare les deux membres : s'ils sont égaux, A et B sont indépendants.
+  </div>
+  <p>On contrôle des robinets. On sait que :<br>
+  – 40 % viennent du fournisseur F1 (\(P(\text{F1}) = 0{,}4\))<br>
+  – 15 % de tous les robinets sont défectueux (\(P(\text{D}) = 0{,}15\))<br>
+  – 6 % viennent de F1 et sont défectueux (\(P(\text{F1} \cap \text{D}) = 0{,}06\))</p>
+  <div class="consigne"><strong>1.</strong> Calculer \(P(\text{F1}) \times P(\text{D})\) :</div>
+  <p style="font-size:.93em">\(P(\text{F1}) \times P(\text{D}) = \boxed{\phantom{0,4}} \times \boxed{\phantom{0,15}} = \boxed{\phantom{0,06}}\)</p>
+  <div class="consigne"><strong>2.</strong> Comparer avec \(P(\text{F1} \cap \text{D}) = 0{,}06\). Conclure :</div>
+  <p style="margin-left:1em">☐ Les deux valeurs sont égales → F1 et D <strong>sont indépendants</strong><br>
+  ☐ Les deux valeurs sont différentes → F1 et D <strong>ne sont pas indépendants</strong></p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{F1}) \times P(\text{D}) = 0{,}4 \times 0{,}15 = \)<span class="reponse">\(0{,}06\)</span></p>
+    <p><strong>2.</strong> \(0{,}06 = P(\text{F1} \cap \text{D}) = 0{,}06\) → les valeurs sont égales → <span class="reponse">F1 et D sont indépendants</span>. La qualité des robinets ne dépend pas du fournisseur (dans cet exemple).</p>
+  </div>
+</div>
+
+<!-- SOCLE S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Formule des probabilités totales — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Méthode — Probabilités totales :</strong><br>
+    \(P(\text{D}) = P(\text{F1}) \times P_{\text{F1}}(\text{D}) + P(\text{F2}) \times P_{\text{F2}}(\text{D})\)<br>
+    On additionne les probabilités de tous les <em>chemins</em> qui mènent à D.
+  </div>
+  <p>Un installateur de pompes à chaleur reçoit des filtres de deux fournisseurs. Fournisseur A : 60 % des filtres, taux de défaut = 4 %. Fournisseur B : 40 % des filtres, taux de défaut = 9 %.</p>
+  <div class="consigne"><strong>1.</strong> Calculer \(P(\text{A} \cap \text{D})\) (chemin A → Défectueux) :</div>
+  <p style="font-size:.93em">\(P(\text{A} \cap \text{D}) = \boxed{\phantom{0,6}} \times \boxed{\phantom{0,04}} = \boxed{\phantom{0,024}}\)</p>
+  <div class="consigne"><strong>2.</strong> Calculer \(P(\text{B} \cap \text{D})\) (chemin B → Défectueux) :</div>
+  <div class="reponse-box">\(P(\text{B} \cap \text{D}) = \) ……… \(\times\) ……… \(=\) ………</div>
+  <div class="consigne"><strong>3.</strong> Appliquer la formule des probabilités totales :</div>
+  <p style="font-size:.93em">\(P(\text{D}) = \boxed{\phantom{0,024}} + \boxed{\phantom{0,036}} = \boxed{\phantom{0,060}}\)</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{A} \cap \text{D}) = 0{,}6 \times 0{,}04 = \)<span class="reponse">\(0{,}024\)</span></p>
+    <p><strong>2.</strong> \(P(\text{B} \cap \text{D}) = 0{,}4 \times 0{,}09 = \)<span class="reponse">\(0{,}036\)</span></p>
+    <p><strong>3.</strong> \(P(\text{D}) = 0{,}024 + 0{,}036 = \)<span class="reponse">\(0{,}060\)</span> → 6 % des filtres sont défectueux.</p>
+  </div>
+</div>
+
+<!-- SOCLE S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Événements indépendants — deux appareils</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Dans une installation de chauffage, un thermostat et une vanne motorisée fonctionnent de façon <strong>indépendante</strong>. La probabilité annuelle de panne du thermostat est 0,05 ; celle de la vanne est 0,08.</p>
+  <div class="consigne"><strong>1.</strong> Calculer la probabilité que les deux tombent en panne la même année :</div>
+  <p style="font-size:.93em">\(P(\text{thermostat} \cap \text{vanne}) = \boxed{\phantom{0,05}} \times \boxed{\phantom{0,08}} = \boxed{\phantom{0,004}}\)</p>
+  <div class="consigne"><strong>2.</strong> Calculer la probabilité qu'aucun ne tombe en panne :</div>
+  <p style="font-size:.93em">\(P(\overline{\text{thermostat}} \cap \overline{\text{vanne}}) = (1 - \boxed{\phantom{0,05}}) \times (1 - \boxed{\phantom{0,08}}) = \boxed{\phantom{0,95}} \times \boxed{\phantom{0,92}} = \boxed{\phantom{0,874}}\)</p>
+  <div class="consigne"><strong>3.</strong> Calculer la probabilité qu'au moins l'un tombe en panne :</div>
+  <div class="reponse-box">\(P(\text{au moins un}) = 1 - \) ……… \(=\) ………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{thermostat} \cap \text{vanne}) = 0{,}05 \times 0{,}08 = \)<span class="reponse">\(0{,}004\)</span> → 0,4 %</p>
+    <p><strong>2.</strong> \(P = 0{,}95 \times 0{,}92 = \)<span class="reponse">\(0{,}874\)</span> → 87,4 % de chances qu'aucun ne tombe en panne.</p>
+    <p><strong>3.</strong> \(P(\text{au moins un}) = 1 - 0{,}874 = \)<span class="reponse">\(0{,}126\)</span> → 12,6 %</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================
@@ -494,6 +597,216 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
       <p><strong>4.</strong> \(P(\text{Pas de panne}) = 1 - 0{,}0575 =\) <span class="reponse">\(0{,}9425\)</span></p>
   </div>
   </details>
+</div>
+
+<!-- STANDARD S4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Compléter un tableau croisé et calculer des probabilités</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un conducteur de travaux contrôle la conformité de 300 fixations murales issues de deux fournisseurs (F1 : 180 fixations, F2 : 120 fixations). On note NC : « fixation non conforme ».
+  </div>
+  <p>On sait que 9 fixations de F1 sont non conformes, et 12 fixations de F2 sont non conformes.</p>
+  <div class="consigne">
+    <strong>1.</strong> Construire et compléter le tableau croisé.<br>
+    <strong>2.</strong> On tire une fixation au hasard. Calculer \(P(\text{F1})\), \(P(\text{NC})\) et \(P(\text{F1} \cap \text{NC})\).<br>
+    <strong>3.</strong> Calculer \(P_{\text{F1}}(\text{NC})\) et \(P_{\text{F2}}(\text{NC})\). Quel fournisseur est le moins fiable ?<br>
+    <strong>4.</strong> Calculer \(P(\overline{\text{NC}})\). Interpréter.
+  </div>
+  <div class="reponse-box" style="min-height:100px">Tableau + réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <table>
+      <thead><tr><th></th><th>NC</th><th>Conforme</th><th class="total">Total</th></tr></thead>
+      <tbody>
+        <tr><th>F1</th><td>9</td><td>171</td><td class="total">180</td></tr>
+        <tr><th>F2</th><td>12</td><td>108</td><td class="total">120</td></tr>
+        <tr><th class="total">Total</th><td class="total">21</td><td class="total">279</td><td class="total">300</td></tr>
+      </tbody>
+    </table>
+    <p><strong>2.</strong> \(P(\text{F1}) = 180/300 = \)<span class="reponse">\(0{,}6\)</span> &emsp; \(P(\text{NC}) = 21/300 = \)<span class="reponse">\(0{,}07\)</span> &emsp; \(P(\text{F1} \cap \text{NC}) = 9/300 = \)<span class="reponse">\(0{,}03\)</span></p>
+    <p><strong>3.</strong> \(P_{\text{F1}}(\text{NC}) = 9/180 = \)<span class="reponse">\(0{,}05\)</span> (5 %) &emsp; \(P_{\text{F2}}(\text{NC}) = 12/120 = \)<span class="reponse">\(0{,}10\)</span> (10 %)<br>
+    <span class="reponse">F2 est le moins fiable</span> : son taux de non-conformité est deux fois plus élevé que celui de F1.</p>
+    <p><strong>4.</strong> \(P(\overline{\text{NC}}) = 1 - 0{,}07 = \)<span class="reponse">\(0{,}93\)</span> — 93 % des fixations sont conformes.</p>
+  </div>
+</div>
+
+<!-- STANDARD S5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Construire un arbre et appliquer les probabilités totales</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un plombier chauffagiste reçoit des joints en caoutchouc de deux usines. L'usine U1 fournit 55 % des joints avec un taux de défaut de 3 %. L'usine U2 fournit 45 % des joints avec un taux de défaut de 7 %.
+  </div>
+  <p>On note D : « joint défectueux ».</p>
+  <div class="consigne">
+    <strong>1.</strong> Construire l'arbre de probabilités à deux niveaux (usine puis qualité).<br>
+    <strong>2.</strong> Calculer \(P(\text{U1} \cap \text{D})\) et \(P(\text{U2} \cap \text{D})\).<br>
+    <strong>3.</strong> Calculer \(P(\text{D})\) par la formule des probabilités totales.<br>
+    <strong>4.</strong> Un lot de 1 000 joints est livré. Combien de joints défectueux peut-on s'attendre à trouver ?
+  </div>
+  <div class="reponse-box" style="min-height:100px">Arbre et réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1. Arbre :</strong> U1 (0,55) → D (0,03) ou D̄ (0,97) ; U2 (0,45) → D (0,07) ou D̄ (0,93)</p>
+    <p><strong>2.</strong></p>
+    <ul>
+      <li>\(P(\text{U1} \cap \text{D}) = 0{,}55 \times 0{,}03 = \)<span class="reponse">\(0{,}0165\)</span></li>
+      <li>\(P(\text{U2} \cap \text{D}) = 0{,}45 \times 0{,}07 = \)<span class="reponse">\(0{,}0315\)</span></li>
+    </ul>
+    <p><strong>3.</strong> \(P(\text{D}) = 0{,}0165 + 0{,}0315 = \)<span class="reponse">\(0{,}048\)</span> → 4,8 % des joints sont défectueux.</p>
+    <p><strong>4.</strong> \(1\,000 \times 0{,}048 = \)<span class="reponse">\(48\) joints défectueux</span> attendus dans le lot.</p>
+  </div>
+</div>
+
+<!-- STANDARD S6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Probabilité conditionnelle et interprétation</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un atelier fabrique des têtes de robinet sur deux postes de travail. Poste P1 : 70 % de la production, taux de rebut 4 %. Poste P2 : 30 % de la production, taux de rebut 10 %.
+  </div>
+  <p>On prend une pièce au hasard. On note R : « pièce rebutée ».</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(P(\text{R})\) à l'aide de la formule des probabilités totales.<br>
+    <strong>2.</strong> On sait qu'une pièce est rebutée. Calculer \(P_{\text{R}}(\text{P2})\).<br>
+    <strong>3.</strong> Interpréter ce résultat pour le chef d'atelier.
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{R}) = 0{,}70 \times 0{,}04 + 0{,}30 \times 0{,}10 = 0{,}028 + 0{,}030 = \)<span class="reponse">\(0{,}058\)</span> → 5,8 % des pièces sont rebutées.</p>
+    <p><strong>2.</strong> \(P_{\text{R}}(\text{P2}) = \dfrac{P(\text{P2} \cap \text{R})}{P(\text{R})} = \dfrac{0{,}030}{0{,}058} \approx \)<span class="reponse">\(0{,}517\)</span></p>
+    <p><strong>3.</strong> <span class="reponse">Parmi les pièces rebutées, environ 52 % viennent du poste P2</span>, alors que ce poste ne représente que 30 % de la production. Le chef d'atelier doit prioritairement contrôler et améliorer le poste P2.</p>
+  </div>
+</div>
+
+<!-- STANDARD S7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Tester l'indépendance de deux événements</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Une entreprise de pose de parquets contrôle 400 chantiers. On relève si le chantier est en appartement (A) ou en maison (M), et si des malfaçons ont été signalées (Ma).
+  </div>
+  <table>
+    <thead><tr><th></th><th>Malfaçons (Ma)</th><th>Sans malfaçon</th><th class="total">Total</th></tr></thead>
+    <tbody>
+      <tr><th>Appartement (A)</th><td>18</td><td>162</td><td class="total">180</td></tr>
+      <tr><th>Maison (M)</th><td>22</td><td>198</td><td class="total">220</td></tr>
+      <tr><th class="total">Total</th><td class="total">40</td><td class="total">360</td><td class="total">400</td></tr>
+    </tbody>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(P(\text{A})\), \(P(\text{Ma})\) et \(P(\text{A} \cap \text{Ma})\).<br>
+    <strong>2.</strong> Calculer \(P(\text{A}) \times P(\text{Ma})\).<br>
+    <strong>3.</strong> A et Ma sont-ils indépendants ? Que peut-on conclure sur le lien entre le type de chantier et les malfaçons ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{A}) = 180/400 = \)<span class="reponse">\(0{,}45\)</span> &emsp; \(P(\text{Ma}) = 40/400 = \)<span class="reponse">\(0{,}10\)</span> &emsp; \(P(\text{A} \cap \text{Ma}) = 18/400 = \)<span class="reponse">\(0{,}045\)</span></p>
+    <p><strong>2.</strong> \(P(\text{A}) \times P(\text{Ma}) = 0{,}45 \times 0{,}10 = \)<span class="reponse">\(0{,}045\)</span></p>
+    <p><strong>3.</strong> \(P(\text{A} \cap \text{Ma}) = P(\text{A}) \times P(\text{Ma}) = 0{,}045\) → <span class="reponse">A et Ma sont indépendants</span>. Le type de chantier (appartement ou maison) n'influence pas le taux de malfaçons : 10 % dans les deux cas.</p>
+  </div>
+</div>
+
+<!-- STANDARD S8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 15</span>
+    <span class="exo-title">Deux épreuves successives indépendantes</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien de maintenance effectue deux tests successifs et indépendants sur une installation : un test de pression et un test d'étanchéité. La probabilité de réussite du test de pression est 0,92, celle du test d'étanchéité est 0,88.
+  </div>
+  <p>On note P : « test de pression réussi » et E : « test d'étanchéité réussi ».</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la probabilité que les deux tests soient réussis.<br>
+    <strong>2.</strong> Calculer la probabilité que le test de pression échoue ET que le test d'étanchéité réussisse.<br>
+    <strong>3.</strong> Calculer la probabilité qu'au moins un test échoue.
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{P} \cap \text{E}) = 0{,}92 \times 0{,}88 = \)<span class="reponse">\(0{,}8096\)</span> → 80,96 % de chances que les deux tests soient réussis.</p>
+    <p><strong>2.</strong> \(P(\bar{\text{P}} \cap \text{E}) = (1 - 0{,}92) \times 0{,}88 = 0{,}08 \times 0{,}88 = \)<span class="reponse">\(0{,}0704\)</span></p>
+    <p><strong>3.</strong> « Au moins un test échoue » = contraire de « les deux tests réussissent » :<br>
+    \(P = 1 - P(\text{P} \cap \text{E}) = 1 - 0{,}8096 = \)<span class="reponse">\(0{,}1904\)</span> → 19,04 %</p>
+  </div>
+</div>
+
+<!-- STANDARD S9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Analyser un contrôle qualité avec tableau et arbre</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un responsable qualité d'une usine de robinetterie analyse 500 vannes à boisseau issues de deux ateliers (A1 : 320 pièces, A2 : 180 pièces). Parmi les pièces d'A1, 16 sont défectueuses. Parmi les pièces d'A2, 27 sont défectueuses.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Construire le tableau croisé.<br>
+    <strong>2.</strong> Calculer \(P_{\text{A1}}(\text{D})\) et \(P_{\text{A2}}(\text{D})\).<br>
+    <strong>3.</strong> En prenant un objet au hasard, calculer \(P(\text{D})\) par la formule des probabilités totales. Vérifier avec le tableau.<br>
+    <strong>4.</strong> On constate un défaut sur une vanne. Calculer la probabilité qu'elle vienne de l'atelier A2 : \(P_{\text{D}}(\text{A2})\).
+  </div>
+  <div class="reponse-box" style="min-height:100px">Tableau + réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <table>
+      <thead><tr><th></th><th>Défectueux</th><th>Conforme</th><th class="total">Total</th></tr></thead>
+      <tbody>
+        <tr><th>A1</th><td>16</td><td>304</td><td class="total">320</td></tr>
+        <tr><th>A2</th><td>27</td><td>153</td><td class="total">180</td></tr>
+        <tr><th class="total">Total</th><td class="total">43</td><td class="total">457</td><td class="total">500</td></tr>
+      </tbody>
+    </table>
+    <p><strong>2.</strong> \(P_{\text{A1}}(\text{D}) = 16/320 = \)<span class="reponse">\(0{,}05\)</span> (5 %) &emsp; \(P_{\text{A2}}(\text{D}) = 27/180 = \)<span class="reponse">\(0{,}15\)</span> (15 %)</p>
+    <p><strong>3.</strong> \(P(\text{D}) = (320/500) \times 0{,}05 + (180/500) \times 0{,}15 = 0{,}64 \times 0{,}05 + 0{,}36 \times 0{,}15 = 0{,}032 + 0{,}054 = \)<span class="reponse">\(0{,}086\)</span><br>
+    Vérification tableau : \(43/500 = 0{,}086\) ✓</p>
+    <p><strong>4.</strong> \(P_{\text{D}}(\text{A2}) = P(\text{A2} \cap \text{D}) / P(\text{D}) = (27/500) / 0{,}086 = 0{,}054 / 0{,}086 \approx \)<span class="reponse">\(0{,}628\)</span> → 62,8 % des défauts proviennent de A2.</p>
+  </div>
+</div>
+
+<!-- STANDARD S10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Fiabilité d'un système en série</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un système de régulation thermique comporte trois composants en série : un capteur (C), un régulateur (R) et un actionneur (A). Le système ne fonctionne que si les trois composants fonctionnent. Les défaillances annuelles sont indépendantes : \(P(\text{panne C}) = 0{,}03\) ; \(P(\text{panne R}) = 0{,}05\) ; \(P(\text{panne A}) = 0{,}04\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la probabilité que le système fonctionne pendant toute l'année (aucune panne).<br>
+    <strong>2.</strong> Calculer la probabilité qu'au moins un composant tombe en panne.<br>
+    <strong>3.</strong> En utilisant le modèle, quel composant est-il prioritaire à remplacer ou améliorer ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Les trois fonctionnent si aucun ne tombe en panne :<br>
+    \(P = (1-0{,}03) \times (1-0{,}05) \times (1-0{,}04) = 0{,}97 \times 0{,}95 \times 0{,}96 = \)<span class="reponse">\(0{,}8836\)</span> → 88,36 %</p>
+    <p><strong>2.</strong> \(P(\text{au moins une panne}) = 1 - 0{,}8836 = \)<span class="reponse">\(0{,}1164\)</span> → 11,64 %</p>
+    <p><strong>3.</strong> Le régulateur a la plus forte probabilité de panne (5 %). <span class="reponse">C'est lui qu'il faut prioritairement améliorer</span> pour augmenter la fiabilité du système.</p>
+  </div>
 </div>
 
 <!-- ============================================================ -->
@@ -1014,6 +1327,75 @@ td.total,th.total{background:#e8f4fd;font-weight:700;color:var(--p)}
       <p>\(3\,360\,000 \gg 90\,000\) — <span class="reponse">la formation était économiquement très largement justifiée, sans même parler de l'obligation légale et de l'enjeu humain.</span></p>
   </div>
   </details>
+</div>
+
+<!-- APPRO A3 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Analyse de fiabilité d'un réseau de chauffage urbain</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un technicien en génie climatique surveille un réseau de chauffage urbain alimenté par deux centrales (C1 et C2). C1 fournit 65 % de l'énergie, C2 fournit 35 %. La probabilité annuelle d'une coupure de C1 est 0,03 ; celle de C2 est 0,08. Une coupure se produit indépendamment pour chaque centrale.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la probabilité que C1 ET C2 soient en coupure simultanément la même année.<br>
+    <strong>2.</strong> Calculer la probabilité qu'au moins une centrale soit en coupure.<br>
+    <strong>3.</strong> On sait qu'une coupure se produit. Calculer la probabilité qu'elle concerne C2 (\(P_{\text{coupure}}(\text{C2})\)).<br>
+    Rappel : \(P(\text{coupure}) = P(\text{C1 coupe}) \times P(\overline{\text{C2 coupe}}) + P(\overline{\text{C1 coupe}}) \times P(\text{C2 coupe}) + P(\text{C1 coupe}) \times P(\text{C2 coupe})\) = probabilité que <em>au moins une</em> centrale coupe.<br>
+    On peut aussi écrire : \(P(\text{au moins une coupe}) = 1 - P(\text{C1 fonc.}) \times P(\text{C2 fonc.})\).<br>
+    <strong>4.</strong> Le gestionnaire du réseau doit remplacer en priorité la centrale dont la probabilité de coupure est la plus élevée. Quelle décision prendre ?
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Événements indépendants :<br>
+    \(P(\text{C1 coupe} \cap \text{C2 coupe}) = 0{,}03 \times 0{,}08 = \)<span class="reponse">\(0{,}0024\)</span></p>
+    <p><strong>2.</strong> \(P(\text{au moins une coupe}) = 1 - P(\text{C1 ok}) \times P(\text{C2 ok}) = 1 - 0{,}97 \times 0{,}92 = 1 - 0{,}8924 = \)<span class="reponse">\(0{,}1076\)</span> → 10,76 %</p>
+    <p><strong>3.</strong> \(P(\text{C2 coupe} \cap \text{C1 ok}) = 0{,}97 \times 0{,}08 = 0{,}0776\)<br>
+    \(P_{\text{coupure}}(\text{C2}) = P(\text{au moins une coupe impliquant C2}) / P(\text{au moins une coupe})\)<br>
+    Approche directe : \(P_{\text{C2 coupe}} = 0{,}08\) ; \(P_{\text{C1 coupe}} = 0{,}03\). C2 tombe en panne dans \(0{,}08/0{,}11 \approx \)<span class="reponse">\(72{,}7\%\)</span> des cas de coupure (calcul simplifié : proportion des taux).</p>
+    <p><strong>4.</strong> La centrale C2 a un taux de coupure de 8 % contre 3 % pour C1. <span class="reponse">Le gestionnaire doit prioritairement rénover ou remplacer la centrale C2</span> pour améliorer la fiabilité du réseau.</p>
+  </div>
+</div>
+
+<!-- APPRO A4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Test de dépistage professionnel — sensibilité et spécificité</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un médecin du travail utilise un test de dépistage de l'exposition au plomb pour les salariés d'une entreprise de rénovation. Dans la population suivie : 10 % des salariés sont réellement exposés. Le test a une sensibilité de 95 % (probabilité d'être positif si exposé) et une spécificité de 90 % (probabilité d'être négatif si non exposé).
+  </div>
+  <p>On note E : « salarié exposé » et T+ : « test positif ».</p>
+  <div class="consigne">
+    <strong>1.</strong> Énoncer les données sous forme de probabilités : \(P(\text{E})\), \(P_{\text{E}}(\text{T+})\), \(P_{\bar{\text{E}}}(\text{T-})\).<br>
+    <strong>2.</strong> Construire l'arbre de probabilités complet.<br>
+    <strong>3.</strong> Calculer \(P(\text{T+})\) par la formule des probabilités totales.<br>
+    <strong>4.</strong> Calculer \(P_{\text{T+}}(\text{E})\) = probabilité d'être réellement exposé, sachant que le test est positif. Ce résultat vous surprend-il ?<br>
+    <strong>5.</strong> Sur 1 000 salariés contrôlés, combien de tests positifs sont de faux positifs (non exposé mais test positif) ?
+  </div>
+  <div class="reponse-box" style="min-height:160px">Arbre et réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(\text{E}) = 0{,}10\) ; \(P_{\text{E}}(\text{T+}) = 0{,}95\) ; \(P_{\bar{\text{E}}}(\text{T-}) = 0{,}90\) → \(P_{\bar{\text{E}}}(\text{T+}) = 0{,}10\)</p>
+    <p><strong>2. Arbre :</strong></p>
+    <table>
+      <tr><th>Chemin</th><th>Calcul</th><th>Proba</th></tr>
+      <tr><td>E → T+</td><td>0,10 × 0,95</td><td><strong>0,095</strong></td></tr>
+      <tr><td>E → T−</td><td>0,10 × 0,05</td><td>0,005</td></tr>
+      <tr><td>Ē → T+</td><td>0,90 × 0,10</td><td><strong>0,090</strong></td></tr>
+      <tr><td>Ē → T−</td><td>0,90 × 0,90</td><td>0,810</td></tr>
+      <tr><td colspan="2" style="text-align:right">Total</td><td class="total">1,000 ✓</td></tr>
+    </table>
+    <p><strong>3.</strong> \(P(\text{T+}) = 0{,}095 + 0{,}090 = \)<span class="reponse">\(0{,}185\)</span> → 18,5 % des salariés ont un test positif.</p>
+    <p><strong>4.</strong> \(P_{\text{T+}}(\text{E}) = \dfrac{P(\text{E} \cap \text{T+})}{P(\text{T+})} = \dfrac{0{,}095}{0{,}185} \approx \)<span class="reponse">\(0{,}514\)</span><br>
+    Surprenant : seulement 51 % des tests positifs correspondent à une exposition réelle ! C'est le <em>paradoxe du test de dépistage</em> : quand la maladie est rare, même un bon test génère beaucoup de faux positifs.</p>
+    <p><strong>5.</strong> Sur 1 000 : tests positifs = \(0{,}185 \times 1000 = 185\). Faux positifs = \(0{,}090 \times 1000 = \)<span class="reponse">\(90\)</span> (non exposés avec test positif). Soit 90/185 ≈ 49 % des tests positifs sont de faux positifs.</p>
+  </div>
 </div>
 
 <!-- ============================================================ -->

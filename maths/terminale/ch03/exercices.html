@@ -277,6 +277,133 @@
   </details>
 </div>
 
+<!-- SOCLE S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Calculer des termes avec la formule directe — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Formule directe :</strong> \(u_n = u_0 \times q^n\)<br>
+    On connaît \(u_0\) et \(q\), on remplace \(n\) par le rang voulu.
+  </div>
+  <p>Un technicien chauffagiste note que la facture de gaz d'un immeuble est de <strong>3 200 €</strong> la première année (\(n = 0\)). Elle augmente de <strong>5 %</strong> par an.</p>
+  <div class="consigne"><strong>1.</strong> Quelle est la raison \(q\) de la suite ? Pourquoi ?</div>
+  <p style="margin-left:1em">☐ \(q = 0{,}05\)   ☐ \(q = 1{,}05\)   ☐ \(q = 5\)</p>
+  <div class="consigne"><strong>2.</strong> Calculer \(u_1\) avec la récurrence :</div>
+  <p style="font-size:.93em">\(u_1 = \boxed{\phantom{1,05}} \times \boxed{\phantom{3200}} = \boxed{\phantom{3360}}\) €</p>
+  <div class="consigne"><strong>3.</strong> Calculer directement \(u_4\) (facture à la 4e année) :</div>
+  <p style="font-size:.93em">\(u_4 = 3\,200 \times (1{,}05)^{\boxed{\phantom{4}}} = 3\,200 \times \boxed{\phantom{1,2155}} \approx \boxed{\phantom{3890}}\) €</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Augmenter de 5 % = multiplier par <span class="reponse">\(q = 1{,}05\)</span> (on garde 100 % + 5 % = 105 %).</p>
+    <p><strong>2.</strong> \(u_1 = 1{,}05 \times 3\,200 = \)<span class="reponse">\(3\,360\) €</span></p>
+    <p><strong>3.</strong> \(u_4 = 3\,200 \times 1{,}05^4 = 3\,200 \times 1{,}2155 \approx \)<span class="reponse">\(3\,890\) €</span></p>
+  </div>
+</div>
+
+<!-- SOCLE S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Identifier le sens de variation d'une suite</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Règle :</strong><br>
+    – Si \(u_0 > 0\) et \(q > 1\) : suite <strong>croissante</strong> (les termes augmentent)<br>
+    – Si \(u_0 > 0\) et \(0 < q < 1\) : suite <strong>décroissante</strong> (les termes diminuent)<br>
+    – Si \(q = 1\) : suite <strong>constante</strong>
+  </div>
+  <p>Pour chaque suite, cocher le sens de variation :</p>
+  <table>
+    <thead><tr><th>Suite</th><th>\(u_0\)</th><th>Raison \(q\)</th><th>Croissante</th><th>Décroissante</th><th>Constante</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>500</td><td>1,03</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>B</td><td>2 400</td><td>0,85</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>C</td><td>1 000</td><td>1</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>D</td><td>750</td><td>0,92</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Suite</th><th>Sens</th><th>Justification</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td class="hl"><span class="reponse">Croissante</span></td><td>\(q = 1{,}03 > 1\) et \(u_0 > 0\) → augmente de 3 % à chaque rang.</td></tr>
+        <tr><td>B</td><td class="hl"><span class="reponse">Décroissante</span></td><td>\(q = 0{,}85 < 1\) et \(u_0 > 0\) → diminue de 15 % à chaque rang.</td></tr>
+        <tr><td>C</td><td class="hl"><span class="reponse">Constante</span></td><td>\(q = 1\) → \(u_n = 1\,000\) pour tout \(n\).</td></tr>
+        <tr><td>D</td><td class="hl"><span class="reponse">Décroissante</span></td><td>\(q = 0{,}92 < 1\) et \(u_0 > 0\) → diminue de 8 % à chaque rang.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SOCLE S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Trouver la raison à partir d'un taux de variation</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Pour chaque situation, indiquer la raison \(q\) de la suite géométrique correspondante :</p>
+  <table>
+    <thead><tr><th>Situation</th><th>Raison \(q\)</th></tr></thead>
+    <tbody>
+      <tr><td>Un équipement perd <strong>10 %</strong> de sa valeur chaque année</td><td class="vide">☐ 0,90   ☐ 1,10   ☐ 0,10</td></tr>
+      <tr><td>Un chiffre d'affaires augmente de <strong>7 %</strong> par an</td><td class="vide">☐ 0,93   ☐ 1,07   ☐ 7</td></tr>
+      <tr><td>Une consommation diminue de <strong>3 %</strong> par an grâce à des travaux</td><td class="vide">☐ 1,03   ☐ 0,97   ☐ 0,03</td></tr>
+      <tr><td>Un salaire reste constant d'une année sur l'autre</td><td class="vide">☐ 0   ☐ 1   ☐ 100</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Situation</th><th>Raison</th><th>Explication</th></tr></thead>
+      <tbody>
+        <tr><td>Perd 10 %</td><td><span class="reponse">\(q = 0{,}90\)</span></td><td>Il reste 90 % = on multiplie par 0,90</td></tr>
+        <tr><td>Augmente de 7 %</td><td><span class="reponse">\(q = 1{,}07\)</span></td><td>Il y a 107 % = on multiplie par 1,07</td></tr>
+        <tr><td>Diminue de 3 %</td><td><span class="reponse">\(q = 0{,}97\)</span></td><td>Il reste 97 % = on multiplie par 0,97</td></tr>
+        <tr><td>Reste constant</td><td><span class="reponse">\(q = 1\)</span></td><td>On multiplie par 1, rien ne change</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SOCLE S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Compléter un tableau et trouver un seuil</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Situation :</strong> Un atelier de menuiserie investit dans une machine à commande numérique à <strong>15 000 €</strong>. Sa valeur diminue de <strong>12 %</strong> par an.
+  </div>
+  <div class="consigne"><strong>1.</strong> Quelle est la raison de la suite ? Entourer la bonne réponse :</div>
+  <p style="margin-left:1em">☐ \(q = 0{,}12\)   ☐ \(q = 0{,}88\)   ☐ \(q = 1{,}12\)</p>
+  <div class="consigne"><strong>2.</strong> Compléter le tableau en multipliant par \(q\) chaque année :</div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><th>Valeur \(u_n\) (€)</th><td>15 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <div class="consigne"><strong>3.</strong> L'atelier revend la machine quand sa valeur passe sous <strong>6 000 €</strong>. En quelle année peut-il la revendre d'après le tableau ?</div>
+  <div class="reponse-box">D'après le tableau, à partir de l'année \(n = \) ………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Diminuer de 12 % = garder 88 % = multiplier par <span class="reponse">\(q = 0{,}88\)</span></p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>Année</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+      <tr><th>Valeur (€)</th><td>15 000</td><td class="hl">13 200</td><td class="hl">11 616</td><td class="hl">10 222</td><td class="hl">8 995</td><td class="hl">7 916</td></tr>
+    </table>
+    <p>Vérif : \(u_5 = 15000 \times 0{,}88^5 = 15000 \times 0{,}5277 \approx 7\,916\) ✓</p>
+    <p><strong>3.</strong> Continuer : \(u_6 = 7916 \times 0{,}88 \approx 6966\) ; \(u_7 = 6966 \times 0{,}88 \approx 6130\) ; \(u_8 = 6130 \times 0{,}88 \approx 5395 < 6000\).<br>
+    La machine peut être revendue à partir de l'<span class="reponse">année \(n = 8\)</span>.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================

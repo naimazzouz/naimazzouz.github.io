@@ -926,6 +926,124 @@
   </details>
 </div>
 
+<!-- APPRO A4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 31</span>
+    <span class="exo-title">Modèle exponentiel — pompe à chaleur air/eau</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Le COP (Coefficient de Performance) d'une pompe à chaleur air/eau diminue avec les années d'utilisation selon le modèle :
+    \[C(t) = 4{,}2 \times 0{,}96^t\]
+    où \(t\) est le nombre d'années. Un technicien chauffagiste doit anticiper les maintenances.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(C(0)\), \(C(5)\) et \(C(10)\). Que représente \(C(0)\) ?<br>
+    <strong>2.</strong> La PAC est considérée inefficace si \(C < 2{,}5\). Au bout de combien d'années faut-il prévoir le remplacement ?<br>
+    <strong>3.</strong> Calculer le taux annuel de dégradation du COP (en pourcentage).<br>
+    <strong>4.</strong> Un second modèle propose \(C_2(t) = 4{,}2 \times 0{,}98^t\). De combien d'années supplémentaires le remplacement est-il repoussé ?
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(C(0) = 4{,}2\) (COP initial). \(C(5) = 4{,}2 \times 0{,}96^5 \approx 4{,}2 \times 0{,}8154 \approx \)<span class="reponse">3,42</span>. \(C(10) \approx 4{,}2 \times 0{,}6648 \approx \)<span class="reponse">2,79</span>.</p>
+    <p><strong>2.</strong> \(4{,}2 \times 0{,}96^t < 2{,}5\) → \(0{,}96^t < \dfrac{2{,}5}{4{,}2} \approx 0{,}595\) → \(t > \dfrac{\log(0{,}595)}{\log(0{,}96)} = \dfrac{-0{,}2255}{-0{,}01773} \approx \)<span class="reponse">12,7 ans → remplacement à partir de la 13e année</span>.</p>
+    <p><strong>3.</strong> Coefficient \(0{,}96 = 1 - 0{,}04\) → <span class="reponse">taux de dégradation : 4 % par an</span>.</p>
+    <p><strong>4.</strong> \(4{,}2 \times 0{,}98^t < 2{,}5\) → \(t > \dfrac{\log(0{,}595)}{\log(0{,}98)} \approx \dfrac{-0{,}2255}{-0{,}00877} \approx 25{,}7\) ans → remplacement à partir de la 26e année.<br>
+    Différence : <span class="reponse">26 − 13 = 13 ans supplémentaires</span>.</p>
+  </div>
+</div>
+
+<!-- APPRO A5 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 32</span>
+    <span class="exo-title">Identifier et choisir un modèle — données réelles</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un ébéniste suit la valeur résiduelle de ses machines. Il dispose des données suivantes (en €) :
+  </div>
+  <table>
+    <tr><th>Années \(t\)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td></tr>
+    <tr><th>Valeur \(V\)</th><td>10 000</td><td>8 100</td><td>6 561</td><td>5 314</td><td>4 305</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le rapport \(\dfrac{V(2)}{V(0)}\), \(\dfrac{V(4)}{V(2)}\) et \(\dfrac{V(6)}{V(4)}\). Que remarque-t-on ?<br>
+    <strong>2.</strong> En déduire le modèle exponentiel \(V(t) = V_0 \times q^t\). Préciser \(V_0\) et \(q\).<br>
+    <strong>3.</strong> Calculer le taux annuel de dépréciation.<br>
+    <strong>4.</strong> Prévoir la valeur de la machine après 12 ans.
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\dfrac{8\,100}{10\,000} = 0{,}81\) ; \(\dfrac{6\,561}{8\,100} \approx 0{,}81\) ; \(\dfrac{5\,314}{6\,561} \approx 0{,}81\). <span class="reponse">Le rapport est constant (≈ 0,81) : c'est bien un modèle exponentiel.</span></p>
+    <p><strong>2.</strong> Le rapport est calculé sur 2 ans : \(q^2 = 0{,}81\) → \(q = \sqrt{0{,}81} = 0{,}9\).<br>
+    Modèle : <span class="reponse">\(V(t) = 10\,000 \times 0{,}9^t\)</span> avec \(V_0 = 10\,000\) et \(q = 0{,}9\).</p>
+    <p><strong>3.</strong> \(0{,}9 = 1 - 0{,}10\) → <span class="reponse">dépréciation de 10 % par an</span>.</p>
+    <p><strong>4.</strong> \(V(12) = 10\,000 \times 0{,}9^{12} \approx 10\,000 \times 0{,}2824 \approx \)<span class="reponse">2 824 €</span>.</p>
+  </div>
+</div>
+
+<!-- APPRO A6 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 33</span>
+    <span class="exo-title">Équation et inéquation — résolution algébrique complète</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>Résoudre chaque équation ou inéquation en détaillant la résolution.</p>
+  <div class="consigne">
+    <strong>a)</strong> \(5^{2x-1} = 25\)<br>
+    <strong>b)</strong> \(3 \times 2^{x+1} - 48 = 0\)<br>
+    <strong>c)</strong> \(\log(x^2) - \log(x+12) = 0\) &nbsp;&nbsp; (on précisera les conditions d'existence)<br>
+    <strong>d)</strong> \(1{,}06^t > 3\) &nbsp;&nbsp; (temps de triplement d'un capital)
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(5^{2x-1} = 25 = 5^2\) → \(2x - 1 = 2\) → <span class="reponse">\(x = 1{,}5\)</span></p>
+    <p><strong>b)</strong> \(3 \times 2^{x+1} = 48\) → \(2^{x+1} = 16 = 2^4\) → \(x + 1 = 4\) → <span class="reponse">\(x = 3\)</span></p>
+    <p><strong>c)</strong> C.E. : \(x > 0\) et \(x + 12 > 0\) → \(x > 0\).<br>
+    \(\log(x^2) = \log(x+12)\) → \(x^2 = x + 12\) → \(x^2 - x - 12 = 0\) → \((x-4)(x+3) = 0\)<br>
+    \(x = 4\) (valide car \(> 0\)) ou \(x = -3\) (rejeté). <span class="reponse">\(x = 4\)</span></p>
+    <p><strong>d)</strong> \(1{,}06^t > 3\) → \(t > \dfrac{\log 3}{\log 1{,}06} = \dfrac{0{,}4771}{0{,}02531} \approx \)<span class="reponse">\(t > 18{,}85\)</span> (le capital triple au bout de ≈ 19 ans).</p>
+  </div>
+</div>
+
+<!-- APPRO A7 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 34</span>
+    <span class="exo-title">Séchage du bois — modèle exponentiel et seuil</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier sèche des planches de chêne. Le taux d'humidité (en %) évolue selon :
+    \[H(t) = H_0 \times e^{-0{,}08t}\]
+    où \(t\) est le temps en jours et \(e \approx 2{,}718\). On peut utiliser \(e^x \approx (2{,}718)^x\) ou la calculatrice.
+    <br>L'humidité initiale est \(H_0 = 60\,\%\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(H(5)\), \(H(10)\) et \(H(20)\).<br>
+    <strong>2.</strong> La mise en œuvre nécessite un taux d'humidité inférieur à 12 %. Déterminer le nombre de jours de séchage nécessaires.<br>
+    Résoudre : \(60 \times e^{-0{,}08t} = 12\), c'est-à-dire \(e^{-0{,}08t} = 0{,}2\).<br>
+    On utilisera \(\ln(0{,}2) \approx -1{,}609\) ou la relation \(a^x = b \Rightarrow x = \dfrac{\log b}{\log a}\).<br>
+    <strong>3.</strong> Un four de séchage réduit le coefficient à \(-0{,}15\) (modèle accéléré). Combien de jours économise-t-on ?
+  </div>
+  <div class="reponse-box" style="min-height:110px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(H(5) = 60 \times e^{-0{,}4} \approx 60 \times 0{,}6703 \approx \)<span class="reponse">40,2 %</span><br>
+    \(H(10) = 60 \times e^{-0{,}8} \approx 60 \times 0{,}4493 \approx \)<span class="reponse">27,0 %</span><br>
+    \(H(20) = 60 \times e^{-1{,}6} \approx 60 \times 0{,}2019 \approx \)<span class="reponse">12,1 %</span></p>
+    <p><strong>2.</strong> \(e^{-0{,}08t} = 0{,}2\). Méthode logarithme : \(-0{,}08t = \ln(0{,}2) \approx -1{,}609\) → \(t = \dfrac{1{,}609}{0{,}08} \approx \)<span class="reponse">20,1 jours</span>.</p>
+    <p>Ou avec \(\log\) : \(t = \dfrac{\log(0{,}2)}{\log(e^{-0{,}08})} = \dfrac{\log(0{,}2)}{-0{,}08\log(e)} = \dfrac{-0{,}699}{-0{,}08 \times 0{,}4343} \approx \)<span class="reponse">20,1 jours</span>.</p>
+    <p><strong>3.</strong> Avec \(-0{,}15\) : \(t = \dfrac{1{,}609}{0{,}15} \approx 10{,}7\) jours. Économie : <span class="reponse">≈ 9,4 jours</span>.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-appro -->
 
 <div class="nav-footer">
