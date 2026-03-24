@@ -1189,6 +1189,144 @@
   </div>
 </div>
 
+
+<!-- APPRO A8 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 31</span>
+    <span class="exo-title">Emprunt à intérêts composés — seuil de remboursement</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un artisan menuisier contracte un emprunt de <strong>25 000 €</strong> pour renouveler son matériel. Le capital restant dû évolue selon une suite géométrique : chaque année, le solde restant est multiplié par \(q = 0{,}78\) (remboursement de 22 % du capital par an).
+  </div>
+  <p>On modélise le capital restant dû par \(u_n = 25\,000 \times 0{,}78^n\), où \(n\) est le nombre d'années écoulées.</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le capital restant dû après 2 ans et après 5 ans. Arrondir à l'euro.<br>
+    <strong>2.</strong> En quelle année le capital restant dû passe-t-il en dessous de <strong>5 000 €</strong> ? (Construire un tableau pour \(n = 0\) à \(n = 8\) et chercher le seuil.)<br>
+    <strong>3.</strong> Calculer la somme totale remboursée sur les 5 premières années (\(u_0 - u_5\)). Cela correspond-il à la somme des versements annuels de 22 % de \(u_0\) ? Commenter.<br>
+    <strong>4.</strong> Un second artisan emprunte 30 000 € avec un taux de remboursement annuel de 18 % (\(q = 0{,}82\)). En quelle année son capital restant dû passera-t-il en dessous de 5 000 € ? Comparer avec la situation précédente.
+  </div>
+  <div class="reponse-box" style="min-height:160px">Tableau et réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_2 = 25\,000 \times 0{,}78^2 = 25\,000 \times 0{,}6084 \approx\) <span class="reponse">\(15\,210\) €</span><br>
+    \(u_5 = 25\,000 \times 0{,}78^5 = 25\,000 \times 0{,}2887 \approx\) <span class="reponse">\(7\,218\) €</span></p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+      <tr><th>\(u_n\) (€)</th><td>25 000</td><td class="hl">19 500</td><td class="hl">15 210</td><td class="hl">11 864</td><td class="hl">9 254</td><td class="hl">7 218</td><td class="hl">5 630</td><td class="hl">4 391</td></tr>
+    </table>
+    <p>\(u_6 \approx 5\,630 > 5\,000\) et \(u_7 \approx 4\,391 < 5\,000\). <span class="reponse">Le capital passe en dessous de 5 000 € à partir de l'année \(n = 7\).</span></p>
+    <p><strong>3.</strong> Montant remboursé en 5 ans : \(u_0 - u_5 = 25\,000 - 7\,218 =\) <span class="reponse">\(17\,782\) €</span>.<br>
+    Si on versait 22 % de \(u_0\) chaque année : \(5 \times 0{,}22 \times 25\,000 = 5 \times 5\,500 = 27\,500\) €. Ce n'est pas la même chose : dans le modèle géométrique, on rembourse 22 % du <em>solde restant</em> (qui diminue chaque année), ce qui donne moins au total. Les versements diminuent eux aussi avec le solde.</p>
+    <p><strong>4.</strong> \(u_n' = 30\,000 \times 0{,}82^n\). On cherche \(u_n' < 5\,000\), soit \(0{,}82^n < \dfrac{5\,000}{30\,000} = 0{,}1\overline{6}\).<br>
+    \(0{,}82^9 \approx 0{,}1848\) ; \(0{,}82^{10} \approx 0{,}1516\) ; \(0{,}82^{11} \approx 0{,}1243\) ; \(0{,}82^{12} \approx 0{,}1019\) ; \(0{,}82^{13} \approx 0{,}0836\).<br>
+    \(u_{12}' \approx 30\,000 \times 0{,}1019 \approx 3\,057 < 5\,000\). <span class="reponse">Le capital passe en dessous de 5 000 € à partir de l'année \(n = 12\)</span> — 5 ans plus tard que dans le premier cas, à cause d'un taux de remboursement plus faible.</p>
+  </div>
+</div>
+
+<!-- APPRO A9 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 32</span>
+    <span class="exo-title">Population de bactéries et modèle exponentiel discret</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un laboratoire d'analyses étudie la croissance d'une culture bactérienne. La population initiale est de <strong>500 bactéries</strong> (\(u_0 = 500\)). Toutes les heures, la population est multipliée par <strong>2,4</strong>.
+  </div>
+  <p>On modélise la population par \(u_n = 500 \times 2{,}4^n\), où \(n\) est le nombre d'heures.</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la population après 3 heures, 5 heures et 8 heures. Exprimer en notation scientifique si le résultat dépasse 100 000.<br>
+    <strong>2.</strong> La cuve a une capacité maximale de <strong>10 000 000 bactéries</strong>. À partir de quelle heure la cuve sera-t-elle saturée ? (Calculer \(u_n\) pour \(n = 10, 11, 12\).)<br>
+    <strong>3.</strong> Un traitement antibiotique divise la population par 3 toutes les heures. En partant de \(u_0' = 500\,000\) bactéries, modéliser la population \(u_n'\) sous traitement et calculer à partir de quelle heure elle descend en dessous de <strong>1 000 bactéries</strong>.<br>
+    <strong>4.</strong> Comparer les raisons des deux suites et interpréter biologiquement les comportements observés.
+  </div>
+  <div class="reponse-box" style="min-height:150px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_3 = 500 \times 2{,}4^3 = 500 \times 13{,}824 \approx\) <span class="reponse">\(6\,912\) bactéries</span><br>
+    \(u_5 = 500 \times 2{,}4^5 = 500 \times 79{,}627 \approx\) <span class="reponse">\(39\,814\) bactéries</span><br>
+    \(u_8 = 500 \times 2{,}4^8 = 500 \times 1\,105{,}0 \approx\) <span class="reponse">\(552\,502 \approx 5{,}53 \times 10^5\) bactéries</span></p>
+    <p><strong>2.</strong> \(u_{10} = 500 \times 2{,}4^{10} \approx 500 \times 6\,370 \approx 3{,}18 \times 10^6\)<br>
+    \(u_{11} = 500 \times 2{,}4^{11} \approx 500 \times 15\,289 \approx 7{,}64 \times 10^6\)<br>
+    \(u_{12} = 500 \times 2{,}4^{12} \approx 500 \times 36\,694 \approx 1{,}83 \times 10^7 > 10^7\).<br>
+    <span class="reponse">La cuve est saturée à partir de l'heure \(n = 12\).</span></p>
+    <p><strong>3.</strong> \(u_n' = 500\,000 \times \left(\dfrac{1}{3}\right)^n = 500\,000 \times (0{,}\overline{3})^n\).<br>
+    \(u_5' = 500\,000 \times (1/3)^5 = 500\,000 / 243 \approx 2\,058\) ; \(u_6' \approx 686 < 1\,000\).<br>
+    <span class="reponse">La population descend en dessous de 1 000 bactéries à partir de \(n = 6\) heures.</span></p>
+    <p><strong>4.</strong> Suite de croissance : \(q = 2{,}4 > 1\) → suite croissante (multiplication rapide, explosion exponentielle). Suite sous traitement : \(q = 1/3 < 1\) → suite décroissante (élimination progressive). L'antibiotique inverse le phénomène : la raison passe de 2,4 à 0,33, ce qui correspond à une diminution de 67 % par heure au lieu d'une augmentation de 140 %.</p>
+  </div>
+</div>
+
+<!-- APPRO A10 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 33</span>
+    <span class="exo-title">Modélisation inverse — retrouver \(u_0\) et \(q\) à partir de données</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un chef de chantier reçoit un rapport incomplet. On sait que la valeur d'un équipement suit une suite géométrique, et que \(u_2 = 18\,700\) € et \(u_5 = 11\,400\) € (valeurs arrondies à l'euro).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Exprimer \(u_2\) et \(u_5\) en fonction de \(u_0\) et \(q\).<br>
+    <strong>2.</strong> Calculer le rapport \(\dfrac{u_5}{u_2}\) et en déduire \(q^3\), puis \(q\) (arrondir à 4 décimales).<br>
+    <strong>3.</strong> En déduire \(u_0\) (valeur initiale de l'équipement). Arrondir à l'euro.<br>
+    <strong>4.</strong> Calculer en quel pourcentage annuel l'équipement se déprécie. Interpréter : est-ce une dépréciation rapide ou lente ?<br>
+    <strong>5.</strong> En quelle année \(u_n\) passera-t-il en dessous de <strong>8 000 €</strong> ?
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_2 = u_0 \times q^2\) et \(u_5 = u_0 \times q^5\).</p>
+    <p><strong>2.</strong> \(\dfrac{u_5}{u_2} = \dfrac{u_0 \times q^5}{u_0 \times q^2} = q^3\).<br>
+    \(q^3 = \dfrac{11\,400}{18\,700} \approx 0{,}6096\).<br>
+    \(q = \sqrt[3]{0{,}6096} = 0{,}6096^{1/3} \approx\) <span class="reponse">\(0{,}8474\)</span>.</p>
+    <p><strong>3.</strong> \(u_0 = \dfrac{u_2}{q^2} = \dfrac{18\,700}{0{,}8474^2} = \dfrac{18\,700}{0{,}7181} \approx\) <span class="reponse">\(26\,039\) €</span>.</p>
+    <p><strong>4.</strong> Taux de dépréciation annuel : \(1 - q = 1 - 0{,}8474 \approx\) <span class="reponse">\(15{,}3\,\%\) par an</span>. Il s'agit d'une dépréciation modérée à rapide (entre 10 % et 20 % par an est courant pour du matériel professionnel).</p>
+    <p><strong>5.</strong> On cherche \(n\) tel que \(26\,039 \times 0{,}8474^n < 8\,000\), soit \(0{,}8474^n < \dfrac{8\,000}{26\,039} \approx 0{,}3072\).<br>
+    \(0{,}8474^7 \approx 0{,}3283\) ; \(0{,}8474^8 \approx 0{,}2783 < 0{,}3072\).<br>
+    <span class="reponse">La valeur passe en dessous de 8 000 € à partir de l'année \(n = 8\).</span></p>
+  </div>
+</div>
+
+<!-- APPRO A11 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 34</span>
+    <span class="exo-title">Choix d'investissement — comparaison de deux modèles</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un conducteur de travaux compare deux offres de financement pour l'achat d'une machine d'usinage CNC à <strong>40 000 €</strong>.<br>
+    – <strong>Offre A</strong> : location avec option d'achat, loyer annuel de <strong>6 000 €</strong> (suite arithmétique).<br>
+    – <strong>Offre B</strong> : prêt à intérêts composés, remboursement de <strong>25 % du capital restant</strong> chaque année.
+  </div>
+  <p>Pour l'offre B, le capital restant dû suit \(v_n = 40\,000 \times 0{,}75^n\). Le versement annuel en année \(n\) est \(v_n - v_{n+1} = 40\,000 \times 0{,}75^n \times 0{,}25\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Pour l'offre A : calculer le coût total après 7 ans (loyers cumulés) et la valeur résiduelle de la machine d'après un modèle géométrique de dépréciation à 15 % par an (\(u_7 = 40\,000 \times 0{,}85^7\)).<br>
+    <strong>2.</strong> Pour l'offre B : calculer le capital restant dû après 7 ans. Quel montant total a été versé sur 7 ans ? (Utiliser : montant versé = capital initial − capital restant dû.)<br>
+    <strong>3.</strong> Comparer les deux offres sur 7 ans en termes de coût total engagé et de capital restant dû.<br>
+    <strong>4.</strong> Le chef de chantier souhaite revendre la machine après 7 ans. Avec l'offre B, quel est le « gain net » si la valeur de revente est \(u_7 = 40\,000 \times 0{,}85^7\) et qu'il rembourse le capital restant dû au moment de la vente ?
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Offre A — coût total : \(7 \times 6\,000 =\) <span class="reponse">\(42\,000\) €</span>.<br>
+    Valeur résiduelle de la machine : \(u_7 = 40\,000 \times 0{,}85^7 = 40\,000 \times 0{,}3206 \approx\) <span class="reponse">\(12\,824\) €</span>.</p>
+    <p><strong>2.</strong> Offre B — capital restant dû après 7 ans : \(v_7 = 40\,000 \times 0{,}75^7 = 40\,000 \times 0{,}1335 \approx\) <span class="reponse">\(5\,340\) €</span>.<br>
+    Montant total versé en 7 ans : \(40\,000 - 5\,340 =\) <span class="reponse">\(34\,660\) €</span>.</p>
+    <p><strong>3.</strong> Comparaison :<br>
+    – Offre A : 42 000 € versés, machine non possédée (location — elle revient au bailleur).<br>
+    – Offre B : 34 660 € versés, machine en cours de remboursement, capital restant 5 340 €.<br>
+    <span class="reponse">L'offre B est plus avantageuse</span> : moins cher en versements cumulés, et la machine reste la propriété de l'artisan.</p>
+    <p><strong>4.</strong> Valeur de revente = \(u_7 \approx 12\,824\) €. Capital restant dû à rembourser = \(v_7 \approx 5\,340\) €.<br>
+    Gain net = revente − capital restant = \(12\,824 - 5\,340 =\) <span class="reponse">\(7\,484\) €</span>. Après 7 ans de versements (\(34\,660\) €) et un gain net de \(7\,484\) €, le coût net réel de la possession est \(34\,660 - 7\,484 = 27\,176\) €, soit moins que l'offre A.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-appro -->
 
 <!-- NAV FOOTER -->
