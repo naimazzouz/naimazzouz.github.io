@@ -242,6 +242,113 @@
   </details>
 </div>
 
+<!-- SOCLE S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Lire les coordonnées d'un vecteur dans un repère</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Si \(A(x_A\,;\,y_A)\) et \(B(x_B\,;\,y_B)\), alors \(\overrightarrow{AB} = \begin{pmatrix}x_B - x_A\\y_B - y_A\end{pmatrix}\).
+  </div>
+  <p>On donne les points : \(A(1\,;\,3)\), \(B(5\,;\,7)\), \(C(2\,;\,-1)\), \(D(-3\,;\,4)\).</p>
+  <div class="consigne">Calculer les coordonnées des vecteurs :</div>
+  <div class="consigne">
+    <strong>a)</strong> \(\overrightarrow{AB} = \begin{pmatrix}\ldots\\\ldots\end{pmatrix}\) &nbsp;&nbsp;
+    <strong>b)</strong> \(\overrightarrow{AC} = \begin{pmatrix}\ldots\\\ldots\end{pmatrix}\) &nbsp;&nbsp;
+    <strong>c)</strong> \(\overrightarrow{CD} = \begin{pmatrix}\ldots\\\ldots\end{pmatrix}\)
+  </div>
+  <div class="reponse-box">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(\overrightarrow{AB} = \begin{pmatrix}5-1\\7-3\end{pmatrix} = \)<span class="reponse">\(\begin{pmatrix}4\\4\end{pmatrix}\)</span></p>
+    <p><strong>b)</strong> \(\overrightarrow{AC} = \begin{pmatrix}2-1\\-1-3\end{pmatrix} = \)<span class="reponse">\(\begin{pmatrix}1\\-4\end{pmatrix}\)</span></p>
+    <p><strong>c)</strong> \(\overrightarrow{CD} = \begin{pmatrix}-3-2\\4-(-1)\end{pmatrix} = \)<span class="reponse">\(\begin{pmatrix}-5\\5\end{pmatrix}\)</span></p>
+  </div>
+</div>
+
+<!-- SOCLE S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Calculer la norme — distances dans un atelier</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Dans un atelier de menuiserie, la machine A est en \((0\,;\,0)\), la machine B en \((3\,;\,4)\) et la machine C en \((6\,;\,0)\) (unités en mètres).
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Norme : \(\|\overrightarrow{AB}\| = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2}\).
+  </div>
+  <div class="consigne"><strong>1.</strong> Calculer les coordonnées de \(\overrightarrow{AB}\) et \(\overrightarrow{BC}\).</div>
+  <div class="reponse-box">……………</div>
+  <div class="consigne"><strong>2.</strong> Calculer \(AB\) et \(BC\) (en mètres, arrondir au dixième).</div>
+  <div class="reponse-box">……………</div>
+  <div class="consigne"><strong>3.</strong> Calculer \(AC\) directement. Que remarque-t-on ?</div>
+  <div class="reponse-box">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}3\\4\end{pmatrix}\) ; \(\overrightarrow{BC} = \begin{pmatrix}3\\-4\end{pmatrix}\)</p>
+    <p><strong>2.</strong> \(AB = \sqrt{9+16} = \sqrt{25} = \)<span class="reponse">5 m</span> ; \(BC = \sqrt{9+16} = \)<span class="reponse">5 m</span></p>
+    <p><strong>3.</strong> \(AC = \sqrt{(6-0)^2 + 0^2} = \sqrt{36} = \)<span class="reponse">6 m</span>. \(AB = BC\) : le triangle \(ABC\) est <span class="reponse">isocèle</span>.</p>
+  </div>
+</div>
+
+<!-- SOCLE S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Tester la colinéarité — guide pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    \(\vec{u}\begin{pmatrix}a\\b\end{pmatrix}\) et \(\vec{v}\begin{pmatrix}c\\d\end{pmatrix}\) sont colinéaires si \(ad - bc = 0\).
+  </div>
+  <div class="consigne">Pour chaque paire, calculer \(ad - bc\) et conclure :</div>
+  <div class="consigne">
+    <strong>a)</strong> \(\vec{u}\begin{pmatrix}1\\2\end{pmatrix}\) et \(\vec{v}\begin{pmatrix}3\\6\end{pmatrix}\) : \(1\times 6 - 2\times 3 = \ldots\) → ……………<br>
+    <strong>b)</strong> \(\vec{u}\begin{pmatrix}4\\-2\end{pmatrix}\) et \(\vec{v}\begin{pmatrix}6\\3\end{pmatrix}\) : \(4\times 3 - (-2)\times 6 = \ldots\) → ……………<br>
+    <strong>c)</strong> \(\vec{u}\begin{pmatrix}2\\5\end{pmatrix}\) et \(\vec{v}\begin{pmatrix}4\\10\end{pmatrix}\) : \(\ldots - \ldots = \ldots\) → ……………
+  </div>
+  <div class="reponse-box">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(1 \times 6 - 2 \times 3 = 6 - 6 = 0\) → <span class="reponse">colinéaires</span> (en effet \(\vec{v} = 3\vec{u}\))</p>
+    <p><strong>b)</strong> \(4 \times 3 - (-2) \times 6 = 12 + 12 = 24 \neq 0\) → <span class="reponse">non colinéaires</span></p>
+    <p><strong>c)</strong> \(2 \times 10 - 5 \times 4 = 20 - 20 = 0\) → <span class="reponse">colinéaires</span> (en effet \(\vec{v} = 2\vec{u}\))</p>
+  </div>
+</div>
+
+<!-- SOCLE S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Milieu d'un segment — plan de pose</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un poseur de cuisines place deux points d'ancrage \(A(2\,;\,1)\) et \(B(8\,;\,5)\) (en dm). Il doit trouver le point de fixation central \(M\), milieu de \([AB]\).
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Milieu de \([AB]\) : \(M\left(\dfrac{x_A + x_B}{2}\,;\,\dfrac{y_A + y_B}{2}\right)\).
+  </div>
+  <div class="consigne"><strong>1.</strong> Calculer les coordonnées du milieu \(M\).</div>
+  <div class="reponse-box">\(M(\ldots\,;\,\ldots)\)</div>
+  <div class="consigne"><strong>2.</strong> Calculer \(\overrightarrow{AM}\) et vérifier que \(\|\overrightarrow{AM}\| = \|\overrightarrow{MB}\|\).</div>
+  <div class="reponse-box">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(M\left(\dfrac{2+8}{2}\,;\,\dfrac{1+5}{2}\right) = \)<span class="reponse">\(M(5\,;\,3)\)</span></p>
+    <p><strong>2.</strong> \(\overrightarrow{AM} = \begin{pmatrix}5-2\\3-1\end{pmatrix} = \begin{pmatrix}3\\2\end{pmatrix}\) ; \(\overrightarrow{MB} = \begin{pmatrix}8-5\\5-3\end{pmatrix} = \begin{pmatrix}3\\2\end{pmatrix}\).<br>
+    \(\|\overrightarrow{AM}\| = \sqrt{9+4} = \sqrt{13}\) et \(\|\overrightarrow{MB}\| = \sqrt{13}\) → <span class="reponse">égaux ✓ (\(M\) est bien le milieu)</span></p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================
@@ -421,6 +528,181 @@
   </details>
 </div>
 
+<!-- STANDARD S4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Intersection de droites — plan de chantier</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Sur un plan de chantier, un chef de chantier a tracé deux allées de circulation dont les équations sont :
+    \[(d_1) : x - 2y + 4 = 0 \qquad (d_2) : 3x + y - 5 = 0\]
+  </div>
+  <div class="consigne"><strong>1.</strong> Déterminer les coordonnées du point d'intersection des deux droites (résoudre le système).</div>
+  <div class="reponse-box" style="min-height:80px">……………</div>
+  <div class="consigne"><strong>2.</strong> Vérifier que ce point appartient bien aux deux droites.</div>
+  <div class="reponse-box">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Système : \(\begin{cases}x - 2y = -4\\3x + y = 5\end{cases}\)</p>
+    <p>De la 1ère équation : \(x = 2y - 4\). Substitution dans la 2ème :<br>
+    \(3(2y-4) + y = 5\) → \(6y - 12 + y = 5\) → \(7y = 17\) → <span class="reponse">\(y = \dfrac{17}{7} \approx 2{,}43\)</span><br>
+    \(x = 2 \times \dfrac{17}{7} - 4 = \dfrac{34}{7} - \dfrac{28}{7} = \)<span class="reponse">\(\dfrac{6}{7} \approx 0{,}86\)</span></p>
+    <p><strong>2.</strong> Vérification \((d_1)\) : \(\dfrac{6}{7} - 2 \times \dfrac{17}{7} + 4 = \dfrac{6 - 34 + 28}{7} = 0\) ✓ &nbsp;&nbsp; \((d_2)\) : \(3 \times \dfrac{6}{7} + \dfrac{17}{7} - 5 = \dfrac{18+17-35}{7} = 0\) ✓</p>
+  </div>
+</div>
+
+<!-- STANDARD S5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Norme et périmètre — contour d'une pièce</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur d'agencement place 4 points de fixation dans un couloir : \(A(0\,;\,0)\), \(B(5\,;\,0)\), \(C(5\,;\,3)\), \(D(0\,;\,3)\) (en mètres). Ces points forment un rectangle.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les vecteurs \(\overrightarrow{AB}\), \(\overrightarrow{BC}\), \(\overrightarrow{CD}\) et \(\overrightarrow{DA}\).<br>
+    <strong>2.</strong> Calculer les normes \(AB\), \(BC\), \(CD\) et \(DA\).<br>
+    <strong>3.</strong> Calculer le périmètre du rectangle.<br>
+    <strong>4.</strong> Vérifier que les vecteurs \(\overrightarrow{AB}\) et \(\overrightarrow{BC}\) sont perpendiculaires (produit scalaire = 0).
+  </div>
+  <div class="reponse-box" style="min-height:100px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}5\\0\end{pmatrix}\), \(\overrightarrow{BC} = \begin{pmatrix}0\\3\end{pmatrix}\), \(\overrightarrow{CD} = \begin{pmatrix}-5\\0\end{pmatrix}\), \(\overrightarrow{DA} = \begin{pmatrix}0\\-3\end{pmatrix}\)</p>
+    <p><strong>2.</strong> \(AB = 5\) m, \(BC = 3\) m, \(CD = 5\) m, \(DA = 3\) m.</p>
+    <p><strong>3.</strong> Périmètre \(= 2(5+3) = \)<span class="reponse">16 m</span></p>
+    <p><strong>4.</strong> \(\overrightarrow{AB} \cdot \overrightarrow{BC} = 5 \times 0 + 0 \times 3 = 0\) → <span class="reponse">perpendiculaires ✓</span></p>
+  </div>
+</div>
+
+<!-- STANDARD S6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Équation de droite par deux points</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>On donne les points \(A(0\,;\,3)\) et \(B(4\,;\,-1)\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les coordonnées du vecteur directeur \(\overrightarrow{AB}\).<br>
+    <strong>2.</strong> En déduire un vecteur normal \(\vec{n}\).<br>
+    <strong>3.</strong> Écrire l'équation cartésienne de la droite \((AB)\).<br>
+    <strong>4.</strong> Calculer le point \(C\) tel que \(OABC\) soit un parallélogramme (O étant l'origine).
+  </div>
+  <div class="reponse-box" style="min-height:90px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}4-0\\-1-3\end{pmatrix} = \begin{pmatrix}4\\-4\end{pmatrix}\)</p>
+    <p><strong>2.</strong> Vecteur normal : \(\vec{n}\begin{pmatrix}4\\4\end{pmatrix}\), soit \(\vec{n}\begin{pmatrix}1\\1\end{pmatrix}\) après simplification.</p>
+    <p><strong>3.</strong> Avec \(\vec{n}\begin{pmatrix}1\\1\end{pmatrix}\) et le point \(A(0\,;\,3)\) : \(1(x-0) + 1(y-3) = 0\) → <span class="reponse">\(x + y - 3 = 0\)</span></p>
+    <p><strong>4.</strong> Dans un parallélogramme \(OABC\) : \(\overrightarrow{OC} = \overrightarrow{OA} + \overrightarrow{OB}\) → \(C(0+4\,;\,3+(-1)) = \)<span class="reponse">\(C(4\,;\,2)\)</span></p>
+  </div>
+</div>
+
+<!-- STANDARD S7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 23</span>
+    <span class="exo-title">Distance point-droite — implantation d'un poteau</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un conducteur de travaux doit implanter un poteau de limite de chantier au point \(P(3\,;\,5)\) (en mètres). La clôture suit la droite \((d)\) : \(4x - 3y + 6 = 0\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la distance du point \(P\) à la droite \((d)\).<br>
+    <strong>2.</strong> Un câble de sécurité part du poteau et doit rejoindre la droite perpendiculairement. Quelle est la longueur minimale du câble ?
+  </div>
+  <div class="att">Formule : \(d = \dfrac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}\)</div>
+  <div class="reponse-box" style="min-height:70px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(a=4\), \(b=-3\), \(c=6\) ; \(\sqrt{a^2+b^2} = \sqrt{16+9} = \sqrt{25} = 5\).</p>
+    <p><strong>1.</strong> \(d = \dfrac{|4 \times 3 + (-3) \times 5 + 6|}{5} = \dfrac{|12 - 15 + 6|}{5} = \dfrac{3}{5} = \)<span class="reponse">0,6 m</span></p>
+    <p><strong>2.</strong> La longueur minimale du câble est <span class="reponse">0,6 m</span> (c'est la distance perpendiculaire).</p>
+  </div>
+</div>
+
+<!-- STANDARD S8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 24</span>
+    <span class="exo-title">Coordonnées 3D — vecteur dans l'espace</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Dans l'espace, on donne \(A(1\,;\,2\,;\,3)\) et \(B(4\,;\,0\,;\,7)\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les coordonnées du vecteur \(\overrightarrow{AB}\).<br>
+    <strong>2.</strong> Calculer la norme \(AB = \|\overrightarrow{AB}\|\) (arrondir au dixième).<br>
+    <strong>3.</strong> Donner les coordonnées du milieu \(M\) du segment \([AB]\).<br>
+    <strong>4.</strong> Un autre point est \(C(7\,;\,-2\,;\,11)\). Vérifier que \(\overrightarrow{AC} = 2\overrightarrow{AB}\) : les points \(A\), \(B\), \(C\) sont-ils alignés ?
+  </div>
+  <div class="reponse-box" style="min-height:90px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}4-1\\0-2\\7-3\end{pmatrix} = \)<span class="reponse">\(\begin{pmatrix}3\\-2\\4\end{pmatrix}\)</span></p>
+    <p><strong>2.</strong> \(AB = \sqrt{9+4+16} = \sqrt{29} \approx \)<span class="reponse">5,4</span></p>
+    <p><strong>3.</strong> \(M\left(\dfrac{1+4}{2}\,;\,\dfrac{2+0}{2}\,;\,\dfrac{3+7}{2}\right) = \)<span class="reponse">\(M(2{,}5\,;\,1\,;\,5)\)</span></p>
+    <p><strong>4.</strong> \(\overrightarrow{AC} = \begin{pmatrix}6\\-4\\8\end{pmatrix} = 2\begin{pmatrix}3\\-2\\4\end{pmatrix} = 2\overrightarrow{AB}\) → <span class="reponse">\(A\), \(B\), \(C\) sont alignés ✓</span></p>
+  </div>
+</div>
+
+<!-- STANDARD S9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 25</span>
+    <span class="exo-title">Vérifier que des points forment un rectangle</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un aménageur d'intérieur vérifie l'orthogonalité d'une pièce. Les quatre coins mesurés sont : \(A(0\,;\,0)\), \(B(6\,;\,1)\), \(C(7\,;\,-4)\), \(D(1\,;\,-5)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les vecteurs \(\overrightarrow{AB}\) et \(\overrightarrow{AD}\).<br>
+    <strong>2.</strong> Calculer le déterminant \(\det(\overrightarrow{AB},\overrightarrow{AD})\). Les côtés sont-ils colinéaires ?<br>
+    <strong>3.</strong> Calculer le produit scalaire \(\overrightarrow{AB} \cdot \overrightarrow{AD}\). Les côtés sont-ils perpendiculaires ?<br>
+    <strong>4.</strong> Calculer \(AB\) et \(AD\). Est-ce un rectangle ou un carré ?
+  </div>
+  <div class="reponse-box" style="min-height:100px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}6\\1\end{pmatrix}\) ; \(\overrightarrow{AD} = \begin{pmatrix}1\\-5\end{pmatrix}\)</p>
+    <p><strong>2.</strong> \(\det(\overrightarrow{AB},\overrightarrow{AD}) = 6 \times (-5) - 1 \times 1 = -30 - 1 = -31 \neq 0\) → <span class="reponse">non colinéaires</span> (la pièce n'est pas dégénérée).</p>
+    <p><strong>3.</strong> \(\overrightarrow{AB} \cdot \overrightarrow{AD} = 6 \times 1 + 1 \times (-5) = 6 - 5 = 1 \neq 0\) → <span class="reponse">pas perpendiculaires</span> : les côtés ne sont pas à angle droit. Ce n'est pas un rectangle.</p>
+    <p><strong>4.</strong> \(AB = \sqrt{36+1} = \sqrt{37} \approx 6{,}1\) ; \(AD = \sqrt{1+25} = \sqrt{26} \approx 5{,}1\). Ce quadrilatère est un <span class="reponse">parallélogramme non rectangle</span>.</p>
+  </div>
+</div>
+
+<!-- STANDARD S10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 26</span>
+    <span class="exo-title">Colinéarité et alignement — plan de cuisine</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur de cuisines vérifie que trois prises électriques \(P_1(1\,;\,4)\), \(P_2(3\,;\,6)\) et \(P_3(5\,;\,8)\) sont bien alignées sur un même rail.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les coordonnées de \(\overrightarrow{P_1P_2}\) et \(\overrightarrow{P_1P_3}\).<br>
+    <strong>2.</strong> Tester la colinéarité de \(\overrightarrow{P_1P_2}\) et \(\overrightarrow{P_1P_3}\) par le déterminant.<br>
+    <strong>3.</strong> Les trois prises sont-elles alignées ? Justifier.<br>
+    <strong>4.</strong> Déterminer l'équation de la droite passant par \(P_1\) et \(P_2\).
+  </div>
+  <div class="reponse-box" style="min-height:90px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{P_1P_2} = \begin{pmatrix}2\\2\end{pmatrix}\) ; \(\overrightarrow{P_1P_3} = \begin{pmatrix}4\\4\end{pmatrix}\)</p>
+    <p><strong>2.</strong> \(\det(\overrightarrow{P_1P_2},\overrightarrow{P_1P_3}) = 2 \times 4 - 2 \times 4 = 8 - 8 = 0\) → <span class="reponse">colinéaires</span></p>
+    <p><strong>3.</strong> Les vecteurs \(\overrightarrow{P_1P_2}\) et \(\overrightarrow{P_1P_3}\) sont colinéaires → <span class="reponse">les trois prises sont alignées ✓</span></p>
+    <p><strong>4.</strong> Vecteur directeur \(\begin{pmatrix}2\\2\end{pmatrix}\), normal \(\vec{n}\begin{pmatrix}1\\-1\end{pmatrix}\). Par \(P_1(1\,;\,4)\) : \(1(x-1) - 1(y-4) = 0\) → <span class="reponse">\(x - y + 3 = 0\)</span></p>
+  </div>
+</div>
+
 </div><!-- fin diff-standard -->
 
 <!-- ================================================================
@@ -525,6 +807,118 @@
       Comme \(y_B = y_A = 0\), la droite est simplement <span class="reponse">\(y = 0\)</span> (axe horizontal).</p>
   </div>
   </details>
+</div>
+
+<!-- APPRO A4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 27</span>
+    <span class="exo-title">Étude complète d'un triangle — classification</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>On donne \(A(0\,;\,0)\), \(B(4\,;\,2)\) et \(C(1\,;\,5)\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les longueurs \(AB\), \(BC\) et \(CA\).<br>
+    <strong>2.</strong> Calculer les produits scalaires \(\overrightarrow{AB} \cdot \overrightarrow{AC}\), \(\overrightarrow{BA} \cdot \overrightarrow{BC}\) et \(\overrightarrow{CA} \cdot \overrightarrow{CB}\).<br>
+    <strong>3.</strong> Le triangle est-il rectangle, isocèle ou scalène ? Justifier.<br>
+    <strong>4.</strong> Déterminer l'équation cartésienne des droites \((AB)\) et \((AC)\).
+  </div>
+  <div class="reponse-box" style="min-height:120px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(AB = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5} \approx 4{,}5\) &nbsp; \(BC = \sqrt{9+9} = \sqrt{18} = 3\sqrt{2} \approx 4{,}2\) &nbsp; \(CA = \sqrt{1+25} = \sqrt{26} \approx 5{,}1\)</p>
+    <p><strong>2.</strong> \(\overrightarrow{AB}\begin{pmatrix}4\\2\end{pmatrix}\), \(\overrightarrow{AC}\begin{pmatrix}1\\5\end{pmatrix}\), \(\overrightarrow{BA}\begin{pmatrix}-4\\-2\end{pmatrix}\), \(\overrightarrow{BC}\begin{pmatrix}-3\\3\end{pmatrix}\), \(\overrightarrow{CA}\begin{pmatrix}-1\\-5\end{pmatrix}\), \(\overrightarrow{CB}\begin{pmatrix}3\\-3\end{pmatrix}\)<br>
+    \(\overrightarrow{AB} \cdot \overrightarrow{AC} = 4 \times 1 + 2 \times 5 = 14 \neq 0\)<br>
+    \(\overrightarrow{BA} \cdot \overrightarrow{BC} = (-4)(-3) + (-2)(3) = 12 - 6 = 6 \neq 0\)<br>
+    \(\overrightarrow{CA} \cdot \overrightarrow{CB} = (-1)(3) + (-5)(-3) = -3 + 15 = 12 \neq 0\)</p>
+    <p><strong>3.</strong> Aucun produit scalaire nul → <span class="reponse">pas rectangle</span>. Les trois côtés sont inégaux → <span class="reponse">scalène</span>.</p>
+    <p><strong>4.</strong> Droite \((AB)\) : directeur \(\begin{pmatrix}4\\2\end{pmatrix}\), normal \(\begin{pmatrix}1\\-2\end{pmatrix}\). Par \(A(0,0)\) : <span class="reponse">\(x - 2y = 0\)</span>.<br>
+    Droite \((AC)\) : directeur \(\begin{pmatrix}1\\5\end{pmatrix}\), normal \(\begin{pmatrix}5\\-1\end{pmatrix}\). Par \(A(0,0)\) : <span class="reponse">\(5x - y = 0\)</span>.</p>
+  </div>
+</div>
+
+<!-- APPRO A5 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 28</span>
+    <span class="exo-title">Vecteurs dans l'espace — canalisation 3D</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien CVC doit installer une canalisation entre deux points dans un bâtiment. Dans un repère spatial (en mètres), le point de départ est \(A(1\,;\,0\,;\,2)\), le premier raccord est \(B(3\,;\,4\,;\,2)\) et l'arrivée est \(C(3\,;\,4\,;\,6)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les longueurs des segments \(AB\) et \(BC\).<br>
+    <strong>2.</strong> Calculer le produit scalaire \(\overrightarrow{AB} \cdot \overrightarrow{BC}\). Que peut-on en déduire sur l'angle formé par les deux tronçons ?<br>
+    <strong>3.</strong> Calculer la longueur totale de la canalisation \(AC\) (par le chemin \(A \to B \to C\)).<br>
+    <strong>4.</strong> Un raccord droit (pas de coude) aurait une longueur \(AC_{direct} = \|\overrightarrow{AC}\|\). Calculer \(\|\overrightarrow{AC}\|\) et comparer.
+  </div>
+  <div class="reponse-box" style="min-height:110px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}2\\4\\0\end{pmatrix}\) → \(AB = \sqrt{4+16+0} = \sqrt{20} \approx \)<span class="reponse">4,47 m</span><br>
+    \(\overrightarrow{BC} = \begin{pmatrix}0\\0\\4\end{pmatrix}\) → \(BC = \sqrt{0+0+16} = \)<span class="reponse">4 m</span></p>
+    <p><strong>2.</strong> \(\overrightarrow{AB} \cdot \overrightarrow{BC} = 2 \times 0 + 4 \times 0 + 0 \times 4 = 0\) → <span class="reponse">les deux tronçons sont perpendiculaires</span> (coude à 90°).</p>
+    <p><strong>3.</strong> Longueur totale : \(AB + BC \approx 4{,}47 + 4 = \)<span class="reponse">8,47 m</span></p>
+    <p><strong>4.</strong> \(\overrightarrow{AC} = \begin{pmatrix}2\\4\\4\end{pmatrix}\) → \(AC = \sqrt{4+16+16} = \sqrt{36} = \)<span class="reponse">6 m</span>. Avec un raccord droit, 6 m suffiraient ; le coude nécessite 8,47 m → <span class="reponse">2,47 m de canalisation supplémentaire</span>.</p>
+  </div>
+</div>
+
+<!-- APPRO A6 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 29</span>
+    <span class="exo-title">Droite et distance — implantation d'un tracé</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un géomètre implante une limite de propriété. La droite de limite a pour équation \((d) : 5x - 12y + 26 = 0\). Trois piquets sont en \(P_1(2\,;\,3)\), \(P_2(4\,;\,4)\) et \(P_3(7\,;\,6)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la distance de chacun des piquets à la droite \((d)\).<br>
+    <strong>2.</strong> L'un des piquets est-il sur la droite ?<br>
+    <strong>3.</strong> Quel est le piquet le plus éloigné de la limite ? De combien ?<br>
+    <strong>4.</strong> Écrire l'équation d'une droite parallèle à \((d)\) passant par \(P_1\).
+  </div>
+  <div class="reponse-box" style="min-height:110px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>\(\sqrt{5^2 + (-12)^2} = \sqrt{25 + 144} = \sqrt{169} = 13\)</p>
+    <p><strong>1.</strong> \(d(P_1) = \dfrac{|5(2) - 12(3) + 26|}{13} = \dfrac{|10 - 36 + 26|}{13} = \dfrac{0}{13} = \)<span class="reponse">0</span><br>
+    \(d(P_2) = \dfrac{|5(4) - 12(4) + 26|}{13} = \dfrac{|20 - 48 + 26|}{13} = \dfrac{2}{13} \approx \)<span class="reponse">0,15 m</span><br>
+    \(d(P_3) = \dfrac{|5(7) - 12(6) + 26|}{13} = \dfrac{|35 - 72 + 26|}{13} = \dfrac{11}{13} \approx \)<span class="reponse">0,85 m</span></p>
+    <p><strong>2.</strong> \(d(P_1) = 0\) → <span class="reponse">\(P_1\) est sur la droite</span>.</p>
+    <p><strong>3.</strong> Le piquet le plus éloigné est <span class="reponse">\(P_3\)</span>, à 0,85 m de la limite.</p>
+    <p><strong>4.</strong> Droite parallèle à \(5x - 12y + c = 0\) passant par \(P_1(2\,;\,3)\) : \(5(2) - 12(3) + c = 0\) → déjà sur \((d)\) donc la droite parallèle distincte n'existe pas. Réponse : <span class="reponse">\(P_1\) est sur \((d)\), la droite parallèle passant par \(P_1\) est \((d)\) elle-même.</span></p>
+  </div>
+</div>
+
+<!-- APPRO A7 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 30</span>
+    <span class="exo-title">Problème ouvert — conception d'une zone de stockage</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un chef de chantier implante une zone de stockage rectangulaire. Il fixe un premier côté \([AB]\) en posant \(A(0\,;\,0)\) et \(B(6\,;\,2)\). Le troisième coin sera \(C = B + \overrightarrow{n}\) où \(\overrightarrow{n}\) est perpendiculaire à \(\overrightarrow{AB}\) et de norme 4 m.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Donner les coordonnées de \(\overrightarrow{AB}\) et sa norme.<br>
+    <strong>2.</strong> Un vecteur perpendiculaire à \(\begin{pmatrix}a\\b\end{pmatrix}\) est \(\begin{pmatrix}-b\\a\end{pmatrix}\). Donner un vecteur perpendiculaire à \(\overrightarrow{AB}\) et le normaliser à la norme 4.<br>
+    <strong>3.</strong> En déduire les coordonnées du point \(C\), puis \(D = A + \overrightarrow{BC}\).<br>
+    <strong>4.</strong> Calculer l'aire de la zone de stockage.
+  </div>
+  <div class="reponse-box" style="min-height:120px">……………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}6\\2\end{pmatrix}\) ; \(AB = \sqrt{36+4} = \sqrt{40} = 2\sqrt{10} \approx 6{,}32\) m.</p>
+    <p><strong>2.</strong> Vecteur perpendiculaire : \(\begin{pmatrix}-2\\6\end{pmatrix}\). Norme : \(\sqrt{4+36} = \sqrt{40} = 2\sqrt{10}\).<br>
+    Vecteur normé à 4 : \(\dfrac{4}{2\sqrt{10}}\begin{pmatrix}-2\\6\end{pmatrix} = \dfrac{2}{\sqrt{10}}\begin{pmatrix}-2\\6\end{pmatrix} = \begin{pmatrix}-4/\sqrt{10}\\12/\sqrt{10}\end{pmatrix} \approx \begin{pmatrix}-1{,}26\\3{,}79\end{pmatrix}\)</p>
+    <p><strong>3.</strong> \(C \approx (6-1{,}26\,;\,2+3{,}79) = \)<span class="reponse">\(C(4{,}74\,;\,5{,}79)\)</span>.<br>
+    \(D = A + \overrightarrow{BC} = (0\,;\,0) + \overrightarrow{BC} = \overrightarrow{BC} \approx (-1{,}26\,;\,3{,}79)\) → \(D \approx (-1{,}26\,;\,3{,}79)\)</p>
+    <p><strong>4.</strong> Aire = \(AB \times BC = 2\sqrt{10} \times 4 \approx 6{,}32 \times 4 = \)<span class="reponse">25,3 m²</span>.</p>
+  </div>
 </div>
 
 </div><!-- fin diff-appro -->

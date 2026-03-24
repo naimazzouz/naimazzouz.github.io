@@ -290,6 +290,137 @@
   </details>
 </div>
 
+
+<!-- SOCLE S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Calculer l'aire sous une courbe simple (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Méthode</span>
+    Si \(f(x) \geq 0\) sur \([a\,;b]\), l'aire sous la courbe = \(\displaystyle\int_a^b f(x)\,dx = [F(x)]_a^b = F(b) - F(a)\).
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un artisan menuisier découpe un bord arrondi dont le profil suit la courbe \(f(x) = x\) (en cm) pour \(x \in [0\,;\,6]\). Il veut calculer l'aire de la surface découpée.
+  </div>
+  <div class="consigne">
+    <strong>Étape 1 :</strong> La fonction \(f(x) = x\) est-elle positive sur \([0\,;\,6]\) ?<br>
+    Comme \(x \geq 0\) sur \([0\,;\,6]\), la réponse est ☐ oui ☐ non<br><br>
+    <strong>Étape 2 :</strong> Trouver une primitive de \(f(x) = x\).<br>
+    La primitive de \(x\) est \(F(x) = \boxed{\phantom{\dfrac{x^2}{2}}}\)<br><br>
+    <strong>Étape 3 :</strong> Calculer l'intégrale.<br>
+    \(\displaystyle\int_0^6 x\,dx = \left[\dfrac{x^2}{2}\right]_0^6 = \dfrac{6^2}{2} - \dfrac{0^2}{2} = \dfrac{\boxed{\phantom{36}}}{2} - 0 = \boxed{\phantom{18}}\) cm²
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> Oui, \(f(x) = x \geq 0\) sur \([0\,;\,6]\).</p>
+    <p><strong>Étape 2 :</strong> <span class="reponse">\(F(x) = \dfrac{x^2}{2}\)</span></p>
+    <p><strong>Étape 3 :</strong> \(\displaystyle\int_0^6 x\,dx = \dfrac{36}{2} - 0 =\) <span class="reponse">\(18\) cm²</span></p>
+    <p>La surface découpée a une aire de <strong>18 cm²</strong>.</p>
+  </div>
+</div>
+
+<!-- SOCLE S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Intégrale d'une fonction affine (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="consigne">
+    Calculer chaque intégrale en suivant les étapes :<br><br>
+    <strong>a)</strong> \(\displaystyle\int_0^4 (3x + 1)\,dx\)<br>
+    <p style="font-size:.93em">
+      Primitive : \(F(x) = \dfrac{3x^2}{2} + x = \boxed{\phantom{\dfrac{3x^2}{2} + x}}\)<br>
+      \(F(4) = \dfrac{3 \times 16}{2} + 4 = 24 + 4 = \boxed{\phantom{28}}\)<br>
+      \(F(0) = 0 + 0 = \boxed{\phantom{0}}\)<br>
+      Résultat = \(\boxed{\phantom{28}} - \boxed{\phantom{0}} = \boxed{\phantom{28}}\)
+    </p>
+    <strong>b)</strong> \(\displaystyle\int_1^5 (2x - 3)\,dx\)<br>
+    <p style="font-size:.93em">
+      Primitive : \(F(x) = \boxed{\phantom{x^2 - 3x}}\)<br>
+      \(F(5) = 25 - 15 = \boxed{\phantom{10}}\)<br>
+      \(F(1) = 1 - 3 = \boxed{\phantom{-2}}\)<br>
+      Résultat = \(\boxed{\phantom{10}} - (\boxed{\phantom{-2}}) = \boxed{\phantom{12}}\)
+    </p>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(F(x) = \dfrac{3x^2}{2} + x\). \(F(4) = 28\), \(F(0) = 0\). <span class="reponse">\(\displaystyle\int_0^4 (3x + 1)\,dx = 28\)</span></p>
+    <p><strong>b)</strong> \(F(x) = x^2 - 3x\). \(F(5) = 10\), \(F(1) = -2\). <span class="reponse">\(\displaystyle\int_1^5 (2x - 3)\,dx = 10 - (-2) = 12\)</span></p>
+  </div>
+</div>
+
+<!-- SOCLE S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Primitives de fonctions usuelles — tableau complet</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="consigne">
+    Compléter le tableau en donnant une primitive de chaque fonction :<br>
+  </div>
+  <table>
+    <tr><th>\(f(x)\)</th><th>\(F(x)\) (primitive)</th></tr>
+    <tr><td>\(7\)</td><td></td></tr>
+    <tr><td>\(x^4\)</td><td></td></tr>
+    <tr><td>\(2x^3\)</td><td></td></tr>
+    <tr><td>\(3x^2 + 5x\)</td><td></td></tr>
+    <tr><td>\(e^x\)</td><td></td></tr>
+    <tr><td>\(\dfrac{1}{x}\) (pour \(x > 0\))</td><td></td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>\(f(x)\)</th><th>\(F(x)\)</th></tr>
+      <tr><td>\(7\)</td><td><span class="reponse">\(7x\)</span></td></tr>
+      <tr><td>\(x^4\)</td><td><span class="reponse">\(\dfrac{x^5}{5}\)</span></td></tr>
+      <tr><td>\(2x^3\)</td><td><span class="reponse">\(\dfrac{x^4}{2}\)</span></td></tr>
+      <tr><td>\(3x^2 + 5x\)</td><td><span class="reponse">\(x^3 + \dfrac{5x^2}{2}\)</span></td></tr>
+      <tr><td>\(e^x\)</td><td><span class="reponse">\(e^x\)</span></td></tr>
+      <tr><td>\(\dfrac{1}{x}\)</td><td><span class="reponse">\(\ln x\)</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SOCLE S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Calculer une intégrale pour trouver une valeur numérique (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste mesure que la puissance (en kW) d'une chaudière varie selon \(P(t) = 2t + 1\) pour \(t \in [0\,;\,4]\) heures. L'énergie consommée (en kWh) est l'intégrale de la puissance.
+  </div>
+  <div class="consigne">
+    <strong>Étape 1 :</strong> Trouver une primitive de \(P(t) = 2t + 1\).<br>
+    <p style="font-size:.93em">
+      Primitive de \(2t\) → \(t^2\). Primitive de \(1\) → \(t\). Donc \(F(t) = \boxed{\phantom{t^2 + t}}\)
+    </p>
+    <strong>Étape 2 :</strong> Calculer l'énergie sur \([0\,;\,4]\).<br>
+    <p style="font-size:.93em">
+      \(E = \displaystyle\int_0^4 (2t + 1)\,dt = [t^2 + t]_0^4\)<br>
+      \(F(4) = 4^2 + 4 = \boxed{\phantom{20}}\)<br>
+      \(F(0) = 0^2 + 0 = \boxed{\phantom{0}}\)<br>
+      \(E = \boxed{\phantom{20}} - \boxed{\phantom{0}} = \boxed{\phantom{20}}\) kWh
+    </p>
+    <strong>Étape 3 :</strong> Calculer la puissance moyenne sur ces 4 heures.<br>
+    <p style="font-size:.93em">
+      \(\bar{P} = \dfrac{E}{b - a} = \dfrac{20}{\boxed{\phantom{4}}} = \boxed{\phantom{5}}\) kW
+    </p>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> <span class="reponse">\(F(t) = t^2 + t\)</span></p>
+    <p><strong>Étape 2 :</strong> \(E = 20 - 0 =\) <span class="reponse">\(20\) kWh</span></p>
+    <p><strong>Étape 3 :</strong> Puissance moyenne = <span class="reponse">\(5\) kW</span>. Interprétation : sur ces 4 heures, la chaudière fonctionnerait de façon équivalente à une puissance constante de 5 kW.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================
@@ -374,6 +505,188 @@
       <p><strong>3.</strong> \(\displaystyle\int_0^8 f(x)\,dx = \int_0^5 f(x)\,dx + \int_5^8 f(x)\,dx = 12 + 4 =\) <span class="reponse">\(16\)</span></p>
   </div>
   </details>
+</div>
+
+<!-- ST4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Calculer une intégrale avec une fonction polynomiale</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Calculer les intégrales suivantes :</p>
+  <div class="consigne">
+    <strong>a)</strong> \(\displaystyle\int_1^4 (x^2 + 2x)\,dx\)<br>
+    <strong>b)</strong> \(\displaystyle\int_{-1}^{2} (3x^2 - x + 1)\,dx\)<br>
+    <strong>c)</strong> \(\displaystyle\int_0^3 \sqrt{x}\,dx\)<br>
+    <em>Rappel : une primitive de \(\sqrt{x} = x^{1/2}\) est \(\dfrac{2}{3}\,x^{3/2}\)</em>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> Primitive : \(F(x) = \dfrac{x^3}{3} + x^2\).<br>
+    \(F(4) = \dfrac{64}{3} + 16 = \dfrac{112}{3}\) ; \(F(1) = \dfrac{1}{3} + 1 = \dfrac{4}{3}\)<br>
+    <span class="reponse">\(\displaystyle\int_1^4 (x^2 + 2x)\,dx = \dfrac{112}{3} - \dfrac{4}{3} = \dfrac{108}{3} = 36\)</span></p>
+    <p><strong>b)</strong> Primitive : \(F(x) = x^3 - \dfrac{x^2}{2} + x\).<br>
+    \(F(2) = 8 - 2 + 2 = 8\) ; \(F(-1) = -1 - \dfrac{1}{2} - 1 = -\dfrac{5}{2}\)<br>
+    <span class="reponse">\(\displaystyle\int_{-1}^{2} (3x^2 - x + 1)\,dx = 8 - (-\dfrac{5}{2}) = \dfrac{21}{2} = 10{,}5\)</span></p>
+    <p><strong>c)</strong> Primitive : \(F(x) = \dfrac{2}{3}\,x^{3/2}\).<br>
+    \(F(3) = \dfrac{2}{3} \times 3\sqrt{3} = 2\sqrt{3}\) ; \(F(0) = 0\)<br>
+    <span class="reponse">\(\displaystyle\int_0^3 \sqrt{x}\,dx = 2\sqrt{3} \approx 3{,}46\)</span></p>
+  </div>
+</div>
+
+<!-- ST5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Intégrale et aire — interprétation géométrique</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>On considère la fonction \(f(x) = -x^2 + 9\) sur l'intervalle \([0\,;\,3]\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Montrer que \(f(x) \geq 0\) sur \([0\,;\,3]\).<br>
+    <strong>2.</strong> Calculer l'aire sous la courbe \(\displaystyle\mathcal{A} = \int_0^3 (-x^2 + 9)\,dx\).<br>
+    <strong>3.</strong> Calculer l'aire du rectangle de base \([0\,;\,3]\) et de hauteur \(f(0) = 9\). Comparer avec l'intégrale.<br>
+    <strong>4.</strong> En déduire la valeur moyenne de \(f\) sur \([0\,;\,3]\).
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(f(x) = -x^2 + 9 = (3-x)(3+x)\). Sur \([0\,;\,3]\), \(3-x \geq 0\) et \(3+x > 0\), donc \(f(x) \geq 0\) ✓</p>
+    <p><strong>2.</strong> Primitive : \(F(x) = -\dfrac{x^3}{3} + 9x\).<br>
+    \(F(3) = -9 + 27 = 18\) ; \(F(0) = 0\)<br>
+    <span class="reponse">\(\mathcal{A} = 18\) u.a.</span></p>
+    <p><strong>3.</strong> Rectangle : \(3 \times 9 = 27\) u.a. L'aire sous la courbe (18) est plus petite que l'aire du rectangle (27) car la parabole est décroissante sur \([0\,;\,3]\).</p>
+    <p><strong>4.</strong> Valeur moyenne = \(\dfrac{18}{3} =\) <span class="reponse">\(6\)</span></p>
+  </div>
+</div>
+
+<!-- ST6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Appliquer la relation de Chasles — découpage d'intervalle</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="consigne">
+    On donne : \(\displaystyle\int_1^4 f(x)\,dx = 8\), \(\displaystyle\int_4^7 f(x)\,dx = 3\) et \(\displaystyle\int_7^{10} f(x)\,dx = -2\).<br><br>
+    <strong>1.</strong> Rappeler la relation de Chasles.<br>
+    <strong>2.</strong> Calculer \(\displaystyle\int_1^{10} f(x)\,dx\).<br>
+    <strong>3.</strong> Calculer \(\displaystyle\int_4^{10} f(x)\,dx\).<br>
+    <strong>4.</strong> Que représente \(\displaystyle\int_1^{10} |f(x)|\,dx\) si les portions positives et négatives ont les valeurs données ci-dessus ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Relation de Chasles : <span class="reponse">\(\displaystyle\int_a^c f = \int_a^b f + \int_b^c f\)</span> pour tout \(b \in [a\,;c]\).</p>
+    <p><strong>2.</strong> \(\displaystyle\int_1^{10} f = 8 + 3 + (-2) =\) <span class="reponse">\(9\)</span></p>
+    <p><strong>3.</strong> \(\displaystyle\int_4^{10} f = 3 + (-2) =\) <span class="reponse">\(1\)</span></p>
+    <p><strong>4.</strong> \(\displaystyle\int_1^{10} |f|\) = somme des <strong>valeurs absolues</strong> = \(8 + 3 + 2 =\) <span class="reponse">\(13\)</span>. C'est l'aire géométrique totale (toujours positive).</p>
+  </div>
+</div>
+
+<!-- ST7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Valeur moyenne — température d'un local</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien d'agencement surveille la température (en °C) d'un atelier de vernissage qui doit être maintenue pour assurer le séchage correct des produits. La température suit le modèle \(T(t) = -0{,}5t^2 + 4t + 18\) pour \(t \in [0\,;\,6]\) heures.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(T(0)\), \(T(3)\) et \(T(6)\). La température est-elle montée ou descendue ?<br>
+    <strong>2.</strong> Calculer \(\displaystyle\int_0^6 T(t)\,dt\).<br>
+    <strong>3.</strong> En déduire la température moyenne sur les 6 heures.<br>
+    <strong>4.</strong> La norme de vernissage exige une température moyenne entre 18 °C et 25 °C. L'atelier est-il conforme ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(T(0) = 18\) °C, \(T(3) = -4{,}5 + 12 + 18 = 25{,}5\) °C, \(T(6) = -18 + 24 + 18 = 24\) °C.<br>
+    La température est <span class="reponse">montée puis légèrement redescendue</span>.</p>
+    <p><strong>2.</strong> Primitive : \(F(t) = -\dfrac{t^3}{6} + 2t^2 + 18t\).<br>
+    \(F(6) = -36 + 72 + 108 = 144\) ; \(F(0) = 0\)<br>
+    <span class="reponse">\(\displaystyle\int_0^6 T(t)\,dt = 144\)</span></p>
+    <p><strong>3.</strong> Température moyenne = \(\dfrac{144}{6} =\) <span class="reponse">\(24\) °C</span></p>
+    <p><strong>4.</strong> \(18 \leq 24 \leq 25\) : <span class="reponse">l'atelier est conforme à la norme de vernissage</span>.</p>
+  </div>
+</div>
+
+<!-- ST8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 15</span>
+    <span class="exo-title">Linéarité de l'intégrale — application numérique</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>On sait que \(\displaystyle\int_0^4 f(x)\,dx = 10\), \(\displaystyle\int_0^4 g(x)\,dx = -2\) et \(\displaystyle\int_0^4 h(x)\,dx = 6\).</p>
+  <div class="consigne">
+    Calculer, sans nouvelles primitives, les intégrales suivantes :<br>
+    <strong>a)</strong> \(\displaystyle\int_0^4 \bigl[f(x) + g(x)\bigr]\,dx\)<br>
+    <strong>b)</strong> \(\displaystyle\int_0^4 \bigl[2f(x) - 3g(x)\bigr]\,dx\)<br>
+    <strong>c)</strong> \(\displaystyle\int_0^4 \bigl[f(x) + g(x) + h(x)\bigr]\,dx\)<br>
+    <strong>d)</strong> \(\displaystyle\int_4^0 f(x)\,dx\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(10 + (-2) =\) <span class="reponse">\(8\)</span></p>
+    <p><strong>b)</strong> \(2 \times 10 - 3 \times (-2) = 20 + 6 =\) <span class="reponse">\(26\)</span></p>
+    <p><strong>c)</strong> \(10 + (-2) + 6 =\) <span class="reponse">\(14\)</span></p>
+    <p><strong>d)</strong> Inverser les bornes change le signe : \(\displaystyle\int_4^0 f(x)\,dx = -\displaystyle\int_0^4 f(x)\,dx =\) <span class="reponse">\(-10\)</span></p>
+  </div>
+</div>
+
+<!-- ST9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Aire sous une courbe — contexte professionnel</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur thermique étudie la courbe de charge d'une installation solaire. La puissance captée (en kW) suit le modèle \(P(t) = 3t - t^2\) pour \(t \in [0\,;\,3]\) heures (temps mesuré à partir de 9 h du matin).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(P(0)\), \(P(1{,}5)\) et \(P(3)\). Interpréter la valeur \(P(3)\).<br>
+    <strong>2.</strong> La fonction est-elle positive sur \([0\,;\,3]\) ? (Étudier le signe de \(t(3-t)\))<br>
+    <strong>3.</strong> Calculer l'énergie captée sur ces 3 heures : \(E = \displaystyle\int_0^3 (3t - t^2)\,dt\).<br>
+    <strong>4.</strong> Calculer la puissance moyenne captée.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(0) = 0\) kW, \(P(1{,}5) = 4{,}5 - 2{,}25 = 2{,}25\) kW (maximum), \(P(3) = 9 - 9 = 0\) kW.<br>
+    \(P(3) = 0\) signifie <span class="reponse">l'installation solaire ne produit plus à cet instant (ex : crépuscule).</span></p>
+    <p><strong>2.</strong> \(P(t) = t(3-t)\). Sur \([0\,;\,3]\), \(t \geq 0\) et \(3-t \geq 0\), donc <span class="reponse">\(P(t) \geq 0\)</span> ✓</p>
+    <p><strong>3.</strong> Primitive : \(F(t) = \dfrac{3t^2}{2} - \dfrac{t^3}{3}\).<br>
+    \(F(3) = \dfrac{27}{2} - 9 = 13{,}5 - 9 = 4{,}5\) ; \(F(0) = 0\)<br>
+    <span class="reponse">\(E = 4{,}5\) kWh</span></p>
+    <p><strong>4.</strong> Puissance moyenne = \(\dfrac{4{,}5}{3} =\) <span class="reponse">\(1{,}5\) kW</span></p>
+  </div>
+</div>
+
+<!-- ST10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Intégrale et débit volumique</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un plombier chauffagiste mesure le débit d'eau (en litres par minute) dans un circuit de chauffage lors du remplissage. Le débit suit la loi \(Q(t) = 4 - 0{,}5t\) pour \(t \in [0\,;\,8\] minutes.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> À quel instant le débit s'annule-t-il ?<br>
+    <strong>2.</strong> Calculer le volume total d'eau qui passe dans le circuit pendant ces 8 minutes : \(V = \displaystyle\int_0^8 Q(t)\,dt\).<br>
+    <strong>3.</strong> Interpréter le signe de l'intégrale pour \(t \in [0\,;\,8]\) sachant que \(Q\) change de signe en \(t = 8\). (Attention : si \(Q(t) < 0\), l'intégrale est négative).<br>
+    <em>Indication : calculer séparément les deux parties.</em>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(Q(t) = 0\) → \(4 - 0{,}5t = 0\) → <span class="reponse">\(t = 8\) minutes</span> (le débit s'annule exactement en fin d'intervalle).</p>
+    <p><strong>2.</strong> Primitive : \(F(t) = 4t - \dfrac{t^2}{4}\).<br>
+    \(F(8) = 32 - 16 = 16\) ; \(F(0) = 0\)<br>
+    <span class="reponse">\(V = 16\) litres</span></p>
+    <p><strong>3.</strong> Sur \([0\,;\,8]\), \(Q(t) \geq 0\) (le débit reste positif jusqu'à \(t = 8\)), donc l'intégrale est positive : <span class="reponse">16 litres d'eau ont été injectés dans le circuit</span>.</p>
+  </div>
 </div>
 
 <!-- NIVEAU 3 -->
@@ -569,6 +882,136 @@
       <p><strong>4.</strong> Masse = \(0{,}64 \times 0{,}6 =\) <span class="reponse">\(0{,}384\) kg ≈ 384 g</span>.</p>
   </div>
   </details>
+</div>
+
+
+<!-- AP4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Aire entre deux courbes — profilé de façade</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien d'agencement conçoit un profilé décoratif pour une façade. La section transversale est délimitée par deux courbes : la courbe supérieure \(f(x) = x^2 + 2\) et la courbe inférieure \(g(x) = x + 2\) sur un intervalle à déterminer.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Trouver les points d'intersection de \(f\) et \(g\) en résolvant \(f(x) = g(x)\).<br>
+    <strong>2.</strong> Sur l'intervalle trouvé, déterminer quelle courbe est au-dessus.<br>
+    <strong>3.</strong> Calculer l'aire entre les deux courbes.<br>
+    <strong>4.</strong> Le profilé a une longueur de 2 m. Calculer le volume de matière (en cm³), sachant que la section est en cm².
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(x^2 + 2 = x + 2\) → \(x^2 - x = 0\) → \(x(x-1) = 0\)<br>
+    <span class="reponse">\(x = 0\) ou \(x = 1\)</span></p>
+    <p><strong>2.</strong> Pour \(x \in ]0\,;\,1[\), tester en \(x = 0{,}5\) : \(f(0{,}5) = 2{,}25 > g(0{,}5) = 2{,}5\)... non. \(g(0{,}5) = 2{,}5 > f(0{,}5) = 2{,}25\). Donc <span class="reponse">\(g\) est au-dessus de \(f\)</span> sur \([0\,;\,1]\).</p>
+    <p><strong>3.</strong> \(\mathcal{A} = \displaystyle\int_0^1 [g(x) - f(x)]\,dx = \int_0^1 (x + 2 - x^2 - 2)\,dx = \int_0^1 (x - x^2)\,dx\)<br>
+    Primitive : \(F(x) = \dfrac{x^2}{2} - \dfrac{x^3}{3}\).<br>
+    \(F(1) = \dfrac{1}{2} - \dfrac{1}{3} = \dfrac{1}{6}\) ; \(F(0) = 0\)<br>
+    <span class="reponse">\(\mathcal{A} = \dfrac{1}{6} \approx 0{,}167\) cm²</span></p>
+    <p><strong>4.</strong> Volume = Section × Longueur = \(\dfrac{1}{6}\) cm² × 200 cm = <span class="reponse">\(\dfrac{200}{6} \approx 33{,}3\) cm³</span></p>
+  </div>
+</div>
+
+<!-- AP5 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Intégrale et bilan thermique journalier</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un ingénieur thermicien calcule le bilan thermique d'un bâtiment de bureaux sur une journée. Les apports solaires \(A(t)\) (en kW) et les pertes thermiques \(P(t)\) (en kW) sont modélisés par des fonctions du temps \(t\) (en heures, de 0 à 24 h).
+  </div>
+  <p>Sur la plage \([8\,;\,18]\) heures (heures d'occupation) :</p>
+  <div class="formule-box">
+    \(A(t) = -0{,}1(t-13)^2 + 8\)  (apports solaires maximaux à 13 h)<br>
+    \(P(t) = 2\)  (pertes constantes)
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(A(8)\), \(A(13)\) et \(A(18)\).<br>
+    <strong>2.</strong> Calculer l'énergie solaire totale captée : \(E_A = \displaystyle\int_8^{18} A(t)\,dt\).<br>
+    <strong>3.</strong> Calculer l'énergie perdue : \(E_P = \displaystyle\int_8^{18} P(t)\,dt\).<br>
+    <strong>4.</strong> Calculer le bilan net \(E_{\text{net}} = E_A - E_P\). Le bâtiment est-il en excédent ou en déficit thermique ?<br>
+    <strong>5.</strong> Pour quel(s) intervalle(s) les apports sont-ils supérieurs aux pertes ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(A(8) = -0{,}1 \times 25 + 8 = 5{,}5\) kW ; \(A(13) = 8\) kW (maximum) ; \(A(18) = 5{,}5\) kW.</p>
+    <p><strong>2.</strong> Primitive de \(A(t) = -0{,}1(t-13)^2 + 8\) : on pose \(u = t-13\), primitive de \(-0{,}1u^2 + 8\) est \(-\dfrac{0{,}1u^3}{3} + 8u\).<br>
+    \(E_A = \left[-\dfrac{0{,}1(t-13)^3}{3} + 8(t-13)\right]_8^{18}\)<br>
+    En \(t=18\) : \(u=5\) → \(-\dfrac{0{,}1 \times 125}{3} + 40 = -4{,}167 + 40 = 35{,}833\)<br>
+    En \(t=8\) : \(u=-5\) → \(-\dfrac{0{,}1 \times (-125)}{3} + 8 \times (-5) = 4{,}167 - 40 = -35{,}833\)<br>
+    <span class="reponse">\(E_A = 35{,}833 - (-35{,}833) = 71{,}67\) kWh</span></p>
+    <p><strong>3.</strong> \(E_P = 2 \times (18 - 8) =\) <span class="reponse">\(20\) kWh</span></p>
+    <p><strong>4.</strong> \(E_{\text{net}} = 71{,}67 - 20 =\) <span class="reponse">\(51{,}67\) kWh → excédent thermique</span>. Le bâtiment reçoit plus d'énergie qu'il n'en perd.</p>
+    <p><strong>5.</strong> \(A(t) > P(t)\) quand \(-0{,}1(t-13)^2 + 8 > 2\) → \((t-13)^2 < 60\) → \(|t-13| < \sqrt{60} \approx 7{,}75\)<br>
+    <span class="reponse">\(t \in [5{,}25\,;\,20{,}75]\)</span>, soit pratiquement toute la plage d'occupation \([8\,;\,18]\).</p>
+  </div>
+</div>
+
+<!-- AP6 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Calcul de volume par intégration — solide de révolution simplifié</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur tourne une colonne décorative sur son tour à bois. Le profil de la colonne (rayon en cm en fonction de la hauteur \(x\) en cm) suit la loi \(r(x) = 2 + 0{,}5\,\sqrt{x}\) pour \(x \in [0\,;\,16]\).
+  </div>
+  <p>Le volume d'un solide de révolution est : \(V = \pi \displaystyle\int_0^{16} [r(x)]^2\,dx\)</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(r(0)\) et \(r(16)\). Interpréter (rayon en bas et en haut de la colonne).<br>
+    <strong>2.</strong> Développer \([r(x)]^2 = (2 + 0{,}5\sqrt{x})^2\).<br>
+    <strong>3.</strong> Calculer \(\displaystyle\int_0^{16} [r(x)]^2\,dx\).<br>
+    <em>Rappel : une primitive de \(\sqrt{x}\) est \(\dfrac{2}{3}x^{3/2}\) et de \(x\) est \(\dfrac{x^2}{2}\).</em><br>
+    <strong>4.</strong> En déduire le volume \(V\) en cm³, puis en dm³. (Prendre \(\pi \approx 3{,}14159\))
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(r(0) = 2\) cm (rayon en bas), \(r(16) = 2 + 0{,}5 \times 4 = 4\) cm (rayon en haut).<br>
+    La colonne s'élargit de <span class="reponse">2 cm à 4 cm de rayon</span> sur 16 cm de hauteur.</p>
+    <p><strong>2.</strong> \([r(x)]^2 = 4 + 2\sqrt{x} + 0{,}25x\)</p>
+    <p><strong>3.</strong> Primitive : \(F(x) = 4x + 2 \times \dfrac{2}{3}x^{3/2} + 0{,}25 \times \dfrac{x^2}{2} = 4x + \dfrac{4}{3}x^{3/2} + \dfrac{x^2}{8}\)<br>
+    \(F(16) = 64 + \dfrac{4}{3} \times 64 + \dfrac{256}{8} = 64 + 85{,}33 + 32 = 181{,}33\)<br>
+    \(F(0) = 0\)<br>
+    <span class="reponse">\(\displaystyle\int_0^{16} [r(x)]^2\,dx \approx 181{,}33\) cm²·cm</span></p>
+    <p><strong>4.</strong> \(V = \pi \times 181{,}33 \approx 3{,}14159 \times 181{,}33 \approx\) <span class="reponse">\(569{,}7\) cm³ ≈ 0,570 dm³</span></p>
+  </div>
+</div>
+
+<!-- AP7 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Intégrale avec changement de signe — puissance nette</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien en énergies renouvelables analyse une éolienne. La puissance nette (en kW) — différence entre la puissance produite et les pertes du réseau — suit le modèle \(P(t) = t^2 - 8t + 12\) pour \(t \in [0\,;\,8]\) heures.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les racines de \(P(t) = 0\). Étudier le signe de \(P\) sur \([0\,;\,8]\).<br>
+    <strong>2.</strong> Calculer l'intégrale algébrique \(\displaystyle\int_0^8 P(t)\,dt\). Interpréter le résultat.<br>
+    <strong>3.</strong> Calculer l'énergie effectivement produite (en valeur absolue) : \(\displaystyle\int_0^2 P(t)\,dt + \left|\displaystyle\int_2^6 P(t)\,dt\right| + \displaystyle\int_6^8 P(t)\,dt\).<br>
+    <strong>4.</strong> Comment interpréter l'intervalle \([2\,;\,6]\) en termes d'exploitation de l'éolienne ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(t^2 - 8t + 12 = 0\) → \(\Delta = 64 - 48 = 16\) → <span class="reponse">\(t = 2\) ou \(t = 6\)</span><br>
+    Signe : \(P(t) > 0\) sur \([0\,;\,2[\) et \(]6\,;\,8]\), \(P(t) < 0\) sur \(]2\,;\,6[\).</p>
+    <p><strong>2.</strong> Primitive : \(F(t) = \dfrac{t^3}{3} - 4t^2 + 12t\).<br>
+    \(F(8) = \dfrac{512}{3} - 256 + 96 = 170{,}67 - 160 = 10{,}67\) ; \(F(0) = 0\)<br>
+    <span class="reponse">\(\displaystyle\int_0^8 P(t)\,dt \approx 10{,}67\) kWh</span> (bilan global légèrement positif)</p>
+    <p><strong>3.</strong><br>
+    \(\displaystyle\int_0^2 P(t)\,dt = F(2) - F(0) = (\dfrac{8}{3} - 16 + 24) = \dfrac{8}{3} + 8 = \dfrac{32}{3} \approx 10{,}67\) kWh<br>
+    \(\displaystyle\int_2^6 P(t)\,dt = F(6) - F(2) = (72 - 144 + 72) - \dfrac{32}{3} = 0 - \dfrac{32}{3} \approx -10{,}67\) kWh → valeur absolue : 10,67 kWh<br>
+    \(\displaystyle\int_6^8 P(t)\,dt = F(8) - F(6) = \dfrac{32}{3} \approx 10{,}67\) kWh<br>
+    Énergie totale = <span class="reponse">\(\dfrac{32}{3} + \dfrac{32}{3} + \dfrac{32}{3} = 32\) kWh</span></p>
+    <p><strong>4.</strong> Sur \([2\,;\,6]\), \(P(t) < 0\) : <span class="reponse">l'éolienne consomme plus qu'elle ne produit</span> (vent faible, pertes réseau dominantes). Cette période correspond à une exploitation déficitaire.</p>
+  </div>
 </div>
 
 </div><!-- fin diff-appro -->

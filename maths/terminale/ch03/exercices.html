@@ -277,6 +277,133 @@
   </details>
 </div>
 
+<!-- SOCLE S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Calculer des termes avec la formule directe — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Formule directe :</strong> \(u_n = u_0 \times q^n\)<br>
+    On connaît \(u_0\) et \(q\), on remplace \(n\) par le rang voulu.
+  </div>
+  <p>Un technicien chauffagiste note que la facture de gaz d'un immeuble est de <strong>3 200 €</strong> la première année (\(n = 0\)). Elle augmente de <strong>5 %</strong> par an.</p>
+  <div class="consigne"><strong>1.</strong> Quelle est la raison \(q\) de la suite ? Pourquoi ?</div>
+  <p style="margin-left:1em">☐ \(q = 0{,}05\)   ☐ \(q = 1{,}05\)   ☐ \(q = 5\)</p>
+  <div class="consigne"><strong>2.</strong> Calculer \(u_1\) avec la récurrence :</div>
+  <p style="font-size:.93em">\(u_1 = \boxed{\phantom{1,05}} \times \boxed{\phantom{3200}} = \boxed{\phantom{3360}}\) €</p>
+  <div class="consigne"><strong>3.</strong> Calculer directement \(u_4\) (facture à la 4e année) :</div>
+  <p style="font-size:.93em">\(u_4 = 3\,200 \times (1{,}05)^{\boxed{\phantom{4}}} = 3\,200 \times \boxed{\phantom{1,2155}} \approx \boxed{\phantom{3890}}\) €</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Augmenter de 5 % = multiplier par <span class="reponse">\(q = 1{,}05\)</span> (on garde 100 % + 5 % = 105 %).</p>
+    <p><strong>2.</strong> \(u_1 = 1{,}05 \times 3\,200 = \)<span class="reponse">\(3\,360\) €</span></p>
+    <p><strong>3.</strong> \(u_4 = 3\,200 \times 1{,}05^4 = 3\,200 \times 1{,}2155 \approx \)<span class="reponse">\(3\,890\) €</span></p>
+  </div>
+</div>
+
+<!-- SOCLE S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Identifier le sens de variation d'une suite</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Règle :</strong><br>
+    – Si \(u_0 > 0\) et \(q > 1\) : suite <strong>croissante</strong> (les termes augmentent)<br>
+    – Si \(u_0 > 0\) et \(0 < q < 1\) : suite <strong>décroissante</strong> (les termes diminuent)<br>
+    – Si \(q = 1\) : suite <strong>constante</strong>
+  </div>
+  <p>Pour chaque suite, cocher le sens de variation :</p>
+  <table>
+    <thead><tr><th>Suite</th><th>\(u_0\)</th><th>Raison \(q\)</th><th>Croissante</th><th>Décroissante</th><th>Constante</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>500</td><td>1,03</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>B</td><td>2 400</td><td>0,85</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>C</td><td>1 000</td><td>1</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>D</td><td>750</td><td>0,92</td><td class="vide">☐</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Suite</th><th>Sens</th><th>Justification</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td class="hl"><span class="reponse">Croissante</span></td><td>\(q = 1{,}03 > 1\) et \(u_0 > 0\) → augmente de 3 % à chaque rang.</td></tr>
+        <tr><td>B</td><td class="hl"><span class="reponse">Décroissante</span></td><td>\(q = 0{,}85 < 1\) et \(u_0 > 0\) → diminue de 15 % à chaque rang.</td></tr>
+        <tr><td>C</td><td class="hl"><span class="reponse">Constante</span></td><td>\(q = 1\) → \(u_n = 1\,000\) pour tout \(n\).</td></tr>
+        <tr><td>D</td><td class="hl"><span class="reponse">Décroissante</span></td><td>\(q = 0{,}92 < 1\) et \(u_0 > 0\) → diminue de 8 % à chaque rang.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SOCLE S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Trouver la raison à partir d'un taux de variation</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Pour chaque situation, indiquer la raison \(q\) de la suite géométrique correspondante :</p>
+  <table>
+    <thead><tr><th>Situation</th><th>Raison \(q\)</th></tr></thead>
+    <tbody>
+      <tr><td>Un équipement perd <strong>10 %</strong> de sa valeur chaque année</td><td class="vide">☐ 0,90   ☐ 1,10   ☐ 0,10</td></tr>
+      <tr><td>Un chiffre d'affaires augmente de <strong>7 %</strong> par an</td><td class="vide">☐ 0,93   ☐ 1,07   ☐ 7</td></tr>
+      <tr><td>Une consommation diminue de <strong>3 %</strong> par an grâce à des travaux</td><td class="vide">☐ 1,03   ☐ 0,97   ☐ 0,03</td></tr>
+      <tr><td>Un salaire reste constant d'une année sur l'autre</td><td class="vide">☐ 0   ☐ 1   ☐ 100</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Situation</th><th>Raison</th><th>Explication</th></tr></thead>
+      <tbody>
+        <tr><td>Perd 10 %</td><td><span class="reponse">\(q = 0{,}90\)</span></td><td>Il reste 90 % = on multiplie par 0,90</td></tr>
+        <tr><td>Augmente de 7 %</td><td><span class="reponse">\(q = 1{,}07\)</span></td><td>Il y a 107 % = on multiplie par 1,07</td></tr>
+        <tr><td>Diminue de 3 %</td><td><span class="reponse">\(q = 0{,}97\)</span></td><td>Il reste 97 % = on multiplie par 0,97</td></tr>
+        <tr><td>Reste constant</td><td><span class="reponse">\(q = 1\)</span></td><td>On multiplie par 1, rien ne change</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SOCLE S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Compléter un tableau et trouver un seuil</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Situation :</strong> Un atelier de menuiserie investit dans une machine à commande numérique à <strong>15 000 €</strong>. Sa valeur diminue de <strong>12 %</strong> par an.
+  </div>
+  <div class="consigne"><strong>1.</strong> Quelle est la raison de la suite ? Entourer la bonne réponse :</div>
+  <p style="margin-left:1em">☐ \(q = 0{,}12\)   ☐ \(q = 0{,}88\)   ☐ \(q = 1{,}12\)</p>
+  <div class="consigne"><strong>2.</strong> Compléter le tableau en multipliant par \(q\) chaque année :</div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><th>Valeur \(u_n\) (€)</th><td>15 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <div class="consigne"><strong>3.</strong> L'atelier revend la machine quand sa valeur passe sous <strong>6 000 €</strong>. En quelle année peut-il la revendre d'après le tableau ?</div>
+  <div class="reponse-box">D'après le tableau, à partir de l'année \(n = \) ………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Diminuer de 12 % = garder 88 % = multiplier par <span class="reponse">\(q = 0{,}88\)</span></p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>Année</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+      <tr><th>Valeur (€)</th><td>15 000</td><td class="hl">13 200</td><td class="hl">11 616</td><td class="hl">10 222</td><td class="hl">8 995</td><td class="hl">7 916</td></tr>
+    </table>
+    <p>Vérif : \(u_5 = 15000 \times 0{,}88^5 = 15000 \times 0{,}5277 \approx 7\,916\) ✓</p>
+    <p><strong>3.</strong> Continuer : \(u_6 = 7916 \times 0{,}88 \approx 6966\) ; \(u_7 = 6966 \times 0{,}88 \approx 6130\) ; \(u_8 = 6130 \times 0{,}88 \approx 5395 < 6000\).<br>
+    La machine peut être revendue à partir de l'<span class="reponse">année \(n = 8\)</span>.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================
@@ -413,6 +540,230 @@
       La suite est <span class="reponse">croissante</span> car \(u_0 = 12\,000 > 0\) et \(q = 1{,}06 > 1\) : chaque terme est plus grand que le précédent.</p>
   </div>
   </details>
+</div>
+
+<!-- STANDARD S4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Dépréciation d'un véhicule utilitaire</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un menuisier agenceur achète un véhicule utilitaire neuf à <strong>22 000 €</strong>. Sa valeur se déprécie de <strong>18 %</strong> par an.
+  </div>
+  <p>On modélise la valeur par \(u_n = 22\,000 \times q^n\) avec \(q = 0{,}82\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Justifier que \(q = 0{,}82\).<br>
+    <strong>2.</strong> Calculer la valeur après 3 ans et après 5 ans (arrondir à l'euro).<br>
+    <strong>3.</strong> Le menuisier peut revendre le véhicule à un repreneur pour 8 000 €. À partir de quelle année la valeur du modèle passe-t-elle en dessous de 8 000 € ? (Compléter le tableau.)<br>
+    <strong>4.</strong> La suite est-elle croissante ou décroissante ? Pourquoi ?
+  </div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+    <tr><th>Valeur (€)</th><td>22 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Perte de 18 % → il reste 82 % = \(q = 0{,}82\)</p>
+    <p><strong>2.</strong> \(u_3 = 22\,000 \times 0{,}82^3 = 22\,000 \times 0{,}5514 \approx \)<span class="reponse">\(12\,130\) €</span><br>
+    \(u_5 = 22\,000 \times 0{,}82^5 = 22\,000 \times 0{,}3707 \approx \)<span class="reponse">\(8\,155\) €</span></p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+      <tr><th>\(u_n\) (€)</th><td>22 000</td><td class="hl">18 040</td><td class="hl">14 793</td><td class="hl">12 130</td><td class="hl">9 947</td><td class="hl">8 156</td><td class="hl">6 688</td></tr>
+    </table>
+    <p>\(u_5 \approx 8\,156 > 8\,000\) et \(u_6 \approx 6\,688 < 8\,000\) → revente possible à partir de l'<span class="reponse">année 6</span>.</p>
+    <p><strong>4.</strong> Suite <span class="reponse">décroissante</span> : \(q = 0{,}82 < 1\) et \(u_0 > 0\).</p>
+  </div>
+</div>
+
+<!-- STANDARD S5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Capitalisation d'une épargne professionnelle</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un installateur thermique place <strong>5 000 €</strong> sur un livret professionnel à un taux annuel de <strong>3,5 %</strong>. Il ne fait aucun retrait.
+  </div>
+  <p>On modélise l'épargne par \(u_n = 5\,000 \times 1{,}035^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Quelle est la raison de la suite ? La suite est-elle croissante ou décroissante ?<br>
+    <strong>2.</strong> Calculer le montant de l'épargne après 4 ans. Arrondir au centime.<br>
+    <strong>3.</strong> Calculer le montant après 10 ans.<br>
+    <strong>4.</strong> En quelle année l'épargne dépassera-t-elle <strong>7 000 €</strong> ? (Utiliser le tableau ci-dessous.)
+  </div>
+  <table>
+    <tr><th>\(n\)</th><td>8</td><td>9</td><td>10</td><td>11</td></tr>
+    <tr><th>\(1{,}035^n\)</th><td>1,3168</td><td>1,3629</td><td>1,4106</td><td>1,4600</td></tr>
+    <tr><th>\(u_n\) (€)</th><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(q = 1{,}035 > 1\) → suite <span class="reponse">croissante</span> : l'épargne augmente chaque année.</p>
+    <p><strong>2.</strong> \(u_4 = 5\,000 \times 1{,}035^4 = 5\,000 \times 1{,}1475 \approx \)<span class="reponse">\(5\,737{,}50\) €</span></p>
+    <p><strong>3.</strong> \(u_{10} = 5\,000 \times 1{,}035^{10} = 5\,000 \times 1{,}4106 \approx \)<span class="reponse">\(7\,053\) €</span></p>
+    <p><strong>4.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>8</td><td>9</td><td>10</td><td>11</td></tr>
+      <tr><th>\(u_n\) (€)</th><td class="hl">6 584</td><td class="hl">6 815</td><td class="hl">7 053</td><td class="hl">7 300</td></tr>
+    </table>
+    <p>\(u_9 \approx 6\,815 < 7\,000\) et \(u_{10} \approx 7\,053 > 7\,000\) → l'épargne dépasse 7 000 € en <span class="reponse">année \(n = 10\)</span>.</p>
+  </div>
+</div>
+
+<!-- STANDARD S6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Modéliser une réduction de consommation</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un technicien en énergies renouvelables suit la consommation électrique d'un bâtiment tertiaire après l'installation de panneaux photovoltaïques. La consommation nette était de <strong>18 000 kWh</strong> en 2024 (\(n = 0\)) et diminue de <strong>9 %</strong> par an.
+  </div>
+  <p>On modélise par \(u_n = 18\,000 \times 0{,}91^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Justifier que \(q = 0{,}91\).<br>
+    <strong>2.</strong> Calculer \(u_5\) (consommation en 2029).<br>
+    <strong>3.</strong> Compléter le tableau (arrondir au kWh) et identifier à partir de quelle année la consommation passe sous 10 000 kWh.
+  </div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+    <tr><th>\(u_n\) (kWh)</th><td>18 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Diminuer de 9 % → il reste 91 % → <span class="reponse">\(q = 0{,}91\)</span></p>
+    <p><strong>2.</strong> \(u_5 = 18\,000 \times 0{,}91^5 = 18\,000 \times 0{,}6240 \approx \)<span class="reponse">\(11\,232\) kWh</span></p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+      <tr><th>\(u_n\)</th><td>18 000</td><td class="hl">16 380</td><td class="hl">14 906</td><td class="hl">13 564</td><td class="hl">12 343</td><td class="hl">11 232</td><td class="hl">10 221</td><td class="hl">9 301</td></tr>
+    </table>
+    <p>\(u_6 \approx 10\,221 > 10\,000\) et \(u_7 \approx 9\,301 < 10\,000\) → la consommation passe sous 10 000 kWh à partir de l'<span class="reponse">année \(n = 7\)</span> (2031).</p>
+  </div>
+</div>
+
+<!-- STANDARD S7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 23</span>
+    <span class="exo-title">Utiliser la somme des premiers termes</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Le chiffre d'affaires d'une entreprise de pose de menuiseries extérieures est de <strong>120 000 €</strong> la première année (\(n = 0\)). Il augmente de <strong>5 %</strong> par an.
+  </div>
+  <p>On note \(u_n = 120\,000 \times 1{,}05^n\). La somme des \(N\) premiers termes est :\[S_N = u_0 \times \dfrac{1 - q^N}{1 - q}\]</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le CA prévu en année \(n = 5\). Arrondir à l'euro.<br>
+    <strong>2.</strong> Calculer le CA cumulé sur les 5 premières années (\(n = 0\) à \(n = 4\)) avec la formule.<br>
+    <strong>3.</strong> Une banque exige un CA cumulé sur 4 ans de 550 000 € pour financer un investissement. La condition est-elle remplie ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_5 = 120\,000 \times 1{,}05^5 = 120\,000 \times 1{,}2763 \approx \)<span class="reponse">\(153\,153\) €</span></p>
+    <p><strong>2.</strong> \(S_5 = 120\,000 \times \dfrac{1 - 1{,}05^5}{1 - 1{,}05} = 120\,000 \times \dfrac{1 - 1{,}2763}{-0{,}05} = 120\,000 \times \dfrac{-0{,}2763}{-0{,}05} = 120\,000 \times 5{,}526 \approx \)<span class="reponse">\(663\,120\) €</span></p>
+    <p><strong>3.</strong> La somme sur 4 ans (\(n = 0\) à \(n = 3\)) : \(S_4 = 120\,000 \times (1 - 1{,}05^4)/(-0{,}05) = 120\,000 \times 4{,}310 \approx 517\,200\) €.<br>
+    <span class="reponse">517 200 € &lt; 550 000 € → la condition n'est pas remplie</span> sur 4 ans. Sur 5 ans (663 120 €), elle serait remplie.</p>
+  </div>
+</div>
+
+<!-- STANDARD S8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 24</span>
+    <span class="exo-title">Interpréter une suite dans un contexte de maintenance</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un technicien CVC suit le nombre de pannes annuelles d'un parc de ventilo-convecteurs. En 2020 (\(n = 0\)), le parc a subi 80 pannes. Grâce à la maintenance préventive, ce nombre diminue de <strong>15 %</strong> par an.
+  </div>
+  <p>On modélise par \(u_n = 80 \times 0{,}85^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le nombre de pannes prévu en 2025 (\(n = 5\)). Arrondir à l'unité.<br>
+    <strong>2.</strong> En quelle année le nombre de pannes passera-t-il sous <strong>20</strong> pour la première fois ? (Construire un tableau.)<br>
+    <strong>3.</strong> La suite est-elle croissante ou décroissante ? En quoi cela traduit-il l'effet de la maintenance ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_5 = 80 \times 0{,}85^5 = 80 \times 0{,}4437 \approx \)<span class="reponse">\(35\) pannes</span> en 2025.</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+      <tr><th>Pannes</th><td class="hl">35</td><td class="hl">30</td><td class="hl">26</td><td class="hl">22</td><td class="hl">19</td></tr>
+    </table>
+    <p>\(u_8 \approx 22 > 20\) et \(u_9 \approx 19 < 20\) → le nombre de pannes passe sous 20 en <span class="reponse">année \(n = 9\)</span> (2029).</p>
+    <p><strong>3.</strong> Suite <span class="reponse">décroissante</span> (\(q = 0{,}85 < 1\)) : <span class="reponse">la maintenance préventive réduit progressivement le nombre de pannes</span> chaque année.</p>
+  </div>
+</div>
+
+<!-- STANDARD S9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 25</span>
+    <span class="exo-title">Comparer deux équipements selon leur dépréciation</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un chef de chantier compare la valeur de deux équipements achetés en même temps :<br>
+    – Équipement A : 9 000 € à l'achat, dépréciation de 20 % par an.<br>
+    – Équipement B : 6 000 € à l'achat, dépréciation de 10 % par an.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Écrire les formules \(u_n^A\) et \(u_n^B\) (valeur après \(n\) années).<br>
+    <strong>2.</strong> Calculer les valeurs de chaque équipement après 3 ans et après 6 ans.<br>
+    <strong>3.</strong> À partir de quelle année la valeur de B dépasse-t-elle celle de A ?
+  </div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+    <tr><th>\(u_n^A\) (€)</th><td>9 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+    <tr><th>\(u_n^B\) (€)</th><td>6 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(u_n^A = 9\,000 \times 0{,}80^n\)</span> et <span class="reponse">\(u_n^B = 6\,000 \times 0{,}90^n\)</span></p>
+    <p><strong>2.</strong> \(u_3^A = 9000 \times 0{,}512 = 4\,608\) € ; \(u_3^B = 6000 \times 0{,}729 = 4\,374\) €<br>
+    \(u_6^A = 9000 \times 0{,}2621 \approx 2\,359\) € ; \(u_6^B = 6000 \times 0{,}5314 \approx 3\,188\) €</p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+      <tr><th>\(u^A\)</th><td>9 000</td><td class="hl">7 200</td><td class="hl">5 760</td><td class="hl">4 608</td><td class="hl">3 686</td><td class="hl">2 949</td><td class="hl">2 359</td></tr>
+      <tr><th>\(u^B\)</th><td>6 000</td><td class="hl">5 400</td><td class="hl">4 860</td><td class="hl">4 374</td><td class="hl">3 937</td><td class="hl">3 543</td><td class="hl">3 188</td></tr>
+    </table>
+    <p>À \(n = 3\) : \(4\,608 > 4\,374\) (A vaut encore plus). À \(n = 4\) : \(3\,686 < 3\,937\) (B vaut plus). B dépasse A à partir de l'<span class="reponse">année \(n = 4\)</span>.</p>
+  </div>
+</div>
+
+<!-- STANDARD S10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 26</span>
+    <span class="exo-title">Croissance du parc de pompes à chaleur</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Le nombre de pompes à chaleur installées en France augmente de <strong>12 %</strong> par an selon un modèle géométrique. En 2022 (\(n = 0\)), on comptait <strong>600 000</strong> installations.
+  </div>
+  <p>On modélise par \(u_n = 600\,000 \times 1{,}12^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le nombre d'installations prévu en 2027 (\(n = 5\)). Arrondir à l'unité.<br>
+    <strong>2.</strong> Calculer le nombre cumulé total d'installations neuves sur 5 ans (\(n = 0\) à \(n = 4\)) :<br>
+    \(S = 600\,000 \times \dfrac{1 - 1{,}12^5}{1 - 1{,}12}\)<br>
+    <strong>3.</strong> Un installateur thermique capte en moyenne 0,3 % du marché annuel. Combien d'installations réaliserait-il en 2027 selon ce modèle ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_5 = 600\,000 \times 1{,}12^5 = 600\,000 \times 1{,}7623 \approx \)<span class="reponse">\(1\,057\,380\) installations</span> en 2027.</p>
+    <p><strong>2.</strong> \(S = 600\,000 \times \dfrac{1 - 1{,}12^5}{1 - 1{,}12} = 600\,000 \times \dfrac{1 - 1{,}7623}{-0{,}12} = 600\,000 \times \dfrac{-0{,}7623}{-0{,}12} = 600\,000 \times 6{,}353 \approx \)<span class="reponse">\(3\,811\,800\)</span> installations cumulées.</p>
+    <p><strong>3.</strong> Installations de l'installateur en 2027 : \(1\,057\,380 \times 0{,}003 \approx \)<span class="reponse">\(3\,172\) installations</span>.</p>
+  </div>
 </div>
 
 <!-- ================================================================
@@ -703,6 +1054,277 @@
       En pourcentage : \((5\,324 - 4\,526) / 5\,324 \times 100 = 798 / 5\,324 \times 100 \approx \)<span class="reponse">15 %</span> — ce qui correspond bien à la raison \(q = 0{,}85\) (\(1 - 0{,}85 = 0{,}15 = 15\,\%\)).</p>
   </div>
   </details>
+</div>
+
+<!-- APPRO A4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 27</span>
+    <span class="exo-title">Tarif d'un contrat de maintenance — modélisation et décision</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un installateur thermique propose un contrat de maintenance annuel à une copropriété. Le tarif est de <strong>1 200 €</strong> la première année (\(n = 0\)) et augmente de <strong>4 %</strong> par an pour couvrir l'inflation des pièces détachées.
+  </div>
+  <p>On modélise le tarif par \(u_n = 1\,200 \times 1{,}04^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le tarif prévu en année \(n = 6\) et en année \(n = 10\).<br>
+    <strong>2.</strong> La copropriété a un budget annuel de maintenance fixé à <strong>1 600 €</strong>. En quelle année le tarif dépassera-t-il ce budget ? (Construire un tableau.)<br>
+    <strong>3.</strong> Calculer le coût total du contrat sur 7 ans (\(n = 0\) à \(n = 6\)) avec la formule de la somme.<br>
+    <strong>4.</strong> Sans ce contrat, les réparations coûtent en moyenne 2 500 €/an. Sur 7 ans, quelle option est la plus économique ?
+  </div>
+  <div class="reponse-box" style="min-height:140px">Tableau et réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_6 = 1200 \times 1{,}04^6 = 1200 \times 1{,}2653 \approx \)<span class="reponse">\(1\,518\) €</span><br>
+    \(u_{10} = 1200 \times 1{,}04^{10} = 1200 \times 1{,}4802 \approx \)<span class="reponse">\(1\,776\) €</span></p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+      <tr><th>\(u_n\) (€)</th><td class="hl">1 200</td><td class="hl">1 248</td><td class="hl">1 298</td><td class="hl">1 350</td><td class="hl">1 404</td><td class="hl">1 460</td><td class="hl">1 518</td><td class="hl">1 579</td></tr>
+    </table>
+    <p>\(u_7 \approx 1\,579 < 1\,600\) et \(u_8 \approx 1\,579 \times 1{,}04 \approx 1\,642 > 1\,600\) → le tarif dépasse le budget à partir de l'<span class="reponse">année \(n = 8\)</span>.</p>
+    <p><strong>3.</strong> \(S_7 = 1200 \times \dfrac{1 - 1{,}04^7}{1 - 1{,}04} = 1200 \times \dfrac{1 - 1{,}3159}{-0{,}04} = 1200 \times \dfrac{-0{,}3159}{-0{,}04} = 1200 \times 7{,}898 \approx \)<span class="reponse">\(9\,478\) €</span></p>
+    <p><strong>4.</strong> Sans contrat : \(7 \times 2\,500 = 17\,500\) €. Avec contrat : \(9\,478\) €.<br>
+    <span class="reponse">Le contrat est nettement plus économique</span> (économie de ~8 022 € sur 7 ans).</p>
+  </div>
+</div>
+
+<!-- APPRO A5 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 28</span>
+    <span class="exo-title">Modéliser et comparer deux stratégies d'amortissement</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Une entreprise de rénovation énergétique doit amortir le coût d'une machine CNC de <strong>30 000 €</strong>. Elle hésite entre deux méthodes :<br>
+    – <strong>Méthode A</strong> (suite géométrique) : dépréciation de 20 % par an.<br>
+    – <strong>Méthode B</strong> (valeur résiduelle fixe) : valeur réduite de 4 000 € par an (suite arithmétique).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Écrire les deux suites \(u_n^A = 30\,000 \times 0{,}80^n\) et \(u_n^B = 30\,000 - 4\,000 \times n\).<br>
+    <strong>2.</strong> Compléter le tableau comparatif pour \(n = 0, 1, 2, 3, 4, 5, 6, 7\).<br>
+    <strong>3.</strong> Pour quelle valeur de \(n\) la méthode A donne-t-elle une valeur inférieure à la méthode B ?<br>
+    <strong>4.</strong> La méthode B s'annule en \(n = 7{,}5\) selon le modèle. Est-ce réaliste ? Que se passe-t-il pour \(n > 7\) avec la méthode B ?
+  </div>
+  <div class="reponse-box" style="min-height:140px">Tableau et réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_n^A = 30\,000 \times 0{,}80^n\) ; \(u_n^B = 30\,000 - 4\,000n\)</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+      <tr><th>\(u^A\) (€)</th><td>30 000</td><td class="hl">24 000</td><td class="hl">19 200</td><td class="hl">15 360</td><td class="hl">12 288</td><td class="hl">9 830</td><td class="hl">7 864</td><td class="hl">6 291</td></tr>
+      <tr><th>\(u^B\) (€)</th><td>30 000</td><td class="hl">26 000</td><td class="hl">22 000</td><td class="hl">18 000</td><td class="hl">14 000</td><td class="hl">10 000</td><td class="hl">6 000</td><td class="hl">2 000</td></tr>
+    </table>
+    <p><strong>3.</strong> À \(n = 6\) : \(u_6^A = 7\,864 > u_6^B = 6\,000\) → A vaut encore plus. À \(n = 7\) : \(u_7^A = 6\,291 > u_7^B = 2\,000\) → A vaut toujours plus.<br>
+    En fait, <span class="reponse">la méthode A donne toujours des valeurs supérieures à B à partir de \(n = 4\)</span> (12 288 > 14 000 ? Non ! Il faut comparer correctement) :<br>
+    À \(n = 4\) : A = 12 288 < B = 14 000. À \(n = 5\) : A = 9 830 < B = 10 000. À \(n = 6\) : A = 7 864 > B = 6 000. <span class="reponse">C'est à \(n = 6\) que A dépasse B</span>.</p>
+    <p><strong>4.</strong> \(u_B = 0\) pour \(n = 7{,}5\). En comptabilité, on arrête la dépréciation quand la valeur atteint 0. Pour \(n > 7\), <span class="reponse">\(u_n^B\) deviendrait négative, ce qui est impossible</span>. En pratique, on fixe une valeur résiduelle plancher (ex. : 1 €).</p>
+  </div>
+</div>
+
+<!-- APPRO A6 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 29</span>
+    <span class="exo-title">Planification financière — type BTS</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un artisan menuisier souhaite constituer un capital pour rénover son atelier dans 8 ans. Il place chaque année <strong>2 000 €</strong> sur un compte à intérêts composés au taux de <strong>4 %</strong> par an. La première mise de fonds est à \(n = 0\).
+  </div>
+  <p>Le capital constitué après \(N\) versements est :<br>
+  \(S_N = 2\,000 \times \dfrac{1{,}04^N - 1}{1{,}04 - 1} \times 1{,}04\) (formule de l'annuité)</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(S_8\) (capital après 8 versements). Arrondir à l'euro.<br>
+    <strong>2.</strong> Si la rénovation coûte <strong>20 000 €</strong>, le capital constitué est-il suffisant ?<br>
+    <strong>3.</strong> Sans intérêts (\(q = 1\)), quelle serait la somme totale épargnée après 8 versements de 2 000 € ?<br>
+    <strong>4.</strong> Calculer l'écart entre les deux résultats. Que représente cet écart ? Quel est l'effet des intérêts composés ?
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(S_8 = 2\,000 \times \dfrac{1{,}04^8 - 1}{0{,}04} \times 1{,}04 = 2\,000 \times \dfrac{1{,}3686 - 1}{0{,}04} \times 1{,}04 = 2\,000 \times \dfrac{0{,}3686}{0{,}04} \times 1{,}04 = 2\,000 \times 9{,}215 \times 1{,}04 \approx \)<span class="reponse">\(19\,168\) €</span></p>
+    <p><strong>2.</strong> \(19\,168 < 20\,000\) → <span class="reponse">le capital est insuffisant</span> (il manque environ 832 €). Il faudrait placer un peu plus ou attendre 9 ans.</p>
+    <p><strong>3.</strong> Sans intérêts : \(8 \times 2\,000 = \)<span class="reponse">\(16\,000\) €</span></p>
+    <p><strong>4.</strong> Écart : \(19\,168 - 16\,000 = \)<span class="reponse">\(3\,168\) €</span>. Cet écart représente les <strong>intérêts générés</strong> par les intérêts composés sur 8 ans. C'est l'effet de la capitalisation : chaque versement génère des intérêts, qui génèrent eux-mêmes des intérêts les années suivantes.</p>
+  </div>
+</div>
+
+<!-- APPRO A7 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 30</span>
+    <span class="exo-title">Modélisation croisée — suite géométrique et décision</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un technicien en énergies renouvelables étudie le retour sur investissement d'une installation de panneaux photovoltaïques coûtant <strong>15 000 €</strong>. L'installation produit 6 000 kWh par an, vendus 0,10 €/kWh. Le prix de revente du kWh augmente de <strong>3 %</strong> par an (\(n = 0\) : première année).
+  </div>
+  <p>On modélise le revenu annuel par \(r_n = 600 \times 1{,}03^n\) (€).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le revenu en année \(n = 5\) et en année \(n = 10\).<br>
+    <strong>2.</strong> Calculer le revenu total cumulé sur 10 ans (\(n = 0\) à \(n = 9\)) avec la formule de la somme.<br>
+    <strong>3.</strong> En quelle année le revenu cumulé dépasse-t-il le coût d'installation de 15 000 € ? (Calculer \(S_N\) pour \(N = 15, 16, 17, 18\) et interpréter.)<br>
+    <strong>4.</strong> Si le prix du kWh augmentait de 5 % au lieu de 3 %, en combien d'années le retour sur investissement serait-il atteint ?
+  </div>
+  <div class="reponse-box" style="min-height:140px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(r_5 = 600 \times 1{,}03^5 = 600 \times 1{,}1593 \approx \)<span class="reponse">\(695{,}6\) €</span><br>
+    \(r_{10} = 600 \times 1{,}03^{10} = 600 \times 1{,}3439 \approx \)<span class="reponse">\(806{,}3\) €</span></p>
+    <p><strong>2.</strong> \(S_{10} = 600 \times \dfrac{1 - 1{,}03^{10}}{1 - 1{,}03} = 600 \times \dfrac{1 - 1{,}3439}{-0{,}03} = 600 \times \dfrac{-0{,}3439}{-0{,}03} = 600 \times 11{,}464 \approx \)<span class="reponse">\(6\,878\) €</span> sur 10 ans.</p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(N\)</th><td>15</td><td>16</td><td>17</td><td>18</td></tr>
+      <tr><th>\(S_N\) (€)</th><td class="hl">≈11 938</td><td class="hl">≈12 934</td><td class="hl">≈13 968</td><td class="hl">≈15 043</td></tr>
+    </table>
+    <p>(\(S_N = 600 \times (1{,}03^N - 1)/0{,}03\))<br>
+    \(S_{17} \approx 13\,968 < 15\,000\) et \(S_{18} \approx 15\,043 > 15\,000\) → <span class="reponse">le retour sur investissement est atteint en année 18</span>.</p>
+    <p><strong>4.</strong> Avec \(q = 1{,}05\) : \(S_N = 600 \times (1{,}05^N - 1)/0{,}05\).<br>
+    \(S_{14} = 600 \times 19{,}598 \approx 11\,759\) ; \(S_{15} = 600 \times 21{,}578 \approx 12\,947\) ; \(S_{16} \approx 14\,294\) ; \(S_{17} \approx 15\,709 > 15\,000\).<br>
+    <span class="reponse">Avec 5 % d'augmentation, le retour sur investissement serait atteint en année 17</span> (1 an plus tôt).</p>
+  </div>
+</div>
+
+
+<!-- APPRO A8 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 31</span>
+    <span class="exo-title">Emprunt à intérêts composés — seuil de remboursement</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un artisan menuisier contracte un emprunt de <strong>25 000 €</strong> pour renouveler son matériel. Le capital restant dû évolue selon une suite géométrique : chaque année, le solde restant est multiplié par \(q = 0{,}78\) (remboursement de 22 % du capital par an).
+  </div>
+  <p>On modélise le capital restant dû par \(u_n = 25\,000 \times 0{,}78^n\), où \(n\) est le nombre d'années écoulées.</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le capital restant dû après 2 ans et après 5 ans. Arrondir à l'euro.<br>
+    <strong>2.</strong> En quelle année le capital restant dû passe-t-il en dessous de <strong>5 000 €</strong> ? (Construire un tableau pour \(n = 0\) à \(n = 8\) et chercher le seuil.)<br>
+    <strong>3.</strong> Calculer la somme totale remboursée sur les 5 premières années (\(u_0 - u_5\)). Cela correspond-il à la somme des versements annuels de 22 % de \(u_0\) ? Commenter.<br>
+    <strong>4.</strong> Un second artisan emprunte 30 000 € avec un taux de remboursement annuel de 18 % (\(q = 0{,}82\)). En quelle année son capital restant dû passera-t-il en dessous de 5 000 € ? Comparer avec la situation précédente.
+  </div>
+  <div class="reponse-box" style="min-height:160px">Tableau et réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_2 = 25\,000 \times 0{,}78^2 = 25\,000 \times 0{,}6084 \approx\) <span class="reponse">\(15\,210\) €</span><br>
+    \(u_5 = 25\,000 \times 0{,}78^5 = 25\,000 \times 0{,}2887 \approx\) <span class="reponse">\(7\,218\) €</span></p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+      <tr><th>\(u_n\) (€)</th><td>25 000</td><td class="hl">19 500</td><td class="hl">15 210</td><td class="hl">11 864</td><td class="hl">9 254</td><td class="hl">7 218</td><td class="hl">5 630</td><td class="hl">4 391</td></tr>
+    </table>
+    <p>\(u_6 \approx 5\,630 > 5\,000\) et \(u_7 \approx 4\,391 < 5\,000\). <span class="reponse">Le capital passe en dessous de 5 000 € à partir de l'année \(n = 7\).</span></p>
+    <p><strong>3.</strong> Montant remboursé en 5 ans : \(u_0 - u_5 = 25\,000 - 7\,218 =\) <span class="reponse">\(17\,782\) €</span>.<br>
+    Si on versait 22 % de \(u_0\) chaque année : \(5 \times 0{,}22 \times 25\,000 = 5 \times 5\,500 = 27\,500\) €. Ce n'est pas la même chose : dans le modèle géométrique, on rembourse 22 % du <em>solde restant</em> (qui diminue chaque année), ce qui donne moins au total. Les versements diminuent eux aussi avec le solde.</p>
+    <p><strong>4.</strong> \(u_n' = 30\,000 \times 0{,}82^n\). On cherche \(u_n' < 5\,000\), soit \(0{,}82^n < \dfrac{5\,000}{30\,000} = 0{,}1\overline{6}\).<br>
+    \(0{,}82^9 \approx 0{,}1848\) ; \(0{,}82^{10} \approx 0{,}1516\) ; \(0{,}82^{11} \approx 0{,}1243\) ; \(0{,}82^{12} \approx 0{,}1019\) ; \(0{,}82^{13} \approx 0{,}0836\).<br>
+    \(u_{12}' \approx 30\,000 \times 0{,}1019 \approx 3\,057 < 5\,000\). <span class="reponse">Le capital passe en dessous de 5 000 € à partir de l'année \(n = 12\)</span> — 5 ans plus tard que dans le premier cas, à cause d'un taux de remboursement plus faible.</p>
+  </div>
+</div>
+
+<!-- APPRO A9 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 32</span>
+    <span class="exo-title">Population de bactéries et modèle exponentiel discret</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un laboratoire d'analyses étudie la croissance d'une culture bactérienne. La population initiale est de <strong>500 bactéries</strong> (\(u_0 = 500\)). Toutes les heures, la population est multipliée par <strong>2,4</strong>.
+  </div>
+  <p>On modélise la population par \(u_n = 500 \times 2{,}4^n\), où \(n\) est le nombre d'heures.</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la population après 3 heures, 5 heures et 8 heures. Exprimer en notation scientifique si le résultat dépasse 100 000.<br>
+    <strong>2.</strong> La cuve a une capacité maximale de <strong>10 000 000 bactéries</strong>. À partir de quelle heure la cuve sera-t-elle saturée ? (Calculer \(u_n\) pour \(n = 10, 11, 12\).)<br>
+    <strong>3.</strong> Un traitement antibiotique divise la population par 3 toutes les heures. En partant de \(u_0' = 500\,000\) bactéries, modéliser la population \(u_n'\) sous traitement et calculer à partir de quelle heure elle descend en dessous de <strong>1 000 bactéries</strong>.<br>
+    <strong>4.</strong> Comparer les raisons des deux suites et interpréter biologiquement les comportements observés.
+  </div>
+  <div class="reponse-box" style="min-height:150px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_3 = 500 \times 2{,}4^3 = 500 \times 13{,}824 \approx\) <span class="reponse">\(6\,912\) bactéries</span><br>
+    \(u_5 = 500 \times 2{,}4^5 = 500 \times 79{,}627 \approx\) <span class="reponse">\(39\,814\) bactéries</span><br>
+    \(u_8 = 500 \times 2{,}4^8 = 500 \times 1\,105{,}0 \approx\) <span class="reponse">\(552\,502 \approx 5{,}53 \times 10^5\) bactéries</span></p>
+    <p><strong>2.</strong> \(u_{10} = 500 \times 2{,}4^{10} \approx 500 \times 6\,370 \approx 3{,}18 \times 10^6\)<br>
+    \(u_{11} = 500 \times 2{,}4^{11} \approx 500 \times 15\,289 \approx 7{,}64 \times 10^6\)<br>
+    \(u_{12} = 500 \times 2{,}4^{12} \approx 500 \times 36\,694 \approx 1{,}83 \times 10^7 > 10^7\).<br>
+    <span class="reponse">La cuve est saturée à partir de l'heure \(n = 12\).</span></p>
+    <p><strong>3.</strong> \(u_n' = 500\,000 \times \left(\dfrac{1}{3}\right)^n = 500\,000 \times (0{,}\overline{3})^n\).<br>
+    \(u_5' = 500\,000 \times (1/3)^5 = 500\,000 / 243 \approx 2\,058\) ; \(u_6' \approx 686 < 1\,000\).<br>
+    <span class="reponse">La population descend en dessous de 1 000 bactéries à partir de \(n = 6\) heures.</span></p>
+    <p><strong>4.</strong> Suite de croissance : \(q = 2{,}4 > 1\) → suite croissante (multiplication rapide, explosion exponentielle). Suite sous traitement : \(q = 1/3 < 1\) → suite décroissante (élimination progressive). L'antibiotique inverse le phénomène : la raison passe de 2,4 à 0,33, ce qui correspond à une diminution de 67 % par heure au lieu d'une augmentation de 140 %.</p>
+  </div>
+</div>
+
+<!-- APPRO A10 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 33</span>
+    <span class="exo-title">Modélisation inverse — retrouver \(u_0\) et \(q\) à partir de données</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un chef de chantier reçoit un rapport incomplet. On sait que la valeur d'un équipement suit une suite géométrique, et que \(u_2 = 18\,700\) € et \(u_5 = 11\,400\) € (valeurs arrondies à l'euro).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Exprimer \(u_2\) et \(u_5\) en fonction de \(u_0\) et \(q\).<br>
+    <strong>2.</strong> Calculer le rapport \(\dfrac{u_5}{u_2}\) et en déduire \(q^3\), puis \(q\) (arrondir à 4 décimales).<br>
+    <strong>3.</strong> En déduire \(u_0\) (valeur initiale de l'équipement). Arrondir à l'euro.<br>
+    <strong>4.</strong> Calculer en quel pourcentage annuel l'équipement se déprécie. Interpréter : est-ce une dépréciation rapide ou lente ?<br>
+    <strong>5.</strong> En quelle année \(u_n\) passera-t-il en dessous de <strong>8 000 €</strong> ?
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_2 = u_0 \times q^2\) et \(u_5 = u_0 \times q^5\).</p>
+    <p><strong>2.</strong> \(\dfrac{u_5}{u_2} = \dfrac{u_0 \times q^5}{u_0 \times q^2} = q^3\).<br>
+    \(q^3 = \dfrac{11\,400}{18\,700} \approx 0{,}6096\).<br>
+    \(q = \sqrt[3]{0{,}6096} = 0{,}6096^{1/3} \approx\) <span class="reponse">\(0{,}8474\)</span>.</p>
+    <p><strong>3.</strong> \(u_0 = \dfrac{u_2}{q^2} = \dfrac{18\,700}{0{,}8474^2} = \dfrac{18\,700}{0{,}7181} \approx\) <span class="reponse">\(26\,039\) €</span>.</p>
+    <p><strong>4.</strong> Taux de dépréciation annuel : \(1 - q = 1 - 0{,}8474 \approx\) <span class="reponse">\(15{,}3\,\%\) par an</span>. Il s'agit d'une dépréciation modérée à rapide (entre 10 % et 20 % par an est courant pour du matériel professionnel).</p>
+    <p><strong>5.</strong> On cherche \(n\) tel que \(26\,039 \times 0{,}8474^n < 8\,000\), soit \(0{,}8474^n < \dfrac{8\,000}{26\,039} \approx 0{,}3072\).<br>
+    \(0{,}8474^7 \approx 0{,}3283\) ; \(0{,}8474^8 \approx 0{,}2783 < 0{,}3072\).<br>
+    <span class="reponse">La valeur passe en dessous de 8 000 € à partir de l'année \(n = 8\).</span></p>
+  </div>
+</div>
+
+<!-- APPRO A11 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 34</span>
+    <span class="exo-title">Choix d'investissement — comparaison de deux modèles</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un conducteur de travaux compare deux offres de financement pour l'achat d'une machine d'usinage CNC à <strong>40 000 €</strong>.<br>
+    – <strong>Offre A</strong> : location avec option d'achat, loyer annuel de <strong>6 000 €</strong> (suite arithmétique).<br>
+    – <strong>Offre B</strong> : prêt à intérêts composés, remboursement de <strong>25 % du capital restant</strong> chaque année.
+  </div>
+  <p>Pour l'offre B, le capital restant dû suit \(v_n = 40\,000 \times 0{,}75^n\). Le versement annuel en année \(n\) est \(v_n - v_{n+1} = 40\,000 \times 0{,}75^n \times 0{,}25\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Pour l'offre A : calculer le coût total après 7 ans (loyers cumulés) et la valeur résiduelle de la machine d'après un modèle géométrique de dépréciation à 15 % par an (\(u_7 = 40\,000 \times 0{,}85^7\)).<br>
+    <strong>2.</strong> Pour l'offre B : calculer le capital restant dû après 7 ans. Quel montant total a été versé sur 7 ans ? (Utiliser : montant versé = capital initial − capital restant dû.)<br>
+    <strong>3.</strong> Comparer les deux offres sur 7 ans en termes de coût total engagé et de capital restant dû.<br>
+    <strong>4.</strong> Le chef de chantier souhaite revendre la machine après 7 ans. Avec l'offre B, quel est le « gain net » si la valeur de revente est \(u_7 = 40\,000 \times 0{,}85^7\) et qu'il rembourse le capital restant dû au moment de la vente ?
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Offre A — coût total : \(7 \times 6\,000 =\) <span class="reponse">\(42\,000\) €</span>.<br>
+    Valeur résiduelle de la machine : \(u_7 = 40\,000 \times 0{,}85^7 = 40\,000 \times 0{,}3206 \approx\) <span class="reponse">\(12\,824\) €</span>.</p>
+    <p><strong>2.</strong> Offre B — capital restant dû après 7 ans : \(v_7 = 40\,000 \times 0{,}75^7 = 40\,000 \times 0{,}1335 \approx\) <span class="reponse">\(5\,340\) €</span>.<br>
+    Montant total versé en 7 ans : \(40\,000 - 5\,340 =\) <span class="reponse">\(34\,660\) €</span>.</p>
+    <p><strong>3.</strong> Comparaison :<br>
+    – Offre A : 42 000 € versés, machine non possédée (location — elle revient au bailleur).<br>
+    – Offre B : 34 660 € versés, machine en cours de remboursement, capital restant 5 340 €.<br>
+    <span class="reponse">L'offre B est plus avantageuse</span> : moins cher en versements cumulés, et la machine reste la propriété de l'artisan.</p>
+    <p><strong>4.</strong> Valeur de revente = \(u_7 \approx 12\,824\) €. Capital restant dû à rembourser = \(v_7 \approx 5\,340\) €.<br>
+    Gain net = revente − capital restant = \(12\,824 - 5\,340 =\) <span class="reponse">\(7\,484\) €</span>. Après 7 ans de versements (\(34\,660\) €) et un gain net de \(7\,484\) €, le coût net réel de la possession est \(34\,660 - 7\,484 = 27\,176\) €, soit moins que l'offre A.</p>
+  </div>
 </div>
 
 </div><!-- fin diff-appro -->

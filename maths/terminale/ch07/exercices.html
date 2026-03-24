@@ -340,6 +340,278 @@
   </details>
 </div>
 
+
+<!-- S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Identifier les parties d'un triangle rectangle (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un plombier chauffagiste pose un tuyau en diagonale dans un couloir de 3 m de large. Le tuyau fait un angle de 25° avec le plancher. Il doit calculer la longueur du tuyau et la hauteur atteinte.
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Par rapport à l'angle connu : opposé = côté en face de l'angle, adjacent = côté à côté de l'angle, hypoténuse = côté le plus long (en face du droit).
+  </div>
+  <div class="consigne">
+    <strong>Étape 1 :</strong> Schéma — dessiner un triangle rectangle avec l'angle de 25° au sol.<br>
+    • Côté adjacent (sol) = \(\boxed{\phantom{3}}\) m<br>
+    • Côté opposé (hauteur) = ?<br>
+    • Hypoténuse (tuyau) = ?<br><br>
+    <strong>Étape 2 :</strong> Choisir la formule pour trouver le tuyau (hypoténuse).<br>
+    On connaît l'adjacent et on cherche l'hypoténuse → formule : \(\cos 25° = \dfrac{\text{adjacent}}{\text{hyp.}}\)<br>
+    Tuyau = \(\dfrac{3}{\cos 25°} = \dfrac{3}{\boxed{\phantom{0{,}906}}} = \boxed{\phantom{3{,}31}}\) m<br><br>
+    <strong>Étape 3 :</strong> Trouver la hauteur (opposé).<br>
+    \(\tan 25° = \dfrac{\text{opposé}}{\text{adjacent}}\) → Hauteur = \(3 \times \tan 25° = 3 \times \boxed{\phantom{0{,}466}} = \boxed{\phantom{1{,}40}}\) m
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 2 :</strong> \(\cos 25° \approx 0{,}906\). Tuyau = \(\dfrac{3}{0{,}906} \approx\) <span class="reponse">\(3{,}31\) m</span>.</p>
+    <p><strong>Étape 3 :</strong> \(\tan 25° \approx 0{,}466\). Hauteur = \(3 \times 0{,}466 \approx\) <span class="reponse">\(1{,}40\) m</span>.</p>
+    <p>Le plombier a besoin d'un tuyau d'environ <strong>3,31 m</strong> pour atteindre une hauteur de <strong>1,40 m</strong>.</p>
+  </div>
+</div>
+
+<!-- S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Lire le cercle trigonométrique — coordonnées de points</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Sur le cercle trigonométrique (rayon 1), le point associé à l'angle \(x\) a pour coordonnées \((\cos x\,;\,\sin x)\).
+  </div>
+  <div class="consigne">
+    Compléter le tableau en utilisant les valeurs remarquables (sans calculatrice) :
+  </div>
+  <table>
+    <tr><th>Angle \(x\)</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>180°</th></tr>
+    <tr><th>Coordonnées \((\cos x\,;\,\sin x)\)</th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <div class="consigne" style="margin-top:12px">
+    Parmi ces angles, pour lesquels \(\cos x > 0\) ? Pour lesquels \(\sin x > 0\) ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Angle</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>180°</th></tr>
+      <tr><th>Coordonnées</th>
+        <td><span class="reponse">\((1\,;\,0)\)</span></td>
+        <td><span class="reponse">\(\!\left(\tfrac{\sqrt{3}}{2}\,;\,\tfrac{1}{2}\right)\)</span></td>
+        <td><span class="reponse">\(\!\left(\tfrac{\sqrt{2}}{2}\,;\,\tfrac{\sqrt{2}}{2}\right)\)</span></td>
+        <td><span class="reponse">\(\!\left(\tfrac{1}{2}\,;\,\tfrac{\sqrt{3}}{2}\right)\)</span></td>
+        <td><span class="reponse">\((0\,;\,1)\)</span></td>
+        <td><span class="reponse">\((-1\,;\,0)\)</span></td>
+      </tr>
+    </table>
+    <p>\(\cos x > 0\) pour 0°, 30°, 45°, 60° (premier quadrant). \(\sin x > 0\) pour 30°, 45°, 60°, 90° (demi-cercle supérieur).</p>
+  </div>
+</div>
+
+<!-- S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Utiliser la relation fondamentale \(\cos^2 x + \sin^2 x = 1\) (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Méthode</span>
+    \(\cos^2 x + \sin^2 x = 1\) ⟹ \(\sin^2 x = 1 - \cos^2 x\) ⟹ \(\sin x = \pm\sqrt{1 - \cos^2 x}\)<br>
+    Le signe + si \(x \in [0°\,;\,180°]\) (sinus positif dans le demi-cercle supérieur).
+  </div>
+  <div class="consigne">
+    <strong>a)</strong> On sait que \(\cos x = \dfrac{4}{5}\) et \(x \in [0°\,;\,90°]\). Calculer \(\sin x\). Compléter :<br>
+    <p style="font-size:.93em">
+      \(\sin^2 x = 1 - \cos^2 x = 1 - \left(\dfrac{4}{5}\right)^2 = 1 - \dfrac{\boxed{\phantom{16}}}{25} = \dfrac{\boxed{\phantom{9}}}{25}\)<br>
+      Comme \(x \in [0°\,;\,90°]\), \(\sin x \geq 0\), donc \(\sin x = \boxed{\phantom{\dfrac{3}{5}}}\)
+    </p>
+    <strong>b)</strong> On sait que \(\sin x = 0{,}5\) et \(x \in [0°\,;\,90°]\). Calculer \(\cos x\). Compléter :<br>
+    <p style="font-size:.93em">
+      \(\cos^2 x = 1 - (0{,}5)^2 = 1 - \boxed{\phantom{0{,}25}} = \boxed{\phantom{0{,}75}}\)<br>
+      \(\cos x = \sqrt{\boxed{\phantom{0{,}75}}} \approx \boxed{\phantom{0{,}866}}\)
+    </p>
+    <strong>c)</strong> Vérifier que ce résultat correspond à un angle remarquable.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(\sin^2 x = 1 - \dfrac{16}{25} = \dfrac{9}{25}\). Donc <span class="reponse">\(\sin x = \dfrac{3}{5} = 0{,}6\)</span>.</p>
+    <p><strong>b)</strong> \(\cos^2 x = 1 - 0{,}25 = 0{,}75\). Donc <span class="reponse">\(\cos x = \sqrt{0{,}75} = \dfrac{\sqrt{3}}{2} \approx 0{,}866\)</span>.</p>
+    <p><strong>c)</strong> \(\cos 30° = \dfrac{\sqrt{3}}{2} \approx 0{,}866\) : le résultat correspond à l'angle <span class="reponse">\(x = 30°\)</span>, cohérent avec \(\sin 30° = 0{,}5\) ✓.</p>
+  </div>
+</div>
+
+<!-- S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Calculer l'angle d'inclinaison d'un escalier</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un artisan menuisier fabrique un escalier droit. Chaque marche a une hauteur (contre-marche) de 18 cm et une profondeur (giron) de 28 cm. Il doit calculer l'angle d'inclinaison de l'escalier.
+  </div>
+  <div class="consigne">
+    <strong>Étape 1 :</strong> Quelle formule utiliser pour trouver l'angle d'inclinaison \(\alpha\) ?<br>
+    On connaît l'opposé = contre-marche = 18 cm et l'adjacent = giron = 28 cm.<br>
+    Formule : \(\tan \alpha = \dfrac{\boxed{\phantom{18}}}{\boxed{\phantom{28}}}\)<br><br>
+    <strong>Étape 2 :</strong> Calculer \(\tan \alpha\).<br>
+    \(\tan \alpha = \dfrac{18}{28} = \boxed{\phantom{0{,}643}}\)<br><br>
+    <strong>Étape 3 :</strong> Trouver l'angle avec arctan.<br>
+    \(\alpha = \arctan(0{,}643) = \boxed{\phantom{32{,}7°}}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> \(\tan \alpha = \dfrac{\text{opposé}}{\text{adjacent}} = \dfrac{\text{contre-marche}}{\text{giron}}\).</p>
+    <p><strong>Étape 2 :</strong> \(\tan \alpha = \dfrac{18}{28} \approx 0{,}643\).</p>
+    <p><strong>Étape 3 :</strong> <span class="reponse">\(\alpha = \arctan(0{,}643) \approx 32{,}7°\)</span>.</p>
+    <p>L'escalier a une inclinaison d'environ <strong>32,7°</strong>. Les normes recommandent entre 25° et 45° — cet escalier est conforme.</p>
+  </div>
+</div>
+
+
+<!-- S8 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Lire les valeurs sin et cos sur le cercle trigonométrique</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Le cercle trigonométrique a un rayon de 1. Pour un angle \(x\) : le point M a pour coordonnées \((\cos x\,;\,\sin x)\).
+    <br>Signe de sin et cos selon le quadrant :<br>
+    Quadrant I (0° à 90°) : sin &gt; 0, cos &gt; 0<br>
+    Quadrant II (90° à 180°) : sin &gt; 0, cos &lt; 0<br>
+    Quadrant III (180° à 270°) : sin &lt; 0, cos &lt; 0<br>
+    Quadrant IV (270° à 360°) : sin &lt; 0, cos &gt; 0
+  </div>
+  <div class="consigne">
+    Sans calculatrice, donner le signe (+ ou −) de chaque valeur :<br><br>
+    <strong>a)</strong> \(\sin(120°)\) :<br>
+    L'angle 120° est dans le quadrant ☐ I  ☐ II  ☐ III  ☐ IV  →  \(\sin(120°)\) est ☐ positif  ☐ négatif<br><br>
+    <strong>b)</strong> \(\cos(200°)\) :<br>
+    L'angle 200° est dans le quadrant ☐ I  ☐ II  ☐ III  ☐ IV  →  \(\cos(200°)\) est ☐ positif  ☐ négatif<br><br>
+    <strong>c)</strong> \(\sin(300°)\) :<br>
+    L'angle 300° est dans le quadrant ☐ I  ☐ II  ☐ III  ☐ IV  →  \(\sin(300°)\) est ☐ positif  ☐ négatif<br><br>
+    <strong>d)</strong> \(\cos(150°)\) :<br>
+    L'angle 150° est dans le quadrant ☐ I  ☐ II  ☐ III  ☐ IV  →  \(\cos(150°)\) est ☐ positif  ☐ négatif
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> 120° est dans le quadrant II (entre 90° et 180°). <span class="reponse">\(\sin(120°) &gt; 0\)</span> (positif).</p>
+    <p><strong>b)</strong> 200° est dans le quadrant III (entre 180° et 270°). <span class="reponse">\(\cos(200°) &lt; 0\)</span> (négatif).</p>
+    <p><strong>c)</strong> 300° est dans le quadrant IV (entre 270° et 360°). <span class="reponse">\(\sin(300°) &lt; 0\)</span> (négatif).</p>
+    <p><strong>d)</strong> 150° est dans le quadrant II. <span class="reponse">\(\cos(150°) &lt; 0\)</span> (négatif).</p>
+  </div>
+</div>
+
+<!-- S9 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Calculer un côté manquant avec sin ou cos (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur thermique pose une canalisation en pente. La canalisation mesure 4 m, elle fait un angle de 30° avec l'horizontale. Il doit calculer la hauteur gagnée et la distance horizontale couverte.
+  </div>
+  <div class="meth">
+    <span class="label-meth">Méthode</span>
+    Dans un triangle rectangle : côté opposé = hypoténuse × sin(angle) et côté adjacent = hypoténuse × cos(angle).
+  </div>
+  <div class="consigne">
+    <strong>Étape 1 :</strong> La canalisation est l'hypoténuse. Son angle avec l'horizontal est 30°.<br>
+    Par rapport à l'angle de 30°, la hauteur est le côté \(\boxed{\phantom{\text{opposé}}}\) et la distance horizontale est le côté \(\boxed{\phantom{\text{adjacent}}}\).<br><br>
+    <strong>Étape 2 :</strong> Calculer la hauteur \(h\).<br>
+    \(h = \text{hypoténuse} \times \sin(30°) = 4 \times \boxed{\phantom{0{,}5}} = \boxed{\phantom{2}}\) m<br><br>
+    <strong>Étape 3 :</strong> Calculer la distance horizontale \(d\).<br>
+    \(d = \text{hypoténuse} \times \cos(30°) = 4 \times \boxed{\phantom{\dfrac{\sqrt{3}}{2} \approx 0{,}866}} \approx \boxed{\phantom{3{,}46}}\) m
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>Étape 1 :</strong> Hauteur = côté <strong>opposé</strong>, distance horizontale = côté <strong>adjacent</strong>.</p>
+    <p><strong>Étape 2 :</strong> \(h = 4 \times \sin(30°) = 4 \times 0{,}5 =\) <span class="reponse">\(2\) m</span></p>
+    <p><strong>Étape 3 :</strong> \(d = 4 \times \cos(30°) = 4 \times \dfrac{\sqrt{3}}{2} \approx\) <span class="reponse">\(3{,}46\) m</span></p>
+    <p>La canalisation monte de 2 m sur une distance horizontale d'environ 3,46 m.</p>
+  </div>
+</div>
+
+<!-- S10 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Vérifier l'identité fondamentale (guidé)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    L'identité fondamentale : \(\cos^2(x) + \sin^2(x) = 1\) est vraie pour tout angle \(x\).
+  </div>
+  <div class="consigne">
+    Vérifier numériquement l'identité \(\cos^2(x) + \sin^2(x) = 1\) pour chaque angle (à la calculatrice) :<br><br>
+    <strong>a)</strong> Pour \(x = 53°\) :<br>
+    <p style="font-size:.93em">
+      \(\cos(53°) \approx \boxed{\phantom{0{,}602}}\) donc \(\cos^2(53°) \approx \boxed{\phantom{0{,}362}}\)<br>
+      \(\sin(53°) \approx \boxed{\phantom{0{,}799}}\) donc \(\sin^2(53°) \approx \boxed{\phantom{0{,}638}}\)<br>
+      Somme : \(0{,}362 + 0{,}638 = \boxed{\phantom{1}}\) ✓
+    </p>
+    <strong>b)</strong> Pour \(x = 72°\) :<br>
+    <p style="font-size:.93em">
+      \(\cos(72°) \approx \boxed{\phantom{0{,}309}}\) et \(\sin(72°) \approx \boxed{\phantom{0{,}951}}\)<br>
+      Calculer \(\cos^2(72°) + \sin^2(72°) = \boxed{\phantom{1}}\)
+    </p>
+    <strong>c)</strong> Maintenant sachant que \(\sin(x) = 0{,}6\) et \(x \in [0°\,;\,90°]\), trouver \(\cos(x)\).<br>
+    <p style="font-size:.93em">
+      \(\cos^2(x) = 1 - \sin^2(x) = 1 - (0{,}6)^2 = 1 - \boxed{\phantom{0{,}36}} = \boxed{\phantom{0{,}64}}\)<br>
+      \(\cos(x) = \sqrt{\boxed{\phantom{0{,}64}}} = \boxed{\phantom{0{,}8}}\)
+    </p>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(\cos(53°) \approx 0{,}602\) ; \(\cos^2 \approx 0{,}362\). \(\sin(53°) \approx 0{,}799\) ; \(\sin^2 \approx 0{,}638\). Somme = <span class="reponse">\(1\)</span> ✓</p>
+    <p><strong>b)</strong> \(\cos^2(72°) + \sin^2(72°) \approx 0{,}0955 + 0{,}9045 =\) <span class="reponse">\(1\)</span> ✓</p>
+    <p><strong>c)</strong> \(\cos^2(x) = 0{,}64\), donc <span class="reponse">\(\cos(x) = 0{,}8\)</span>.</p>
+  </div>
+</div>
+
+<!-- S11 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 23</span>
+    <span class="exo-title">Lire une courbe sinusoïdale — amplitude et période</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien CVC (Chauffage Ventilation Climatisation) surveille la variation de pression dans un circuit de ventilation. La pression oscille selon une fonction sinusoïdale.
+  </div>
+  <div class="meth">
+    <span class="label-meth">Rappel</span>
+    Pour une courbe \(f(x) = A\sin(x)\) :<br>
+    • <strong>Amplitude</strong> = valeur maximale de la courbe (égale à \(A\))<br>
+    • <strong>Période</strong> = longueur d'un cycle complet (360° ou \(2\pi\) rad pour \(\sin\) et \(\cos\))
+  </div>
+  <div class="consigne">
+    Un capteur relève que la pression varie entre −80 Pa et +80 Pa, avec un cycle qui se répète toutes les 0,02 s.<br><br>
+    <strong>1.</strong> Quelle est l'amplitude de cette oscillation ?<br>
+    L'amplitude = valeur maximale = \(\boxed{\phantom{80}}\) Pa<br><br>
+    <strong>2.</strong> Quelle est la période de ce signal ?<br>
+    Période = \(\boxed{\phantom{0{,}02}}\) s<br><br>
+    <strong>3.</strong> Pour la fonction \(g(x) = 3\sin(x)\), compléter :<br>
+    Amplitude de \(g\) = \(\boxed{\phantom{3}}\)   et   Période = \(\boxed{\phantom{2\pi}}\) rad = \(\boxed{\phantom{360°}}\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Amplitude = <span class="reponse">80 Pa</span> (la courbe oscille entre −80 et +80).</p>
+    <p><strong>2.</strong> Période = <span class="reponse">0,02 s</span>.</p>
+    <p><strong>3.</strong> Amplitude de \(g\) = <span class="reponse">3</span>. Période = <span class="reponse">\(2\pi\) rad = 360°</span>.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ═══════════════════════════════════ STANDARD ═══════════════════════════════════ -->
@@ -488,6 +760,191 @@
 </div>
 
 <!-- ═══════════════════════════════════ NIVEAU 3 ═══════════════════════════════════ -->
+
+<!-- ST4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 24</span>
+    <span class="exo-title">Trouver un côté inconnu — contexte professionnel</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un plombier chauffagiste installe un tuyau incliné à 40° par rapport à l'horizontale. Le tuyau doit parcourir une distance horizontale de 3,5 m. Calculer la longueur du tuyau et la hauteur atteinte.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Faire un schéma du triangle rectangle correspondant en plaçant l'angle de 40°, les côtés connus et inconnus.<br>
+    <strong>2.</strong> Calculer la longueur du tuyau (hypoténuse).<br>
+    <strong>3.</strong> Calculer la hauteur atteinte (côté opposé).<br>
+    <strong>4.</strong> Vérifier le résultat par le théorème de Pythagore.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Triangle rectangle : angle de 40° en bas à gauche, côté adjacent = 3,5 m (horizontal), hypoténuse = tuyau, côté opposé = hauteur.</p>
+    <p><strong>2.</strong> \(\cos(40°) = \dfrac{\text{adjacent}}{\text{hypoténuse}}\) → Tuyau \(= \dfrac{3{,}5}{\cos(40°)} = \dfrac{3{,}5}{0{,}766} \approx\) <span class="reponse">\(4{,}57\) m</span></p>
+    <p><strong>3.</strong> \(\tan(40°) = \dfrac{\text{hauteur}}{3{,}5}\) → Hauteur \(= 3{,}5 \times \tan(40°) = 3{,}5 \times 0{,}839 \approx\) <span class="reponse">\(2{,}94\) m</span></p>
+    <p><strong>4.</strong> Vérification : \(3{,}5^2 + 2{,}94^2 = 12{,}25 + 8{,}64 = 20{,}89 \approx 4{,}57^2 = 20{,}88\) ✓</p>
+  </div>
+</div>
+
+<!-- ST5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 25</span>
+    <span class="exo-title">Calculer un angle d'inclinaison — toiture</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un artisan menuisier pose une terrasse en bois avec une légère pente pour l'évacuation des eaux. La terrasse mesure 6 m de long et doit descendre de 18 cm sur toute sa longueur.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer l'angle d'inclinaison \(\alpha\) de la terrasse par rapport à l'horizontale.<br>
+    <strong>2.</strong> Exprimer cet angle en degrés (à 0,1° près) et en pourcentage de pente (\(\tan(\alpha) \times 100\)).<br>
+    <strong>3.</strong> La norme exige une pente d'au moins 1,5 %. Cette terrasse est-elle conforme ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\tan(\alpha) = \dfrac{\text{opposé}}{\text{adjacent}} = \dfrac{0{,}18}{6} = 0{,}03\)<br>
+    <span class="reponse">\(\alpha = \arctan(0{,}03) \approx 1{,}7°\)</span></p>
+    <p><strong>2.</strong> Pente en % = \(0{,}03 \times 100 =\) <span class="reponse">\(3\,\%\)</span></p>
+    <p><strong>3.</strong> \(3\,\% \geq 1{,}5\,\%\) : <span class="reponse">la terrasse est conforme à la norme</span>.</p>
+  </div>
+</div>
+
+<!-- ST6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 26</span>
+    <span class="exo-title">Utiliser l'identité fondamentale dans un problème</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>On considère un angle \(\theta\) tel que \(\cos\theta = \dfrac{5}{13}\) et \(\theta \in [0°\,;\,90°]\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(\sin\theta\) à l'aide de l'identité \(\cos^2\theta + \sin^2\theta = 1\).<br>
+    <strong>2.</strong> En déduire \(\tan\theta\).<br>
+    <strong>3.</strong> Sans calculatrice, calculer \(\sin^2\theta + \cos^2\theta + \tan^2\theta \times \cos^2\theta\).<br>
+    <em>Indication : exprimer \(\tan^2\theta \times \cos^2\theta\) en fonction de \(\sin^2\theta\).</em>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\sin^2\theta = 1 - \cos^2\theta = 1 - \dfrac{25}{169} = \dfrac{144}{169}\)<br>
+    Comme \(\theta \in [0°;90°]\), <span class="reponse">\(\sin\theta = \dfrac{12}{13}\)</span></p>
+    <p><strong>2.</strong> <span class="reponse">\(\tan\theta = \dfrac{\sin\theta}{\cos\theta} = \dfrac{12/13}{5/13} = \dfrac{12}{5} = 2{,}4\)</span></p>
+    <p><strong>3.</strong> \(\tan^2\theta \times \cos^2\theta = \dfrac{\sin^2\theta}{\cos^2\theta} \times \cos^2\theta = \sin^2\theta\)<br>
+    Donc \(\sin^2\theta + \cos^2\theta + \sin^2\theta = 1 + \sin^2\theta = 1 + \dfrac{144}{169} =\) <span class="reponse">\(\dfrac{313}{169} \approx 1{,}85\)</span></p>
+  </div>
+</div>
+
+<!-- ST7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 27</span>
+    <span class="exo-title">Résoudre une équation trigonométrique — contexte professionnel</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un ingénieur thermicien modélise la variation de la puissance solaire (en W/m²) reçue par un panneau au cours d'une journée par la fonction \(P(\theta) = 800\,\sin(\theta)\), où \(\theta\) est l'angle d'élévation du soleil (en degrés, \(\theta \in [0°\,;\,180°]\)).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la puissance reçue pour \(\theta = 30°\), \(60°\) et \(90°\). Interpréter.<br>
+    <strong>2.</strong> Résoudre \(P(\theta) = 600\) : pour quels angles le panneau reçoit-il exactement 600 W/m² ?<br>
+    <strong>3.</strong> Pour quels angles le panneau reçoit-il au moins 400 W/m² ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong><br>
+    \(P(30°) = 800 \times 0{,}5 =\) <span class="reponse">400 W/m²</span> (soleil bas)<br>
+    \(P(60°) = 800 \times \dfrac{\sqrt{3}}{2} \approx 800 \times 0{,}866 \approx\) <span class="reponse">693 W/m²</span><br>
+    \(P(90°) = 800 \times 1 =\) <span class="reponse">800 W/m²</span> (puissance maximale, soleil au zénith)</p>
+    <p><strong>2.</strong> \(800\,\sin\theta = 600\) → \(\sin\theta = 0{,}75\)<br>
+    Solution principale : \(\theta_1 = \arcsin(0{,}75) \approx 48{,}6°\)<br>
+    Par symétrie : \(\theta_2 = 180° - 48{,}6° = 131{,}4°\)<br>
+    <span class="reponse">\(\mathcal{S} = \{48{,}6°\,;\,131{,}4°\}\)</span></p>
+    <p><strong>3.</strong> \(\sin\theta \geq 0{,}5\) → entre \(\arcsin(0{,}5) = 30°\) et \(180° - 30° = 150°\)<br>
+    <span class="reponse">Le panneau reçoit au moins 400 W/m² pour \(\theta \in [30°\,;\,150°]\).</span></p>
+  </div>
+</div>
+
+<!-- ST8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 28</span>
+    <span class="exo-title">Loi des cosinus dans un triangle quelconque</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur doit découper une pièce triangulaire pour un habillage mural. Il connaît deux côtés (\(a = 45\) cm et \(b = 60\) cm) et l'angle compris entre eux (\(C = 55°\)).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Rappeler la formule du théorème d'Al-Kashi (loi des cosinus).<br>
+    <strong>2.</strong> Calculer le troisième côté \(c\).<br>
+    <strong>3.</strong> Calculer ensuite le périmètre de la pièce.
+  </div>
+  <div class="formule-box">
+    <strong>Théorème d'Al-Kashi :</strong> \(c^2 = a^2 + b^2 - 2ab\cos C\)
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(c^2 = a^2 + b^2 - 2ab\cos C\)</span></p>
+    <p><strong>2.</strong> \(c^2 = 45^2 + 60^2 - 2 \times 45 \times 60 \times \cos(55°)\)<br>
+    \(c^2 = 2025 + 3600 - 5400 \times 0{,}5736 = 5625 - 3097{,}4 = 2527{,}6\)<br>
+    <span class="reponse">\(c = \sqrt{2527{,}6} \approx 50{,}3\) cm</span></p>
+    <p><strong>3.</strong> Périmètre = \(45 + 60 + 50{,}3 =\) <span class="reponse">\(155{,}3\) cm</span></p>
+  </div>
+</div>
+
+<!-- ST9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 29</span>
+    <span class="exo-title">Reconnaître et utiliser la loi des sinus</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien de maintenance énergétique doit calculer la distance entre deux équipements sur un plan de chaufferie. Il connaît un côté et deux angles d'un triangle formé par les équipements.
+  </div>
+  <p>Dans un triangle \(ABC\), on connaît : \(\widehat{A} = 50°\), \(\widehat{C} = 70°\) et \(AC = b = 12\) m.</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer l'angle \(\widehat{B}\).<br>
+    <strong>2.</strong> En utilisant la loi des sinus \(\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}\), calculer les côtés \(a = BC\) et \(c = AB\).<br>
+    <strong>3.</strong> Calculer la surface du triangle \(ABC\) à l'aide de la formule \(\mathcal{A} = \dfrac{1}{2} \times b \times c \times \sin A\).
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\widehat{B} = 180° - 50° - 70° =\) <span class="reponse">\(60°\)</span></p>
+    <p><strong>2.</strong> Rapport : \(\dfrac{b}{\sin B} = \dfrac{12}{\sin 60°} = \dfrac{12}{0{,}866} \approx 13{,}86\)<br>
+    \(a = 13{,}86 \times \sin 50° = 13{,}86 \times 0{,}766 \approx\) <span class="reponse">\(10{,}62\) m</span><br>
+    \(c = 13{,}86 \times \sin 70° = 13{,}86 \times 0{,}940 \approx\) <span class="reponse">\(13{,}02\) m</span></p>
+    <p><strong>3.</strong> \(\mathcal{A} = \dfrac{1}{2} \times 12 \times 13{,}02 \times \sin 50° = 6 \times 13{,}02 \times 0{,}766 \approx\) <span class="reponse">\(59{,}8\) m²</span></p>
+  </div>
+</div>
+
+<!-- ST10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 30</span>
+    <span class="exo-title">Amplitude et période d'un signal sinusoïdal</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien CVC mesure la variation de débit d'un ventilateur. Le débit (en m³/h) est modélisé par \(D(t) = 200 + 50\,\sin(2t)\) où \(t\) est exprimé en secondes.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Quel est le débit moyen ? Quel est le débit maximal ? Quel est le débit minimal ?<br>
+    <strong>2.</strong> Quelle est l'amplitude de l'oscillation ?<br>
+    <strong>3.</strong> La période de la fonction \(\sin(2t)\) est \(\dfrac{2\pi}{2} = \pi\) secondes. Quelle est la fréquence du signal (nombre d'oscillations par seconde) ?<br>
+    <strong>4.</strong> Calculer \(D(0)\), \(D(\pi/4)\) et \(D(\pi/2)\).
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Débit moyen = 200 m³/h (terme constant). Débit max = \(200 + 50 =\) <span class="reponse">250 m³/h</span>. Débit min = \(200 - 50 =\) <span class="reponse">150 m³/h</span>.</p>
+    <p><strong>2.</strong> Amplitude = <span class="reponse">50 m³/h</span>.</p>
+    <p><strong>3.</strong> Fréquence = \(\dfrac{1}{\pi} \approx\) <span class="reponse">\(0{,}318\) Hz</span> (oscillation par seconde).</p>
+    <p><strong>4.</strong><br>
+    \(D(0) = 200 + 50\,\sin(0) = 200 + 0 =\) <span class="reponse">200 m³/h</span><br>
+    \(D(\pi/4) = 200 + 50\,\sin(\pi/2) = 200 + 50 \times 1 =\) <span class="reponse">250 m³/h</span><br>
+    \(D(\pi/2) = 200 + 50\,\sin(\pi) = 200 + 0 =\) <span class="reponse">200 m³/h</span></p>
+  </div>
+</div>
 
 <!-- EX 7 -->
 <div class="exo diff-appro">
@@ -795,6 +1252,128 @@
       Les deux composantes sont égales car l'angle est de 45°.</p>
   </div>
   </details>
+</div>
+
+
+<!-- AP4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 31</span>
+    <span class="exo-title">Calcul de distance inaccessible par triangulation</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un conducteur de travaux doit mesurer la largeur d'une rivière pour planifier la pose de canalisations de part et d'autre. Il ne peut pas traverser. Il utilise la triangulation.
+  </div>
+  <p>Il place deux jalons \(A\) et \(B\) espacés de 20 m sur la rive. Depuis \(A\), il vise un point \(C\) de l'autre rive avec un angle de 70° par rapport à \(AB\). Depuis \(B\), il vise le même point \(C\) avec un angle de 65° par rapport à \(BA\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer l'angle \(\widehat{ACB}\) dans le triangle \(ABC\).<br>
+    <strong>2.</strong> En utilisant la loi des sinus, calculer les côtés \(AC\) et \(BC\).<br>
+    <strong>3.</strong> En déduire la largeur de la rivière (distance du pied perpendiculaire de \(C\) sur \(AB\)).<br>
+    <em>Indication : la hauteur depuis \(C\) vaut \(h = AC \times \sin(\widehat{CAB})\).</em>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\widehat{ACB} = 180° - 70° - 65° =\) <span class="reponse">\(45°\)</span></p>
+    <p><strong>2.</strong> Rapport : \(\dfrac{AB}{\sin(\widehat{ACB})} = \dfrac{20}{\sin 45°} = \dfrac{20}{0{,}7071} \approx 28{,}28\)<br>
+    \(AC = 28{,}28 \times \sin 65° = 28{,}28 \times 0{,}9063 \approx\) <span class="reponse">\(25{,}6\) m</span><br>
+    \(BC = 28{,}28 \times \sin 70° = 28{,}28 \times 0{,}9397 \approx\) <span class="reponse">\(26{,}6\) m</span></p>
+    <p><strong>3.</strong> Hauteur \(h = AC \times \sin(\widehat{CAB}) = 25{,}6 \times \sin 70° = 25{,}6 \times 0{,}9397 \approx\) <span class="reponse">\(24{,}1\) m</span><br>
+    La rivière fait environ <strong>24,1 m</strong> de large.</p>
+  </div>
+</div>
+
+<!-- AP5 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 32</span>
+    <span class="exo-title">Étude d'un signal périodique — modélisation sinusoïdale</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien en énergies renouvelables modélise la puissance instantanée (en W) fournie par une éolienne en fonction du temps. Le relevé indique une oscillation de la forme \(P(t) = A\cos(\omega t + \varphi)\) autour d'une valeur de base.
+  </div>
+  <p>Le technicien observe que la puissance oscillante varie entre −120 W et +120 W, avec une période de \(T = 0{,}02\) s (réseau 50 Hz). Il modélise : \(P(t) = 120\cos(100\pi t)\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Vérifier que la période est bien \(T = 0{,}02\) s en montrant que \(P(t + T) = P(t)\).<br>
+    <em>Rappel : \(\cos(x + 2\pi) = \cos(x)\)</em><br>
+    <strong>2.</strong> Calculer \(P(0)\), \(P(0{,}005)\), \(P(0{,}01)\), \(P(0{,}015)\), \(P(0{,}02)\).<br>
+    <strong>3.</strong> Résoudre \(P(t) = 60\) sur \([0\,;\,0{,}02]\). Donner les solutions exactes en utilisant \(\arccos\).<br>
+    <strong>4.</strong> Sur quelle fraction de la période la puissance est-elle positive ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P(t + 0{,}02) = 120\cos(100\pi(t + 0{,}02)) = 120\cos(100\pi t + 2\pi) = 120\cos(100\pi t) = P(t)\) ✓</p>
+    <p><strong>2.</strong><br>
+    \(P(0) = 120\cos(0) =\) <span class="reponse">120 W</span><br>
+    \(P(0{,}005) = 120\cos(\pi/2) =\) <span class="reponse">0 W</span><br>
+    \(P(0{,}01) = 120\cos(\pi) =\) <span class="reponse">−120 W</span><br>
+    \(P(0{,}015) = 120\cos(3\pi/2) =\) <span class="reponse">0 W</span><br>
+    \(P(0{,}02) = 120\cos(2\pi) =\) <span class="reponse">120 W</span></p>
+    <p><strong>3.</strong> \(120\cos(100\pi t) = 60\) → \(\cos(100\pi t) = 0{,}5\)<br>
+    \(100\pi t = \dfrac{\pi}{3}\) ou \(100\pi t = \dfrac{5\pi}{3}\)<br>
+    <span class="reponse">\(t_1 = \dfrac{1}{300} \approx 0{,}00333\) s</span>  et  <span class="reponse">\(t_2 = \dfrac{1}{60} \approx 0{,}01667\) s</span></p>
+    <p><strong>4.</strong> La puissance est positive pour \(100\pi t \in [-\pi/2\,;\,\pi/2]\) soit \(t \in [0\,;\,0{,}005]\) et \(t \in [0{,}015\,;\,0{,}02]\). Durée totale = \(0{,}005 + 0{,}005 = 0{,}01\) s = <span class="reponse">50 % de la période</span>.</p>
+  </div>
+</div>
+
+<!-- AP6 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 33</span>
+    <span class="exo-title">Problème de charpente — ferme avec contrefiches</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un charpentier conçoit une ferme de toit asymétrique. Le bâtiment a une portée de 10 m. Le faîtage se trouve à 4 m de hauteur, mais est décalé : il est situé à 3 m du mur gauche et 7 m du mur droit.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer l'angle d'inclinaison \(\alpha\) du pan gauche (côté de 3 m horizontalement et 4 m de hauteur).<br>
+    <strong>2.</strong> Calculer l'angle d'inclinaison \(\beta\) du pan droit (côté de 7 m horizontalement et 4 m de hauteur).<br>
+    <strong>3.</strong> Calculer la longueur de chaque arbalétrier (pan gauche et pan droit).<br>
+    <strong>4.</strong> Le charpentier doit régler sa scie à onglet pour couper les arbalétriers. Quel angle doit-il utiliser pour chaque coupe au faîtage ?<br>
+    <em>L'angle de coupe au faîtage est le complément de l'angle d'inclinaison par rapport à l'horizontale.</em>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\tan\alpha = \dfrac{4}{3}\) → <span class="reponse">\(\alpha = \arctan(4/3) \approx 53{,}1°\)</span></p>
+    <p><strong>2.</strong> \(\tan\beta = \dfrac{4}{7}\) → <span class="reponse">\(\beta = \arctan(4/7) \approx 29{,}7°\)</span></p>
+    <p><strong>3.</strong><br>
+    Arbalétrier gauche : \(L_1 = \sqrt{3^2 + 4^2} = \sqrt{25} =\) <span class="reponse">\(5\) m</span><br>
+    Arbalétrier droit : \(L_2 = \sqrt{7^2 + 4^2} = \sqrt{65} \approx\) <span class="reponse">\(8{,}06\) m</span></p>
+    <p><strong>4.</strong><br>
+    Angle de coupe gauche : \(90° - 53{,}1° =\) <span class="reponse">\(36{,}9°\)</span><br>
+    Angle de coupe droit : \(90° - 29{,}7° =\) <span class="reponse">\(60{,}3°\)</span></p>
+  </div>
+</div>
+
+<!-- AP7 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 34</span>
+    <span class="exo-title">Décomposition d'une force en composantes — installation d'un équipement</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur de pompes à chaleur fixe un module extérieur sur une façade inclinée à 15° de la verticale. La pompe à chaleur pèse 85 kg. Il doit calculer les forces exercées sur les ancrages pour choisir les boulons appropriés.
+  </div>
+  <p>Le poids de l'appareil est \(P = 85 \times 9{,}81 = 833{,}85\) N. Il est vertical (vers le bas). La façade fait un angle de 15° avec la verticale.</p>
+  <div class="consigne">
+    <strong>1.</strong> Décomposer le poids en une composante perpendiculaire à la façade et une composante parallèle à la façade.<br>
+    <em>Composante perpendiculaire : \(P_\perp = P\cos(15°)\) ; composante parallèle : \(P_{//} = P\sin(15°)\)</em><br>
+    <strong>2.</strong> Calculer \(P_\perp\) et \(P_{//}\).<br>
+    <strong>3.</strong> La composante parallèle tend à faire glisser l'appareil vers le bas de la pente. Un boulon de 10 mm supporte 500 N de cisaillement. Combien faut-il au minimum de boulons pour reprendre cette force ?<br>
+    <strong>4.</strong> Si la façade était parfaitement verticale (angle 0°), quel serait le résultat ?
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Composante perpendiculaire = \(P\cos(15°)\) (force d'appui sur la façade). Composante parallèle = \(P\sin(15°)\) (force de glissement).</p>
+    <p><strong>2.</strong><br>
+    \(P_\perp = 833{,}85 \times \cos(15°) = 833{,}85 \times 0{,}9659 \approx\) <span class="reponse">\(805{,}5\) N</span><br>
+    \(P_{//} = 833{,}85 \times \sin(15°) = 833{,}85 \times 0{,}2588 \approx\) <span class="reponse">\(215{,}8\) N</span></p>
+    <p><strong>3.</strong> Nombre de boulons \(= \dfrac{215{,}8}{500} = 0{,}43\) → arrondir à l'entier supérieur : <span class="reponse">au moins 1 boulon</span>. Par sécurité, on en pose toujours au moins 2.</p>
+    <p><strong>4.</strong> Façade verticale : \(\sin(0°) = 0\) → <span class="reponse">\(P_{//} = 0\) N</span> (pas de force de glissement) et \(P_\perp = P\) (tout le poids s'exerce perpendiculairement).</p>
+  </div>
 </div>
 
 </div><!-- fin diff-appro -->

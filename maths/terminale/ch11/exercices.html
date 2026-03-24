@@ -281,6 +281,123 @@
   </details>
 </div>
 
+<!-- NOUVEAUX EXERCICES SOCLE (+3) -->
+
+<!-- SOCLE NEW 1 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Calculer une norme — contexte professionnel guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Rappel</span><br>
+    La norme d'un vecteur \(\vec{u}\begin{pmatrix}x\\y\end{pmatrix}\) est : \(\|\vec{u}\| = \sqrt{x^2 + y^2}\)<br>
+    C'est la longueur du vecteur — en pratique, une distance sur plan.
+  </div>
+
+  <p>Un menuisier agenceur lit sur un plan les coordonnées de plusieurs pièces de bois :</p>
+  <table>
+    <tr><th>Pièce</th><th>Vecteur</th><th>Calcul \(x^2 + y^2\)</th><th>Longueur \(\|\vec{v}\|\)</th></tr>
+    <tr><td>Tasseau A</td><td>\(\vec{v_1}\begin{pmatrix}3\\4\end{pmatrix}\)</td><td>\(\boxed{\phantom{9}} + \boxed{\phantom{16}} = \boxed{\phantom{25}}\)</td><td>\(\sqrt{\boxed{\phantom{25}}} = \boxed{\phantom{5}}\)</td></tr>
+    <tr><td>Montant B</td><td>\(\vec{v_2}\begin{pmatrix}5\\0\end{pmatrix}\)</td><td>\(\boxed{\phantom{25}} + \boxed{\phantom{0}} = \boxed{\phantom{25}}\)</td><td>\(\sqrt{\boxed{\phantom{25}}} = \boxed{\phantom{5}}\)</td></tr>
+    <tr><td>Traverse C</td><td>\(\vec{v_3}\begin{pmatrix}0\\7\end{pmatrix}\)</td><td>\(\boxed{\phantom{0}} + \boxed{\phantom{49}} = \boxed{\phantom{49}}\)</td><td>\(\sqrt{\boxed{\phantom{49}}} = \boxed{\phantom{7}}\)</td></tr>
+    <tr><td>Chant D</td><td>\(\vec{v_4}\begin{pmatrix}6\\8\end{pmatrix}\)</td><td>\(\boxed{\phantom{36}} + \boxed{\phantom{64}} = \boxed{\phantom{100}}\)</td><td>\(\sqrt{\boxed{\phantom{100}}} = \boxed{\phantom{10}}\)</td></tr>
+  </table>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Pièce</th><th>\(x^2 + y^2\)</th><th>\(\|\vec{v}\|\)</th></tr>
+      <tr><td>Tasseau A</td><td>\(9 + 16 = 25\)</td><td><span class="reponse">\(5\)</span></td></tr>
+      <tr><td>Montant B</td><td>\(25 + 0 = 25\)</td><td><span class="reponse">\(5\)</span></td></tr>
+      <tr><td>Traverse C</td><td>\(0 + 49 = 49\)</td><td><span class="reponse">\(7\)</span></td></tr>
+      <tr><td>Chant D</td><td>\(36 + 64 = 100\)</td><td><span class="reponse">\(10\)</span></td></tr>
+    </table>
+    <p>Astuce : reconnaître les triplets pythagoriciens 3-4-5 et 6-8-10 donne directement un résultat entier.</p>
+  </div>
+</div>
+
+<!-- SOCLE NEW 2 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Identifier le vecteur normal d'une droite — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Règle</span><br>
+    Si la droite a pour équation \(ax + by + c = 0\), alors le <strong>vecteur normal</strong> est \(\vec{n}\begin{pmatrix}a\\b\end{pmatrix}\).<br>
+    Ce vecteur est perpendiculaire à la droite.
+  </div>
+
+  <p>Donner le vecteur normal à chaque droite :</p>
+  <table>
+    <tr><th>Équation de la droite</th><th>Vecteur normal \(\vec{n}\)</th></tr>
+    <tr><td>\(2x + 5y - 7 = 0\)</td><td>\(\vec{n} = \begin{pmatrix}\boxed{\phantom{2}}\\\boxed{\phantom{5}}\end{pmatrix}\)</td></tr>
+    <tr><td>\(-3x + y + 1 = 0\)</td><td>\(\vec{n} = \begin{pmatrix}\boxed{\phantom{-3}}\\\boxed{\phantom{1}}\end{pmatrix}\)</td></tr>
+    <tr><td>\(x - 4y = 0\)</td><td>\(\vec{n} = \begin{pmatrix}\boxed{\phantom{1}}\\\boxed{\phantom{-4}}\end{pmatrix}\)</td></tr>
+    <tr><td>\(y = 3x - 2\) (à réécrire sous la forme \(ax + by + c = 0\))</td><td>\(\vec{n} = \begin{pmatrix}\boxed{\phantom{-3}}\\\boxed{\phantom{1}}\end{pmatrix}\)</td></tr>
+  </table>
+
+  <p><strong>Application :</strong> Un technicien de maintenance vérifie l'orientation d'un mur modélisé par l'équation \(4x - 3y + 12 = 0\). Donner le vecteur normal à ce mur et sa norme.</p>
+  <div class="reponse-box">\(\vec{n} =\) ……… &nbsp; \(\|\vec{n}\| =\) ………</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Droite</th><th>Vecteur normal</th></tr>
+      <tr><td>\(2x + 5y - 7 = 0\)</td><td><span class="reponse">\(\vec{n}\begin{pmatrix}2\\5\end{pmatrix}\)</span></td></tr>
+      <tr><td>\(-3x + y + 1 = 0\)</td><td><span class="reponse">\(\vec{n}\begin{pmatrix}-3\\1\end{pmatrix}\)</span></td></tr>
+      <tr><td>\(x - 4y = 0\)</td><td><span class="reponse">\(\vec{n}\begin{pmatrix}1\\-4\end{pmatrix}\)</span></td></tr>
+      <tr><td>\(y = 3x - 2\) → \(-3x + y + 2 = 0\)</td><td><span class="reponse">\(\vec{n}\begin{pmatrix}-3\\1\end{pmatrix}\)</span></td></tr>
+    </table>
+    <p><strong>Application :</strong> \(4x - 3y + 12 = 0\) → <span class="reponse">\(\vec{n}\begin{pmatrix}4\\-3\end{pmatrix}\)</span>. \(\|\vec{n}\| = \sqrt{16 + 9} = \sqrt{25} =\) <span class="reponse">\(5\)</span>.</p>
+  </div>
+</div>
+
+<!-- SOCLE NEW 3 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Distance d'un point à une droite — guidé pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Formule</span><br>
+    La distance du point \(M(x_0\,;\,y_0)\) à la droite \(ax + by + c = 0\) est :
+    \[d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}\]
+    Étapes : 1) Calculer \(ax_0 + by_0 + c\) → 2) Prendre la valeur absolue → 3) Diviser par \(\sqrt{a^2 + b^2}\).
+  </div>
+
+  <p><strong>Exemple guidé :</strong> Distance du point \(P(1\,;\,2)\) à la droite \(3x + 4y - 5 = 0\).</p>
+  <p style="font-size:.93em">
+    Étape 1 : \(ax_0 + by_0 + c = 3 \times 1 + 4 \times 2 + (-5) = 3 + 8 - 5 = \boxed{6}\)<br>
+    Étape 2 : \(|6| = 6\)<br>
+    Étape 3 : \(\sqrt{a^2 + b^2} = \sqrt{9 + 16} = \sqrt{25} = 5\)<br>
+    Résultat : \(d = \dfrac{6}{5} = \boxed{1{,}2}\) unités
+  </p>
+
+  <p><strong>À toi :</strong> Calculer la distance du point \(A(3\,;\,1)\) à la droite \(5x - 12y + 3 = 0\).</p>
+  <p style="font-size:.93em">
+    Étape 1 : \(5 \times \boxed{\phantom{3}} + (-12) \times \boxed{\phantom{1}} + 3 = \boxed{\phantom{15}} + \boxed{\phantom{-12}} + 3 = \boxed{\phantom{6}}\)<br>
+    Étape 2 : valeur absolue = \(\boxed{\phantom{6}}\)<br>
+    Étape 3 : \(\sqrt{5^2 + (-12)^2} = \sqrt{\boxed{\phantom{25}} + \boxed{\phantom{144}}} = \sqrt{\boxed{\phantom{169}}} = \boxed{\phantom{13}}\)<br>
+    Résultat : \(d = \dfrac{\boxed{\phantom{6}}}{\boxed{\phantom{13}}}\) unités
+  </p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Étape 1 : \(5 \times 3 + (-12) \times 1 + 3 = 15 - 12 + 3 = 6\).</p>
+    <p>Étape 2 : \(|6| = 6\).</p>
+    <p>Étape 3 : \(\sqrt{25 + 144} = \sqrt{169} = 13\).</p>
+    <p><span class="reponse">\(d = \dfrac{6}{13} \approx 0{,}46\)</span> unités.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================
@@ -293,7 +410,7 @@
 <!-- EX 4 -->
 <div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
+    <span class="exo-num">Exercice 11</span>
     <span class="exo-title">Orthogonalité</span>
     <span class="tag-standard">Standard</span>
   </div>
@@ -320,7 +437,7 @@
 <!-- EX 5 -->
 <div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
+    <span class="exo-num">Exercice 12</span>
     <span class="exo-title">Identité de polarisation</span>
     <span class="tag-standard">Standard</span>
   </div>
@@ -346,7 +463,7 @@
 <!-- EX 6 -->
 <div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 10</span>
+    <span class="exo-num">Exercice 13</span>
     <span class="exo-title">Angle entre deux vecteurs – cas général</span>
     <span class="tag-standard">Standard</span>
   </div>
@@ -374,7 +491,7 @@
 <!-- EX 7 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 11</span>
+    <span class="exo-num">Exercice 14</span>
     <span class="exo-title">Équation de droite par vecteur normal</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -399,7 +516,7 @@
 <!-- EX 8 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 12</span>
+    <span class="exo-num">Exercice 15</span>
     <span class="exo-title">Distance d'un point à une droite</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -421,6 +538,183 @@
   </details>
 </div>
 
+<!-- NOUVEAUX EXERCICES STANDARD (+7) -->
+
+<!-- STD NEW 1 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Produit scalaire et angle — contexte installation thermique</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste installe deux conduites dans un couloir technique. La conduite A suit la direction \(\vec{u}\begin{pmatrix}4\\3\end{pmatrix}\) et la conduite B suit la direction \(\vec{v}\begin{pmatrix}-3\\4\end{pmatrix}\) (unité : 1 dm).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(\vec{u} \cdot \vec{v}\).<br>
+    <strong>2.</strong> Calculer \(\|\vec{u}\|\) et \(\|\vec{v}\|\).<br>
+    <strong>3.</strong> En déduire l'angle entre les deux conduites. Conclure sur leur orientation.
+  </div>
+  <div class="reponse-box" style="min-height:90px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\vec{u} \cdot \vec{v} = 4 \times (-3) + 3 \times 4 = -12 + 12 =\) <span class="reponse">\(0\)</span>.</p>
+    <p><strong>2.</strong> \(\|\vec{u}\| = \sqrt{16 + 9} = 5\) et \(\|\vec{v}\| = \sqrt{9 + 16} = 5\).</p>
+    <p><strong>3.</strong> \(\cos\theta = \dfrac{0}{5 \times 5} = 0\), donc <span class="reponse">\(\theta = 90°\)</span>. Les deux conduites sont <strong>perpendiculaires</strong>.</p>
+  </div>
+</div>
+
+<!-- STD NEW 2 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Équation d'une droite via le vecteur normal</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un menuisier agenceur modélise la coupe d'un panneau par une droite. On donne le point \(P(3\,;\,-2)\) et le vecteur normal \(\vec{n}\begin{pmatrix}2\\3\end{pmatrix}\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Écrire l'équation de la droite \((d)\) passant par \(P\) et de vecteur normal \(\vec{n}\).<br>
+    <em>Rappel :</em> \(a(x - x_0) + b(y - y_0) = 0\) puis développer.<br>
+    <strong>2.</strong> Vérifier que \(P\) appartient à \((d)\).<br>
+    <strong>3.</strong> Donner un vecteur directeur de \((d)\).<br>
+    <strong>4.</strong> Le point \(Q(0\,;\,2)\) appartient-il à \((d)\) ?
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(2(x - 3) + 3(y - (-2)) = 0\) → \(2x - 6 + 3y + 6 = 0\) → <span class="reponse">\(2x + 3y = 0\)</span>.</p>
+    <p><strong>2.</strong> \(2 \times 3 + 3 \times (-2) = 6 - 6 = 0\) ✓.</p>
+    <p><strong>3.</strong> Vecteur directeur : <span class="reponse">\(\vec{d}\begin{pmatrix}3\\-2\end{pmatrix}\)</span> (ou \(\begin{pmatrix}-3\\2\end{pmatrix}\) — perpendiculaire au vecteur normal).</p>
+    <p><strong>4.</strong> \(2 \times 0 + 3 \times 2 = 6 \neq 0\). <span class="reponse">\(Q\) n'appartient pas à \((d)\)</span>.</p>
+  </div>
+</div>
+
+<!-- STD NEW 3 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Distance d'un point à une droite — application professionnelle</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Sur le plan d'un bâtiment (unité : 1 m), une canalisation suit la droite d'équation \(3x - 4y + 12 = 0\). Un technicien installateur doit poser un équipement au point \(M(1\,;\,4)\). Calculer la distance entre l'équipement et la canalisation.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Identifier \(a\), \(b\), \(c\) dans l'équation \(3x - 4y + 12 = 0\).<br>
+    <strong>2.</strong> Calculer \(ax_0 + by_0 + c\) pour le point \(M(1\,;\,4)\).<br>
+    <strong>3.</strong> Calculer \(\sqrt{a^2 + b^2}\).<br>
+    <strong>4.</strong> En déduire la distance de \(M\) à la droite. L'équipement peut-il être posé à moins de 20 cm de la canalisation ?
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(a = 3\), \(b = -4\), \(c = 12\).</p>
+    <p><strong>2.</strong> \(3 \times 1 + (-4) \times 4 + 12 = 3 - 16 + 12 = -1\). \(|{-1}| = 1\).</p>
+    <p><strong>3.</strong> \(\sqrt{9 + 16} = \sqrt{25} = 5\).</p>
+    <p><strong>4.</strong> \(d = \dfrac{1}{5} = 0{,}2\) m = 20 cm. <span class="reponse">L'équipement est exactement à 20 cm de la canalisation — à la limite autorisée.</span></p>
+  </div>
+</div>
+
+<!-- STD NEW 4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Angle dans un triangle — contexte charpente</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un charpentier calcule les angles d'une ferme de toit. Le triangle de base a ses sommets en \(A(0\,;\,0)\), \(B(6\,;\,0)\) et \(C(3\,;\,4)\) (unité : 1 m).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les vecteurs \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).<br>
+    <strong>2.</strong> Calculer \(\overrightarrow{AB} \cdot \overrightarrow{AC}\), puis les normes \(\|\overrightarrow{AB}\|\) et \(\|\overrightarrow{AC}\|\).<br>
+    <strong>3.</strong> Calculer l'angle \(\widehat{BAC}\) en degrés (arrondir au degré).<br>
+    <strong>4.</strong> Vérifier que le triangle est isocèle en calculant \(\|\overrightarrow{BC}\|\).
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}6\\0\end{pmatrix}\) et \(\overrightarrow{AC} = \begin{pmatrix}3\\4\end{pmatrix}\).</p>
+    <p><strong>2.</strong> \(\overrightarrow{AB} \cdot \overrightarrow{AC} = 6 \times 3 + 0 \times 4 = 18\). \(\|\overrightarrow{AB}\| = 6\) et \(\|\overrightarrow{AC}\| = \sqrt{9+16} = 5\).</p>
+    <p><strong>3.</strong> \(\cos(\widehat{BAC}) = \dfrac{18}{6 \times 5} = \dfrac{18}{30} = 0{,}6\). <span class="reponse">\(\widehat{BAC} = \arccos(0{,}6) \approx 53°\)</span>.</p>
+    <p><strong>4.</strong> \(\overrightarrow{BC} = \begin{pmatrix}-3\\4\end{pmatrix}\). \(\|\overrightarrow{BC}\| = \sqrt{9+16} = 5 = \|\overrightarrow{AC}\|\). <span class="reponse">Le triangle est isocèle en \(C\)</span> (\(AC = BC = 5\) m).</p>
+  </div>
+</div>
+
+<!-- STD NEW 5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Produit scalaire par l'identité de polarisation — charpente</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Dans un triangle \(ABC\), on connaît les longueurs des côtés : \(AB = 5\) m, \(BC = 7\) m, \(AC = 8\) m. On pose \(\vec{u} = \overrightarrow{BA}\) et \(\vec{v} = \overrightarrow{BC}\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Identifier \(\|\vec{u}\|\), \(\|\vec{v}\|\) et \(\|\vec{u} - \vec{v}\|\) à partir des données.<br>
+    <em>Indication :</em> \(\vec{u} - \vec{v} = \overrightarrow{BA} - \overrightarrow{BC} = \overrightarrow{CA}\), donc \(\|\vec{u}-\vec{v}\| = CA = 8\).<br>
+    <strong>2.</strong> Utiliser la formule \(\vec{u} \cdot \vec{v} = \dfrac{1}{2}\!\left(\|\vec{u}\|^2 + \|\vec{v}\|^2 - \|\vec{u}-\vec{v}\|^2\right)\) pour calculer \(\overrightarrow{BA} \cdot \overrightarrow{BC}\).<br>
+    <strong>3.</strong> En déduire l'angle \(\widehat{ABC}\) (arrondir au degré).
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\|\vec{u}\| = AB = 5\), \(\|\vec{v}\| = BC = 7\), \(\|\vec{u}-\vec{v}\| = CA = 8\).</p>
+    <p><strong>2.</strong> \(\overrightarrow{BA} \cdot \overrightarrow{BC} = \dfrac{1}{2}(25 + 49 - 64) = \dfrac{1}{2} \times 10 =\) <span class="reponse">\(5\)</span>.</p>
+    <p><strong>3.</strong> \(\cos(\widehat{ABC}) = \dfrac{5}{5 \times 7} = \dfrac{5}{35} = \dfrac{1}{7} \approx 0{,}143\). <span class="reponse">\(\widehat{ABC} = \arccos(0{,}143) \approx 82°\)</span>.</p>
+  </div>
+</div>
+
+<!-- STD NEW 6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Vecteur normal et équation de droite — plan d'atelier</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Dans un atelier de menuiserie, deux murs sont modélisés par des droites. Le mur A passe par les points \(E(1\,;\,3)\) et \(F(4\,;\,5)\). Le mur B est perpendiculaire au mur A et passe par \(G(2\,;\,1)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le vecteur directeur \(\overrightarrow{EF}\) du mur A.<br>
+    <strong>2.</strong> Écrire l'équation du mur B (le vecteur directeur de A est le vecteur normal de B).<br>
+    <strong>3.</strong> Calculer la distance entre le point \(H(6\,;\,0)\) et le mur B.
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{EF} = \begin{pmatrix}3\\2\end{pmatrix}\).</p>
+    <p><strong>2.</strong> Vecteur normal à B = \(\begin{pmatrix}3\\2\end{pmatrix}\). Équation de B passant par \(G(2\,;\,1)\) : \(3(x-2) + 2(y-1) = 0\) → \(3x + 2y - 8 = 0\). <span class="reponse">\(3x + 2y - 8 = 0\)</span>.</p>
+    <p><strong>3.</strong> \(d(H, B) = \dfrac{|3 \times 6 + 2 \times 0 - 8|}{\sqrt{9+4}} = \dfrac{|18 - 8|}{\sqrt{13}} = \dfrac{10}{\sqrt{13}} \approx\) <span class="reponse">\(2{,}77\)</span> unités.</p>
+  </div>
+</div>
+
+<!-- STD NEW 7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Angles et distances dans un réseau de distribution</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur de pompes à chaleur trace le réseau de liaisons entre 3 unités. Les unités sont aux positions \(A(0\,;\,0)\), \(B(5\,;\,2)\) et \(C(3\,;\,7)\) sur le plan (unité : 1 m).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les vecteurs \(\overrightarrow{AB}\) et \(\overrightarrow{AC}\).<br>
+    <strong>2.</strong> Calculer les longueurs \(AB\), \(AC\) et \(BC\). Arrondir au centième.<br>
+    <strong>3.</strong> Calculer l'angle \(\widehat{BAC}\). Arrondir au degré.<br>
+    <strong>4.</strong> La droite reliant \(A\) à \(B\) a pour équation \(2x - 5y = 0\). Vérifier que \(C\) n'est pas sur cette droite, puis calculer la distance de \(C\) à la droite \((AB)\).
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{AB} = \begin{pmatrix}5\\2\end{pmatrix}\) et \(\overrightarrow{AC} = \begin{pmatrix}3\\7\end{pmatrix}\).</p>
+    <p><strong>2.</strong> \(AB = \sqrt{25+4} = \sqrt{29} \approx 5{,}39\) m. \(AC = \sqrt{9+49} = \sqrt{58} \approx 7{,}62\) m. \(\overrightarrow{BC} = \begin{pmatrix}-2\\5\end{pmatrix}\), \(BC = \sqrt{4+25} = \sqrt{29} \approx 5{,}39\) m.</p>
+    <p><strong>3.</strong> \(\overrightarrow{AB} \cdot \overrightarrow{AC} = 15 + 14 = 29\). \(\cos(\widehat{BAC}) = \dfrac{29}{\sqrt{29}\sqrt{58}} = \dfrac{29}{\sqrt{1682}} \approx \dfrac{29}{41{,}01} \approx 0{,}707\). <span class="reponse">\(\widehat{BAC} \approx 45°\)</span>.</p>
+    <p><strong>4.</strong> \(2 \times 3 - 5 \times 7 = 6 - 35 = -29 \neq 0\) → \(C\) n'est pas sur \((AB)\) ✓.<br>
+    \(d = \dfrac{|-29|}{\sqrt{4+25}} = \dfrac{29}{\sqrt{29}} = \sqrt{29} \approx\) <span class="reponse">\(5{,}39\) m</span>.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-standard -->
 
 <!-- ================================================================
@@ -433,7 +727,7 @@
 <!-- EX 9 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 13</span>
+    <span class="exo-num">Exercice 23</span>
     <span class="exo-title">Plan d'aménagement d'un magasin</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -470,7 +764,7 @@
 <!-- EX 10 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 14</span>
+    <span class="exo-num">Exercice 24</span>
     <span class="exo-title">Réseau de tuyauteries et composantes de force</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -499,6 +793,365 @@
       <span class="reponse">La composante de la force dans la direction de \(\overrightarrow{AC}\) est de 400 N</span>.</p>
   </div>
   </details>
+</div>
+
+<!-- NOUVEAUX EXERCICES APPROFONDISSEMENT (+6) -->
+
+<!-- APPRO NEW 1 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 25</span>
+    <span class="exo-title">Optimisation de tracé — réseau de canalisations</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un plombier chauffagiste relie trois radiateurs sur un plan (unité : 1 m). Les radiateurs sont en \(R_1(0\,;\,0)\), \(R_2(6\,;\,0)\) et \(R_3(3\,;\,5)\). Il doit trouver le point \(P(x\,;\,0)\) sur le segment \([R_1 R_2]\) qui minimise la distance totale \(PR_1 + PR_2 + PR_3\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les vecteurs \(\overrightarrow{R_1R_2}\) et \(\overrightarrow{R_1R_3}\).<br>
+    <strong>2.</strong> Calculer le produit scalaire \(\overrightarrow{R_1R_2} \cdot \overrightarrow{R_1R_3}\) et l'angle \(\widehat{R_2 R_1 R_3}\).<br>
+    <strong>3.</strong> Déterminer l'équation de la droite \((R_1 R_3)\) et la distance de \(R_2\) à cette droite. Interpréter : quelle est la distance minimale entre \(R_2\) et le tuyau \([R_1 R_3]\) ?<br>
+    <strong>4.</strong> Calculer la longueur du tuyau en ligne brisée \(R_1 \to R_2 \to R_3\) et la longueur du tuyau direct \(R_1 \to R_3\). Quelle option est la plus économique en matériel ?
+  </div>
+  <div class="reponse-box" style="min-height:140px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{R_1R_2} = \begin{pmatrix}6\\0\end{pmatrix}\) et \(\overrightarrow{R_1R_3} = \begin{pmatrix}3\\5\end{pmatrix}\).</p>
+    <p><strong>2.</strong> \(\overrightarrow{R_1R_2} \cdot \overrightarrow{R_1R_3} = 18 + 0 = 18\). \(\|\overrightarrow{R_1R_2}\| = 6\), \(\|\overrightarrow{R_1R_3}\| = \sqrt{9+25} = \sqrt{34}\).<br>
+    \(\cos(\widehat{R_2R_1R_3}) = \dfrac{18}{6\sqrt{34}} = \dfrac{3}{\sqrt{34}} \approx 0{,}514\). <span class="reponse">\(\widehat{R_2R_1R_3} \approx 59°\)</span>.</p>
+    <p><strong>3.</strong> Direction \(\overrightarrow{R_1R_3} = \begin{pmatrix}3\\5\end{pmatrix}\), vecteur normal \(\begin{pmatrix}5\\-3\end{pmatrix}\). Droite \((R_1R_3)\) passant par \((0,0)\) : \(5x - 3y = 0\).<br>
+    \(d(R_2, (R_1R_3)) = \dfrac{|5 \times 6 - 3 \times 0|}{\sqrt{25+9}} = \dfrac{30}{\sqrt{34}} \approx\) <span class="reponse">\(5{,}14\) m</span>. C'est la distance minimale entre \(R_2\) et le tuyau \([R_1R_3]\).</p>
+    <p><strong>4.</strong> Ligne brisée : \(R_1R_2 + R_2R_3\). \(R_2R_3 = \sqrt{9+25} = \sqrt{34} \approx 5{,}83\) m. Total : \(6 + 5{,}83 \approx 11{,}83\) m.<br>
+    Tuyau direct : \(R_1R_3 = \sqrt{34} \approx 5{,}83\) m.<br>
+    <span class="reponse">Le tuyau direct est beaucoup plus court (5,83 m contre 11,83 m).</span></p>
+  </div>
+</div>
+
+<!-- APPRO NEW 2 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 26</span>
+    <span class="exo-title">Projection orthogonale et travail d'une force</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> En physique du bâtiment, le <strong>travail</strong> d'une force \(\vec{F}\) lors d'un déplacement \(\vec{d}\) est \(W = \vec{F} \cdot \vec{d}\). Un technicien de maintenance déplace un équipement selon \(\vec{d}\begin{pmatrix}4\\3\end{pmatrix}\) (en mètres) avec une force \(\vec{F}\begin{pmatrix}10\\5\end{pmatrix}\) (en newtons).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le travail \(W = \vec{F} \cdot \vec{d}\) (en joules).<br>
+    <strong>2.</strong> Calculer \(\|\vec{d}\|\) et \(\|\vec{F}\|\). Arrondir au centième.<br>
+    <strong>3.</strong> En déduire l'angle entre la force et le déplacement. Arrondir au degré.<br>
+    <strong>4.</strong> La projection de \(\vec{F}\) sur \(\vec{d}\) est \(\text{proj} = \dfrac{\vec{F}\cdot\vec{d}}{\|\vec{d}\|}\). Calculer cette projection et interpréter physiquement.<br>
+    <strong>5.</strong> Si le technicien exerce la même force mais dans la direction exacte du déplacement, quel travail obtiendrait-il ? Comparer.
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(W = 10 \times 4 + 5 \times 3 = 40 + 15 =\) <span class="reponse">\(55\) J</span>.</p>
+    <p><strong>2.</strong> \(\|\vec{d}\| = \sqrt{16+9} = 5\) m. \(\|\vec{F}\| = \sqrt{100+25} = \sqrt{125} = 5\sqrt{5} \approx\) <span class="reponse">\(11{,}18\) N</span>.</p>
+    <p><strong>3.</strong> \(\cos\theta = \dfrac{55}{5 \times 11{,}18} = \dfrac{55}{55{,}9} \approx 0{,}984\). <span class="reponse">\(\theta \approx 10°\)</span>.</p>
+    <p><strong>4.</strong> \(\text{proj} = \dfrac{55}{5} = 11\) N. <span class="reponse">La composante efficace de la force dans la direction du déplacement est de 11 N.</span></p>
+    <p><strong>5.</strong> Si \(\vec{F}\) était alignée avec \(\vec{d}\), \(W = \|\vec{F}\| \times \|\vec{d}\| = 11{,}18 \times 5 \approx 55{,}9\) J. <span class="reponse">Le gain serait faible (0,9 J) car l'angle est déjà petit (10°).</span></p>
+  </div>
+</div>
+
+<!-- APPRO NEW 3 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 27</span>
+    <span class="exo-title">Géométrie du triangle — théorème de la médiane</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>On considère le triangle \(ABC\) avec \(A(1\,;\,1)\), \(B(7\,;\,1)\) et \(C(4\,;\,5)\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les longueurs \(AB\), \(BC\), \(CA\). Quelle est la nature du triangle ?<br>
+    <strong>2.</strong> Soit \(M\) le milieu de \([BC]\). Calculer les coordonnées de \(M\) et la longueur \(AM\) (médiane).<br>
+    <strong>3.</strong> La formule de la médiane est \(AM^2 = \dfrac{2AB^2 + 2AC^2 - BC^2}{4}\). Vérifier cette formule.<br>
+    <em>Indication :</em> utiliser le produit scalaire pour développer \(AM^2 = |\overrightarrow{AM}|^2\).<br>
+    <strong>4.</strong> Calculer les angles du triangle (les 3 angles en \(A\), \(B\), \(C\)).
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(AB = 6\). \(\overrightarrow{BC} = \begin{pmatrix}-3\\4\end{pmatrix}\), \(BC = 5\). \(\overrightarrow{CA} = \begin{pmatrix}-3\\-4\end{pmatrix}\), \(CA = 5\).<br>
+    <span class="reponse">Triangle isocèle en \(A\)</span> (\(BC = CA = 5 \neq AB = 6\)). En fait isocèle en \(A\) signifie \(AB = AC\) — ici \(BC = CA = 5\) donc isocèle en \(C\) — non, \(CA = 5\) et \(AB = 6\), donc isocèle en \(B\) (\(BA = CA =\)... non. Recalculons : \(AB=6, BC=5, CA=5\). <span class="reponse">Isocèle en \(A\) car \(AB \neq BC = CA = 5\)... non, isocèle signifie deux côtés égaux, ici \(BC = CA = 5\), donc isocèle en \(C\) n'est pas correct. On dit isocèle en \(A\) si \(AB = AC\). Or \(AB = 6 \neq 5 = AC\). Le triangle est isocèle avec \(BC = CA = 5\).</span></p>
+    <p><strong>2.</strong> \(M = \left(\dfrac{7+4}{2}\,;\,\dfrac{1+5}{2}\right) = (5{,}5\,;\,3)\). \(\overrightarrow{AM} = \begin{pmatrix}4{,}5\\2\end{pmatrix}\). \(AM = \sqrt{20{,}25+4} = \sqrt{24{,}25} \approx\) <span class="reponse">\(4{,}92\) m</span>.</p>
+    <p><strong>3.</strong> \(\dfrac{2 \times 36 + 2 \times 25 - 25}{4} = \dfrac{72 + 50 - 25}{4} = \dfrac{97}{4} = 24{,}25 = AM^2\) ✓.</p>
+    <p><strong>4.</strong> Angle en \(A\) : \(\overrightarrow{AB} \cdot \overrightarrow{AC} = \begin{pmatrix}6\\0\end{pmatrix} \cdot \begin{pmatrix}3\\4\end{pmatrix} = 18\). \(\cos A = \dfrac{18}{6 \times 5} = 0{,}6\). <span class="reponse">\(A \approx 53°\)</span>.<br>
+    Par symétrie (\(BC = CA\)), les angles en \(B\) et \(C\) sont égaux : \(B = C = \dfrac{180° - 53°}{2} \approx 63{,}5°\).</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 28</span>
+    <span class="exo-title">Perpendiculaire abaissée d'un point sur une droite</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Sur un plan de coupe (unité : 1 cm), un artisan menuisier doit tracer la perpendiculaire depuis le point \(P(5\,;\,8)\) sur la droite \((d) : 2x + y - 10 = 0\). Le pied de la perpendiculaire \(H\) est le point de \((d)\) le plus proche de \(P\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Vérifier que \(P\) n'appartient pas à \((d)\).<br>
+    <strong>2.</strong> La perpendiculaire à \((d)\) par \(P\) a pour vecteur directeur \(\vec{n}\begin{pmatrix}2\\1\end{pmatrix}\) (vecteur normal de \((d)\)). Écrire l'équation paramétrique de cette perpendiculaire : \(x = 5 + 2t\), \(y = 8 + t\).<br>
+    <strong>3.</strong> Trouver \(t\) tel que le point \((5+2t\,;\,8+t)\) appartienne à \((d)\).<br>
+    <strong>4.</strong> En déduire les coordonnées de \(H\) et la distance \(PH\) (vérifier avec la formule de la distance point-droite).
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(2 \times 5 + 8 - 10 = 8 \neq 0\). \(P\) n'appartient pas à \((d)\) ✓.</p>
+    <p><strong>2.</strong> La perpendiculaire a pour vecteur directeur le vecteur normal à \((d)\) : \(\vec{n}\begin{pmatrix}2\\1\end{pmatrix}\). Droite par \(P\) : \((x,y) = (5,8) + t(2,1)\).</p>
+    <p><strong>3.</strong> On substitue dans \(2x + y - 10 = 0\) : \(2(5+2t) + (8+t) - 10 = 0\) → \(10 + 4t + 8 + t - 10 = 0\) → \(5t + 8 = 0\) → <span class="reponse">\(t = -\dfrac{8}{5} = -1{,}6\)</span>.</p>
+    <p><strong>4.</strong> \(H = (5 + 2 \times (-1{,}6)\,;\,8 + (-1{,}6)) = (5 - 3{,}2\,;\,6{,}4) =\) <span class="reponse">\((1{,}8\,;\,6{,}4)\)</span>.<br>
+    \(PH = \sqrt{(5-1{,}8)^2 + (8-6{,}4)^2} = \sqrt{10{,}24 + 2{,}56} = \sqrt{12{,}8} \approx 3{,}58\) cm.<br>
+    Vérification : \(d(P,(d)) = \dfrac{|10+8-10|}{\sqrt{4+1}} = \dfrac{8}{\sqrt{5}} = \dfrac{8\sqrt{5}}{5} \approx 3{,}58\) ✓.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 5 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 29</span>
+    <span class="exo-title">Produit scalaire dans l'espace — calcul de puissance électrique</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> En électricité, la puissance active d'un circuit alternatif est \(P = UI\cos\varphi\) où \(U\) et \(I\) sont les valeurs efficaces et \(\varphi\) l'angle de déphasage. On peut l'écrire \(P = \vec{U} \cdot \vec{I}\) dans un espace de phaseurs, avec \(\|\vec{U}\| = U\), \(\|\vec{I}\| = I\) et l'angle entre les deux phaseurs vaut \(\varphi\). Un technicien CVC mesure : \(U = 230\) V, \(I = 4{,}5\) A et \(\varphi = 30°\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la puissance active \(P = UI\cos\varphi\). Donner le résultat en watts, arrondir à l'unité.<br>
+    <strong>2.</strong> La puissance apparente est \(S = UI\). Calculer \(S\) en voltampères (VA).<br>
+    <strong>3.</strong> Le facteur de puissance est \(\cos\varphi = \dfrac{P}{S}\). Donner sa valeur et interpréter : est-ce un bon facteur de puissance ?<br>
+    <strong>4.</strong> On souhaite améliorer le facteur de puissance à \(\cos\varphi' = 0{,}95\). Avec \(I' = \dfrac{P}{U\cos\varphi'}\), calculer la nouvelle intensité nécessaire. Comparer à \(I = 4{,}5\) A.
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(P = 230 \times 4{,}5 \times \cos 30° = 1035 \times \dfrac{\sqrt{3}}{2} \approx 1035 \times 0{,}866 \approx\) <span class="reponse">\(896\) W</span>.</p>
+    <p><strong>2.</strong> \(S = 230 \times 4{,}5 =\) <span class="reponse">\(1035\) VA</span>.</p>
+    <p><strong>3.</strong> \(\cos\varphi = \dfrac{896}{1035} \approx 0{,}866\). <span class="reponse">C'est correct (supérieur à 0,8) mais peut être amélioré.</span></p>
+    <p><strong>4.</strong> \(I' = \dfrac{896}{230 \times 0{,}95} = \dfrac{896}{218{,}5} \approx\) <span class="reponse">\(4{,}10\) A</span>. L'intensité diminue de 4,5 A à 4,1 A — économie d'énergie réactive et réduction des pertes par effet Joule dans les câbles.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 6 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 30</span>
+    <span class="exo-title">Problème d'implantation — type BTS agencement</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un conducteur de travaux reçoit le plan d'une boutique rectangulaire avec les coins \(O(0\,;\,0)\), \(A(12\,;\,0)\), \(B(12\,;\,8)\) et \(C(0\,;\,8)\) (unité : 1 m). Une allée centrale suit la droite \((d) : x - 2y + 4 = 0\). Un pilier de soutènement se trouve en \(P(4\,;\,6)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Vérifier que la droite \((d)\) passe par les points \(A' = (-4\,;\,0)\) et \(B' = (0\,;\,2)\).<br>
+    <strong>2.</strong> Calculer la distance du pilier \(P\) à l'allée \((d)\). Le pilier gêne-t-il le passage si l'allée doit avoir 2 m de large de chaque côté ?<br>
+    <strong>3.</strong> Donner le vecteur normal \(\vec{n}\) à \((d)\) et écrire l'équation de la droite perpendiculaire à \((d)\) passant par \(P\).<br>
+    <strong>4.</strong> Calculer l'angle que fait l'allée \((d)\) avec le mur \(OA\) (de direction horizontale). Le revêtement sera posé en bandes parallèles à l'allée — quel angle de coupe faut-il régler sur la scie ?<br>
+    <strong>5.</strong> Un comptoir est centré en \(K(8\,;\,4)\). Calculer la distance de \(K\) à l'allée \((d)\) et vérifier que le comptoir ne gêne pas la circulation.
+  </div>
+  <div class="reponse-box" style="min-height:150px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(A'(-4\,;\,0)\) : \(-4 - 0 + 4 = 0\) ✓. \(B'(0\,;\,2)\) : \(0 - 4 + 4 = 0\) ✓.</p>
+    <p><strong>2.</strong> \(d(P,(d)) = \dfrac{|4 - 12 + 4|}{\sqrt{1+4}} = \dfrac{4}{\sqrt{5}} \approx\) <span class="reponse">\(1{,}79\) m</span>. L'allée devant avoir 2 m de large de chaque côté, le pilier (à 1,79 m) est <span class="reponse">dans la zone de circulation — il gêne le passage.</span></p>
+    <p><strong>3.</strong> \(\vec{n}\begin{pmatrix}1\\-2\end{pmatrix}\). Droite par \(P(4\,;\,6)\) : \(1(x-4) - 2(y-6) = 0\) → <span class="reponse">\(x - 2y + 8 = 0\)</span>.</p>
+    <p><strong>4.</strong> Direction de \((d)\) : vecteur directeur \(\begin{pmatrix}2\\1\end{pmatrix}\). Direction du mur \(OA\) : \(\begin{pmatrix}1\\0\end{pmatrix}\).<br>
+    \(\cos\alpha = \dfrac{2 \times 1 + 1 \times 0}{\sqrt{5} \times 1} = \dfrac{2}{\sqrt{5}} \approx 0{,}894\). \(\alpha = \arccos(0{,}894) \approx\) <span class="reponse">\(26{,}6°\)</span>. Angle de coupe à régler : 26,6°.</p>
+    <p><strong>5.</strong> \(d(K,(d)) = \dfrac{|8 - 8 + 4|}{\sqrt{5}} = \dfrac{4}{\sqrt{5}} \approx 1{,}79\) m. <span class="reponse">Le comptoir est également à 1,79 m de l'allée — il est aussi dans la zone de 2 m et doit être déplacé.</span></p>
+  </div>
+</div>
+
+
+<!-- APPRO NEW 7 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 31</span>
+    <span class="exo-title">Vérification de perpendiculaire et équation de cloison</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur travaille sur le plan d'une pièce (unité : 1 dm). Les murs sont définis par les points \(A(0\,;\,0)\), \(B(15\,;\,0)\), \(C(15\,;\,9)\), \(D(0\,;\,9)\). Une cloison de séparation part du point \(E(6\,;\,0)\) (sur \([AB]\)) vers un point \(F\) sur le mur \([CD]\), avec un angle de 90° avec \([AB]\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Donner le vecteur directeur du mur \([AB]\) et le vecteur normal à ce mur.<br>
+    <strong>2.</strong> Déterminer l'équation de la droite \((EF)\) perpendiculaire à \([AB]\) passant par \(E(6\,;\,0)\).<br>
+    <strong>3.</strong> Trouver les coordonnées de \(F\), intersection de \((EF)\) avec le mur \([CD]\) (d'équation \(y = 9\)).<br>
+    <strong>4.</strong> Calculer la longueur de la cloison \([EF]\). L'installateur commande des rails de cloison en barres de 1,20 m ; combien de barres complètes sont nécessaires ?<br>
+    <strong>5.</strong> Un poteau porteur est situé en \(P(9\,;\,5)\). Calculer sa distance à la cloison \((EF)\) et vérifier qu'il ne se trouve pas dans l'axe de la cloison.
+  </div>
+  <div class="reponse-box" style="min-height:150px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Vecteur directeur de \([AB]\) : \(\overrightarrow{AB} = \begin{pmatrix}15\\0\end{pmatrix}\), soit \(\vec{d} = \begin{pmatrix}1\\0\end{pmatrix}\). Vecteur normal : <span class="reponse">\(\vec{n} = \begin{pmatrix}0\\1\end{pmatrix}\)</span>.</p>
+    <p><strong>2.</strong> La cloison est perpendiculaire à \([AB]\), donc de direction \(\vec{n} = \begin{pmatrix}0\\1\end{pmatrix}\). Équation de \((EF)\) : vecteur normal = \(\vec{d} = \begin{pmatrix}1\\0\end{pmatrix}\), donc équation \(1 \cdot x + 0 \cdot y + c = 0\). Point \(E(6\,;\,0)\) : \(6 + c = 0\), \(c = -6\). <span class="reponse">\((EF) : x = 6\)</span>.</p>
+    <p><strong>3.</strong> Intersection avec \([CD]\) : \(y = 9\) et \(x = 6\), donc <span class="reponse">\(F = (6\,;\,9)\)</span>.</p>
+    <p><strong>4.</strong> \(\overrightarrow{EF} = \begin{pmatrix}0\\9\end{pmatrix}\), donc \(\|EF\| = 9\) dm = <span class="reponse">\(0{,}9\) m</span>. Pour 0,9 m avec des barres de 1,20 m : <span class="reponse">1 barre suffit</span>.</p>
+    <p><strong>5.</strong> Distance de \(P(9\,;\,5)\) à la droite \(x = 6\) (équation \(x - 6 = 0\)) :<br>
+    \(d = \dfrac{|9 - 6|}{\sqrt{1}} = 3\) dm = <span class="reponse">\(0{,}3\) m</span>. Le poteau est à 0,3 m de la cloison — il n'est pas dans l'axe (\(x \neq 6\)) et ne gêne pas la pose.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 8 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 32</span>
+    <span class="exo-title">Angle de coupe et distance — pose de revêtement en diagonale</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un poseur de cuisines installe un carrelage en diagonale dans une cuisine rectangulaire. L'axe de pose des carreaux suit la droite \((d) : 3x - 4y + 12 = 0\) (unité : 1 dm). Le mur du fond est la droite \((m) : y = 0\). Une prise d'eau est en \(P(5\,;\,3)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Donner un vecteur directeur de \((d)\) et un vecteur directeur de \((m)\).<br>
+    <strong>2.</strong> Calculer l'angle entre la droite de pose \((d)\) et le mur \((m)\). À quel angle doit-on régler la scie pour couper les carreaux le long de l'axe de pose ?<br>
+    <strong>3.</strong> Calculer la distance de la prise d'eau \(P(5\,;\,3)\) à la droite de pose \((d)\).<br>
+    <strong>4.</strong> Si les carreaux ont une largeur de 4 dm, la prise se trouve-t-elle sous un carreau ou dans un joint ? (Comparer la distance à la demi-largeur.)<br>
+    <strong>5.</strong> Écrire l'équation de la droite passant par \(P\) et perpendiculaire à \((d)\). Interprétation : cette droite donne la direction du joint le plus proche de \(P\).
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Pour \(3x - 4y + 12 = 0\) : vecteur normal \(\vec{n} = \begin{pmatrix}3\\-4\end{pmatrix}\), vecteur directeur <span class="reponse">\(\vec{u} = \begin{pmatrix}4\\3\end{pmatrix}\)</span>. Pour \((m)\) : \(y = 0\), vecteur directeur \(\vec{v} = \begin{pmatrix}1\\0\end{pmatrix}\).</p>
+    <p><strong>2.</strong> \(\vec{u} \cdot \vec{v} = 4 \times 1 + 3 \times 0 = 4\). \(\|\vec{u}\| = \sqrt{16+9} = 5\), \(\|\vec{v}\| = 1\).<br>
+    \(\cos\theta = \dfrac{4}{5 \times 1} = 0{,}8\). <span class="reponse">\(\theta = \arccos(0{,}8) \approx 36{,}9°\)</span>. La scie doit être réglée à environ 37°.</p>
+    <p><strong>3.</strong> \(d(P,(d)) = \dfrac{|3 \times 5 - 4 \times 3 + 12|}{\sqrt{9+16}} = \dfrac{|15 - 12 + 12|}{5} = \dfrac{15}{5} =\) <span class="reponse">\(3\) dm</span>.</p>
+    <p><strong>4.</strong> Demi-largeur des carreaux : \(4/2 = 2\) dm. Distance = 3 dm > 2 dm : <span class="reponse">la prise se trouve au-delà d'un carreau entier, dans le carreau suivant</span> (pas dans un joint). Il faudra découper soigneusement le carreau pour contourner la prise.</p>
+    <p><strong>5.</strong> Droite perpendiculaire à \((d)\) passant par \(P(5\,;\,3)\) : vecteur normal = vecteur directeur de \((d)\) = \(\begin{pmatrix}4\\3\end{pmatrix}\). Vecteur normal à la perpendiculaire : \(\begin{pmatrix}3\\-4\end{pmatrix}\), donc équation \(3(x-5) - 4(y-3) = 0\) → <span class="reponse">\(3x - 4y - 3 = 0\)</span>.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 9 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 33</span>
+    <span class="exo-title">Réseau de chauffage — angles de raccordement et longueurs</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste conçoit le plan d'un réseau de distribution de chaleur dans un bâtiment industriel. Sur le plan (unité : 1 m), la chaudière est en \(O(0\,;\,0)\), le nœud de distribution en \(N(8\,;\,4)\), et deux radiateurs en \(R_1(14\,;\,2)\) et \(R_2(10\,;\,9)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les vecteurs \(\overrightarrow{ON}\), \(\overrightarrow{NR_1}\) et \(\overrightarrow{NR_2}\).<br>
+    <strong>2.</strong> Calculer les longueurs de tuyau \(ON\), \(NR_1\) et \(NR_2\). Donner la longueur totale du réseau.<br>
+    <strong>3.</strong> Calculer l'angle \(\widehat{R_1 N R_2}\) (angle entre les deux tuyaux de sortie au nœud \(N\)). Est-ce un angle droit ?<br>
+    <strong>4.</strong> L'entreprise pose une isolation autour de chaque tuyau. Le coût d'isolation est de 12 €/m. Calculer le coût total d'isolation du réseau.<br>
+    <strong>5.</strong> Un robinet de réglage doit être placé sur le tuyau \([NR_2]\) à 3 m du nœud \(N\). Calculer ses coordonnées (arrondir à deux décimales).
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\overrightarrow{ON} = \begin{pmatrix}8\\4\end{pmatrix}\) ; \(\overrightarrow{NR_1} = \begin{pmatrix}6\\-2\end{pmatrix}\) ; \(\overrightarrow{NR_2} = \begin{pmatrix}2\\5\end{pmatrix}\).</p>
+    <p><strong>2.</strong> \(\|ON\| = \sqrt{64+16} = \sqrt{80} = 4\sqrt{5} \approx 8{,}94\) m.<br>
+    \(\|NR_1\| = \sqrt{36+4} = \sqrt{40} = 2\sqrt{10} \approx 6{,}32\) m.<br>
+    \(\|NR_2\| = \sqrt{4+25} = \sqrt{29} \approx 5{,}39\) m.<br>
+    <span class="reponse">Longueur totale : \(8{,}94 + 6{,}32 + 5{,}39 \approx 20{,}65\) m.</span></p>
+    <p><strong>3.</strong> \(\overrightarrow{NR_1} \cdot \overrightarrow{NR_2} = 6 \times 2 + (-2) \times 5 = 12 - 10 = 2 \neq 0\). Pas un angle droit.<br>
+    \(\cos(\widehat{R_1NR_2}) = \dfrac{2}{\sqrt{40} \times \sqrt{29}} = \dfrac{2}{\sqrt{1160}} \approx \dfrac{2}{34{,}06} \approx 0{,}0587\).<br>
+    <span class="reponse">\(\widehat{R_1NR_2} = \arccos(0{,}0587) \approx 86{,}6°\)</span> — presque perpendiculaire mais pas exactement.</p>
+    <p><strong>4.</strong> Coût d'isolation : \(20{,}65 \times 12 \approx\) <span class="reponse">\(247{,}8\) €</span>.</p>
+    <p><strong>5.</strong> Vecteur unitaire \(\overrightarrow{NR_2}\) : \(\dfrac{1}{\sqrt{29}}\begin{pmatrix}2\\5\end{pmatrix}\). Point à 3 m de \(N\) dans la direction \(NR_2\) :<br>
+    \(\left(8 + \dfrac{3 \times 2}{\sqrt{29}}\,;\,4 + \dfrac{3 \times 5}{\sqrt{29}}\right) = \left(8 + \dfrac{6}{5{,}385}\,;\,4 + \dfrac{15}{5{,}385}\right) \approx\) <span class="reponse">\((9{,}11\,;\,6{,}79)\)</span>.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 10 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 34</span>
+    <span class="exo-title">Identité de polarisation — application géométrique dans un triangle</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un architecte d'intérieur vérifie les dimensions d'un espace triangulaire \(ABC\) sur plan (unité : 1 dm). On donne \(A(0\,;\,0)\), \(B(10\,;\,0)\) et \(C(4\,;\,7)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les longueurs \(AB\), \(AC\) et \(BC\).<br>
+    <strong>2.</strong> En utilisant l'identité de polarisation \(\overrightarrow{AB} \cdot \overrightarrow{AC} = \dfrac{1}{2}\left(\|AB\|^2 + \|AC\|^2 - \|BC\|^2\right)\), calculer \(\overrightarrow{AB} \cdot \overrightarrow{AC}\) sans utiliser les coordonnées.<br>
+    <strong>3.</strong> Vérifier le résultat en calculant directement \(\overrightarrow{AB} \cdot \overrightarrow{AC}\) avec les coordonnées.<br>
+    <strong>4.</strong> En déduire l'angle \(\widehat{BAC}\). L'espace triangulaire présente-t-il un angle obtus en \(A\) ?<br>
+    <strong>5.</strong> Calculer la hauteur issue de \(A\) dans le triangle \(ABC\) (distance de \(A\) à la droite \((BC)\)). L'architecte souhaite placer une étagère le long de ce côté à 2 dm du mur \((BC)\) : est-ce possible sans dépasser la hauteur ?
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(AB = 10\) dm. \(AC = \sqrt{16+49} = \sqrt{65} \approx 8{,}06\) dm. \(BC = \sqrt{(10-4)^2+(0-7)^2} = \sqrt{36+49} = \sqrt{85} \approx 9{,}22\) dm.</p>
+    <p><strong>2.</strong> \(\overrightarrow{AB} \cdot \overrightarrow{AC} = \dfrac{1}{2}(100 + 65 - 85) = \dfrac{1}{2} \times 80 =\) <span class="reponse">\(40\)</span>.</p>
+    <p><strong>3.</strong> \(\overrightarrow{AB} = \begin{pmatrix}10\\0\end{pmatrix}\), \(\overrightarrow{AC} = \begin{pmatrix}4\\7\end{pmatrix}\). \(\overrightarrow{AB} \cdot \overrightarrow{AC} = 10 \times 4 + 0 \times 7 = 40\) ✓.</p>
+    <p><strong>4.</strong> \(\cos(\widehat{BAC}) = \dfrac{40}{10 \times \sqrt{65}} = \dfrac{40}{10 \times 8{,}062} = \dfrac{40}{80{,}62} \approx 0{,}496\).<br>
+    \(\widehat{BAC} = \arccos(0{,}496) \approx\) <span class="reponse">\(60{,}2°\)</span>. Le produit scalaire est positif donc l'angle est aigu — <span class="reponse">pas d'angle obtus en \(A\).</span></p>
+    <p><strong>5.</strong> Droite \((BC)\) : direction \(\overrightarrow{BC} = \begin{pmatrix}-6\\7\end{pmatrix}\), vecteur normal \(\vec{n} = \begin{pmatrix}7\\6\end{pmatrix}\). Équation : \(7(x-10) + 6(y-0) = 0\) → \(7x + 6y - 70 = 0\).<br>
+    \(d(A,(BC)) = \dfrac{|7 \times 0 + 6 \times 0 - 70|}{\sqrt{49+36}} = \dfrac{70}{\sqrt{85}} \approx \dfrac{70}{9{,}22} \approx\) <span class="reponse">\(7{,}59\) dm</span>.<br>
+    Une étagère à 2 dm du mur \((BC)\) est bien possible : \(2 < 7{,}59\), l'espace disponible est suffisant.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 11 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 35</span>
+    <span class="exo-title">Projection et composante d'une force — travail en physique du bâtiment</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur de panneaux solaires exerce une force \(\vec{F}\) sur un panneau pour le faire coulisser le long d'un rail incliné. Le rail a une direction \(\vec{d}\begin{pmatrix}5\\3\end{pmatrix}\) (unité : dm). La force exercée est \(\vec{F}\begin{pmatrix}8\\2\end{pmatrix}\) (unité : N).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le produit scalaire \(\vec{F} \cdot \vec{d}\).<br>
+    <strong>2.</strong> Calculer \(\|\vec{d}\|\) et \(\|\vec{F}\|\). En déduire l'angle \(\theta\) entre la force et le rail.<br>
+    <strong>3.</strong> La composante de \(\vec{F}\) dans la direction du rail est \(F_{\parallel} = \|\vec{F}\| \cos\theta\). Calculer \(F_{\parallel}\) (en N). C'est la part de la force qui fait réellement avancer le panneau.<br>
+    <strong>4.</strong> Le technicien doit déplacer le panneau sur une longueur de \(\|\vec{d}\| \approx 5{,}83\) dm le long du rail. Calculer le travail \(W = \vec{F} \cdot \vec{d}\) et interpréter en joules (1 N·dm = 0,1 J).<br>
+    <strong>5.</strong> Si le technicien changeait la direction de sa force pour qu'elle soit exactement parallèle au rail, avec la même intensité \(\|\vec{F}\|\), quel serait le nouveau travail ? Comparer.
+  </div>
+  <div class="reponse-box" style="min-height:160px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\vec{F} \cdot \vec{d} = 8 \times 5 + 2 \times 3 = 40 + 6 =\) <span class="reponse">\(46\)</span> N·dm.</p>
+    <p><strong>2.</strong> \(\|\vec{d}\| = \sqrt{25+9} = \sqrt{34} \approx 5{,}83\) dm. \(\|\vec{F}\| = \sqrt{64+4} = \sqrt{68} \approx 8{,}25\) N.<br>
+    \(\cos\theta = \dfrac{46}{\sqrt{34} \times \sqrt{68}} = \dfrac{46}{\sqrt{2312}} = \dfrac{46}{48{,}08} \approx 0{,}957\).<br>
+    <span class="reponse">\(\theta \approx \arccos(0{,}957) \approx 17{,}1°\)</span>.</p>
+    <p><strong>3.</strong> \(F_{\parallel} = \|\vec{F}\| \cos\theta = 8{,}25 \times 0{,}957 \approx\) <span class="reponse">\(7{,}90\) N</span>.</p>
+    <p><strong>4.</strong> \(W = \vec{F} \cdot \vec{d} = 46\) N·dm \(= 46 \times 0{,}1 =\) <span class="reponse">\(4{,}6\) J</span>. C'est l'énergie fournie pour déplacer le panneau sur la longueur du rail.</p>
+    <p><strong>5.</strong> Si \(\vec{F}\) est parallèle au rail : \(\theta = 0\), donc \(W' = \|\vec{F}\| \times \|\vec{d}\| = 8{,}25 \times 5{,}83 \approx\) <span class="reponse">\(48{,}10\) N·dm \(\approx 4{,}81\) J</span>. En alignant la force sur le rail, on obtient un travail plus grand : moins d'énergie est perdue en composante perpendiculaire.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 12 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 36</span>
+    <span class="exo-title">Problème complet — implantation d'un atelier type BTS</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un conducteur de travaux doit implanter les machines dans un atelier rectangulaire dont les coins sont \(O(0\,;\,0)\), \(A(20\,;\,0)\), \(B(20\,;\,12)\), \(C(0\,;\,12)\) (unité : 1 dm). Une voie de chariot suit la droite \((v) : 2x - 3y + 6 = 0\). Deux machines sont en \(M_1(4\,;\,8)\) et \(M_2(16\,;\,5)\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Vérifier que la voie \((v)\) passe par les points \(Q_1(0\,;\,2)\) et \(Q_2(6\,;\,6)\).<br>
+    <strong>2.</strong> Calculer la distance de chaque machine à la voie de chariot. Y a-t-il une zone de dégagement suffisante de 2 dm de part et d'autre de la voie ?<br>
+    <strong>3.</strong> Calculer l'angle que fait la voie \((v)\) avec le mur \([OA]\) (axe des abscisses).<br>
+    <strong>4.</strong> Un nouveau poste de travail doit être placé sur la droite perpendiculaire à \((v)\) passant par \(M_1\). Écrire l'équation de cette perpendiculaire.<br>
+    <strong>5.</strong> Calculer les coordonnées du pied de la perpendiculaire depuis \(M_1\) sur \((v)\) (point le plus proche de \(M_1\) sur la voie). Ce point est-il dans la zone utile de l'atelier \([0\,;\,20] \times [0\,;\,12]\) ?
+  </div>
+  <div class="reponse-box" style="min-height:180px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(Q_1(0\,;\,2)\) : \(2 \times 0 - 3 \times 2 + 6 = 0\) ✓. \(Q_2(6\,;\,6)\) : \(12 - 18 + 6 = 0\) ✓.</p>
+    <p><strong>2.</strong> \(d(M_1,(v)) = \dfrac{|2 \times 4 - 3 \times 8 + 6|}{\sqrt{4+9}} = \dfrac{|8-24+6|}{\sqrt{13}} = \dfrac{10}{\sqrt{13}} \approx \dfrac{10}{3{,}606} \approx\) <span class="reponse">\(2{,}77\) dm</span>.<br>
+    \(d(M_2,(v)) = \dfrac{|2 \times 16 - 3 \times 5 + 6|}{\sqrt{13}} = \dfrac{|32-15+6|}{\sqrt{13}} = \dfrac{23}{\sqrt{13}} \approx \dfrac{23}{3{,}606} \approx\) <span class="reponse">\(6{,}38\) dm</span>.<br>
+    \(M_1\) est à 2,77 dm de la voie : supérieur à 2 dm, <span class="reponse">la zone de dégagement est juste suffisante pour \(M_1\)</span>. \(M_2\) est largement à l'écart.</p>
+    <p><strong>3.</strong> Vecteur directeur de \((v)\) : \(\begin{pmatrix}3\\2\end{pmatrix}\). Vecteur directeur de \([OA]\) : \(\begin{pmatrix}1\\0\end{pmatrix}\).<br>
+    \(\cos\alpha = \dfrac{3}{\sqrt{13} \times 1} = \dfrac{3}{\sqrt{13}} \approx 0{,}832\).<br>
+    <span class="reponse">\(\alpha = \arccos(0{,}832) \approx 33{,}7°\)</span>.</p>
+    <p><strong>4.</strong> Perpendiculaire à \((v)\) par \(M_1(4\,;\,8)\) : vecteur normal à la perpendiculaire = vecteur directeur de \((v)\) = \(\begin{pmatrix}3\\2\end{pmatrix}\), donc équation \(3(x-4) + 2(y-8) = 0\) → <span class="reponse">\(3x + 2y - 28 = 0\)</span>.</p>
+    <p><strong>5.</strong> Pied de la perpendiculaire : intersection de \((v)\) et \(3x + 2y - 28 = 0\).<br>
+    De \((v)\) : \(y = \dfrac{2x+6}{3}\). Substituer dans la perpendiculaire : \(3x + 2 \cdot \dfrac{2x+6}{3} - 28 = 0\) → \(9x + 4x + 12 - 84 = 0\) → \(13x = 72\) → \(x = \dfrac{72}{13} \approx 5{,}54\).<br>
+    \(y = \dfrac{2 \times 72/13 + 6}{3} = \dfrac{144/13 + 78/13}{3} = \dfrac{222}{39} \approx 5{,}69\).<br>
+    <span class="reponse">Pied de perpendiculaire : \(H\approx(5{,}54\,;\,5{,}69)\)</span>. Ce point est bien dans la zone utile \([0\,;\,20] \times [0\,;\,12]\) ✓.</p>
+  </div>
 </div>
 
 </div><!-- fin diff-appro -->

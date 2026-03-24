@@ -303,6 +303,340 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
   </details>
 </div>
 
+
+<!-- EX S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Calculer le module — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Méthode</span><br>
+    Le module de \(z = a + ib\) est : \(|z| = \sqrt{a^2 + b^2}\)<br>
+    C'est la distance du point représentatif à l'origine dans le plan complexe.
+  </div>
+
+  <p><strong>Exemple guidé :</strong> \(z = 3 + 4i\)<br>
+  \(a = 3\), \(b = 4\) → \(|z| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = \boxed{5}\)</p>
+
+  <p><strong>À toi :</strong> Calculer le module de chaque nombre complexe.</p>
+  <table>
+    <tr><th>Complexe \(z\)</th><th>\(a^2\)</th><th>\(b^2\)</th><th>\(a^2 + b^2\)</th><th>\(|z|\)</th></tr>
+    <tr><td>\(z_1 = 5 + 12i\)</td><td>\(\boxed{\phantom{00}}\)</td><td>\(\boxed{\phantom{000}}\)</td><td>\(\boxed{\phantom{000}}\)</td><td>\(\boxed{\phantom{00}}\)</td></tr>
+    <tr><td>\(z_2 = 8 - 6i\)</td><td>\(\boxed{\phantom{00}}\)</td><td>\(\boxed{\phantom{00}}\)</td><td>\(\boxed{\phantom{000}}\)</td><td>\(\boxed{\phantom{00}}\)</td></tr>
+    <tr><td>\(z_3 = -3i\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td></tr>
+    <tr><td>\(z_4 = 2 + 2i\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(\boxed{\phantom{00}}\)</td></tr>
+  </table>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Complexe</th><th>\(a^2\)</th><th>\(b^2\)</th><th>\(a^2 + b^2\)</th><th>\(|z|\)</th></tr>
+      <tr><td>\(z_1 = 5 + 12i\)</td><td>\(25\)</td><td>\(144\)</td><td>\(169\)</td><td><span class="reponse">\(13\)</span></td></tr>
+      <tr><td>\(z_2 = 8 - 6i\)</td><td>\(64\)</td><td>\(36\)</td><td>\(100\)</td><td><span class="reponse">\(10\)</span></td></tr>
+      <tr><td>\(z_3 = -3i\)</td><td>\(0\)</td><td>\(9\)</td><td>\(9\)</td><td><span class="reponse">\(3\)</span></td></tr>
+      <tr><td>\(z_4 = 2 + 2i\)</td><td>\(4\)</td><td>\(4\)</td><td>\(8\)</td><td><span class="reponse">\(2\sqrt{2} \approx 2{,}83\)</span></td></tr>
+    </table>
+    <p>Astuce : les nombres 5-12-13, 3-4-5, 6-8-10 sont des « triplets pythagoriciens » qui donnent un module entier.</p>
+  </div>
+</div>
+
+<!-- EX S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Multiplier des complexes — pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Rappel</span><br>
+    On développe comme un produit ordinaire, puis on remplace \(i^2\) par \(-1\).<br>
+    \((a + ib)(c + id) = ac + iad + ibc + i^2bd = (ac - bd) + i(ad + bc)\)
+  </div>
+
+  <p><strong>a) Guidé :</strong> Calculer \((2 + i)(3 - 2i)\).</p>
+  <p style="font-size:.93em">
+    \(2 \times 3 = \boxed{\phantom{0}}\) &nbsp; \(2 \times (-2i) = \boxed{\phantom{00}}\) &nbsp; \(i \times 3 = \boxed{\phantom{0}}\) &nbsp; \(i \times (-2i) = -2i^2 = \boxed{\phantom{0}}\)<br>
+    Partie réelle : \(\boxed{\phantom{0}} + \boxed{\phantom{0}} = \boxed{\phantom{0}}\) &nbsp; Partie imaginaire : \(\boxed{\phantom{00}} + \boxed{\phantom{0}} = \boxed{\phantom{0}}\)<br>
+    Résultat : \(\boxed{\phantom{000}} + \boxed{\phantom{0}}i\)
+  </p>
+
+  <p><strong>b) À toi :</strong> Calculer \((1 + 3i)(2 + i)\).</p>
+  <div class="reponse-box">Résultat : …………………</div>
+
+  <p><strong>c) À toi :</strong> Calculer \((5 - i)(5 + i)\). Que remarquez-vous avec le module de \(z = 5 + i\) ?</p>
+  <div class="reponse-box">Résultat : ………………… Lien avec \(|z|\) : …………</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(6 + (-4i) + 3i + (-2i^2) = 6 - 4i + 3i + 2 = \) <span class="reponse">\(8 - i\)</span></p>
+    <p><strong>b)</strong> \((1 + 3i)(2 + i) = 2 + i + 6i + 3i^2 = 2 + 7i - 3 = \) <span class="reponse">\(-1 + 7i\)</span></p>
+    <p><strong>c)</strong> \((5 - i)(5 + i) = 25 + 5i - 5i - i^2 = 25 + 1 = \) <span class="reponse">\(26\)</span><br>
+    Remarque : \(|5 + i| = \sqrt{25 + 1} = \sqrt{26}\), donc \((5-i)(5+i) = |5+i|^2\). On retrouve la propriété \(z \times \bar{z} = |z|^2\).</p>
+  </div>
+</div>
+
+<!-- EX S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Reconnaître la forme trigonométrique — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Rappel</span><br>
+    La forme trigonométrique est \(z = r(\cos\theta + i\sin\theta)\) où \(r = |z|\) et \(\theta\) l'argument.<br>
+    Pour trouver \(\theta\) : \(\cos\theta = \dfrac{a}{r}\) et \(\sin\theta = \dfrac{b}{r}\), puis on reconnaît l'angle dans le tableau des valeurs remarquables.
+  </div>
+
+  <p><strong>Valeurs à connaître :</strong></p>
+  <table>
+    <tr><th>\(\theta\)</th><th>\(0°\)</th><th>\(30°\) (\(\pi/6\))</th><th>\(45°\) (\(\pi/4\))</th><th>\(60°\) (\(\pi/3\))</th><th>\(90°\) (\(\pi/2\))</th></tr>
+    <tr><td>\(\cos\theta\)</td><td>\(1\)</td><td>\(\dfrac{\sqrt{3}}{2}\)</td><td>\(\dfrac{\sqrt{2}}{2}\)</td><td>\(\dfrac{1}{2}\)</td><td>\(0\)</td></tr>
+    <tr><td>\(\sin\theta\)</td><td>\(0\)</td><td>\(\dfrac{1}{2}\)</td><td>\(\dfrac{\sqrt{2}}{2}\)</td><td>\(\dfrac{\sqrt{3}}{2}\)</td><td>\(1\)</td></tr>
+  </table>
+
+  <p><strong>a)</strong> Convertir \(z = 2\!\left(\cos\dfrac{\pi}{3} + i\sin\dfrac{\pi}{3}\right)\) en forme algébrique.</p>
+  <p style="font-size:.93em">
+    \(a = 2\cos\dfrac{\pi}{3} = 2 \times \boxed{\phantom{1/2}} = \boxed{\phantom{1}}\) &nbsp;&nbsp;
+    \(b = 2\sin\dfrac{\pi}{3} = 2 \times \boxed{\phantom{\sqrt{3}/2}} = \boxed{\phantom{\sqrt{3}}}\)<br>
+    Résultat : \(z = \boxed{\phantom{1}} + \boxed{\phantom{\sqrt{3}}}i\)
+  </p>
+
+  <p><strong>b)</strong> Convertir \(z = \sqrt{2} + \sqrt{2}\,i\) en forme trigonométrique.</p>
+  <p style="font-size:.93em">
+    \(r = \sqrt{(\sqrt{2})^2 + (\sqrt{2})^2} = \sqrt{\boxed{\phantom{2}} + \boxed{\phantom{2}}} = \boxed{\phantom{2}}\)<br>
+    \(\cos\theta = \dfrac{\sqrt{2}}{\boxed{\phantom{2}}} = \dfrac{\sqrt{2}}{2}\) et \(\sin\theta = \dfrac{\sqrt{2}}{\boxed{\phantom{2}}} = \dfrac{\sqrt{2}}{2}\) → \(\theta = \boxed{\phantom{\pi/4}}\)<br>
+    Résultat : \(z = \boxed{\phantom{2}}\!\left(\cos\dfrac{\pi}{4} + i\sin\dfrac{\pi}{4}\right)\)
+  </p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(a = 2 \times \dfrac{1}{2} = 1\) et \(b = 2 \times \dfrac{\sqrt{3}}{2} = \sqrt{3}\). <span class="reponse">\(z = 1 + \sqrt{3}\,i\)</span></p>
+    <p><strong>b)</strong> \(r = \sqrt{2 + 2} = \sqrt{4} = 2\).<br>
+    \(\cos\theta = \dfrac{\sqrt{2}}{2}\) et \(\sin\theta = \dfrac{\sqrt{2}}{2}\) → \(\theta = \dfrac{\pi}{4}\) (45°).<br>
+    <span class="reponse">\(z = 2\!\left(\cos\dfrac{\pi}{4} + i\sin\dfrac{\pi}{4}\right)\)</span></p>
+  </div>
+</div>
+
+<!-- EX S7 —nouvelle insertion: +4 socle avant Exercice 10 -->
+
+<!-- EX S7-NEW-A -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Calculer \(i^2\), \(i^3\), \(i^4\) — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Règle</span><br>
+    On sait que \(i^2 = -1\). En multipliant par \(i\) à chaque fois :<br>
+    \(i^1 = i\) &nbsp;·&nbsp; \(i^2 = -1\) &nbsp;·&nbsp; \(i^3 = -i\) &nbsp;·&nbsp; \(i^4 = 1\) &nbsp;·&nbsp; puis le cycle recommence.
+  </div>
+
+  <p><strong>Compléter le tableau en s'aidant de la règle :</strong></p>
+  <table>
+    <tr><th>Puissance</th><th>Calcul intermédiaire</th><th>Résultat</th></tr>
+    <tr><td>\(i^2\)</td><td>\(i \times i\)</td><td>\(\boxed{-1}\)</td></tr>
+    <tr><td>\(i^3\)</td><td>\(i^2 \times i = (-1) \times i\)</td><td>\(\boxed{\phantom{-i}}\)</td></tr>
+    <tr><td>\(i^4\)</td><td>\(i^3 \times i = (-i) \times i\)</td><td>\(\boxed{\phantom{1}}\)</td></tr>
+    <tr><td>\(i^5\)</td><td>\(i^4 \times i = 1 \times i\)</td><td>\(\boxed{\phantom{i}}\)</td></tr>
+    <tr><td>\(i^6\)</td><td>\(i^5 \times i\)</td><td>\(\boxed{\phantom{-1}}\)</td></tr>
+  </table>
+
+  <p><strong>Application :</strong> Simplifier les expressions suivantes :</p>
+  <p><strong>a)</strong> \(3i^2 = 3 \times \boxed{\phantom{-1}} = \boxed{\phantom{-3}}\)</p>
+  <p><strong>b)</strong> \(5i^4 = 5 \times \boxed{\phantom{1}} = \boxed{\phantom{5}}\)</p>
+  <p><strong>c)</strong> \(-2i^3 = -2 \times \boxed{\phantom{-i}} = \boxed{\phantom{2i}}\)</p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Puissance</th><th>Résultat</th></tr>
+      <tr><td>\(i^2\)</td><td><span class="reponse">\(-1\)</span></td></tr>
+      <tr><td>\(i^3\)</td><td><span class="reponse">\(-i\)</span></td></tr>
+      <tr><td>\(i^4\)</td><td><span class="reponse">\(1\)</span></td></tr>
+      <tr><td>\(i^5\)</td><td><span class="reponse">\(i\)</span></td></tr>
+      <tr><td>\(i^6\)</td><td><span class="reponse">\(-1\)</span></td></tr>
+    </table>
+    <p><strong>a)</strong> \(3i^2 = 3 \times (-1) =\) <span class="reponse">\(-3\)</span></p>
+    <p><strong>b)</strong> \(5i^4 = 5 \times 1 =\) <span class="reponse">\(5\)</span></p>
+    <p><strong>c)</strong> \(-2i^3 = -2 \times (-i) =\) <span class="reponse">\(2i\)</span></p>
+    <p>Le cycle \(i, -1, -i, 1\) se répète toutes les 4 puissances.</p>
+  </div>
+</div>
+
+<!-- EX S7-NEW-B -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Égalité de deux complexes — trouver les inconnues</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Règle</span><br>
+    Deux nombres complexes \(a + ib\) et \(c + id\) sont égaux si et seulement si :<br>
+    \(a = c\) (parties réelles égales) <strong>ET</strong> \(b = d\) (parties imaginaires égales).
+  </div>
+
+  <p>Trouver les réels \(x\) et \(y\) vérifiant chaque égalité :</p>
+
+  <p><strong>a)</strong> \(x + 3i = 7 + 3i\)</p>
+  <p style="font-size:.93em">Parties réelles : \(x = \boxed{\phantom{7}}\). Parties imaginaires : déjà égales (\(3 = 3\)).</p>
+
+  <p><strong>b)</strong> \(2 + yi = 2 - 5i\)</p>
+  <p style="font-size:.93em">Parties imaginaires : \(y = \boxed{\phantom{-5}}\).</p>
+
+  <p><strong>c)</strong> \((x + 1) + (y - 2)i = 4 + 6i\)</p>
+  <p style="font-size:.93em">
+    Partie réelle : \(x + 1 = 4\) donc \(x = \boxed{\phantom{3}}\)<br>
+    Partie imaginaire : \(y - 2 = 6\) donc \(y = \boxed{\phantom{8}}\)
+  </p>
+
+  <p><strong>d)</strong> \((2x - 3) + (3y + 1)i = 5 - 2i\)</p>
+  <div class="reponse-box">\(x = \boxed{\phantom{4}}\) &nbsp;&nbsp; \(y = \boxed{\phantom{-1}}\)</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> <span class="reponse">\(x = 7\)</span></p>
+    <p><strong>b)</strong> <span class="reponse">\(y = -5\)</span></p>
+    <p><strong>c)</strong> \(x + 1 = 4 \Rightarrow\) <span class="reponse">\(x = 3\)</span> &nbsp;·&nbsp; \(y - 2 = 6 \Rightarrow\) <span class="reponse">\(y = 8\)</span></p>
+    <p><strong>d)</strong> \(2x - 3 = 5 \Rightarrow 2x = 8 \Rightarrow\) <span class="reponse">\(x = 4\)</span> &nbsp;·&nbsp; \(3y + 1 = -2 \Rightarrow 3y = -3 \Rightarrow\) <span class="reponse">\(y = -1\)</span></p>
+  </div>
+</div>
+
+<!-- EX S7-NEW-C -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Module et conjugué — exercice bilan guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <p>On donne \(z = 6 + 8i\).</p>
+  <p><strong>1.</strong> Donner le conjugué \(\bar{z}\) :</p>
+  <p style="font-size:.93em">\(\bar{z} = \boxed{\phantom{6 - 8i}}\)</p>
+
+  <p><strong>2.</strong> Calculer le module \(|z|\) en complétant :</p>
+  <p style="font-size:.93em">
+    \(a = \boxed{\phantom{6}}\), \(b = \boxed{\phantom{8}}\)<br>
+    \(a^2 = \boxed{\phantom{36}}\), \(b^2 = \boxed{\phantom{64}}\), \(a^2 + b^2 = \boxed{\phantom{100}}\)<br>
+    \(|z| = \sqrt{\boxed{\phantom{100}}} = \boxed{\phantom{10}}\)
+  </p>
+
+  <p><strong>3.</strong> Vérifier que \(z \times \bar{z} = |z|^2\) :</p>
+  <p style="font-size:.93em">
+    \(z \times \bar{z} = (6 + 8i)(6 - 8i) = 36 - 48i + 48i - 64i^2 = 36 - 64 \times \boxed{\phantom{-1}} = \boxed{\phantom{100}}\)<br>
+    \(|z|^2 = \boxed{\phantom{10}}^2 = \boxed{\phantom{100}}\) ✓
+  </p>
+
+  <p><strong>4.</strong> Le nombre \(z = 6 + 8i\) représente la tension aux bornes d'un appareil électrique (en notation complexe). Quelle est l'intensité de la tension (valeur absolue du module) ?</p>
+  <div class="reponse-box">Intensité = \(|z| =\) ………… unités</div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(\bar{z} = 6 - 8i\)</span></p>
+    <p><strong>2.</strong> \(a^2 + b^2 = 36 + 64 = 100\). <span class="reponse">\(|z| = \sqrt{100} = 10\)</span></p>
+    <p><strong>3.</strong> \((6 + 8i)(6 - 8i) = 36 - 64 \times (-1) = 36 + 64 = 100\) ✓. C'est bien égal à \(|z|^2 = 10^2 = 100\).</p>
+    <p><strong>4.</strong> <span class="reponse">L'intensité de la tension est \(|z| = 10\) unités.</span></p>
+  </div>
+</div>
+
+<!-- EX S7-NEW-D -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Lire et construire un complexe dans le plan — exercice de synthèse</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Rappel</span><br>
+    Dans le plan complexe, au point \(M(a\,;\,b)\) correspond le complexe \(z = a + ib\).<br>
+    Lire les coordonnées du point → écrire le complexe.
+  </div>
+
+  <p><strong>1. Lire les complexes :</strong> Pour chaque point placé dans le plan ci-dessous, donner le nombre complexe correspondant.</p>
+  <table>
+    <tr><th>Point</th><th>Coordonnées \((a\,;\,b)\)</th><th>Nombre complexe \(z = a + ib\)</th></tr>
+    <tr><td>\(A\)</td><td>\((4\,;\,3)\)</td><td>\(\boxed{\phantom{4 + 3i}}\)</td></tr>
+    <tr><td>\(B\)</td><td>\((-2\,;\,5)\)</td><td>\(\boxed{\phantom{-2 + 5i}}\)</td></tr>
+    <tr><td>\(C\)</td><td>\((0\,;\,-4)\)</td><td>\(\boxed{\phantom{-4i}}\)</td></tr>
+    <tr><td>\(D\)</td><td>\((6\,;\,0)\)</td><td>\(\boxed{\phantom{6}}\)</td></tr>
+  </table>
+
+  <p><strong>2.</strong> Pour chaque complexe, calculer son module :</p>
+  <p style="font-size:.93em">
+    \(|z_A| = \sqrt{4^2 + 3^2} = \sqrt{\boxed{\phantom{25}}} = \boxed{\phantom{5}}\)<br>
+    \(|z_B| = \sqrt{(-2)^2 + 5^2} = \sqrt{\boxed{\phantom{29}}} \approx \boxed{\phantom{5{,}4}}\)<br>
+    \(|z_C| = \sqrt{0^2 + (-4)^2} = \boxed{\phantom{4}}\)<br>
+    \(|z_D| = \sqrt{6^2 + 0^2} = \boxed{\phantom{6}}\)
+  </p>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong></p>
+    <table>
+      <tr><th>Point</th><th>Nombre complexe</th></tr>
+      <tr><td>\(A(4\,;\,3)\)</td><td><span class="reponse">\(z_A = 4 + 3i\)</span></td></tr>
+      <tr><td>\(B(-2\,;\,5)\)</td><td><span class="reponse">\(z_B = -2 + 5i\)</span></td></tr>
+      <tr><td>\(C(0\,;\,-4)\)</td><td><span class="reponse">\(z_C = -4i\)</span> (imaginaire pur)</td></tr>
+      <tr><td>\(D(6\,;\,0)\)</td><td><span class="reponse">\(z_D = 6\)</span> (réel)</td></tr>
+    </table>
+    <p><strong>2.</strong></p>
+    <p>\(|z_A| = \sqrt{16 + 9} = \sqrt{25} =\) <span class="reponse">\(5\)</span> (triplet 3-4-5)</p>
+    <p>\(|z_B| = \sqrt{4 + 25} = \sqrt{29} \approx\) <span class="reponse">\(5{,}4\)</span></p>
+    <p>\(|z_C| =\) <span class="reponse">\(4\)</span></p>
+    <p>\(|z_D| =\) <span class="reponse">\(6\)</span></p>
+  </div>
+</div>
+
+<!-- EX S7 (ancien numéro 10, renommé 14) -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Résoudre z² = −a — guidé</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+
+  <div class="meth">
+    <span class="label label-meth">Méthode</span><br>
+    Si \(a > 0\), l'équation \(z^2 = -a\) a deux solutions imaginaires pures :<br>
+    \(z_1 = i\sqrt{a}\) et \(z_2 = -i\sqrt{a}\)
+  </div>
+
+  <p><strong>Exemple guidé :</strong> Résoudre \(z^2 = -16\).<br>
+  \(\sqrt{16} = 4\) → Solutions : \(z_1 = \boxed{4i}\) et \(z_2 = \boxed{-4i}\)<br>
+  Vérification : \((4i)^2 = 16i^2 = 16 \times (-1) = -16\) ✓</p>
+
+  <p><strong>À toi :</strong></p>
+  <table>
+    <tr><th>Équation</th><th>\(\sqrt{a} = \boxed{\phantom{0}}\)</th><th>Solutions</th></tr>
+    <tr><td>\(z^2 = -36\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(z_1 = \boxed{\phantom{0}}\) et \(z_2 = \boxed{\phantom{0}}\)</td></tr>
+    <tr><td>\(z^2 = -1\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(z_1 = \boxed{\phantom{0}}\) et \(z_2 = \boxed{\phantom{0}}\)</td></tr>
+    <tr><td>\(z^2 = -49\)</td><td>\(\boxed{\phantom{0}}\)</td><td>\(z_1 = \boxed{\phantom{0}}\) et \(z_2 = \boxed{\phantom{0}}\)</td></tr>
+    <tr><td>\(z^2 = -3\)</td><td>\(\sqrt{3}\)</td><td>\(z_1 = \boxed{\phantom{0}}\) et \(z_2 = \boxed{\phantom{0}}\)</td></tr>
+  </table>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Équation</th><th>\(\sqrt{a}\)</th><th>Solutions</th></tr>
+      <tr><td>\(z^2 = -36\)</td><td>\(6\)</td><td><span class="reponse">\(z_1 = 6i\) et \(z_2 = -6i\)</span></td></tr>
+      <tr><td>\(z^2 = -1\)</td><td>\(1\)</td><td><span class="reponse">\(z_1 = i\) et \(z_2 = -i\)</span> (l'unité imaginaire elle-même !)</td></tr>
+      <tr><td>\(z^2 = -49\)</td><td>\(7\)</td><td><span class="reponse">\(z_1 = 7i\) et \(z_2 = -7i\)</span></td></tr>
+      <tr><td>\(z^2 = -3\)</td><td>\(\sqrt{3}\)</td><td><span class="reponse">\(z_1 = i\sqrt{3}\) et \(z_2 = -i\sqrt{3}\)</span></td></tr>
+    </table>
+    <p>Les deux solutions sont toujours conjuguées l'une de l'autre.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ========== STANDARD ========== -->
@@ -313,7 +647,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 4 -->
 <div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 7</span>
+    <span class="exo-num">Exercice 15</span>
     <span class="exo-title">Multiplier des nombres complexes</span>
     <span class="tag-standard">Standard</span>
   </div>
@@ -341,7 +675,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 5 -->
 <div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 8</span>
+    <span class="exo-num">Exercice 16</span>
     <span class="exo-title">Calculer le module d'un nombre complexe</span>
     <span class="tag-standard">Standard</span>
   </div>
@@ -375,7 +709,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 6 -->
 <div class="exo diff-standard">
   <div class="exo-header">
-    <span class="exo-num">Exercice 9</span>
+    <span class="exo-num">Exercice 17</span>
     <span class="exo-title">Représenter des nombres complexes dans le plan</span>
     <span class="tag-standard">Standard</span>
   </div>
@@ -406,12 +740,196 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
   </details>
 </div>
 
+<!-- NOUVEAUX EXERCICES STANDARD (+7) -->
+
+<!-- STD NEW 1 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Opérations complexes — contexte professionnel</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur thermique modélise les tensions dans un circuit électrique par des nombres complexes : \(Z_1 = 3 + 4i\) (bobine) et \(Z_2 = 5 - 2i\) (condensateur), exprimées en ohms.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer l'impédance totale en série : \(Z = Z_1 + Z_2\). Donner \(\text{Re}(Z)\) et \(\text{Im}(Z)\).<br>
+    <strong>2.</strong> Calculer le module \(|Z|\) (impédance totale en ohms, arrondir au centième).<br>
+    <strong>3.</strong> Si la tension d'alimentation est \(U = 230\) V, calculer l'intensité efficace \(I = \dfrac{U}{|Z|}\). Arrondir au centième d'ampère.
+  </div>
+  <div class="reponse-box" style="min-height:90px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(Z = Z_1 + Z_2 = (3 + 5) + (4 + (-2))i =\) <span class="reponse">\(8 + 2i\)</span>. Re\((Z) = 8\), Im\((Z) = 2\).</p>
+    <p><strong>2.</strong> \(|Z| = \sqrt{8^2 + 2^2} = \sqrt{64 + 4} = \sqrt{68} \approx\) <span class="reponse">\(8{,}25\) Ω</span>.</p>
+    <p><strong>3.</strong> \(I = \dfrac{230}{8{,}25} \approx\) <span class="reponse">\(27{,}88\) A</span>.</p>
+  </div>
+</div>
+
+<!-- STD NEW 2 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Argument d'un nombre complexe</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Rappel : l'argument \(\theta\) de \(z = a + ib\) vérifie \(\cos\theta = \dfrac{a}{|z|}\) et \(\sin\theta = \dfrac{b}{|z|}\).</p>
+  <div class="consigne">
+    Pour chaque nombre complexe, calculer le module et l'argument (exprimer en degrés, arrondir au dixième) :<br>
+    <strong>a)</strong> \(z_1 = 4 + 4i\)<br>
+    <strong>b)</strong> \(z_2 = -3\)<br>
+    <strong>c)</strong> \(z_3 = 5i\)<br>
+    <strong>d)</strong> \(z_4 = 2 - 2\sqrt{3}\,i\)
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(|z_1| = \sqrt{16 + 16} = 4\sqrt{2}\). \(\cos\theta = \dfrac{4}{4\sqrt{2}} = \dfrac{1}{\sqrt{2}}\) et \(\sin\theta = \dfrac{1}{\sqrt{2}}\). <span class="reponse">\(\theta = 45°\)</span>.</p>
+    <p><strong>b)</strong> \(|z_2| = 3\). \(\cos\theta = -1\) et \(\sin\theta = 0\). <span class="reponse">\(\theta = 180°\)</span>.</p>
+    <p><strong>c)</strong> \(|z_3| = 5\). \(\cos\theta = 0\) et \(\sin\theta = 1\). <span class="reponse">\(\theta = 90°\)</span>.</p>
+    <p><strong>d)</strong> \(|z_4| = \sqrt{4 + 12} = 4\). \(\cos\theta = \dfrac{2}{4} = 0{,}5\) et \(\sin\theta = \dfrac{-2\sqrt{3}}{4} = \dfrac{-\sqrt{3}}{2}\). <span class="reponse">\(\theta = -60°\)</span>.</p>
+  </div>
+</div>
+
+<!-- STD NEW 3 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Équation du second degré à discriminant négatif — contexte menuiserie</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien d'agencement modélise la vibration d'un panneau par l'équation \(x^2 - 4x + 8 = 0\). L'ingénieur lui demande de résoudre cette équation dans \(\mathbb{C}\).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le discriminant \(\Delta = b^2 - 4ac\).<br>
+    <strong>2.</strong> Le discriminant est-il positif ou négatif ? Que peut-on en déduire sur les solutions ?<br>
+    <strong>3.</strong> Donner les deux solutions complexes \(z_1\) et \(z_2\). Vérifier que \(z_2 = \overline{z_1}\).
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(a = 1\), \(b = -4\), \(c = 8\). \(\Delta = (-4)^2 - 4 \times 1 \times 8 = 16 - 32 =\) <span class="reponse">\(-16\)</span>.</p>
+    <p><strong>2.</strong> \(\Delta = -16 < 0\) : <span class="reponse">l'équation n'a pas de solution réelle, mais deux solutions complexes conjuguées.</span></p>
+    <p><strong>3.</strong> \(\sqrt{|\Delta|} = \sqrt{16} = 4\).<br>
+    \(z_1 = \dfrac{4 + 4i}{2} =\) <span class="reponse">\(2 + 2i\)</span><br>
+    \(z_2 = \dfrac{4 - 4i}{2} =\) <span class="reponse">\(2 - 2i\)</span><br>
+    On vérifie : \(\overline{z_1} = \overline{2 + 2i} = 2 - 2i = z_2\) ✓</p>
+  </div>
+</div>
+
+<!-- STD NEW 4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Représentation dans le plan — distances et milieu</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Dans le plan complexe, on considère les points \(A\) d'affixe \(z_A = 2 + 3i\) et \(B\) d'affixe \(z_B = 6 + i\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(z_B - z_A\).<br>
+    <strong>2.</strong> En déduire la distance \(AB = |z_B - z_A|\).<br>
+    <strong>3.</strong> L'affixe du milieu \(M\) de \([AB]\) est \(z_M = \dfrac{z_A + z_B}{2}\). Calculer \(z_M\).<br>
+    <strong>4.</strong> Vérifier que \(|z_M - z_A| = \dfrac{AB}{2}\).
+  </div>
+  <div class="reponse-box" style="min-height:100px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(z_B - z_A = (6 + i) - (2 + 3i) =\) <span class="reponse">\(4 - 2i\)</span>.</p>
+    <p><strong>2.</strong> \(AB = |4 - 2i| = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5} \approx\) <span class="reponse">\(4{,}47\)</span>.</p>
+    <p><strong>3.</strong> \(z_M = \dfrac{(2 + 3i) + (6 + i)}{2} = \dfrac{8 + 4i}{2} =\) <span class="reponse">\(4 + 2i\)</span>.</p>
+    <p><strong>4.</strong> \(z_M - z_A = (4 + 2i) - (2 + 3i) = 2 - i\). \(|2 - i| = \sqrt{4 + 1} = \sqrt{5} = \dfrac{2\sqrt{5}}{2} = \dfrac{AB}{2}\) ✓</p>
+  </div>
+</div>
+
+<!-- STD NEW 5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Impédance d'un circuit RC — contexte professionnel</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un plombier chauffagiste vérifie le circuit de commande d'une vanne motorisée. Le circuit RC a une résistance \(R = 120\) Ω et une réactance capacitive \(X_C = -50\) Ω à la fréquence de 50 Hz.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Écrire l'impédance complexe \(\underline{Z} = R + jX_C\).<br>
+    <strong>2.</strong> Calculer le module \(|\underline{Z}|\). Arrondir au dixième.<br>
+    <strong>3.</strong> Calculer le conjugué \(\overline{\underline{Z}}\).<br>
+    <strong>4.</strong> Vérifier la propriété \(\underline{Z} \times \overline{\underline{Z}} = |\underline{Z}|^2\).
+  </div>
+  <div class="reponse-box" style="min-height:110px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(\underline{Z} = 120 - 50j\)</span>.</p>
+    <p><strong>2.</strong> \(|\underline{Z}| = \sqrt{120^2 + (-50)^2} = \sqrt{14\,400 + 2\,500} = \sqrt{16\,900} =\) <span class="reponse">\(130\) Ω</span>.</p>
+    <p><strong>3.</strong> <span class="reponse">\(\overline{\underline{Z}} = 120 + 50j\)</span>.</p>
+    <p><strong>4.</strong> \(\underline{Z} \times \overline{\underline{Z}} = (120 - 50j)(120 + 50j) = 120^2 - (50j)^2 = 14\,400 - 2\,500j^2 = 14\,400 + 2\,500 = 16\,900 = 130^2 = |\underline{Z}|^2\) ✓</p>
+  </div>
+</div>
+
+<!-- STD NEW 6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 23</span>
+    <span class="exo-title">Résoudre des équations du second degré — applications variées</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Résoudre les équations suivantes dans \(\mathbb{C}\). Calculer d'abord \(\Delta\), puis conclure.</p>
+  <div class="consigne">
+    <strong>a)</strong> \(z^2 + 6z + 10 = 0\)<br>
+    <strong>b)</strong> \(z^2 - 2z + 10 = 0\)<br>
+    <strong>c)</strong> \(z^2 + 9 = 0\)<br>
+    <strong>d)</strong> \(3z^2 - 6z + 9 = 0\)
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>a)</strong> \(\Delta = 36 - 40 = -4\). \(\sqrt{|\Delta|} = 2\). <span class="reponse">\(z_1 = -3 + i\), \(z_2 = -3 - i\)</span>.</p>
+    <p><strong>b)</strong> \(\Delta = 4 - 40 = -36\). \(\sqrt{|\Delta|} = 6\). <span class="reponse">\(z_1 = 1 + 3i\), \(z_2 = 1 - 3i\)</span>.</p>
+    <p><strong>c)</strong> \(z^2 = -9\). <span class="reponse">\(z_1 = 3i\), \(z_2 = -3i\)</span>. (ou \(\Delta = -36\), \(z = \pm 3i\))</p>
+    <p><strong>d)</strong> On divise par 3 : \(z^2 - 2z + 3 = 0\). \(\Delta = 4 - 12 = -8\). \(\sqrt{|\Delta|} = 2\sqrt{2}\). <span class="reponse">\(z_1 = 1 + i\sqrt{2}\), \(z_2 = 1 - i\sqrt{2}\)</span>.</p>
+  </div>
+</div>
+
+<!-- STD NEW 7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 24</span>
+    <span class="exo-title">Forme trigonométrique — tableau de conversion</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Compléter le tableau de conversion entre forme algébrique et forme trigonométrique :</p>
+  <table>
+    <tr><th>Forme algébrique</th><th>Module \(r\)</th><th>Argument \(\theta\)</th><th>Forme trigonométrique</th></tr>
+    <tr><td>\(z_1 = \sqrt{3} + i\)</td><td></td><td></td><td></td></tr>
+    <tr><td>\(z_2 = -2i\)</td><td></td><td></td><td></td></tr>
+    <tr><td>\(z_3 = -1 - i\)</td><td></td><td></td><td></td></tr>
+    <tr><td>\(z_4 = 3\left(\cos 0 + i\sin 0\right)\)</td><td></td><td></td><td>\(z_4 = \)</td></tr>
+    <tr><td>\(z_5 = \sqrt{2}\!\left(\cos\dfrac{3\pi}{4} + i\sin\dfrac{3\pi}{4}\right)\)</td><td></td><td></td><td>\(z_5 = \)</td></tr>
+  </table>
+  <div class="reponse-box" style="min-height:90px">Compléter le tableau ci-dessus.</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <tr><th>Complexe</th><th>\(r\)</th><th>\(\theta\)</th><th>Forme trig.</th></tr>
+      <tr><td>\(\sqrt{3} + i\)</td><td><span class="reponse">\(2\)</span></td><td><span class="reponse">\(\dfrac{\pi}{6}\)</span></td><td><span class="reponse">\(2\!\left(\cos\dfrac{\pi}{6} + i\sin\dfrac{\pi}{6}\right)\)</span></td></tr>
+      <tr><td>\(-2i\)</td><td><span class="reponse">\(2\)</span></td><td><span class="reponse">\(-\dfrac{\pi}{2}\)</span></td><td><span class="reponse">\(2\!\left(\cos\!\left(-\dfrac{\pi}{2}\right) + i\sin\!\left(-\dfrac{\pi}{2}\right)\right)\)</span></td></tr>
+      <tr><td>\(-1 - i\)</td><td><span class="reponse">\(\sqrt{2}\)</span></td><td><span class="reponse">\(-\dfrac{3\pi}{4}\)</span></td><td><span class="reponse">\(\sqrt{2}\!\left(\cos\!\left(-\dfrac{3\pi}{4}\right) + i\sin\!\left(-\dfrac{3\pi}{4}\right)\right)\)</span></td></tr>
+      <tr><td>—</td><td>\(3\)</td><td>\(0\)</td><td><span class="reponse">\(z_4 = 3\)</span> (réel positif)</td></tr>
+      <tr><td>—</td><td>\(\sqrt{2}\)</td><td>\(\dfrac{3\pi}{4}\)</td><td><span class="reponse">\(z_5 = -1 + i\)</span></td></tr>
+    </table>
+    <p>Pour \(z_4\) : \(\cos 0 = 1\), \(\sin 0 = 0\), donc \(z_4 = 3 \times 1 = 3\).<br>
+    Pour \(z_5\) : \(\cos\dfrac{3\pi}{4} = -\dfrac{\sqrt{2}}{2}\), \(\sin\dfrac{3\pi}{4} = \dfrac{\sqrt{2}}{2}\), donc \(z_5 = \sqrt{2} \times \left(-\dfrac{\sqrt{2}}{2} + i\dfrac{\sqrt{2}}{2}\right) = -1 + i\).</p>
+  </div>
+</div>
+
 <!-- NIVEAU 3 -->
 
 <!-- EX 7 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 10</span>
+    <span class="exo-num">Exercice 25</span>
     <span class="exo-title">Forme algébrique ↔ forme trigonométrique</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -451,7 +969,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 8 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 11</span>
+    <span class="exo-num">Exercice 26</span>
     <span class="exo-title">Résoudre \(z^2 = -a\) (avec \(a > 0\))</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -489,7 +1007,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 9 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 12</span>
+    <span class="exo-num">Exercice 27</span>
     <span class="exo-title">Résoudre une équation du second degré à discriminant négatif</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -536,7 +1054,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 10 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 13</span>
+    <span class="exo-num">Exercice 28</span>
     <span class="exo-title">Impédance d'un circuit en courant alternatif</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -596,7 +1114,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 11 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 14</span>
+    <span class="exo-num">Exercice 29</span>
     <span class="exo-title">Résonance d'un circuit RLC</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -645,7 +1163,7 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
 <!-- EX 12 -->
 <div class="exo diff-appro">
   <div class="exo-header">
-    <span class="exo-num">Exercice 15</span>
+    <span class="exo-num">Exercice 30</span>
     <span class="exo-title">Distances et plan complexe en agencement</span>
     <span class="tag-appro">Approfondissement</span>
   </div>
@@ -699,6 +1217,121 @@ canvas{border:1px solid #e2e8f0;border-radius:8px;background:#fff}</style>
       <span class="reponse">ABCD est un <strong>carré</strong> de côté 3 m.</span></p>
   </div>
   </details>
+</div>
+
+<!-- NOUVEAUX EXERCICES APPRO (+4) -->
+
+<!-- APPRO NEW 1 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 31</span>
+    <span class="exo-title">Calcul d'impédance RLC — circuit de ventilation</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien CVC dimensionne le circuit électrique d'un système de ventilation double-flux. Le circuit comporte : \(R = 15\) Ω, une bobine de réactance \(X_L = L\omega = 0{,}08 \times 314 \approx 25{,}1\) Ω et un condensateur de réactance \(X_C = \dfrac{1}{C\omega} = \dfrac{1}{400 \times 10^{-6} \times 314} \approx 7{,}96\) Ω. Tension : 230 V.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Écrire l'impédance complexe \(\underline{Z} = R + j(X_L - X_C)\). Arrondir à l'unité.<br>
+    <strong>2.</strong> Calculer \(|\underline{Z}|\) et l'intensité efficace \(I\). Arrondir au centième.<br>
+    <strong>3.</strong> Donner l'argument \(\varphi = \arctan\!\left(\dfrac{X_L - X_C}{R}\right)\) en degrés. Interpréter : le circuit est-il inductif ou capacitif ?<br>
+    <strong>4.</strong> Le disjoncteur est calibré à 16 A. La protection est-elle adaptée ?
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(X_L - X_C \approx 25{,}1 - 7{,}96 \approx 17\) Ω. <span class="reponse">\(\underline{Z} = 15 + 17j\)</span>.</p>
+    <p><strong>2.</strong> \(|\underline{Z}| = \sqrt{225 + 289} = \sqrt{514} \approx\) <span class="reponse">\(22{,}67\) Ω</span>. \(I = \dfrac{230}{22{,}67} \approx\) <span class="reponse">\(10{,}15\) A</span>.</p>
+    <p><strong>3.</strong> \(\varphi = \arctan\!\left(\dfrac{17}{15}\right) = \arctan(1{,}133) \approx\) <span class="reponse">\(48{,}6°\)</span>. \(\varphi > 0\) : le circuit est <span class="reponse">inductif</span> (la bobine domine le condensateur).</p>
+    <p><strong>4.</strong> \(I \approx 10{,}15\) A \(< 16\) A. <span class="reponse">Le disjoncteur de 16 A est adapté.</span></p>
+  </div>
+</div>
+
+<!-- APPRO NEW 2 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 32</span>
+    <span class="exo-title">Produit de complexes et applications géométriques</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <p>On considère les complexes \(z_1 = 1 + i\) et \(z_2 = \sqrt{3} - i\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(z_1 \times z_2\) en forme algébrique.<br>
+    <strong>2.</strong> Calculer \(|z_1|\), \(|z_2|\) et \(|z_1 \times z_2|\). Vérifier la propriété \(|z_1 \times z_2| = |z_1| \times |z_2|\).<br>
+    <strong>3.</strong> Mettre \(z_1\) et \(z_2\) sous forme trigonométrique.<br>
+    <strong>4.</strong> En déduire la forme trigonométrique de \(z_1 \times z_2\), puis vérifier avec la question 1.<br>
+    <strong>5.</strong> Quel est l'argument de \(z_1 \times z_2\) ? Interpréter géométriquement : que fait la multiplication par \(z_1\) ?
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(z_1 \times z_2 = (1 + i)(\sqrt{3} - i) = \sqrt{3} - i + i\sqrt{3} - i^2 = \sqrt{3} + 1 + (\sqrt{3} - 1)i\). <span class="reponse">\(z_1 z_2 = (\sqrt{3}+1) + (\sqrt{3}-1)i \approx 2{,}73 + 0{,}73i\)</span>.</p>
+    <p><strong>2.</strong> \(|z_1| = \sqrt{2}\), \(|z_2| = \sqrt{3+1} = 2\), \(|z_1 z_2| = \sqrt{(\sqrt{3}+1)^2 + (\sqrt{3}-1)^2} = \sqrt{(3+2\sqrt{3}+1) + (3-2\sqrt{3}+1)} = \sqrt{8} = 2\sqrt{2}\). <span class="reponse">\(|z_1 z_2| = 2\sqrt{2} = \sqrt{2} \times 2 = |z_1| \times |z_2|\)</span> ✓.</p>
+    <p><strong>3.</strong> \(z_1 = \sqrt{2}\!\left(\cos\dfrac{\pi}{4} + i\sin\dfrac{\pi}{4}\right)\) ; \(z_2 = 2\!\left(\cos\!\left(-\dfrac{\pi}{6}\right) + i\sin\!\left(-\dfrac{\pi}{6}\right)\right)\).</p>
+    <p><strong>4.</strong> Arg\((z_1 z_2) = \dfrac{\pi}{4} + \left(-\dfrac{\pi}{6}\right) = \dfrac{3\pi - 2\pi}{12} = \dfrac{\pi}{12}\). <span class="reponse">\(z_1 z_2 = 2\sqrt{2}\!\left(\cos\dfrac{\pi}{12} + i\sin\dfrac{\pi}{12}\right)\)</span>.</p>
+    <p><strong>5.</strong> <span class="reponse">Multiplier par \(z_1\) revient à multiplier le module par \(\sqrt{2}\) et à faire tourner le point de \(45°\) dans le plan complexe.</span></p>
+  </div>
+</div>
+
+<!-- APPRO NEW 3 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 33</span>
+    <span class="exo-title">Modélisation d'un signal électrique — courant alternatif sinusoïdal</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien en énergies renouvelables analyse le signal d'un onduleur solaire. La tension est modélisée par \(u(t) = U_m \cos(\omega t + \varphi)\) où \(U_m\) est l'amplitude, \(\omega = 2\pi f\) la pulsation et \(\varphi\) la phase. En notation complexe (phasor) : \(\underline{U} = \dfrac{U_m}{\sqrt{2}} e^{j\varphi}\).
+  </div>
+  <p>Pour le circuit : \(\underline{U} = 163 e^{j\pi/6}\) V (amplitude efficace : \(U = 163\) V, phase : \(\varphi = 30°\)).</p>
+  <div class="consigne">
+    <strong>1.</strong> Convertir \(\underline{U}\) en forme algébrique (utiliser \(\cos 30° = \dfrac{\sqrt{3}}{2}\) et \(\sin 30° = \dfrac{1}{2}\)). Arrondir à l'unité.<br>
+    <strong>2.</strong> Vérifier que \(|\underline{U}| = 163\).<br>
+    <strong>3.</strong> La tension efficace du réseau est \(U_{\text{eff}} = \dfrac{|\underline{U}|}{\sqrt{2}} \approx \dfrac{163}{\sqrt{2}}\). Calculer \(U_{\text{eff}}\) et vérifier qu'elle est proche de 115 V (tension de sortie typique d'un onduleur 12V → 115V).<br>
+    <strong>4.</strong> Le courant de charge a pour phasor \(\underline{I} = 5 e^{-j\pi/12}\). Calculer l'angle de déphasage entre \(\underline{U}\) et \(\underline{I}\).
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\underline{U} = 163(\cos 30° + j\sin 30°) = 163\!\left(\dfrac{\sqrt{3}}{2} + j \times \dfrac{1}{2}\right) \approx 163 \times 0{,}866 + j \times 163 \times 0{,}5\). <span class="reponse">\(\underline{U} \approx 141 + 81{,}5j\)</span>.</p>
+    <p><strong>2.</strong> \(|\underline{U}| = \sqrt{141^2 + 81{,}5^2} \approx \sqrt{19\,881 + 6\,642} = \sqrt{26\,523} \approx 163\) ✓.</p>
+    <p><strong>3.</strong> \(U_{\text{eff}} = \dfrac{163}{\sqrt{2}} \approx \dfrac{163}{1{,}414} \approx\) <span class="reponse">\(115\) V</span> ✓. C'est bien une tension de sortie de 115 V.</p>
+    <p><strong>4.</strong> Arg\(\underline{U} = \dfrac{\pi}{6} = 30°\) et Arg\(\underline{I} = -\dfrac{\pi}{12} = -15°\). Déphasage : <span class="reponse">\(\varphi = 30° - (-15°) = 45°\)</span>. La tension est en avance de 45° sur le courant.</p>
+  </div>
+</div>
+
+<!-- APPRO NEW 4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 34</span>
+    <span class="exo-title">Lieux géométriques dans le plan complexe</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un ingénieur thermicien modélise des zones d'équidistance dans un bâtiment par des ensembles de points dans le plan complexe.
+  </div>
+  <p>On considère les complexes \(z_A = 1 + 2i\) et \(z_B = 5 + 4i\) représentant deux capteurs de température.</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer la distance \(AB = |z_B - z_A|\).<br>
+    <strong>2.</strong> Déterminer l'affixe \(z_M\) du milieu de \([AB]\).<br>
+    <strong>3.</strong> Un point \(C\) d'affixe \(z_C = a + bi\) est à égale distance de \(A\) et de \(B\). On a donc \(|z_C - z_A| = |z_C - z_B|\).<br>
+    Montrer que cela implique : \((a - 1)^2 + (b - 2)^2 = (a - 5)^2 + (b - 4)^2\).<br>
+    <strong>4.</strong> Développer et simplifier cette équation. À quelle courbe géométrique correspond l'ensemble des points \(C\) ?<br>
+    <strong>5.</strong> Vérifier que le milieu \(M\) trouvé en question 2 appartient à cette courbe.
+  </div>
+  <div class="reponse-box" style="min-height:130px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(z_B - z_A = (5+4i) - (1+2i) = 4 + 2i\). \(AB = |4+2i| = \sqrt{16+4} = \sqrt{20} = 2\sqrt{5} \approx\) <span class="reponse">\(4{,}47\)</span>.</p>
+    <p><strong>2.</strong> \(z_M = \dfrac{z_A + z_B}{2} = \dfrac{(1+2i)+(5+4i)}{2} = \dfrac{6+6i}{2} =\) <span class="reponse">\(3 + 3i\)</span>.</p>
+    <p><strong>3.</strong> \(|z_C - z_A|^2 = (a-1)^2 + (b-2)^2\) et \(|z_C - z_B|^2 = (a-5)^2 + (b-4)^2\). L'égalité des distances donne bien l'équation indiquée.</p>
+    <p><strong>4.</strong> En développant :<br>
+    \(a^2 - 2a + 1 + b^2 - 4b + 4 = a^2 - 10a + 25 + b^2 - 8b + 16\)<br>
+    \(-2a - 4b + 5 = -10a - 8b + 41\)<br>
+    \(8a + 4b = 36\) → <span class="reponse">\(2a + b = 9\)</span>.<br>
+    C'est une <strong>droite</strong> — la médiatrice du segment \([AB]\).</p>
+    <p><strong>5.</strong> \(M = (3\,;\,3)\) : \(2 \times 3 + 3 = 9\) ✓. Le milieu de \([AB]\) appartient à la médiatrice.</p>
+  </div>
 </div>
 
 </div><!-- fin diff-appro -->

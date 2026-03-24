@@ -241,6 +241,120 @@
   </details>
 </div>
 
+<!-- SOCLE S4 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Calculer le point moyen — pas à pas</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Méthode :</strong> Le point moyen \(G(\bar{x}\,;\,\bar{y})\) a pour coordonnées les moyennes des deux séries :<br>
+    \(\bar{x} = \dfrac{x_1 + x_2 + \cdots + x_n}{n}\) et \(\bar{y} = \dfrac{y_1 + y_2 + \cdots + y_n}{n}\)
+  </div>
+  <p>Un plombier mesure le diamètre \(x\) (mm) et la pression de test \(y\) (bar) de 5 tuyaux :</p>
+  <table>
+    <tr><th>\(x\) (mm)</th><td>10</td><td>15</td><td>20</td><td>25</td><td>30</td></tr>
+    <tr><th>\(y\) (bar)</th><td>8</td><td>7</td><td>6</td><td>5</td><td>4</td></tr>
+  </table>
+  <div class="consigne"><strong>1.</strong> Calculer la somme des \(x_i\) : \(10 + 15 + 20 + 25 + 30 = \) ………</div>
+  <div class="reponse-box">Puis \(\bar{x} = \dfrac{\boxed{\phantom{100}}}{5} = \boxed{\phantom{20}}\)</div>
+  <div class="consigne"><strong>2.</strong> Calculer la somme des \(y_i\) : \(8 + 7 + 6 + 5 + 4 = \) ………</div>
+  <div class="reponse-box">Puis \(\bar{y} = \dfrac{\boxed{\phantom{30}}}{5} = \boxed{\phantom{6}}\)</div>
+  <div class="consigne"><strong>3.</strong> Écrire les coordonnées du point moyen \(G\) :</div>
+  <div class="reponse-box">\(G(\phantom{20}\,;\,\phantom{6})\)</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Somme des \(x_i\) : \(10 + 15 + 20 + 25 + 30 = 100\). <span class="reponse">\(\bar{x} = 100 / 5 = 20\) mm</span></p>
+    <p><strong>2.</strong> Somme des \(y_i\) : \(8 + 7 + 6 + 5 + 4 = 30\). <span class="reponse">\(\bar{y} = 30 / 5 = 6\) bar</span></p>
+    <p><strong>3.</strong> Point moyen : <span class="reponse">\(G(20\,;\,6)\)</span>. Tout ajustement affine de cette série passe par ce point.</p>
+  </div>
+</div>
+
+<!-- SOCLE S5 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Vérifier que la droite passe par le point moyen</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>La droite d'ajustement d'une série est \(y = 2{,}5 \times x + 1{,}5\). Le point moyen vaut \(G(4\,;\,11{,}5)\).</p>
+  <div class="consigne"><strong>1.</strong> Remplacer \(x\) par \(4\) dans la droite :</div>
+  <p style="font-size:.93em">\(y = 2{,}5 \times \boxed{\phantom{4}} + 1{,}5 = \boxed{\phantom{10}} + 1{,}5 = \boxed{\phantom{11,5}}\)</p>
+  <div class="consigne"><strong>2.</strong> Le résultat obtenu est-il égal à \(\bar{y} = 11{,}5\) ?</div>
+  <p style="margin-left:1em">☐ Oui → la droite passe bien par le point moyen ✓<br>☐ Non → erreur de calcul</p>
+  <div class="consigne"><strong>3.</strong> Pourquoi est-ce important que la droite d'ajustement passe par \(G\) ?</div>
+  <div class="reponse-box">Réponse : ………………………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(y = 2{,}5 \times 4 + 1{,}5 = 10 + 1{,}5 = \)<span class="reponse">\(11{,}5\)</span></p>
+    <p><strong>2.</strong> <span class="reponse">Oui</span> — \(11{,}5 = \bar{y}\) ✓ La droite passe bien par le point moyen.</p>
+    <p><strong>3.</strong> C'est une propriété fondamentale : <span class="reponse">la droite d'ajustement affine passe toujours par le point moyen \(G(\bar{x}\,;\,\bar{y})\)</span>. On peut utiliser cela pour vérifier un calcul.</p>
+  </div>
+</div>
+
+<!-- SOCLE S6 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 18</span>
+    <span class="exo-title">Identifier interpolation et extrapolation dans un tableau</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <div class="meth">
+    <strong>Rappel :</strong><br>
+    – <strong>Interpolation</strong> : valeur estimée <em>à l'intérieur</em> de l'intervalle des données.<br>
+    – <strong>Extrapolation</strong> : valeur estimée <em>en dehors</em> de l'intervalle des données (moins fiable).
+  </div>
+  <p>Une série de données couvre les valeurs de \(x\) entre <strong>3 et 18</strong>.</p>
+  <p>Pour chaque valeur de \(x\), cocher le bon type d'estimation :</p>
+  <table>
+    <thead><tr><th>Valeur de \(x\)</th><th>Interpolation ?</th><th>Extrapolation ?</th></tr></thead>
+    <tbody>
+      <tr><td>\(x = 10\)</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>\(x = 1\)</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>\(x = 15\)</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+      <tr><td>\(x = 25\)</td><td class="vide">☐</td><td class="vide">☐</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Valeur</th><th>Dans [3 ; 18] ?</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>\(x = 10\)</td><td>✅ Oui</td><td><span class="reponse">Interpolation</span></td></tr>
+        <tr><td>\(x = 1\)</td><td>❌ Non (trop petit)</td><td><span class="reponse">Extrapolation ⚠️</span></td></tr>
+        <tr><td>\(x = 15\)</td><td>✅ Oui</td><td><span class="reponse">Interpolation</span></td></tr>
+        <tr><td>\(x = 25\)</td><td>❌ Non (trop grand)</td><td><span class="reponse">Extrapolation ⚠️</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SOCLE S7 -->
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 19</span>
+    <span class="exo-title">Utiliser une droite d'ajustement — contexte menuiserie</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <p>Un artisan menuisier a établi que la durée de fabrication \(D\) (en heures) d'un meuble dépend du nombre de pièces \(P\). La droite d'ajustement est :</p>
+  <p style="text-align:center;font-weight:700">\(D = 0{,}5 \times P + 2\)</p>
+  <div class="consigne"><strong>1.</strong> Calculer la durée pour un meuble de 6 pièces :</div>
+  <p style="font-size:.93em">\(D = 0{,}5 \times \boxed{\phantom{6}} + 2 = \boxed{\phantom{3}} + 2 = \boxed{\phantom{5}}\) heures</p>
+  <div class="consigne"><strong>2.</strong> Calculer la durée pour un meuble de 10 pièces :</div>
+  <div class="reponse-box">\(D = 0{,}5 \times 10 + 2 = \) ………  heures</div>
+  <div class="consigne"><strong>3.</strong> Les données couvrent \(P\) entre 4 et 12. Les estimations des questions 1 et 2 sont-elles des interpolations ou des extrapolations ?</div>
+  <div class="reponse-box">Question 1 : ………………… &emsp; Question 2 : …………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(D = 0{,}5 \times 6 + 2 = 3 + 2 = \)<span class="reponse">\(5\) heures</span></p>
+    <p><strong>2.</strong> \(D = 0{,}5 \times 10 + 2 = 5 + 2 = \)<span class="reponse">\(7\) heures</span></p>
+    <p><strong>3.</strong> \(P = 6\) est entre 4 et 12 → <span class="reponse">interpolation</span> ✓<br>
+    \(P = 10\) est entre 4 et 12 → <span class="reponse">interpolation</span> ✓<br>
+    Les deux estimations sont fiables car elles sont dans l'intervalle des données.</p>
+  </div>
+</div>
+
 </div><!-- fin diff-socle -->
 
 <!-- ================================================================
@@ -330,6 +444,215 @@
       <p><strong>3.</strong> Le coefficient 20,2 signifie : <span class="reponse">chaque m² supplémentaire coûte environ 20,20 € de matériaux</span>. C'est le coût unitaire moyen au m².</p>
   </div>
   </details>
+</div>
+
+<!-- STANDARD S4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 20</span>
+    <span class="exo-title">Calculer le point moyen d'une série</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien chauffagiste relève la puissance absorbée \(P\) (W) et le rendement \(R\) (%) de 6 pompes à chaleur d'un même modèle installées dans différents bâtiments.
+  </div>
+  <table>
+    <tr><th>Puissance \(P\) (W)</th><td>1 200</td><td>1 500</td><td>1 800</td><td>2 100</td><td>2 400</td><td>2 700</td></tr>
+    <tr><th>Rendement \(R\) (%)</th><td>280</td><td>295</td><td>305</td><td>318</td><td>330</td><td>340</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> Calculer les moyennes \(\bar{P}\) et \(\bar{R}\).<br>
+    <strong>2.</strong> Décrire en une phrase la tendance du nuage de points.<br>
+    <strong>3.</strong> La droite d'ajustement est \(R = 0{,}04 \times P + 232\). Vérifier qu'elle passe par le point moyen.
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\bar{P} = (1200 + 1500 + 1800 + 2100 + 2400 + 2700) / 6 = 11700 / 6 = \)<span class="reponse">\(1\,950\) W</span><br>
+    \(\bar{R} = (280 + 295 + 305 + 318 + 330 + 340) / 6 = 1868 / 6 \approx \)<span class="reponse">\(311{,}3\) %</span></p>
+    <p><strong>2.</strong> Tendance <span class="reponse">croissante</span> : plus la puissance absorbée est élevée, plus le rendement de la pompe à chaleur est grand.</p>
+    <p><strong>3.</strong> \(R = 0{,}04 \times 1\,950 + 232 = 78 + 232 = 310 \approx 311\) ✓ La droite passe bien par le point moyen (arrondi au dixième).</p>
+  </div>
+</div>
+
+<!-- STANDARD S5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 21</span>
+    <span class="exo-title">Choisir et décrire une tendance</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un menuisier agenceur mesure l'épaisseur \(e\) (mm) de panneaux MDF et la résistance à la flexion \(F\) (N/mm²) mesurée en laboratoire.
+  </div>
+  <table>
+    <tr><th>Épaisseur \(e\) (mm)</th><td>6</td><td>10</td><td>16</td><td>19</td><td>22</td><td>25</td></tr>
+    <tr><th>Résistance \(F\) (N/mm²)</th><td>18</td><td>22</td><td>26</td><td>28</td><td>31</td><td>34</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> En observant le tableau, la tendance est-elle croissante ou décroissante ? Justifier.<br>
+    <strong>2.</strong> Calculer les moyennes \(\bar{e}\) et \(\bar{F}\).<br>
+    <strong>3.</strong> La droite d'ajustement est \(F = 0{,}84 \times e + 13{,}2\). Estimer la résistance pour \(e = 18\) mm. Interpolation ou extrapolation ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Tendance <span class="reponse">croissante</span> : quand l'épaisseur augmente, la résistance à la flexion augmente aussi. Un panneau plus épais est plus solide.</p>
+    <p><strong>2.</strong> \(\bar{e} = (6+10+16+19+22+25)/6 = 98/6 \approx \)<span class="reponse">\(16{,}3\) mm</span><br>
+    \(\bar{F} = (18+22+26+28+31+34)/6 = 159/6 = \)<span class="reponse">\(26{,}5\) N/mm²</span></p>
+    <p><strong>3.</strong> \(F = 0{,}84 \times 18 + 13{,}2 = 15{,}12 + 13{,}2 = \)<span class="reponse">\(28{,}3\) N/mm²</span>.<br>
+    \(e = 18\) est entre 6 et 25 (données) → <span class="reponse">interpolation</span> — estimation fiable.</p>
+  </div>
+</div>
+
+<!-- STANDARD S6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 22</span>
+    <span class="exo-title">Interpréter les coefficients d'une droite d'ajustement</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un installateur de systèmes solaires modélise la production électrique \(E\) (kWh/jour) d'un panneau photovoltaïque en fonction de l'ensoleillement \(I\) (h/jour).
+  </div>
+  <p>La droite d'ajustement obtenue est : \(E = 1{,}8 \times I - 0{,}5\)</p>
+  <div class="consigne">
+    <strong>1.</strong> Que représente le coefficient \(1{,}8\) dans le contexte de cet exercice ?<br>
+    <strong>2.</strong> Que représente le terme \(-0{,}5\) ? Ce résultat est-il physiquement réaliste pour \(I = 0\) ?<br>
+    <strong>3.</strong> Estimer la production pour \(I = 5\) h/jour et pour \(I = 9\) h/jour.<br>
+    <strong>4.</strong> Les données couvrent \(I\) entre 2 et 8 h/jour. Préciser le type d'estimation pour chaque calcul de la question 3.
+  </div>
+  <div class="reponse-box" style="min-height:90px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(1{,}8\) est la pente : <span class="reponse">chaque heure d'ensoleillement supplémentaire produit 1,8 kWh/jour de plus</span>.</p>
+    <p><strong>2.</strong> Pour \(I = 0\) : \(E = -0{,}5\) kWh → négatif, donc <span class="reponse">pas réaliste</span> physiquement. Cela montre les limites du modèle en dehors des données.</p>
+    <p><strong>3.</strong> \(I = 5\) : \(E = 1{,}8 \times 5 - 0{,}5 = 9 - 0{,}5 = \)<span class="reponse">\(8{,}5\) kWh/jour</span><br>
+    \(I = 9\) : \(E = 1{,}8 \times 9 - 0{,}5 = 16{,}2 - 0{,}5 = \)<span class="reponse">\(15{,}7\) kWh/jour</span></p>
+    <p><strong>4.</strong> \(I = 5\) (dans [2;8]) → <span class="reponse">interpolation</span> ✓ &emsp; \(I = 9\) (hors [2;8]) → <span class="reponse">extrapolation ⚠️</span></p>
+  </div>
+</div>
+
+<!-- STANDARD S7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 23</span>
+    <span class="exo-title">Construire et utiliser une droite d'ajustement</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un technicien CVC mesure la vitesse de l'air \(v\) (m/s) dans une gaine et le niveau sonore \(L\) (dB) à l'entrée d'une bouche de soufflage.
+  </div>
+  <table>
+    <tr><th>Vitesse \(v\) (m/s)</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+    <tr><th>Niveau \(L\) (dB)</th><td>28</td><td>33</td><td>38</td><td>43</td><td>48</td><td>53</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le point moyen \(G(\bar{v}\,;\,\bar{L})\).<br>
+    <strong>2.</strong> La droite d'ajustement est \(L = 5 \times v + 18\). Vérifier qu'elle passe par \(G\).<br>
+    <strong>3.</strong> La réglementation acoustique impose \(L \leq 45\) dB. Quelle est la vitesse maximale acceptable selon le modèle ?
+  </div>
+  <div class="reponse-box" style="min-height:90px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\bar{v} = (2+3+4+5+6+7)/6 = 27/6 = 4{,}5\) m/s<br>
+    \(\bar{L} = (28+33+38+43+48+53)/6 = 243/6 = 40{,}5\) dB<br>
+    <span class="reponse">\(G(4{,}5\,;\,40{,}5)\)</span></p>
+    <p><strong>2.</strong> \(L = 5 \times 4{,}5 + 18 = 22{,}5 + 18 = 40{,}5\) ✓ La droite passe par \(G\).</p>
+    <p><strong>3.</strong> \(L = 45\) : \(45 = 5v + 18\) → \(v = (45 - 18)/5 = 27/5 = \)<span class="reponse">\(5{,}4\) m/s</span>.<br>
+    La vitesse ne doit pas dépasser <strong>5,4 m/s</strong> pour rester sous 45 dB.</p>
+  </div>
+</div>
+
+<!-- STANDARD S8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 24</span>
+    <span class="exo-title">Estimer un budget à partir d'un modèle</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un poseur de cuisines équipées analyse la relation entre le nombre de modules \(N\) installés et la durée de pose \(D\) (en heures).
+  </div>
+  <table>
+    <tr><th>Nombre de modules \(N\)</th><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td></tr>
+    <tr><th>Durée \(D\) (h)</th><td>6</td><td>8</td><td>11</td><td>14</td><td>17</td><td>20</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> La droite d'ajustement est \(D = 1{,}4 \times N - 0{,}2\). Calculer la durée prévue pour \(N = 9\) modules.<br>
+    <strong>2.</strong> Le tarif de pose est 35 €/h. Estimer le coût de pose pour 9 modules.<br>
+    <strong>3.</strong> Un client veut poser 18 modules. Estimer la durée. Préciser le type d'estimation.
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(D = 1{,}4 \times 9 - 0{,}2 = 12{,}6 - 0{,}2 = \)<span class="reponse">\(12{,}4\) heures</span> (\(N = 9\) est dans [4;14] → interpolation)</p>
+    <p><strong>2.</strong> Coût = \(12{,}4 \times 35 = \)<span class="reponse">\(434\) €</span></p>
+    <p><strong>3.</strong> \(D = 1{,}4 \times 18 - 0{,}2 = 25{,}2 - 0{,}2 = \)<span class="reponse">\(25\) heures</span>.<br>
+    \(N = 18\) est hors de [4;14] → <span class="reponse">extrapolation ⚠️</span> — valeur indicative, à confirmer.</p>
+  </div>
+</div>
+
+<!-- STANDARD S9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 25</span>
+    <span class="exo-title">Étude d'une liaison entre deux grandeurs physiques</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un technicien en maintenance énergétique mesure la résistance thermique \(R_{th}\) (m²·K/W) de parois en béton cellulaire selon leur épaisseur \(e\) (cm).
+  </div>
+  <table>
+    <tr><th>Épaisseur \(e\) (cm)</th><td>10</td><td>15</td><td>20</td><td>25</td><td>30</td></tr>
+    <tr><th>\(R_{th}\) (m²·K/W)</th><td>1,25</td><td>1,88</td><td>2,50</td><td>3,13</td><td>3,75</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> La relation entre \(e\) et \(R_{th}\) est-elle croissante ou décroissante ? Justifier physiquement.<br>
+    <strong>2.</strong> La droite d'ajustement est \(R_{th} = 0{,}125 \times e\). Calculer \(R_{th}\) pour \(e = 17\) cm.<br>
+    <strong>3.</strong> Un bureau d'études exige \(R_{th} \geq 2{,}9\) m²·K/W. Quelle épaisseur minimale faut-il prévoir ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Tendance <span class="reponse">croissante</span> : plus la paroi est épaisse, plus elle isole bien (résistance thermique plus grande).</p>
+    <p><strong>2.</strong> \(R_{th} = 0{,}125 \times 17 = \)<span class="reponse">\(2{,}125\) m²·K/W</span> (interpolation, \(e = 17\) est dans [10;30])</p>
+    <p><strong>3.</strong> \(R_{th} = 2{,}9\) : \(2{,}9 = 0{,}125 \times e\) → \(e = 2{,}9 / 0{,}125 = \)<span class="reponse">\(23{,}2\) cm</span>.<br>
+    Il faut prévoir au moins <strong>23,2 cm</strong> d'épaisseur (on arrondit à 24 cm pour rester conforme).</p>
+  </div>
+</div>
+
+<!-- STANDARD S10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 26</span>
+    <span class="exo-title">Modéliser la consommation de gaz d'un four industriel</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte professionnel :</strong> Un technicien chauffagiste mesure la consommation de gaz naturel \(C\) (m³/h) d'un four industriel selon sa température de fonctionnement \(T\) (°C).
+  </div>
+  <table>
+    <tr><th>Température \(T\) (°C)</th><td>150</td><td>200</td><td>250</td><td>300</td><td>350</td><td>400</td></tr>
+    <tr><th>Consommation \(C\) (m³/h)</th><td>4,2</td><td>5,8</td><td>7,3</td><td>8,9</td><td>10,4</td><td>12,0</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le point moyen \(G\) de cette série.<br>
+    <strong>2.</strong> La droite d'ajustement est \(C = 0{,}031 \times T - 0{,}45\). Vérifier pour le point moyen.<br>
+    <strong>3.</strong> Estimer la consommation pour \(T = 275\) °C. Interpolation ou extrapolation ?<br>
+    <strong>4.</strong> Le réseau de gaz impose un débit maximum de 15 m³/h. Quelle température maximale peut atteindre le four ?
+  </div>
+  <div class="reponse-box" style="min-height:90px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\bar{T} = (150+200+250+300+350+400)/6 = 1650/6 = 275\) °C<br>
+    \(\bar{C} = (4{,}2+5{,}8+7{,}3+8{,}9+10{,}4+12{,}0)/6 = 48{,}6/6 = 8{,}1\) m³/h<br>
+    <span class="reponse">\(G(275\,;\,8{,}1)\)</span></p>
+    <p><strong>2.</strong> \(C = 0{,}031 \times 275 - 0{,}45 = 8{,}525 - 0{,}45 = 8{,}075 \approx 8{,}1\) ✓</p>
+    <p><strong>3.</strong> \(C = 0{,}031 \times 275 - 0{,}45 \approx \)<span class="reponse">\(8{,}1\) m³/h</span> — <span class="reponse">interpolation</span> (275 dans [150;400])</p>
+    <p><strong>4.</strong> \(C = 15\) : \(15 = 0{,}031T - 0{,}45\) → \(T = 15{,}45 / 0{,}031 \approx \)<span class="reponse">\(498\) °C</span>.<br>
+    Le four peut fonctionner jusqu'à environ <strong>498 °C</strong> sans dépasser le débit imposé. (Extrapolation : valeur indicative.)</p>
+  </div>
 </div>
 
 <!-- NIVEAU 3 -->
@@ -542,6 +865,126 @@
       <span class="reponse">Au-delà de 8,3 m³/h, la pression modélisée devient négative</span> — physiquement impossible, l'installation est sous-dimensionnée pour ce débit.</p>
   </div>
   </details>
+</div>
+
+<!-- APPRO A4 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 27</span>
+    <span class="exo-title">Comparaison de deux modèles d'ajustement</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un responsable de chantier compare deux installations de chauffage (A et B) dans deux bâtiments similaires. Pour chacune, il dispose d'une droite d'ajustement reliant la température extérieure \(T\) (°C) et la consommation journalière de gaz \(C\) (kWh).
+  </div>
+  <p><strong>Installation A :</strong> \(C_A = -4{,}1 \times T + 95\) &emsp; | &emsp; <strong>Installation B :</strong> \(C_B = -3{,}2 \times T + 80\)</p>
+  <div class="consigne">
+    <strong>1.</strong> Pour \(T = 5\) °C, calculer \(C_A\) et \(C_B\). Quelle installation consomme le moins ?<br>
+    <strong>2.</strong> Pour quelle valeur de \(T\) les deux installations consomment-elles la même quantité ? (Résoudre \(C_A = C_B\).)<br>
+    <strong>3.</strong> Interpréter le sens physique de la pente dans chaque modèle. Quelle installation est la plus sensible aux variations de température ?<br>
+    <strong>4.</strong> À \(T = 15\) °C, laquelle consomme le moins ? Commenter.
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(C_A = -4{,}1 \times 5 + 95 = -20{,}5 + 95 = \)<span class="reponse">\(74{,}5\) kWh</span><br>
+    \(C_B = -3{,}2 \times 5 + 80 = -16 + 80 = \)<span class="reponse">\(64\) kWh</span><br>
+    À 5 °C, <span class="reponse">l'installation B consomme moins (64 kWh contre 74,5 kWh)</span>.</p>
+    <p><strong>2.</strong> \(-4{,}1T + 95 = -3{,}2T + 80\) → \(-0{,}9T = -15\) → \(T = \)<span class="reponse">\(16{,}7\) °C</span>.<br>
+    Les deux installations consomment la même quantité pour \(T \approx 16{,}7\) °C.</p>
+    <p><strong>3.</strong> Pente de A : −4,1 kWh/°C → plus forte → <span class="reponse">A est plus sensible aux variations de température</span>. Un écart de 1 °C fait varier C_A de 4,1 kWh, contre 3,2 kWh pour B.</p>
+    <p><strong>4.</strong> \(C_A = -4{,}1 \times 15 + 95 = 33{,}5\) kWh &emsp; \(C_B = -3{,}2 \times 15 + 80 = 32\) kWh. <span class="reponse">B consomme encore moins</span>. Au-dessus de 16,7 °C, les deux installations consomment très peu, et les écarts deviennent faibles.</p>
+  </div>
+</div>
+
+<!-- APPRO A5 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 28</span>
+    <span class="exo-title">Trouver l'équation d'une droite passant par deux points</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un technicien de maintenance énergétique doit établir une droite d'ajustement à la main à partir de deux points du nuage. Il choisit deux points représentatifs : \(A(4\,;\,70)\) et \(B(14\,;\,32)\), issus d'une série reliant température \(T\) (°C) et consommation \(C\) (kWh/jour).
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le coefficient directeur (pente) \(a = \dfrac{C_B - C_A}{T_B - T_A}\).<br>
+    <strong>2.</strong> En déduire l'équation de la droite \(C = a \times T + b\) en utilisant le point \(A\) pour trouver \(b\).<br>
+    <strong>3.</strong> Estimer la consommation pour \(T = 9\) °C (vérifier que c'est une interpolation).<br>
+    <strong>4.</strong> Comparer avec le point moyen de la série complète : \(G(9\,;\,51)\). La droite passe-t-elle par \(G\) ? Conclure.
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(a = (32 - 70) / (14 - 4) = -38 / 10 = \)<span class="reponse">\(-3{,}8\)</span></p>
+    <p><strong>2.</strong> On utilise \(A(4\,;\,70)\) : \(70 = -3{,}8 \times 4 + b\) → \(b = 70 + 15{,}2 = \)<span class="reponse">\(85{,}2\)</span>.<br>
+    Droite : <span class="reponse">\(C = -3{,}8 \times T + 85{,}2\)</span></p>
+    <p><strong>3.</strong> \(T = 9\) (entre 4 et 14) → interpolation. \(C = -3{,}8 \times 9 + 85{,}2 = -34{,}2 + 85{,}2 = \)<span class="reponse">\(51\) kWh/jour</span></p>
+    <p><strong>4.</strong> Pour \(T = 9\) : \(C = 51\) et \(G = (9\,;\,51)\) → <span class="reponse">la droite passe exactement par le point moyen</span>. C'est cohérent : toute droite d'ajustement bien construite doit passer par \(G\).</p>
+  </div>
+</div>
+
+<!-- APPRO A6 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 29</span>
+    <span class="exo-title">Analyse critique d'un modèle — type BTS</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un bureau d'études thermiques modélise la consommation annuelle de chauffage \(C\) (kWh/m²) de bâtiments selon leur année de construction \(A\) (on pose \(n = A - 1960\), donc \(n = 0\) en 1960). La droite d'ajustement obtenue sur un panel de bâtiments construits entre 1960 et 2010 est :<br>
+    \(C = -2{,}8 \times n + 320\)
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Calculer \(C\) pour \(n = 20\) (bâtiment de 1980) et pour \(n = 50\) (bâtiment de 2010).<br>
+    <strong>2.</strong> Selon ce modèle, pour quelle valeur de \(n\) la consommation serait-elle nulle ? Est-ce réaliste ?<br>
+    <strong>3.</strong> La RT 2020 impose \(C \leq 30\) kWh/m²/an. Quel rang \(n\) minimal faudrait-il atteindre ? À quelle année cela correspond-il ?<br>
+    <strong>4.</strong> Expliquer pourquoi ce modèle ne peut pas s'appliquer indéfiniment dans le futur.
+  </div>
+  <div class="reponse-box" style="min-height:120px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(n = 20\) : \(C = -2{,}8 \times 20 + 320 = -56 + 320 = \)<span class="reponse">\(264\) kWh/m²</span><br>
+    \(n = 50\) : \(C = -2{,}8 \times 50 + 320 = -140 + 320 = \)<span class="reponse">\(180\) kWh/m²</span></p>
+    <p><strong>2.</strong> \(C = 0\) : \(0 = -2{,}8n + 320\) → \(n = 320/2{,}8 \approx \)<span class="reponse">\(114\)</span>, soit l'année \(1960 + 114 = 2074\).<br>
+    <span class="reponse">Pas réaliste</span> : un bâtiment consomme toujours de l'énergie. Le modèle affine atteint ses limites.</p>
+    <p><strong>3.</strong> \(C = 30\) : \(30 = -2{,}8n + 320\) → \(n = 290/2{,}8 \approx \)<span class="reponse">\(103{,}6\)</span>, soit l'année \(\approx 2064\).<br>
+    Selon ce modèle, la RT 2020 ne serait atteinte que vers 2064 — ce qui montre que le progrès réel est plus rapide (les nouvelles normes RT 2012 et RE 2020 ont accéléré la transition).</p>
+    <p><strong>4.</strong> Le modèle a été établi sur des données de 1960 à 2010. <span class="reponse">L'extrapolation lointaine est hasardeuse</span> : les ruptures technologiques (bâtiments passifs, RE 2020) changent la trajectoire. Un modèle linéaire est une approximation locale, pas une loi universelle.</p>
+  </div>
+</div>
+
+<!-- APPRO A7 -->
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 30</span>
+    <span class="exo-title">Série à deux variables — problème complet type BTS</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  <div class="situation">
+    <strong>Contexte :</strong> Un chef de chantier analyse la relation entre le nombre d'ouvriers \(n\) présents sur un chantier d'agencement et la durée \(D\) (jours) pour réaliser la même commande. Il dispose des données suivantes :
+  </div>
+  <table>
+    <tr><th>Nombre d'ouvriers \(n\)</th><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+    <tr><th>Durée \(D\) (jours)</th><td>28</td><td>19</td><td>14</td><td>11</td><td>9</td><td>8</td><td>7</td></tr>
+  </table>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le point moyen \(G\).<br>
+    <strong>2.</strong> Décrire la tendance. La droite est-elle un bon modèle ? Justifier qualitativement en observant les données.<br>
+    <strong>3.</strong> On admet la droite d'ajustement \(D = -3{,}5 \times n + 35{,}5\). Calculer \(D\) pour \(n = 10\) ouvriers. Interpolation ou extrapolation ?<br>
+    <strong>4.</strong> Le contrat impose une durée maximale de 5 jours. Combien d'ouvriers faut-il mobiliser au minimum selon le modèle ?<br>
+    <strong>5.</strong> Le résultat de la question 3 est-il physiquement cohérent ? Que révèle cette analyse sur les limites de la modélisation affine ?
+  </div>
+  <div class="reponse-box" style="min-height:140px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(\bar{n} = (2+3+4+5+6+7+8)/7 = 35/7 = 5\) &emsp; \(\bar{D} = (28+19+14+11+9+8+7)/7 = 96/7 \approx 13{,}7\)<br>
+    <span class="reponse">\(G(5\,;\,13{,}7)\)</span></p>
+    <p><strong>2.</strong> Tendance <span class="reponse">décroissante</span> : plus on a d'ouvriers, plus le chantier est rapide. Cependant, la décroissance est rapide au début (28 → 14) et ralentit ensuite (9 → 7) : <span class="reponse">une droite est une approximation acceptable mais imparfaite</span>. Une courbe serait plus adaptée.</p>
+    <p><strong>3.</strong> \(D = -3{,}5 \times 10 + 35{,}5 = -35 + 35{,}5 = \)<span class="reponse">\(0{,}5\) jour</span> — <span class="reponse">extrapolation</span> (\(n = 10\) hors de [2;8])</p>
+    <p><strong>4.</strong> \(D = 5\) : \(5 = -3{,}5n + 35{,}5\) → \(n = 30{,}5 / 3{,}5 \approx \)<span class="reponse">\(8{,}7\)</span>, soit au minimum <strong>9 ouvriers</strong>.</p>
+    <p><strong>5.</strong> 0,5 jour pour 10 ouvriers → physiquement possible, mais irréaliste pour un chantier d'agencement (coordination, logistique). <span class="reponse">Le modèle linéaire surestime le gain de productivité au-delà d'un certain nombre d'ouvriers</span>. C'est une limite fondamentale de l'ajustement affine pour ce type de phénomène.</p>
+  </div>
 </div>
 
 </div><!-- fin diff-appro -->
