@@ -542,6 +542,230 @@
   </details>
 </div>
 
+<!-- STANDARD S4 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 11</span>
+    <span class="exo-title">Dépréciation d'un véhicule utilitaire</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un menuisier agenceur achète un véhicule utilitaire neuf à <strong>22 000 €</strong>. Sa valeur se déprécie de <strong>18 %</strong> par an.
+  </div>
+  <p>On modélise la valeur par \(u_n = 22\,000 \times q^n\) avec \(q = 0{,}82\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Justifier que \(q = 0{,}82\).<br>
+    <strong>2.</strong> Calculer la valeur après 3 ans et après 5 ans (arrondir à l'euro).<br>
+    <strong>3.</strong> Le menuisier peut revendre le véhicule à un repreneur pour 8 000 €. À partir de quelle année la valeur du modèle passe-t-elle en dessous de 8 000 € ? (Compléter le tableau.)<br>
+    <strong>4.</strong> La suite est-elle croissante ou décroissante ? Pourquoi ?
+  </div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+    <tr><th>Valeur (€)</th><td>22 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Perte de 18 % → il reste 82 % = \(q = 0{,}82\)</p>
+    <p><strong>2.</strong> \(u_3 = 22\,000 \times 0{,}82^3 = 22\,000 \times 0{,}5514 \approx \)<span class="reponse">\(12\,130\) €</span><br>
+    \(u_5 = 22\,000 \times 0{,}82^5 = 22\,000 \times 0{,}3707 \approx \)<span class="reponse">\(8\,155\) €</span></p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+      <tr><th>\(u_n\) (€)</th><td>22 000</td><td class="hl">18 040</td><td class="hl">14 793</td><td class="hl">12 130</td><td class="hl">9 947</td><td class="hl">8 156</td><td class="hl">6 688</td></tr>
+    </table>
+    <p>\(u_5 \approx 8\,156 > 8\,000\) et \(u_6 \approx 6\,688 < 8\,000\) → revente possible à partir de l'<span class="reponse">année 6</span>.</p>
+    <p><strong>4.</strong> Suite <span class="reponse">décroissante</span> : \(q = 0{,}82 < 1\) et \(u_0 > 0\).</p>
+  </div>
+</div>
+
+<!-- STANDARD S5 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 12</span>
+    <span class="exo-title">Capitalisation d'une épargne professionnelle</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un installateur thermique place <strong>5 000 €</strong> sur un livret professionnel à un taux annuel de <strong>3,5 %</strong>. Il ne fait aucun retrait.
+  </div>
+  <p>On modélise l'épargne par \(u_n = 5\,000 \times 1{,}035^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Quelle est la raison de la suite ? La suite est-elle croissante ou décroissante ?<br>
+    <strong>2.</strong> Calculer le montant de l'épargne après 4 ans. Arrondir au centime.<br>
+    <strong>3.</strong> Calculer le montant après 10 ans.<br>
+    <strong>4.</strong> En quelle année l'épargne dépassera-t-elle <strong>7 000 €</strong> ? (Utiliser le tableau ci-dessous.)
+  </div>
+  <table>
+    <tr><th>\(n\)</th><td>8</td><td>9</td><td>10</td><td>11</td></tr>
+    <tr><th>\(1{,}035^n\)</th><td>1,3168</td><td>1,3629</td><td>1,4106</td><td>1,4600</td></tr>
+    <tr><th>\(u_n\) (€)</th><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(q = 1{,}035 > 1\) → suite <span class="reponse">croissante</span> : l'épargne augmente chaque année.</p>
+    <p><strong>2.</strong> \(u_4 = 5\,000 \times 1{,}035^4 = 5\,000 \times 1{,}1475 \approx \)<span class="reponse">\(5\,737{,}50\) €</span></p>
+    <p><strong>3.</strong> \(u_{10} = 5\,000 \times 1{,}035^{10} = 5\,000 \times 1{,}4106 \approx \)<span class="reponse">\(7\,053\) €</span></p>
+    <p><strong>4.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>8</td><td>9</td><td>10</td><td>11</td></tr>
+      <tr><th>\(u_n\) (€)</th><td class="hl">6 584</td><td class="hl">6 815</td><td class="hl">7 053</td><td class="hl">7 300</td></tr>
+    </table>
+    <p>\(u_9 \approx 6\,815 < 7\,000\) et \(u_{10} \approx 7\,053 > 7\,000\) → l'épargne dépasse 7 000 € en <span class="reponse">année \(n = 10\)</span>.</p>
+  </div>
+</div>
+
+<!-- STANDARD S6 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 13</span>
+    <span class="exo-title">Modéliser une réduction de consommation</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un technicien en énergies renouvelables suit la consommation électrique d'un bâtiment tertiaire après l'installation de panneaux photovoltaïques. La consommation nette était de <strong>18 000 kWh</strong> en 2024 (\(n = 0\)) et diminue de <strong>9 %</strong> par an.
+  </div>
+  <p>On modélise par \(u_n = 18\,000 \times 0{,}91^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Justifier que \(q = 0{,}91\).<br>
+    <strong>2.</strong> Calculer \(u_5\) (consommation en 2029).<br>
+    <strong>3.</strong> Compléter le tableau (arrondir au kWh) et identifier à partir de quelle année la consommation passe sous 10 000 kWh.
+  </div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+    <tr><th>\(u_n\) (kWh)</th><td>18 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> Diminuer de 9 % → il reste 91 % → <span class="reponse">\(q = 0{,}91\)</span></p>
+    <p><strong>2.</strong> \(u_5 = 18\,000 \times 0{,}91^5 = 18\,000 \times 0{,}6240 \approx \)<span class="reponse">\(11\,232\) kWh</span></p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+      <tr><th>\(u_n\)</th><td>18 000</td><td class="hl">16 380</td><td class="hl">14 906</td><td class="hl">13 564</td><td class="hl">12 343</td><td class="hl">11 232</td><td class="hl">10 221</td><td class="hl">9 301</td></tr>
+    </table>
+    <p>\(u_6 \approx 10\,221 > 10\,000\) et \(u_7 \approx 9\,301 < 10\,000\) → la consommation passe sous 10 000 kWh à partir de l'<span class="reponse">année \(n = 7\)</span> (2031).</p>
+  </div>
+</div>
+
+<!-- STANDARD S7 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 14</span>
+    <span class="exo-title">Utiliser la somme des premiers termes</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Le chiffre d'affaires d'une entreprise de pose de menuiseries extérieures est de <strong>120 000 €</strong> la première année (\(n = 0\)). Il augmente de <strong>5 %</strong> par an.
+  </div>
+  <p>On note \(u_n = 120\,000 \times 1{,}05^n\). La somme des \(N\) premiers termes est :\[S_N = u_0 \times \dfrac{1 - q^N}{1 - q}\]</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le CA prévu en année \(n = 5\). Arrondir à l'euro.<br>
+    <strong>2.</strong> Calculer le CA cumulé sur les 5 premières années (\(n = 0\) à \(n = 4\)) avec la formule.<br>
+    <strong>3.</strong> Une banque exige un CA cumulé sur 4 ans de 550 000 € pour financer un investissement. La condition est-elle remplie ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_5 = 120\,000 \times 1{,}05^5 = 120\,000 \times 1{,}2763 \approx \)<span class="reponse">\(153\,153\) €</span></p>
+    <p><strong>2.</strong> \(S_5 = 120\,000 \times \dfrac{1 - 1{,}05^5}{1 - 1{,}05} = 120\,000 \times \dfrac{1 - 1{,}2763}{-0{,}05} = 120\,000 \times \dfrac{-0{,}2763}{-0{,}05} = 120\,000 \times 5{,}526 \approx \)<span class="reponse">\(663\,120\) €</span></p>
+    <p><strong>3.</strong> La somme sur 4 ans (\(n = 0\) à \(n = 3\)) : \(S_4 = 120\,000 \times (1 - 1{,}05^4)/(-0{,}05) = 120\,000 \times 4{,}310 \approx 517\,200\) €.<br>
+    <span class="reponse">517 200 € &lt; 550 000 € → la condition n'est pas remplie</span> sur 4 ans. Sur 5 ans (663 120 €), elle serait remplie.</p>
+  </div>
+</div>
+
+<!-- STANDARD S8 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 15</span>
+    <span class="exo-title">Interpréter une suite dans un contexte de maintenance</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un technicien CVC suit le nombre de pannes annuelles d'un parc de ventilo-convecteurs. En 2020 (\(n = 0\)), le parc a subi 80 pannes. Grâce à la maintenance préventive, ce nombre diminue de <strong>15 %</strong> par an.
+  </div>
+  <p>On modélise par \(u_n = 80 \times 0{,}85^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le nombre de pannes prévu en 2025 (\(n = 5\)). Arrondir à l'unité.<br>
+    <strong>2.</strong> En quelle année le nombre de pannes passera-t-il sous <strong>20</strong> pour la première fois ? (Construire un tableau.)<br>
+    <strong>3.</strong> La suite est-elle croissante ou décroissante ? En quoi cela traduit-il l'effet de la maintenance ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_5 = 80 \times 0{,}85^5 = 80 \times 0{,}4437 \approx \)<span class="reponse">\(35\) pannes</span> en 2025.</p>
+    <p><strong>2.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+      <tr><th>Pannes</th><td class="hl">35</td><td class="hl">30</td><td class="hl">26</td><td class="hl">22</td><td class="hl">19</td></tr>
+    </table>
+    <p>\(u_8 \approx 22 > 20\) et \(u_9 \approx 19 < 20\) → le nombre de pannes passe sous 20 en <span class="reponse">année \(n = 9\)</span> (2029).</p>
+    <p><strong>3.</strong> Suite <span class="reponse">décroissante</span> (\(q = 0{,}85 < 1\)) : <span class="reponse">la maintenance préventive réduit progressivement le nombre de pannes</span> chaque année.</p>
+  </div>
+</div>
+
+<!-- STANDARD S9 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 16</span>
+    <span class="exo-title">Comparer deux équipements selon leur dépréciation</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Un chef de chantier compare la valeur de deux équipements achetés en même temps :<br>
+    – Équipement A : 9 000 € à l'achat, dépréciation de 20 % par an.<br>
+    – Équipement B : 6 000 € à l'achat, dépréciation de 10 % par an.
+  </div>
+  <div class="consigne">
+    <strong>1.</strong> Écrire les formules \(u_n^A\) et \(u_n^B\) (valeur après \(n\) années).<br>
+    <strong>2.</strong> Calculer les valeurs de chaque équipement après 3 ans et après 6 ans.<br>
+    <strong>3.</strong> À partir de quelle année la valeur de B dépasse-t-elle celle de A ?
+  </div>
+  <table>
+    <tr><th>Année \(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+    <tr><th>\(u_n^A\) (€)</th><td>9 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+    <tr><th>\(u_n^B\) (€)</th><td>6 000</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td><td class="vide">?</td></tr>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> <span class="reponse">\(u_n^A = 9\,000 \times 0{,}80^n\)</span> et <span class="reponse">\(u_n^B = 6\,000 \times 0{,}90^n\)</span></p>
+    <p><strong>2.</strong> \(u_3^A = 9000 \times 0{,}512 = 4\,608\) € ; \(u_3^B = 6000 \times 0{,}729 = 4\,374\) €<br>
+    \(u_6^A = 9000 \times 0{,}2621 \approx 2\,359\) € ; \(u_6^B = 6000 \times 0{,}5314 \approx 3\,188\) €</p>
+    <p><strong>3.</strong></p>
+    <table>
+      <tr><th>\(n\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+      <tr><th>\(u^A\)</th><td>9 000</td><td class="hl">7 200</td><td class="hl">5 760</td><td class="hl">4 608</td><td class="hl">3 686</td><td class="hl">2 949</td><td class="hl">2 359</td></tr>
+      <tr><th>\(u^B\)</th><td>6 000</td><td class="hl">5 400</td><td class="hl">4 860</td><td class="hl">4 374</td><td class="hl">3 937</td><td class="hl">3 543</td><td class="hl">3 188</td></tr>
+    </table>
+    <p>À \(n = 3\) : \(4\,608 > 4\,374\) (A vaut encore plus). À \(n = 4\) : \(3\,686 < 3\,937\) (B vaut plus). B dépasse A à partir de l'<span class="reponse">année \(n = 4\)</span>.</p>
+  </div>
+</div>
+
+<!-- STANDARD S10 -->
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 17</span>
+    <span class="exo-title">Croissance du parc de pompes à chaleur</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <div class="situation">
+    <strong>Situation professionnelle :</strong> Le nombre de pompes à chaleur installées en France augmente de <strong>12 %</strong> par an selon un modèle géométrique. En 2022 (\(n = 0\)), on comptait <strong>600 000</strong> installations.
+  </div>
+  <p>On modélise par \(u_n = 600\,000 \times 1{,}12^n\).</p>
+  <div class="consigne">
+    <strong>1.</strong> Calculer le nombre d'installations prévu en 2027 (\(n = 5\)). Arrondir à l'unité.<br>
+    <strong>2.</strong> Calculer le nombre cumulé total d'installations neuves sur 5 ans (\(n = 0\) à \(n = 4\)) :<br>
+    \(S = 600\,000 \times \dfrac{1 - 1{,}12^5}{1 - 1{,}12}\)<br>
+    <strong>3.</strong> Un installateur thermique capte en moyenne 0,3 % du marché annuel. Combien d'installations réaliserait-il en 2027 selon ce modèle ?
+  </div>
+  <div class="reponse-box" style="min-height:80px">Réponses : ………………………………</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \(u_5 = 600\,000 \times 1{,}12^5 = 600\,000 \times 1{,}7623 \approx \)<span class="reponse">\(1\,057\,380\) installations</span> en 2027.</p>
+    <p><strong>2.</strong> \(S = 600\,000 \times \dfrac{1 - 1{,}12^5}{1 - 1{,}12} = 600\,000 \times \dfrac{1 - 1{,}7623}{-0{,}12} = 600\,000 \times \dfrac{-0{,}7623}{-0{,}12} = 600\,000 \times 6{,}353 \approx \)<span class="reponse">\(3\,811\,800\)</span> installations cumulées.</p>
+    <p><strong>3.</strong> Installations de l'installateur en 2027 : \(1\,057\,380 \times 0{,}003 \approx \)<span class="reponse">\(3\,172\) installations</span>.</p>
+  </div>
+</div>
+
 <!-- ================================================================
      NIVEAU 3 — RAISONNEMENT
      ================================================================ -->
