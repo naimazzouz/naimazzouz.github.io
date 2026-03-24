@@ -1,0 +1,313 @@
+# Prompt de référence — Activités de découverte (`activite.html`)
+
+Guide de référence pour la création des pages `activite.html` dans chaque chapitre du site.
+
+---
+
+## Philosophie générale
+
+### Rôle pédagogique
+
+L'activité de découverte est une **situation-problème** : l'élève rencontre une situation professionnelle concrète et, en la questionnant pas à pas, **construit lui-même la notion** à partir de ses observations.
+
+Ce n'est pas un cours — c'est l'antichambre du cours. L'activité précède `lecon.html` ou l'accompagne en parallèle.
+
+| Page | Rôle | Durée | Quand l'utiliser |
+|---|---|---|---|
+| `activite.html` | **Faire découvrir** une notion par investigation | 25–40 min | Avant ou pendant la leçon |
+| `lecon.html` | Transmettre le savoir formalisé | — | Après l'activité |
+| `exercices.html` | S'entraîner | Variable | Après la leçon |
+| `ds.html` | Évaluer | 1h | Fin de chapitre |
+
+### Ce que l'activité n'est PAS
+
+- **Pas un cours déguisé** : on ne donne pas la définition au départ
+- **Pas un exercice d'application** : l'élève ne connaît pas encore la méthode
+- **Pas un TP numérique** : pas d'expérience en laboratoire — c'est une activité documentaire ou graphique
+
+### Principe de construction
+
+L'activité suit une progression narrative :
+
+```
+Situation professionnelle (document d'accroche)
+        ↓
+Questions de compréhension (S'approprier)
+        ↓
+Questions d'analyse (Analyser)
+        ↓
+Questions de calcul / manipulation (Réaliser)
+        ↓
+Questions d'interprétation (Valider)
+        ↓
+Synthèse collective ou individuelle (Communiquer)
+        ↓
+À retenir (la notion formalisée)
+```
+
+---
+
+## Nombre de questions
+
+**Le nombre de questions est libre.** Il est déterminé par ce qu'il faut faire découvrir, pas par un quota.
+
+- Une notion simple peut se découvrir en 4-5 questions
+- Une notion complexe peut nécessiter 8-12 questions
+- Des sous-questions (a, b, c) peuvent subdiviser une étape sans alourdir la progression
+
+**Calibrage par type de question :**
+
+| Type de question | Durée estimée |
+|---|---|
+| Lecture, extraction d'info, identification | 1–2 min |
+| Calcul guidé, compléter un tableau | 3–5 min |
+| Analyse, interprétation, rédaction | 5–8 min |
+| Synthèse, "À retenir" | 3–5 min |
+
+La **durée totale cible** est de 25 à 40 minutes. Elle est indiquée en haut de la page pour le professeur.
+
+---
+
+## Compétences (badges)
+
+Les compétences du référentiel bac pro sont indiquées sur les **questions structurantes**, pas nécessairement sur toutes.
+
+| Compétence | Abréviation | Couleur | Usage |
+|---|---|---|---|
+| S'approprier | `APP` | vert | Questions de lecture, compréhension du contexte |
+| Analyser / Raisonner | `ANA` | bleu | Questions d'analyse, identification des relations |
+| Réaliser | `REA` | orange | Calculs, constructions, manipulations |
+| Valider | `VAL` | violet | Vérification, cohérence, interprétation |
+| Communiquer | `COM` | rouge | Rédaction, synthèse, "À retenir" |
+
+**Règle :** au minimum une compétence par grande étape travaillée. Les questions de pur calcul intermédiaire n'ont pas besoin de badge.
+
+---
+
+## Structure d'une activité
+
+### 1. En-tête
+
+- Titre de l'activité (contexte + notion)
+- Sous-titre : niveau, matière, durée estimée
+- Objectifs : "À l'issue de cette activité, tu sauras..."
+
+### 2. Document d'accroche — Situation professionnelle
+
+Le document peut être :
+- Un texte de mise en situation (facture, rapport, fiche technique)
+- Un tableau de données (mesures, relevés, tarifs)
+- Un graphique à analyser
+- Une photo ou un schéma légendé
+- Un extrait de notice ou de devis
+
+**Règles du document :**
+- Ancré dans un métier réel (voir règles des filières dans CLAUDE.md)
+- Contient toutes les données nécessaires pour répondre aux questions
+- Suffisamment riche pour générer 4 à 12 questions
+- Lisible : pas surchargé de données inutiles
+
+### 3. Questions progressives
+
+Les questions sont numérotées (1, 2, 3...) avec des sous-questions si besoin (a, b, c).
+
+Chaque question :
+- Est auto-suffisante (ne dépend pas d'une réponse précédente non guidée)
+- Utilise un verbe de consigne précis : *identifier, calculer, compléter, expliquer, déduire, conclure*
+- Porte le badge de compétence quand c'est pertinent
+- Dispose d'une correction cachée (bouton "Voir la correction")
+
+### 4. Synthèse — "À retenir"
+
+La dernière question (ou un encadré dédié) formalise la notion :
+- L'élève rédige la définition ou la propriété à partir de ce qu'il a découvert
+- Ou l'encadré `.retenir` est donné à compléter (blancs à remplir)
+- Ou la synthèse est affichée directement (si l'activité précède immédiatement le cours)
+
+---
+
+## Différenciation pédagogique
+
+L'activité est en général **une base commune** (pas de différenciation par défaut).
+
+Si la différenciation est activée :
+- **Socle** : des aides sont intégrées dans les questions (rappels, calculs amorcés)
+- **Standard** : les questions sont données sans aide supplémentaire
+- **Approfondissement** : questions bonus à la fin (au-delà de la notion cible)
+
+Utiliser les classes `.diff-socle`, `.diff-standard`, `.diff-appro` et `diff.js` (voir CLAUDE.md).
+
+---
+
+## Spécifications techniques
+
+### Template `activite.html`
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ChXX – Activité – Titre – Classe</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:COULEUR;--p-bg:COULEUR-BG;--p-border:COULEUR-BORDER}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../sommaire.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité – Titre de la notion</h1>
+  <p class="sous-titre">Chapitre X | Niveau | Matière | ⏱ 30 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Découvrir [notion 1]</li>
+    <li>Comprendre [notion 2]</li>
+  </ul>
+</div>
+
+<!-- DOCUMENT D'ACCROCHE -->
+<div class="situation">
+  <h2>Situation professionnelle</h2>
+  <p><em>Contexte : [métier réel], [entreprise fictive], [ville].</em></p>
+  <!-- Tableau, texte, données, schéma... -->
+</div>
+
+<!-- QUESTIONS -->
+<div class="exo">
+<h2>Question 1 <span class="badge-blue">APP</span></h2>
+<p>Consigne...</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+<div class="corr">Correction...</div>
+</div>
+
+<div class="exo">
+<h2>Question 2 <span class="badge-blue">ANA</span></h2>
+<p>Consigne...</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+<div class="corr">Correction...</div>
+</div>
+
+<!-- ... autant de questions que nécessaire -->
+
+<!-- SYNTHÈSE -->
+<div class="retenir">
+  <strong>À retenir</strong>
+  <p>[Définition / Propriété construite à partir de l'activité]</p>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<!-- Ajouter diff.js seulement si différenciation activée -->
+<!-- <script src="../../../diff.js"></script> -->
+</body>
+</html>
+```
+
+### Classes CSS disponibles pour les questions
+
+| Classe | Usage |
+|---|---|
+| `.situation` | Bloc document d'accroche (fond violet pointillé) |
+| `.objectifs` | Bloc objectifs de l'activité |
+| `.exo` | Bloc question |
+| `.corr` | Correction cachée (display:none) |
+| `.bc` | Bouton "Voir la correction" |
+| `.retenir` | Encadré synthèse finale |
+| `.meth` | Rappel de méthode (aide pour le socle) |
+| `.att` | Attention / erreur fréquente |
+| `.badge-blue` | Badge compétence APP ou ANA |
+| `.badge-green` | Badge compétence REA ou VAL |
+| `.badge-yellow` | Badge compétence COM |
+| `.grid2` / `.deux-col` | Tableau à 2 colonnes |
+
+---
+
+## Règles de rédaction
+
+### Ancrage pédagogique
+
+1. **Lire `lecon.html`** avant de créer l'activité — la notion cible doit être clairement identifiée
+2. **Vérifier le programme officiel** dans `/pdf/` — ne pas introduire du hors-programme
+3. **L'activité mène à la notion** du cours, pas au-delà
+
+### Contextes professionnels
+
+- Utiliser des **métiers réels** (voir CLAUDE.md — jamais les sigles ICCER, ERA-MA, MAMA)
+- Varier les contextes : professionnel + quotidien + scientifique
+- Le contexte doit être **cohérent** : les données numériques doivent être réalistes
+
+### Données et calculs
+
+- Les données fournies dans le document doivent suffire à répondre à toutes les questions
+- Ne pas demander à l'élève de chercher des informations extérieures
+- Les calculs doivent être **accessibles** au niveau de la classe (pas de hors-programme)
+- Les valeurs numériques doivent être réalistes (unités, ordres de grandeur)
+
+### Corrections
+
+- Chaque question a une correction complète (bouton "Voir la correction")
+- La correction explique le **raisonnement**, pas juste le résultat
+- Pour le socle : corrections très détaillées, étape par étape
+- L'encadré "À retenir" reprend exactement la formulation du cours
+
+---
+
+## Adaptation par matière
+
+### Mathématiques
+
+**Types de documents d'accroche privilégiés :**
+- Tableau de valeurs (suites, fonctions, statistiques)
+- Graphique à analyser (courbe, nuage de points)
+- Situation de proportionnalité (devis, tarifs, vitesse)
+- Données géométriques (plan, croquis coté)
+
+**Progression type :**
+1. Lire et extraire des données (APP)
+2. Calculer des valeurs manquantes (REA)
+3. Observer un pattern ou une régularité (ANA)
+4. Formuler une conjecture (ANA/VAL)
+5. Vérifier sur un autre exemple (VAL)
+6. Formuler la propriété (COM → À retenir)
+
+### Physique-Chimie
+
+**Types de documents d'accroche privilégiés :**
+- Relevé de mesures (températures, puissances, débits)
+- Fiche technique d'un appareil (pompe à chaleur, radiateur, luminaire)
+- Extrait de notice ou de norme
+- Schéma de circuit ou d'installation
+
+**Progression type :**
+1. Identifier les grandeurs et unités (APP)
+2. Lire ou extraire des valeurs (APP)
+3. Appliquer une relation entre grandeurs (REA)
+4. Interpréter un résultat physiquement (ANA/VAL)
+5. Conclure sur le comportement du système (VAL/COM)
+6. Formuler la loi ou la propriété (À retenir)
+
+---
+
+## Checklist avant publication
+
+- [ ] Situation professionnelle ancrant la notion dans un contexte réel et un métier nommé
+- [ ] Toutes les données utiles présentes dans le document d'accroche
+- [ ] Durée estimée indiquée dans le sous-titre
+- [ ] Objectifs formulés
+- [ ] Questions numérotées, progressives, avec verbe de consigne précis
+- [ ] Badges de compétence sur les questions structurantes
+- [ ] Correction complète pour chaque question (bouton "Voir la correction")
+- [ ] Encadré "À retenir" aligné avec `lecon.html`
+- [ ] Aucun sigle de filière dans le contenu (voir CLAUDE.md)
+- [ ] Données numériques réalistes et cohérentes
+- [ ] MathJax inclus si formules
+- [ ] print.css inclus
+- [ ] nav.js inclus
+- [ ] Couleurs CSS conformes au thème matière/niveau
+- [ ] Contenu dans le programme officiel

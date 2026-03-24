@@ -55,6 +55,7 @@ Chaque dossier de chapitre peut contenir les fichiers suivants :
 | `fiche.html` | Fiche de révision / mémo du chapitre | Standard — majorité des chapitres |
 | `qcm.html` | QCM interactif avec correction automatique et score (différencié) | Optionnel — à créer pour chaque chapitre |
 | `interro.html` | Interrogation écrite courte, 10-15 min, barème /20 (différenciée) | Optionnel — à créer pour chaque chapitre |
+| `activite.html` | Activité de découverte (situation-problème guidée vers la notion) | Optionnel — recommandé |
 | `simulation.html` | Simulation interactive liée au chapitre | Optionnel — si pertinent |
 
 **Objectif :** chaque chapitre devrait à terme contenir les 7 fichiers ci-dessus.
@@ -262,6 +263,7 @@ Avant de générer du contenu, consulter les fichiers dans `/prompts/` :
 | `prompts/prompt-cours.md` | Structure d'une page de cours |
 | `prompts/prompt-exercices.md` | Structure d'une page d'exercices |
 | `prompts/prompt-qcm-interro.md` | Structure d'un QCM ou d'une interrogation |
+| `prompts/prompt-activite.md` | Structure d'une activité de découverte (`activite.html`) |
 | `prompts/prompt-simulation.md` | Structure d'une simulation interactive (4 types) |
 | `prompts/prompt-superviseur.md` | Prompt de supervision globale du projet |
 | `prompts/prompt-filiere-2mama.md` | Contextes pro Seconde MAMA (menuiserie/agencement) |
