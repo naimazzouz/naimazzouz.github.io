@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch09 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 9 – Exercices par capacités</h1>
@@ -43,6 +50,16 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Identifier les paramètres \(a\) et \(b\)</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Fonction affine</strong>
+  <p>Une <strong>fonction affine</strong> est définie par \(f(x) = ax + b\), où :</p>
+  <ul>
+    <li>\(a\) est le <strong>coefficient directeur</strong> (pente de la droite)</li>
+    <li>\(b\) est l'<strong>ordonnée à l'origine</strong> (valeur de \(f\) en \(x = 0\))</li>
+  </ul>
+  <p>Cas particuliers : si \(a = 0\), c'est une fonction <em>constante</em> ; si \(b = 0\), c'est une fonction <em>linéaire</em>.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -87,6 +104,13 @@
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Calculer des images et construire un tableau de valeurs</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Calculer une image</strong>
+  <p>Pour calculer \(f(x_0)\), on <strong>remplace \(x\) par la valeur \(x_0\)</strong> dans l'expression de la fonction.</p>
+  <p>Exemple : pour \(f(x) = 3x - 1\), calculer \(f(4)\) : \(f(4) = 3 \times 4 - 1 = 12 - 1 = 11\).</p>
+  <p>Le tableau de valeurs liste plusieurs couples \((x\,;\,f(x))\) pour différentes valeurs de \(x\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 3</h3>
   <p>Soit \(f(x) = -x + 4\). Calculer \(f(-2)\), \(f(0)\), \(f(1)\), \(f(3)\), \(f(5)\).</p>
@@ -130,6 +154,67 @@
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Tracer la droite représentative</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Tracer une droite affine</strong>
+  <p>La représentation graphique de \(f(x) = ax + b\) est une <strong>droite</strong>. Pour la tracer :</p>
+  <ol>
+    <li>Calculer deux points : le plus simple est de prendre \(x = 0\) (donne le point \((0\,;\,b)\)) et une autre valeur de \(x\).</li>
+    <li>Placer les deux points dans le repère et tracer la droite à la règle.</li>
+    <li>Vérifier avec un troisième point.</li>
+  </ol>
+</div>
+
+<figure class="schema" style="text-align:center;margin:16px 0">
+  <svg width="280" height="200" viewBox="0 0 280 200" aria-label="Droite affine f(x)=2x+1 dans un repère">
+    <!-- Fond -->
+    <rect width="280" height="200" fill="#f8fafc" rx="6"/>
+    <!-- Axes -->
+    <line x1="30" y1="170" x2="260" y2="170" stroke="#333" stroke-width="1.5"/>
+    <line x1="70" y1="10" x2="70" y2="185" stroke="#333" stroke-width="1.5"/>
+    <!-- Flèches axes -->
+    <polygon points="260,167 268,170 260,173" fill="#333"/>
+    <polygon points="67,10 70,2 73,10" fill="#333"/>
+    <!-- Labels axes -->
+    <text x="265" y="174" font-size="12" fill="#333" font-family="serif" font-style="italic">x</text>
+    <text x="60" y="8" font-size="12" fill="#333" font-family="serif" font-style="italic">y</text>
+    <!-- Graduations axe x : 1 à 4 (espacement 40px) -->
+    <line x1="110" y1="167" x2="110" y2="173" stroke="#333" stroke-width="1"/>
+    <text x="107" y="183" font-size="10" fill="#333">1</text>
+    <line x1="150" y1="167" x2="150" y2="173" stroke="#333" stroke-width="1"/>
+    <text x="147" y="183" font-size="10" fill="#333">2</text>
+    <line x1="190" y1="167" x2="190" y2="173" stroke="#333" stroke-width="1"/>
+    <text x="187" y="183" font-size="10" fill="#333">3</text>
+    <line x1="230" y1="167" x2="230" y2="173" stroke="#333" stroke-width="1"/>
+    <text x="227" y="183" font-size="10" fill="#333">4</text>
+    <!-- Graduations axe y : 1 à 4 (espacement 30px) -->
+    <line x1="67" y1="140" x2="73" y2="140" stroke="#333" stroke-width="1"/>
+    <text x="54" y="144" font-size="10" fill="#333">1</text>
+    <line x1="67" y1="110" x2="73" y2="110" stroke="#333" stroke-width="1"/>
+    <text x="54" y="114" font-size="10" fill="#333">2</text>
+    <line x1="67" y1="80" x2="73" y2="80" stroke="#333" stroke-width="1"/>
+    <text x="54" y="84" font-size="10" fill="#333">3</text>
+    <line x1="67" y1="50" x2="73" y2="50" stroke="#333" stroke-width="1"/>
+    <text x="54" y="54" font-size="10" fill="#333">4</text>
+    <!-- Origine -->
+    <text x="57" y="183" font-size="10" fill="#333">O</text>
+    <!-- Droite f(x)=2x+1 : y=2x+1, origine=(70,170), 1 unit x=40px, 1 unit y=30px -->
+    <!-- x=0 → y=1 → pixel (70, 170-1*30)=(70,140) -->
+    <!-- x=4 → y=9 → pixel (70+4*40, 170-9*30)=(230, 170-270) hors zone → limiter -->
+    <!-- x=0 → (70,140), x=3 → (70+120, 170-7*30)=(190, 170-210)=(190,-40) hors zone -->
+    <!-- Ajuster : x=0→(70,140), x=2→(150,110-60=...): y=2*2+1=5 → (150, 170-5*30)=(150,20) -->
+    <!-- Tracer de x=0 (70,140) à x=2 (150, 170-150=20) -->
+    <line x1="70" y1="140" x2="150" y2="20" stroke="#0056b3" stroke-width="2.5"/>
+    <!-- Points remarquables -->
+    <circle cx="70" cy="140" r="4" fill="#0056b3"/>
+    <text x="75" y="137" font-size="11" fill="#0056b3">(0 ; 1)</text>
+    <circle cx="110" cy="110" r="4" fill="#0056b3"/>
+    <text x="115" y="108" font-size="11" fill="#0056b3">(1 ; 3)</text>
+    <!-- Étiquette droite -->
+    <text x="120" y="38" font-size="12" fill="#0056b3" font-style="italic">f(x) = 2x+1</text>
+  </svg>
+  <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Droite représentative de \(f(x) = 2x + 1\) (a = 2 &gt; 0 : droite croissante, b = 1 : ordonnée à l'origine)</figcaption>
+</figure>
+
 <div class="exo">
   <h3>Exercice 6</h3>
   <p>Pour tracer la droite de \(f(x) = 2x + 1\), calculer deux points caractéristiques et expliquer la méthode.</p>
@@ -157,6 +242,16 @@
 <!-- ===== C4 ===== -->
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Déterminer le sens de variation selon le signe de \(a\)</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Sens de variation</strong>
+  <ul>
+    <li>Si \(a > 0\) : \(f\) est <strong>croissante</strong> (la droite monte de gauche à droite).</li>
+    <li>Si \(a < 0\) : \(f\) est <strong>décroissante</strong> (la droite descend de gauche à droite).</li>
+    <li>Si \(a = 0\) : \(f\) est <strong>constante</strong> (droite horizontale).</li>
+  </ul>
+  <p>Le signe de \(a\) seul suffit pour conclure — pas besoin de calculer des valeurs.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 8</h3>
@@ -194,6 +289,14 @@
 <!-- ===== C5 ===== -->
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Déterminer l'expression d'une fonction affine à partir de deux points</h2>
+
+<div class="meth">
+  <strong>Rappel de cours — Trouver \(a\) et \(b\) à partir de deux points</strong>
+  <p>Si la droite passe par les points \((x_1\,;\,y_1)\) et \((x_2\,;\,y_2)\), alors :</p>
+  <p style="text-align:center">\(a = \dfrac{y_2 - y_1}{x_2 - x_1}\)</p>
+  <p>Puis on trouve \(b\) en substituant un des points : \(b = y_1 - a \times x_1\).</p>
+  <p><em>Cas particulier :</em> si l'un des points est \((0\,;\,b_0)\), alors \(b = b_0\) directement.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 10</h3>
@@ -249,6 +352,17 @@
 <div class="cap-section" data-cap="C6">
 <h2>C6 — Résoudre graphiquement un système de deux équations</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Résolution graphique d'un système</strong>
+  <p>Résoudre le système \(\begin{cases} y = f(x) \\ y = g(x) \end{cases}\) graphiquement revient à trouver le <strong>point d'intersection</strong> des deux droites.</p>
+  <ol>
+    <li>Tracer les deux droites dans le même repère.</li>
+    <li>Lire les coordonnées \((x_0\,;\,y_0)\) du point d'intersection.</li>
+    <li>Vérifier algébriquement que \(f(x_0) = g(x_0)\).</li>
+  </ol>
+  <p>S'il n'y a pas d'intersection (droites parallèles), le système n'a <strong>pas de solution</strong>.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 13</h3>
   <p>On considère le système : \(\begin{cases} y = x + 1 \\ y = -x + 5 \end{cases}\)</p>
@@ -293,6 +407,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

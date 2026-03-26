@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch08 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 8 – Exercices par capacités</h1>
@@ -43,6 +50,11 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Reconnaître une situation de proportionnalité et une fonction linéaire</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Une <strong>fonction linéaire</strong> est de la forme \(f(x) = kx\) (avec \(k\) constante, pas de terme constant). Elle modélise une <strong>proportionnalité</strong>. Dans un tableau de proportionnalité, tous les rapports \(\frac{\text{valeur de sortie}}{\text{valeur d'entrée}}\) sont égaux à \(k\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -86,6 +98,11 @@
 <!-- ===== C2 ===== -->
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Déterminer le coefficient de proportionnalité \(k\)</h2>
+
+<div class="retenir">
+  <strong>Formule clé</strong>
+  <p>Si \(f(x) = kx\), alors \(\displaystyle k = \frac{f(x)}{x}\) pour tout \(x \neq 0\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 3</h3>
@@ -131,6 +148,11 @@
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Calculer une image avec \(f(x) = kx\)</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Pour calculer \(f(a) = k \times a\), on multiplie simplement le coefficient \(k\) par la valeur \(a\). Propriété importante : \(f(0) = 0\) pour toute fonction linéaire.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 6</h3>
   <p>Soit \(f(x) = 6x\). Calculer :</p>
@@ -167,6 +189,46 @@
 <!-- ===== C4 ===== -->
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Construire le tableau de valeurs et tracer la droite</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>La droite représentative d'une fonction linéaire <strong>passe toujours par l'origine</strong> \(O(0\,;\,0)\). Pour la tracer, il suffit de deux points : l'origine et un autre point \((1\,;\,k)\) ou un point commode.</p>
+</div>
+
+<figure class="schema">
+  <svg width="280" height="220" viewBox="-10 -10 280 220" xmlns="http://www.w3.org/2000/svg">
+    <!-- Axes -->
+    <line x1="30" y1="190" x2="258" y2="190" stroke="#333" stroke-width="1.5"/>
+    <line x1="30" y1="190" x2="30" y2="8" stroke="#333" stroke-width="1.5"/>
+    <polygon points="258,186 266,190 258,194" fill="#333"/>
+    <polygon points="26,8 30,0 34,8" fill="#333"/>
+    <text x="263" y="193" font-size="12" fill="#333">x</text>
+    <text x="33" y="6" font-size="12" fill="#333">y</text>
+    <!-- Graduations x : 1,2,3 -->
+    <line x1="90" y1="187" x2="90" y2="193" stroke="#333" stroke-width="1"/>
+    <line x1="150" y1="187" x2="150" y2="193" stroke="#333" stroke-width="1"/>
+    <line x1="210" y1="187" x2="210" y2="193" stroke="#333" stroke-width="1"/>
+    <text x="87" y="204" font-size="11" fill="#555">1</text>
+    <text x="147" y="204" font-size="11" fill="#555">2</text>
+    <text x="207" y="204" font-size="11" fill="#555">3</text>
+    <text x="22" y="194" font-size="11" fill="#555">0</text>
+    <!-- Graduations y : 3,6,9 -->
+    <line x1="27" y1="130" x2="33" y2="130" stroke="#333" stroke-width="1"/>
+    <line x1="27" y1="70" x2="33" y2="70" stroke="#333" stroke-width="1"/>
+    <text x="12" y="134" font-size="11" fill="#555">3</text>
+    <text x="12" y="74" font-size="11" fill="#555">6</text>
+    <!-- Droite f(x)=3x : O(0,0) → pixel(30,190), (3,9) → pixel(210,10) -->
+    <line x1="30" y1="190" x2="210" y2="10" stroke="#0056b3" stroke-width="2.5"/>
+    <!-- Points O et (1;3) -->
+    <circle cx="30" cy="190" r="5" fill="#0056b3"/>
+    <circle cx="90" cy="130" r="5" fill="#0056b3"/>
+    <!-- Labels -->
+    <text x="34" y="186" font-size="11" fill="#0056b3">O(0;0)</text>
+    <text x="94" y="127" font-size="11" fill="#0056b3">(1;3)</text>
+    <text x="200" y="8" font-size="12" fill="#0056b3" font-style="italic">f(x)=3x</text>
+  </svg>
+  <figcaption>Droite de \(f(x) = 3x\) passant par l'origine</figcaption>
+</figure>
 
 <div class="exo">
   <h3>Exercice 8</h3>
@@ -293,6 +355,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch07 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 7 – Exercices par capacités</h1>
@@ -41,6 +48,11 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Reconnaître une fonction et utiliser le vocabulaire</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Une <strong>fonction</strong> associe à chaque valeur d'entrée <em>une seule</em> valeur de sortie. On note \(f(x)\) l'image de \(x\) par \(f\). L'ensemble des valeurs d'entrée autorisées est l'<strong>ensemble de définition</strong>.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -103,6 +115,12 @@
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Calculer l'image d'un nombre par une fonction</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Pour calculer l'image de \(a\) par \(f\) : <strong>remplacer \(x\) par \(a\)</strong> dans la formule et effectuer le calcul. On note le résultat \(f(a)\).</p>
+  <p>Exemple : si \(f(x) = 3x + 1\), alors \(f(2) = 3 \times 2 + 1 = 7\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 4</h3>
   <p>Calculer les images suivantes pour \(f(x) = 2x + 3\) :</p>
@@ -160,6 +178,12 @@
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Déterminer un antécédent d'un nombre par une fonction</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Chercher un <strong>antécédent</strong> de \(b\) par \(f\) revient à résoudre l'équation \(f(x) = b\).</p>
+  <p>Une image est unique ; un antécédent peut ne pas exister, ou en avoir plusieurs.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 7</h3>
   <p>Soit \(f(x) = 3x - 6\). Trouver les antécédents des nombres suivants :</p>
@@ -209,6 +233,11 @@
 <!-- ===== C4 ===== -->
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Construire et compléter un tableau de valeurs</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Un <strong>tableau de valeurs</strong> liste des valeurs de \(x\) (1ère ligne) et les images \(f(x)\) correspondantes (2e ligne). Pour chaque \(x\), on substitue dans la formule et on calcule.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 10</h3>
@@ -266,6 +295,59 @@
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Lire une courbe représentative</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Sur un graphique : l'<strong>image</strong> de \(a\) se lit en partant de \(x = a\) sur l'axe horizontal, puis en montant jusqu'à la courbe, puis en lisant l'ordonnée. Pour trouver un <strong>antécédent</strong> de \(b\), on part de \(y = b\) sur l'axe vertical et on cherche les points de la courbe à cette hauteur.</p>
+</div>
+
+<figure class="schema">
+  <svg width="300" height="220" viewBox="-10 -10 300 220" xmlns="http://www.w3.org/2000/svg">
+    <!-- Axes -->
+    <line x1="30" y1="195" x2="278" y2="195" stroke="#333" stroke-width="1.5"/>
+    <line x1="30" y1="195" x2="30" y2="8" stroke="#333" stroke-width="1.5"/>
+    <!-- Flèches axes -->
+    <polygon points="278,191 286,195 278,199" fill="#333"/>
+    <polygon points="26,8 30,0 34,8" fill="#333"/>
+    <!-- Labels axes -->
+    <text x="283" y="198" font-size="12" fill="#333">x</text>
+    <text x="33" y="6" font-size="12" fill="#333">y</text>
+    <!-- Graduations axe x : 0,1,2,3 -->
+    <line x1="90" y1="192" x2="90" y2="198" stroke="#333" stroke-width="1"/>
+    <line x1="150" y1="192" x2="150" y2="198" stroke="#333" stroke-width="1"/>
+    <line x1="210" y1="192" x2="210" y2="198" stroke="#333" stroke-width="1"/>
+    <text x="87" y="210" font-size="11" fill="#555">1</text>
+    <text x="147" y="210" font-size="11" fill="#555">2</text>
+    <text x="207" y="210" font-size="11" fill="#555">3</text>
+    <text x="23" y="199" font-size="11" fill="#555">0</text>
+    <!-- Graduations axe y : 2,4,6,8 -->
+    <line x1="27" y1="155" x2="33" y2="155" stroke="#333" stroke-width="1"/>
+    <line x1="27" y1="115" x2="33" y2="115" stroke="#333" stroke-width="1"/>
+    <line x1="27" y1="75" x2="33" y2="75" stroke="#333" stroke-width="1"/>
+    <line x1="27" y1="35" x2="33" y2="35" stroke="#333" stroke-width="1"/>
+    <text x="10" y="159" font-size="11" fill="#555">2</text>
+    <text x="10" y="119" font-size="11" fill="#555">4</text>
+    <text x="10" y="79" font-size="11" fill="#555">6</text>
+    <text x="10" y="39" font-size="11" fill="#555">8</text>
+    <!-- Courbe f(x) = 2x+2 passant par A(0;2), B(1;4), C(2;6), D(3;8) -->
+    <!-- x=0 → y=2 → pixel(30,155) ; x=3 → y=8 → pixel(210,35) -->
+    <line x1="30" y1="155" x2="210" y2="35" stroke="#0056b3" stroke-width="2"/>
+    <!-- Points remarquables -->
+    <circle cx="30" cy="155" r="4" fill="#0056b3"/>
+    <circle cx="90" cy="115" r="4" fill="#0056b3"/>
+    <circle cx="150" cy="75" r="4" fill="#0056b3"/>
+    <circle cx="210" cy="35" r="4" fill="#0056b3"/>
+    <!-- Labels points -->
+    <text x="34" y="152" font-size="11" fill="#0056b3">A(0;2)</text>
+    <text x="94" y="112" font-size="11" fill="#0056b3">B(1;4)</text>
+    <text x="154" y="72" font-size="11" fill="#0056b3">C(2;6)</text>
+    <text x="214" y="32" font-size="11" fill="#0056b3">D(3;8)</text>
+    <!-- Lecture graphique : image de 2 → pointillés -->
+    <line x1="150" y1="195" x2="150" y2="75" stroke="#e05" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="30" y1="75" x2="150" y2="75" stroke="#e05" stroke-width="1" stroke-dasharray="4,3"/>
+  </svg>
+  <figcaption>Courbe de \(f\) — exemple de lecture graphique : l'image de 2 est 6 (pointillés rouges)</figcaption>
+</figure>
+
 <div class="exo">
   <h3>Exercice 13</h3>
   <p>On considère la courbe d'une fonction \(f\) qui passe par les points suivants : \(A(0\,;\,2)\), \(B(1\,;\,4)\), \(C(2\,;\,6)\), \(D(3\,;\,8)\).</p>
@@ -289,6 +371,55 @@
 <div class="exo">
   <h3>Exercice 14</h3>
   <p>La courbe d'une fonction \(g\) atteint son maximum en \(x = 2\) avec \(g(2) = 9\), et passe par \(g(0) = 1\) et \(g(4) = 1\).</p>
+  <figure class="schema">
+    <svg width="300" height="210" viewBox="-10 -10 300 210" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="20" y1="185" x2="275" y2="185" stroke="#333" stroke-width="1.5"/>
+      <line x1="20" y1="185" x2="20" y2="8" stroke="#333" stroke-width="1.5"/>
+      <polygon points="275,181 283,185 275,189" fill="#333"/>
+      <polygon points="16,8 20,0 24,8" fill="#333"/>
+      <text x="280" y="188" font-size="12" fill="#333">x</text>
+      <text x="23" y="6" font-size="12" fill="#333">y</text>
+      <!-- Graduations x : 0,1,2,3,4 -->
+      <line x1="60" y1="182" x2="60" y2="188" stroke="#333" stroke-width="1"/>
+      <line x1="100" y1="182" x2="100" y2="188" stroke="#333" stroke-width="1"/>
+      <line x1="140" y1="182" x2="140" y2="188" stroke="#333" stroke-width="1"/>
+      <line x1="180" y1="182" x2="180" y2="188" stroke="#333" stroke-width="1"/>
+      <line x1="220" y1="182" x2="220" y2="188" stroke="#333" stroke-width="1"/>
+      <text x="57" y="198" font-size="11" fill="#555">1</text>
+      <text x="97" y="198" font-size="11" fill="#555">2</text>
+      <text x="137" y="198" font-size="11" fill="#555">3</text>
+      <text x="177" y="198" font-size="11" fill="#555">4</text>
+      <text x="13" y="189" font-size="11" fill="#555">0</text>
+      <!-- Graduations y : 1,3,5,7,9 -->
+      <line x1="17" y1="165" x2="23" y2="165" stroke="#333" stroke-width="1"/>
+      <line x1="17" y1="105" x2="23" y2="105" stroke="#333" stroke-width="1"/>
+      <line x1="17" y1="45" x2="23" y2="45" stroke="#333" stroke-width="1"/>
+      <text x="5" y="169" font-size="11" fill="#555">1</text>
+      <text x="5" y="109" font-size="11" fill="#555">5</text>
+      <text x="5" y="49" font-size="11" fill="#555">9</text>
+      <!-- Parabole g : g(0)=1, g(2)=9, g(4)=1 → g(x) = -2(x-2)²+9 -->
+      <!-- points : x=0→165, x=0.5→148, x=1→105+16=121, x=1.5→81, x=2→45, x=2.5→81, x=3→121, x=3.5→148, x=4→165 -->
+      <!-- pixel_y = 185 - 20*y_val  -->
+      <!-- g(0)=1 → 165, g(0.5)=2.5 → 135, g(1)=7 → 45+... recalcul -->
+      <!-- g(x)=-2x²+8x+1 ; g(0)=1,g(1)=7,g(2)=9,g(3)=7,g(4)=1 -->
+      <!-- pixel_y = 185 - 19*y  →  y=1→166, y=7→52, y=9→14 -->
+      <!-- pixel_x = 20 + 40*x →  x=0→20, x=1→60, x=2→100, x=3→140, x=4→180 -->
+      <path d="M20,166 Q100,14 180,166" stroke="#2da44e" stroke-width="2.5" fill="none"/>
+      <!-- Points -->
+      <circle cx="20" cy="166" r="4" fill="#2da44e"/>
+      <circle cx="100" cy="14" r="4" fill="#2da44e"/>
+      <circle cx="180" cy="166" r="4" fill="#2da44e"/>
+      <!-- Labels -->
+      <text x="24" y="163" font-size="11" fill="#2da44e">g(0)=1</text>
+      <text x="104" y="12" font-size="11" fill="#2da44e">max : g(2)=9</text>
+      <text x="183" y="163" font-size="11" fill="#2da44e">g(4)=1</text>
+      <!-- Axe de symétrie x=2 -->
+      <line x1="100" y1="185" x2="100" y2="14" stroke="#999" stroke-width="1" stroke-dasharray="5,3"/>
+      <text x="103" y="180" font-size="10" fill="#888">x=2</text>
+    </svg>
+    <figcaption>Courbe de \(g\) — maximum en \(x = 2\), axe de symétrie \(x = 2\)</figcaption>
+  </figure>
   <ol type="a">
     <li>Quelle est la valeur maximale de \(g\) ? En quel point est-elle atteinte ?</li>
     <li>Les valeurs \(g(0)\) et \(g(4)\) sont-elles égales ? Que peut-on supposer sur la symétrie de la courbe ?</li>
@@ -329,6 +460,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

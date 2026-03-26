@@ -70,6 +70,21 @@ h3 { font-size: 1em; color: var(--t); margin-top: 20px; margin-bottom: 8px; font
 .sous-titre { color: #718096; font-size: .93em; margin: 0; }
 .maj { font-size: .78em; color: #a0aec0; text-align: center; margin-top: 4px; font-style: italic; }
 
+/* ── Fil d'ariane (breadcrumb) ── */
+.breadcrumb {
+  font-size: .8em;
+  color: #718096;
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.breadcrumb a { color: var(--p); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #a0aec0; }
+@media print { .breadcrumb { display: none; } }
+
 /* ── Navigation (liens de retour / pied de page) ── */
 .nb {
   margin-bottom: 16px;

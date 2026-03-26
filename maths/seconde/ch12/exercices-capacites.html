@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch12 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 12 – Exercices par capacités</h1>
@@ -41,6 +48,30 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Identifier l'hypoténuse et les côtés de l'angle droit</h2>
+
+<div class="retenir">
+  <strong>Théorème de Pythagore</strong>
+  <p>Dans un triangle rectangle en B : \(AC^2 = AB^2 + BC^2\)</p>
+  <p>L'<strong>hypoténuse</strong> est le côté opposé à l'angle droit — c'est toujours le côté le plus grand. Les deux autres côtés sont appelés <strong>les côtés de l'angle droit</strong>.</p>
+  <figure class="schema" style="text-align:center;margin:12px 0 0">
+    <svg width="220" height="170" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg">
+      <!-- triangle rectangle -->
+      <polygon points="25,145 175,145 25,25" fill="#ebf5ff" stroke="#0056b3" stroke-width="2"/>
+      <!-- angle droit -->
+      <polyline points="25,125 45,125 45,145" fill="none" stroke="#0056b3" stroke-width="1.8"/>
+      <!-- labels sommets -->
+      <text x="6" y="22" font-size="14" fill="#0056b3" font-weight="bold">A</text>
+      <text x="180" y="150" font-size="14" fill="#0056b3" font-weight="bold">C</text>
+      <text x="6" y="153" font-size="14" fill="#0056b3" font-weight="bold">B</text>
+      <!-- labels côtés -->
+      <text x="6" y="90" font-size="12" fill="#555">AB</text>
+      <text x="88" y="158" font-size="12" fill="#555">BC (côté)</text>
+      <!-- hypoténuse avec flèche -->
+      <text x="108" y="82" font-size="12" fill="#c00" transform="rotate(-52,108,82)">AC = hypoténuse</text>
+    </svg>
+    <figcaption>Triangle ABC rectangle en B — l'hypoténuse est AC</figcaption>
+  </figure>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -80,6 +111,14 @@
 <!-- ===== C2 ===== -->
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Calculer la longueur d'un côté (théorème de Pythagore)</h2>
+
+<div class="meth">
+  <strong>Méthode — Calculer un côté inconnu</strong>
+  <p><strong>Cas 1 — Calculer l'hypoténuse</strong> (le plus grand côté) :</p>
+  <p style="margin-left:1em">\(\text{hyp}^2 = \text{côté}_1^2 + \text{côté}_2^2 \quad \Rightarrow \quad \text{hyp} = \sqrt{\text{côté}_1^2 + \text{côté}_2^2}\)</p>
+  <p><strong>Cas 2 — Calculer un côté de l'angle droit</strong> (un petit côté) :</p>
+  <p style="margin-left:1em">\(\text{côté}^2 = \text{hyp}^2 - \text{autre côté}^2 \quad \Rightarrow \quad \text{côté} = \sqrt{\text{hyp}^2 - \text{autre côté}^2}\)</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 3</h3>
@@ -135,6 +174,12 @@
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Réciproque du théorème de Pythagore</h2>
 
+<div class="retenir">
+  <strong>Réciproque du théorème de Pythagore</strong>
+  <p>Si, dans un triangle de côtés \(a \leq b \leq c\), on vérifie que \(a^2 + b^2 = c^2\), alors le triangle est <strong>rectangle</strong> et l'angle opposé au côté \(c\) est droit.</p>
+  <p>Méthode : identifier le plus grand côté, vérifier si son carré égale la somme des carrés des deux autres.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 7</h3>
   <p>Pour chaque triangle dont on connaît les trois côtés, vérifier s'il est rectangle :</p>
@@ -179,6 +224,17 @@
 <!-- ===== C4 ===== -->
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Triplets pythagoriciens courants</h2>
+
+<div class="retenir">
+  <strong>Triplets pythagoriciens à connaître</strong>
+  <p>Un triplet pythagoricien est un ensemble de trois entiers \((a, b, c)\) vérifiant \(a^2 + b^2 = c^2\).</p>
+  <p>
+    <strong>(3, 4, 5)</strong> — le plus courant (et ses multiples : 6-8-10, 9-12-15…)<br>
+    <strong>(5, 12, 13)</strong> — fréquent en charpente et menuiserie<br>
+    <strong>(8, 15, 17)</strong> — utile pour vérifier un angle droit sur chantier
+  </p>
+  <p>Astuce : sur chantier, la méthode <em>3-4-5</em> permet de tracer un angle droit sans rapporteur.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 10</h3>
@@ -247,6 +303,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
