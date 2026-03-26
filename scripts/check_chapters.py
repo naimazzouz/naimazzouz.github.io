@@ -20,10 +20,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REQUIRED = ['lecon.html', 'exercices.html', 'ds.html']
 
 # Fichiers recommandés (signalés mais pas bloquants)
-RECOMMENDED = ['fiche.html', 'qcm.html', 'interro.html']
+RECOMMENDED = ['fiche.html', 'qcm.html', 'interro.html', 'exercices-capacites.html']
 
 # Fichiers optionnels (informatifs uniquement)
-OPTIONAL = ['activite.html', 'simulation.html', 'exercices-capacites.html']
+OPTIONAL = ['activite.html', 'simulation.html']
 
 # Sections à analyser : (chemin relatif, utilise_diff, label)
 SECTIONS = [
@@ -141,7 +141,7 @@ def main():
 
     print(f'\n{"="*60}')
     print(f'  TOTAL SITE : {grand_complete}/{grand_total} chapitres complets')
-    print(f'  (obligatoires + recommandés : lecon, exercices, ds, fiche, qcm, interro)')
+    print(f'  (obligatoires + recommandés : lecon, exercices, ds, fiche, qcm, interro, exercices-capacites)')
     print(f'{"="*60}\n')
 
 
