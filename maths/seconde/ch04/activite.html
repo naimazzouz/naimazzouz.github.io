@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch04 – Activité – Probabilités – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Probabilités et fluctuation des fréquences</h1>
+  <p class="sous-titre">Chapitre 4 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 30 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier l'univers et les événements d'une expérience aléatoire</li>
+    <li>Calculer des probabilités dans une situation d'équiprobabilité</li>
+    <li>Distinguer probabilité théorique et fréquence observée</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation professionnelle — Contrôle qualité de vis</h2>
+  <p><em>Responsable qualité : Éric Talon — quincaillerie <strong>Métal Pro Sud</strong>, Toulouse.</em></p>
+
+  <p>
+    Un lot de <strong>200 vis en inox</strong> arrive en atelier. D'après l'historique du fournisseur,
+    dans un lot de ce type, <strong>20 vis sur 200</strong> sont habituellement défectueuses (filetage imparfait).
+  </p>
+
+  <p>Éric tire au hasard <strong>une vis</strong> dans le lot pour contrôle.</p>
+
+  <table>
+    <thead><tr><th>État de la vis</th><th>Nombre dans le lot</th></tr></thead>
+    <tbody>
+      <tr><td>Conforme</td><td>180</td></tr>
+      <tr><td>Défectueuse</td><td>20</td></tr>
+      <tr style="font-weight:700;background:#dbeafe"><td>Total</td><td>200</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-blue">APP</span></h2>
+  <p>Décris l'expérience aléatoire.</p>
+  <ol type="a">
+    <li>Pourquoi cette expérience est-elle <strong>aléatoire</strong> ? (Peut-on prévoir le résultat ?)</li>
+    <li>Quelles sont les issues possibles ? (Il y en a deux.)</li>
+    <li>Écris l'univers \(\Omega\) en listant les issues.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>C'est aléatoire car on ne sait pas à l'avance si la vis tirée sera conforme ou défectueuse.</li>
+      <li>Issues : « la vis est conforme » ou « la vis est défectueuse ».</li>
+      <li>\(\Omega = \{\text{conforme}\,;\,\text{défectueuse}\}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>On note \(D\) l'événement « la vis tirée est défectueuse ».</p>
+  <ol type="a">
+    <li>Combien de vis défectueuses y a-t-il dans le lot ? Combien de vis en tout ?</li>
+    <li>Calcule la probabilité \(P(D)\).</li>
+    <li>Calcule la probabilité de l'événement contraire \(\overline{D}\) (« la vis est conforme »).</li>
+  </ol>
+  <div class="meth"><strong>Rappel :</strong> \(P(A) = \dfrac{\text{nombre d'issues favorables}}{\text{nombre total d'issues}}\) &nbsp;(équiprobabilité)</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>20 vis défectueuses sur 200 au total.</li>
+      <li>\(P(D) = \dfrac{20}{200} = 0{,}10 = 10\,\%\)</li>
+      <li>\(P(\overline{D}) = 1 - P(D) = 1 - 0{,}10 = 0{,}90 = 90\,\%\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <ol type="a">
+    <li>Si Éric tire 50 vis au hasard (avec remise), combien s'attend-il à en trouver défectueuses en moyenne ?</li>
+    <li>S'il en trouve exactement 7 défectueuses sur 50, quelle est la fréquence observée de défauts ?</li>
+    <li>Cette fréquence est-elle égale à la probabilité théorique ? Pourquoi ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(50 \times 0{,}10 = 5\) vis défectueuses attendues en moyenne.</li>
+      <li>Fréquence observée : \(f = \dfrac{7}{50} = 0{,}14 = 14\,\%\)</li>
+      <li>Non, \(14\,\% \neq 10\,\%\). Sur un <strong>petit échantillon</strong>, la fréquence observée fluctue autour de la probabilité théorique — elle n'est pas forcément égale. Plus l'échantillon est grand, plus la fréquence se rapproche de la probabilité.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Éric reçoit un deuxième lot de 500 vis d'un autre fournisseur. Il contrôle 500 vis et en trouve 35 défectueuses.</p>
+  <ol type="a">
+    <li>Calcule la fréquence de défauts observée dans ce lot.</li>
+    <li>Ce fournisseur semble-t-il meilleur ou moins bon que le premier ? Justifie par les chiffres.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(f = \dfrac{35}{500} = 0{,}07 = 7\,\%\)</li>
+      <li>Le deuxième fournisseur a un taux de défauts de 7 % contre 10 % pour le premier → il est <strong>meilleur en qualité</strong>. Sur 500 vis, l'échantillon est suffisamment grand pour que la fréquence soit représentative.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-green">VAL</span></h2>
+  <p>On retourne au premier lot (200 vis, 20 défectueuses). Éric en tire maintenant <strong>deux vis successivement</strong> (sans remise).</p>
+  <p>Quel est le nombre total de vis après le premier tirage ? La probabilité de tirer une défectueuse au 2e tirage est-elle toujours 10 % ? Explique.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    Après le premier tirage (sans remise), il reste 199 vis.<br>
+    — Si la première vis était défectueuse : il reste 19 défectueuses sur 199 → \(P = \dfrac{19}{199} \approx 9{,}5\,\%\)<br>
+    — Si la première vis était conforme : il reste 20 défectueuses sur 199 → \(P = \dfrac{20}{199} \approx 10{,}1\,\%\)<br>
+    La probabilité change légèrement selon le résultat du premier tirage. Sur un grand lot, l'effet est faible.
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>Complète le résumé :</p>
+  <blockquote style="background:#f8fafc;border-left:4px solid var(--p);padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;line-height:2.1">
+    L'<strong>univers</strong> \(\Omega\) est l'ensemble de toutes les ____ possibles.<br>
+    En équiprobabilité : \(P(A) = \dfrac{\text{nombre d'issues ____}}{\text{nombre ____ d'issues}}\)<br>
+    \(P(A)\) est toujours compris entre ____ et ____.<br>
+    \(P(\overline{A}) = 1 - \)____<br>
+    La fréquence <strong>observée</strong> fluctue autour de la probabilité ____ quand le nombre d'expériences augmente.
+  </blockquote>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    L'univers \(\Omega\) est l'ensemble de toutes les <strong>issues</strong> possibles.<br>
+    En équiprobabilité : \(P(A) = \dfrac{\text{nombre d'issues \textbf{favorables}}}{\text{nombre \textbf{total} d'issues}}\)<br>
+    \(P(A)\) est toujours compris entre <strong>0</strong> et <strong>1</strong>.<br>
+    \(P(\overline{A}) = 1 - P(A)\)<br>
+    La fréquence observée fluctue autour de la probabilité <strong>théorique</strong>.
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+  <h3 style="margin-top:14px;color:#1e3a8a">Probabilités</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li><strong>Univers \(\Omega\)</strong> : ensemble de toutes les issues possibles</li>
+    <li><strong>Événement</strong> : sous-ensemble de \(\Omega\) (une ou plusieurs issues)</li>
+    <li><strong>Probabilité (équiprobabilité) :</strong> \(P(A) = \dfrac{\text{cas favorables}}{\text{cas possibles}}\)</li>
+    <li>\(0 \leq P(A) \leq 1\) &nbsp;|&nbsp; \(P(\Omega) = 1\) &nbsp;|&nbsp; \(P(\overline{A}) = 1 - P(A)\)</li>
+  </ul>
+  <h3 style="color:#1e3a8a">Fréquence et probabilité</h3>
+  <p>La fréquence observée <em>fluctue</em> autour de la probabilité théorique. Plus l'expérience est répétée, plus elle s'en rapproche.</p>
+</div>
+
+<div class="nav-footer"><a href="lecon.html" class="nav-btn">Cours Ch04 →</a></div>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>

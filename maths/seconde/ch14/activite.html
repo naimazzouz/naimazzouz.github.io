@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch14 – Activité – Volumes et agrandissement – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Solides usuels, volumes et agrandissement</h1>
+  <p class="sous-titre">Chapitre 14 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 35 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Identifier les solides usuels et calculer leurs volumes</li>
+    <li>Convertir des volumes (m³, dm³, L, cm³)</li>
+    <li>Comprendre l'effet d'un agrandissement sur les volumes</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation professionnelle — Fabrication de caissons en bois</h2>
+  <p><em>Fabricant de mobilier : Antoine Saunier — atelier <strong>Caisson Pro Sud</strong>, Tarbes.</em></p>
+
+  <p>Antoine fabrique des caissons de rangement en bois MDF. Voici la commande du jour :</p>
+
+  <table>
+    <thead>
+      <tr><th>Référence</th><th>Forme</th><th>Dimensions</th><th>Quantité</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>CAI-01</td><td>Pavé droit</td><td>L=80 cm, l=40 cm, h=60 cm</td><td>6</td></tr>
+      <tr><td>CAI-02</td><td>Cylindre</td><td>r=15 cm, h=50 cm</td><td>4</td></tr>
+      <tr><td>CAI-03</td><td>Pavé droit</td><td>Agrandissement de CAI-01, rapport k=1,5</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-blue">APP</span></h2>
+  <ol type="a">
+    <li>Identifie les deux formes de solides présentes dans la commande.</li>
+    <li>Donne la formule du volume d'un <strong>pavé droit</strong> (longueur × largeur × hauteur).</li>
+    <li>Donne la formule du volume d'un <strong>cylindre droit</strong> (aire de la base × hauteur).</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Pavé droit et cylindre droit.</li>
+      <li>Volume pavé : \(V = L \times \ell \times h\)</li>
+      <li>Volume cylindre : \(V = \pi r^2 \times h\) (aire du disque × hauteur)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Calcule le volume d'<strong>un</strong> caisson CAI-01 (pavé droit : 80 × 40 × 60 cm).</p>
+  <ol type="a">
+    <li>Donne le résultat en cm³.</li>
+    <li>Convertis en dm³, puis en litres (1 dm³ = 1 L = 1 000 cm³).</li>
+    <li>Quel est le volume total des 6 caissons CAI-01 ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(V = 80 \times 40 \times 60 = 192\,000\,\text{cm}^3\)</li>
+      <li>\(192\,000\,\text{cm}^3 = 192\,\text{dm}^3 = 192\,\text{L}\)</li>
+      <li>Volume total : \(6 \times 192\,000 = 1\,152\,000\,\text{cm}^3 = 1\,152\,\text{L} = 1{,}152\,\text{m}^3\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Calcule le volume d'un caisson CAI-02 (cylindre : r=15 cm, h=50 cm). Utilise \(\pi \approx 3{,}14\).</p>
+  <ol type="a">
+    <li>Calcule l'aire de la base (disque de rayon 15 cm).</li>
+    <li>Calcule le volume du cylindre.</li>
+    <li>Quel est le volume total des 4 caissons cylindriques ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Aire base : \(\pi r^2 = 3{,}14 \times 15^2 = 3{,}14 \times 225 = 706{,}5\,\text{cm}^2\)</li>
+      <li>Volume : \(706{,}5 \times 50 = 35\,325\,\text{cm}^3 \approx 35{,}3\,\text{L}\)</li>
+      <li>Total 4 cylindres : \(4 \times 35\,325 = 141\,300\,\text{cm}^3 \approx 141\,\text{L}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Le caisson CAI-03 est un agrandissement de CAI-01 avec le rapport \(k = 1{,}5\).</p>
+  <ol type="a">
+    <li>Quelles seront les nouvelles dimensions (longueur, largeur, hauteur) ?</li>
+    <li>Par combien chaque dimension est-elle multipliée ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Nouvelles dimensions : \(80 \times 1{,}5 = 120\,\text{cm}\) &nbsp;|&nbsp; \(40 \times 1{,}5 = 60\,\text{cm}\) &nbsp;|&nbsp; \(60 \times 1{,}5 = 90\,\text{cm}\)</li>
+      <li>Chaque dimension est multipliée par \(k = 1{,}5\).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Calcule le volume d'un caisson CAI-03 (120 × 60 × 90 cm).</p>
+  <ol type="a">
+    <li>Calcule directement le volume avec les nouvelles dimensions.</li>
+    <li>Calcule aussi \(V_{\text{CAI-01}} \times k^3\). Obtiens-tu le même résultat ?</li>
+    <li>Conclus : si on multiplie toutes les longueurs par \(k\), par combien est multiplié le volume ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(V = 120 \times 60 \times 90 = 648\,000\,\text{cm}^3\)</li>
+      <li>\(192\,000 \times 1{,}5^3 = 192\,000 \times 3{,}375 = 648\,000\,\text{cm}^3\) ✔</li>
+      <li>Le volume est multiplié par \(k^3\). Ici \(1{,}5^3 = 3{,}375\) : le caisson agrandi fait 3,375 fois le volume de l'original.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-green">VAL</span></h2>
+  <p>Antoine charge les caissons dans un camion. La remorque a un volume utile de <strong>20 m³</strong>.</p>
+  <ol type="a">
+    <li>Calcule le volume total de toute la commande (en m³) : 6×CAI-01 + 4×CAI-02 + 2×CAI-03.</li>
+    <li>La commande tient-elle dans la remorque ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>
+        6×CAI-01 : \(1\,152\,000\,\text{cm}^3 = 1{,}152\,\text{m}^3\)<br>
+        4×CAI-02 : \(141\,300\,\text{cm}^3 \approx 0{,}141\,\text{m}^3\)<br>
+        2×CAI-03 : \(2 \times 648\,000 = 1\,296\,000\,\text{cm}^3 = 1{,}296\,\text{m}^3\)<br>
+        Total : \(1{,}152 + 0{,}141 + 1{,}296 = 2{,}589\,\text{m}^3\)
+      </li>
+      <li>Oui, 2,59 m³ ≪ 20 m³ — la commande tient largement dans la remorque.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>Complète le résumé :</p>
+  <blockquote style="background:#f8fafc;border-left:4px solid var(--p);padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;line-height:2.1">
+    Volume d'un pavé droit : \(V = \)____ × ____ × ____<br>
+    Volume d'un cylindre : \(V = \pi r^2 \times \)____<br>
+    Conversions : 1 m³ = ____ dm³ = ____ L<br>
+    Si on multiplie toutes les longueurs par \(k\), le volume est multiplié par ____.
+  </blockquote>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    Pavé : \(V = L \times \ell \times h\)<br>
+    Cylindre : \(V = \pi r^2 \times h\)<br>
+    1 m³ = <strong>1 000</strong> dm³ = <strong>1 000</strong> L<br>
+    Longueurs × k → volume × \(k^3\)
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+  <h3 style="margin-top:14px;color:#1e3a8a">Volumes des solides usuels</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li><strong>Pavé droit :</strong> \(V = L \times \ell \times h\)</li>
+    <li><strong>Cube</strong> (côté \(a\)) : \(V = a^3\)</li>
+    <li><strong>Cylindre droit :</strong> \(V = \pi r^2 h\)</li>
+    <li><strong>Pyramide :</strong> \(V = \dfrac{1}{3} \times \text{Aire base} \times h\)</li>
+  </ul>
+  <h3 style="color:#1e3a8a">Conversions de volume</h3>
+  <p>1 m³ = 1 000 dm³ = 1 000 L &nbsp;|&nbsp; 1 L = 1 dm³ = 1 000 cm³</p>
+  <h3 style="color:#1e3a8a">Agrandissement de rapport k</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li>Longueurs × \(k\)</li>
+    <li>Aires × \(k^2\)</li>
+    <li>Volumes × \(k^3\)</li>
+  </ul>
+</div>
+
+<div class="nav-footer"><a href="lecon.html" class="nav-btn">Cours Ch14 →</a></div>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>

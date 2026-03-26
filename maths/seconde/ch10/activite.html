@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch10 – Activité – Fonction carré – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Fonction carré et variations</h1>
+  <p class="sous-titre">Chapitre 10 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 30 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer des images par la fonction carré \(f(x) = x^2\)</li>
+    <li>Découvrir la propriété de symétrie et le minimum</li>
+    <li>Construire le tableau de variations et interpréter</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation professionnelle — Panneaux carrés en bois</h2>
+  <p><em>Fabricant de mobilier : Lucie Arnaud — atelier <strong>Bois Design 64</strong>, Pau.</em></p>
+
+  <p>Lucie fabrique des panneaux carrés en bois pour des portes de placards. Elle note la surface de chaque panneau selon la longueur de son côté.</p>
+
+  <table>
+    <thead><tr><th>Côté \(x\) (m)</th><th>0</th><th>0,5</th><th>1</th><th>1,5</th><th>2</th><th>2,5</th><th>3</th></tr></thead>
+    <tbody><tr><td>Surface \(f(x)\) (m²)</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr></tbody>
+  </table>
+
+  <p style="margin-top:12px">La surface d'un carré de côté \(x\) est donnée par \(f(x) = x^2\).</p>
+</div>
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Complète le tableau de valeurs de \(f(x) = x^2\) pour les valeurs positives.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>\(x\)</th><th>0</th><th>0,5</th><th>1</th><th>1,5</th><th>2</th><th>2,5</th><th>3</th></tr></thead>
+      <tbody><tr><td>\(f(x)\)</td><td>0</td><td>0,25</td><td>1</td><td>2,25</td><td>4</td><td>6,25</td><td>9</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Observe maintenant des valeurs négatives de \(x\) (même si une longueur ne peut pas être négative, c'est utile mathématiquement).</p>
+  <ol type="a">
+    <li>Calcule \(f(2)\) et \(f(-2)\). Que remarques-tu ?</li>
+    <li>Calcule \(f(3)\) et \(f(-3)\). Même question.</li>
+    <li>Complète : « Deux nombres <strong>opposés</strong> ont toujours la même ____ par la fonction carré. »</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(f(2) = 4\) et \(f(-2) = (-2)^2 = 4\). Ils sont <strong>égaux</strong>.</li>
+      <li>\(f(3) = 9\) et \(f(-3) = 9\). Idem.</li>
+      <li>Deux nombres opposés ont toujours la même <strong>image</strong> par la fonction carré. Propriété : \(f(-x) = f(x)\).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Observe le tableau complet (valeurs positives et négatives) :</p>
+  <table>
+    <thead><tr><th>\(x\)</th><th>−3</th><th>−2</th><th>−1</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
+    <tbody><tr><td>\(f(x) = x^2\)</td><td>9</td><td>4</td><td>1</td><td>0</td><td>1</td><td>4</td><td>9</td></tr></tbody>
+  </table>
+  <ol type="a">
+    <li>Quelle est la valeur minimale de \(f(x)\) ? Pour quelle valeur de \(x\) est-elle atteinte ?</li>
+    <li>Sur \([-3\,;\,0]\), la fonction est-elle croissante ou décroissante ? Sur \([0\,;\,3]\) ?</li>
+    <li>La fonction est-elle monotone sur \(\mathbb{R}\) entier (toujours croissante ou toujours décroissante) ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Valeur minimale : \(f(0) = 0\). Elle est atteinte en \(x = 0\).</li>
+      <li>Sur \([-3\,;\,0]\) : de 9 à 0 → <strong>décroissante</strong>. Sur \([0\,;\,3]\) : de 0 à 9 → <strong>croissante</strong>.</li>
+      <li>Non, elle n'est pas monotone : elle décroît puis croît. Elle n'est pas comme la droite (monotone partout).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Lucie double la taille d'un panneau : elle passe d'un côté de 1 m à un côté de 2 m.</p>
+  <ol type="a">
+    <li>Par combien le côté est-il multiplié ?</li>
+    <li>Calcule \(f(1)\) et \(f(2)\). Par combien la <strong>surface</strong> est-elle multipliée ?</li>
+    <li>Est-ce que « doubler le côté = doubler la surface » ? Explique.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Le côté est multiplié par <strong>2</strong>.</li>
+      <li>\(f(1) = 1\,\text{m}^2\) et \(f(2) = 4\,\text{m}^2\). La surface est multipliée par <strong>4</strong>.</li>
+      <li>Non ! Doubler le côté <strong>quadruple</strong> la surface. C'est dû au carré : \((2x)^2 = 4x^2\).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Lucie veut un panneau de surface exactement <strong>6,25 m²</strong>. Quel côté doit-elle choisir ?</p>
+  <ol type="a">
+    <li>Écris l'équation : \(x^2 = \ldots\)</li>
+    <li>À partir du tableau de la Q1, lis la réponse.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(x^2 = 6{,}25\)</li>
+      <li>D'après le tableau : \(f(2{,}5) = 6{,}25\) → le côté doit être <strong>2,5 m</strong>.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>Complète le résumé :</p>
+  <blockquote style="background:#f8fafc;border-left:4px solid var(--p);padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;line-height:2.1">
+    La fonction carré est définie par \(f(x) = \)____.<br>
+    Sa courbe est une ____ de sommet en \((0\,;\,0)\).<br>
+    Propriété de symétrie : \(f(-x) = \)____ — deux opposés ont la même ____.<br>
+    Minimum de \(f\) : \(f(0) = \)____, atteint en \(x = \)____.<br>
+    Si on multiplie \(x\) par \(k\), la surface est multipliée par ____.
+  </blockquote>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    \(f(x) = x^2\). Courbe : <strong>parabole</strong>.<br>
+    \(f(-x) = f(x)\) — deux opposés ont la même <strong>image</strong>.<br>
+    Minimum : \(f(0) = 0\), en \(x = 0\).<br>
+    Si on multiplie \(x\) par \(k\), la surface est multipliée par \(k^2\).
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+  <h3 style="margin-top:14px;color:#1e3a8a">Fonction carré \(f(x) = x^2\)</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li>Courbe : <strong>parabole</strong> de sommet en \((0\,;\,0)\)</li>
+    <li>Symétrie : \(f(-x) = f(x)\) — la parabole est symétrique par rapport à l'axe des ordonnées</li>
+    <li>Minimum : \(f(0) = 0\)</li>
+    <li>Décroissante sur \(]-\infty\,;\,0]\), croissante sur \([0\,;\,+\infty[\)</li>
+  </ul>
+</div>
+
+<div class="nav-footer"><a href="lecon.html" class="nav-btn">Cours Ch10 →</a></div>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>

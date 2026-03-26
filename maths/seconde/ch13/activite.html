@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch13 – Activité – Théorème de Thalès – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Théorème de Thalès dans le triangle</h1>
+  <p class="sous-titre">Chapitre 13 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 35 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Reconnaître la configuration de Thalès dans une figure</li>
+    <li>Écrire les rapports de longueurs et calculer une longueur inconnue</li>
+    <li>Utiliser le rapport d'agrandissement/réduction</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation professionnelle — Réduction d'un plan d'agencement</h2>
+  <p><em>Métreur : Inès Morel — bureau d'études <strong>Bois &amp; Plans 33</strong>, Bordeaux.</em></p>
+
+  <p>
+    Inès trace le plan d'une pièce en utilisant une droite parallèle pour créer une version réduite d'un triangle
+    (méthode de division proportionnelle). Voici la configuration :
+  </p>
+
+  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin:12px 0">
+    <svg viewBox="0 0 320 200" width="100%" style="max-width:400px;display:block;margin:0 auto">
+      <!-- Grand triangle -->
+      <polygon points="30,170 270,170 150,20" fill="#ebf5ff" stroke="#0056b3" stroke-width="2"/>
+      <!-- Parallèle DE -->
+      <line x1="90" y1="116" x2="210" y2="116" stroke="#c53030" stroke-width="2" stroke-dasharray="none"/>
+      <!-- Points -->
+      <circle cx="30" cy="170" r="4" fill="#0056b3"/><text x="16" y="175" font-size="12" fill="#0056b3" font-weight="bold">A</text>
+      <circle cx="270" cy="170" r="4" fill="#0056b3"/><text x="274" y="175" font-size="12" fill="#0056b3" font-weight="bold">B</text>
+      <circle cx="150" cy="20" r="4" fill="#0056b3"/><text x="154" y="18" font-size="12" fill="#0056b3" font-weight="bold">C</text>
+      <circle cx="90" cy="116" r="4" fill="#c53030"/><text x="70" y="112" font-size="12" fill="#c53030" font-weight="bold">D</text>
+      <circle cx="210" cy="116" r="4" fill="#c53030"/><text x="214" y="112" font-size="12" fill="#c53030" font-weight="bold">E</text>
+      <!-- Mesures -->
+      <text x="150" y="185" text-anchor="middle" font-size="11" fill="#374151">AB = 4,80 m</text>
+      <text x="150" y="130" text-anchor="middle" font-size="11" fill="#c53030">DE = ? (∥ AB)</text>
+      <text x="52" y="140" font-size="10" fill="#374151">CD = 1,80 m</text>
+      <text x="52" y="152" font-size="10" fill="#374151">CA = 2,70 m</text>
+    </svg>
+    <p style="text-align:center;font-size:.85em;color:#718096;margin:4px 0 0">DE est parallèle à AB. D est sur [CA], E est sur [CB].</p>
+  </div>
+
+  <p><strong>Données :</strong> AB = 4,80 m &nbsp;|&nbsp; CD = 1,80 m &nbsp;|&nbsp; CA = 2,70 m. Trouver DE.</p>
+</div>
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-blue">APP</span></h2>
+  <ol type="a">
+    <li>Identifie les éléments de la configuration de Thalès : quelle droite est parallèle à quelle autre ?</li>
+    <li>Où se trouvent les points D et E par rapport au triangle ABC ?</li>
+    <li>Calcule le rapport \(\dfrac{CD}{CA}\). Que représente ce nombre ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>DE est parallèle à AB.</li>
+      <li>D est sur le côté [CA] du triangle, E est sur le côté [CB].</li>
+      <li>\(\dfrac{CD}{CA} = \dfrac{1{,}80}{2{,}70} = \dfrac{2}{3} \approx 0{,}667\) — c'est le <strong>rapport de réduction</strong> : le triangle CDE est réduit aux 2/3 du triangle CAB.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Le théorème de Thalès dit que si DE ∥ AB, avec D sur [CA] et E sur [CB], alors :</p>
+  <p style="text-align:center;font-size:1.1em;padding:10px;background:#f8fafc;border-radius:8px">
+    \(\dfrac{CD}{CA} = \dfrac{CE}{CB} = \dfrac{DE}{AB}\)
+  </p>
+  <ol type="a">
+    <li>Quel rapport est-on capable de calculer avec les données connues ?</li>
+    <li>Écris l'égalité qui permet de calculer DE.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>On connaît \(\dfrac{CD}{CA} = \dfrac{1{,}80}{2{,}70}\) et on connaît AB.</li>
+      <li>D'après Thalès : \(\dfrac{DE}{AB} = \dfrac{CD}{CA}\), donc \(\dfrac{DE}{4{,}80} = \dfrac{1{,}80}{2{,}70}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Calcule la longueur DE à partir de l'égalité de la question 2.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    \(\dfrac{DE}{4{,}80} = \dfrac{1{,}80}{2{,}70}\)<br><br>
+    \(DE = 4{,}80 \times \dfrac{1{,}80}{2{,}70} = 4{,}80 \times \dfrac{2}{3} = \dfrac{9{,}60}{3} = 3{,}20\,\text{m}\)
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-green">VAL</span></h2>
+  <ol type="a">
+    <li>Vérifie : \(\dfrac{DE}{AB} = \dfrac{3{,}20}{4{,}80}\). Est-ce bien égal à \(\dfrac{CD}{CA} = \dfrac{1{,}80}{2{,}70}\) ?</li>
+    <li>Conclus sur la longueur DE.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(\dfrac{3{,}20}{4{,}80} = \dfrac{2}{3}\) et \(\dfrac{1{,}80}{2{,}70} = \dfrac{2}{3}\) ✔ — les rapports sont bien égaux.</li>
+      <li>DE = <strong>3,20 m</strong>.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>
+    Inès veut agrandir un motif de 35 cm de largeur pour qu'il fasse 56 cm.
+    Elle utilise le rapport d'agrandissement \(k = \dfrac{56}{35}\).
+  </p>
+  <ol type="a">
+    <li>Calcule \(k\). S'agit-il d'un agrandissement ou d'une réduction ?</li>
+    <li>Le motif a aussi une hauteur de 20 cm. Quelle sera sa nouvelle hauteur après agrandissement ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(k = \dfrac{56}{35} = 1{,}6\). Comme \(k > 1\), c'est un <strong>agrandissement</strong>.</li>
+      <li>Nouvelle hauteur : \(20 \times 1{,}6 = 32\,\text{cm}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Un plan est à l'échelle 1/50 (chaque cm sur le plan représente 50 cm en réalité).</p>
+  <ol type="a">
+    <li>Sur le plan, une pièce mesure 8 cm × 6 cm. Quelles sont ses dimensions réelles ?</li>
+    <li>Une poutre de 4,20 m en réalité mesure combien de cm sur le plan ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Rapport k = 50. Dimensions réelles : \(8 \times 50 = 400\,\text{cm} = 4\,\text{m}\) et \(6 \times 50 = 300\,\text{cm} = 3\,\text{m}\).</li>
+      <li>Sur le plan : \(\dfrac{420\,\text{cm}}{50} = 8{,}4\,\text{cm}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>Complète le résumé :</p>
+  <blockquote style="background:#f8fafc;border-left:4px solid var(--p);padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;line-height:2.1">
+    Si DE ∥ AB (D sur [CA], E sur [CB]), alors :<br>
+    \(\dfrac{CD}{CA} = \dfrac{CE}{CB} = \dfrac{DE}{____}\)<br>
+    Ce rapport commun s'appelle le <strong>____</strong> d'agrandissement (ou de réduction).<br>
+    Si \(k > 1\) : ____. Si \(k < 1\) : ____.
+  </blockquote>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    \(\dfrac{CD}{CA} = \dfrac{CE}{CB} = \dfrac{DE}{\mathbf{AB}}\)<br>
+    Ce rapport s'appelle le <strong>rapport</strong> d'agrandissement.<br>
+    Si \(k > 1\) : <strong>agrandissement</strong>. Si \(k < 1\) : <strong>réduction</strong>.
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+  <h3 style="margin-top:14px;color:#1e3a8a">Théorème de Thalès</h3>
+  <p>Si DE ∥ AB, avec D sur [CA] et E sur [CB] :</p>
+  <p style="text-align:center">\(\dfrac{CD}{CA} = \dfrac{CE}{CB} = \dfrac{DE}{AB}\)</p>
+  <h3 style="color:#1e3a8a">Rapport d'agrandissement</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li>\(k = \dfrac{\text{longueur image}}{\text{longueur originale}}\)</li>
+    <li>\(k > 1\) : agrandissement &nbsp;|&nbsp; \(k < 1\) : réduction &nbsp;|&nbsp; \(k = 1\) : figure identique</li>
+    <li>Toutes les longueurs sont multipliées par \(k\)</li>
+  </ul>
+</div>
+
+<div class="nav-footer"><a href="lecon.html" class="nav-btn">Cours Ch13 →</a></div>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>
