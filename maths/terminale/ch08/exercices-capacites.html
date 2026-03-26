@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-term-iccer.html">Terminale Maths</a>
+  <span class="sep">›</span>
+  <span>Ch08 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-term-iccer.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 8 – Exercices par capacités</h1>
@@ -41,6 +48,58 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Calculer une primitive d'une fonction usuelle</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Primitives usuelles</strong>
+  <p>Si \(f(x) = x^n\) (avec \(n \neq -1\)), une primitive est \(F(x) = \dfrac{x^{n+1}}{n+1}\).<br>
+  Autres cas : si \(f(x)=e^x\) alors \(F(x)=e^x\) ; si \(f(x)=\dfrac{1}{x}\) alors \(F(x)=\ln|x|\) ; si \(f(x)=\cos x\) alors \(F(x)=\sin x\).<br>
+  L'intégrale définie : \(\displaystyle\int_a^b f(x)\,\mathrm{d}x = \bigl[F(x)\bigr]_a^b = F(b) - F(a)\).</p>
+</div>
+
+<div class="svg-wrap" style="margin:12px auto 18px">
+<svg viewBox="-30 -20 240 160" width="300" height="200" aria-label="Aire sous une courbe entre a et b" xmlns="http://www.w3.org/2000/svg">
+  <!-- Axes -->
+  <line x1="0" y1="130" x2="210" y2="130" stroke="#555" stroke-width="1.5"/>
+  <line x1="10" y1="5" x2="10" y2="135" stroke="#555" stroke-width="1.5"/>
+  <!-- Flèches -->
+  <polygon points="210,130 202,126 202,134" fill="#555"/>
+  <polygon points="10,5 6,13 14,13" fill="#555"/>
+  <text x="213" y="134" font-size="12" fill="#555">x</text>
+  <text x="12" y="5" font-size="12" fill="#555">y</text>
+  <!-- Zone hachurée entre a=60 et b=160 (sous la courbe) -->
+  <!-- Courbe parabolique y = 130 - 0.004*(x-110)^2 -->
+  <!-- Points de la zone : a=60 à b=160, courbe vers le bas en SVG -->
+  <path d="M60,130
+    L60,104
+    C80,88 100,78 110,76
+    C120,78 140,88 160,104
+    L160,130 Z"
+    fill="#dbeafe" stroke="none"/>
+  <!-- Hachures -->
+  <line x1="65" y1="130" x2="60" y2="104" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="75" y1="130" x2="68" y2="91" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="85" y1="130" x2="80" y2="83" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="95" y1="130" x2="92" y2="78" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="105" y1="130" x2="104" y2="76" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="115" y1="130" x2="116" y2="76" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="125" y1="130" x2="128" y2="78" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="135" y1="130" x2="140" y2="83" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="145" y1="130" x2="152" y2="91" stroke="#93c5fd" stroke-width="0.8"/>
+  <line x1="155" y1="130" x2="158" y2="104" stroke="#93c5fd" stroke-width="0.8"/>
+  <!-- Courbe -->
+  <path d="M20,122 C40,108 60,104 110,76 C140,62 170,80 190,110"
+    fill="none" stroke="#0969da" stroke-width="2.5"/>
+  <text x="185" y="108" font-size="12" fill="#0969da" font-style="italic">y=f(x)</text>
+  <!-- Bornes a et b -->
+  <line x1="60" y1="128" x2="60" y2="132" stroke="#555" stroke-width="1.5"/>
+  <line x1="160" y1="128" x2="160" y2="132" stroke="#555" stroke-width="1.5"/>
+  <text x="57" y="143" font-size="13" fill="#555" font-style="italic">a</text>
+  <text x="157" y="143" font-size="13" fill="#555" font-style="italic">b</text>
+  <!-- Label aire -->
+  <text x="90" y="118" font-size="12" fill="#0969da" font-weight="bold">Aire</text>
+  <text x="73" y="131" font-size="10" fill="#555">= ∫ₐᵇ f(x) dx</text>
+</svg>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -129,6 +188,12 @@
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Calculer une intégrale définie</h2>
 
+<div class="retenir">
+  <strong>Rappel de cours</strong>
+  <p>Si \(F\) est une primitive de \(f\) sur \([a\,;b]\), alors \(\displaystyle\int_a^b f(x)\,\mathrm{d}x = \bigl[F(x)\bigr]_a^b = F(b) - F(a)\).<br>
+  Relation de Chasles : \(\displaystyle\int_a^b f = \int_a^c f + \int_c^b f\) pour tout \(c \in [a\,;b]\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 5</h3>
   <p>Calculer les intégrales suivantes :</p>
@@ -200,6 +265,12 @@
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Interprétation géométrique d'une intégrale</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Si \(f(x) \geq 0\) sur \([a\,;b]\), alors \(\displaystyle\int_a^b f(x)\,\mathrm{d}x\) représente l'<strong>aire</strong> de la surface comprise entre la courbe et l'axe des x.<br>
+  Si \(f(x) \leq 0\), l'intégrale est négative : l'<strong>aire géométrique</strong> vaut \(\left|\displaystyle\int_a^b f(x)\,\mathrm{d}x\right|\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 9</h3>
   <p>La courbe de la fonction \(f(x) = x + 1\) est tracée sur \([0\,;\,3]\).</p>
@@ -266,6 +337,13 @@
 <!-- ===== C4 ===== -->
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Calculer une aire entre deux courbes</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Si \(g(x) \geq f(x)\) sur \([a\,;b]\), l'aire entre les courbes vaut :<br>
+  \(\mathcal{A} = \displaystyle\int_a^b \bigl(g(x) - f(x)\bigr)\,\mathrm{d}x\).<br>
+  Méthode : 1° trouver les points d'intersection (\(g=f\)) pour déterminer \(a\) et \(b\) ; 2° vérifier laquelle est au-dessus ; 3° calculer l'intégrale de la différence.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 13</h3>
@@ -334,6 +412,13 @@
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Applications concrètes du calcul intégral</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>En physique et en technique, l'intégrale d'un débit ou d'une puissance donne une <strong>quantité totale</strong> :<br>
+  énergie = \(\displaystyle\int P(t)\,\mathrm{d}t\) ; distance = \(\displaystyle\int v(t)\,\mathrm{d}t\) ; volume = \(\displaystyle\int D(t)\,\mathrm{d}t\).<br>
+  L'unité du résultat est le produit de l'unité de \(f\) par l'unité de \(t\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 17</h3>
   <p>La puissance instantanée (en kW) fournie par un panneau solaire est modélisée sur la journée par :</p>
@@ -399,6 +484,11 @@
 
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

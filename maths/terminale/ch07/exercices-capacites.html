@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-term-iccer.html">Terminale Maths</a>
+  <span class="sep">›</span>
+  <span>Ch07 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-term-iccer.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 7 – Exercices par capacités</h1>
@@ -41,6 +48,61 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Calculer sin, cos, tan dans un triangle rectangle</h2>
+
+<div class="meth">
+  <strong>Rappel de cours — Triangle rectangle</strong>
+  <p>Dans un triangle rectangle en C, pour l'angle \(\hat{A}\) :<br>
+  \(\sin(\hat{A}) = \dfrac{\text{côté opposé}}{\text{hypoténuse}}\) ; \(\cos(\hat{A}) = \dfrac{\text{côté adjacent}}{\text{hypoténuse}}\) ; \(\tan(\hat{A}) = \dfrac{\text{côté opposé}}{\text{côté adjacent}}\)<br>
+  Relation fondamentale : \(\cos^2(\theta) + \sin^2(\theta) = 1\) pour tout angle \(\theta\).<br>
+  Sur le cercle de rayon 1, le point M associé à l'angle \(\theta\) a pour coordonnées \(M(\cos\theta\,;\,\sin\theta)\).</p>
+</div>
+
+<div class="svg-wrap" style="margin:12px auto 18px">
+<svg viewBox="-160 -160 320 320" width="280" height="280" aria-label="Cercle trigonométrique — cos et sin d'un angle theta" xmlns="http://www.w3.org/2000/svg">
+  <!-- Axes -->
+  <line x1="-145" y1="0" x2="145" y2="0" stroke="#555" stroke-width="1.5"/>
+  <line x1="0" y1="-145" x2="0" y2="145" stroke="#555" stroke-width="1.5"/>
+  <!-- Flèches axes -->
+  <polygon points="145,0 138,-4 138,4" fill="#555"/>
+  <polygon points="0,-145 -4,-138 4,-138" fill="#555"/>
+  <!-- Labels axes -->
+  <text x="150" y="4" font-size="13" fill="#555" text-anchor="start">x</text>
+  <text x="4" y="-148" font-size="13" fill="#555">y</text>
+  <!-- Cercle unité -->
+  <circle cx="0" cy="0" r="110" fill="none" stroke="#0969da" stroke-width="2"/>
+  <!-- Rayon = 1 label -->
+  <text x="-12" y="14" font-size="12" fill="#333">O</text>
+  <!-- Point M à θ ≈ 50° : cos≈0.643, sin≈0.766 → x=70.7, y=−84.3 (y inversé SVG) -->
+  <circle cx="70.7" cy="-84.3" r="4.5" fill="#e65c00"/>
+  <text x="76" y="-89" font-size="12" fill="#e65c00" font-weight="bold">M(cos θ, sin θ)</text>
+  <!-- Rayon OM -->
+  <line x1="0" y1="0" x2="70.7" y2="-84.3" stroke="#e65c00" stroke-width="1.8" stroke-dasharray="5,3"/>
+  <!-- Projection verticale (sin) -->
+  <line x1="70.7" y1="0" x2="70.7" y2="-84.3" stroke="#2da44e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Projection horizontale (cos) -->
+  <line x1="0" y1="0" x2="70.7" y2="0" stroke="#0969da" stroke-width="2"/>
+  <text x="30" y="14" font-size="11" fill="#0969da">cos θ</text>
+  <!-- Label sin -->
+  <line x1="0" y1="-84.3" x2="70.7" y2="-84.3" stroke="#2da44e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="-52" y="-80" font-size="11" fill="#2da44e">sin θ</text>
+  <!-- Arc angle θ -->
+  <path d="M 22 0 A 22 22 0 0 0 14.1 -16.9" fill="none" stroke="#e65c00" stroke-width="1.5"/>
+  <text x="25" y="-7" font-size="11" fill="#e65c00">θ</text>
+  <!-- Angles remarquables -->
+  <circle cx="110" cy="0" r="3" fill="#555"/>
+  <text x="113" y="-4" font-size="10" fill="#555">0 (1,0)</text>
+  <circle cx="95.3" cy="-55" r="3" fill="#555"/>
+  <text x="98" y="-56" font-size="10" fill="#555">π/6 (30°)</text>
+  <circle cx="77.8" cy="-77.8" r="3" fill="#555"/>
+  <text x="80" y="-80" font-size="10" fill="#555">π/4 (45°)</text>
+  <circle cx="55" cy="-95.3" r="3" fill="#555"/>
+  <text x="57" y="-98" font-size="10" fill="#555">π/3 (60°)</text>
+  <circle cx="0" cy="-110" r="3" fill="#555"/>
+  <text x="5" y="-113" font-size="10" fill="#555">π/2 (0,1)</text>
+  <circle cx="-110" cy="0" r="3" fill="#555"/>
+  <text x="-148" y="-4" font-size="10" fill="#555">π (−1,0)</text>
+</svg>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -123,6 +185,21 @@
 <!-- ===== C2 ===== -->
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Valeurs remarquables</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours</strong>
+  <p>Valeurs à connaître sans calculatrice :</p>
+  <table style="border-collapse:collapse;font-size:0.92em;margin:6px 0">
+    <thead><tr style="background:var(--p-bg)"><th style="padding:3px 8px;border:1px solid var(--p-border)">Angle</th><th style="padding:3px 8px;border:1px solid var(--p-border)">\(\sin\)</th><th style="padding:3px 8px;border:1px solid var(--p-border)">\(\cos\)</th><th style="padding:3px 8px;border:1px solid var(--p-border)">\(\tan\)</th></tr></thead>
+    <tbody>
+      <tr><td style="padding:3px 8px;border:1px solid var(--p-border)">0° (0)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">0</td><td style="padding:3px 8px;border:1px solid var(--p-border)">1</td><td style="padding:3px 8px;border:1px solid var(--p-border)">0</td></tr>
+      <tr><td style="padding:3px 8px;border:1px solid var(--p-border)">30° (π/6)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\tfrac{1}{2}\)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\tfrac{\sqrt{3}}{2}\)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\tfrac{1}{\sqrt{3}}\)</td></tr>
+      <tr><td style="padding:3px 8px;border:1px solid var(--p-border)">45° (π/4)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\tfrac{\sqrt{2}}{2}\)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\tfrac{\sqrt{2}}{2}\)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">1</td></tr>
+      <tr><td style="padding:3px 8px;border:1px solid var(--p-border)">60° (π/3)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\tfrac{\sqrt{3}}{2}\)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\tfrac{1}{2}\)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">\(\sqrt{3}\)</td></tr>
+      <tr><td style="padding:3px 8px;border:1px solid var(--p-border)">90° (π/2)</td><td style="padding:3px 8px;border:1px solid var(--p-border)">1</td><td style="padding:3px 8px;border:1px solid var(--p-border)">0</td><td style="padding:3px 8px;border:1px solid var(--p-border)">indéfini</td></tr>
+    </tbody>
+  </table>
+</div>
 
 <div class="exo">
   <h3>Exercice 5</h3>
@@ -211,6 +288,13 @@
 <!-- ===== C3 ===== -->
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Convertir des angles entre degrés et radians</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Règle de conversion : \(180° = \pi\) rad.<br>
+  Degrés → radians : multiplier par \(\dfrac{\pi}{180}\). &nbsp; Radians → degrés : multiplier par \(\dfrac{180}{\pi}\).<br>
+  Exemples : \(90° = \dfrac{\pi}{2}\) ; \(60° = \dfrac{\pi}{3}\) ; \(45° = \dfrac{\pi}{4}\) ; \(30° = \dfrac{\pi}{6}\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 9</h3>
@@ -302,6 +386,68 @@
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Cercle trigonométrique et propriétés de symétrie</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Cercle trigonométrique</strong>
+  <p>Sur le cercle de rayon 1 centré en O, le point M associé à l'angle \(\theta\) a pour coordonnées \(M(\cos\theta\,;\,\sin\theta)\).<br>
+  Propriétés de symétrie : \(\sin(-\theta)=-\sin\theta\) (sin est impaire) ; \(\cos(-\theta)=\cos\theta\) (cos est paire) ; \(\sin(\pi-\theta)=\sin\theta\) ; \(\cos(\pi-\theta)=-\cos\theta\).</p>
+</div>
+
+<div class="svg-wrap" style="margin:12px auto 18px">
+<svg viewBox="-160 -160 320 320" width="300" height="300" aria-label="Cercle trigonométrique avec angles remarquables" xmlns="http://www.w3.org/2000/svg">
+  <!-- Axes -->
+  <line x1="-145" y1="0" x2="145" y2="0" stroke="#555" stroke-width="1.5"/>
+  <line x1="0" y1="-145" x2="0" y2="145" stroke="#555" stroke-width="1.5"/>
+  <!-- Flèches axes -->
+  <polygon points="145,0 138,-4 138,4" fill="#555"/>
+  <polygon points="0,-145 -4,-138 4,-138" fill="#555"/>
+  <!-- Labels axes -->
+  <text x="150" y="4" font-size="13" fill="#555" text-anchor="start">x</text>
+  <text x="4" y="-148" font-size="13" fill="#555">y</text>
+  <!-- Cercle unité -->
+  <circle cx="0" cy="0" r="110" fill="none" stroke="#0969da" stroke-width="2"/>
+  <!-- Point O -->
+  <text x="-14" y="14" font-size="12" fill="#333">O</text>
+  <!-- Angle θ = 50° environ — point M -->
+  <!-- cos(50°)≈0.643, sin(50°)≈0.766 → x=70.7, y=-84.3 (y inversé en SVG) -->
+  <circle cx="70.7" cy="-84.3" r="4" fill="#e65c00"/>
+  <text x="76" y="-88" font-size="12" fill="#e65c00" font-weight="bold">M(cos θ, sin θ)</text>
+  <!-- Rayon OM -->
+  <line x1="0" y1="0" x2="70.7" y2="-84.3" stroke="#e65c00" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Projection cos sur axe x -->
+  <line x1="70.7" y1="0" x2="70.7" y2="-84.3" stroke="#2da44e" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="0" y1="0" x2="70.7" y2="0" stroke="#0969da" stroke-width="2"/>
+  <text x="35" y="14" font-size="11" fill="#0969da">cos θ</text>
+  <!-- Projection sin sur axe y -->
+  <line x1="0" y1="-84.3" x2="70.7" y2="-84.3" stroke="#2da44e" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="-46" y="-80" font-size="11" fill="#2da44e">sin θ</text>
+  <!-- Arc angle θ -->
+  <path d="M 22 0 A 22 22 0 0 0 14.1 -16.9" fill="none" stroke="#e65c00" stroke-width="1.5"/>
+  <text x="24" y="-8" font-size="11" fill="#e65c00">θ</text>
+  <!-- Points remarquables -->
+  <!-- 0° = (1,0) -->
+  <circle cx="110" cy="0" r="3" fill="#555"/>
+  <text x="113" y="-5" font-size="10" fill="#555">0 (1,0)</text>
+  <!-- 30° = π/6 : cos=√3/2≈0.866, sin=0.5 → x=95.3, y=-55 -->
+  <circle cx="95.3" cy="-55" r="3" fill="#555"/>
+  <text x="98" y="-57" font-size="10" fill="#555">π/6</text>
+  <!-- 45° = π/4 : cos=sin=√2/2≈0.707 → x=77.8, y=-77.8 -->
+  <circle cx="77.8" cy="-77.8" r="3" fill="#555"/>
+  <text x="80" y="-80" font-size="10" fill="#555">π/4</text>
+  <!-- 60° = π/3 : cos=0.5, sin=√3/2 → x=55, y=-95.3 -->
+  <circle cx="55" cy="-95.3" r="3" fill="#555"/>
+  <text x="57" y="-98" font-size="10" fill="#555">π/3</text>
+  <!-- 90° = π/2 : (0,1) -->
+  <circle cx="0" cy="-110" r="3" fill="#555"/>
+  <text x="5" y="-113" font-size="10" fill="#555">π/2 (0,1)</text>
+  <!-- 180° = π : (-1,0) -->
+  <circle cx="-110" cy="0" r="3" fill="#555"/>
+  <text x="-148" y="-5" font-size="10" fill="#555">π (−1,0)</text>
+  <!-- 270° = 3π/2 : (0,-1) -->
+  <circle cx="0" cy="110" r="3" fill="#555"/>
+  <text x="5" y="122" font-size="10" fill="#555">3π/2 (0,−1)</text>
+</svg>
+</div>
+
 <div class="exo">
   <h3>Exercice 13</h3>
   <p>Le point M du cercle trigonométrique a pour coordonnées \((\cos\theta ; \sin\theta)\). Utiliser les propriétés de symétrie pour compléter :</p>
@@ -388,6 +534,13 @@
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Résoudre des problèmes professionnels</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Dans un triangle rectangle (hypoténuse \(h\), angle \(\alpha\)) :<br>
+  côté opposé \(= h \times \sin\alpha\) &nbsp;; &nbsp; côté adjacent \(= h \times \cos\alpha\) &nbsp;; &nbsp; \(\tan\alpha = \dfrac{\text{opposé}}{\text{adjacent}}\).<br>
+  Pour trouver un angle : \(\alpha = \arcsin(\ldots)\), \(\arccos(\ldots)\) ou \(\arctan(\ldots)\) à la calculatrice.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 17</h3>
   <p>Un menuisier agenceur installe une cloison inclinée dans un comble. La cloison forme un angle de 62° avec le sol. La largeur au sol disponible est de 2,40 m.</p>
@@ -455,6 +608,11 @@
 
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

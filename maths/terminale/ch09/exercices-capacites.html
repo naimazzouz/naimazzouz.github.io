@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-term-iccer.html">Terminale Maths</a>
+  <span class="sep">›</span>
+  <span>Ch09 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-term-iccer.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 9 – Exercices par capacités</h1>
@@ -41,6 +48,13 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Propriétés de la fonction ln</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Fonction ln</strong>
+  <p>La fonction \(\ln\) est définie sur \(]0\,;+\infty[\), croissante. Valeurs clés : \(\ln(1)=0\), \(\ln(e)=1\), \(\ln(e^n)=n\).<br>
+  Propriétés algébriques : \(\ln(ab)=\ln a + \ln b\) ; \(\ln\!\left(\dfrac{a}{b}\right)=\ln a - \ln b\) ; \(\ln(a^n)=n\ln a\).<br>
+  Lien avec exp : \(\ln(e^x)=x\) et \(e^{\ln x}=x\) (fonctions réciproques).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -126,6 +140,13 @@
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Propriétés algébriques de ln</h2>
 
+<div class="retenir">
+  <strong>Rappel de cours</strong>
+  <p>Propriétés algébriques (avec \(a, b > 0\) et \(n \in \mathbb{R}\)) :<br>
+  \(\ln(ab) = \ln a + \ln b\) &nbsp;; &nbsp; \(\ln\!\left(\dfrac{a}{b}\right) = \ln a - \ln b\) &nbsp;; &nbsp; \(\ln(a^n) = n\ln a\).<br>
+  En particulier : \(\ln\!\left(\dfrac{1}{a}\right) = -\ln a\) et \(\ln(\sqrt{a}) = \dfrac{1}{2}\ln a\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 5</h3>
   <p>Développer et simplifier (écrire comme somme/différence de ln de termes simples) :</p>
@@ -209,6 +230,12 @@
 <!-- ===== C3 ===== -->
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Fonction exponentielle naturelle \(e^x\)</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours</strong>
+  <p>La fonction \(e^x\) est définie sur \(\mathbb{R}\), toujours positive et strictement croissante. Elle est sa propre dérivée : \((e^x)' = e^x\).<br>
+  Valeurs clés : \(e^0 = 1\), \(e^1 = e \approx 2{,}718\). Propriétés : \(e^{a+b} = e^a \times e^b\) ; \(e^{-a} = \dfrac{1}{e^a}\) ; \(e^{\ln x} = x\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 9</h3>
@@ -294,6 +321,14 @@
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Équations et inéquations avec ln et exp</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Résoudre \(e^x = k\) (avec \(k > 0\)) : \(x = \ln(k)\).<br>
+  Résoudre \(\ln(x) = k\) : \(x = e^k\) (et vérifier que \(x > 0\)).<br>
+  Pour les inéquations : exp et ln étant croissantes, on conserve le sens de l'inégalité.<br>
+  \(e^x > k \Leftrightarrow x > \ln k\) &nbsp;; &nbsp; \(\ln x > k \Leftrightarrow x > e^k\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 13</h3>
   <p>Résoudre les équations suivantes :</p>
@@ -378,6 +413,13 @@
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Modélisation : croissance et décroissance</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Modèle exponentiel : \(N(t) = N_0 \times e^{kt}\).<br>
+  Si \(k > 0\) : croissance (doublement, prolifération) ; si \(k < 0\) : décroissance (refroidissement, demi-vie).<br>
+  Pour trouver le moment où \(N(t) = c\) : appliquer \(\ln\) et isoler \(t = \dfrac{\ln(c/N_0)}{k}\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 17</h3>
   <p>Le taux d'humidité (en %) d'une planche de bois en cours de séchage est modélisé par :</p>
@@ -461,6 +503,11 @@
 
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

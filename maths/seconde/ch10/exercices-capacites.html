@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch10 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 10 – Exercices par capacités</h1>
@@ -43,6 +50,16 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Calculer des images par \(f(x) = x^2\)</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Fonction carré</strong>
+  <p>La <strong>fonction carré</strong> est définie par \(f(x) = x^2\) pour tout réel \(x\).</p>
+  <ul>
+    <li>\(f(x) \geq 0\) pour tout \(x\) : le carré est toujours <strong>positif ou nul</strong>.</li>
+    <li>\(f(-x) = (-x)^2 = x^2 = f(x)\) : la fonction est <strong>paire</strong> (symétrie par rapport à l'axe des ordonnées).</li>
+    <li>Attention : \((-a)^2 = a^2 \neq -a^2\). Ne pas confondre \((-3)^2 = 9\) et \(-3^2 = -9\).</li>
+  </ul>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -105,6 +122,16 @@
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Construire un tableau de valeurs et tracer la parabole</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Tableau de valeurs et parabole</strong>
+  <p>Pour tracer la parabole de \(f(x) = x^2\), on construit le tableau de valeurs pour des valeurs symétriques de \(x\) :</p>
+  <table style="margin:8px auto;border-collapse:collapse;font-size:0.95em">
+    <tr><th style="padding:4px 10px;border:1px solid #ccc">\(x\)</th><td style="padding:4px 8px;border:1px solid #ccc">−3</td><td style="padding:4px 8px;border:1px solid #ccc">−2</td><td style="padding:4px 8px;border:1px solid #ccc">−1</td><td style="padding:4px 8px;border:1px solid #ccc">0</td><td style="padding:4px 8px;border:1px solid #ccc">1</td><td style="padding:4px 8px;border:1px solid #ccc">2</td><td style="padding:4px 8px;border:1px solid #ccc">3</td></tr>
+    <tr><th style="padding:4px 10px;border:1px solid #ccc">\(f(x)\)</th><td style="padding:4px 8px;border:1px solid #ccc">9</td><td style="padding:4px 8px;border:1px solid #ccc">4</td><td style="padding:4px 8px;border:1px solid #ccc">1</td><td style="padding:4px 8px;border:1px solid #ccc">0</td><td style="padding:4px 8px;border:1px solid #ccc">1</td><td style="padding:4px 8px;border:1px solid #ccc">4</td><td style="padding:4px 8px;border:1px solid #ccc">9</td></tr>
+  </table>
+  <p>La courbe obtenue s'appelle une <strong>parabole</strong>, symétrique par rapport à l'axe des ordonnées, avec un minimum en \((0\,;\,0)\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 4</h3>
   <p>Compléter le tableau de valeurs de \(f(x) = x^2\) :</p>
@@ -139,6 +166,26 @@
 <!-- ===== C3 ===== -->
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Lire et compléter un tableau de variations</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Tableau de variations de \(f(x) = x^2\)</strong>
+  <table style="margin:8px auto;border-collapse:collapse;font-size:0.95em;width:80%">
+    <tr>
+      <th style="padding:4px 10px;border:1px solid #ccc">\(x\)</th>
+      <td style="padding:4px 10px;border:1px solid #ccc">\(-\infty\)</td>
+      <td style="padding:4px 10px;border:1px solid #ccc;text-align:center" colspan="2">0</td>
+      <td style="padding:4px 10px;border:1px solid #ccc">\(+\infty\)</td>
+    </tr>
+    <tr>
+      <th style="padding:4px 10px;border:1px solid #ccc">Variations</th>
+      <td style="padding:4px 10px;border:1px solid #ccc">\(+\infty\) ↘</td>
+      <td style="padding:4px 10px;border:1px solid #ccc;text-align:center;color:#0056b3"><strong>0 (min)</strong></td>
+      <td style="padding:4px 10px;border:1px solid #ccc">↗ \(+\infty\)</td>
+      <td style="padding:4px 10px;border:1px solid #ccc"></td>
+    </tr>
+  </table>
+  <p>Décroissante sur \(]-\infty\,;\,0]\), croissante sur \([0\,;\,+\infty[\). Minimum : 0, atteint en \(x = 0\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 6</h3>
@@ -181,6 +228,14 @@
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Utiliser la propriété de symétrie</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Symétrie de la parabole</strong>
+  <p>La parabole de \(f(x) = x^2\) est <strong>symétrique par rapport à l'axe des ordonnées</strong> (droite d'équation \(x = 0\)).</p>
+  <p>Cela se traduit par la propriété : \(f(-x) = f(x)\) pour tout \(x\).</p>
+  <p>En pratique : si on connaît \(f(a)\), alors \(f(-a) = f(a)\) sans calcul supplémentaire.</p>
+  <p>Exemple : \(f(7) = 49\), donc \(f(-7) = 49\) immédiatement.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 8</h3>
   <p>En utilisant uniquement la symétrie \(f(-x) = f(x)\), compléter sans calculer :</p>
@@ -222,6 +277,76 @@
 <!-- ===== C5 ===== -->
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Résoudre \(x^2 = c\)</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Résoudre \(x^2 = c\)</strong>
+  <ul>
+    <li>Si \(c &gt; 0\) : l'équation a <strong>deux solutions</strong> \(x = \sqrt{c}\) et \(x = -\sqrt{c}\).</li>
+    <li>Si \(c = 0\) : l'équation a <strong>une seule solution</strong> \(x = 0\).</li>
+    <li>Si \(c &lt; 0\) : l'équation n'a <strong>pas de solution</strong> dans \(\mathbb{R}\) (le carré est toujours positif ou nul).</li>
+  </ul>
+  <p><strong>Interprétation graphique :</strong> les solutions de \(x^2 = c\) sont les abscisses des points d'intersection de la parabole \(y = x^2\) et de la droite horizontale \(y = c\).</p>
+</div>
+
+<figure class="schema" style="text-align:center;margin:16px 0">
+  <svg width="280" height="210" viewBox="0 0 280 210" aria-label="Parabole f(x)=x² avec intersection y=4">
+    <!-- Fond -->
+    <rect width="280" height="210" fill="#f8fafc" rx="6"/>
+    <!-- Axes -->
+    <line x1="20" y1="185" x2="268" y2="185" stroke="#333" stroke-width="1.5"/>
+    <line x1="140" y1="8" x2="140" y2="196" stroke="#333" stroke-width="1.5"/>
+    <!-- Flèches axes -->
+    <polygon points="268,182 276,185 268,188" fill="#333"/>
+    <polygon points="137,8 140,0 143,8" fill="#333"/>
+    <!-- Labels axes -->
+    <text x="271" y="189" font-size="12" fill="#333" font-family="serif" font-style="italic">x</text>
+    <text x="130" y="7" font-size="12" fill="#333" font-family="serif" font-style="italic">y</text>
+    <!-- Origine -->
+    <text x="144" y="197" font-size="10" fill="#333">O</text>
+    <!-- Graduations axe x : −3 à 3, espacement 35px -->
+    <line x1="35"  y1="182" x2="35"  y2="188" stroke="#333" stroke-width="1"/>
+    <text x="30"  y="198" font-size="10" fill="#333">−3</text>
+    <line x1="70"  y1="182" x2="70"  y2="188" stroke="#333" stroke-width="1"/>
+    <text x="66"  y="198" font-size="10" fill="#333">−2</text>
+    <line x1="105" y1="182" x2="105" y2="188" stroke="#333" stroke-width="1"/>
+    <text x="101" y="198" font-size="10" fill="#333">−1</text>
+    <line x1="175" y1="182" x2="175" y2="188" stroke="#333" stroke-width="1"/>
+    <text x="172"  y="198" font-size="10" fill="#333">1</text>
+    <line x1="210" y1="182" x2="210" y2="188" stroke="#333" stroke-width="1"/>
+    <text x="207"  y="198" font-size="10" fill="#333">2</text>
+    <line x1="245" y1="182" x2="245" y2="188" stroke="#333" stroke-width="1"/>
+    <text x="242"  y="198" font-size="10" fill="#333">3</text>
+    <!-- Graduations axe y : 1 à 9, espacement 20px (y=185 pour y=0) -->
+    <line x1="137" y1="165" x2="143" y2="165" stroke="#333" stroke-width="1"/>
+    <text x="122"  y="169" font-size="10" fill="#333">1</text>
+    <line x1="137" y1="145" x2="143" y2="145" stroke="#333" stroke-width="1"/>
+    <text x="122"  y="149" font-size="10" fill="#333">2</text>
+    <line x1="137" y1="125" x2="143" y2="125" stroke="#333" stroke-width="1"/>
+    <text x="122"  y="129" font-size="10" fill="#333">3</text>
+    <line x1="137" y1="105" x2="143" y2="105" stroke="#333" stroke-width="1"/>
+    <text x="122"  y="109" font-size="10" fill="#333">4</text>
+    <line x1="137" y1="65"  x2="143" y2="65"  stroke="#333" stroke-width="1"/>
+    <text x="122"  y="69"  font-size="10" fill="#333">6</text>
+    <line x1="137" y1="25"  x2="143" y2="25"  stroke="#333" stroke-width="1"/>
+    <text x="122"  y="29"  font-size="10" fill="#333">8</text>
+    <!-- Parabole f(x)=x² : pixel_y = 185 - x²*20, pixel_x = 140 + x*35 -->
+    <!-- Points : x=−3→(35,5), x=−2→(70,105), x=−1→(105,165), x=0→(140,185), x=1→(175,165), x=2→(210,105), x=3→(245,5) -->
+    <polyline
+      points="35,5 70,105 105,165 140,185 175,165 210,105 245,5"
+      fill="none" stroke="#0056b3" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Droite y=4 : pixel_y=185−4*20=105, de x=30 à x=255 -->
+    <line x1="30" y1="105" x2="255" y2="105" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="256" y="109" font-size="10" fill="#c0392b">y=4</text>
+    <!-- Points d'intersection : x=±2 → (70,105) et (210,105) -->
+    <circle cx="70"  cy="105" r="4" fill="#c0392b"/>
+    <text x="54"  y="100" font-size="10" fill="#c0392b">(−2;4)</text>
+    <circle cx="210" cy="105" r="4" fill="#c0392b"/>
+    <text x="213" y="100" font-size="10" fill="#c0392b">(2;4)</text>
+    <!-- Étiquette parabole -->
+    <text x="148" y="150" font-size="11" fill="#0056b3" font-style="italic">f(x)=x²</text>
+  </svg>
+  <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Résoudre \(x^2 = 4\) graphiquement : les deux intersections avec \(y = 4\) donnent \(x = -2\) et \(x = 2\).</figcaption>
+</figure>
 
 <div class="exo">
   <h3>Exercice 10</h3>
@@ -280,6 +405,15 @@
 <!-- ===== C6 ===== -->
 <div class="cap-section" data-cap="C6">
 <h2>C6 — Transformations de la parabole et inéquations graphiques</h2>
+
+<div class="meth">
+  <strong>Rappel de cours — Transformations de \(f(x) = x^2\)</strong>
+  <ul>
+    <li>\(g(x) = x^2 + k\) : parabole de \(f\) <strong>décalée verticalement de \(k\)</strong> (vers le haut si \(k > 0\), vers le bas si \(k < 0\)). Minimum : \(k\).</li>
+    <li>\(h(x) = kx^2\) avec \(k > 0\) : parabole <strong>plus resserrée</strong> si \(k > 1\), <strong>plus large</strong> si \(0 &lt; k &lt; 1\).</li>
+  </ul>
+  <p><strong>Inéquations graphiques :</strong> pour résoudre \(x^2 &lt; c\) (avec \(c > 0\)), on cherche où la parabole est <em>en dessous</em> de la droite \(y = c\). La solution est \(-\sqrt{c} &lt; x &lt; \sqrt{c}\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 13</h3>
@@ -366,6 +500,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

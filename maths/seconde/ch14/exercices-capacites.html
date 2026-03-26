@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch14 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 14 – Exercices par capacités</h1>
@@ -41,6 +48,62 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Reconnaître et nommer les solides usuels</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Solides usuels</strong>
+  <ul>
+    <li><strong>Cube</strong> : 6 faces carrées identiques, toutes les arêtes égales.</li>
+    <li><strong>Pavé droit</strong> (parallélépipède rectangle) : 6 faces rectangulaires, 3 dimensions différentes.</li>
+    <li><strong>Cylindre droit</strong> : 2 bases circulaires parallèles et identiques, une surface latérale.</li>
+    <li><strong>Pyramide</strong> : une base polygonale et des faces triangulaires qui se rejoignent en un sommet (apex).</li>
+    <li><strong>Cône</strong> : une base circulaire et un sommet pointu.</li>
+    <li><strong>Boule</strong> (sphère) : tous les points de la surface sont à la même distance du centre.</li>
+  </ul>
+</div>
+
+<figure class="schema" style="text-align:center;margin:16px 0">
+  <svg width="280" height="150" viewBox="0 0 280 150" aria-label="Représentations en perspective d'un cube et d'un cylindre">
+    <rect width="280" height="150" fill="#f8fafc" rx="6"/>
+
+    <!-- === CUBE en perspective cavalière (côté gauche) === -->
+    <!-- Face avant : carré de 50×50 centré autour de (70,80) -->
+    <!-- Coins face avant : (45,55), (95,55), (95,105), (45,105) -->
+    <polygon points="45,55 95,55 95,105 45,105" fill="none" stroke="#0056b3" stroke-width="1.8"/>
+    <!-- Face arrière décalée : +25x, -18y (perspective) -->
+    <!-- Coins face arrière : (70,37), (120,37), (120,87), (70,87) -->
+    <polygon points="70,37 120,37 120,87 70,87" fill="none" stroke="#0056b3" stroke-width="1.2" stroke-dasharray="4,2"/>
+    <!-- Arêtes latérales (faces avant → arrière) -->
+    <line x1="45"  y1="55"  x2="70"  y2="37"  stroke="#0056b3" stroke-width="1.5"/>
+    <line x1="95"  y1="55"  x2="120" y2="37"  stroke="#0056b3" stroke-width="1.5"/>
+    <line x1="95"  y1="105" x2="120" y2="87"  stroke="#0056b3" stroke-width="1.5"/>
+    <!-- Arête bas-gauche arrière (cachée) -->
+    <line x1="45"  y1="105" x2="70"  y2="87"  stroke="#0056b3" stroke-width="1" stroke-dasharray="4,2"/>
+    <!-- Label -->
+    <text x="67" y="127" font-size="12" fill="#0056b3" text-anchor="middle" font-style="italic">Cube</text>
+    <!-- Étiquette côté a -->
+    <text x="33" y="82" font-size="10" fill="#555" text-anchor="middle">a</text>
+    <text x="70" y="50" font-size="10" fill="#555" text-anchor="middle">a</text>
+
+    <!-- === CYLINDRE en perspective cavalière (côté droit) === -->
+    <!-- Centre bas : (200, 110) ; rayon apparent : 30x, 10y (ellipse) ; hauteur 60px -->
+    <!-- Ellipse du bas -->
+    <ellipse cx="200" cy="110" rx="35" ry="12" fill="none" stroke="#0056b3" stroke-width="1.8"/>
+    <!-- Lignes latérales -->
+    <line x1="165" y1="110" x2="165" y2="50" stroke="#0056b3" stroke-width="1.8"/>
+    <line x1="235" y1="110" x2="235" y2="50" stroke="#0056b3" stroke-width="1.8"/>
+    <!-- Ellipse du haut -->
+    <ellipse cx="200" cy="50" rx="35" ry="12" fill="none" stroke="#0056b3" stroke-width="1.8"/>
+    <!-- Ligne de rayon (pointillée pour montrer r) -->
+    <line x1="200" y1="50" x2="235" y2="50" stroke="#555" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="218" y="45" font-size="10" fill="#555">r</text>
+    <!-- Hauteur h -->
+    <line x1="244" y1="50" x2="244" y2="110" stroke="#555" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="248" y="83" font-size="10" fill="#555">h</text>
+    <!-- Label -->
+    <text x="200" y="135" font-size="12" fill="#0056b3" text-anchor="middle" font-style="italic">Cylindre</text>
+  </svg>
+  <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Représentations en perspective cavalière d'un cube (arête a) et d'un cylindre droit (rayon r, hauteur h).</figcaption>
+</figure>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -84,6 +147,43 @@
 <!-- ===== C2 ===== -->
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Calculer le volume d'un solide usuel</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Formules de volume</strong>
+  <table style="margin:8px auto;border-collapse:collapse;font-size:0.95em;width:92%">
+    <tr style="background:var(--p-bg)">
+      <th style="padding:5px 10px;border:1px solid var(--p-border);text-align:left">Solide</th>
+      <th style="padding:5px 10px;border:1px solid var(--p-border);text-align:left">Formule</th>
+      <th style="padding:5px 10px;border:1px solid var(--p-border);text-align:left">Paramètres</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 10px;border:1px solid #ddd">Cube</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(V = a^3\)</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(a\) = côté</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 10px;border:1px solid #ddd">Pavé droit</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(V = L \times l \times h\)</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">longueur × largeur × hauteur</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 10px;border:1px solid #ddd">Cylindre</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(V = \pi r^2 h\)</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(r\) = rayon, \(h\) = hauteur</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 10px;border:1px solid #ddd">Pyramide / Cône</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(V = \dfrac{B \times h}{3}\)</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(B\) = aire de la base, \(h\) = hauteur</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 10px;border:1px solid #ddd">Boule</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(V = \dfrac{4}{3}\pi r^3\)</td>
+      <td style="padding:5px 10px;border:1px solid #ddd">\(r\) = rayon</td>
+    </tr>
+  </table>
+  <p>Unités : si les dimensions sont en cm, le volume est en cm³. Si en m, le volume est en m³.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 3</h3>
@@ -136,6 +236,26 @@
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Convertir des unités de volume</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Conversions d'unités de volume</strong>
+  <p>Chaque fois qu'on passe à l'unité inférieure, on <strong>multiplie par 1 000</strong> (et non 100, car le volume est en 3 dimensions).</p>
+  <table style="margin:8px auto;border-collapse:collapse;font-size:0.95em">
+    <tr style="background:var(--p-bg)">
+      <th style="padding:4px 12px;border:1px solid var(--p-border)">m³</th>
+      <th style="padding:4px 12px;border:1px solid var(--p-border)">dm³ = L</th>
+      <th style="padding:4px 12px;border:1px solid var(--p-border)">cm³ = mL</th>
+      <th style="padding:4px 12px;border:1px solid var(--p-border)">mm³</th>
+    </tr>
+    <tr>
+      <td style="padding:4px 12px;border:1px solid #ddd;text-align:center">1</td>
+      <td style="padding:4px 12px;border:1px solid #ddd;text-align:center">1 000</td>
+      <td style="padding:4px 12px;border:1px solid #ddd;text-align:center">1 000 000</td>
+      <td style="padding:4px 12px;border:1px solid #ddd;text-align:center">1 000 000 000</td>
+    </tr>
+  </table>
+  <p><strong>Équivalences utiles :</strong> 1 dm³ = 1 litre ; 1 cm³ = 1 mL ; 1 m³ = 1 000 litres.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 7</h3>
   <p>Convertir :</p>
@@ -183,6 +303,17 @@
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Volume par décomposition</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Décomposition en solides simples</strong>
+  <p>Lorsqu'un solide est complexe, on le découpe en <strong>solides usuels</strong> (pavé, cylindre, pyramide…) et on additionne (ou soustrait) leurs volumes.</p>
+  <ol>
+    <li>Identifier les solides simples qui composent la figure.</li>
+    <li>Calculer le volume de chaque solide séparément.</li>
+    <li>Additionner les volumes (ou soustraire si on a évidé une partie).</li>
+  </ol>
+  <p>Exemple : un bâtiment = murs (pavé droit) + toit (prisme triangulaire) → \(V_\text{total} = V_\text{pavé} + V_\text{prisme}\).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 10</h3>
   <p>Une pièce en bois a la forme d'un pavé droit de 20 cm × 10 cm × 8 cm, auquel on a ajouté un prisme demi-cylindrique de rayon 5 cm et de longueur 20 cm sur le dessus. Calculer le volume total.</p>
@@ -221,6 +352,18 @@
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Problèmes de volume en contexte professionnel</h2>
 
+<div class="meth">
+  <strong>Rappel de cours — Démarche pour les problèmes de volume</strong>
+  <ol>
+    <li><strong>Identifier le solide</strong> en jeu (cube, pavé, cylindre…).</li>
+    <li><strong>Relever les dimensions</strong> utiles et les convertir dans la même unité.</li>
+    <li><strong>Appliquer la formule</strong> de volume correspondante.</li>
+    <li><strong>Convertir l'unité</strong> du résultat si nécessaire (cm³ → L, m³ → L…).</li>
+    <li><strong>Répondre à la question</strong> posée (quantité, coût, nombre de contenants…).</li>
+  </ol>
+  <p>Rappel : 1 m³ = 1 000 litres. Pour un problème de remplissage, arrondir <strong>à l'entier supérieur</strong> (on ne peut pas acheter un demi-bidon).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 13</h3>
   <p>Un menuisier fabrique des tasseaux de section carrée de côté 4 cm et de longueur 2 m. Il doit en fabriquer 50. Quel volume total de bois utilise-t-il ? Donner le résultat en dm³ (litres).</p>
@@ -256,6 +399,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

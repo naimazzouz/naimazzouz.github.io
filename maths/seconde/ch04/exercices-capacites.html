@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch04 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 4 – Exercices par capacités</h1>
@@ -41,6 +48,11 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Identifier une expérience aléatoire, définir l'univers</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>Une <strong>expérience aléatoire</strong> est une expérience dont on ne peut pas prédire le résultat à l'avance. L'ensemble de tous les résultats possibles est l'<strong>univers</strong> \(\Omega\). Chaque résultat élémentaire est une <strong>issue</strong>. Un <strong>événement</strong> est un sous-ensemble de \(\Omega\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -85,6 +97,11 @@
 <!-- ===== C2 ===== -->
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Calculer la probabilité d'un événement (équiprobabilité)</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>En situation d'<strong>équiprobabilité</strong> (toutes les issues ont la même probabilité) : \(P(A) = \dfrac{\text{nombre d'issues favorables à } A}{\text{nombre total d'issues}}\). La probabilité d'un événement est toujours comprise entre 0 et 1, et \(P(\Omega) = 1\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 4</h3>
@@ -131,6 +148,11 @@
 <!-- ===== C3 ===== -->
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Événement contraire, réunion, intersection</h2>
+
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p><strong>Événement contraire :</strong> \(P(\bar{A}) = 1 - P(A)\). <strong>Réunion</strong> (A ou B) : \(P(A \cup B) = P(A) + P(B) - P(A \cap B)\). Si A et B sont incompatibles (ne peuvent pas se produire ensemble) : \(P(A \cup B) = P(A) + P(B)\).</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 7</h3>
@@ -181,6 +203,11 @@
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Fréquence observée et probabilité théorique</h2>
 
+<div class="meth">
+  <strong>Rappel de cours</strong>
+  <p>La <strong>fréquence observée</strong> d'un événement est \(f = \frac{\text{nombre d'apparitions}}{\text{nombre d'expériences}}\). Elle est calculée à partir d'une expérience réelle. La <strong>probabilité théorique</strong> est la valeur exacte attendue (modèle). Fréquence et probabilité ne sont généralement pas égales, mais la fréquence se rapproche de la probabilité quand le nombre d'expériences augmente.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 10</h3>
   <p>On lance un dé équilibré 60 fois et on obtient le résultat suivant :</p>
@@ -217,6 +244,11 @@
 <!-- ===== C5 ===== -->
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Stabilisation des fréquences (loi des grands nombres)</h2>
+
+<div class="retenir">
+  <strong>À retenir</strong>
+  <p>La <strong>loi des grands nombres</strong> affirme que plus on répète une expérience aléatoire, plus la fréquence observée se rapproche de la probabilité théorique. Avec un petit échantillon, les fréquences fluctuent beaucoup ; avec un grand échantillon, elles se stabilisent autour de la probabilité.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 12</h3>
@@ -267,6 +299,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>

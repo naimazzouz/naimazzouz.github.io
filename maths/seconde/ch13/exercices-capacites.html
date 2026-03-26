@@ -11,6 +11,13 @@
 </head>
 <body>
 <div class="c">
+<nav class="breadcrumb" aria-label="Fil d'ariane">
+  <a href="../../../index.html">Accueil</a>
+  <span class="sep">›</span>
+  <a href="../../../maths-2nde-mama.html">Seconde Maths</a>
+  <span class="sep">›</span>
+  <span>Ch13 – Exercices par capacités</span>
+</nav>
 <a href="../../../maths-2nde-mama.html" class="nb">← Retour au sommaire</a>
 <header>
   <h1>Chapitre 13 – Exercices par capacités</h1>
@@ -41,6 +48,48 @@
 <!-- ===== C1 ===== -->
 <div class="cap-section" data-cap="C1">
 <h2>C1 — Reconnaître la configuration de Thalès</h2>
+
+<div class="retenir">
+  <strong>Rappel de cours — Configuration de Thalès</strong>
+  <p>Il y a <strong>configuration de Thalès</strong> lorsque :</p>
+  <ul>
+    <li>On a un sommet commun (appelé O ou A).</li>
+    <li>Deux droites sécantes issues de ce sommet.</li>
+    <li>Une droite parallèle à la base, coupant les deux autres droites.</li>
+  </ul>
+  <p>Dans le triangle ABC, si D ∈ [AB] et E ∈ [AC] avec <strong>DE ∥ BC</strong>, alors la configuration de Thalès est présente.</p>
+</div>
+
+<figure class="schema" style="text-align:center;margin:16px 0">
+  <svg width="280" height="200" viewBox="0 0 280 200" aria-label="Configuration de Thalès : triangle ABC avec DE parallèle à BC">
+    <!-- Fond -->
+    <rect width="280" height="200" fill="#f8fafc" rx="6"/>
+    <!-- Triangle ABC : A=(140,15), B=(30,175), C=(250,175) -->
+    <line x1="140" y1="15"  x2="30"  y2="175" stroke="#333" stroke-width="1.5"/>
+    <line x1="140" y1="15"  x2="250" y2="175" stroke="#333" stroke-width="1.5"/>
+    <line x1="30"  y1="175" x2="250" y2="175" stroke="#333" stroke-width="2"/>
+    <!-- D et E : à 40% de AB et AC depuis A -->
+    <!-- D sur AB : D = A + 0.4*(B-A) = (140+0.4*(30-140), 15+0.4*(175-15)) = (96, 79) -->
+    <!-- E sur AC : E = A + 0.4*(C-A) = (140+0.4*(250-140), 15+0.4*(175-15)) = (184, 79) -->
+    <line x1="96" y1="79" x2="184" y2="79" stroke="#0056b3" stroke-width="2" stroke-dasharray="6,3"/>
+    <!-- Marques de parallélisme sur BC et DE -->
+    <line x1="136" y1="172" x2="136" y2="178" stroke="#333" stroke-width="1.5"/>
+    <line x1="144" y1="172" x2="144" y2="178" stroke="#333" stroke-width="1.5"/>
+    <line x1="136" y1="76"  x2="136" y2="82"  stroke="#0056b3" stroke-width="1.5"/>
+    <line x1="144" y1="76"  x2="144" y2="82"  stroke="#0056b3" stroke-width="1.5"/>
+    <!-- Labels -->
+    <text x="135" y="10"  font-size="13" fill="#333" font-weight="bold">A</text>
+    <text x="14"  y="183" font-size="13" fill="#333" font-weight="bold">B</text>
+    <text x="252" y="183" font-size="13" fill="#333" font-weight="bold">C</text>
+    <text x="80"  y="75"  font-size="13" fill="#0056b3" font-weight="bold">D</text>
+    <text x="187" y="75"  font-size="13" fill="#0056b3" font-weight="bold">E</text>
+    <!-- Indication DE ∥ BC -->
+    <text x="95" y="50" font-size="11" fill="#0056b3" font-style="italic">DE ∥ BC</text>
+    <!-- Flèche indication -->
+    <line x1="120" y1="52" x2="135" y2="63" stroke="#0056b3" stroke-width="1" stroke-dasharray="3,2"/>
+  </svg>
+  <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Configuration de Thalès : D ∈ [AB], E ∈ [AC], DE ∥ BC — le sommet commun est A.</figcaption>
+</figure>
 
 <div class="exo">
   <h3>Exercice 1</h3>
@@ -74,6 +123,18 @@
 <!-- ===== C2 ===== -->
 <div class="cap-section" data-cap="C2">
 <h2>C2 — Appliquer le théorème de Thalès pour calculer une longueur</h2>
+
+<div class="meth">
+  <strong>Rappel de cours — Théorème de Thalès</strong>
+  <p>Si D ∈ [AB], E ∈ [AC] et <strong>DE ∥ BC</strong>, alors :</p>
+  <p style="text-align:center">\(\dfrac{AD}{AB} = \dfrac{AE}{AC} = \dfrac{DE}{BC}\)</p>
+  <p><strong>Méthode pour calculer une longueur inconnue :</strong></p>
+  <ol>
+    <li>Vérifier que la configuration de Thalès est bien présente (droites parallèles identifiées).</li>
+    <li>Écrire l'égalité des rapports correspondant à la longueur cherchée.</li>
+    <li>Résoudre l'équation (produit en croix).</li>
+  </ol>
+</div>
 
 <div class="exo">
   <h3>Exercice 3</h3>
@@ -126,6 +187,13 @@
 <div class="cap-section" data-cap="C3">
 <h2>C3 — Réciproque du théorème de Thalès (vérifier le parallélisme)</h2>
 
+<div class="retenir">
+  <strong>Rappel de cours — Réciproque du théorème de Thalès</strong>
+  <p>Si D ∈ [AB] et E ∈ [AC] et si \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\), alors <strong>DE ∥ BC</strong>.</p>
+  <p><strong>Méthode :</strong> calculer les deux rapports séparément. S'ils sont égaux, les droites sont parallèles. Sinon, elles ne le sont pas.</p>
+  <p><em>Attention :</em> les rapports doivent utiliser les <strong>mêmes côtés</strong> (par exemple : petit sur grand, ou partie sur tout — mais de façon cohérente).</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 7</h3>
   <p>Dans le triangle ABC, D est sur [AB] et E sur [AC]. Vérifier si DE ∥ BC dans chaque cas :</p>
@@ -156,6 +224,17 @@
 <!-- ===== C4 ===== -->
 <div class="cap-section" data-cap="C4">
 <h2>C4 — Agrandissement et réduction (rapports de proportionnalité)</h2>
+
+<div class="meth">
+  <strong>Rappel de cours — Agrandissement et réduction</strong>
+  <p>Deux figures sont en <strong>réduction/agrandissement</strong> lorsque toutes leurs longueurs sont dans le même rapport \(k\) (appelé <em>coefficient de similitude</em>).</p>
+  <ul>
+    <li>Si \(k &lt; 1\) : réduction (figure plus petite).</li>
+    <li>Si \(k &gt; 1\) : agrandissement (figure plus grande).</li>
+  </ul>
+  <p style="text-align:center">\(\dfrac{\text{longueur réduite}}{\text{longueur originale}} = k\)</p>
+  <p>Le théorème de Thalès garantit que les triangles découpés par une droite parallèle sont des <strong>réductions du triangle original</strong> avec le même coefficient.</p>
+</div>
 
 <div class="exo">
   <h3>Exercice 9</h3>
@@ -193,6 +272,21 @@
 <div class="cap-section" data-cap="C5">
 <h2>C5 — Problèmes d'échelles et de plans professionnels</h2>
 
+<div class="retenir">
+  <strong>Rappel de cours — Échelles et plans</strong>
+  <p>L'<strong>échelle</strong> d'un plan est le rapport : \(\text{échelle} = \dfrac{\text{longueur sur le plan}}{\text{longueur réelle}}\).</p>
+  <ul>
+    <li>Plan au 1/50 : 1 cm sur le plan correspond à 50 cm dans la réalité.</li>
+    <li>Plan au 1/100 : 1 cm sur le plan correspond à 100 cm (= 1 m) dans la réalité.</li>
+  </ul>
+  <p><strong>Formules pratiques :</strong></p>
+  <ul>
+    <li>Longueur réelle = longueur sur le plan × dénominateur de l'échelle.</li>
+    <li>Longueur sur le plan = longueur réelle ÷ dénominateur de l'échelle.</li>
+  </ul>
+  <p>La justification mathématique repose sur Thalès : rayons du soleil parallèles, triangles semblables, rapport constant.</p>
+</div>
+
 <div class="exo">
   <h3>Exercice 12</h3>
   <p>Sur un plan d'architecte au 1/100, un couloir mesure 8,5 cm de longueur et 1,2 cm de largeur. Calculer les dimensions réelles du couloir.</p>
@@ -227,6 +321,11 @@
 </div>
 </div>
 
+</div>
+
+<div class="print-bar">
+  <span>Imprimer ou sauvegarder en PDF</span>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer</button>
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
