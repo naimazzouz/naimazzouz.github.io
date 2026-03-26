@@ -39,7 +39,8 @@ Ce fichier est lu automatiquement par Claude Code à chaque session.
 │   ├── extract_css.py          ← Nettoyage CSS doublons
 │   ├── add_print_css.py        ← Ajout automatique de print.css aux pages
 │   ├── generate-pdf.js         ← Génération PDF des cours
-│   └── link_simulations.py     ← Liaison simulations ↔ chapitres
+│   ├── link_simulations.py     ← Liaison simulations ↔ chapitres
+│   └── check_chapters.py       ← Vérification complétude des chapitres
 └── .claude/commands/           ← Commandes personnalisées Claude Code (skills)
 ```
 
@@ -262,13 +263,18 @@ Avant de générer du contenu, consulter les fichiers dans `/prompts/` :
 |---|---|
 | `prompts/prompt-cours.md` | Structure d'une page de cours |
 | `prompts/prompt-exercices.md` | Structure d'une page d'exercices |
+| `prompts/prompt-exercices-capacites.md` | Structure d'une page d'exercices par capacités du programme (`exercices-capacites.html`) |
 | `prompts/prompt-qcm-interro.md` | Structure d'un QCM ou d'une interrogation |
 | `prompts/prompt-activite.md` | Structure d'une activité de découverte (`activite.html`) |
+| `prompts/prompt-fiche.md` | Structure d'une fiche de révision (`fiche.html`) |
 | `prompts/prompt-simulation.md` | Structure d'une simulation interactive (4 types) |
 | `prompts/prompt-superviseur.md` | Prompt de supervision globale du projet |
 | `prompts/prompt-filiere-2mama.md` | Contextes pro Seconde MAMA (menuiserie/agencement) |
-| `prompts/prompt-filiere-era-ma.md` | Contextes pro Première & Terminale ERA/MA (agencement/bois) |
-| `prompts/prompt-filiere-ticcer.md` | Contextes pro Première & Terminale ICCER (chauffage/énergie) |
+| `prompts/prompt-filiere-premiere-era.md` | Contextes pro Première ERA-MA (bois/agencement) |
+| `prompts/prompt-filiere-premiere-iccer.md` | Contextes pro Première ICCER (chauffage/énergie) |
+| `prompts/prompt-filiere-era-ma.md` | Contextes pro Terminale ERA/MA (agencement/bois) |
+| `prompts/prompt-filiere-ticcer.md` | Contextes pro Terminale ICCER (chauffage/énergie) |
+| `prompts/prompt-bts.md` | Structure et règles pour les pages BTS maths |
 
 ### Règles contextes professionnels
 
@@ -354,6 +360,9 @@ Une simulation doit toujours servir à :
 | `python3 scripts/extract_css.py` | Nettoyer les doublons CSS inline → styles.css |
 | `python3 scripts/add_print_css.py` | Ajouter print.css aux pages qui ne l'ont pas |
 | `python3 scripts/link_simulations.py` | Vérifier/ajouter les liens simulations ↔ chapitres |
+| `python3 scripts/check_chapters.py` | Vérifier la complétude des chapitres (fichiers manquants) |
+| `python3 scripts/check_chapters.py --missing` | Afficher seulement les chapitres incomplets |
+| `python3 scripts/check_chapters.py --section maths/bts` | Vérifier une section précise |
 | `node scripts/generate-pdf.js` | Générer les PDF des cours |
 
 ### Commandes Claude Code personnalisées
