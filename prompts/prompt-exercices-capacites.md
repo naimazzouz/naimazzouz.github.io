@@ -1,0 +1,208 @@
+# Prompt de référence — Exercices par capacités (`exercices-capacites.html`)
+
+Guide de référence pour la création des pages `exercices-capacites.html` dans chaque chapitre du site.
+
+---
+
+## Philosophie générale
+
+### Objectif pédagogique
+
+La page "Exercices par capacités" organise les exercices selon les **capacités et connaissances du programme officiel (BO)**, et non selon le niveau de difficulté (différenciation) ou l'ordre chronologique du cours.
+
+Elle permet :
+- un entraînement **ciblé** sur une compétence précise
+- d'**isoler les difficultés** et de faciliter la remédiation
+- de **structurer les apprentissages** par savoir-faire mesurable
+- un futur filtrage interactif par capacité (avec `comp.js`)
+
+### Relation avec les autres pages du chapitre
+
+| Page | Organisation | Usage |
+|---|---|---|
+| `exercices.html` | Par difficulté (socle/standard/appro) | Entraînement différencié |
+| `exercices-capacites.html` | **Par capacité du programme** | Entraînement ciblé, remédiation |
+| `ds.html` | Par exercice complet | Évaluation sommative |
+
+**Ne pas modifier la page `exercices.html` existante.** Créer une nouvelle page dédiée.
+
+---
+
+## Définition des capacités
+
+### Ce qu'est une capacité
+
+Une capacité est ce que l'élève doit **savoir faire concrètement**, exprimée par un verbe d'action.
+
+**Exemples de capacités valides :**
+- reconnaître une fonction affine
+- calculer une image ou un antécédent
+- déterminer les variations d'une fonction
+- calculer la dérivée d'une fonction polynôme
+- résoudre une équation du second degré
+- lire et interpréter un graphique
+- calculer un terme d'une suite arithmétique ou géométrique
+- appliquer la loi d'Ohm
+- convertir des unités
+
+### Ce qu'une capacité n'est PAS
+
+Ne pas utiliser les **compétences transversales** génériques :
+- ~~Chercher~~
+- ~~Modéliser~~
+- ~~Représenter~~
+- ~~Raisonner~~
+- ~~Calculer~~
+- ~~Communiquer~~
+
+Ces compétences sont trop larges. Utiliser uniquement des capacités disciplinaires précises issues du programme.
+
+### Source des capacités
+
+1. **Lire les fichiers PDF du programme (BO)** dans `/pdf/`
+2. **Extraire les capacités et connaissances** liées au chapitre
+3. **Reformuler légèrement** si nécessaire (niveau lycée professionnel, verbe d'action clair)
+4. **Ne pas inventer** de capacités hors programme
+
+---
+
+## Structure de la page
+
+### Template `exercices-capacites.html`
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch0X – Exercices par capacités – Titre – Classe</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:COULEUR;--p-bg:COULEUR-BG;--p-border:COULEUR-BORDER}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../sommaire.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Chapitre X – Exercices par capacités</h1>
+  <p class="sous-titre">Titre du chapitre | Niveau | Matière</p>
+</header>
+
+<!-- Liste des capacités du programme -->
+<div class="objectifs">
+  <strong>Capacités et connaissances du programme :</strong>
+  <ul>
+    <li>Capacité 1</li>
+    <li>Capacité 2</li>
+    <li>Capacité 3</li>
+  </ul>
+</div>
+
+<!-- Boutons de filtre (si comp.js est utilisé) -->
+<div class="cap-filtres">
+  <button class="btn-cap" data-cap="all">Toutes</button>
+  <button class="btn-cap" data-cap="C1">C1</button>
+  <button class="btn-cap" data-cap="C2">C2</button>
+  <button class="btn-cap" data-cap="C3">C3</button>
+</div>
+
+<!-- Section par capacité -->
+<div class="cap-section" data-cap="C1">
+<h2>C1 — Nom de la capacité</h2>
+
+<div class="exo">
+  <h3>Exercice 1</h3>
+  <p>Énoncé ciblant uniquement cette capacité...</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">Correction détaillée</div>
+</div>
+
+<!-- Exercices 2 à 5 pour C1 -->
+</div>
+
+<div class="cap-section" data-cap="C2">
+<h2>C2 — Nom de la capacité</h2>
+<!-- Exercices pour C2 -->
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../comp.js"></script>
+<!-- Pas de diff.js — pas de différenciation sur cette page -->
+</body>
+</html>
+```
+
+---
+
+## Règles de rédaction
+
+### Nombre d'exercices par capacité
+
+- **3 à 6 exercices par capacité**
+- Difficulté progressive dans chaque série (du plus simple au plus complexe)
+- Le premier exercice doit être accessible à tous les élèves
+
+### Ciblage strict
+
+- Chaque exercice cible **une seule capacité principale**
+- Pas de mélange de plusieurs capacités dans un même exercice
+- Si un exercice mobilise naturellement deux capacités, le classer dans la capacité principale et l'indiquer
+
+### Corrections
+
+- Toutes les corrections sont présentes (bouton `.bc` + `.corr`)
+- Corrections **complètes et rédigées** : montrer toutes les étapes
+- Pas de correction partielle ou abrégée
+
+### Différenciation
+
+**Ne pas appliquer de différenciation sur cette page.**
+
+La page est conçue pour un usage ciblé (remédiation, révision par compétence). Tous les exercices sont visibles par tous. Pas de classes `.diff-*`, pas de `diff.js`.
+
+---
+
+## Intégration de comp.js
+
+`comp.js` est le script de filtrage par capacité (ajouté en PR #131). Il permet d'afficher uniquement les exercices d'une capacité donnée via des boutons.
+
+### Utilisation
+
+- Ajouter `<script src="../../../comp.js"></script>` en fin de `<body>`
+- Numéroter les capacités : C1, C2, C3… (ou utiliser des identifiants courts)
+- Chaque section doit avoir `class="cap-section" data-cap="CX"`
+- Chaque bouton de filtre doit avoir `class="btn-cap" data-cap="CX"`
+- Le bouton "Toutes" utilise `data-cap="all"`
+
+---
+
+## Procédure avant génération
+
+Avant de générer la page, toujours :
+
+1. **Reformuler la demande** : quel chapitre, quelle classe, quelle matière ?
+2. **Lire `lecon.html`** du chapitre pour identifier les notions enseignées
+3. **Lire le programme officiel** dans `/pdf/` et extraire les capacités liées
+4. **Lister les capacités retenues** et les soumettre avant génération
+5. **Proposer la structure** : capacités C1, C2, C3… avec leur intitulé
+6. **Indiquer les fichiers à créer** : `exercices-capacites.html` uniquement (ne pas toucher aux autres fichiers)
+
+---
+
+## Checklist avant publication
+
+- [ ] Capacités extraites du programme officiel (pas inventées)
+- [ ] 3 à 6 exercices par capacité
+- [ ] Difficulté progressive dans chaque série
+- [ ] Un exercice = une capacité principale
+- [ ] Corrections complètes pour tous les exercices
+- [ ] comp.js inclus et fonctionnel
+- [ ] Pas de diff.js ni classes diff-*
+- [ ] MathJax inclus si formules
+- [ ] print.css inclus
+- [ ] Couleurs CSS conformes au thème matière/niveau
+- [ ] Lien retour vers le sommaire
+- [ ] Page `exercices.html` originale non modifiée

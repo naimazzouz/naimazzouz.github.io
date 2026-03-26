@@ -262,13 +262,17 @@ Avant de générer du contenu, consulter les fichiers dans `/prompts/` :
 |---|---|
 | `prompts/prompt-cours.md` | Structure d'une page de cours |
 | `prompts/prompt-exercices.md` | Structure d'une page d'exercices |
+| `prompts/prompt-exercices-capacites.md` | Structure d'une page d'exercices par capacités du programme (`exercices-capacites.html`) |
 | `prompts/prompt-qcm-interro.md` | Structure d'un QCM ou d'une interrogation |
 | `prompts/prompt-activite.md` | Structure d'une activité de découverte (`activite.html`) |
+| `prompts/prompt-fiche.md` | Structure d'une fiche de révision (`fiche.html`) |
 | `prompts/prompt-simulation.md` | Structure d'une simulation interactive (4 types) |
 | `prompts/prompt-superviseur.md` | Prompt de supervision globale du projet |
 | `prompts/prompt-filiere-2mama.md` | Contextes pro Seconde MAMA (menuiserie/agencement) |
-| `prompts/prompt-filiere-era-ma.md` | Contextes pro Première & Terminale ERA/MA (agencement/bois) |
-| `prompts/prompt-filiere-ticcer.md` | Contextes pro Première & Terminale ICCER (chauffage/énergie) |
+| `prompts/prompt-filiere-premiere.md` | Contextes pro Première ERA-MA et ICCER |
+| `prompts/prompt-filiere-era-ma.md` | Contextes pro Terminale ERA/MA (agencement/bois) |
+| `prompts/prompt-filiere-ticcer.md` | Contextes pro Terminale ICCER (chauffage/énergie) |
+| `prompts/prompt-bts.md` | Structure et règles pour les pages BTS maths |
 
 ### Règles contextes professionnels
 
