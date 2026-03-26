@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch11 – Activité – Périmètres et aires – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Figures planes : périmètres et aires</h1>
+  <p class="sous-titre">Chapitre 11 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 35 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer le périmètre et l'aire des figures planes usuelles</li>
+    <li>Distinguer périmètre (longueur) et aire (surface)</li>
+    <li>Appliquer les formules à des situations professionnelles</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation professionnelle — Rénovation d'une salle de bain</h2>
+  <p><em>Aménageur d'intérieur : Sophie Blanc — entreprise <strong>Espace Bois &amp; Design</strong>, Pau.</em></p>
+
+  <p>Sophie doit réaliser l'aménagement complet d'une salle de bain. Voici le plan :</p>
+
+  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;margin:12px 0">
+    <svg viewBox="0 0 320 200" width="100%" style="max-width:400px;display:block;margin:0 auto">
+      <!-- Pièce rectangulaire -->
+      <rect x="20" y="20" width="200" height="140" fill="#ebf5ff" stroke="#0056b3" stroke-width="2"/>
+      <text x="120" y="95" text-anchor="middle" font-size="11" fill="#0056b3" font-weight="bold">Salle de bain</text>
+      <text x="120" y="110" text-anchor="middle" font-size="10" fill="#374151">Rectangle</text>
+      <!-- Cotes -->
+      <text x="120" y="175" text-anchor="middle" font-size="11" fill="#374151">4,50 m</text>
+      <text x="10" y="92" text-anchor="middle" font-size="11" fill="#374151" transform="rotate(-90,10,92)">3,20 m</text>
+      <!-- Vasque ronde -->
+      <circle cx="260" cy="80" r="35" fill="#dbeafe" stroke="#0056b3" stroke-width="2"/>
+      <text x="260" y="78" text-anchor="middle" font-size="10" fill="#0056b3" font-weight="bold">Vasque</text>
+      <text x="260" y="92" text-anchor="middle" font-size="10" fill="#374151">r = 25 cm</text>
+    </svg>
+    <p style="font-size:.88em;color:#718096;text-align:center;margin:6px 0 0">Plan simplifié — pas à l'échelle</p>
+  </div>
+
+  <p><strong>Données :</strong> Salle de bain rectangulaire : 4,50 m × 3,20 m. Vasque circulaire : rayon 25 cm.</p>
+</div>
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-blue">APP</span></h2>
+  <ol type="a">
+    <li>Quelle est la différence entre <strong>périmètre</strong> et <strong>aire</strong> ? Donne les unités de chacun.</li>
+    <li>Pour commander du carrelage mural (sur les murs), a-t-on besoin du périmètre ou de l'aire du sol ?</li>
+    <li>Pour poser des plinthes en bois (au bas des murs), a-t-on besoin du périmètre ou de l'aire ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Le <strong>périmètre</strong> est la longueur du contour (unité : m, cm). L'<strong>aire</strong> est la superficie (unité : m², cm²).</li>
+      <li>Pour le carrelage mural : on a besoin de la <strong>surface des murs</strong> (aire × hauteur).</li>
+      <li>Pour les plinthes : on a besoin du <strong>périmètre</strong> du sol (longueur totale du contour).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Calcule le <strong>périmètre</strong> et l'<strong>aire</strong> de la salle de bain rectangulaire.</p>
+  <div class="meth">Rectangle de longueur \(L\) et largeur \(\ell\) : \(\quad P = 2(L + \ell) \quad A = L \times \ell\)</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    \(P = 2 \times (4{,}50 + 3{,}20) = 2 \times 7{,}70 = 15{,}40\,\text{m}\)<br>
+    \(A = 4{,}50 \times 3{,}20 = 14{,}40\,\text{m}^2\)
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Sophie pose des plinthes en bois tout autour de la pièce. Une porte de 80 cm de large interrompt les plinthes.</p>
+  <ol type="a">
+    <li>Quelle longueur totale de plinthes Sophie doit-elle commander ?</li>
+    <li>Les plinthes coûtent 4,50 €/m. Quel est le coût total ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Périmètre − porte : \(15{,}40 - 0{,}80 = 14{,}60\,\text{m}\) de plinthes.</li>
+      <li>Coût : \(14{,}60 \times 4{,}50 = 65{,}70\,€\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Calcule la <strong>circonférence</strong> (périmètre) et l'<strong>aire</strong> de la vasque circulaire (rayon \(r = 25\) cm).</p>
+  <div class="meth">Cercle de rayon \(r\) : \(\quad C = 2\pi r \quad A = \pi r^2 \quad (\pi \approx 3{,}14)\)</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    \(C = 2 \times 3{,}14 \times 25 = 157\,\text{cm} \approx 1{,}57\,\text{m}\)<br>
+    \(A = 3{,}14 \times 25^2 = 3{,}14 \times 625 = 1\,962{,}5\,\text{cm}^2 \approx 0{,}196\,\text{m}^2\)
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Sophie pose du carrelage sur tout le sol de la salle de bain, sauf à l'emplacement de la vasque.</p>
+  <ol type="a">
+    <li>Convertis l'aire de la vasque en m² (tu peux utiliser le résultat de la Q4).</li>
+    <li>Calcule l'aire à carreler (sol total − vasque).</li>
+    <li>Les carreaux coûtent 28 €/m². Estime le coût du carrelage de sol (arrondi à l'euro supérieur).</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Vasque : \(1\,962{,}5\,\text{cm}^2 = 0{,}196\,\text{m}^2\) (÷ 10 000)</li>
+      <li>Aire à carreler : \(14{,}40 - 0{,}196 \approx 14{,}20\,\text{m}^2\)</li>
+      <li>Coût : \(14{,}20 \times 28 = 397{,}60\,€\) → arrondi : <strong>398 €</strong></li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>La salle de bain a des murs de <strong>2,50 m</strong> de hauteur. Sophie veut carreler tous les murs (les 4 côtés, sans les ouvertures de porte ni de fenêtre qui totalisent 3,20 m²).</p>
+  <ol type="a">
+    <li>Calcule la surface brute des murs : périmètre × hauteur.</li>
+    <li>Retire les ouvertures. Quelle est la surface nette à carreler ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Surface brute : \(15{,}40 \times 2{,}50 = 38{,}50\,\text{m}^2\)</li>
+      <li>Surface nette : \(38{,}50 - 3{,}20 = 35{,}30\,\text{m}^2\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>Complète le tableau des formules à retenir :</p>
+  <table>
+    <thead><tr><th>Figure</th><th>Périmètre</th><th>Aire</th></tr></thead>
+    <tbody>
+      <tr><td>Rectangle (\(L \times \ell\))</td><td>?</td><td>?</td></tr>
+      <tr><td>Carré (côté \(c\))</td><td>?</td><td>?</td></tr>
+      <tr><td>Cercle (rayon \(r\))</td><td>?</td><td>?</td></tr>
+      <tr><td>Triangle (\(a, b, c\))</td><td>?</td><td>base × hauteur ÷ 2</td></tr>
+    </tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>Figure</th><th>Périmètre</th><th>Aire</th></tr></thead>
+      <tbody>
+        <tr><td>Rectangle</td><td>\(2(L+\ell)\)</td><td>\(L \times \ell\)</td></tr>
+        <tr><td>Carré</td><td>\(4c\)</td><td>\(c^2\)</td></tr>
+        <tr><td>Cercle</td><td>\(2\pi r\)</td><td>\(\pi r^2\)</td></tr>
+        <tr><td>Triangle</td><td>\(a + b + c\)</td><td>\(\dfrac{b \times h}{2}\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+  <h3 style="margin-top:14px;color:#1e3a8a">Périmètre et aire</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li><strong>Périmètre</strong> : longueur du contour (unité : m, cm) → pour les plinthes, bordures, encadrements</li>
+    <li><strong>Aire</strong> : superficie (unité : m², cm²) → pour les carreaux, peinture, parquet</li>
+  </ul>
+  <h3 style="color:#1e3a8a">Formules clés</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li>Rectangle : \(P = 2(L+\ell)\) &nbsp;|&nbsp; \(A = L\ell\)</li>
+    <li>Carré : \(P = 4c\) &nbsp;|&nbsp; \(A = c^2\)</li>
+    <li>Cercle : \(C = 2\pi r\) &nbsp;|&nbsp; \(A = \pi r^2\)</li>
+    <li>Triangle : \(A = \dfrac{b \times h}{2}\)</li>
+  </ul>
+</div>
+
+<div class="nav-footer"><a href="lecon.html" class="nav-btn">Cours Ch11 →</a></div>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>

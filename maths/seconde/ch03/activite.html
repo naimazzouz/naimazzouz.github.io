@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch03 – Activité – Indicateurs statistiques – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Indicateurs statistiques</h1>
+  <p class="sous-titre">Chapitre 3 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 35 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Calculer les indicateurs de position : moyenne, médiane, mode</li>
+    <li>Calculer les indicateurs de dispersion : étendue, quartiles</li>
+    <li>Interpréter ces indicateurs dans un contexte professionnel</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation professionnelle — Temps de fabrication de cadres</h2>
+  <p><em>Ébéniste : Marc Dupuis — atelier <strong>Bois &amp; Création</strong>, Bordeaux.</em></p>
+
+  <p>Marc fabrique des cadres de miroir sur mesure. Il note le temps de fabrication (en minutes) de ses 12 derniers cadres :</p>
+
+  <p style="background:#f8fafc;padding:10px 14px;border-radius:8px;font-family:monospace;font-size:1.1em;text-align:center">
+    35 &nbsp; 42 &nbsp; 38 &nbsp; 45 &nbsp; 40 &nbsp; 38 &nbsp; 52 &nbsp; 41 &nbsp; 38 &nbsp; 44 &nbsp; 39 &nbsp; 46
+  </p>
+
+  <p>Il veut analyser ses données pour mieux planifier sa production.</p>
+</div>
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-blue">APP</span></h2>
+  <ol type="a">
+    <li>Combien de cadres Marc a-t-il fabriqués (\(N\) = ?) ?</li>
+    <li>Quel est le temps le plus court ? Le temps le plus long ?</li>
+    <li>Classe les 12 valeurs dans l'ordre croissant.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(N = 12\) cadres.</li>
+      <li>Temps minimum : 35 min. Temps maximum : 52 min.</li>
+      <li>Série ordonnée : <strong>35 — 38 — 38 — 38 — 39 — 40 — 41 — 42 — 44 — 45 — 46 — 52</strong></li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Calcule la <strong>moyenne</strong> des temps de fabrication.</p>
+  <div class="meth"><strong>Formule :</strong> \(\bar{x} = \dfrac{\text{somme de toutes les valeurs}}{N}\)</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    Somme : \(35 + 42 + 38 + 45 + 40 + 38 + 52 + 41 + 38 + 44 + 39 + 46 = 498\)<br>
+    \(\bar{x} = \dfrac{498}{12} = 41{,}5\) min<br>
+    La fabrication d'un cadre prend en moyenne <strong>41,5 minutes</strong>.
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Trouve la <strong>médiane</strong> de la série.</p>
+  <div class="meth"><strong>Méthode :</strong> La médiane est la valeur centrale de la série ordonnée. Pour \(N = 12\) (nombre pair), c'est la moyenne des 6e et 7e valeurs.</div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    Série ordonnée : 35 – 38 – 38 – 38 – 39 – <strong>40</strong> – <strong>41</strong> – 42 – 44 – 45 – 46 – 52<br>
+    6e valeur : 40 &nbsp;|&nbsp; 7e valeur : 41<br>
+    Médiane : \(Me = \dfrac{40 + 41}{2} = 40{,}5\) min<br>
+    La moitié des cadres est fabriquée en moins de <strong>40,5 minutes</strong>.
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-green">REA</span></h2>
+  <ol type="a">
+    <li>Trouve le <strong>mode</strong> (valeur la plus fréquente).</li>
+    <li>Calcule l'<strong>étendue</strong> (maximum − minimum).</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>La valeur 38 apparaît <strong>3 fois</strong> → c'est le mode. Marc a fait 3 cadres en 38 minutes.</li>
+      <li>Étendue : \(52 - 35 = 17\) min. Les temps varient de 17 minutes d'une fabrication à l'autre.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Trouve les <strong>quartiles</strong> \(Q_1\) et \(Q_3\) et calcule l'<strong>écart interquartile</strong>.</p>
+  <div class="meth">
+    <strong>Méthode :</strong> La série de 12 valeurs est divisée en 4 groupes de 3.<br>
+    \(Q_1\) = médiane de la première moitié (6 premières valeurs).<br>
+    \(Q_3\) = médiane de la seconde moitié (6 dernières valeurs).
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    Première moitié : 35 – 38 – <strong>38</strong> – <strong>38</strong> – 39 – 40 → \(Q_1 = \dfrac{38+38}{2} = 38\) min<br>
+    Seconde moitié : 41 – 42 – <strong>44</strong> – <strong>45</strong> – 46 – 52 → \(Q_3 = \dfrac{44+45}{2} = 44{,}5\) min<br>
+    Écart interquartile : \(Q_3 - Q_1 = 44{,}5 - 38 = 6{,}5\) min<br>
+    Les 50 % centraux des fabrications durent entre 38 et 44,5 min.
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>La valeur 52 minutes (le cadre le plus long) semble très éloignée des autres.</p>
+  <ol type="a">
+    <li>Sans cette valeur, recalcule la moyenne des 11 autres cadres.</li>
+    <li>De combien la moyenne change-t-elle ? Que peut-on conclure sur l'effet des valeurs extrêmes ?</li>
+    <li>La médiane est-elle aussi affectée ? Pourquoi ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Somme sans 52 : \(498 - 52 = 446\). Nouvelle moyenne : \(\dfrac{446}{11} \approx 40{,}5\) min.</li>
+      <li>La moyenne passe de 41,5 à 40,5 min (−1 min). Les valeurs extrêmes <strong>tirent la moyenne</strong> vers elles.</li>
+      <li>Sans 52, série ordonnée (11 valeurs) : la médiane est la 6e valeur = 40 min (contre 40,5 avant). La médiane est <strong>peu sensible aux valeurs extrêmes</strong> : elle ne bouge presque pas.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 7 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>Marc veut planifier : il annonce à ses clients un délai moyen de fabrication. Quel indicateur doit-il utiliser — la <strong>moyenne</strong> ou la <strong>médiane</strong> ? Justifie en une phrase.</p>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    Si ses données contiennent des valeurs extrêmes (comme 52 min), la <strong>médiane</strong> est plus représentative : elle n'est pas influencée par un cadre exceptionnellement long. La moyenne peut surestimer le délai habituel.
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+  <h3 style="margin-top:14px;color:#1e3a8a">Indicateurs de position</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li><strong>Mode :</strong> valeur la plus fréquente</li>
+    <li><strong>Moyenne :</strong> \(\bar{x} = \dfrac{\sum x_i}{N}\) — sensible aux valeurs extrêmes</li>
+    <li><strong>Médiane :</strong> valeur centrale (50 % en dessous, 50 % au-dessus) — robuste aux valeurs extrêmes</li>
+  </ul>
+  <h3 style="color:#1e3a8a">Indicateurs de dispersion</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li><strong>Étendue :</strong> max − min</li>
+    <li><strong>Quartiles \(Q_1\) et \(Q_3\) :</strong> encadrent les 50 % centraux</li>
+    <li><strong>Écart interquartile :</strong> \(Q_3 - Q_1\)</li>
+  </ul>
+</div>
+
+<div class="nav-footer"><a href="lecon.html" class="nav-btn">Cours Ch03 →</a></div>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>

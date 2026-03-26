@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch05 – Activité – Équations du premier degré – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Équations du premier degré</h1>
+  <p class="sous-titre">Chapitre 5 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 35 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Découvrir la notion d'équation du premier degré à partir d'une situation concrète</li>
+    <li>Apprendre à traduire un problème professionnel en équation</li>
+    <li>Construire la méthode de résolution étape par étape</li>
+  </ul>
+</div>
+
+
+<!-- ======================================================= -->
+<!-- DOCUMENT D'ACCROCHE                                      -->
+<!-- ======================================================= -->
+<div class="situation">
+  <h2>Situation professionnelle — Atelier de menuiserie</h2>
+  <p><em>Artisan menuisier : Théo Rimbaud — entreprise <strong>Bois &amp; Agencement 33</strong>, Bordeaux.</em></p>
+
+  <p>
+    Théo reçoit une commande pour fabriquer des <strong>étagères murales en chêne</strong> dans une chambre.
+    Il dispose d'une planche de chêne brut de <strong>240 cm</strong> de longueur.
+  </p>
+
+  <p>Dans cette planche, il doit découper :</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Pièce</th>
+        <th>Quantité</th>
+        <th>Longueur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Étagères identiques</td>
+        <td style="text-align:center">4</td>
+        <td><strong>? cm</strong> (longueur à trouver)</td>
+      </tr>
+      <tr>
+        <td>Tasseau de renfort</td>
+        <td style="text-align:center">1</td>
+        <td>30 cm</td>
+      </tr>
+      <tr>
+        <td>Chute (déchet inévitable)</td>
+        <td style="text-align:center">—</td>
+        <td>18 cm</td>
+      </tr>
+      <tr style="font-weight:700;background:#dbeafe">
+        <td>Total utilisé</td>
+        <td style="text-align:center">—</td>
+        <td>240 cm</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:12px">
+    <strong>Théo se demande :</strong> quelle doit être la longueur de chaque étagère pour utiliser exactement toute la planche ?
+  </p>
+</div>
+
+
+<!-- ======================================================= -->
+<!-- QUESTIONS                                                -->
+<!-- ======================================================= -->
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-blue">APP</span></h2>
+  <p>Lis attentivement le document d'atelier.</p>
+  <ol type="a">
+    <li>Quelle est la longueur totale de la planche ?</li>
+    <li>Combien d'étagères Théo doit-il découper ?</li>
+    <li>Quelles longueurs sont déjà connues ? Lesquelles restent à trouver ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>La planche mesure <strong>240 cm</strong>.</li>
+      <li>Théo doit découper <strong>4 étagères</strong> identiques.</li>
+      <li>
+        Longueurs connues : tasseau (30 cm) et chute (18 cm).<br>
+        Longueur inconnue : celle de chaque étagère.
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-blue">APP</span></h2>
+  <p>On note \(x\) la longueur (en cm) d'une étagère.</p>
+  <ol type="a">
+    <li>Pourquoi dit-on que \(x\) est une <strong>inconnue</strong> ?</li>
+    <li>Les 4 étagères font chacune \(x\) cm. Quelle est la longueur totale occupée par les 4 étagères (en fonction de \(x\)) ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(x\) est une inconnue car c'est la quantité qu'on cherche — on ne la connaît pas encore.</li>
+      <li>Les 4 étagères occupent \(4 \times x = 4x\) cm.</li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>La planche est entièrement utilisée. On peut écrire :</p>
+  <p style="text-align:center;padding:10px;background:#f8fafc;border-radius:8px;font-size:1.02em">
+    (longueur des étagères) + (longueur du tasseau) + (chute) = (longueur de la planche)
+  </p>
+  <ol type="a">
+    <li>Remplace chaque terme par sa valeur ou son expression en \(x\).</li>
+    <li>Écris l'égalité obtenue.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>
+        Longueur des étagères : \(4x\) &nbsp;—&nbsp;
+        Longueur du tasseau : \(30\) &nbsp;—&nbsp;
+        Chute : \(18\) &nbsp;—&nbsp;
+        Longueur de la planche : \(240\)
+      </li>
+      <li>
+        L'égalité est : \(\quad 4x + 30 + 18 = 240\)
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>L'égalité \(4x + 30 + 18 = 240\) peut se simplifier.</p>
+  <ol type="a">
+    <li>Calcule \(30 + 18\).</li>
+    <li>Réécris l'équation sous la forme \(4x + \ldots = 240\).</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(30 + 18 = 48\)</li>
+      <li>L'équation simplifiée est : \(\quad 4x + 48 = 240\)</li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>On veut résoudre \(4x + 48 = 240\) pour trouver \(x\).</p>
+  <p><em>Principe : on peut effectuer la même opération des deux côtés d'une égalité sans changer la solution.</em></p>
+  <ol type="a">
+    <li>Soustrais 48 des deux membres. Réécris l'équation obtenue.</li>
+    <li>Divise les deux membres par 4. Quelle est la valeur de \(x\) ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>
+        \(4x + 48 - 48 = 240 - 48\)<br>
+        \(4x = 192\)
+      </li>
+      <li>
+        \(x = \dfrac{192}{4} = 48\) &nbsp;→&nbsp; la longueur d'une étagère est <strong>48 cm</strong>.
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-green">VAL</span></h2>
+  <p>On a trouvé \(x = 48\). Vérifions.</p>
+  <ol type="a">
+    <li>Remplace \(x\) par 48 dans l'expression \(4x + 48\). Que trouves-tu ?</li>
+    <li>Ce résultat est-il égal à 240 ? Que peut-on conclure ?</li>
+    <li>Réponds à la question de Théo en une phrase complète avec l'unité.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(4 \times 48 + 48 = 192 + 48 = 240\) ✔</li>
+      <li>On retrouve bien 240 cm. La solution est correcte.</li>
+      <li><strong>Chaque étagère doit mesurer 48 cm.</strong></li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 7 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>
+    Théo reçoit une deuxième commande. Cette fois, la planche fait <strong>3 m</strong>.
+    Il doit y découper <strong>5 étagères identiques</strong>, un tasseau de <strong>40 cm</strong>,
+    et la chute sera de <strong>20 cm</strong>.
+  </p>
+  <div class="meth"><strong>Rappel :</strong> 3 m = 300 cm</div>
+  <ol type="a">
+    <li>Écris l'équation en posant \(x\) = longueur d'une étagère (en cm).</li>
+    <li>Résous cette équation.</li>
+    <li>Vérifie la solution et conclus en phrase.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>Équation : \(5x + 40 + 20 = 300\), soit \(5x + 60 = 300\)</li>
+      <li>
+        \(5x = 300 - 60 = 240\)<br>
+        \(x = \dfrac{240}{5} = 48\) cm
+      </li>
+      <li>
+        Vérification : \(5 \times 48 + 60 = 240 + 60 = 300\) ✔<br>
+        <strong>Chaque étagère mesure 48 cm.</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 8 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>
+    Un ébéniste achète plusieurs poignées de meuble à <strong>3,50 € pièce</strong>.
+    Les frais de port s'élèvent à <strong>8 €</strong>.
+    Il a payé <strong>57,50 €</strong> en tout.
+  </p>
+  <ol type="a">
+    <li>Quelle est l'inconnue ? Nomme-la et précise son unité.</li>
+    <li>Écris l'équation correspondant à la situation.</li>
+    <li>Résous l'équation et conclus.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(x\) = nombre de poignées achetées (sans unité, c'est un nombre entier).</li>
+      <li>Équation : \(3{,}50x + 8 = 57{,}50\)</li>
+      <li>
+        \(3{,}50x = 57{,}50 - 8 = 49{,}50\)<br>
+        \(x = \dfrac{49{,}50}{3{,}50} = 14{,}14\ldots\)<br>
+        Comme le nombre de poignées est un <strong>entier</strong> : l'ébéniste a acheté <strong>14 poignées</strong>.
+      </li>
+    </ol>
+    <div class="att" style="margin-top:8px">
+      <strong>Attention :</strong> on arrondit à l'entier inférieur car on ne peut pas acheter une demi-poignée. Il faut toujours interpréter la solution selon le contexte.
+    </div>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 9 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Parmi les égalités suivantes, entoure celles qui sont des équations du premier degré :</p>
+  <div class="grid2" style="gap:10px;margin:12px 0">
+    <div style="background:#f8fafc;padding:10px;border-radius:8px;text-align:center">\(3x + 5 = 14\)</div>
+    <div style="background:#f8fafc;padding:10px;border-radius:8px;text-align:center">\(x^2 = 9\)</div>
+    <div style="background:#f8fafc;padding:10px;border-radius:8px;text-align:center">\(2x - 7 = x + 1\)</div>
+    <div style="background:#f8fafc;padding:10px;border-radius:8px;text-align:center">\(\dfrac{1}{x} = 4\)</div>
+    <div style="background:#f8fafc;padding:10px;border-radius:8px;text-align:center">\(5x = 0\)</div>
+    <div style="background:#f8fafc;padding:10px;border-radius:8px;text-align:center">\(x^2 + x = 3\)</div>
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p>Sont des équations du <strong>premier degré</strong> (l'inconnue apparaît seulement à la puissance 1) :</p>
+    <ul>
+      <li>\(3x + 5 = 14\) ✔</li>
+      <li>\(2x - 7 = x + 1\) ✔</li>
+      <li>\(5x = 0\) ✔</li>
+    </ul>
+    <p>Ne sont <em>pas</em> du premier degré :</p>
+    <ul>
+      <li>\(x^2 = 9\) — degré 2 (présence de \(x^2\))</li>
+      <li>\(\dfrac{1}{x} = 4\) — \(x\) est au dénominateur (degré −1)</li>
+      <li>\(x^2 + x = 3\) — degré 2</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="exo">
+  <h2>Question 10 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>À partir de ce que tu viens de découvrir dans cette activité, complète le résumé suivant :</p>
+  <blockquote style="background:#f8fafc;border-left:4px solid var(--p);padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;line-height:2">
+    Une <strong>équation du premier degré</strong> est une égalité qui contient une inconnue
+    (notée ____) apparaissant seulement au degré ____.<br>
+    Pour la résoudre, on effectue les mêmes <strong>____</strong> de chaque côté pour isoler ____.<br>
+    On <strong>vérifie</strong> en remplaçant \(x\) par la valeur trouvée dans ____.<br>
+    On conclut toujours en <strong>phrase complète</strong> avec l'<strong>____</strong>.
+  </blockquote>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    Une <strong>équation du premier degré</strong> est une égalité qui contient une inconnue
+    (notée <strong>\(x\)</strong>) apparaissant seulement au degré <strong>1</strong>.<br>
+    Pour la résoudre, on effectue les mêmes <strong>opérations</strong> de chaque côté pour isoler <strong>\(x\)</strong>.<br>
+    On vérifie en remplaçant \(x\) par la valeur trouvée dans <strong>l'équation de départ</strong>.<br>
+    On conclut toujours en <strong>phrase complète</strong> avec l'<strong>unité</strong>.
+  </div>
+</div>
+
+
+<!-- ======================================================= -->
+<!-- SYNTHÈSE                                                 -->
+<!-- ======================================================= -->
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+
+  <h3 style="margin-top:14px;color:#1e3a8a">Équation du premier degré</h3>
+  <p>
+    Une <strong>équation du premier degré</strong> est une égalité de la forme \(ax + b = c\)
+    où \(x\) est l'inconnue apparaissant seulement à la puissance 1.
+  </p>
+
+  <h3 style="color:#1e3a8a">Les 5 étapes pour résoudre un problème</h3>
+  <ol style="padding-left:18px;margin:4px 0">
+    <li><strong>Nommer l'inconnue :</strong> choisir une lettre (\(x\)) et préciser ce qu'elle représente.</li>
+    <li><strong>Écrire l'équation :</strong> traduire la situation concrète par une égalité.</li>
+    <li><strong>Résoudre :</strong> isoler \(x\) en effectuant les mêmes opérations des deux côtés.</li>
+    <li><strong>Vérifier :</strong> remplacer \(x\) par la valeur trouvée dans l'équation de départ.</li>
+    <li><strong>Conclure :</strong> répondre en phrase complète avec l'unité.</li>
+  </ol>
+</div>
+
+
+<!-- NAVIGATION -->
+<div class="nav-footer">
+  <a href="lecon.html" class="nav-btn">Cours Ch05 →</a>
+</div>
+
+</div><!-- fin .c -->
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>

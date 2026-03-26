@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ch08 – Activité – Fonction linéaire et proportionnalité – 2nde MAMA</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#0056b3;--p-bg:#ebf5ff;--p-border:#bee3f8}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-2nde-mama.html" class="nb">← RETOUR SOMMAIRE</a>
+
+<header>
+  <h1>Activité — Fonction linéaire et proportionnalité</h1>
+  <p class="sous-titre">Chapitre 8 &nbsp;|&nbsp; Seconde Bac Pro &nbsp;|&nbsp; Mathématiques &nbsp;|&nbsp; ⏱ 30 min</p>
+</header>
+
+<div class="objectifs">
+  <strong>Objectifs :</strong>
+  <ul>
+    <li>Reconnaître une fonction linéaire \(f(x) = kx\) dans une situation de proportionnalité</li>
+    <li>Identifier le coefficient \(k\) et l'interpréter</li>
+    <li>Calculer des images et antécédents, compléter un tableau, lire un graphique</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h2>Situation professionnelle — Achat de moulures bois</h2>
+  <p><em>Menuisier agenceur : Julien Serre — atelier <strong>Mén'Art</strong>, Montauban.</em></p>
+
+  <p>Julien achète des moulures bois pour encadrer des panneaux. Le prix est de <strong>8 € par mètre linéaire</strong>.</p>
+
+  <table>
+    <thead><tr><th>Longueur \(x\) (m)</th><th>1</th><th>2</th><th>5</th><th>10</th><th>15</th></tr></thead>
+    <tbody>
+      <tr><td>Prix \(f(x)\) (€)</td><td>8</td><td>16</td><td>40</td><td>80</td><td>120</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="exo">
+  <h2>Question 1 &nbsp;<span class="badge-blue">APP</span></h2>
+  <ol type="a">
+    <li>Quel est le prix pour 1 m de moulure ? Pour 2 m ? Pour 5 m ?</li>
+    <li>Calcule le rapport \(\dfrac{\text{prix}}{x}\) pour chacune des valeurs du tableau. Que remarques-tu ?</li>
+    <li>Quel est le <strong>coefficient de proportionnalité</strong> \(k\) ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>1 m → 8 € ; 2 m → 16 € ; 5 m → 40 €.</li>
+      <li>\(\dfrac{8}{1} = \dfrac{16}{2} = \dfrac{40}{5} = \dfrac{80}{10} = \dfrac{120}{15} = 8\) — le rapport est toujours <strong>constant</strong>.</li>
+      <li>\(k = 8\,€/\text{m}\)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 2 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>On note \(f(x)\) le prix en euros pour \(x\) mètres de moulure.</p>
+  <ol type="a">
+    <li>Écris la formule de \(f(x)\).</li>
+    <li>Cette fonction passe-t-elle par l'origine (point (0 ; 0)) ? Calcule \(f(0)\) pour vérifier.</li>
+    <li>En quoi cette fonction est-elle différente du tarif \(g(x) = 8x + 30\) (avec forfait de 30 €) ?</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(f(x) = 8x\)</li>
+      <li>\(f(0) = 8 \times 0 = 0\) ✔ — oui, la droite passe par l'origine. Aucune moulure = aucun coût.</li>
+      <li>\(g(x) = 8x + 30\) est une <strong>fonction affine</strong> (pas linéaire) : elle a un forfait fixe de 30 €. \(g(0) = 30 \neq 0\). La droite ne passe pas par l'origine.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 3 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Complète le tableau de valeurs de \(f(x) = 8x\) :</p>
+  <table>
+    <thead><tr><th>\(x\) (m)</th><th>0</th><th>3</th><th>7</th><th>12</th><th>20</th><th>25</th></tr></thead>
+    <tbody><tr><td>\(f(x)\) (€)</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr></tbody>
+  </table>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <table>
+      <thead><tr><th>\(x\)</th><th>0</th><th>3</th><th>7</th><th>12</th><th>20</th><th>25</th></tr></thead>
+      <tbody><tr><td>\(f(x)\)</td><td>0</td><td>24</td><td>56</td><td>96</td><td>160</td><td>200</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 4 &nbsp;<span class="badge-green">REA</span></h2>
+  <p>Julien a un budget de <strong>136 €</strong> pour les moulures. Combien de mètres peut-il acheter au maximum ?</p>
+  <ol type="a">
+    <li>Écris l'équation à résoudre : \(f(x) = \ldots\)</li>
+    <li>Résous cette équation pour trouver \(x\).</li>
+    <li>Ce \(x\) s'appelle l'<strong>antécédent</strong> de 136 par \(f\). Explique ce mot.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(f(x) = 136\), soit \(8x = 136\)</li>
+      <li>\(x = \dfrac{136}{8} = 17\,\text{m}\)</li>
+      <li>L'antécédent de 136 par \(f\) est la longueur qui coûte exactement 136 €. Ici, <strong>17 m</strong> est l'antécédent de 136.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 5 &nbsp;<span class="badge-blue">ANA</span></h2>
+  <p>Un fournisseur concurrent propose des moulures à 6,50 €/m (pas de forfait).</p>
+  <p>On note \(g(x) = 6{,}50x\) son tarif.</p>
+  <ol type="a">
+    <li>Calcule \(f(20)\) et \(g(20)\). Lequel est moins cher pour 20 m ?</li>
+    <li>Est-ce toujours le même qui est moins cher, quelle que soit la longueur ? Justifie.</li>
+  </ol>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <ol type="a">
+      <li>\(f(20) = 8 \times 20 = 160\,€\) — \(g(20) = 6{,}50 \times 20 = 130\,€\) → le <strong>fournisseur concurrent est moins cher</strong>.</li>
+      <li>Comme \(6{,}50 < 8\), pour toute longueur \(x > 0\) : \(g(x) < f(x)\). Le concurrent est <strong>toujours moins cher</strong> (il n'y a pas de point d'intersection, les deux droites passent par l'origine avec des pentes différentes).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="exo">
+  <h2>Question 6 &nbsp;<span class="badge-yellow">COM</span></h2>
+  <p>Complète le résumé :</p>
+  <blockquote style="background:#f8fafc;border-left:4px solid var(--p);padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;line-height:2.1">
+    La <strong>fonction linéaire</strong> est de la forme \(f(x) = \)____.<br>
+    Son coefficient \(k\) est le <strong>____</strong> de proportionnalité.<br>
+    Sa courbe représentative est une <strong>droite passant par l'____</strong>.<br>
+    Si \(k > 0\), la fonction est ____. Si \(k < 0\), elle est ____.
+  </blockquote>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    La fonction linéaire est \(f(x) = \mathbf{kx}\).<br>
+    \(k\) est le <strong>coefficient</strong> de proportionnalité.<br>
+    Sa courbe est une droite passant par l'<strong>origine</strong>.<br>
+    Si \(k > 0\) : <strong>croissante</strong>. Si \(k < 0\) : <strong>décroissante</strong>.
+  </div>
+</div>
+
+<div class="retenir">
+  <strong>À retenir — Ce que tu as découvert dans cette activité</strong>
+  <h3 style="margin-top:14px;color:#1e3a8a">Fonction linéaire \(f(x) = kx\)</h3>
+  <ul style="padding-left:18px;margin:4px 0">
+    <li>\(k\) = coefficient de proportionnalité = coefficient directeur</li>
+    <li>La courbe est une <strong>droite passant par l'origine</strong></li>
+    <li>\(f(0) = 0\) toujours</li>
+    <li>Si \(k > 0\) → croissante ; si \(k < 0\) → décroissante</li>
+  </ul>
+  <h3 style="color:#1e3a8a">Différence avec la fonction affine</h3>
+  <p>La fonction linéaire \(f(x) = kx\) est un cas particulier de la fonction affine \(f(x) = ax + b\) avec \(b = 0\). Elle passe par l'origine — la fonction affine non (si \(b \neq 0\)).</p>
+</div>
+
+<div class="nav-footer"><a href="lecon.html" class="nav-btn">Cours Ch08 →</a></div>
+</div>
+<script src="../../../nav.js"></script>
+<script>
+function toggle(btn){
+  var corr=btn.nextElementSibling;
+  if(corr.style.display==='block'){corr.style.display='none';btn.textContent='Voir la correction';}
+  else{corr.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
+</body>
+</html>
