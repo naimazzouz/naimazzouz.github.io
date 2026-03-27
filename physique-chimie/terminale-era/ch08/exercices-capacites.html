@@ -45,6 +45,30 @@
   \(L = 10 \log\!\left(\dfrac{I}{I_0}\right)\) (en dB)<br>
   \(I_0 = 10^{-12}\) W/m² (seuil d'audition) — \(I\) : intensité sonore (W/m²)<br>
   Propriétés : doubler \(I\) → +3 dB ; multiplier \(I\) par 10 → +10 dB
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="320" height="80" viewBox="0 0 320 80">
+      <rect width="320" height="80" fill="#f8fafc" rx="6"/>
+      <rect x="20" y="15" width="280" height="22" rx="4" fill="#d1fae5"/>
+      <rect x="170" y="15" width="60" height="22" fill="#fef3c7"/>
+      <rect x="230" y="15" width="70" height="22" rx="0 4 4 0" fill="#fee2e2"/>
+      <line x1="170" y1="13" x2="170" y2="40" stroke="#d97706" stroke-width="2"/>
+      <line x1="230" y1="13" x2="230" y2="40" stroke="#c53030" stroke-width="2"/>
+      <text x="20" y="50" font-size="8" fill="#333">0 dB</text>
+      <text x="65" y="50" font-size="8" fill="#333">30</text>
+      <text x="105" y="50" font-size="8" fill="#333">60</text>
+      <text x="165" y="50" font-size="8" fill="#d97706" font-weight="bold">85</text>
+      <text x="225" y="50" font-size="8" fill="#c53030" font-weight="bold">120</text>
+      <text x="285" y="50" font-size="8" fill="#333">140</text>
+      <text x="70" y="10" font-size="8" fill="#2f855a">Confort</text>
+      <text x="170" y="10" font-size="8" fill="#d97706">Danger</text>
+      <text x="245" y="10" font-size="8" fill="#c53030">Douleur</text>
+      <text x="30" y="68" font-size="7" fill="#555">Chuchotement</text>
+      <text x="90" y="68" font-size="7" fill="#555">Conversation</text>
+      <text x="165" y="68" font-size="7" fill="#555">Scie</text>
+      <text x="235" y="68" font-size="7" fill="#555">Marteau-piqueur</text>
+    </svg>
+    <figcaption style="font-size:.85em;color:#555;margin-top:2px">Échelle des niveaux sonores — seuils de dangerosité et de douleur</figcaption>
+  </figure>
 </div>
 
 <div class="exo">
@@ -100,6 +124,25 @@
   <strong>Affaiblissement acoustique</strong> \(R\) (en dB) :<br>
   \(L_{\text{transmis}} = L_{\text{incident}} - R\)<br>
   Plus \(R\) est élevé, meilleure est l'isolation. Les normes imposent des \(R_w\) minimaux selon les usages.
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="300" height="100" viewBox="0 0 300 100">
+      <rect width="300" height="100" fill="#f8fafc" rx="6"/>
+      <!-- Cloison -->
+      <rect x="130" y="10" width="40" height="80" fill="#d1d5db" stroke="#6b7280" stroke-width="2" rx="2"/>
+      <text x="137" y="55" font-size="9" fill="#333" font-weight="bold">Cloison</text>
+      <!-- Onde incidente -->
+      <path d="M 20,50 Q 40,30 60,50 Q 80,70 100,50 Q 110,40 120,50" fill="none" stroke="#0056b3" stroke-width="2"/>
+      <polygon points="120,47 128,50 120,53" fill="#0056b3"/>
+      <text x="45" y="25" font-size="10" fill="#0056b3" font-weight="bold">L₁ = 90 dB</text>
+      <!-- Onde transmise (plus petite) -->
+      <path d="M 180,50 Q 195,42 210,50 Q 225,58 240,50 Q 250,45 260,50" fill="none" stroke="#c53030" stroke-width="1.5"/>
+      <polygon points="260,47 268,50 260,53" fill="#c53030"/>
+      <text x="195" y="25" font-size="10" fill="#c53030" font-weight="bold">L₂ = 50 dB</text>
+      <!-- R -->
+      <text x="135" y="98" font-size="10" fill="#6b7280" font-weight="bold">R = 40 dB</text>
+    </svg>
+    <figcaption style="font-size:.85em;color:#555;margin-top:2px">Atténuation d'une cloison : L₂ = L₁ − R</figcaption>
+  </figure>
 </div>
 
 <div class="exo">
@@ -201,6 +244,30 @@
   <strong>Absorption acoustique :</strong> absorber l'énergie sonore à l'intérieur d'une pièce (réduire la réverbération).<br>
   → Matériaux poreux (laine minérale, mousse, tissu).<br>
   Ces deux actions sont complémentaires et non interchangeables.
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="320" height="110" viewBox="0 0 320 110">
+      <rect width="320" height="110" fill="#f8fafc" rx="6"/>
+      <!-- Isolation (gauche) -->
+      <rect x="10" y="8" width="140" height="92" rx="6" fill="#dbeafe" stroke="#0056b3" stroke-width="1.5"/>
+      <text x="80" y="22" font-size="10" fill="#0056b3" font-weight="bold" text-anchor="middle">ISOLATION</text>
+      <rect x="60" y="35" width="15" height="50" fill="#9ca3af" stroke="#6b7280" stroke-width="1"/>
+      <path d="M 25,60 Q 35,50 45,60 Q 50,55 55,60" fill="none" stroke="#333" stroke-width="1.5"/>
+      <polygon points="55,57 60,60 55,63" fill="#333"/>
+      <line x1="80" y1="60" x2="100" y2="60" stroke="#c53030" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="90" y="54" font-size="7" fill="#c53030">bloqué</text>
+      <text x="80" y="95" font-size="8" fill="#555" text-anchor="middle">Empêche la transmission</text>
+      <!-- Absorption (droite) -->
+      <rect x="170" y="8" width="140" height="92" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="240" y="22" font-size="10" fill="#d97706" font-weight="bold" text-anchor="middle">ABSORPTION</text>
+      <rect x="185" y="35" width="40" height="50" fill="#fde68a" stroke="#d97706" stroke-width="1" rx="3"/>
+      <text x="205" y="63" font-size="7" fill="#92400e" text-anchor="middle">mousse</text>
+      <path d="M 235,50 Q 245,45 255,50" fill="none" stroke="#333" stroke-width="1.5"/>
+      <path d="M 235,65 Q 245,60 255,65" fill="none" stroke="#888" stroke-width="1"/>
+      <text x="260" y="55" font-size="7" fill="#555">écho réduit</text>
+      <text x="240" y="95" font-size="8" fill="#555" text-anchor="middle">Réduit la réverbération</text>
+    </svg>
+    <figcaption style="font-size:.85em;color:#555;margin-top:2px">Isolation (bloquer la transmission) vs Absorption (réduire l'écho)</figcaption>
+  </figure>
 </div>
 
 <div class="exo">
