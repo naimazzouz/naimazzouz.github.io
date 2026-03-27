@@ -321,6 +321,101 @@
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Conversion m/s &harr; m/min (guid&eacute;)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  Convertir les vitesses de coupe suivantes :<br><br>
+  <strong>a)</strong> \(V_c = 50\) m/s = \(50 \times \ldots = \ldots\) m/min<br>
+  <strong>b)</strong> \(V_c = 3\,000\) m/min = \(3\,000 \div \ldots = \ldots\) m/s<br>
+  <strong>c)</strong> \(V_c = 40\) m/s = \(\ldots\) m/min<br>
+  <strong>d)</strong> \(V_c = 4\,200\) m/min = \(\ldots\) m/s
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    a) \(50 \times 60 = 3\,000\) m/min<br>
+    b) \(3\,000 \div 60 = 50\) m/s<br>
+    c) \(40 \times 60 = 2\,400\) m/min<br>
+    d) \(4\,200 \div 60 = 70\) m/s
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Lire une plaque de machine (guid&eacute;)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  La plaque signal&eacute;tique d'une toupie indique les vitesses de broche suivantes : 3&nbsp;000 / 4&nbsp;500 / 6&nbsp;000 / 8&nbsp;000 tr/min. L'outil mont&eacute; a un diam&egrave;tre D = 120 mm.<br><br>
+  <!-- SVG plaque -->
+  <div class="svg-wrap" style="margin:.8rem 0">
+  <svg width="260" height="90" viewBox="0 0 260 90" style="max-width:100%;font-family:sans-serif;font-size:11px">
+    <rect x="2" y="2" width="256" height="86" rx="6" fill="#f8f8f8" stroke="#333" stroke-width="2"/>
+    <text x="130" y="20" text-anchor="middle" font-weight="bold" fill="#333" font-size="12">TOUPIE T45</text>
+    <text x="130" y="38" text-anchor="middle" fill="#555">Vitesses broche (tr/min) :</text>
+    <text x="130" y="58" text-anchor="middle" font-weight="bold" fill="#2da44e" font-size="13">3 000 &mdash; 4 500 &mdash; 6 000 &mdash; 8 000</text>
+    <text x="130" y="78" text-anchor="middle" fill="#555">Outil mont&eacute; : &oslash; 120 mm</text>
+  </svg>
+  </div>
+  <strong>1.</strong> Calculer \(V_c\) en m/min pour chaque vitesse de broche.<br>
+  <strong>2.</strong> Convertir en m/s.<br>
+  <strong>3.</strong> Le fabricant de l'outil recommande \(V_c\) entre 40 et 60 m/s pour le h&ecirc;tre. Quelle vitesse de broche choisir ?
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. et 2.<br>
+    &bull; 3&nbsp;000 tr/min : \(V_c = 3{,}14 \times 120 \times 3\,000 / 1\,000 = 1\,131\) m/min = 18,8 m/s<br>
+    &bull; 4&nbsp;500 tr/min : \(V_c = 1\,696\) m/min = 28,3 m/s<br>
+    &bull; 6&nbsp;000 tr/min : \(V_c = 2\,262\) m/min = 37,7 m/s<br>
+    &bull; 8&nbsp;000 tr/min : \(V_c = 3\,016\) m/min = 50,3 m/s<br><br>
+    3. Seule <strong>8&nbsp;000 tr/min</strong> (50,3 m/s) est dans la plage 40&ndash;60 m/s.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Usure de lame &mdash; cons&eacute;quence d'une mauvaise Vc</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  Un menuisier d&eacute;bite du m&eacute;lamin&eacute; avec une scie &agrave; format (&oslash; 300 mm) r&eacute;gl&eacute;e &agrave; 6&nbsp;000 tr/min. La \(V_c\) recommand&eacute;e pour le m&eacute;lamin&eacute; est de 40 &agrave; 60 m/s.<br><br>
+  <strong>1.</strong> Calculer la \(V_c\) r&eacute;elle.<br>
+  <strong>2.</strong> Est-elle dans la plage recommand&eacute;e ?<br>
+  <strong>3.</strong> Le menuisier constate des &eacute;clats sur les chants du panneau. Expliquer la cause et proposer une solution (calcul &agrave; l'appui).
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(V_c = 3{,}14 \times 300 \times 6\,000 / (1\,000 \times 60) = 94{,}2\) m/s<br>
+    2. 94,2 m/s est <strong>largement au-dessus</strong> de la plage (40&ndash;60 m/s).<br>
+    3. La vitesse excessive provoque des <strong>&eacute;clats</strong> (le mat&eacute;riau n'a pas le temps d'&ecirc;tre coup&eacute; proprement). Solution : r&eacute;duire la vitesse. Pour \(V_c = 50\) m/s : \(n = 1\,000 \times 3\,000 / (3{,}14 \times 300) = 3\,185\) tr/min. R&eacute;gler sur <strong>3&nbsp;000 tr/min</strong>.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Vitesse d'avance et &eacute;tat de surface</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  La <strong>vitesse d'avance</strong> \(V_f\) (en m/min) d&eacute;pend de la fr&eacute;quence de rotation, du nombre de dents Z et de l'avance par dent \(f_z\) (en mm) :<br>
+  \[ V_f = \frac{n \times Z \times f_z}{1\,000} \]
+  Un menuisier utilise une scie &agrave; format (&oslash; 300 mm, Z = 60 dents, \(f_z = 0{,}05\) mm/dent) pour d&eacute;biter du MDF. La machine tourne &agrave; 4&nbsp;000 tr/min.<br><br>
+  <strong>1.</strong> Calculer la vitesse de coupe \(V_c\) en m/s. Est-elle dans la plage recommand&eacute;e (50&ndash;70 m/s) ?<br>
+  <strong>2.</strong> Calculer la vitesse d'avance \(V_f\) en m/min.<br>
+  <strong>3.</strong> L'op&eacute;rateur double la vitesse d'avance (\(f_z = 0{,}10\) mm/dent). Que devient \(V_f\) ? Quel est l'impact sur l'&eacute;tat de surface ?<br>
+  <strong>4.</strong> Pour garder le m&ecirc;me &eacute;tat de surface (\(f_z = 0{,}05\) mm/dent) tout en doublant le d&eacute;bit, que faudrait-il modifier ?
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(V_c = 3{,}14 \times 300 \times 4\,000 / 60\,000 = 62{,}8\) m/s &rarr; <strong>dans la plage</strong> (50&ndash;70).<br>
+    2. \(V_f = 4\,000 \times 60 \times 0{,}05 / 1\,000 = 12\) m/min<br>
+    3. \(V_f = 4\,000 \times 60 \times 0{,}10 / 1\,000 = 24\) m/min. L'&eacute;tat de surface sera <strong>plus rugueux</strong> (chaque dent enl&egrave;ve plus de mati&egrave;re, les marques d'usinage sont plus espac&eacute;es).<br>
+    4. Pour garder \(f_z = 0{,}05\) mm et doubler \(V_f\), il faut doubler \(n\) (8&nbsp;000 tr/min) — mais il faut v&eacute;rifier que la \(V_c\) reste acceptable : \(V_c = 3{,}14 \times 300 \times 8\,000 / 60\,000 = 125{,}7\) m/s &rarr; <strong>beaucoup trop &eacute;lev&eacute;</strong>. Autre solution : utiliser une lame avec <strong>plus de dents</strong> (Z = 120) &agrave; la m&ecirc;me vitesse de rotation.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
 </div>
 <script src="../nav.js"></script>
 <script src="../diff.js"></script>

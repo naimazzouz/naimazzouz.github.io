@@ -356,6 +356,107 @@
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Vrai ou faux &mdash; transferts thermiques (guid&eacute;)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  Indiquer si chaque affirmation est <strong>vraie</strong> ou <strong>fausse</strong>. Corriger les affirmations fausses.<br><br>
+  <strong>a)</strong> La chaleur se propage du corps froid vers le corps chaud.<br>
+  <strong>b)</strong> La convection concerne les solides.<br>
+  <strong>c)</strong> Le rayonnement peut se propager dans le vide.<br>
+  <strong>d)</strong> Un bon isolant a une conductivit&eacute; \(\lambda\) &eacute;lev&eacute;e.<br>
+  <strong>e)</strong> Plus U est faible, plus la paroi est isolante.
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    a) <strong>Faux</strong> : la chaleur va toujours du corps <strong>chaud vers le corps froid</strong>.<br>
+    b) <strong>Faux</strong> : la convection concerne les <strong>fluides</strong> (air, eau).<br>
+    c) <strong>Vrai</strong> : le rayonnement se propage par ondes, m&ecirc;me dans le vide.<br>
+    d) <strong>Faux</strong> : un bon isolant a \(\lambda\) <strong>faible</strong> (ex. laine de verre : 0,035).<br>
+    e) <strong>Vrai</strong> : U faible &rarr; peu de chaleur traverse &rarr; bonne isolation.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Calcul de flux &mdash; porte d'entr&eacute;e (guid&eacute;)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <!-- SVG porte -->
+  <div class="svg-wrap" style="margin:.5rem 0">
+  <svg width="140" height="180" viewBox="0 0 140 180" style="max-width:100%;font-family:sans-serif;font-size:11px">
+    <rect x="20" y="10" width="80" height="150" rx="3" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+    <circle cx="85" cy="90" r="5" fill="#92400e"/>
+    <text x="60" y="175" text-anchor="middle" fill="#0ea5e9" font-weight="bold" font-size="10">S = 2,1 m&sup2;</text>
+    <text x="60" y="7" text-anchor="middle" fill="#333" font-size="10">U = 1,8 W/(m&sup2;&middot;K)</text>
+  </svg>
+  </div>
+  Une porte d'entr&eacute;e en bois a les caract&eacute;ristiques suivantes : \(U = 1{,}8\) W/(m&sup2;&middot;K), \(S = 2{,}1\) m&sup2;.<br>
+  Temp&eacute;ratures : int&eacute;rieur 19 &deg;C, ext&eacute;rieur 3 &deg;C.<br><br>
+  <strong>&Eacute;tape 1 :</strong> \(\Delta T = \ldots - \ldots = \ldots\) &deg;C<br>
+  <strong>&Eacute;tape 2 :</strong> \(\Phi = U \times S \times \Delta T = \ldots \times \ldots \times \ldots = \ldots\) W
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    &Eacute;tape 1 : \(\Delta T = 19 - 3 = 16\) &deg;C<br>
+    &Eacute;tape 2 : \(\Phi = 1{,}8 \times 2{,}1 \times 16 = 60{,}5\) W
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">Impact de l'isolation sur une facture r&eacute;elle</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  Un menuisier agenceur r&eacute;alise l'habillage int&eacute;rieur d'un mur de 15 m&sup2; dans un restaurant. Avant travaux, le mur est en b&eacute;ton brut (\(U = 8{,}77\) W/(m&sup2;&middot;K)). Apr&egrave;s travaux, le doublage isolant ram&egrave;ne U &agrave; 0,30 W/(m&sup2;&middot;K).<br><br>
+  Conditions : \(\Delta T = 22\) &deg;C, chauffage 10 h/jour, 180 jours/an, &eacute;lectricit&eacute; 0,25 &euro;/kWh.<br><br>
+  <strong>1.</strong> Calculer \(\Phi\) avant et apr&egrave;s travaux.<br>
+  <strong>2.</strong> Calculer l'&eacute;nergie perdue par an (en kWh) dans les deux cas.<br>
+  <strong>3.</strong> Calculer l'&eacute;conomie annuelle sur la facture de chauffage.
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. Avant : \(\Phi = 8{,}77 \times 15 \times 22 = 2\,894\) W = 2,894 kW<br>
+    Apr&egrave;s : \(\Phi = 0{,}30 \times 15 \times 22 = 99\) W = 0,099 kW<br><br>
+    2. Avant : \(2{,}894 \times 10 \times 180 = 5\,209\) kWh/an<br>
+    Apr&egrave;s : \(0{,}099 \times 10 \times 180 = 178\) kWh/an<br><br>
+    3. &Eacute;conomie : \((5\,209 - 178) \times 0{,}25 = 1\,258\) &euro;/an
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Les trois modes dans un chantier d'agencement</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  Un technicien d'agencement intervient dans un b&acirc;timent neuf pour poser des cloisons et des faux-plafonds. L'architecte lui signale trois probl&egrave;mes thermiques :<br><br>
+  <strong>Probl&egrave;me A :</strong> Le sol en b&eacute;ton est tr&egrave;s froid en hiver. Les clients du magasin se plaignent d'avoir froid aux pieds, m&ecirc;me quand le chauffage est &agrave; 22 &deg;C.<br><br>
+  <strong>Probl&egrave;me B :</strong> La grande baie vitr&eacute;e orient&eacute;e sud surchauffe le magasin en &eacute;t&eacute;. La temp&eacute;rature atteint 35 &deg;C l'apr&egrave;s-midi.<br><br>
+  <strong>Probl&egrave;me C :</strong> L'air chaud s'accumule au plafond (sous la toiture en bac acier) tandis que le bas du magasin reste frais.<br><br>
+  <strong>1.</strong> Pour chaque probl&egrave;me, identifier le mode de transfert thermique principal en jeu.<br>
+  <strong>2.</strong> Pour chaque probl&egrave;me, proposer une solution technique que le menuisier agenceur peut mettre en &oelig;uvre.<br>
+  <strong>3.</strong> La baie vitr&eacute;e (probl&egrave;me B) mesure 8 m&sup2;, U = 1,1 W/(m&sup2;&middot;K). En &eacute;t&eacute;, \(T_{\text{ext}} = 35\) &deg;C et \(T_{\text{int}} = 25\) &deg;C souhait&eacute;. Calculer le flux thermique entrant. &Agrave; quelle puissance de climatisation minimale cela correspond-il (pour ce seul mur) ?
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1.<br>
+    A : <strong>Conduction</strong> (le froid du sol remonte par contact direct)<br>
+    B : <strong>Rayonnement</strong> (le soleil chauffe &agrave; travers la vitre par ondes infrarouges)<br>
+    C : <strong>Convection</strong> (l'air chaud, plus l&eacute;ger, monte au plafond)<br><br>
+    2.<br>
+    A : Poser un <strong>plancher sur lambourdes avec isolant</strong> (mousse rigide ou li&egrave;ge) pour couper la conduction du sol b&eacute;ton.<br>
+    B : Installer un <strong>film solaire</strong> ou un <strong>store ext&eacute;rieur</strong> (brise-soleil, pergola) pour bloquer le rayonnement avant qu'il n'entre.<br>
+    C : Installer un <strong>faux-plafond isolant</strong> &agrave; hauteur raisonnable (3 m) et/ou un <strong>d&eacute;stratificateur</strong> (ventilateur de plafond) pour rabattre l'air chaud.<br><br>
+    3. \(\Phi = 1{,}1 \times 8 \times (35 - 25) = 1{,}1 \times 8 \times 10 = 88\) W<br>
+    Il faut au minimum <strong>88 W de climatisation</strong> pour compenser le flux entrant par la baie vitr&eacute;e seule. En r&eacute;alit&eacute;, le rayonnement solaire direct ajoute plusieurs centaines de watts suppl&eacute;mentaires (le calcul par U ne prend en compte que la conduction).
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
 </div>
 <script src="../nav.js"></script>
 <script src="../diff.js"></script>

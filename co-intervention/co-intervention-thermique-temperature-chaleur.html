@@ -339,6 +339,107 @@
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 7</span>
+    <span class="exo-title">Thermom&egrave;tre de l'atelier (guid&eacute;)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  <!-- SVG thermomètre -->
+  <div class="svg-wrap" style="margin:.5rem 0">
+  <svg width="120" height="160" viewBox="0 0 120 160" style="max-width:100%;font-family:sans-serif;font-size:11px">
+    <rect x="45" y="10" width="16" height="120" rx="8" fill="#e0f2fe" stroke="#333" stroke-width="1.5"/>
+    <rect x="45" y="70" width="16" height="60" rx="0" fill="#dc2626"/>
+    <circle cx="53" cy="140" r="14" fill="#dc2626" stroke="#333" stroke-width="1.5"/>
+    <line x1="65" y1="30" x2="80" y2="30" stroke="#333" stroke-width="1"/><text x="83" y="34" fill="#333">40&deg;C</text>
+    <line x1="65" y1="50" x2="80" y2="50" stroke="#333" stroke-width="1"/><text x="83" y="54" fill="#333">30&deg;C</text>
+    <line x1="65" y1="70" x2="80" y2="70" stroke="#333" stroke-width="1"/><text x="83" y="74" fill="#2da44e" font-weight="bold">20&deg;C</text>
+    <line x1="65" y1="90" x2="80" y2="90" stroke="#333" stroke-width="1"/><text x="83" y="94" fill="#333">10&deg;C</text>
+    <line x1="65" y1="110" x2="80" y2="110" stroke="#333" stroke-width="1"/><text x="83" y="114" fill="#333">0&deg;C</text>
+  </svg>
+  </div>
+  Le thermom&egrave;tre de l'atelier indique 20 &deg;C.<br><br>
+  <strong>1.</strong> Convertir cette temp&eacute;rature en kelvins.<br>
+  <strong>2.</strong> La temp&eacute;rature ext&eacute;rieure est de &minus;3 &deg;C. Calculer \(\Delta T\) entre l'int&eacute;rieur et l'ext&eacute;rieur.<br>
+  <strong>3.</strong> La temp&eacute;rature de confort recommand&eacute;e en atelier est 18 &deg;C. L'atelier est-il suffisamment chauff&eacute; ?
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(T = 20 + 273 = 293\) K<br>
+    2. \(\Delta T = 20 - (-3) = 20 + 3 = 23\) &deg;C<br>
+    3. 20 &deg;C &gt; 18 &deg;C &rarr; <strong>oui</strong>, l'atelier est suffisamment chauff&eacute;.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-socle">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 8</span>
+    <span class="exo-title">Formule Q = mc&Delta;T &mdash; application directe (guid&eacute;)</span>
+    <span class="tag-socle">Socle</span>
+  </div>
+  On chauffe 2 kg d'aluminium (\(c = 900\) J/(kg&middot;&deg;C)) de 20 &deg;C &agrave; 80 &deg;C.<br><br>
+  <strong>&Eacute;tape 1 :</strong> Calculer \(\Delta T = \ldots - \ldots = \ldots\) &deg;C<br>
+  <strong>&Eacute;tape 2 :</strong> Appliquer \(Q = m \times c \times \Delta T = \ldots \times \ldots \times \ldots = \ldots\) J<br>
+  <strong>&Eacute;tape 3 :</strong> Convertir en kJ : \(Q = \ldots\) kJ
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    &Eacute;tape 1 : \(\Delta T = 80 - 20 = 60\) &deg;C<br>
+    &Eacute;tape 2 : \(Q = 2 \times 900 \times 60 = 108\,000\) J<br>
+    &Eacute;tape 3 : \(Q = 108\) kJ
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 9</span>
+    <span class="exo-title">S&eacute;chage du bois &mdash; &eacute;nergie thermique</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  Un s&eacute;choir &agrave; bois chauffe 500 kg de ch&ecirc;ne (\(c_{\text{bois}} = 1\,700\) J/(kg&middot;&deg;C)) de 15 &deg;C &agrave; 65 &deg;C pour acc&eacute;l&eacute;rer le s&eacute;chage.<br><br>
+  <strong>1.</strong> Calculer la quantit&eacute; de chaleur n&eacute;cessaire pour chauffer le bois.<br>
+  <strong>2.</strong> Convertir en kWh (1 kWh = 3&nbsp;600 kJ).<br>
+  <strong>3.</strong> Le s&eacute;choir &eacute;lectrique a une puissance de 15 kW. Combien de temps (en heures) faut-il pour atteindre la temp&eacute;rature de s&eacute;chage ?<br>
+  <strong>4.</strong> Calculer le co&ucirc;t &eacute;nerg&eacute;tique de cette mont&eacute;e en temp&eacute;rature (0,25 &euro;/kWh).
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(Q = 500 \times 1\,700 \times (65 - 15) = 500 \times 1\,700 \times 50 = 42\,500\,000\) J = 42&nbsp;500 kJ<br>
+    2. \(E = 42\,500 / 3\,600 = 11{,}81\) kWh<br>
+    3. \(t = E / P = 11{,}81 / 15 = 0{,}79\) h &asymp; <strong>47 min</strong><br>
+    4. Co&ucirc;t : \(11{,}81 \times 0{,}25 = 2{,}95\) &euro;
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
+<div class="exo diff-appro">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 10</span>
+    <span class="exo-title">Bilan thermique &mdash; chauffer l'air et les murs</span>
+    <span class="tag-appro">Approfondissement</span>
+  </div>
+  Un petit atelier (6 m &times; 4 m &times; 3 m) est chauff&eacute; de 5 &deg;C &agrave; 18 &deg;C. On tient compte de l'air <strong>et</strong> des murs en b&eacute;ton.<br><br>
+  Donn&eacute;es :<br>
+  &bull; Air : \(\rho = 1{,}2\) kg/m&sup3;, \(c = 1\,005\) J/(kg&middot;&deg;C)<br>
+  &bull; Murs b&eacute;ton : &eacute;paisseur 20 cm, surface totale 60 m&sup2;, \(\rho = 2\,300\) kg/m&sup3;, \(c = 880\) J/(kg&middot;&deg;C). On consid&egrave;re que seuls les 5 premiers cm du b&eacute;ton sont r&eacute;chauff&eacute;s.<br><br>
+  <strong>1.</strong> Calculer \(Q_{\text{air}}\) pour chauffer l'air du local.<br>
+  <strong>2.</strong> Calculer la masse de b&eacute;ton chauff&eacute;e (5 cm sur 60 m&sup2;).<br>
+  <strong>3.</strong> Calculer \(Q_{\text{b&eacute;ton}}\) pour chauffer cette masse de b&eacute;ton de 5 &deg;C &agrave; 18 &deg;C.<br>
+  <strong>4.</strong> Calculer \(Q_{\text{total}}\) et le rapport \(Q_{\text{b&eacute;ton}} / Q_{\text{air}}\). Que constatez-vous ?<br>
+  <strong>5.</strong> Un a&eacute;rotherme de 6 kW chauffe ce local. Calculer la dur&eacute;e de mise en temp&eacute;rature. Pourquoi est-elle bien plus longue que le calcul de l'air seul ?
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    1. Volume : \(6 \times 4 \times 3 = 72\) m&sup3;. Masse air : \(1{,}2 \times 72 = 86{,}4\) kg.<br>
+    \(Q_{\text{air}} = 86{,}4 \times 1\,005 \times 13 = 1\,129\,212\) J &asymp; 1&nbsp;129 kJ<br><br>
+    2. Volume b&eacute;ton : \(60 \times 0{,}05 = 3\) m&sup3;. Masse : \(2\,300 \times 3 = 6\,900\) kg.<br><br>
+    3. \(Q_{\text{b&eacute;ton}} = 6\,900 \times 880 \times 13 = 78\,936\,000\) J &asymp; 78&nbsp;936 kJ<br><br>
+    4. \(Q_{\text{total}} = 1\,129 + 78\,936 = 80\,065\) kJ. Rapport : \(78\,936 / 1\,129 = 69{,}9\).<br>
+    Le b&eacute;ton absorbe <strong>70 fois plus d'&eacute;nergie</strong> que l'air ! C'est l'<strong>inertie thermique</strong> du b&acirc;timent.<br><br>
+    5. \(t = 80\,065\,000 / 6\,000 = 13\,344\) s = <strong>3 h 42 min</strong>.<br>
+    C'est beaucoup plus long que les 3 min th&eacute;oriques pour l'air seul, car il faut aussi chauffer les murs. C'est pourquoi un b&acirc;timent isol&eacute; (qui r&eacute;duit la masse de b&eacute;ton &agrave; chauffer c&ocirc;t&eacute; int&eacute;rieur) se r&eacute;chauffe plus vite.
+  </div>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+</div>
+
 </div>
 <script src="../nav.js"></script>
 <script src="../diff.js"></script>
