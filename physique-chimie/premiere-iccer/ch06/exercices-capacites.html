@@ -320,7 +320,7 @@
     <li>Pourquoi fixe-t-on les bibliothèques au mur ?</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>La base de sustentation est le rectangle formé par les 4 pieds au sol : <strong>profondeur 40 cm × largeur du meuble</strong>.</li>
       <li>Le basculement se produit quand la verticale de G sort de la base. G est à 20 cm du bord avant. \(\tan(\alpha) = \frac{20}{100} = 0{,}2\) → \(\alpha = \arctan(0{,}2) \approx \mathbf{11°}\). Un faible angle suffit !</li>
@@ -338,7 +338,7 @@
     <li>Un technicien le pousse accidentellement. Calculer l'angle limite de basculement.</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>\(P = mg = 120 \times 9{,}81 = \mathbf{1\,177\ \text{N}}\)</li>
       <li>Rayon = 50/2 = <strong>25 cm</strong>. Base circulaire de rayon 25 cm.</li>
@@ -351,5 +351,17 @@
 
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>

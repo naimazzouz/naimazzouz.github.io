@@ -347,7 +347,7 @@
   <h3>Exercice 16</h3>
   <p>Un vase d'expansion de chauffage contient de l'air à \(P_1 = 1{,}5\) bar pour un volume \(V_1 = 8\) L. Lorsque l'eau chauffe, le volume d'air est comprimé à \(V_2 = 5\) L. Calculer la nouvelle pression.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(P_1 V_1 = P_2 V_2\) → \(P_2 = \frac{P_1 V_1}{V_2} = \frac{1{,}5 \times 8}{5} = \mathbf{2{,}4\ \text{bar}}\)<br>
     La pression augmente car le volume diminue (compression).
   </div>
@@ -367,7 +367,7 @@
     <li>Si on comprime à V = 25 mL, prévoir la pression.</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>P×V : 10 000 ; 10 000 ; 10 020 ; 10 000 ; 10 000. Le produit P×V est <strong>constant</strong> (~10 000).</li>
       <li><strong>Oui</strong>, la loi est vérifiée : P×V = constante à température constante.</li>
@@ -380,5 +380,17 @@
 
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>

@@ -76,7 +76,7 @@
   <h3>Exercice 1</h3>
   <p>De l'eau (\(\rho = 1\,000\) kg/m³) s'écoule dans une canalisation horizontale (\(h_A = h_B\)). En A : \(v_A = 1\) m/s et \(p_A = 2 \times 10^5\) Pa. En B, la vitesse est \(v_B = 3\) m/s. Calculer la pression \(p_B\) en B.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Comme \(h_A = h_B\), le terme \(\rho g h\) disparaît :<br>
     \[p_A + \frac{1}{2}\rho v_A^2 = p_B + \frac{1}{2}\rho v_B^2\]
     \[p_B = p_A + \frac{1}{2}\rho(v_A^2 - v_B^2) = 2 \times 10^5 + \frac{1}{2} \times 1\,000 \times (1^2 - 3^2)\]
@@ -89,7 +89,7 @@
   <h3>Exercice 2</h3>
   <p>Dans un circuit de chauffage, une canalisation monte de \(h = 4\) m. La vitesse est constante (\(v_A = v_B = 1{,}5\) m/s). La pression en bas est \(p_A = 3 \times 10^5\) Pa. Calculer la pression en haut (\(\rho = 1\,000\) kg/m³).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Comme \(v_A = v_B\), le terme cinétique disparaît :<br>
     \[p_A + \rho g h_A = p_B + \rho g h_B\]
     \[p_B = p_A - \rho g (h_B - h_A) = 3 \times 10^5 - 1\,000 \times 9{,}81 \times 4 = 300\,000 - 39\,240 = 260\,760 \text{ Pa}\]
@@ -101,7 +101,7 @@
   <h3>Exercice 3</h3>
   <p>Expliquer qualitativement pourquoi la pression dans un venturi (resserrement d'une tuyauterie) est plus faible que dans la partie large. Utiliser Bernoulli.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Par l'équation de continuité, la vitesse augmente dans le rétrécissement (\(v_{\text{étroit}} > v_{\text{large}}\)). Selon Bernoulli (sur un plan horizontal), la somme \(p + \tfrac{1}{2}\rho v^2\) est constante. Si \(v\) augmente, \(\tfrac{1}{2}\rho v^2\) augmente, donc \(p\) doit diminuer. <strong>La pression est plus faible là où la vitesse est plus grande.</strong> Ce principe est utilisé dans les venturimètres pour mesurer le débit.
   </div>
 </div>
@@ -137,7 +137,7 @@
   <h3>Exercice 1</h3>
   <p>Une canalisation de diamètre \(d = 20\) mm véhicule de l'eau à \(v = 1{,}5\) m/s. Calculer le débit volumique en m³/s puis en L/min.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[S = \pi \left(\frac{d}{2}\right)^2 = \pi \times (0{,}01)^2 = \pi \times 10^{-4} \approx 3{,}14 \times 10^{-4} \text{ m}^2\]
     \[Q_v = S \times v = 3{,}14 \times 10^{-4} \times 1{,}5 \approx 4{,}71 \times 10^{-4} \text{ m}^3/\text{s}\]
     En L/min : \(4{,}71 \times 10^{-4} \times 1\,000 \times 60 \approx 28{,}3\) L/min.<br>
@@ -149,7 +149,7 @@
   <h3>Exercice 2</h3>
   <p>Un circulateur de chauffage débite \(Q_v = 1{,}5\) m³/h dans une canalisation de section \(S = 2\) cm². Calculer la vitesse de l'eau dans la canalisation.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Conversion : \(Q_v = 1{,}5/3\,600 \approx 4{,}17 \times 10^{-4}\) m³/s et \(S = 2 \times 10^{-4}\) m².<br>
     \[v = \frac{Q_v}{S} = \frac{4{,}17 \times 10^{-4}}{2 \times 10^{-4}} \approx 2{,}08 \text{ m/s}\]
     <strong>v ≈ 2,08 m/s.</strong>
@@ -160,7 +160,7 @@
   <h3>Exercice 3</h3>
   <p>Un technicien chauffagiste installe une pompe qui doit débiter 3 m³/h dans un circuit. La vitesse maximale recommandée pour éviter les bruits est 1,5 m/s. Calculer la section minimale de la canalisation.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[Q_v = 3/3\,600 \approx 8{,}33 \times 10^{-4} \text{ m}^3/\text{s}\]
     \[S_{\min} = \frac{Q_v}{v_{\max}} = \frac{8{,}33 \times 10^{-4}}{1{,}5} \approx 5{,}56 \times 10^{-4} \text{ m}^2 = 5{,}56 \text{ cm}^2\]
     <strong>S_min ≈ 5,56 cm².</strong>
@@ -181,7 +181,7 @@
   <h3>Exercice 1</h3>
   <p>Une canalisation de section \(S_1 = 10\) cm² se réduit à \(S_2 = 2\) cm². La vitesse en \(S_1\) est \(v_1 = 0{,}5\) m/s. Calculer la vitesse \(v_2\) dans la section réduite.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[v_2 = v_1 \times \frac{S_1}{S_2} = 0{,}5 \times \frac{10}{2} = 0{,}5 \times 5 = 2{,}5 \text{ m/s}\]
     <strong>v_2 = 2,5 m/s.</strong>
   </div>
@@ -191,7 +191,7 @@
   <h3>Exercice 2</h3>
   <p>Dans un collecteur de chauffage, une tuyauterie de diamètre \(d_1 = 30\) mm se raccorde à deux tuyauteries de diamètre \(d_2 = 20\) mm. La vitesse dans la tuyauterie principale est \(v_1 = 1\) m/s. Calculer la vitesse dans chaque tuyauterie de diamètre 20 mm (en supposant un partage égal du débit).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[S_1 = \pi (0{,}015)^2 \approx 7{,}07 \times 10^{-4} \text{ m}^2\]
     \[Q_v = S_1 \times v_1 = 7{,}07 \times 10^{-4} \times 1 = 7{,}07 \times 10^{-4} \text{ m}^3/\text{s}\]
     Chaque branche reçoit la moitié : \(Q_2 = 3{,}53 \times 10^{-4}\) m³/s<br>
@@ -205,7 +205,7 @@
   <h3>Exercice 3</h3>
   <p>Le débit dans un circuit de chauffage est \(Q_v = 2\) m³/h. On souhaite que la vitesse dans une section ne dépasse pas 1 m/s. Calculer le diamètre minimal de la canalisation à cette section.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[Q_v = 2/3\,600 \approx 5{,}56 \times 10^{-4} \text{ m}^3/\text{s}\]
     \[S = \frac{Q_v}{v} = \frac{5{,}56 \times 10^{-4}}{1} = 5{,}56 \times 10^{-4} \text{ m}^2\]
     \[S = \pi \left(\frac{d}{2}\right)^2 \Rightarrow d = 2\sqrt{\frac{S}{\pi}} = 2\sqrt{\frac{5{,}56 \times 10^{-4}}{3{,}14}} = 2\sqrt{1{,}77 \times 10^{-4}} \approx 2 \times 0{,}0133 \approx 0{,}0266 \text{ m}\]
@@ -228,7 +228,7 @@
   <h3>Exercice 1</h3>
   <p>Citer trois causes de pertes de charge singulières dans un circuit de chauffage.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     1. <strong>Coudes et courbes :</strong> le fluide change de direction, créant des turbulences.<br>
     2. <strong>Vannes et robinets :</strong> même partiellement ouverts, ils réduisent la section et perturbent l'écoulement.<br>
     3. <strong>Réductions de section :</strong> les changements brusques de diamètre génèrent des pertes d'énergie mécanique.
@@ -239,7 +239,7 @@
   <h3>Exercice 2</h3>
   <p>Un circuit de chauffage a une perte de charge totale estimée à 5 000 Pa. Le circulateur doit pouvoir compenser ces pertes pour maintenir le débit. Si le débit est \(Q_v = 1{,}5 \times 10^{-3}\) m³/s, calculer la puissance hydraulique minimale du circulateur.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     La puissance hydraulique est : \(P_{\text{hyd}} = \Delta p \times Q_v\)<br>
     \[P_{\text{hyd}} = 5\,000 \times 1{,}5 \times 10^{-3} = 7{,}5 \text{ W}\]
     <strong>P_hyd = 7,5 W.</strong> Le circulateur doit fournir au moins 7,5 W de puissance hydraulique.
@@ -250,7 +250,7 @@
   <h3>Exercice 3</h3>
   <p>Un installateur thermique réduit les pertes de charge d'un circuit en remplaçant des coudes à 90° par des coudes à grand rayon de courbure. Expliquer pourquoi cela réduit les pertes.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Un coude à 90° brusque crée un changement de direction brutal, générant des turbulences et des décollements de l'écoulement qui dissipent de l'énergie. Un coude à grand rayon de courbure permet au fluide de changer de direction progressivement, réduisant les turbulences et donc les pertes singulières de pression.
   </div>
 </div>
@@ -273,7 +273,7 @@
   <h3>Exercice 1</h3>
   <p>Un circuit de chauffage doit véhiculer un débit de 2,5 m³/h. La vitesse recommandée est 1 m/s. Calculer le diamètre de la canalisation et donner le diamètre normalisé à choisir (série : 16, 20, 25, 32, 40 mm).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[Q_v = \frac{2{,}5}{3\,600} \approx 6{,}94 \times 10^{-4} \text{ m}^3/\text{s}\]
     \[S = \frac{Q_v}{v} = \frac{6{,}94 \times 10^{-4}}{1} = 6{,}94 \times 10^{-4} \text{ m}^2\]
     \[d = 2\sqrt{\frac{6{,}94 \times 10^{-4}}{\pi}} = 2\sqrt{2{,}21 \times 10^{-4}} \approx 2 \times 0{,}0149 \approx 0{,}0297 \text{ m} \approx 29{,}7 \text{ mm}\]
@@ -285,7 +285,7 @@
   <h3>Exercice 2</h3>
   <p>Un technicien chauffagiste doit relier un groupe de génération (PAC) à des émetteurs. Le débit est de 1 m³/h. Vérifier si une canalisation de diamètre 20 mm convient (vitesse maximale : 1,5 m/s).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[Q_v = \frac{1}{3\,600} \approx 2{,}78 \times 10^{-4} \text{ m}^3/\text{s}\]
     \[S = \pi \times (0{,}01)^2 \approx 3{,}14 \times 10^{-4} \text{ m}^2\]
     \[v = \frac{Q_v}{S} = \frac{2{,}78 \times 10^{-4}}{3{,}14 \times 10^{-4}} \approx 0{,}89 \text{ m/s}\]
@@ -297,7 +297,7 @@
   <h3>Exercice 3</h3>
   <p>Un circuit de PAC utilise un fluide caloporteur de densité \(\rho = 1\,050\) kg/m³. Le débit massique requis est de 1 500 kg/h. La vitesse maximale est 1,2 m/s. Calculer le diamètre de la canalisation.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Débit volumique : \(Q_v = \dfrac{\dot{m}}{\rho} = \dfrac{1\,500/3\,600}{1\,050} = \dfrac{0{,}417}{1\,050} \approx 3{,}97 \times 10^{-4}\) m³/s<br>
     \[S = \frac{Q_v}{v} = \frac{3{,}97 \times 10^{-4}}{1{,}2} \approx 3{,}31 \times 10^{-4} \text{ m}^2\]
     \[d = 2\sqrt{\frac{3{,}31 \times 10^{-4}}{\pi}} = 2\sqrt{1{,}054 \times 10^{-4}} \approx 2 \times 0{,}01027 \approx 0{,}0205 \text{ m} \approx 20{,}5 \text{ mm}\]
@@ -309,5 +309,17 @@
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>
