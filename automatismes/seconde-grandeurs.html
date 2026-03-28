@@ -45,7 +45,7 @@ details[open] summary::before{content:'▾'}
 .fb{font-size:.85em;min-height:1.3em;font-weight:600;margin-top:3px}
 .fb.ok{color:var(--s)}.fb.ko{color:var(--p)}
 </style>
-</head>
+<link rel="stylesheet" href="../print.css" media="print"></head>
 <body>
 <div class="c">
 
@@ -133,6 +133,37 @@ details[open] summary::before{content:'▾'}
         </details>
       </div>
 
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q6.</span> Un plombier utilise un tuyau de 2,5 m de long. Convertir en mm.</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 25 mm</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 250 mm</button>
+          <button class="qo" onclick="qcm(this,true,'2,5 m = 2,5 × 1 000 = 2 500 mm.')">C) 2 500 mm</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 25 000 mm</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q7.</span> Un réservoir contient 350 L d'eau. Convertir en m³.</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          1 m³ = 1 000 L, donc \(350 \div 1\,000 = \mathbf{0{,}35}\) <b>m³</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q8.</span> Une planche pèse 3,2 kg. Convertir en grammes, puis en tonnes.</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,true,'3,2 kg = 3 200 g = 0,0032 t.')">A) 3 200 g et 0,0032 t</button>
+          <button class="qo" onclick="qcm(this,false,'')">B) 320 g et 0,032 t</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 32 000 g et 0,32 t</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 3 200 g et 0,032 t</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
     </div>
   </div>
 
@@ -194,6 +225,40 @@ details[open] summary::before{content:'▾'}
           b) \(2{,}5 \times 1\,000 = \mathbf{2\,500}\) <b>dm³</b><br>
           c) \(2 \times (25 + 40) = 130\) m = \(\mathbf{0{,}13}\) <b>km</b><br>
           d) \(7{,}2 \times 1\,000 = \mathbf{7\,200}\) <b>kg</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q6.</span> Un chauffagiste installe un tuyau de cuivre de 22 mm de diamètre et 4,5 m de long. Exprimer le diamètre en cm et la longueur en mm.</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          Diamètre : \(22 \div 10 = \mathbf{2{,}2}\) <b>cm</b><br>
+          Longueur : \(4{,}5 \times 1\,000 = \mathbf{4\,500}\) <b>mm</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q7.</span> Un chauffe-eau a une capacité de 200 L. Convertir en m³, puis en dm³.</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 2 m³ et 20 dm³</button>
+          <button class="qo" onclick="qcm(this,true,'200 L = 0,2 m³ = 200 dm³ (car 1 L = 1 dm³).')">B) 0,2 m³ et 200 dm³</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 0,02 m³ et 2 000 dm³</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 20 m³ et 20 dm³</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q8.</span> Flash-calcul :<br>
+        a) 1,5 h = ? min &nbsp;&nbsp; b) 3 600 cm² = ? m² &nbsp;&nbsp; c) 0,75 t = ? kg &nbsp;&nbsp; d) 45 min = ? h (en décimal)</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          a) \(1{,}5 \times 60 = \mathbf{90}\) <b>min</b><br>
+          b) \(3\,600 \div 10\,000 = \mathbf{0{,}36}\) <b>m²</b><br>
+          c) \(0{,}75 \times 1\,000 = \mathbf{750}\) <b>kg</b><br>
+          d) \(45 \div 60 = \mathbf{0{,}75}\) <b>h</b>
         </div>
         </details>
       </div>
@@ -263,6 +328,28 @@ details[open] summary::before{content:'▾'}
           d) \(90 \div 3{,}6 = \mathbf{25}\) <b>m/s</b>
         </div>
         </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q6.</span> Un radiateur a une puissance de 1 500 W. Il fonctionne 8 h par jour pendant 5 mois (150 jours). Calculer l'énergie consommée en kWh et le coût à 0,20 €/kWh.</p>
+        <details><summary>Voir la réponse</summary>
+        <div class="corr">
+          Puissance : 1 500 W = 1,5 kW<br>
+          Énergie : \(1{,}5 \times 8 \times 150 = \mathbf{1\,800}\) <b>kWh</b><br>
+          Coût : \(1\,800 \times 0{,}20 = \mathbf{360}\) <b>€</b>
+        </div>
+        </details>
+      </div>
+
+      <div class="exo">
+        <p class="exo-q"><span class="num">Q7.</span> Un camion roule à 80 km/h. Quelle distance parcourt-il en 2 h 30 min ?</p>
+        <div class="qcm-opts">
+          <button class="qo" onclick="qcm(this,false,'')">A) 160 km</button>
+          <button class="qo" onclick="qcm(this,true,'2 h 30 = 2,5 h. Distance = 80 × 2,5 = 200 km.')">B) 200 km</button>
+          <button class="qo" onclick="qcm(this,false,'')">C) 240 km</button>
+          <button class="qo" onclick="qcm(this,false,'')">D) 180 km</button>
+        </div>
+        <p class="fb" aria-live="polite"></p>
       </div>
 
     </div>
