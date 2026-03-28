@@ -142,6 +142,7 @@
 
   function fmt(n, dec) { return n.toFixed(dec).replace('.', ','); }
   function sci(n) {
+    if (n === 0) return '0';
     var exp = Math.floor(Math.log10(Math.abs(n)));
     var mantissa = n / Math.pow(10, exp);
     return fmt(mantissa, 2) + ' × 10' + (exp < 0 ? '⁻' : '') + String(Math.abs(exp)).replace(/\d/g, function(d) {
@@ -196,7 +197,6 @@
     // Vérification continuité
     var gauche = S1 * v1;
     var droite = 2 * S2 * v2;
-    var ecart = Math.abs(gauche - droite) / gauche * 100;
     document.getElementById('res-continuite').textContent = sci(gauche) + ' ≈ ' + sci(droite) + ' ✓';
 
     // SVG
