@@ -74,7 +74,7 @@
 \begin{center}
 {\LARGE\bfseries\color{bleupro} Contrôle en Cours de Formation}\\[8pt]
 {\large Physique-Chimie — Terminale Bac Pro ICCER — Groupement 1}\\[12pt]
-{\Large\bfseries Pression dans un fluide \& Puissance en régime sinusoïdal}\\[20pt]
+{\Large\bfseries Débit de fluide \& Puissance en régime sinusoïdal}\\[20pt]
 
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline
@@ -94,21 +94,22 @@
 % ===== FORMULAIRE =====
 \begin{formulairebox}
 
-\subsection*{Pression dans un fluide}
+\subsection*{Débit et transport de fluide}
 
 \begin{tabular}{>{\bfseries}p{4.5cm} p{5.5cm} p{4cm}}
 \toprule
 \textbf{Grandeur} & \textbf{Formule} & \textbf{Unités} \\
 \midrule
-Pression & $P = \dfrac{F}{S}$ & Pa, N, m² \\[6pt]
-Pression hydrostatique & $\Delta P = \rho \times g \times \Delta h$ & Pa, kg/m³, m/s², m \\[4pt]
-Presse hydraulique & $\dfrac{F_1}{S_1} = \dfrac{F_2}{S_2}$ & N, m² \\[6pt]
-Conversions & 1 bar $= 10^5$ Pa & \\[4pt]
+Débit volumique & $Q_v = S \times v$ & m³/s, m², m/s \\[4pt]
+Débit massique & $Q_m = \rho \times Q_v$ & kg/s \\[4pt]
+Équation de continuité & $S_1 \times v_1 = S_2 \times v_2$ & \\[4pt]
+Section d'un tuyau & $S = \pi \times \left(\dfrac{d}{2}\right)^2$ & m² \\[6pt]
+Conversions & 1 m³/h $= \dfrac{1}{3\,600}$ m³/s & \\[4pt]
 \bottomrule
 \end{tabular}
 
 \smallskip
-$\rho_{\text{eau}} = 1\,000$ kg/m³ \quad $g = 9{,}81$ m/s² \quad $P_{\text{atm}} = 1{,}013 \times 10^5$ Pa $= 1{,}013$ bar
+$\rho_{\text{eau}} = 1\,000$ kg/m³ \quad Vitesse recommandée dans les canalisations : entre 0,5 et 1,5 m/s
 
 \subsection*{Puissance en régime sinusoïdal}
 
@@ -132,43 +133,42 @@ Facteur de puissance & $\cos\varphi = \dfrac{P}{S}$ & (sans unité) \\[6pt]
 \newpage
 
 % ================================================================
-\section*{Exercice 1 — Circuit de chauffage d'un immeuble \pts{5 points}}
+\section*{Exercice 1 — Dimensionnement d'un réseau de chauffage \pts{5 points}}
 % ================================================================
 
 \begin{contextebox}
-Un installateur thermique intervient sur le circuit de chauffage d'un immeuble de 4 étages. Le circuit est rempli d'eau ($\rho = 1\,000$ kg/m³). La chaufferie est au sous-sol. Le point le plus haut du circuit se trouve au 4\up{e} étage, à une hauteur $h = 12$ m au-dessus de la chaufferie.
+Un installateur thermique dimensionne le réseau d'eau chaude d'un bâtiment. Le circulateur de la chaudière fournit un débit volumique $Q_v = 1{,}8$ m³/h. La canalisation principale a un diamètre $d_1 = 40$ mm. Elle se divise ensuite en deux branches identiques de diamètre $d_2 = 25$ mm chacune (le débit se répartit à parts égales).
 
-La pression au niveau de la chaufferie est $P_{\text{bas}} = 2{,}5$ bar. Le manomètre du vase d'expansion indique la pression relative (pression au-dessus de la pression atmosphérique).
+La vitesse dans les canalisations doit rester entre 0,5 et 1,5 m/s pour limiter le bruit et l'usure.
 \end{contextebox}
 
 % Schéma
 \begin{center}
-\begin{tikzpicture}[scale=0.7, every node/.style={font=\small}]
-  % Immeuble
-  \draw[thick] (0,0) rectangle (4,6);
-  \draw[thin] (0,1.5) -- (4,1.5);
-  \draw[thin] (0,3) -- (4,3);
-  \draw[thin] (0,4.5) -- (4,4.5);
-  \node[right] at (4,0.75) {RDC};
-  \node[right] at (4,2.25) {1\up{er}};
-  \node[right] at (4,3.75) {2\up{e}};
-  \node[right] at (4,5.25) {4\up{e}};
-  % Chaufferie
-  \draw[fill=red!10, thick] (-1,-1) rectangle (5,0);
-  \node at (2,-0.5) {\textbf{Chaufferie}};
-  % Circuit
-  \draw[thick, bleupro] (1,-0.5) -- (1,5.5);
-  \draw[thick, bleupro] (3,-0.5) -- (3,5.5);
-  \draw[thick, bleupro] (1,5.5) -- (3,5.5);
-  % Hauteur
-  \draw[<->, thick, rouge] (5.5,0) -- (5.5,6) node[midway, right] {$h = 12$ m};
-  % Pressions
-  \node[left, bleupro] at (-0.5,-0.5) {$P_{\text{bas}}$};
-  \node[left, rouge] at (-0.5,5.5) {$P_{\text{haut}} = \;?$};
+\begin{tikzpicture}[scale=0.8, every node/.style={font=\small}]
+  % Chaudière
+  \draw[fill=red!10, rounded corners] (0,0.5) rectangle (2,2.5);
+  \node[align=center] at (1,1.5) {\textbf{Chaudière}\\$Q_v = 1{,}8$ m³/h};
+  % Canalisation principale
+  \draw[very thick, bleupro] (2,1.5) -- (5,1.5);
+  \node[above, bleupro] at (3.5,1.5) {$d_1 = 40$ mm};
+  % Division
+  \filldraw[bleupro] (5,1.5) circle (3pt);
+  % Branche haute
+  \draw[thick, vertpro] (5,1.5) -- (5,2.5) -- (8,2.5);
+  \node[above, vertpro] at (6.5,2.5) {$d_2 = 25$ mm};
+  \node[right] at (8,2.5) {Branche 1};
+  % Branche basse
+  \draw[thick, vertpro] (5,1.5) -- (5,0.5) -- (8,0.5);
+  \node[below, vertpro] at (6.5,0.5) {$d_2 = 25$ mm};
+  \node[right] at (8,0.5) {Branche 2};
+  % Flèches débit
+  \draw[->, thick] (2.5,1.8) -- (3.5,1.8);
+  \draw[->, thick] (5.5,2.8) -- (6.5,2.8);
+  \draw[->, thick] (5.5,0.2) -- (6.5,0.2);
 \end{tikzpicture}
 \end{center}
 
-\textbf{Q1} \comp{APP} — Convertir la pression $P_{\text{bas}} = 2{,}5$ bar en pascals. \pts{1 pt}
+\textbf{Q1} \comp{APP} — Convertir le débit volumique $Q_v = 1{,}8$ m³/h en m³/s. \pts{1 pt}
 
 \begin{reponsebox}[2.5cm]
 \dotfill
@@ -176,7 +176,7 @@ La pression au niveau de la chaufferie est $P_{\text{bas}} = 2{,}5$ bar. Le mano
 \dotfill
 \end{reponsebox}
 
-\textbf{Q2} \comp{REA} — Calculer la différence de pression $\Delta P$ entre la chaufferie et le 4\up{e} étage due à la colonne d'eau. \pts{1 pt}
+\textbf{Q2} \comp{REA} — Calculer la section $S_1$ de la canalisation principale ($d_1 = 40$ mm). \pts{1 pt}
 
 \begin{reponsebox}[3cm]
 \dotfill
@@ -186,7 +186,7 @@ La pression au niveau de la chaufferie est $P_{\text{bas}} = 2{,}5$ bar. Le mano
 \dotfill
 \end{reponsebox}
 
-\textbf{Q3} \comp{REA} — En déduire la pression $P_{\text{haut}}$ au 4\up{e} étage (en Pa puis en bar). \pts{1 pt}
+\textbf{Q3} \comp{REA} — Calculer la vitesse $v_1$ de l'eau dans la canalisation principale. \pts{1 pt}
 
 \begin{reponsebox}[3cm]
 \dotfill
@@ -196,19 +196,23 @@ La pression au niveau de la chaufferie est $P_{\text{bas}} = 2{,}5$ bar. Le mano
 \dotfill
 \end{reponsebox}
 
-\textbf{Q4} \comp{VAL} — Le technicien sait que la pression minimale au point haut doit être de 0,5 bar pour éviter la cavitation (bulles d'air). La pression obtenue est-elle suffisante ? \pts{1 pt}
+\textbf{Q4} \comp{ANA} — Le débit se partage en deux branches identiques. Calculer le débit dans chaque branche, puis la vitesse $v_2$ dans une branche ($d_2 = 25$ mm). \pts{1 pt}
 
-\begin{reponsebox}[2.5cm]
+\begin{reponsebox}[4cm]
+\dotfill
+
+\dotfill
+
+\dotfill
+
 \dotfill
 
 \dotfill
 \end{reponsebox}
 
-\textbf{Q5} \comp{ANA} — Si l'immeuble avait 8 étages ($h = 24$ m) au lieu de 4, quelle pression minimale faudrait-il en chaufferie pour maintenir 0,5 bar au point haut ? \pts{1 pt}
+\textbf{Q5} \comp{VAL} — Les vitesses $v_1$ et $v_2$ respectent-elles la règle des 0,5 à 1,5 m/s ? Si non, proposer une solution. \pts{1 pt}
 
-\begin{reponsebox}[3.5cm]
-\dotfill
-
+\begin{reponsebox}[3cm]
 \dotfill
 
 \dotfill
@@ -304,7 +308,7 @@ La PAC fonctionne 10 heures par jour pendant 180 jours (saison de chauffe). Le p
 \hline
 \textbf{Exercice} & \textbf{Thème} & \textbf{Questions} & \textbf{Points} \\
 \hline
-1 & Pression dans un fluide (circuit chauffage) & Q1 à Q5 & /5 \\
+1 & Débit de fluide (réseau chauffage) & Q1 à Q5 & /5 \\
 \hline
 2 & Puissance en régime sinusoïdal (PAC) & Q1 à Q5 & /5 \\
 \hline
