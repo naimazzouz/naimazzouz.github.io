@@ -191,8 +191,8 @@ $\Rightarrow$ \textbf{Non}, le taux n'est pas acceptable. Il faudra améliorer l
 % ================================================================
 
 \begin{contextebox}
-\textbf{Données :} Plaque 40 cm $\times$ 30 cm. Découpe de côté $x$ aux coins.\\
-$V(x) = 4x^3 - 140x^2 + 1\,200x$ pour $x \in \;]0\,;\,15[$
+\textbf{Données :} Plaque carrée 30 cm $\times$ 30 cm. Découpe de côté $x$ aux coins.\\
+$V(x) = x(30-2x)^2 = 4x^3 - 120x^2 + 900x$ pour $x \in \;]0\,;\,15[$
 \end{contextebox}
 
 \vspace{6pt}
@@ -201,7 +201,7 @@ $V(x) = 4x^3 - 140x^2 + 1\,200x$ pour $x \in \;]0\,;\,15[$
 \textbf{Q1} \comp{REA} — Tracer la courbe à la calculatrice et la reproduire sur le quadrillage. \pts{1 pt}
 
 \begin{corrbox}
-Sur la calculatrice NumWorks (ou GeoGebra), on saisit $f(x) = 4x^3 - 140x^2 + 1200x$ et on trace sur $[0\,;\,15]$.
+Sur la calculatrice NumWorks (ou GeoGebra), on saisit $f(x) = 4x^3 - 120x^2 + 900x$ et on trace sur $[0\,;\,15]$.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.48]
@@ -216,22 +216,22 @@ Sur la calculatrice NumWorks (ou GeoGebra), on saisit $f(x) = 4x^3 - 140x^2 + 12
     \node[below] at (\x,-0.3) {\small\x};
   }
   % Graduations y (1 unité = 500 cm³)
-  \node[left] at (-0.3,2) {\small 1000};
-  \node[left] at (-0.3,4) {\small 2000};
-  \node[left] at (-0.3,6) {\small 3000};
-  \node[left] at (-0.3,8) {\small 4000};
-  \node[left] at (-0.3,10) {\small 5000};
-  \node[left] at (-0.3,12) {\small 6000};
+  \node[left] at (-0.3,2) {\small 500};
+  \node[left] at (-0.3,4) {\small 1000};
+  \node[left] at (-0.3,6) {\small 1500};
+  \node[left] at (-0.3,8) {\small 2000};
+  \node[left] at (-0.3,10) {\small 2500};
+  \node[left] at (-0.3,12) {\small 3000};
   \node[below left] at (0,0) {\small 0};
-  % Courbe V(x) tracée sur le quadrillage
+  % Courbe V(x) = 4x³ - 120x² + 900x (échelle y : /250)
   \draw[thick, bleupro, smooth] plot[domain=0:15, samples=50]
-    (\x, {(4*\x*\x*\x - 140*\x*\x + 1200*\x)/500});
-  % Maximum
-  \filldraw[rouge] (3.33,5.19) circle (3pt);
-  \node[above right, rouge, font=\small\bfseries] at (3.5,5.19) {max $\approx (3{,}3\,;\,2\,593)$};
+    (\x, {(4*\x*\x*\x - 120*\x*\x + 900*\x)/250});
+  % Maximum en x=5, V(5)=2000
+  \filldraw[rouge] (5,8) circle (3pt);
+  \node[above right, rouge, font=\small\bfseries] at (5.2,8) {max $(5\,;\,2\,000)$};
   % Pointillés de lecture
-  \draw[dashed, rouge, thin] (3.33,0) -- (3.33,5.19);
-  \draw[dashed, rouge, thin] (0,5.19) -- (3.33,5.19);
+  \draw[dashed, rouge, thin] (5,0) -- (5,8);
+  \draw[dashed, rouge, thin] (0,8) -- (5,8);
 \end{tikzpicture}
 \end{center}
 
@@ -247,9 +247,9 @@ L'élève doit reproduire cette allure sur le quadrillage fourni, avec le maximu
 \begin{corrbox}
 Par lecture graphique sur la calculatrice :
 
-Le volume semble maximal pour $x \approx \boxed{3{,}3 \text{ cm}}$ (entre 3 et 4).
+Le volume semble maximal pour $x \approx \boxed{5 \text{ cm}}$.
 
-La valeur approchée du maximum est $V \approx \boxed{3\,250 \text{ cm}^3}$.
+La valeur approchée du maximum est $V \approx \boxed{2\,000 \text{ cm}^3}$.
 
 \smallskip
 \textit{Barème : 0,5 pt pour la valeur de $x$ (tolérance $\pm 0{,}5$) + 0,5 pt pour la valeur de $V$ (tolérance $\pm 200$).}
@@ -261,20 +261,23 @@ La valeur approchée du maximum est $V \approx \boxed{3\,250 \text{ cm}^3}$.
 \begin{corrbox}
 \textbf{Dérivée :}
 \[
-V'(x) = 3 \times 4x^2 - 2 \times 140x + 1\,200 = 12x^2 - 280x + 1\,200
+V'(x) = 3 \times 4x^2 - 2 \times 120x + 900 = 12x^2 - 240x + 900
 \]
 
-\textbf{Factorisation} (admise) : $V'(x) = 4(3x - 10)(x - 30)$
+\textbf{Vérification de la factorisation :}
+\[
+12(x-5)(x-15) = 12(x^2 - 20x + 75) = 12x^2 - 240x + 900 \quad \checkmark
+\]
 
 \textbf{Résolution} $V'(x) = 0$ :
 \[
-3x - 10 = 0 \quad \Rightarrow \quad x = \frac{10}{3} \approx 3{,}33
+x - 5 = 0 \quad \Rightarrow \quad \boxed{x = 5}
 \]
 \[
-x - 30 = 0 \quad \Rightarrow \quad x = 30 \quad \text{(hors de $]0\,;\,15[$)}
+x - 15 = 0 \quad \Rightarrow \quad x = 15 \quad \text{(borne de l'intervalle, exclue)}
 \]
 
-Seule solution dans $]0\,;\,15[$ : $\boxed{x = \dfrac{10}{3} \approx 3{,}33 \text{ cm}}$
+Seule solution dans $]0\,;\,15[$ : $\boxed{x = 5 \text{ cm}}$
 
 \smallskip
 \textit{Barème : 0,5 pt pour la dérivée + 0,5 pt pour la résolution.}
@@ -290,29 +293,28 @@ Seule solution dans $]0\,;\,15[$ : $\boxed{x = \dfrac{10}{3} \approx 3{,}33 \tex
 \renewcommand{\arraystretch}{2.2}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-$x$ & $0$ & & $\dfrac{10}{3} \approx 3{,}33$ & & $15$ \\
+$x$ & $0$ & & $5$ & & $15$ \\
 \hline
 Signe de $V'(x)$ & & $\boldsymbol{+}$ & $0$ & $\boldsymbol{-}$ & \\
 \hline
-Variations de $V$ & $0$ & $\nearrow$ & $\boldsymbol{\dfrac{70\,000}{27} \approx 2\,593}$ & $\searrow$ & $0$ \\
+Variations de $V$ & $0$ & $\nearrow$ & $\boldsymbol{2\,000}$ & $\searrow$ & $0$ \\
 \hline
 \end{tabular}
 \renewcommand{\arraystretch}{1}
 \end{center}
 
-\textbf{Explication du signe de $V'(x) = 4(3x-10)(x-30)$ :}
+\textbf{Explication du signe de $V'(x) = 12(x-5)(x-15)$ :}
 \begin{itemize}[nosep]
-  \item Sur $]0\,;\,15[$ : le facteur $(x-30)$ est toujours négatif (car $x < 15 < 30$)
-  \item Le facteur $(3x-10)$ est négatif pour $x < 10/3$ et positif pour $x > 10/3$
-  \item Donc $V'(x) = 4 \times (\text{nég}) \times (\text{nég}) = +$ pour $x < 10/3$ et $V'(x) = 4 \times (\text{pos}) \times (\text{nég}) = -$ pour $x > 10/3$
+  \item Pour $0 < x < 5$ : $(x-5) < 0$ et $(x-15) < 0$ → produit $> 0$ → $V'(x) > 0$ → $V$ croissante
+  \item Pour $5 < x < 15$ : $(x-5) > 0$ et $(x-15) < 0$ → produit $< 0$ → $V'(x) < 0$ → $V$ décroissante
 \end{itemize}
 
-\textbf{Calcul du maximum} (à la calculatrice) :
+\textbf{Calcul du maximum :}
 \[
-V\!\left(\frac{10}{3}\right) = 4 \times \left(\frac{10}{3}\right)^3 - 140 \times \left(\frac{10}{3}\right)^2 + 1\,200 \times \frac{10}{3} = \frac{70\,000}{27} \approx \boxed{2\,593 \text{ cm}^3}
+V(5) = 4 \times 125 - 120 \times 25 + 900 \times 5 = 500 - 3\,000 + 4\,500 = \boxed{2\,000 \text{ cm}^3}
 \]
 
-\textbf{Confirmation :} la lecture graphique de Q2 donnait $V \approx 2\,500$ à $3\,000$ cm$^3$ pour $x \approx 3{,}3$. Le calcul confirme : $V_{\max} \approx 2\,593$ cm$^3$ en $x = 10/3 \approx 3{,}33$ \checkmark
+\textbf{Confirmation :} la lecture graphique de Q2 donnait $V \approx 2\,000$ cm$^3$ pour $x \approx 5$. Le calcul confirme exactement \checkmark
 
 \smallskip
 \textit{Barème : 0,5 pt pour le tableau de variations complété + 0,5 pt pour le calcul du maximum.}
@@ -322,20 +324,21 @@ V\!\left(\frac{10}{3}\right) = 4 \times \left(\frac{10}{3}\right)^3 - 140 \times
 \textbf{Q5} \comp{COM} — Conclusion et dimensions. \pts{1 pt}
 
 \begin{corrbox}
-Le volume est maximal pour $x = \dfrac{10}{3} \approx 3{,}33$ cm.
+Le volume est maximal pour $\boxed{x = 5 \text{ cm}}$.
 
 \textbf{Dimensions du bac :}
 \begin{itemize}[nosep]
-  \item Hauteur : $x = \dfrac{10}{3} \approx 3{,}3$ cm
-  \item Longueur : $40 - 2x = 40 - \dfrac{20}{3} = \dfrac{100}{3} \approx 33{,}3$ cm
-  \item Largeur : $30 - 2x = 30 - \dfrac{20}{3} = \dfrac{70}{3} \approx 23{,}3$ cm
+  \item Hauteur : $x = 5$ cm
+  \item Longueur = Largeur : $30 - 2 \times 5 = 20$ cm
 \end{itemize}
 
-\textbf{Volume maximal :} $V_{\max} = \dfrac{70\,000}{27} \approx 2\,593$ cm$^3$
+Le bac est un parallélépipède rectangle de \textbf{20 cm $\times$ 20 cm $\times$ 5 cm}.
 
-\textbf{Contrainte :} Le menuisier souhaite un bac de plus de 3\,000 cm$^3$. Or $2\,593 < 3\,000$.
+\textbf{Volume maximal :} $V_{\max} = 20 \times 20 \times 5 = \boxed{2\,000 \text{ cm}^3}$
 
-$\Rightarrow$ \textbf{La contrainte n'est pas respectée.} Avec une plaque de 40 $\times$ 30 cm, le volume maximal possible est inférieur à 3\,000 cm$^3$. Il faudra utiliser une plaque plus grande.
+\textbf{Contrainte :} Le menuisier a besoin d'un bac d'au moins 1\,500 cm$^3$. Or $2\,000 > 1\,500$.
+
+$\Rightarrow$ \textbf{Oui, la contrainte est respectée.} Le bac optimal de 2\,000 cm$^3$ dépasse largement le minimum requis.
 
 \smallskip
 \textit{Barème : 0,25 pt dimensions + 0,25 pt volume max + 0,5 pt conclusion sur la contrainte.}

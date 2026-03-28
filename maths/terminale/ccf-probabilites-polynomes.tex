@@ -223,32 +223,32 @@ On note : $D$ = ``le panneau a un défaut de dimensions'' et $S$ = ``le panneau 
 % ================================================================
 
 \begin{contextebox}
-Un menuisier fabrique un bac de rangement ouvert à partir d'une plaque rectangulaire de tôle de 40 cm $\times$ 30 cm. Il découpe un carré de côté $x$ (en cm) à chaque coin, puis plie les bords vers le haut.
+Un menuisier fabrique un bac de rangement ouvert à partir d'une plaque carrée de tôle de 30 cm de côté. Il découpe un carré de côté $x$ (en cm) à chaque coin, puis plie les bords vers le haut.
 
 Le volume du bac obtenu est :
-\[V(x) = x(40 - 2x)(30 - 2x) = 4x^3 - 140x^2 + 1\,200x \quad \text{pour } x \in \;]0\,;\,15[\]
+\[V(x) = x(30 - 2x)^2 = 4x^3 - 120x^2 + 900x \quad \text{pour } x \in \;]0\,;\,15[\]
 \end{contextebox}
 
 % Schéma plaque
 \begin{center}
 \begin{tikzpicture}[scale=0.06]
   % Plaque
-  \draw[fill=blue!5, thick] (0,0) rectangle (40,30);
+  \draw[fill=blue!5, thick] (0,0) rectangle (30,30);
   % Carrés découpés
-  \draw[fill=red!10, thick, dashed] (0,0) rectangle (6,6);
-  \draw[fill=red!10, thick, dashed] (34,0) rectangle (40,6);
-  \draw[fill=red!10, thick, dashed] (0,24) rectangle (6,30);
-  \draw[fill=red!10, thick, dashed] (34,24) rectangle (40,30);
+  \draw[fill=red!10, thick, dashed] (0,0) rectangle (5,5);
+  \draw[fill=red!10, thick, dashed] (25,0) rectangle (30,5);
+  \draw[fill=red!10, thick, dashed] (0,25) rectangle (5,30);
+  \draw[fill=red!10, thick, dashed] (25,25) rectangle (30,30);
   % Lignes de pliage
-  \draw[dashed, blue!60] (6,0) -- (6,30);
-  \draw[dashed, blue!60] (34,0) -- (34,30);
-  \draw[dashed, blue!60] (0,6) -- (40,6);
-  \draw[dashed, blue!60] (0,24) -- (40,24);
+  \draw[dashed, blue!60] (5,0) -- (5,30);
+  \draw[dashed, blue!60] (25,0) -- (25,30);
+  \draw[dashed, blue!60] (0,5) -- (30,5);
+  \draw[dashed, blue!60] (0,25) -- (30,25);
   % Cotes
-  \node[below] at (20,0) {\small 40 cm};
+  \node[below] at (15,0) {\small 30 cm};
   \node[left] at (0,15) {\small 30 cm};
-  \node at (3,3) {\small $x$};
-  \node at (20,15) {\small $40-2x$};
+  \node at (2.5,2.5) {\small $x$};
+  \node at (15,15) {\small $30-2x$};
 \end{tikzpicture}
 \end{center}
 
@@ -292,7 +292,7 @@ Le volume du bac obtenu est :
 \dotfill
 \end{reponsebox}
 
-\textbf{Q3} \comp{REA} — Calculer la dérivée $V'(x)$. On admettra que $V'(x)$ peut se factoriser sous la forme $V'(x) = 4(3x - 10)(x - 30)$. Résoudre $V'(x) = 0$ sur $]0\,;\,15[$. \pts{1 pt}
+\textbf{Q3} \comp{REA} — Calculer la dérivée $V'(x)$. Vérifier que $V'(x) = 12(x - 5)(x - 15)$. En déduire les solutions de $V'(x) = 0$ sur $]0\,;\,15[$. \pts{1 pt}
 
 \begin{reponsebox}[3.5cm]
 \dotfill
@@ -326,7 +326,7 @@ Valeur exacte du maximum : $V\!\left(\phantom{\dfrac{10}{3}}\right) = $ \dotfill
 \smallskip
 Confirmation lecture graphique : \dotfill
 
-\textbf{Q5} \comp{COM} — Conclure : donner la valeur de $x$ qui maximise le volume, le volume maximal, et les dimensions du bac (longueur, largeur, hauteur). Le menuisier juge qu'un bac de plus de 3\,000 cm$^3$ est suffisant. La contrainte est-elle respectée ? \pts{1 pt}
+\textbf{Q5} \comp{COM} — Conclure : donner la valeur de $x$ qui maximise le volume, le volume maximal, et les dimensions du bac (longueur, largeur, hauteur). Le menuisier a besoin d'un bac d'au moins 1\,500 cm$^3$. La contrainte est-elle respectée ? \pts{1 pt}
 
 \begin{reponsebox}[4cm]
 \dotfill
