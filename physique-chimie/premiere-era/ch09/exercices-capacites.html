@@ -54,7 +54,7 @@
   <p>Classer les rayonnements suivants dans l'ordre des longueurs d'onde croissantes :</p>
   <p>Micro-ondes (four) — Lumière visible — Rayons X — Infrarouge — Ultraviolets</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Longueurs d'onde croissantes (fréquences décroissantes) :<br>
     <strong>Rayons X &lt; UV &lt; Visible &lt; IR &lt; Micro-ondes</strong>
   </div>
@@ -69,7 +69,7 @@
     <li>Chaleur émise par un panneau chauffant infrarouge</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li><strong>Visible</strong>, rouge : \(\lambda \approx 620-700\) nm</li>
       <li><strong>Ultraviolet (UV)</strong> : \(\lambda \approx 200-400\) nm</li>
@@ -82,7 +82,7 @@
   <h3>Exercice 3</h3>
   <p>Une onde radio FM a une fréquence de 100 MHz (\(10^8\) Hz). Une lumière verte a \(\lambda = 550\) nm = \(550 \times 10^{-9}\) m. Laquelle a la plus grande longueur d'onde ? Justifier.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(\lambda_{\text{radio}} = c/f = 3\times10^8 / 10^8 = 3\) m<br>
     \(\lambda_{\text{verte}} = 550 \times 10^{-9}\) m = \(5{,}5 \times 10^{-7}\) m<br>
     L'<strong>onde radio</strong> a une longueur d'onde bien plus grande (3 m contre 550 nm).
@@ -109,7 +109,7 @@
   <h3>Exercice 4</h3>
   <p>Une lampe UV de séchage émet à une longueur d'onde \(\lambda = 365\) nm. Calculer la fréquence de ce rayonnement.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(\lambda = 365 \text{ nm} = 365 \times 10^{-9} \text{ m}\)<br>
     \(f = \dfrac{c}{\lambda} = \dfrac{3 \times 10^8}{365 \times 10^{-9}} = \dfrac{3 \times 10^8}{3{,}65 \times 10^{-7}} \approx \mathbf{8{,}22 \times 10^{14}}\) Hz
   </div>
@@ -119,7 +119,7 @@
   <h3>Exercice 5</h3>
   <p>Un capteur de sécurité infrarouge émet à \(f = 3 \times 10^{13}\) Hz. Calculer la longueur d'onde correspondante et vérifier que c'est bien de l'infrarouge (λ > 700 nm).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(\lambda = \dfrac{c}{f} = \dfrac{3 \times 10^8}{3 \times 10^{13}} = \mathbf{10^{-5}}\) m = 10 μm = 10 000 nm<br>
     Oui, 10 000 nm &gt; 700 nm → c'est bien de l'<strong>infrarouge</strong>.
   </div>
@@ -129,7 +129,7 @@
   <h3>Exercice 6</h3>
   <p>La lumière bleue d'un laser de gravure a \(\lambda = 450\) nm. La lumière rouge d'un pointeur laser a \(\lambda = 650\) nm. Calculer les fréquences respectives et indiquer laquelle est la plus énergétique.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Bleue : \(f_b = 3\times10^8 / (450\times10^{-9}) \approx 6{,}67 \times 10^{14}\) Hz<br>
     Rouge : \(f_r = 3\times10^8 / (650\times10^{-9}) \approx 4{,}62 \times 10^{14}\) Hz<br>
     La lumière <strong>bleue</strong> a une fréquence plus élevée → elle est plus énergétique (ce qui explique que les UV et la lumière bleue sont plus nocifs pour les yeux).
@@ -160,7 +160,7 @@
     <li>Contrôle de la mesure de distance d'une machine à commande numérique (laser visible rouge).</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li><strong>UV</strong> : les vernis « UV » polymérisent sous rayonnement ultraviolet.</li>
       <li><strong>IR</strong> : les détecteurs de présence (PIR = Passif InfraRouge) détectent la chaleur du corps humain.</li>
@@ -173,7 +173,7 @@
   <h3>Exercice 8</h3>
   <p>Un technicien d'agencement travaille avec une lampe UV de séchage (λ = 365 nm). Quels risques présente l'exposition aux UV ? Quelles précautions prendre ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <strong>Risques :</strong> brûlures oculaires (kératite), brûlures cutanées (érythème), risque à long terme de cataracte et de cancer de la peau.<br>
     <strong>Précautions :</strong> lunettes de protection anti-UV, ne pas regarder directement la lampe, protéger la peau exposée, ne pas exposer les pièces d'appareillage non conformes.
   </div>
@@ -199,7 +199,7 @@
   <h3>Exercice 9</h3>
   <p>Un vitrage a un coefficient de transmission \(\tau = 0{,}80\) et de réflexion \(\rho = 0{,}10\). Calculer le coefficient d'absorption \(\alpha\). Que devient la lumière absorbée ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(\alpha = 1 - \tau - \rho = 1 - 0{,}80 - 0{,}10 = \mathbf{0{,}10}\)<br>
     La lumière absorbée est transformée en <strong>chaleur</strong> dans le vitrage, ce qui le réchauffe légèrement.
   </div>
@@ -209,7 +209,7 @@
   <h3>Exercice 10</h3>
   <p>On éclaire une plaque de bois avec un faisceau lumineux de 100 W. La plaque absorbe 85 % et réfléchit 10 %. Calculer la puissance transmise, absorbée et réfléchie.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Absorbée : \(85\% \times 100 = 85\) W<br>
     Réfléchie : \(10\% \times 100 = 10\) W<br>
     Transmise : \((100 - 85 - 10) = \mathbf{5}\) W (5 %)
@@ -220,7 +220,7 @@
   <h3>Exercice 11</h3>
   <p>Un double vitrage est constitué de deux verres (\(\tau = 0{,}90\) chacun) et une lame d'argon (considérée comme transparente). Calculer la transmission totale du système.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Chaque verre transmet 90 % du flux incident. Pour deux verres en série :<br>
     \(\tau_{\text{total}} = \tau_1 \times \tau_2 = 0{,}90 \times 0{,}90 = \mathbf{0{,}81}\) = 81 %<br>
     Le double vitrage transmet 81 % de la lumière visible.
@@ -247,7 +247,7 @@
   <h3>Exercice 12</h3>
   <p>Un atelier de finition remplace le séchage à l'air (4 h) par le séchage UV (20 s) pour ses panneaux laqués. Calculer le facteur d'accélération du séchage.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Séchage à l'air : 4 h = \(4 \times 3\,600 = 14\,400\) s<br>
     Facteur d'accélération = \(14\,400 / 20 = \mathbf{720}\)<br>
     Le séchage UV est 720 fois plus rapide que le séchage à l'air.
@@ -262,7 +262,7 @@
     <li>Quel avantage offre le pyromètre par rapport à la mesure au contact ?</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>Le <strong>pyromètre infrarouge</strong> : il mesure le rayonnement IR émis par la surface sans la toucher.</li>
       <li>Mesure plus précise, instantanée, sans risque de brûlure, sans perturber la température de la surface mesurée.</li>
@@ -274,7 +274,7 @@
   <h3>Exercice 14</h3>
   <p>Un technicien d'agencement utilise un laser de mesure (lumière visible rouge, \(\lambda = 650\) nm) pour mesurer des distances dans un chantier d'installation. La lumière met \(t = 2 \times 10^{-8}\) s pour aller et revenir. Calculer la distance mesurée.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Distance totale parcourue (aller-retour) : \(d_{\text{AR}} = c \times t = 3 \times 10^8 \times 2 \times 10^{-8} = 6\) m<br>
     Distance mesurée (aller seulement) : \(d = 6/2 = \mathbf{3}\) m
   </div>
@@ -284,5 +284,17 @@
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>

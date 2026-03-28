@@ -70,7 +70,7 @@
     <li>Son faible</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     A → c (son aigu) ; B → b (son fort) ; C → a (son grave) ; D → d (son faible)
   </div>
 </div>
@@ -79,7 +79,7 @@
   <h3>Exercice 2</h3>
   <p>La note La est \(f = 440\) Hz. La note Sol est \(f = 392\) Hz. Laquelle est plus aiguë ? Justifier.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Le <strong>La (440 Hz)</strong> est plus aigu car il a une fréquence plus élevée (440 > 392 Hz).
   </div>
 </div>
@@ -88,7 +88,7 @@
   <h3>Exercice 3</h3>
   <p>Un sonar industriel émet des ultrasons à \(f = 40\,000\) Hz. Ce son est-il audible par l'oreille humaine ? Justifier.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     L'oreille humaine perçoit les sons entre 20 Hz et 20 000 Hz. 40 000 Hz > 20 000 Hz : ce son est un <strong>ultrason</strong>, non audible par l'homme. Il est utilisé pour des mesures de distance ou des détections sans contact.
   </div>
 </div>
@@ -111,7 +111,7 @@
   <h3>Exercice 4</h3>
   <p>La scie circulaire d'un menuisier tourne à 2 800 tr/min. Le bruit généré a une fréquence principale de 2 800 Hz (1 Hz pour chaque tr/min). Calculer la période de ce signal sonore.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(T = \dfrac{1}{f} = \dfrac{1}{2\,800} \approx \mathbf{3{,}57 \times 10^{-4}}\) s = 0,357 ms
   </div>
 </div>
@@ -120,7 +120,7 @@
   <h3>Exercice 5</h3>
   <p>Un oscilloscope montre un signal sonore de période \(T = 0{,}025\) s. Calculer la fréquence correspondante. Ce son est-il grave ou aigu ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(f = \dfrac{1}{T} = \dfrac{1}{0{,}025} = \mathbf{40}\) Hz<br>
     40 Hz est dans les graves (proche du seuil inférieur d'audition de 20 Hz) : son très grave.
   </div>
@@ -136,7 +136,7 @@
     <tr><td>Note La standard</td><td>440</td><td>…</td></tr>
   </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <table>
       <tr><th>Son</th><th>Fréquence (Hz)</th><th>Période (s)</th></tr>
       <tr><td>Voix grave</td><td>100</td><td>\(T = 1/100 = \mathbf{0{,}01}\) s</td></tr>
@@ -167,7 +167,7 @@
   <h3>Exercice 7</h3>
   <p>Un menuisier entend le bruit d'une scie provenant d'un autre atelier situé à 85 m. Combien de temps met le son pour parvenir à ses oreilles ? (\(v = 340\) m/s)</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(t = \dfrac{d}{v} = \dfrac{85}{340} = \mathbf{0{,}25}\) s = 250 ms
   </div>
 </div>
@@ -176,7 +176,7 @@
   <h3>Exercice 8</h3>
   <p>Un contrôleur ultrasonique vérifie l'épaisseur d'un panneau de chêne en mesurant le temps de parcours aller-retour d'une impulsion ultrasonique : \(t = 40\) μs. La vitesse du son dans le chêne est \(v = 4\,000\) m/s. Calculer l'épaisseur du panneau.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Distance aller-retour : \(d = v \times t = 4\,000 \times 40 \times 10^{-6} = 0{,}16\) m<br>
     Épaisseur = aller seulement : \(e = 0{,}16 / 2 = \mathbf{0{,}08}\) m = <strong>80 mm</strong>
   </div>
@@ -186,7 +186,7 @@
   <h3>Exercice 9</h3>
   <p>Un technicien d'agencement frappe sur une cloison en bois à 6 m de distance. Un collaborateur perçoit le son \(t = 0{,}15\) s après la frappe. Calculer la vitesse apparente de propagation. Comparer à 340 m/s et expliquer la différence.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(v = d/t = 6/0{,}15 = 40\) m/s<br>
     Cette vitesse est bien inférieure à 340 m/s car la valeur de 0,15 s inclut probablement un <strong>temps de réaction</strong> du collaborateur. La vitesse réelle du son dans l'air est bien 340 m/s.
   </div>
@@ -196,7 +196,7 @@
   <h3>Exercice 10</h3>
   <p>La relation entre longueur d'onde, vitesse et fréquence est \(\lambda = v/f\). Calculer la longueur d'onde d'un son à 440 Hz dans l'air (\(v = 340\) m/s), puis dans le bois (\(v = 4\,000\) m/s).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Dans l'air : \(\lambda = 340 / 440 \approx \mathbf{0{,}77}\) m<br>
     Dans le bois : \(\lambda = 4\,000 / 440 \approx \mathbf{9{,}1}\) m<br>
     La longueur d'onde est plus grande dans le bois (même fréquence, vitesse plus élevée).
@@ -228,7 +228,7 @@
   <h3>Exercice 11</h3>
   <p>Le niveau sonore d'une scie circulaire est mesuré à 105 dB. Analyser le risque et indiquer les mesures de prévention.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     105 dB est <strong>très dangereux</strong> pour l'ouïe. La réglementation impose :<br>
     - Seuil d'action : 85 dB → information et mise à disposition d'EPI.<br>
     - Seuil de valeur limite : 87 dB → interdiction de dépasser (avec protections).<br>
@@ -240,7 +240,7 @@
   <h3>Exercice 12</h3>
   <p>Dans un atelier de menuiserie, on mesure 90 dB près d'une ponceuse. On ajoute une deuxième ponceuse identique. Quel sera le nouveau niveau sonore ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Doubler l'intensité sonore augmente le niveau de +3 dB.<br>
     Nouveau niveau : \(90 + 3 = \mathbf{93}\) dB.<br>
     Les dB ne s'additionnent pas directement (90 + 90 ≠ 180 dB !).
@@ -251,7 +251,7 @@
   <h3>Exercice 13</h3>
   <p>Un menuisier agenceur travaille dans un atelier à 95 dB pendant 4 heures. La réglementation limite l'exposition à 87 dB sur 8 heures. Doit-il porter des protections auditives ? Justifier.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Le niveau de 95 dB dépasse largement le seuil de 87 dB. Le port de protections auditives est <strong>obligatoire</strong> dès que le niveau dépasse 85 dB. Une exposition à 95 dB sans protection présente un risque sérieux de surdité professionnelle irréversible.
   </div>
 </div>
@@ -277,7 +277,7 @@
   <h3>Exercice 14</h3>
   <p>Un apprenti menuisier travaille 7 heures dans un atelier. Pendant 4 heures, il utilise la scie circulaire (105 dB) et pendant 3 heures, il ponce (88 dB). Il ne porte aucune protection. Identifier les risques.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ul>
       <li>105 dB (scie) : danger sévère dès 15 min d'exposition sans protection. Sur 4 h, le risque de <strong>surdité irréversible</strong> est très élevé.</li>
       <li>88 dB (ponçage) : dépasse le seuil de 85 dB → port de protections obligatoire.</li>
@@ -295,7 +295,7 @@
     <li>Installer des capots insonorisants sur les machines.</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Selon la hiérarchie des mesures de prévention (principe STOP : Substitution, ingénierie, Organisation, Protection individuelle) :<br>
     <ol>
       <li><strong>b — Remplacer les machines bruyantes</strong> : action à la source, la plus efficace (suppression du risque).</li>
@@ -309,7 +309,7 @@
   <h3>Exercice 16</h3>
   <p>Un atelier de menuiserie est soumis à un contrôle de l'inspecteur du travail. Le sonomètre indique 92 dB en continu. L'employeur prétend que le port de protections auditives est « facultatif ». A-t-il raison ? Citer la valeur limite réglementaire.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <strong>Non</strong>. La réglementation française (Code du Travail, décret 2006-892) fixe :<br>
     - Seuil d'exposition inférieur : 80 dB → information des travailleurs, mise à disposition d'EPI.<br>
     - Seuil d'exposition supérieur : <strong>85 dB</strong> → port des EPI <strong>obligatoire</strong>.<br>
@@ -338,7 +338,7 @@
     <li>Un ultrason de fréquence 40 kHz (contrôle non destructif du bois)</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>\(\lambda = \frac{340}{100} = \mathbf{3{,}4\ \text{m}}\) — comparable à la taille d'une pièce</li>
       <li>\(\lambda = \frac{340}{4\,000} = \mathbf{0{,}085\ \text{m}} = 8{,}5\ \text{cm}\)</li>
@@ -356,7 +356,7 @@
     <li>Pourquoi la longueur d'onde est-elle plus grande dans le bois ?</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>\(\lambda_{\text{air}} = \frac{340}{2\,500} = \mathbf{0{,}136\ \text{m}} = 13{,}6\ \text{cm}\)</li>
       <li>\(\lambda_{\text{bois}} = \frac{4\,000}{2\,500} = \mathbf{1{,}6\ \text{m}}\)</li>
@@ -369,5 +369,17 @@
 
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>

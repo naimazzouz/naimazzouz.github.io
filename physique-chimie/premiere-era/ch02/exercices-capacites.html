@@ -56,7 +56,7 @@
     <li>Quelle est l'unité de chaque grandeur ?</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>Un <strong>voltmètre</strong>, branché <strong>en dérivation</strong> (en parallèle) aux bornes de la scie.</li>
       <li>Un <strong>ampèremètre</strong>, branché <strong>en série</strong> dans le circuit.</li>
@@ -73,7 +73,7 @@
     <li>À quelle tension secteur correspond la valeur 230 V en France ?</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>La pince ampèremétrique permet de mesurer l'intensité <strong>sans ouvrir le circuit</strong> ni déconnecter l'appareil : on place simplement la pince autour du câble. C'est plus rapide et plus sûr.</li>
       <li>230 V est la tension du <strong>secteur électrique</strong> français, fournie par le réseau EDF (alternatif monophasé).</li>
@@ -90,7 +90,7 @@
     <tr><td>Intensité</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
   </table>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <table>
       <tr><th>Grandeur</th><th>Symbole</th><th>Unité</th><th>Instrument</th><th>Branchement</th></tr>
       <tr><td>Tension</td><td>\(U\)</td><td>Volt (V)</td><td>Voltmètre</td><td>En dérivation (parallèle)</td></tr>
@@ -113,7 +113,7 @@
   <h3>Exercice 4</h3>
   <p>Un planeur de menuiserie fonctionne sous \(U = 230\) V, absorbe un courant \(I = 7\) A avec un facteur de puissance \(\cos\varphi = 0{,}85\). Calculer la puissance active consommée.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(P = U \times I \times \cos\varphi = 230 \times 7 \times 0{,}85 = \mathbf{1\,368{,}5}\) W \(\approx 1{,}37\) kW
   </div>
 </div>
@@ -126,7 +126,7 @@
     <li>Si \(\cos\varphi\) était égal à 1, quelle serait la puissance ? Comparer.</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>\(P = 230 \times 9 \times 0{,}92 = \mathbf{1\,904{,}4}\) W \(\approx 1{,}90\) kW</li>
       <li>Si \(\cos\varphi = 1\) : \(P = 230 \times 9 = 2\,070\) W. La puissance active réelle (1 904 W) est <strong>inférieure</strong> car une partie du courant est réactive.</li>
@@ -143,7 +143,7 @@
   </ul>
   <p>Calculer la puissance active de chaque machine et la puissance totale consommée.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Toupie : \(P_1 = 230 \times 8 \times 0{,}88 = 1\,619{,}2\) W<br>
     Scie à format : \(P_2 = 230 \times 12 \times 0{,}90 = 2\,484\) W<br>
     Puissance totale : \(P_{tot} = 1\,619{,}2 + 2\,484 = \mathbf{4\,103{,}2}\) W \(\approx 4{,}1\) kW
@@ -154,7 +154,7 @@
   <h3>Exercice 7</h3>
   <p>Un menuisier agenceur sait que sa ponceuse à bande a une puissance active de 920 W. Il mesure \(I = 4{,}5\) A sous \(U = 230\) V. Calculer le facteur de puissance \(\cos\varphi\).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(\cos\varphi = \dfrac{P}{U \times I} = \dfrac{920}{230 \times 4{,}5} = \dfrac{920}{1\,035} \approx \mathbf{0{,}89}\)
   </div>
 </div>
@@ -184,7 +184,7 @@
     <li>Puissance échangée avec les bobines du moteur (non consommée).</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li><strong>Puissance active</strong> \(P\) (en W ou kWh).</li>
       <li><strong>Puissance apparente</strong> \(S\) (en VA).</li>
@@ -201,7 +201,7 @@
     <li>Calculer le facteur de puissance \(\cos\varphi = P/S\).</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>\(Q = \sqrt{S^2 - P^2} = \sqrt{1\,875^2 - 1\,500^2} = \sqrt{3\,515\,625 - 2\,250\,000} = \sqrt{1\,265\,625} = \mathbf{1\,125}\) VAR</li>
       <li>\(\cos\varphi = \dfrac{P}{S} = \dfrac{1\,500}{1\,875} = \mathbf{0{,}80}\)</li>
@@ -217,7 +217,7 @@
     <li>La puissance réactive \(Q\).</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>\(P = S \times \cos\varphi = 2\,300 \times 0{,}87 = \mathbf{2\,001}\) W</li>
       <li>\(Q = \sqrt{S^2 - P^2} = \sqrt{2\,300^2 - 2\,001^2} = \sqrt{5\,290\,000 - 4\,004\,001} = \sqrt{1\,285\,999} \approx \mathbf{1\,134}\) VAR</li>
@@ -239,7 +239,7 @@
   <h3>Exercice 11</h3>
   <p>Un wattmètre mesure \(P = 1\,150\) W pour une scie à ruban. Un ampèremètre donne \(I = 6\) A sous \(U = 230\) V. Calculer \(\cos\varphi\).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(S = U \times I = 230 \times 6 = 1\,380\) VA<br>
     \(\cos\varphi = \dfrac{P}{S} = \dfrac{1\,150}{1\,380} \approx \mathbf{0{,}83}\)
   </div>
@@ -257,7 +257,7 @@
     <li>Quelle machine utilise le mieux l'électricité fournie par le réseau ?</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>Machine A : \(\cos\varphi_A = \dfrac{2\,000}{2\,500} = 0{,}80\) ; Machine B : \(\cos\varphi_B = \dfrac{1\,800}{2\,000} = \mathbf{0{,}90}\)</li>
       <li>La <strong>machine B</strong> a le \(\cos\varphi\) le plus élevé : elle utilise mieux l'électricité du réseau.</li>
@@ -274,7 +274,7 @@
   </ul>
   <p>Calculer le courant absorbé par chaque modèle (\(U = 230\) V). Quel modèle choisir pour économiser sur le câblage ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Modèle X : \(I_X = \dfrac{P}{U \times \cos\varphi} = \dfrac{750}{230 \times 0{,}75} = \dfrac{750}{172{,}5} \approx 4{,}35\) A<br>
     Modèle Y : \(I_Y = \dfrac{750}{230 \times 0{,}95} = \dfrac{750}{218{,}5} \approx 3{,}43\) A<br>
     <strong>Choisir le modèle Y</strong> : même puissance utile, courant plus faible → câblage moins surchargé.
@@ -302,7 +302,7 @@
   <h3>Exercice 14</h3>
   <p>L'atelier d'un menuisier a consommé 320 kWh ce mois-ci. Le prix du kWh est 0,2516 €. Calculer le coût de la consommation.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(\text{Coût} = 320 \times 0{,}2516 = \mathbf{80{,}51}\) €
   </div>
 </div>
@@ -321,7 +321,7 @@
     <li>Calculer le montant TTC à payer (abonnement HT + consommation TTC).</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>Coût HT = \(485 \times 0{,}2516 = 122{,}03\) €</li>
       <li>TVA sur consommation = \(122{,}03 \times 0{,}20 = 24{,}41\) €<br>
@@ -339,7 +339,7 @@
     <li>Cette puissance moyenne est-elle compatible avec la puissance souscrite ?</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>Durée totale = \(22 \times 8 = 176\) h<br>
       Puissance moyenne = \(\dfrac{650}{176} \approx 3{,}69\) kW</li>
@@ -352,5 +352,17 @@
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>

@@ -304,5 +304,17 @@
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>

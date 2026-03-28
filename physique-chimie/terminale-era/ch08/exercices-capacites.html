@@ -75,7 +75,7 @@
   <h3>Exercice 1</h3>
   <p>Dans un atelier de menuiserie, l'intensité sonore est \(I = 10^{-3}\) W/m². Calculer le niveau sonore en dB.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[L = 10 \log\!\left(\frac{10^{-3}}{10^{-12}}\right) = 10 \log(10^9) = 10 \times 9 = 90 \text{ dB}\]
     <strong>L = 90 dB.</strong> Ce niveau élevé nécessite des protections auditives.
   </div>
@@ -85,7 +85,7 @@
   <h3>Exercice 2</h3>
   <p>Une scie circulaire produit un niveau de 95 dB. Calculer l'intensité sonore correspondante.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[95 = 10 \log\!\left(\frac{I}{10^{-12}}\right) \Rightarrow \log\!\left(\frac{I}{10^{-12}}\right) = 9{,}5\]
     \[\frac{I}{10^{-12}} = 10^{9{,}5} \approx 3{,}16 \times 10^9\]
     \[I = 3{,}16 \times 10^9 \times 10^{-12} = 3{,}16 \times 10^{-3} \text{ W/m}^2\]
@@ -97,7 +97,7 @@
   <h3>Exercice 3</h3>
   <p>Dans un atelier silencieux, le niveau est 45 dB. Lors d'une découpe, il passe à 90 dB. Le niveau a été multiplié par combien en intensité ? Et en facteur ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     La différence est 90 − 45 = 45 dB.<br>
     \[\Delta L = 10 \log\!\left(\frac{I_2}{I_1}\right) = 45 \Rightarrow \frac{I_2}{I_1} = 10^{4{,}5} \approx 31\,623\]
     <strong>L'intensité a été multipliée par environ 31 600.</strong> C'est pourquoi une différence de niveaux en dB peut correspondre à des variations d'intensité considérables.
@@ -108,7 +108,7 @@
   <h3>Exercice 4</h3>
   <p>Deux scies fonctionnent simultanément, chacune émettant \(I = 10^{-3}\) W/m². Calculer le niveau sonore total (les intensités s'additionnent).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \(I_{\text{tot}} = 2 \times 10^{-3}\) W/m²<br>
     \[L = 10 \log\!\left(\frac{2 \times 10^{-3}}{10^{-12}}\right) = 10 \log(2 \times 10^9) = 10(\log 2 + 9) \approx 10(0{,}301 + 9) = 93 \text{ dB}\]
     <strong>L ≈ 93 dB.</strong> Doubler le nombre de sources ne donne que +3 dB.
@@ -149,7 +149,7 @@
   <h3>Exercice 1</h3>
   <p>Un atelier de menuiserie émet 90 dB. Une cloison entre l'atelier et un bureau adjacent a un affaiblissement \(R = 40\) dB. Quel est le niveau sonore dans le bureau ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[L_{\text{bureau}} = L_{\text{atelier}} - R = 90 - 40 = 50 \text{ dB}\]
     <strong>L_bureau = 50 dB.</strong> Ce niveau est acceptable pour un bureau (conversation possible).
   </div>
@@ -159,7 +159,7 @@
   <h3>Exercice 2</h3>
   <p>Le bureau adjacent à un atelier doit avoir un niveau sonore maximal de 35 dB. L'atelier émet 85 dB. Quel affaiblissement acoustique minimum la cloison doit-elle offrir ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[R_{\min} = L_{\text{incident}} - L_{\text{max transmis}} = 85 - 35 = 50 \text{ dB}\]
     La cloison doit avoir <strong>R ≥ 50 dB</strong>.
   </div>
@@ -169,7 +169,7 @@
   <h3>Exercice 3</h3>
   <p>Une cloison réduit le bruit de 88 dB à 52 dB. Calculer l'affaiblissement et exprimer la réduction en termes d'intensité (rapport \(I_2/I_1\)).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[R = 88 - 52 = 36 \text{ dB}\]
     \[\frac{I_2}{I_1} = 10^{-R/10} = 10^{-3{,}6} \approx 2{,}5 \times 10^{-4}\]
     L'intensité transmise est environ <strong>4 000 fois plus faible</strong> que l'intensité incidente.
@@ -191,7 +191,7 @@
   <h3>Exercice 1</h3>
   <p>Calculer la masse surfacique d'une cloison en bois de 22 mm d'épaisseur (\(\rho = 550\) kg/m³).</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     \[m_s = \rho \times e = 550 \times 0{,}022 = 12{,}1 \text{ kg/m}^2\]
     <strong>m_s = 12,1 kg/m².</strong>
   </div>
@@ -201,7 +201,7 @@
   <h3>Exercice 2</h3>
   <p>On double l'épaisseur de la cloison précédente (de 22 mm à 44 mm). De combien augmente l'affaiblissement acoustique selon la loi de masse ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Doubler l'épaisseur double la masse surfacique. Selon la loi de masse, doubler \(m_s\) augmente \(R\) d'environ <strong>+5 à +6 dB</strong>. Une amélioration modeste : doubler le matériau ne double pas l'isolation.
   </div>
 </div>
@@ -213,7 +213,7 @@
   – Cloison plaque de plâtre BA13 : 13 mm, \(\rho = 900\) kg/m³<br>
   Quelle cloison offre la meilleure isolation selon la loi de masse ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Bois : \(m_s = 550 \times 0{,}022 = 12{,}1\) kg/m²<br>
     Plâtre BA13 : \(m_s = 900 \times 0{,}013 = 11{,}7\) kg/m²<br>
     Les masses surfaciques sont très proches. Les performances acoustiques seront similaires selon la seule loi de masse. En pratique, la plaque de plâtre double (2 × BA13) ou la solution double-paroi avec lame d'air permettra d'atteindre des performances bien supérieures au bois massif.
@@ -224,7 +224,7 @@
   <h3>Exercice 4</h3>
   <p>Pourquoi la loi de masse seule ne suffit-elle pas à caractériser l'isolation acoustique d'une paroi ? Quel autre facteur entre en jeu ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     La loi de masse est une approximation valable en basses et moyennes fréquences pour une paroi monolithique rigide. En pratique :<br>
     – La fréquence joue un rôle : à la fréquence de coïncidence (résonance), l'affaiblissement chute brutalement.<br>
     – Les transmissions par les flancs (pont acoustique, structure) peuvent court-circuiter l'isolation de la paroi.<br>
@@ -274,7 +274,7 @@
   <h3>Exercice 1</h3>
   <p>Un menuisier agenceur installe des panneaux de laine de roche sur les murs d'une salle de conférence. Ce traitement réduit-il le bruit provenant de l'atelier voisin ? Expliquer.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <strong>Non.</strong> Les panneaux de laine de roche sont des matériaux <strong>absorbants</strong> : ils réduisent les réflexions sonores à l'intérieur de la pièce (réverbération) et améliorent l'acoustique interne. Mais ils n'isolent pas du bruit extérieur. Pour isoler du bruit de l'atelier voisin, il faut une paroi lourde ou une double paroi désolidarisée (isolation acoustique). Les deux traitements sont différents et complémentaires.
   </div>
 </div>
@@ -283,7 +283,7 @@
   <h3>Exercice 2</h3>
   <p>Pour améliorer l'acoustique d'un salon avec un parquet en bois dur qui réverbère beaucoup, proposer deux solutions d'absorption acoustique.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     1. <strong>Tapis et moquettes :</strong> les surfaces textiles absorbent les hautes fréquences et réduisent les réflexions sur le sol dur.<br>
     2. <strong>Panneaux acoustiques décoratifs :</strong> panneaux en feutre, en bois perforé ou en tissu tendu sur châssis, fixés aux murs. Ils absorbent les ondes sonores et réduisent le temps de réverbération, améliorant la clarté du son et le confort acoustique.
   </div>
@@ -293,7 +293,7 @@
   <h3>Exercice 3</h3>
   <p>Dans un appartement neuf, le client se plaint de bruit de pas provenant du voisin du dessus (bruit d'impact). S'agit-il d'un problème d'isolation ou d'absorption ? Quelle solution proposer ?</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Les bruits d'impact (pas, chutes d'objets) se transmettent par la <strong>structure</strong> du bâtiment (transmission solidienne), pas par l'air. Il s'agit d'un problème d'<strong>isolation aux bruits d'impact</strong> (pas d'absorption).<br>
     Solution : installer une <strong>sous-couche résiliente</strong> (mousse, liège, polyéthylène) sous le revêtement de sol du voisin du dessus, ou installer un plafond suspendu désolidarisé de la dalle (plafond flottant). La pose d'un parquet flottant avec sous-couche anti-bruit d'impact dans l'appartement concerné peut également améliorer le confort.
   </div>
@@ -316,7 +316,7 @@
   <h3>Exercice 1</h3>
   <p>Un menuisier agenceur doit concevoir une cloison séparant deux appartements. La réglementation impose R ≥ 50 dB. Une simple cloison de bois de 40 mm offre R = 28 dB. Proposer une solution améliorée.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     Solution : <strong>double paroi désolidarisée</strong> avec absorbant.<br>
     Structure : deux parois de 22 mm de bois, séparées par un vide de 50 mm rempli de laine minérale (50 kg/m³). Les deux parois sont montées sur ossatures indépendantes (désolidarisation mécanique) pour éviter les ponts acoustiques.<br>
     Performance attendue : l'association masse + lame d'air + absorbant + désolidarisation permet d'atteindre R = 50 à 55 dB.
@@ -327,7 +327,7 @@
   <h3>Exercice 2</h3>
   <p>Comparer les propriétés acoustiques de la laine de verre et du liège en tant que matériaux d'isolation acoustique intégrés dans une cloison bois.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <strong>Laine de verre :</strong><br>
     – Matériau poreux très léger, excellent absorbant (hautes et moyennes fréquences)<br>
     – Bonne isolation thermique associée<br>
@@ -346,7 +346,7 @@
   <h3>Exercice 3</h3>
   <p>Un installateur d'agencement propose à un client une cloison bois pour créer une chambre dans un loft. Le client souhaite une isolation phonique suffisante (conversations non audibles depuis le salon). La cloison mesure 3 m × 2,5 m. Proposer une solution constructive complète.</p>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <strong>Solution proposée (double paroi bois + laine minérale) :</strong><br>
     – Ossature bois montants 45 × 70 mm tous les 60 cm, montée indépendante côté salon et côté chambre (rails désolidarisés).<br>
     – Remplissage de la cavité (70 mm) : laine minérale 40 kg/m³ (absorbant).<br>
@@ -363,5 +363,17 @@
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>

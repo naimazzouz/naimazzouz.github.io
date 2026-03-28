@@ -353,7 +353,7 @@
     <li>Calculer la concentration de l'acide.</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>\(\text{HCl} + \text{NaOH} \to \text{NaCl} + \text{H}_2\text{O}\)</li>
       <li>À l'équivalence : \(n_{\text{acide}} = n_{\text{base}}\) soit \(C_A \times V_A = C_B \times V_{eq}\).</li>
@@ -371,7 +371,7 @@
     <li>Si le flacon contient 500 mL de produit, quelle masse totale d'acide contient-il ? (Masse molaire HCl = 36,5 g/mol)</li>
   </ol>
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
+  <div class="corr" style="display:none">
     <ol type="a">
       <li>La phénolphtaléine est <strong>incolore en milieu acide</strong> et <strong>rose en milieu basique</strong>. Le virage au rose indique que tout l'acide a réagi et qu'on commence à avoir un excès de base → c'est l'équivalence.</li>
       <li>\(C_A = \frac{0{,}20 \times 12{,}5}{25{,}0} = \mathbf{0{,}10\ \text{mol/L}}\)</li>
@@ -384,5 +384,17 @@
 
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var corr = btn.nextElementSibling;
+  if(corr.style.display === 'block'){
+    corr.style.display = 'none';
+    btn.textContent = 'Voir la correction';
+  } else {
+    corr.style.display = 'block';
+    btn.textContent = 'Masquer la correction';
+  }
+}
+</script>
 </body>
 </html>
