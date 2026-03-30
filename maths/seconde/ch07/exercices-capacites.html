@@ -47,6 +47,31 @@
 <div class="meth">
   <strong>Rappel de cours</strong>
   <p>Une <strong>fonction</strong> associe à chaque valeur d'entrée <em>une seule</em> valeur de sortie. On note \(f(x)\) l'image de \(x\) par \(f\). L'ensemble des valeurs d'entrée autorisées est l'<strong>ensemble de définition</strong>.</p>
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="360" height="100" viewBox="0 0 360 100" aria-label="Machine fonction : x entre, f(x) sort">
+      <rect width="360" height="100" fill="#f8fafc" rx="6"/>
+      <!-- Entrée x -->
+      <rect x="20" y="30" width="60" height="40" fill="#ebf5ff" stroke="#0056b3" stroke-width="2" rx="6"/>
+      <text x="50" y="55" text-anchor="middle" font-size="16" fill="#0056b3" font-weight="bold" font-style="italic">x</text>
+      <!-- Flèche entrée -->
+      <line x1="80" y1="50" x2="120" y2="50" stroke="#333" stroke-width="2"/>
+      <polygon points="120,45 130,50 120,55" fill="#333"/>
+      <!-- Machine f -->
+      <rect x="130" y="15" width="100" height="70" fill="#0056b3" stroke="#0056b3" stroke-width="2" rx="10"/>
+      <text x="180" y="42" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">fonction</text>
+      <text x="180" y="62" text-anchor="middle" font-size="18" fill="#fff" font-weight="bold" font-style="italic">f</text>
+      <!-- Flèche sortie -->
+      <line x1="230" y1="50" x2="270" y2="50" stroke="#333" stroke-width="2"/>
+      <polygon points="270,45 280,50 270,55" fill="#333"/>
+      <!-- Sortie f(x) -->
+      <rect x="280" y="30" width="60" height="40" fill="#ebf5ff" stroke="#0056b3" stroke-width="2" rx="6"/>
+      <text x="310" y="55" text-anchor="middle" font-size="14" fill="#0056b3" font-weight="bold" font-style="italic">f(x)</text>
+      <!-- Labels -->
+      <text x="50" y="85" text-anchor="middle" font-size="9" fill="#555">valeur d'entree</text>
+      <text x="310" y="85" text-anchor="middle" font-size="9" fill="#555">image (sortie)</text>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">La « machine fonction » : on entre \(x\), la fonction \(f\) calcule et renvoie \(f(x)\)</figcaption>
+  </figure>
 </div>
 
 <div class="exo">
@@ -293,6 +318,72 @@
 <div class="meth">
   <strong>Rappel de cours</strong>
   <p>Sur un graphique : l'<strong>image</strong> de \(a\) se lit en partant de \(x = a\) sur l'axe horizontal, puis en montant jusqu'à la courbe, puis en lisant l'ordonnée. Pour trouver un <strong>antécédent</strong> de \(b\), on part de \(y = b\) sur l'axe vertical et on cherche les points de la courbe à cette hauteur.</p>
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="340" height="240" viewBox="0 0 340 240" aria-label="Lecture graphique : image et antecedent sur une courbe">
+      <rect width="340" height="240" fill="#f8fafc" rx="6"/>
+      <!-- Axes -->
+      <line x1="40" y1="200" x2="320" y2="200" stroke="#333" stroke-width="1.5"/>
+      <line x1="40" y1="200" x2="40" y2="10" stroke="#333" stroke-width="1.5"/>
+      <polygon points="320,197 328,200 320,203" fill="#333"/>
+      <polygon points="37,10 40,2 43,10" fill="#333"/>
+      <text x="325" y="204" font-size="11" fill="#333" font-style="italic">x</text>
+      <text x="28" y="8" font-size="11" fill="#333" font-style="italic">y</text>
+      <!-- Graduations x -->
+      <line x1="100" y1="197" x2="100" y2="203" stroke="#333" stroke-width="1"/>
+      <text x="96" y="215" font-size="10" fill="#555">1</text>
+      <line x1="160" y1="197" x2="160" y2="203" stroke="#333" stroke-width="1"/>
+      <text x="156" y="215" font-size="10" fill="#555">2</text>
+      <line x1="220" y1="197" x2="220" y2="203" stroke="#333" stroke-width="1"/>
+      <text x="216" y="215" font-size="10" fill="#555">3</text>
+      <line x1="280" y1="197" x2="280" y2="203" stroke="#333" stroke-width="1"/>
+      <text x="276" y="215" font-size="10" fill="#555">4</text>
+      <text x="28" y="204" font-size="10" fill="#555">O</text>
+      <!-- Graduations y -->
+      <line x1="37" y1="160" x2="43" y2="160" stroke="#333" stroke-width="1"/>
+      <text x="22" y="164" font-size="10" fill="#555">1</text>
+      <line x1="37" y1="120" x2="43" y2="120" stroke="#333" stroke-width="1"/>
+      <text x="22" y="124" font-size="10" fill="#555">2</text>
+      <line x1="37" y1="80" x2="43" y2="80" stroke="#333" stroke-width="1"/>
+      <text x="22" y="84" font-size="10" fill="#555">3</text>
+      <line x1="37" y1="40" x2="43" y2="40" stroke="#333" stroke-width="1"/>
+      <text x="22" y="44" font-size="10" fill="#555">4</text>
+      <!-- Courbe (parabole douce) passant par (0,1) (1,2) (2,4) (3,3) (4,1) -->
+      <!-- Pixels : (40,160) (100,120) (160,40) (220,80) (280,160) -->
+      <path d="M40,160 C70,130 80,120 100,120 C130,120 140,50 160,40 C180,30 200,70 220,80 C250,100 260,140 280,160" fill="none" stroke="#0056b3" stroke-width="2.5"/>
+      <!-- LECTURE IMAGE : x=1 → f(1)=2 -->
+      <!-- Flèche verticale de (100,200) à (100,120) -->
+      <line x1="100" y1="200" x2="100" y2="120" stroke="#c53030" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <!-- Flèche horizontale de (100,120) à (40,120) -->
+      <line x1="100" y1="120" x2="40" y2="120" stroke="#c53030" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <!-- Point sur courbe -->
+      <circle cx="100" cy="120" r="4" fill="#c53030"/>
+      <!-- Annotations image -->
+      <text x="103" y="195" font-size="10" fill="#c53030" font-weight="bold">x = 1</text>
+      <text x="44" y="115" font-size="10" fill="#c53030" font-weight="bold">f(1) = 2</text>
+      <!-- Flèches d'indication -->
+      <path d="M105,185 L105,130" fill="none" stroke="#c53030" stroke-width="1" marker-end="url(#arrowR)"/>
+      <path d="M95,125 L48,125" fill="none" stroke="#c53030" stroke-width="1" marker-end="url(#arrowR)"/>
+      <!-- LECTURE ANTECEDENT : f(x)=3 → x=2.5 env, illustrons x=2 → f(2)=4 puis antecedent de 3 → x≈2.3 -->
+      <!-- Antecedent de 3 : y=80, on part de axe y vers courbe -->
+      <line x1="40" y1="80" x2="204" y2="80" stroke="#2da44e" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="204" y1="80" x2="204" y2="200" stroke="#2da44e" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <circle cx="204" cy="80" r="4" fill="#2da44e"/>
+      <text x="44" y="75" font-size="10" fill="#2da44e" font-weight="bold">y = 3</text>
+      <text x="207" y="195" font-size="10" fill="#2da44e" font-weight="bold">antecedent</text>
+      <!-- Légende -->
+      <rect x="70" y="225" width="10" height="10" fill="#c53030" rx="1"/>
+      <text x="84" y="234" font-size="9" fill="#333">Lire une image</text>
+      <rect x="190" y="225" width="10" height="10" fill="#2da44e" rx="1"/>
+      <text x="204" y="234" font-size="9" fill="#333">Trouver un antecedent</text>
+      <!-- Marqueur flèche -->
+      <defs>
+        <marker id="arrowR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#c53030"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Lecture graphique : en rouge, lire l'image de 1 ; en vert, trouver l'antecedent de 3</figcaption>
+  </figure>
 </div>
 
 <figure class="schema">
@@ -432,6 +523,45 @@
 
 <div class="exo">
   <h3>Exercice 15</h3>
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="320" height="120" viewBox="0 0 320 120" aria-label="Tableau de variations : decroissante puis croissante, minimum en x=0">
+      <rect width="320" height="120" fill="#f8fafc" rx="6"/>
+      <!-- En-tête -->
+      <rect x="10" y="10" width="40" height="30" fill="#e2e8f0" stroke="#333" stroke-width="1"/>
+      <text x="30" y="30" text-anchor="middle" font-size="11" fill="#333" font-weight="bold" font-style="italic">x</text>
+      <rect x="10" y="40" width="40" height="60" fill="#e2e8f0" stroke="#333" stroke-width="1"/>
+      <text x="30" y="70" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">f(x)</text>
+      <!-- Colonnes x -->
+      <rect x="50" y="10" width="50" height="30" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <text x="75" y="30" text-anchor="middle" font-size="11" fill="#333">-2</text>
+      <rect x="100" y="10" width="60" height="30" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <text x="130" y="30" text-anchor="middle" font-size="11" fill="#333"></text>
+      <rect x="160" y="10" width="50" height="30" fill="#ebf5ff" stroke="#0056b3" stroke-width="1"/>
+      <text x="185" y="30" text-anchor="middle" font-size="11" fill="#0056b3" font-weight="bold">0</text>
+      <rect x="210" y="10" width="60" height="30" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <text x="240" y="30" text-anchor="middle" font-size="11" fill="#333"></text>
+      <rect x="270" y="10" width="40" height="30" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <text x="290" y="30" text-anchor="middle" font-size="11" fill="#333">3</text>
+      <!-- Variations : valeurs et flèches -->
+      <rect x="50" y="40" width="260" height="60" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <!-- f(-2)=7 en haut à gauche -->
+      <text x="65" y="58" font-size="11" fill="#333">7</text>
+      <!-- Flèche descendante -->
+      <line x1="80" y1="55" x2="170" y2="85" stroke="#c53030" stroke-width="2"/>
+      <polygon points="168,81 175,88 164,86" fill="#c53030"/>
+      <text x="115" y="64" font-size="9" fill="#c53030">decroissante</text>
+      <!-- f(0)=3 minimum -->
+      <text x="178" y="92" font-size="11" fill="#0056b3" font-weight="bold">3</text>
+      <text x="175" y="78" font-size="8" fill="#0056b3">(min)</text>
+      <!-- Flèche montante -->
+      <line x1="195" y1="85" x2="280" y2="55" stroke="#2da44e" stroke-width="2"/>
+      <polygon points="278,59 285,52 276,55" fill="#2da44e"/>
+      <text x="225" y="82" font-size="9" fill="#2da44e">croissante</text>
+      <!-- f(3)=12 en haut à droite -->
+      <text x="283" y="58" font-size="11" fill="#333">12</text>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Tableau de variations correspondant au tableau de valeurs ci-dessous</figcaption>
+  </figure>
   <p>Une fonction \(f\) est définie par son tableau de valeurs :</p>
   <table>
     <tr><th>\(x\)</th><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>

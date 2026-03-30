@@ -246,6 +246,37 @@
     <li>Si \(a = 0\) : \(f\) est <strong>constante</strong> (droite horizontale).</li>
   </ul>
   <p>Le signe de \(a\) seul suffit pour conclure — pas besoin de calculer des valeurs.</p>
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="400" height="150" viewBox="0 0 400 150" aria-label="Trois cas : a positif (montante), a negatif (descendante), a nul (horizontale)">
+      <rect width="400" height="150" fill="#f8fafc" rx="6"/>
+      <!-- Cas 1 : a > 0 -->
+      <text x="65" y="15" text-anchor="middle" font-size="10" fill="#2da44e" font-weight="bold">a &gt; 0</text>
+      <line x1="15" y1="110" x2="115" y2="110" stroke="#333" stroke-width="1"/>
+      <line x1="15" y1="110" x2="15" y2="25" stroke="#333" stroke-width="1"/>
+      <line x1="20" y1="100" x2="110" y2="30" stroke="#2da44e" stroke-width="2.5"/>
+      <text x="65" y="125" text-anchor="middle" font-size="9" fill="#2da44e">croissante</text>
+      <!-- Flèche montante -->
+      <polygon points="108,32 114,26 106,34" fill="#2da44e"/>
+      <!-- Cas 2 : a < 0 -->
+      <text x="200" y="15" text-anchor="middle" font-size="10" fill="#c53030" font-weight="bold">a &lt; 0</text>
+      <line x1="150" y1="110" x2="250" y2="110" stroke="#333" stroke-width="1"/>
+      <line x1="150" y1="110" x2="150" y2="25" stroke="#333" stroke-width="1"/>
+      <line x1="155" y1="30" x2="245" y2="100" stroke="#c53030" stroke-width="2.5"/>
+      <text x="200" y="125" text-anchor="middle" font-size="9" fill="#c53030">decroissante</text>
+      <!-- Flèche descendante -->
+      <polygon points="243,98 249,104 241,102" fill="#c53030"/>
+      <!-- Cas 3 : a = 0 -->
+      <text x="335" y="15" text-anchor="middle" font-size="10" fill="#888" font-weight="bold">a = 0</text>
+      <line x1="285" y1="110" x2="385" y2="110" stroke="#333" stroke-width="1"/>
+      <line x1="285" y1="110" x2="285" y2="25" stroke="#333" stroke-width="1"/>
+      <line x1="290" y1="65" x2="380" y2="65" stroke="#888" stroke-width="2.5"/>
+      <text x="335" y="125" text-anchor="middle" font-size="9" fill="#888">constante</text>
+      <!-- Séparateurs -->
+      <line x1="132" y1="10" x2="132" y2="140" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="268" y1="10" x2="268" y2="140" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Les trois cas de variation d'une fonction affine selon le signe de \(a\)</figcaption>
+  </figure>
 </div>
 
 <div class="exo">
@@ -291,6 +322,61 @@
   <p style="text-align:center">\(a = \dfrac{y_2 - y_1}{x_2 - x_1}\)</p>
   <p>Puis on trouve \(b\) en substituant un des points : \(b = y_1 - a \times x_1\).</p>
   <p><em>Cas particulier :</em> si l'un des points est \((0\,;\,b_0)\), alors \(b = b_0\) directement.</p>
+  <figure class="schema" style="text-align:center;margin:16px 0">
+    <svg width="300" height="230" viewBox="0 0 300 230" aria-label="Lecture du coefficient directeur a et de l'ordonnee a l'origine b sur un graphique">
+      <rect width="300" height="230" fill="#f8fafc" rx="6"/>
+      <!-- Axes -->
+      <line x1="40" y1="190" x2="280" y2="190" stroke="#333" stroke-width="1.5"/>
+      <line x1="40" y1="200" x2="40" y2="10" stroke="#333" stroke-width="1.5"/>
+      <polygon points="280,187 288,190 280,193" fill="#333"/>
+      <polygon points="37,10 40,2 43,10" fill="#333"/>
+      <text x="284" y="188" font-size="10" fill="#333" font-style="italic">x</text>
+      <text x="44" y="10" font-size="10" fill="#333" font-style="italic">y</text>
+      <text x="28" y="194" font-size="9" fill="#333">O</text>
+      <!-- Graduations x -->
+      <line x1="90" y1="187" x2="90" y2="193" stroke="#333" stroke-width="1"/>
+      <text x="87" y="204" font-size="9" fill="#555">1</text>
+      <line x1="140" y1="187" x2="140" y2="193" stroke="#333" stroke-width="1"/>
+      <text x="137" y="204" font-size="9" fill="#555">2</text>
+      <line x1="190" y1="187" x2="190" y2="193" stroke="#333" stroke-width="1"/>
+      <text x="187" y="204" font-size="9" fill="#555">3</text>
+      <line x1="240" y1="187" x2="240" y2="193" stroke="#333" stroke-width="1"/>
+      <text x="237" y="204" font-size="9" fill="#555">4</text>
+      <!-- Graduations y -->
+      <line x1="37" y1="150" x2="43" y2="150" stroke="#333" stroke-width="1"/>
+      <text x="22" y="154" font-size="9" fill="#555">1</text>
+      <line x1="37" y1="110" x2="43" y2="110" stroke="#333" stroke-width="1"/>
+      <text x="22" y="114" font-size="9" fill="#555">2</text>
+      <line x1="37" y1="70" x2="43" y2="70" stroke="#333" stroke-width="1"/>
+      <text x="22" y="74" font-size="9" fill="#555">3</text>
+      <line x1="37" y1="30" x2="43" y2="30" stroke="#333" stroke-width="1"/>
+      <text x="22" y="34" font-size="9" fill="#555">4</text>
+      <!-- Droite f(x)=x+1 : (0,1)→(40,150), (1,2)→(90,110), (3,4)→(190,30) -->
+      <line x1="40" y1="150" x2="240" y2="-10" stroke="#0056b3" stroke-width="2.5"/>
+      <!-- Ordonnee a l'origine : point (0,1) -->
+      <circle cx="40" cy="150" r="5" fill="#2da44e"/>
+      <text x="48" y="148" font-size="10" fill="#2da44e" font-weight="bold">b = 1</text>
+      <line x1="40" y1="190" x2="40" y2="150" stroke="#2da44e" stroke-width="2" stroke-dasharray="4,3"/>
+      <!-- Lecture de a : entre (1,2) et (3,4) -->
+      <circle cx="90" cy="110" r="4" fill="#0056b3"/>
+      <circle cx="190" cy="30" r="4" fill="#0056b3"/>
+      <!-- Delta x -->
+      <line x1="90" y1="120" x2="190" y2="120" stroke="#c53030" stroke-width="1.5"/>
+      <line x1="90" y1="116" x2="90" y2="124" stroke="#c53030" stroke-width="1"/>
+      <line x1="190" y1="116" x2="190" y2="124" stroke="#c53030" stroke-width="1"/>
+      <text x="130" y="135" text-anchor="middle" font-size="10" fill="#c53030" font-weight="bold">+2</text>
+      <!-- Delta y -->
+      <line x1="200" y1="110" x2="200" y2="30" stroke="#c53030" stroke-width="1.5"/>
+      <line x1="196" y1="110" x2="204" y2="110" stroke="#c53030" stroke-width="1"/>
+      <line x1="196" y1="30" x2="204" y2="30" stroke="#c53030" stroke-width="1"/>
+      <text x="218" y="75" font-size="10" fill="#c53030" font-weight="bold">+2</text>
+      <!-- Formule -->
+      <text x="55" y="222" font-size="11" fill="#333" font-weight="bold">a = +2 / +2 = 1 , b = 1 donc f(x) = x + 1</text>
+      <!-- Etiquette droite -->
+      <text x="195" y="22" font-size="11" fill="#0056b3" font-style="italic">f(x) = x + 1</text>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Lire \(a\) (pente) et \(b\) (ordonnee a l'origine) sur le graphique d'une fonction affine</figcaption>
+  </figure>
 </div>
 
 <div class="exo">
@@ -426,6 +512,63 @@
   — Artisan A : \(C_A(x) = 15x + 80\)<br>
   — Artisan B : \(C_B(x) = 20x + 30\)<br>
   où \(x\) est la surface en m².</p>
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="340" height="250" viewBox="0 0 340 250" aria-label="Comparaison tarifs artisan A et B, intersection en x=10">
+      <rect width="340" height="250" fill="#f8fafc" rx="6"/>
+      <!-- Grille -->
+      <g stroke="#e8edf2" stroke-width="0.5">
+        <line x1="60" y1="20" x2="60" y2="210"/><line x1="110" y1="20" x2="110" y2="210"/>
+        <line x1="160" y1="20" x2="160" y2="210"/><line x1="210" y1="20" x2="210" y2="210"/>
+        <line x1="260" y1="20" x2="260" y2="210"/><line x1="310" y1="20" x2="310" y2="210"/>
+        <line x1="30" y1="30" x2="320" y2="30"/><line x1="30" y1="60" x2="320" y2="60"/>
+        <line x1="30" y1="90" x2="320" y2="90"/><line x1="30" y1="120" x2="320" y2="120"/>
+        <line x1="30" y1="150" x2="320" y2="150"/><line x1="30" y1="180" x2="320" y2="180"/>
+      </g>
+      <!-- Axes -->
+      <line x1="30" y1="210" x2="325" y2="210" stroke="#333" stroke-width="1.5"/>
+      <line x1="30" y1="215" x2="30" y2="15" stroke="#333" stroke-width="1.5"/>
+      <polygon points="325,207 333,210 325,213" fill="#333"/>
+      <polygon points="27,15 30,7 33,15" fill="#333"/>
+      <text x="328" y="208" font-size="9" fill="#333">x (m²)</text>
+      <text x="33" y="12" font-size="9" fill="#333">eur</text>
+      <!-- Graduations x : 1 unite = 20px, 5→(130), 10→(230), 15→(330) hors zone -->
+      <!-- Adjustons : 1 unite = 18px. x=5→(120), x=10→(210), x=15→(300) -->
+      <text x="26" y="224" font-size="8" fill="#555">0</text>
+      <text x="116" y="224" font-size="8" fill="#555">5</text>
+      <text x="206" y="224" font-size="8" fill="#555">10</text>
+      <text x="296" y="224" font-size="8" fill="#555">15</text>
+      <!-- Graduations y : 1 unite = ... max y=350 environ. Echelle : 30 eur = 1 graduation de 30px -->
+      <!-- y=100→px 150, y=200→px 90, y=300→px 30 -->
+      <!-- Echelle : 1 eur = 0.6px, origine y px = 210 -->
+      <!-- Mieux : graduation par 50. 50→180, 100→150, 150→120, 200→90, 250→60, 300→30 -->
+      <text x="8" y="184" font-size="8" fill="#555">50</text>
+      <text x="2" y="154" font-size="8" fill="#555">100</text>
+      <text x="2" y="124" font-size="8" fill="#555">150</text>
+      <text x="2" y="94" font-size="8" fill="#555">200</text>
+      <text x="2" y="64" font-size="8" fill="#555">250</text>
+      <text x="2" y="34" font-size="8" fill="#555">300</text>
+      <!-- C_A(x) = 15x + 80 : x=0→80→px 210-80*0.6=162, x=5→155→px 117, x=10→230→px 72, x=15→305→px 27 -->
+      <line x1="30" y1="162" x2="300" y2="27" stroke="#0056b3" stroke-width="2.5"/>
+      <!-- C_B(x) = 20x + 30 : x=0→30→px 192, x=5→130→px 132, x=10→230→px 72, x=15→330→px 12 -->
+      <line x1="30" y1="192" x2="300" y2="12" stroke="#c53030" stroke-width="2.5"/>
+      <!-- Point d'intersection x=10 : C_A=C_B=230 → px (210, 72) -->
+      <circle cx="210" cy="72" r="5" fill="#2f855a" stroke="#fff" stroke-width="1.5"/>
+      <text x="218" y="68" font-size="10" fill="#2f855a" font-weight="bold">(10 ; 230)</text>
+      <!-- Pointillés d'intersection -->
+      <line x1="210" y1="210" x2="210" y2="72" stroke="#2f855a" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="30" y1="72" x2="210" y2="72" stroke="#2f855a" stroke-width="1" stroke-dasharray="4,3"/>
+      <!-- Zone B moins cher (x<10) -->
+      <text x="90" y="175" font-size="9" fill="#c53030">B moins cher</text>
+      <!-- Zone A moins cher (x>10) -->
+      <text x="240" y="55" font-size="9" fill="#0056b3">A moins cher</text>
+      <!-- Légende -->
+      <line x1="50" y1="238" x2="75" y2="238" stroke="#0056b3" stroke-width="2"/>
+      <text x="78" y="242" font-size="9" fill="#333">Artisan A : 15x + 80</text>
+      <line x1="190" y1="238" x2="215" y2="238" stroke="#c53030" stroke-width="2"/>
+      <text x="218" y="242" font-size="9" fill="#333">Artisan B : 20x + 30</text>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Les deux tarifs se croisent en \(x = 10\) m² : en dessous, B est moins cher ; au-dessus, A est moins cher.</figcaption>
+  </figure>
   <ol type="a">
     <li>Pour quelle surface les deux artisans pratiquent-ils le même tarif ?</li>
     <li>Quel artisan est moins cher pour une surface de 5 m² ? Pour 15 m² ?</li>

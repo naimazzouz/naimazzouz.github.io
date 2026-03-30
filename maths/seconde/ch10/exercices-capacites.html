@@ -222,6 +222,55 @@
     </tr>
   </table>
   <p>Décroissante sur \(]-\infty\,;\,0]\), croissante sur \([0\,;\,+\infty[\). Minimum : 0, atteint en \(x = 0\).</p>
+  <figure class="schema" style="text-align:center;margin:16px 0">
+    <svg width="340" height="180" viewBox="0 0 340 180" aria-label="Tableau de variations avec forme de la parabole">
+      <rect width="340" height="180" fill="#f8fafc" rx="6"/>
+      <!-- Tableau de variations à gauche -->
+      <!-- En-tête x -->
+      <rect x="10" y="10" width="30" height="30" fill="#e2e8f0" stroke="#333" stroke-width="1"/>
+      <text x="25" y="30" text-anchor="middle" font-size="11" fill="#333" font-weight="bold" font-style="italic">x</text>
+      <!-- Valeurs x -->
+      <rect x="40" y="10" width="40" height="30" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <text x="60" y="28" text-anchor="middle" font-size="10" fill="#333">\(-\infty\)</text>
+      <rect x="80" y="10" width="40" height="30" fill="#ebf5ff" stroke="#0056b3" stroke-width="1"/>
+      <text x="100" y="28" text-anchor="middle" font-size="10" fill="#0056b3" font-weight="bold">0</text>
+      <rect x="120" y="10" width="40" height="30" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <text x="140" y="28" text-anchor="middle" font-size="10" fill="#333">\(+\infty\)</text>
+      <!-- En-tête f(x) -->
+      <rect x="10" y="40" width="30" height="60" fill="#e2e8f0" stroke="#333" stroke-width="1"/>
+      <text x="25" y="75" text-anchor="middle" font-size="10" fill="#333" font-weight="bold">f(x)</text>
+      <!-- Variations -->
+      <rect x="40" y="40" width="120" height="60" fill="#fff" stroke="#999" stroke-width="0.5"/>
+      <!-- Valeurs hautes -->
+      <text x="50" y="58" font-size="10" fill="#333">\(+\infty\)</text>
+      <text x="132" y="58" font-size="10" fill="#333">\(+\infty\)</text>
+      <!-- Flèche descendante -->
+      <line x1="62" y1="60" x2="92" y2="88" stroke="#c53030" stroke-width="2"/>
+      <polygon points="90,85 96,92 88,89" fill="#c53030"/>
+      <!-- Minimum -->
+      <text x="95" y="96" font-size="10" fill="#0056b3" font-weight="bold">0</text>
+      <!-- Flèche montante -->
+      <line x1="108" y1="88" x2="136" y2="60" stroke="#2da44e" stroke-width="2"/>
+      <polygon points="134,63 140,56 132,59" fill="#2da44e"/>
+      <!-- Flèche liaison → forme parabole -->
+      <line x1="170" y1="70" x2="195" y2="70" stroke="#333" stroke-width="1.5"/>
+      <polygon points="195,66 205,70 195,74" fill="#333"/>
+      <!-- Parabole à droite illustrant la forme -->
+      <path d="M210,30 Q230,100 270,160 M270,160 Q310,100 330,30" fill="none" stroke="#0056b3" stroke-width="2.5"/>
+      <!-- Axe vertical en pointillés -->
+      <line x1="270" y1="25" x2="270" y2="165" stroke="#999" stroke-width="1" stroke-dasharray="3,2"/>
+      <!-- Flèche descendante sur parabole gauche -->
+      <path d="M225,45 L255,120" fill="none" stroke="#c53030" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="218" y="80" font-size="9" fill="#c53030">decr.</text>
+      <!-- Flèche montante sur parabole droite -->
+      <path d="M285,120 L315,45" fill="none" stroke="#2da44e" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="305" y="80" font-size="9" fill="#2da44e">croiss.</text>
+      <!-- Minimum -->
+      <circle cx="270" cy="160" r="4" fill="#0056b3"/>
+      <text x="275" y="172" font-size="9" fill="#0056b3" font-weight="bold">min (0;0)</text>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Le tableau de variations et la forme de la parabole sont deux manieres de decrire les memes variations</figcaption>
+  </figure>
 </div>
 
 <div class="exo">
@@ -453,6 +502,47 @@
 
 <div class="exo">
   <h3>Exercice 13</h3>
+  <figure class="schema" style="text-align:center;margin:12px 0">
+    <svg width="280" height="230" viewBox="0 0 280 230" aria-label="Parabole f(x)=x² et g(x)=x²+3, decalage vertical">
+      <rect width="280" height="230" fill="#f8fafc" rx="6"/>
+      <!-- Axes -->
+      <line x1="140" y1="220" x2="140" y2="8" stroke="#333" stroke-width="1.5"/>
+      <line x1="20" y1="200" x2="268" y2="200" stroke="#333" stroke-width="1.5"/>
+      <polygon points="268,197 276,200 268,203" fill="#333"/>
+      <polygon points="137,8 140,0 143,8" fill="#333"/>
+      <text x="272" y="204" font-size="10" fill="#333" font-style="italic">x</text>
+      <text x="130" y="8" font-size="10" fill="#333" font-style="italic">y</text>
+      <!-- Graduations -->
+      <text x="133" y="214" font-size="9" fill="#555">O</text>
+      <text x="80" y="214" font-size="9" fill="#555">-2</text>
+      <text x="195" y="214" font-size="9" fill="#555">2</text>
+      <text x="118" y="174" font-size="8" fill="#555">1</text>
+      <text x="118" y="144" font-size="8" fill="#555">2</text>
+      <text x="118" y="114" font-size="8" fill="#555">3</text>
+      <text x="118" y="84" font-size="8" fill="#555">4</text>
+      <text x="118" y="54" font-size="8" fill="#555">5</text>
+      <!-- f(x) = x² (bleu pointillé) -->
+      <!-- Echelle : 1x=30px, 1y=30px. O=(140,200) -->
+      <!-- x=-2→4→(80,80), x=-1→1→(110,170), x=0→0→(140,200), x=1→(170,170), x=2→(200,80) -->
+      <path d="M80,80 Q95,130 110,170 Q125,195 140,200 Q155,195 170,170 Q185,130 200,80" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="202" y="75" font-size="9" fill="#999" font-style="italic">f(x) = x²</text>
+      <!-- g(x) = x² + 3 (bleu plein, decalee de +3 soit 90px vers le haut) -->
+      <!-- x=-2→7→(80,-10)hors, x=-1.5→5.25→(95,42.5), x=-1→4→(110,80), x=0→3→(140,110), x=1→4→(170,80), x=1.5→5.25→(185,42.5), x=2→7→(200,-10)hors -->
+      <path d="M90,30 Q110,80 140,110 Q170,80 190,30" fill="none" stroke="#0056b3" stroke-width="2.5"/>
+      <text x="192" y="26" font-size="10" fill="#0056b3" font-style="italic">g(x) = x² + 3</text>
+      <!-- Sommet f -->
+      <circle cx="140" cy="200" r="3" fill="#999"/>
+      <text x="145" y="198" font-size="8" fill="#999">(0;0)</text>
+      <!-- Sommet g -->
+      <circle cx="140" cy="110" r="4" fill="#0056b3"/>
+      <text x="145" y="106" font-size="9" fill="#0056b3" font-weight="bold">(0;3)</text>
+      <!-- Fleche decalage +3 -->
+      <line x1="136" y1="195" x2="136" y2="115" stroke="#c53030" stroke-width="1.5"/>
+      <polygon points="133,115 136,107 139,115" fill="#c53030"/>
+      <text x="112" y="155" font-size="10" fill="#c53030" font-weight="bold">+3</text>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">La parabole de \(g(x) = x^2 + 3\) est celle de \(f(x) = x^2\) decalee de 3 vers le haut ; le minimum passe de 0 a 3.</figcaption>
+  </figure>
   <p>On considère \(g(x) = x^2 + 3\).</p>
   <ol type="a">
     <li>Calculer \(g(0)\), \(g(1)\), \(g(-1)\), \(g(2)\), \(g(-2)\).</li>
@@ -471,6 +561,54 @@
 
 <div class="exo">
   <h3>Exercice 14</h3>
+  <figure class="schema" style="text-align:center;margin:16px 0">
+    <svg width="300" height="250" viewBox="0 0 300 250" aria-label="Comparaison de f(x)=x², h(x)=2x² et p(x)=0.5x²">
+      <rect width="300" height="250" fill="#f8fafc" rx="6"/>
+      <!-- Grille -->
+      <g stroke="#e8edf2" stroke-width="0.5">
+        <line x1="50" y1="20" x2="50" y2="220"/><line x1="100" y1="20" x2="100" y2="220"/>
+        <line x1="200" y1="20" x2="200" y2="220"/><line x1="250" y1="20" x2="250" y2="220"/>
+        <line x1="30" y1="170" x2="270" y2="170"/><line x1="30" y1="120" x2="270" y2="120"/>
+        <line x1="30" y1="70" x2="270" y2="70"/><line x1="30" y1="20" x2="270" y2="20"/>
+      </g>
+      <!-- Axes -->
+      <line x1="150" y1="230" x2="150" y2="8" stroke="#333" stroke-width="1.5"/>
+      <line x1="25" y1="220" x2="280" y2="220" stroke="#333" stroke-width="1.5"/>
+      <polygon points="280,217 288,220 280,223" fill="#333"/>
+      <polygon points="147,8 150,0 153,8" fill="#333"/>
+      <text x="284" y="224" font-size="10" fill="#333" font-style="italic">x</text>
+      <text x="140" y="8" font-size="10" fill="#333" font-style="italic">y</text>
+      <!-- Graduations -->
+      <text x="43" y="234" font-size="9" fill="#555">-2</text>
+      <text x="93" y="234" font-size="9" fill="#555">-1</text>
+      <text x="144" y="234" font-size="9" fill="#555">O</text>
+      <text x="196" y="234" font-size="9" fill="#555">1</text>
+      <text x="246" y="234" font-size="9" fill="#555">2</text>
+      <text x="130" y="174" font-size="9" fill="#555">1</text>
+      <text x="130" y="124" font-size="9" fill="#555">2</text>
+      <text x="130" y="74" font-size="9" fill="#555">3</text>
+      <text x="130" y="24" font-size="9" fill="#555">4</text>
+      <!-- h(x)=2x² (resserrée, rouge) -->
+      <!-- x=-1.5→2*2.25=4.5→hors, x=-1→2→(100,120), x=-0.5→0.5→(125,195), x=0→0→(150,220), x=0.5→(175,195), x=1→(200,120), x=1.5→hors -->
+      <path d="M75,20 Q100,120 125,195 Q137,218 150,220 Q163,218 175,195 Q200,120 225,20" fill="none" stroke="#c53030" stroke-width="2"/>
+      <!-- f(x)=x² (standard, bleu) -->
+      <!-- x=-2→4→(50,20), x=-1→1→(100,170), x=0→0→(150,220), x=1→1→(200,170), x=2→4→(250,20) -->
+      <path d="M50,20 Q75,120 100,170 Q125,210 150,220 Q175,210 200,170 Q225,120 250,20" fill="none" stroke="#0056b3" stroke-width="2.5"/>
+      <!-- p(x)=0.5x² (large, verte) -->
+      <!-- x=-2→2→(50,120), x=-1→0.5→(100,195), x=0→0→(150,220), x=1→0.5→(200,195), x=2→2→(250,120) -->
+      <path d="M50,120 Q75,170 100,195 Q125,215 150,220 Q175,215 200,195 Q225,170 250,120" fill="none" stroke="#2da44e" stroke-width="2"/>
+      <!-- Sommet commun -->
+      <circle cx="150" cy="220" r="3" fill="#333"/>
+      <!-- Légende -->
+      <line x1="40" y1="244" x2="60" y2="244" stroke="#c53030" stroke-width="2"/>
+      <text x="63" y="248" font-size="9" fill="#333">h = 2x² (resserree)</text>
+      <line x1="140" y1="244" x2="160" y2="244" stroke="#0056b3" stroke-width="2.5"/>
+      <text x="163" y="248" font-size="9" fill="#333">f = x²</text>
+      <line x1="210" y1="244" x2="230" y2="244" stroke="#2da44e" stroke-width="2"/>
+      <text x="233" y="248" font-size="9" fill="#333">p = 1/2 x² (large)</text>
+    </svg>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Plus le coefficient \(k\) est grand, plus la parabole est resserree ; plus \(k\) est petit, plus elle est large.</figcaption>
+  </figure>
   <p>Comparer les fonctions \(f(x) = x^2\), \(h(x) = 2x^2\) et \(p(x) = \frac{1}{2}x^2\).</p>
   <ol type="a">
     <li>Calculer les images de \(-2\), \(-1\), \(0\), \(1\), \(2\) pour chacune.</li>
