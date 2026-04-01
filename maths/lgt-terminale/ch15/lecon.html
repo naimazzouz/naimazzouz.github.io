@@ -173,6 +173,69 @@
 </div>
 </div>
 
+<div class="anim-wrap" style="margin:2em 0">
+<h3 style="text-align:center;color:#4f46e5">Simulation — Loi des grands nombres</h3>
+<p style="text-align:center;font-size:.85rem;color:#666;margin-bottom:1em">Observer la fréquence de « 6 » converger vers \(\frac{1}{6}\) au fil des lancers.</p>
+<div style="text-align:center;margin-bottom:10px">
+  <button id="btnLGN1" onclick="addLancers(1)" style="padding:6px 14px;background:#4f46e5;color:#fff;border:none;border-radius:6px;cursor:pointer;margin:2px">+1 lancer</button>
+  <button id="btnLGN10" onclick="addLancers(10)" style="padding:6px 14px;background:#4f46e5;color:#fff;border:none;border-radius:6px;cursor:pointer;margin:2px">+10</button>
+  <button id="btnLGN100" onclick="addLancers(100)" style="padding:6px 14px;background:#4f46e5;color:#fff;border:none;border-radius:6px;cursor:pointer;margin:2px">+100</button>
+  <button id="btnLGN1000" onclick="addLancers(1000)" style="padding:6px 14px;background:#4f46e5;color:#fff;border:none;border-radius:6px;cursor:pointer;margin:2px">+1000</button>
+  <button onclick="resetLGN()" style="padding:6px 14px;background:#94a3b8;color:#fff;border:none;border-radius:6px;cursor:pointer;margin:2px">Reset</button>
+</div>
+<canvas id="canvasLGN" width="560" height="300" style="display:block;margin:0 auto;max-width:100%;border:1px solid #e2e8f0;border-radius:8px;background:#fafbfc"></canvas>
+<p id="lgnInfo" style="text-align:center;font-size:.9rem;font-weight:600;color:#4f46e5;margin-top:8px"></p>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('canvasLGN'),ctx=cv.getContext('2d');
+  var freqs=[],total=0,six=0;
+  function draw(){
+    var W=cv.width,H=cv.height,pad=50,padR=20,padT=20;
+    ctx.clearRect(0,0,W,H);
+    // axes
+    ctx.strokeStyle='#94a3b8';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(pad,H-pad);ctx.lineTo(W-padR,H-pad);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(pad,H-pad);ctx.lineTo(pad,padT);ctx.stroke();
+    // y labels
+    ctx.fillStyle='#64748b';ctx.font='11px sans-serif';ctx.textAlign='right';
+    for(var v=0;v<=0.5;v+=0.1){var yy=H-pad-v/0.5*(H-pad-padT);ctx.fillText(v.toFixed(1),pad-6,yy+4)}
+    // x label
+    ctx.textAlign='center';ctx.fillText('Lancers',W/2,H-8);
+    // 1/6 line
+    ctx.strokeStyle='#ef4444';ctx.lineWidth=1.5;ctx.setLineDash([6,4]);
+    var y16=H-pad-(1/6)/0.5*(H-pad-padT);
+    ctx.beginPath();ctx.moveTo(pad,y16);ctx.lineTo(W-padR,y16);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#ef4444';ctx.font='bold 12px sans-serif';ctx.textAlign='left';
+    ctx.fillText('1/6 ≈ 0.167',W-padR-80,y16-8);
+    // curve
+    if(freqs.length>1){
+      ctx.strokeStyle='#4f46e5';ctx.lineWidth=2;ctx.beginPath();
+      var step=Math.max(1,Math.floor(freqs.length/500));
+      for(var i=0;i<freqs.length;i+=step){
+        var x=pad+i/(freqs.length-1)*(W-pad-padR);
+        var y=H-pad-freqs[i]/0.5*(H-pad-padT);
+        if(y<padT)y=padT;if(y>H-pad)y=H-pad;
+        if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    }
+    document.getElementById('lgnInfo').textContent=
+      'Lancers : '+total+' | Nombre de 6 : '+six+' | Fréquence : '+(total>0?(six/total).toFixed(4):'—');
+  }
+  window.addLancers=function(k){
+    for(var i=0;i<k;i++){
+      total++;if(Math.floor(Math.random()*6)===0)six++;
+      freqs.push(six/total);
+    }
+    draw();
+  };
+  window.resetLGN=function(){total=0;six=0;freqs=[];draw()};
+  draw();
+})();
+</script>
+
 </div>
 <script src="../../../nav.js"></script>
 </body>

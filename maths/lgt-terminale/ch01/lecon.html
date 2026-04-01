@@ -458,6 +458,47 @@
 </div>
 </div>
 
+<div class="anim-wrap" style="margin:2em 0">
+<h3 style="text-align:center;color:#4f46e5">Simulation — Triangle de Pascal interactif</h3>
+<p style="text-align:center;font-size:.85rem;color:#666;margin-bottom:.5em">Ajuster le nombre de lignes. Survoler un nombre pour voir le coefficient binomial correspondant.</p>
+<div style="text-align:center;margin-bottom:10px">
+  <label>Lignes (n) : <input type="range" id="simPascalN" min="1" max="15" value="8" style="vertical-align:middle"><span id="simPascalNVal" style="font-weight:700;margin-left:4px">8</span></label>
+</div>
+<div id="pascalTriangle" style="text-align:center;font-family:monospace"></div>
+<p id="pascalInfo" style="text-align:center;font-size:.95rem;font-weight:600;color:#4f46e5;margin-top:8px;min-height:1.5em"></p>
+</div>
+<script>
+(function(){
+  var sl=document.getElementById('simPascalN'),lb=document.getElementById('simPascalNVal');
+  var container=document.getElementById('pascalTriangle'),info=document.getElementById('pascalInfo');
+  function build(){
+    var n=parseInt(sl.value);lb.textContent=n;
+    var tri=[];for(var i=0;i<=n;i++){tri[i]=[];for(var j=0;j<=i;j++)tri[i][j]=(j===0||j===i)?1:tri[i-1][j-1]+tri[i-1][j]}
+    var html='';
+    for(var i=0;i<=n;i++){
+      html+='<div style="margin:2px 0">';
+      for(var j=0;j<=i;j++){
+        html+='<span data-n="'+i+'" data-k="'+j+'" style="display:inline-block;min-width:36px;padding:4px 6px;margin:1px;background:#eef2ff;border:1px solid #a5b4fc;border-radius:6px;cursor:pointer;font-size:.85rem;transition:background .15s">'
+          +tri[i][j]+'</span>';
+      }
+      html+='</div>';
+    }
+    container.innerHTML=html;
+    container.querySelectorAll('span[data-n]').forEach(function(el){
+      el.addEventListener('mouseenter',function(){
+        this.style.background='#4f46e5';this.style.color='#fff';
+        info.textContent='C('+this.dataset.n+','+this.dataset.k+') = '+this.textContent+'   (ligne n='+this.dataset.n+', k='+this.dataset.k+')';
+      });
+      el.addEventListener('mouseleave',function(){
+        this.style.background='#eef2ff';this.style.color='#1e293b';
+        info.textContent='';
+      });
+    });
+  }
+  sl.oninput=build;build();
+})();
+</script>
+
 <!-- ═══════════════════════════════════════════ -->
 <h2>VI. Applications — Problèmes de dénombrement</h2>
 <!-- ═══════════════════════════════════════════ -->
