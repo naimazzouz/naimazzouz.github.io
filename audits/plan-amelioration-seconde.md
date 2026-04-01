@@ -1,20 +1,36 @@
 # Plan d'amelioration — Chapitres de Seconde
 
 **Date** : 2026-03-17
-**Derniere mise a jour** : 2026-03-17
+**Derniere mise a jour** : 2026-03-31
 **Perimetre** : maths/seconde (14 ch.) + physique-chimie/seconde (14 ch.)
 
 ---
 
 ## Etat des lieux
 
-### Couverture des fichiers (28 chapitres)
+### Couverture des fichiers (28 chapitres) — verifie 2026-03-31
 
-| Section | Lecons | Exercices | DS | Total |
-|---|---|---|---|---|
-| Maths Seconde | 14/14 | 14/14 | 14/14 | 42/42 |
-| PC Seconde | 14/14 | 14/14 | 14/14 | 42/42 |
-| **Total** | **28/28** | **28/28** | **28/28** | **84/84** |
+| Section | lecon | exercices | ds | fiche | qcm | interro | ex-capa | activite | Total |
+|---|---|---|---|---|---|---|---|---|---|
+| Maths Seconde | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 112/112 |
+| PC Seconde | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 14/14 | 112/112 |
+| **Total** | **28/28** | **28/28** | **28/28** | **28/28** | **28/28** | **28/28** | **28/28** | **28/28** | **224/224** |
+
+### Conformite technique — verifie 2026-03-31
+
+| Indicateur | Maths Seconde | PC Seconde |
+|---|---|---|
+| nav.js present | 100% | 100% |
+| print.css present | 100% | 100% |
+| styles.css present | 100% | 100% |
+| MathJax present (la ou necessaire) | 100% | 100% |
+| Theme couleur conforme | `#0056b3` OK | `#6f42c1` OK |
+| diff.js absent des lecon.html | OK | OK |
+| Differenciation exercices.html | 14/14 | 14/14 |
+| Differenciation ds.html | 14/14 | 14/14 |
+| Sigles interdits dans contenu | 0 violation | 0 violation |
+| Fichiers stubs/vides | aucun | aucun |
+| Liens retour sommaire | corrects | corrects |
 
 ### Corrections : etat reel (verifie 2026-03-17)
 
@@ -72,6 +88,12 @@ Les corrections sont **toutes redigees**. Le chiffre "517 manquantes" etait une 
 ### Phase 3 : Enrichissements
 1. Mini-exercices lecons PC
 2. Scenarios professionnels enrichis
+
+---
+
+## Corrections realisees
+
+- **2026-03-31** : Audit complet des 28 chapitres Seconde Pro (14 maths + 14 PC). Structure 8 fichiers complete sur 100% des chapitres. Aucun probleme technique detecte (nav.js, print.css, styles.css, MathJax, themes couleur, diff.js, sigles interdits, liens sommaire).
 
 ---
 
