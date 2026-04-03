@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch05 – Fonctions – DS – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:8px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-size:1.1em;font-weight:700">Devoir surveillé — Ch05 · Fonctions</span>
+    <span style="font-size:.95em;opacity:.9">CAP · Durée : 1 h · /20</span>
+  </div>
+</header>
+
+<!-- ══════════════ SOCLE ══════════════ -->
+<div class="diff-socle">
+<h2><span class="tag-socle">Socle</span> Exercice 1 — Lecture d'un tableau de valeurs (7 pts)</h2>
+<div class="exo">
+<p>La fonction \(f\) donne le coût total (en €) de production de \(x\) panneaux dans un atelier de signalétique :</p>
+<table class="full">
+  <tr><th>\(x\) (nombre de panneaux)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>
+  <tr><th>\(f(x)\) (coût en €)</th><td>50</td><td>90</td><td>130</td><td>170</td><td>210</td><td>250</td></tr>
+</table>
+
+<p><strong>1. (2 pts)</strong> Quel est le coût pour 4 panneaux ? \(f(4) = \) …</p>
+<p><strong>2. (2 pts)</strong> Quel est le coût pour 0 panneau ? Que représente ce coût ?</p>
+<p><strong>3. (3 pts)</strong> Pour quel nombre de panneaux le coût est-il de 210 € ? Réécris cette question avec la notation \(f(x) = 210\) et réponds.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. f(4) = 130 €</p>
+  <p>2. f(0) = 50 € → représente les coûts fixes (coûts de démarrage même sans production)</p>
+  <p>3. f(x) = 210 → x = 8 panneaux</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 2 — Calcul d'images (7 pts)</h2>
+<div class="exo">
+<p>Soit la fonction \(f(x) = 3x + 10\). Calcule (montre le calcul) :</p>
+<p><strong>1. (3 pts)</strong></p>
+<ul class="styled">
+  <li>\(f(0) = 3 \times … + 10 = …\)</li>
+  <li>\(f(5) = 3 \times … + 10 = …\)</li>
+  <li>\(f(10) = 3 \times … + 10 = …\)</li>
+</ul>
+
+<p><strong>2. (2 pts)</strong> Complète le tableau :</p>
+<table class="full">
+  <tr><th>\(x\)</th><td>0</td><td>2</td><td>4</td><td>6</td></tr>
+  <tr><th>\(f(x)\)</th><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+</table>
+
+<p><strong>3. (2 pts)</strong> Place les points du tableau dans un repère et trace la courbe.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. f(0)=10 | f(5)=25 | f(10)=40</p>
+  <p>2. f(0)=10, f(2)=16, f(4)=22, f(6)=28</p>
+  <p>3. Points : (0;10), (2;16), (4;22), (6;28) → droite croissante</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 3 — Sens de variation (6 pts)</h2>
+<div class="exo">
+<p>Le graphique ci-dessous représente la consommation \(C\) (en L) d'une fraiseuse à bois en fonction du temps \(t\) (en h).</p>
+<p><em>(Décrire : la courbe part de 0, monte, atteint un maximum à t=3, puis redescend)</em></p>
+
+<p><strong>1. (2 pts)</strong> La fonction est-elle croissante, décroissante, ou ni l'un ni l'autre sur [0 ; 5] ?</p>
+<p><strong>2. (2 pts)</strong> Sur quel intervalle la consommation augmente-t-elle ?</p>
+<p><strong>3. (2 pts)</strong> Quel est le maximum de consommation et à quel moment est-il atteint ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Ni l'un ni l'autre sur [0;5] (elle monte puis descend)</p>
+  <p>2. La consommation augmente sur [0;3]</p>
+  <p>3. Maximum à t=3 h (lire la valeur sur l'axe vertical)</p>
+</div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ══════════════ STANDARD ══════════════ -->
+<div class="diff-standard">
+<h2><span class="tag-standard">Standard</span> Exercice 1 — Fonction affine (8 pts)</h2>
+<div class="exo">
+<p>Un ébéniste calcule son chiffre d'affaires journalier grâce à la fonction \(C(x) = 45x + 80\), où \(x\) est le nombre de meubles livrés et \(C(x)\) le chiffre d'affaires en euros.</p>
+
+<p><strong>1. (2 pts)</strong> Calcule \(C(0)\), \(C(3)\) et \(C(7)\). Que représente \(C(0)\) ?</p>
+<p><strong>2. (2 pts)</strong> Construis le tableau de valeurs pour \(x \in \{0, 1, 2, 3, 4, 5\}\) et trace la courbe.</p>
+<p><strong>3. (2 pts)</strong> Quel chiffre d'affaires l'ébéniste atteint-il s'il livre 10 meubles ?</p>
+<p><strong>4. (2 pts)</strong> Combien de meubles doit-il livrer pour atteindre au moins 350 € de chiffre d'affaires ? (Résous \(C(x) \geq 350\))</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. C(0)=80 € (frais fixes, même sans livraison) | C(3)=135+80=215 € | C(7)=315+80=395 €</p>
+  <p>2. Tableau : 80, 125, 170, 215, 260, 305 → droite croissante</p>
+  <p>3. C(10) = 450+80 = 530 €</p>
+  <p>4. 45x+80 ≥ 350 → 45x ≥ 270 → x ≥ 6 → au moins 6 meubles</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 2 — Variations et extrema (7 pts)</h2>
+<div class="exo">
+<p>La hauteur \(h(t)\) (en cm) d'une porte coulissante en cours d'installation varie selon le temps \(t\) (en min) :</p>
+<table class="full">
+  <tr><th>\(t\) (min)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+  <tr><th>\(h(t)\) (cm)</th><td>0</td><td>30</td><td>55</td><td>70</td><td>78</td><td>80</td></tr>
+</table>
+
+<p><strong>1. (2 pts)</strong> La fonction est-elle croissante ou décroissante sur [0 ; 5] ?</p>
+<p><strong>2. (2 pts)</strong> Trace la courbe représentative. Donne un titre et nomme les axes.</p>
+<p><strong>3. (3 pts)</strong> Entre quelles minutes la variation de hauteur est-elle la plus rapide ? Justifie en calculant les accroissements.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Croissante sur [0;5] (les valeurs augmentent)</p>
+  <p>2. Courbe croissante et concave (les augmentations ralentissent)</p>
+  <p>3. Accroissements : 0→1: +30, 1→2: +25, 2→3: +15, 3→4: +8, 4→5: +2 → variation la plus rapide entre t=0 et t=1 (gain de 30 cm)</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 3 — Comparaison de fonctions (5 pts)</h2>
+<div class="exo">
+<p>Deux fournisseurs de vinyle proposent :</p>
+<ul class="styled">
+  <li>Fournisseur A : \(P_A(x) = 12x + 20\) (x rouleaux, frais de port 20 €)</li>
+  <li>Fournisseur B : \(P_B(x) = 14x\) (livraison gratuite)</li>
+</ul>
+
+<p><strong>1. (2 pts)</strong> Calcule \(P_A(5)\) et \(P_B(5)\). Quel fournisseur est moins cher pour 5 rouleaux ?</p>
+<p><strong>2. (3 pts)</strong> Pour quelle quantité de rouleaux les deux prix sont-ils égaux ? (Résous \(P_A(x) = P_B(x)\))</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. PA(5) = 60+20 = 80 € | PB(5) = 70 € → B moins cher pour 5 rouleaux</p>
+  <p>2. 12x+20 = 14x → 20 = 2x → x = 10 rouleaux. Pour x=10 les deux fournisseurs coûtent le même prix (140 €). Au-delà de 10, A devient moins cher.</p>
+</div>
+</div>
+</div><!-- fin diff-standard -->
+
+<!-- ══════════════ APPROFONDISSEMENT ══════════════ -->
+<div class="diff-appro">
+<h2><span class="tag-appro">Approfondissement</span> Exercice 1 — Rentabilité d'un atelier (8 pts)</h2>
+<div class="exo">
+<p>Un atelier de menuiserie a des charges fixes de 1 200 € par mois. Chaque meuble produit et vendu génère 80 € de recette brute et coûte 35 € en matières premières.</p>
+
+<p><strong>1. (2 pts)</strong> Exprime la recette totale \(R(x)\) et les charges totales \(C(x)\) en fonction du nombre de meubles \(x\).</p>
+<p><strong>2. (2 pts)</strong> Exprime le bénéfice \(B(x) = R(x) - C(x)\).</p>
+<p><strong>3. (2 pts)</strong> Pour quelle valeur de \(x\) l'atelier est-il à l'équilibre (bénéfice nul) ? C'est le « seuil de rentabilité ».</p>
+<p><strong>4. (2 pts)</strong> Trace les courbes \(R(x)\) et \(C(x)\) sur le même graphique. Identifie graphiquement la zone de profit.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. R(x) = 80x | C(x) = 35x + 1200</p>
+  <p>2. B(x) = 80x − (35x+1200) = 45x − 1200</p>
+  <p>3. B(x) = 0 → 45x = 1200 → x = 1200/45 ≈ 26,7 → seuil = 27 meubles</p>
+  <p>4. R(x) est une droite passant par l'origine, C(x) une droite d'ordonnée à l'origine 1200. Elles se croisent en x≈26,7. La zone de profit est à droite de cette intersection.</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 2 — Analyse graphique avancée (6 pts)</h2>
+<div class="exo">
+<p>La fonction \(f(x) = -2x^2 + 16x\) modélise la production (en unités) d'un atelier de signalétique en fonction du nombre d'heures supplémentaires \(x\) effectuées (0 ≤ x ≤ 8).</p>
+
+<p><strong>1. (2 pts)</strong> Calcule \(f(0)\), \(f(2)\), \(f(4)\), \(f(6)\), \(f(8)\) et trace la courbe.</p>
+<p><strong>2. (2 pts)</strong> Sur quel intervalle la production augmente-t-elle ? Où est-elle maximale ?</p>
+<p><strong>3. (2 pts)</strong> Comment interpréter le fait que f(8) = 0 dans ce contexte professionnel ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. f(0)=0 | f(2)=-8+32=24 | f(4)=-32+64=32 | f(6)=-72+96=24 | f(8)=-128+128=0</p>
+  <p>2. La production augmente sur [0;4] et diminue sur [4;8]. Maximum en x=4 : f(4)=32 unités.</p>
+  <p>3. f(8)=0 signifie qu'après 8h sup, la production supplémentaire est nulle — les travailleurs sont épuisés et contreproductifs (erreurs, accidents, ralentissement).</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 3 — Modélisation (6 pts)</h2>
+<div class="exo">
+<p>Un artisan constate que le nombre d'heures nécessaires pour terminer une commande dépend du nombre de pièces à réaliser selon la formule \(T(n) = 0{,}5n + \dfrac{20}{n}\) (en heures, pour n ≥ 1 pièce).</p>
+
+<p><strong>1. (2 pts)</strong> Calcule T(1), T(4), T(5) et T(10). Construis le tableau.</p>
+<p><strong>2. (2 pts)</strong> Pour quelle valeur de n le temps semble-t-il le plus court d'après le tableau ?</p>
+<p><strong>3. (2 pts)</strong> L'artisan dispose de 7 h. Pour quelles valeurs de n (entières) peut-il terminer la commande ? (Résoudre T(n) ≤ 7)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. T(1)=0,5+20=20,5h | T(4)=2+5=7h | T(5)=2,5+4=6,5h | T(10)=5+2=7h</p>
+  <p>2. n=5 donne T=6,5h, le minimum parmi les valeurs calculées.</p>
+  <p>3. T(n) ≤ 7 : T(4)=7, T(5)=6,5, T(6)=3+3,33=6,33, T(7)=3,5+2,86=6,36... jusqu'à T(10)=7. Donc pour n entre 4 et 10 inclus (à vérifier pour chaque entier).</p>
+</div>
+</div>
+</div><!-- fin diff-appro -->
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

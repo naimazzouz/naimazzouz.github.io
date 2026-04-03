@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch03 – Proportionnalité et pourcentages – Activité – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch03 : Proportionnalité et pourcentages</h1>
+  <p class="sous-titre">CAP | Mathématiques | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Établir un devis pour un artisan peintre en lettres</h3>
+  <p>
+    Un peintre en lettres doit réaliser des panneaux d'affichage pour une boulangerie.
+    Le prix du vinyle autocollant est de 5,60 € le mètre carré.
+    Il doit également appliquer une remise commerciale de 12 % pour ce client fidèle,
+    puis calculer le prix TTC avec TVA à 20 %.
+  </p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment calculer un prix proportionnel à une quantité, puis appliquer une remise et une TVA ?
+</div>
+
+<h2>Partie 1 — Tableau de proportionnalité</h2>
+
+<div class="exo">
+<p><strong>Question 1 :</strong> Le vinyle coûte 5,60 €/m². Complète le tableau de proportionnalité :</p>
+<table class="full">
+  <tr><th>Surface (m²)</th><td>1</td><td>2</td><td>3</td><td>5</td><td>10</td></tr>
+  <tr><th>Prix HT (€)</th><td>5,60</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+</table>
+<p>Quel nombre utilise-t-on pour passer de la surface au prix ? C'est le <strong>coefficient de proportionnalité</strong> = …</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  11,20 — 16,80 — 28,00 — 56,00 | Coefficient = 5,60 €/m²
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 2 :</strong> Le peintre en lettres commande 7,5 m² de vinyle. Calcule le prix HT.</p>
+<p>Prix = 5,60 × 7,5 = … €</p>
+<p>Comment as-tu calculé ? Le prix est-il proportionnel à la surface ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  5,60 × 7,5 = 42 € | Oui, doubler la surface double le prix → proportionnel.
+</div>
+</div>
+
+<h2>Partie 2 — Calcul de remise</h2>
+
+<div class="exo">
+<p><strong>Question 3 :</strong> Le client bénéficie de 12 % de remise. Calcule la remise et le nouveau prix HT.</p>
+<p>Rappel : 12 % = 12/100 = 0,12</p>
+<p>Montant de la remise = 12 % de 42 = 0,12 × 42 = … €</p>
+<p>Prix HT après remise = 42 − … = … €</p>
+
+<p>Alternative : coefficient multiplicateur de la remise = 1 − 0,12 = …</p>
+<p>Prix HT après remise = 42 × … = … € (même résultat)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Remise = 5,04 € | Prix = 42 − 5,04 = 36,96 € | Coefficient = 0,88 | 42 × 0,88 = 36,96 € ✓
+</div>
+</div>
+
+<h2>Partie 3 — Application de la TVA</h2>
+
+<div class="exo">
+<p><strong>Question 4 :</strong> La TVA est de 20 %. Calcule le montant TTC à partir du prix HT après remise (36,96 €).</p>
+<p>Montant TVA = 20 % de 36,96 = 0,20 × 36,96 = … €</p>
+<p>Prix TTC = 36,96 + … = … €</p>
+<p>Alternative : coefficient TTC = 1 + 0,20 = … → 36,96 × … = … € (même résultat)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  TVA = 7,392 € | TTC = 36,96+7,39 ≈ 44,35 € | Coefficient TTC = 1,20 | 36,96×1,20 = 44,352 € ✓
+</div>
+</div>
+
+<h2>Partie 4 — Règle de trois</h2>
+
+<div class="exo">
+<p><strong>Question 5 :</strong> Un autre calcul : pour 3 m², il faut 2 heures de travail. Pour 7,5 m², combien d'heures faut-il ?</p>
+<p>Méthode : \(? = \dfrac{7{,}5 \times 2}{3} = \dfrac{…}{3} = …\) heures</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  ? = (7,5 × 2)/3 = 15/3 = 5 heures
+</div>
+</div>
+
+<h2>Bilan — Ce que j'ai appris</h2>
+
+<div class="retenir">
+  <ul class="styled">
+    <li>Deux suites sont <strong>proportionnelles</strong> si le quotient est toujours le même (coefficient de proportionnalité).</li>
+    <li>Remise : soustraire le pourcentage — ou multiplier par (1 − taux).</li>
+    <li>TVA : ajouter le pourcentage — ou multiplier par (1 + taux).</li>
+    <li><strong>Règle de trois :</strong> \(\dfrac{a}{b} = \dfrac{x}{d}\) → \(x = \dfrac{a \times d}{b}\)</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

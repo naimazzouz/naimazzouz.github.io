@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch01 – Statistiques à une variable – Interrogation – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:8px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-size:1.05em;font-weight:700">Interrogation — Ch01 · Statistiques à une variable</span>
+    <span style="font-size:.9em;opacity:.9">CAP · 20 min · /10</span>
+  </div>
+</header>
+
+<!-- ══════════════ SOCLE ══════════════ -->
+<div class="diff-socle">
+<div class="exo">
+<h2><span class="tag-socle">Socle</span></h2>
+<p>Un artisan mesure la hauteur (en cm) de 6 pieds de chaise : <strong>42, 43, 42, 44, 42, 43</strong></p>
+
+<p><strong>1. (3 pts)</strong> Complète le tableau :</p>
+<table class="full">
+  <tr><th>Hauteur (cm)</th><td>42</td><td>43</td><td>44</td><td>Total</td></tr>
+  <tr><th>Effectif</th><td>…</td><td>…</td><td>…</td><td>6</td></tr>
+  <tr><th>Fréquence (%)</th><td>…</td><td>…</td><td>…</td><td>100 %</td></tr>
+</table>
+
+<p><strong>2. (3 pts)</strong> Calcule la hauteur moyenne. Rappel : moyenne = somme des valeurs ÷ effectif total.</p>
+<p>Somme = 42 + 43 + 42 + 44 + 42 + 43 = …</p>
+<p>Moyenne = … ÷ 6 = … cm</p>
+
+<p><strong>3. (4 pts)</strong> Quelle valeur revient le plus souvent ? C'est le <strong>mode</strong>. Mode = … cm</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 42→3, 43→2, 44→1 | 42→50%, 43→33,3%, 44→16,7%</p>
+  <p>2. Somme = 256 | Moyenne = 256/6 ≈ 42,67 cm</p>
+  <p>3. Mode = 42 cm (apparaît 3 fois)</p>
+</div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ══════════════ STANDARD ══════════════ -->
+<div class="diff-standard">
+<div class="exo">
+<h2><span class="tag-standard">Standard</span></h2>
+<p>Un signalétiste relève le nombre de commandes reçues chaque jour sur 10 jours : <strong>3, 5, 4, 3, 6, 5, 4, 3, 5, 7</strong></p>
+
+<p><strong>1. (3 pts)</strong> Construis le tableau d'effectifs et de fréquences (en %).</p>
+<p><strong>2. (3 pts)</strong> Calcule la moyenne quotidienne de commandes.</p>
+<p><strong>3. (2 pts)</strong> Quel est le mode ? Que représente-t-il ici ?</p>
+<p><strong>4. (2 pts)</strong> Quelle fréquence (en %) représentent les journées avec plus de 5 commandes ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 3→3 (30%), 4→2 (20%), 5→3 (30%), 6→1 (10%), 7→1 (10%)</p>
+  <p>2. Somme = 3+5+4+3+6+5+4+3+5+7 = 45 → Moyenne = 45/10 = 4,5 commandes/jour</p>
+  <p>3. Mode = 3 ou 5 (ex-aequo, 3 fois chacun) — le nombre de commandes le plus fréquent</p>
+  <p>4. Journées avec &gt;5 commandes : 6(×1) et 7(×1) → 2 jours → 2/10 = 20 %</p>
+</div>
+</div>
+</div><!-- fin diff-standard -->
+
+<!-- ══════════════ APPROFONDISSEMENT ══════════════ -->
+<div class="diff-appro">
+<div class="exo">
+<h2><span class="tag-appro">Approfondissement</span></h2>
+<p>Un ébéniste contrôle l'épaisseur (en mm) de 12 panneaux. Les données sont réparties dans ce tableau :</p>
+<table class="full">
+  <tr><th>Épaisseur (mm)</th><td>17,8</td><td>18,0</td><td>18,2</td><td>18,4</td></tr>
+  <tr><th>Effectif</th><td>2</td><td>5</td><td>4</td><td>1</td></tr>
+</table>
+
+<p><strong>1. (3 pts)</strong> Calcule la moyenne à partir du tableau d'effectifs. Formule : \(\bar{x} = \dfrac{\sum n_i v_i}{N}\)</p>
+<p><strong>2. (3 pts)</strong> La norme accepte les épaisseurs entre 17,9 et 18,3 mm (bornes comprises). Calcule la fréquence des panneaux non conformes.</p>
+<p><strong>3. (4 pts)</strong> Si le lot suivant présente une épaisseur moyenne de 18,5 mm avec 15 panneaux, calcule la moyenne générale des 27 panneaux.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Somme = 2×17,8+5×18+4×18,2+1×18,4 = 35,6+90+72,8+18,4 = 216,8 | Moyenne = 216,8/12 ≈ 18,07 mm</p>
+  <p>2. Non conformes : 17,8 (épaisseur &lt; 17,9) → 2 panneaux → 2/12 ≈ 16,7 %</p>
+  <p>3. Somme totale = 216,8 + 15×18,5 = 216,8+277,5 = 494,3 | Moyenne générale = 494,3/27 ≈ 18,31 mm</p>
+</div>
+</div>
+</div><!-- fin diff-appro -->
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

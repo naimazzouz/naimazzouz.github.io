@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch06 – Géométrie – DS – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:8px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-size:1.1em;font-weight:700">Devoir surveillé — Ch06 · Géométrie</span>
+    <span style="font-size:.95em;opacity:.9">CAP · Durée : 1 h · /20</span>
+  </div>
+</header>
+
+<!-- ══════════════ SOCLE ══════════════ -->
+<div class="diff-socle">
+<h2><span class="tag-socle">Socle</span> Exercice 1 — Aires et périmètres (8 pts)</h2>
+<div class="exo">
+<p>Un menuisier doit découper des panneaux rectangulaires de 120 cm de long et 80 cm de large.</p>
+
+<p><strong>1. (2 pts)</strong> Calcule le périmètre du panneau. Rappel : \(P = 2(L + l)\)</p>
+<p>\(P = 2 \times (… + …) = 2 \times … = …\) cm</p>
+
+<p><strong>2. (2 pts)</strong> Calcule l'aire du panneau. Rappel : \(A = L \times l\)</p>
+<p>\(A = … \times … = …\) cm²</p>
+
+<p><strong>3. (2 pts)</strong> Le menuisier doit découper 6 panneaux identiques. Quelle surface totale représentent-ils ?</p>
+
+<p><strong>4. (2 pts)</strong> Il dispose d'une planche de 1 m² (= 10 000 cm²). Un panneau tient-il dans cette planche ? Justifie.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. P = 2×(120+80) = 2×200 = 400 cm</p>
+  <p>2. A = 120×80 = 9 600 cm²</p>
+  <p>3. 6×9600 = 57 600 cm²</p>
+  <p>4. Un panneau = 9 600 cm² &lt; 10 000 cm² → OUI, un panneau tient dans 1 m²</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 2 — Volume d'une boîte (6 pts)</h2>
+<div class="exo">
+<p>Un ébéniste fabrique une boîte en bois de forme parallélépipédique : longueur 40 cm, largeur 25 cm, hauteur 15 cm.</p>
+
+<p><strong>1. (3 pts)</strong> Calcule le volume de la boîte. Rappel : \(V = L \times l \times h\)</p>
+<p>\(V = … \times … \times … = …\) cm³</p>
+
+<p><strong>2. (3 pts)</strong> Exprime ce volume en litres (1 L = 1 000 cm³).</p>
+<p>\(V = … \div 1\,000 = …\) L</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. V = 40×25×15 = 15 000 cm³</p>
+  <p>2. V = 15000/1000 = 15 L</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 3 — Théorème de Pythagore (6 pts)</h2>
+<div class="exo">
+<p>Un montant de porte est posé à angle droit. La base fait 180 cm et la diagonale (la barre de renfort) fait 182 cm.</p>
+<p><em>Dessin : triangle rectangle avec deux côtés connus.</em></p>
+
+<p><strong>1. (2 pts)</strong> Rappelle le théorème de Pythagore pour un triangle rectangle (l'hypoténuse est le plus grand côté).</p>
+<p><strong>2. (4 pts)</strong> Calcule la hauteur du montant. Formule guidée :</p>
+<p>\(h^2 = 182^2 - 180^2 = … - … = …\)</p>
+<p>\(h = \sqrt{…} \approx …\) cm</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Dans un triangle rectangle, le carré de l'hypoténuse = somme des carrés des deux autres côtés.</p>
+  <p>2. h² = 182²−180² = 33124−32400 = 724 → h = √724 ≈ 26,9 cm</p>
+</div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ══════════════ STANDARD ══════════════ -->
+<div class="diff-standard">
+<h2><span class="tag-standard">Standard</span> Exercice 1 — Surfaces professionnelles (8 pts)</h2>
+<div class="exo">
+<p>Un signalétiste doit couvrir la façade d'un commerce. La façade est composée :</p>
+<ul class="styled">
+  <li>D'un rectangle principal : 6 m × 3 m</li>
+  <li>D'un triangle en fronton : base 6 m, hauteur 1,5 m</li>
+  <li>D'une porte à déduire : 2 m × 1 m</li>
+  <li>De 2 fenêtres à déduire : chacune 0,8 m × 1,2 m</li>
+</ul>
+
+<p><strong>1. (4 pts)</strong> Calcule l'aire de chaque élément (rectangle, triangle, porte, fenêtres).</p>
+<p><strong>2. (4 pts)</strong> Calcule la surface utile à couvrir (façade + fronton − ouvertures).</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>Rectangle : 6×3 = 18 m² | Triangle : (6×1,5)/2 = 4,5 m² | Porte : 2×1 = 2 m² | 2 Fenêtres : 2×(0,8×1,2) = 1,92 m²</p>
+  <p>Surface utile = 18 + 4,5 − 2 − 1,92 = 18,58 m²</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 2 — Volumes et métrés (7 pts)</h2>
+<div class="exo">
+<p>Un ébéniste fabrique un meuble TV en forme de L (vu de face). La partie principale mesure 120 cm × 40 cm × 50 cm et l'extension 60 cm × 40 cm × 30 cm.</p>
+
+<p><strong>1. (3 pts)</strong> Calcule le volume de chaque partie, puis le volume total.</p>
+<p><strong>2. (2 pts)</strong> Le meuble est réalisé en MDF de 18 mm d'épaisseur. Calcule la surface totale des 6 faces de la partie principale.</p>
+<p><strong>3. (2 pts)</strong> Pour vernir le meuble, il faut 0,15 L de vernis par m². Pour la partie principale, quelle quantité de vernis faut-il ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Partie principale : 120×40×50 = 240 000 cm³ | Extension : 60×40×30 = 72 000 cm³ | Total = 312 000 cm³</p>
+  <p>2. Faces de la principale : 2×(120×50) + 2×(120×40) + 2×(40×50) = 12000+9600+4000 = 25600 cm² = 2,56 m²</p>
+  <p>3. Vernis = 2,56 × 0,15 = 0,384 L ≈ 0,4 L</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 3 — Pythagore et angles (5 pts)</h2>
+<div class="exo">
+<p>Un menuisier pose une rampe d'accès. Elle s'appuie contre un mur à une hauteur de 1,2 m et sa base au sol est à 3,2 m du mur.</p>
+
+<p><strong>1. (3 pts)</strong> Calcule la longueur de la rampe (hypoténuse).</p>
+<p><strong>2. (2 pts)</strong> La rampe doit avoir une longueur inférieure à 3,5 m pour respecter la norme. La condition est-elle respectée ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Rampe² = 1,2² + 3,2² = 1,44 + 10,24 = 11,68 → rampe = √11,68 ≈ 3,42 m</p>
+  <p>2. 3,42 m &lt; 3,5 m → la norme est respectée ✓</p>
+</div>
+</div>
+</div><!-- fin diff-standard -->
+
+<!-- ══════════════ APPROFONDISSEMENT ══════════════ -->
+<div class="diff-appro">
+<h2><span class="tag-appro">Approfondissement</span> Exercice 1 — Optimisation de découpe (8 pts)</h2>
+<div class="exo">
+<p>Un menuisier dispose d'un panneau MDF de 2,44 m × 1,22 m (standard). Il doit découper :</p>
+<ul class="styled">
+  <li>4 panneaux de 60 cm × 40 cm (côtés d'une armoire)</li>
+  <li>2 panneaux de 80 cm × 40 cm (haut et bas)</li>
+  <li>1 fond de 80 cm × 60 cm</li>
+</ul>
+
+<p><strong>1. (3 pts)</strong> Calcule la surface totale du panneau disponible et la surface totale des pièces à découper.</p>
+<p><strong>2. (2 pts)</strong> Quel pourcentage du panneau est utilisé ?</p>
+<p><strong>3. (3 pts)</strong> Le panneau standard coûte 28 €. Calcule le coût de la matière première pour une armoire. Si l'artisan en fabrique 8 et que le chute représente en moyenne 10 % de matière perdue, combien de panneaux doit-il commander ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Panneau : 244×122 = 29 768 cm² | Pièces : 4×(60×40)+2×(80×40)+(80×60) = 9600+6400+4800 = 20 800 cm²</p>
+  <p>2. Taux d'utilisation = 20800/29768 × 100 ≈ 69,9 %</p>
+  <p>3. 1 panneau suffit (69,9% &lt; 100%). Pour 8 armoires : 8 × 20800 = 166 400 cm² utiles. Avec 10% de chute : matière nécessaire = 166400/0,9 ≈ 184 888 cm². Nb panneaux = 184888/29768 ≈ 6,2 → commander 7 panneaux. Coût = 7×28 = 196 €.</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 2 — Trigonométrie et angles (6 pts)</h2>
+<div class="exo">
+<p>Un signalétiste installe un panneau de 2 m de haut sur un mât. Il vérifie la verticalité avec un fil à plomb : la base du mât est à 0,15 m du centre du panneau au sol. La diagonale mesure 2,006 m.</p>
+
+<p><strong>1. (2 pts)</strong> Vérifie par Pythagore que le triangle formé est bien rectangle (vérification numérique).</p>
+<p><strong>2. (4 pts)</strong> Calcule l'angle d'inclinaison \(\alpha\) du mât par rapport à la verticale en utilisant \(\tan(\alpha) = \dfrac{\text{côté opposé}}{\text{côté adjacent}} = \dfrac{0{,}15}{2}\). Exprime \(\alpha\) en degrés (calculatrice autorisée).</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 0,15²+2² = 0,0225+4 = 4,0225 et 2,006² = 4,024036 ≈ 4,024 — très proche, légère imprécision des mesures. Le triangle est quasi-rectangle.</p>
+  <p>2. tan(α) = 0,15/2 = 0,075 → α = arctan(0,075) ≈ 4,3° d'inclinaison. Le mât est légèrement incliné (moins de 5°).</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 3 — Problème ouvert (6 pts)</h2>
+<div class="exo">
+<p>Un ébéniste doit créer une table ronde de diamètre 120 cm. Il découpe le plateau dans une planche carrée.</p>
+
+<p><strong>1. (2 pts)</strong> Quelle est la dimension minimale du carré nécessaire ? Calcule l'aire de ce carré.</p>
+<p><strong>2. (2 pts)</strong> Calcule l'aire du plateau circulaire. Rappel : \(A = \pi r^2\)</p>
+<p><strong>3. (2 pts)</strong> Quelle est la surface de chute (perdue) ? Quel pourcentage de la planche représente-t-elle ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Côté du carré = diamètre = 120 cm. Aire carré = 120² = 14 400 cm²</p>
+  <p>2. Rayon = 60 cm → Aire cercle = π×60² = 3600π ≈ 11 310 cm²</p>
+  <p>3. Chute = 14400 − 11310 = 3090 cm² → pourcentage = 3090/14400 × 100 ≈ 21,5 % de chute</p>
+</div>
+</div>
+</div><!-- fin diff-appro -->
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

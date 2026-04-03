@@ -85,6 +85,10 @@
   - `<details class="corr-wrap">` → `.bc` + `.corr` (maths seconde)
   - Résultat : 2 à 7 mini-exo distribués par leçon, 0 section groupée résiduelle
 
+### Session 3 avril 2026 (CAP)
+- **56 nouveaux fichiers CAP** : ds.html, interro.html, activite.html, exercices-capacites.html pour les 7 chapitres maths + 7 chapitres PC CAP → chaque chapitre passe à 8/8 fichiers
+- **Leçons CAP améliorées** : mini-exo (3–4 par leçon) + erreurs fréquentes (3–4 items) dans les 14 leçons
+
 ### Session 3 avril 2026 (Terminale Bac Pro)
 - **Mini-exercices** dans les 27 leçons Terminale (11 maths + 8 PC ICCER + 8 PC ERA) — 3 à 5 par leçon
 - **Erreurs fréquentes** (`.erreur-item`) dans les 27 leçons — 4 à 5 erreurs par chapitre
@@ -155,10 +159,10 @@
 - [x] ~~Figures SVG PC Term ERA (ch02-08, comme fait pour ICCER)~~ ✅ fait (20 SVG : batteries, effet de serre, cinématique, corrosion, lumière, transmission, acoustique)
 
 ### Priorité 2 — CAP
-- [ ] exercices-capacités (14 fichiers)
-- [ ] DS (14 fichiers)
-- [ ] Interro (14 fichiers)
-- [ ] Activités (14 fichiers)
+- [x] ~~exercices-capacités (14 fichiers)~~ ✅ créés
+- [x] ~~DS (14 fichiers)~~ ✅ créés
+- [x] ~~Interro (14 fichiers)~~ ✅ créés
+- [x] ~~Activités (14 fichiers)~~ ✅ créés
 
 ### Priorité 3 — 6 groupements PC
 - [ ] Exercices pour 14 nouveaux chapitres (gpt 2/4/5/6)

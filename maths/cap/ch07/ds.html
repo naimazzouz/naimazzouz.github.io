@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch07 – Calculs numériques – DS – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:8px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-size:1.1em;font-weight:700">Devoir surveillé — Ch07 · Calculs numériques</span>
+    <span style="font-size:.95em;opacity:.9">CAP · Durée : 1 h · /20</span>
+  </div>
+</header>
+
+<!-- ══════════════ SOCLE ══════════════ -->
+<div class="diff-socle">
+<h2><span class="tag-socle">Socle</span> Exercice 1 — Calculs de base (8 pts)</h2>
+<div class="exo">
+<p>Effectue les calculs suivants (sans calculatrice si possible) :</p>
+
+<p><strong>1. (4 pts)</strong> Opérations avec fractions :</p>
+<ul class="styled">
+  <li>\(\dfrac{3}{4} + \dfrac{1}{4} = \) …</li>
+  <li>\(\dfrac{2}{3} + \dfrac{1}{6} = \dfrac{4}{6} + \dfrac{1}{6} = \) …</li>
+  <li>\(\dfrac{3}{5} \times 10 = \) …</li>
+  <li>\(\dfrac{3}{4} \div \dfrac{1}{2} = \dfrac{3}{4} \times \dfrac{2}{1} = \) …</li>
+</ul>
+
+<p><strong>2. (4 pts)</strong> Puissances et racines :</p>
+<ul class="styled">
+  <li>\(3^2 = \) …</li>
+  <li>\(10^3 = \) …</li>
+  <li>\(\sqrt{25} = \) …</li>
+  <li>\(\sqrt{144} = \) …</li>
+</ul>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 4/4=1 | 5/6 | 6 | 3/2</p>
+  <p>2. 9 | 1000 | 5 | 12</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 2 — Priorités opératoires (6 pts)</h2>
+<div class="exo">
+<p>Calcule (respecte les priorités opératoires) :</p>
+<p><strong>1. (2 pts)</strong> \(3 + 4 \times 2 = 3 + … = …\)</p>
+<p><strong>2. (2 pts)</strong> \((3 + 4) \times 2 = … \times 2 = …\)</p>
+<p><strong>3. (2 pts)</strong> \(5 \times 3^2 - 10 = 5 \times … - 10 = … - 10 = …\)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 3+8 = 11</p>
+  <p>2. 7×2 = 14</p>
+  <p>3. 5×9−10 = 45−10 = 35</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 3 — Application professionnelle (6 pts)</h2>
+<div class="exo">
+<p>Un menuisier coupe une planche de 240 cm en 3 morceaux égaux.</p>
+<p><strong>1. (2 pts)</strong> Quelle est la longueur de chaque morceau ? Calcule \(240 \div 3\).</p>
+<p><strong>2. (4 pts)</strong> Chaque morceau est à son tour coupé en 4 parts égales. Quelle est la longueur de chaque part ? Exprime d'abord la réponse comme une fraction de 240 cm.</p>
+<p>Longueur = \(\dfrac{240}{3 \times 4} = \dfrac{240}{…} = …\) cm</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 240÷3 = 80 cm</p>
+  <p>2. 240/(3×4) = 240/12 = 20 cm</p>
+</div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ══════════════ STANDARD ══════════════ -->
+<div class="diff-standard">
+<h2><span class="tag-standard">Standard</span> Exercice 1 — Calculs professionnels (8 pts)</h2>
+<div class="exo">
+<p><strong>1. (3 pts)</strong> Un signalétiste utilise des châssis aluminium de 3/8 pouce d'épaisseur. Sachant que 1 pouce = 2,54 cm, calcule l'épaisseur en mm.</p>
+<p><strong>2. (3 pts)</strong> La formule pour calculer la résistance d'un câble est \(R = \dfrac{\rho \times L}{S}\). Calcule R pour \(\rho = 1{,}7 \times 10^{-8}\), \(L = 50\) m, \(S = 2{,}5 \times 10^{-6}\) m².</p>
+<p><strong>3. (2 pts)</strong> Simplifie les fractions suivantes (résultat sous forme irréductible) :</p>
+<ul class="styled">
+  <li>\(\dfrac{18}{24} = \)</li>
+  <li>\(\dfrac{35}{56} = \)</li>
+</ul>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 3/8 pouce = 3/8 × 2,54 cm = 0,9525 cm = 9,525 mm ≈ 9,5 mm</p>
+  <p>2. R = (1,7×10⁻⁸ × 50) / (2,5×10⁻⁶) = (8,5×10⁻⁷) / (2,5×10⁻⁶) = 0,34 Ω</p>
+  <p>3. 18/24 = 3/4 | 35/56 = 5/8</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 2 — Ordre de grandeur et notation scientifique (7 pts)</h2>
+<div class="exo">
+<p><strong>1. (3 pts)</strong> Écris en notation scientifique :</p>
+<ul class="styled">
+  <li>48 000 = … × 10^…</li>
+  <li>0,00035 = … × 10^…</li>
+  <li>12 700 000 = … × 10^…</li>
+</ul>
+
+<p><strong>2. (2 pts)</strong> Ordonne du plus petit au plus grand :</p>
+<p>\(3{,}2 \times 10^4\) ;  \(8 \times 10^3\) ;  \(4{,}5 \times 10^4\) ;  \(6{,}1 \times 10^3\)</p>
+
+<p><strong>3. (2 pts)</strong> Un atelier produit \(2{,}4 \times 10^3\) pièces par mois. Combien en produit-il en un an ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 4,8×10⁴ | 3,5×10⁻⁴ | 1,27×10⁷</p>
+  <p>2. 6,1×10³ &lt; 8×10³ &lt; 3,2×10⁴ &lt; 4,5×10⁴</p>
+  <p>3. 2,4×10³ × 12 = 28,8×10³ = 2,88×10⁴ pièces/an</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 3 — Calculs mixtes (5 pts)</h2>
+<div class="exo">
+<p>Un ébéniste facture une commande : 6 planches de chêne à 22,50 €/pièce, 3 kg de colle à 8,75 €/kg et 4 h de main-d'œuvre à 38 €/h.</p>
+
+<p><strong>1. (3 pts)</strong> Calcule le montant HT de chaque poste et le total HT.</p>
+<p><strong>2. (2 pts)</strong> Le client bénéficie d'une remise de 7,5 % sur les matériaux. Calcule le nouveau total HT.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Planches : 6×22,50 = 135 € | Colle : 3×8,75 = 26,25 € | MO : 4×38 = 152 € | Total HT = 313,25 €</p>
+  <p>2. Matériaux = 135+26,25 = 161,25 € | Remise = 7,5% de 161,25 = 12,09 € | Matériaux après remise = 149,16 € | Nouveau total HT = 149,16+152 = 301,16 €</p>
+</div>
+</div>
+</div><!-- fin diff-standard -->
+
+<!-- ══════════════ APPROFONDISSEMENT ══════════════ -->
+<div class="diff-appro">
+<h2><span class="tag-appro">Approfondissement</span> Exercice 1 — Calcul littéral et formules (7 pts)</h2>
+<div class="exo">
+<p>La formule de la résistance d'un matériau est \(R = \dfrac{\rho L}{S}\) avec \(\rho\) la résistivité, \(L\) la longueur, \(S\) la section.</p>
+
+<p><strong>1. (2 pts)</strong> Isole \(L\) dans cette formule (exprime \(L\) en fonction de R, ρ et S).</p>
+<p><strong>2. (2 pts)</strong> Isole \(S\) dans cette formule.</p>
+<p><strong>3. (3 pts)</strong> On veut une résistance de 0,5 Ω. La résistivité du cuivre est \(\rho = 1{,}7 \times 10^{-8}\) Ω·m et la section du câble est \(S = 1{,}5 \times 10^{-6}\) m². Calcule la longueur maximale du câble.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. L = RS/ρ</p>
+  <p>2. S = ρL/R</p>
+  <p>3. L = RS/ρ = (0,5 × 1,5×10⁻⁶) / (1,7×10⁻⁸) = (7,5×10⁻⁷) / (1,7×10⁻⁸) ≈ 44,1 m</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 2 — Estimation et arrondi (7 pts)</h2>
+<div class="exo">
+<p>Un métreur doit estimer rapidement le coût d'un chantier. Il applique les règles d'arrondi suivantes : toujours arrondir au dizième supérieur.</p>
+
+<p><strong>1. (2 pts)</strong> Arrondis les mesures suivantes au dixième supérieur :</p>
+<ul class="styled">
+  <li>12,43 m → …</li>
+  <li>8,07 m → …</li>
+  <li>5,512 m → …</li>
+</ul>
+
+<p><strong>2. (2 pts)</strong> Avec les valeurs arrondies, calcule le périmètre d'une pièce rectangulaire de 12,43 m × 5,512 m. Compare avec la valeur exacte. Quelle est l'erreur absolue ?</p>
+
+<p><strong>3. (3 pts)</strong> Le métreur applique une majoration de 8 % sur le total pour les imprévus, puis arrondit au euro supérieur. Si le coût calculé est 4 873,50 €, quel montant facture-t-il finalement ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 12,5 m | 8,1 m | 5,6 m</p>
+  <p>2. Périmètre exact = 2×(12,43+5,512) = 2×17,942 = 35,884 m | Périmètre arrondi = 2×(12,5+5,6) = 2×18,1 = 36,2 m | Erreur = 36,2−35,884 = 0,316 m</p>
+  <p>3. Majoration = 8% de 4873,50 = 389,88 € | Nouveau total = 4873,50+389,88 = 5263,38 € → arrondi à l'euro supérieur = 5 264 €</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 3 — Calcul d'incertitude (6 pts)</h2>
+<div class="exo">
+<p>Un instrument de mesure a une précision de ±0,5 mm. Un artisan mesure une planche : il obtient 855 mm.</p>
+
+<p><strong>1. (2 pts)</strong> Entre quelles valeurs se situe la vraie longueur de la planche ? Exprime cet intervalle.</p>
+<p><strong>2. (2 pts)</strong> L'artisan découpe 6 planches identiques. Quelle est la longueur totale minimale et maximale de l'assemblage ?</p>
+<p><strong>3. (2 pts)</strong> L'incertitude relative est définie par \(\dfrac{\Delta L}{L} \times 100\). Calcule l'incertitude relative d'une planche (en %).</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. [855−0,5 ; 855+0,5] = [854,5 mm ; 855,5 mm]</p>
+  <p>2. Total min = 6×854,5 = 5127 mm | Total max = 6×855,5 = 5133 mm</p>
+  <p>3. Incertitude relative = (0,5/855) × 100 ≈ 0,058 %</p>
+</div>
+</div>
+</div><!-- fin diff-appro -->
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

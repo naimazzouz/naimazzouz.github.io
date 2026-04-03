@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch01 – Statistiques à une variable – DS – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:8px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-size:1.1em;font-weight:700">Devoir surveillé — Ch01 · Statistiques à une variable</span>
+    <span style="font-size:.95em;opacity:.9">CAP · Durée : 1 h · /20</span>
+  </div>
+</header>
+
+<!-- ══════════════ SOCLE ══════════════ -->
+<div class="diff-socle">
+<h2><span class="tag-socle">Socle</span> Exercice 1 — Contrôle qualité (6 pts)</h2>
+<div class="exo">
+<p>Un artisan ébéniste mesure l'épaisseur (en mm) de 8 planches découpées :</p>
+<p style="text-align:center;font-weight:600">18 — 20 — 18 — 19 — 20 — 18 — 19 — 18</p>
+
+<p><strong>1. (2 pts)</strong> Complète le tableau d'effectifs ci-dessous :</p>
+<table class="full">
+  <tr><th>Épaisseur (mm)</th><td>18</td><td>19</td><td>20</td><td><strong>Total</strong></td></tr>
+  <tr><th>Effectif</th><td>…</td><td>…</td><td>…</td><td><strong>8</strong></td></tr>
+</table>
+
+<p><strong>2. (2 pts)</strong> Calcule la fréquence de chaque épaisseur (en %). Rappel : fréquence = effectif ÷ effectif total.</p>
+<table class="full">
+  <tr><th>Épaisseur (mm)</th><td>18</td><td>19</td><td>20</td><td><strong>Total</strong></td></tr>
+  <tr><th>Fréquence (%)</th><td>…</td><td>…</td><td>…</td><td><strong>100 %</strong></td></tr>
+</table>
+
+<p><strong>3. (2 pts)</strong> Calcule la moyenne des épaisseurs. Rappel : \(\bar{x} = \dfrac{\text{somme des valeurs}}{N}\)</p>
+<p>Somme = 18 + 20 + 18 + 19 + 20 + 18 + 19 + 18 = <strong>…</strong></p>
+<p>\(\bar{x} = \dfrac{…}{8} = \) <strong>… mm</strong></p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Effectifs : 18 → 4, 19 → 2, 20 → 2, Total = 8</p>
+  <p>2. Fréquences : 18 → 50 %, 19 → 25 %, 20 → 25 %, Total = 100 %</p>
+  <p>3. Somme = 18+20+18+19+20+18+19+18 = 150 → \(\bar{x} = \dfrac{150}{8} = 18{,}75\) mm</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 2 — Lecture d'un graphique (6 pts)</h2>
+<div class="exo">
+<p>Un signalétiste produit des panneaux. Le diagramme en bâtons ci-dessous indique le nombre de défauts détectés par lot :</p>
+<p><em>(données : 0 défaut → 5 lots, 1 défaut → 4 lots, 2 défauts → 1 lot)</em></p>
+
+<p><strong>1. (2 pts)</strong> Quel est l'effectif total ? <em>N = …</em></p>
+<p><strong>2. (2 pts)</strong> Quelle valeur est la plus fréquente (le mode) ? <em>Mode = …</em></p>
+<p><strong>3. (2 pts)</strong> Calcule le nombre moyen de défauts par lot.</p>
+<p>Somme des produits = (0 × 5) + (1 × …) + (2 × …) = …</p>
+<p>\(\bar{x} = \dfrac{…}{10} = \) …</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. N = 5 + 4 + 1 = 10 lots</p>
+  <p>2. Mode = 0 défaut (5 lots, c'est la valeur la plus fréquente)</p>
+  <p>3. Somme = (0×5) + (1×4) + (2×1) = 0 + 4 + 2 = 6 → \(\bar{x} = \dfrac{6}{10} = 0{,}6\) défaut par lot</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 3 — Diagramme circulaire (8 pts)</h2>
+<div class="exo">
+<p>Dans un atelier de menuiserie, 20 commandes sont passées en une semaine. La nature des commandes est :</p>
+<table class="full">
+  <tr><th>Type</th><td>Fenêtres</td><td>Portes</td><td>Placards</td><td>Total</td></tr>
+  <tr><th>Nombre</th><td>8</td><td>6</td><td>6</td><td>20</td></tr>
+</table>
+
+<p><strong>1. (4 pts)</strong> Calcule l'angle de chaque secteur pour un diagramme circulaire. Rappel : Angle = (effectif ÷ 20) × 360°</p>
+<p>Fenêtres : (8 ÷ 20) × 360 = … °</p>
+<p>Portes : (… ÷ 20) × 360 = … °</p>
+<p>Placards : (… ÷ 20) × 360 = … °</p>
+<p>Vérification : … + … + … = … °</p>
+
+<p><strong>2. (4 pts)</strong> Trace le diagramme circulaire dans le cercle ci-dessous (cercle à tracer sur la copie).</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>Fenêtres : (8/20) × 360 = 144°</p>
+  <p>Portes : (6/20) × 360 = 108°</p>
+  <p>Placards : (6/20) × 360 = 108°</p>
+  <p>Vérification : 144 + 108 + 108 = 360° ✓</p>
+</div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ══════════════ STANDARD ══════════════ -->
+<div class="diff-standard">
+<h2><span class="tag-standard">Standard</span> Exercice 1 — Série de mesures en atelier (7 pts)</h2>
+<div class="exo">
+<p>Un menuisier mesure la longueur (en cm) de 12 tasseaux découpés pour un meuble :</p>
+<p style="text-align:center;font-weight:600">120, 120, 119, 121, 120, 119, 121, 120, 120, 119, 121, 120</p>
+
+<p><strong>1. (2 pts)</strong> Construis le tableau d'effectifs et de fréquences pour cette série.</p>
+<p><strong>2. (1 pt)</strong> Détermine le mode de cette série.</p>
+<p><strong>3. (2 pts)</strong> Calcule la moyenne \(\bar{x}\) de cette série. Donne le résultat arrondi au dixième.</p>
+<p><strong>4. (2 pts)</strong> Les tasseaux sont considérés conformes si leur longueur est entre 119,5 cm et 120,5 cm. Combien de tasseaux sont non conformes ? Quelle est la fréquence des non-conformes ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Tableau : 119 → ef=3, f=25% | 120 → ef=7, f≈58,3% | 121 → ef=2, f≈16,7% | Total=12</p>
+  <p>2. Mode = 120 cm (effectif 7, le plus grand)</p>
+  <p>3. Somme = 3×119 + 7×120 + 2×121 = 357 + 840 + 242 = 1439 → \(\bar{x} = 1439/12 ≈ 119{,}9\) cm</p>
+  <p>4. Non conformes : longueurs 119 (3) et 121 (2) → 5 non conformes → fréquence = 5/12 ≈ 41,7 %</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 2 — Diagramme et interprétation (7 pts)</h2>
+<div class="exo">
+<p>Un peintre en lettres relève le temps de réalisation (en minutes) de 10 enseignes :</p>
+<table class="full">
+  <tr><th>Temps (min)</th><td>30</td><td>35</td><td>40</td><td>45</td><td>Total</td></tr>
+  <tr><th>Effectif</th><td>2</td><td>4</td><td>3</td><td>1</td><td>10</td></tr>
+</table>
+
+<p><strong>1. (2 pts)</strong> Calcule la fréquence de chaque durée, en pourcentage.</p>
+<p><strong>2. (2 pts)</strong> Trace le diagramme en bâtons de cette série (axes nommés et gradués).</p>
+<p><strong>3. (1 pt)</strong> Quelle est la durée la plus fréquente ?</p>
+<p><strong>4. (2 pts)</strong> Calcule la durée moyenne de réalisation d'une enseigne.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 30 min → 20 %, 35 min → 40 %, 40 min → 30 %, 45 min → 10 %</p>
+  <p>2. Diagramme : bâtons aux hauteurs 2, 4, 3, 1</p>
+  <p>3. Mode = 35 minutes</p>
+  <p>4. Somme = 2×30 + 4×35 + 3×40 + 1×45 = 60+140+120+45 = 365 → \(\bar{x} = 365/10 = 36{,}5\) min</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 3 — Diagramme circulaire (6 pts)</h2>
+<div class="exo">
+<p>Dans un atelier de signalétique, 40 panneaux produits se répartissent ainsi :</p>
+<table class="full">
+  <tr><th>Matériau</th><td>Dibond</td><td>PVC</td><td>Bois</td><td>Plexiglas</td><td>Total</td></tr>
+  <tr><th>Effectif</th><td>16</td><td>12</td><td>8</td><td>4</td><td>40</td></tr>
+</table>
+
+<p><strong>1. (3 pts)</strong> Calcule les angles des secteurs pour un diagramme circulaire.</p>
+<p><strong>2. (3 pts)</strong> Trace le diagramme circulaire annoté (titres, légende).</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>Dibond : 16/40 × 360 = 144° | PVC : 12/40 × 360 = 108° | Bois : 8/40 × 360 = 72° | Plexiglas : 4/40 × 360 = 36°</p>
+  <p>Vérification : 144+108+72+36 = 360° ✓</p>
+</div>
+</div>
+</div><!-- fin diff-standard -->
+
+<!-- ══════════════ APPROFONDISSEMENT ══════════════ -->
+<div class="diff-appro">
+<h2><span class="tag-appro">Approfondissement</span> Exercice 1 — Analyse comparative (7 pts)</h2>
+<div class="exo">
+<p>Un ébéniste compare deux machines de découpe A et B sur 15 mesures chacune. Les longueurs (en mm) obtenues sont :</p>
+<p><strong>Machine A :</strong> 200, 200, 201, 200, 199, 200, 201, 200, 200, 199, 200, 201, 200, 200, 199</p>
+<p><strong>Machine B :</strong> 198, 202, 200, 201, 199, 203, 198, 200, 202, 199, 200, 201, 198, 202, 197</p>
+
+<p><strong>1. (2 pts)</strong> Construis le tableau d'effectifs des deux séries.</p>
+<p><strong>2. (2 pts)</strong> Calcule la moyenne de chaque série.</p>
+<p><strong>3. (1 pt)</strong> Les deux moyennes sont-elles égales ? Que peut-on en conclure pour la précision des machines ?</p>
+<p><strong>4. (2 pts)</strong> Pour chaque machine, calcule la fréquence des pièces non conformes (valeurs hors de l'intervalle [199 ; 201]). Quelle machine recommandes-tu ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>Machine A : 199→3, 200→9, 201→3 | Moyenne A = (3×199 + 9×200 + 3×201)/15 = (597+1800+603)/15 = 3000/15 = 200 mm</p>
+  <p>Machine B : 197→1, 198→3, 199→2, 200→3, 201→2, 202→3, 203→1 | Somme = 197+3×198+2×199+3×200+2×201+3×202+203 = 2997+... = 3000 → Moyenne B = 200 mm</p>
+  <p>3. Les deux moyennes sont égales (200 mm). La moyenne seule ne suffit pas à évaluer la précision.</p>
+  <p>4. Machine A non conformes : valeurs 202, 198... → aucune | Machine B : 198(×3)+197(×1)+202(×3)+203(×1) = 8 pièces → fréquence 8/15 ≈ 53 % → Machine A largement recommandée.</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 2 — Problème ouvert (7 pts)</h2>
+<div class="exo">
+<p>Un graphiste en signalétique tient le relevé mensuel de ses commandes. Sur 30 jours ouvrés, il note le nombre de commandes reçues chaque jour :</p>
+<table class="full">
+  <tr><th>Nb commandes</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+  <tr><th>Nb de jours</th><td>3</td><td>8</td><td>10</td><td>6</td><td>3</td></tr>
+</table>
+
+<p><strong>1. (2 pts)</strong> Calcule le nombre total de commandes reçues dans le mois.</p>
+<p><strong>2. (2 pts)</strong> Calcule le nombre moyen de commandes par jour.</p>
+<p><strong>3. (1 pt)</strong> Le graphiste considère qu'une journée est « chargée » si elle dépasse la moyenne. Quelle fréquence (en %) représentent les journées chargées ?</p>
+<p><strong>4. (2 pts)</strong> Si le graphiste facture en moyenne 85 € par commande, quel chiffre d'affaires mensuel peut-il espérer en moyenne ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Total = 0×3 + 1×8 + 2×10 + 3×6 + 4×3 = 0+8+20+18+12 = 58 commandes</p>
+  <p>2. Moyenne = 58/30 ≈ 1,93 commande/jour</p>
+  <p>3. Journées chargées : nombre de commandes > 1,93, soit 2, 3, ou 4 commandes → 10+6+3 = 19 jours → 19/30 ≈ 63,3 %</p>
+  <p>4. CA moyen = 58 commandes × 85 € = 4 930 €/mois</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 3 — Moyenne pondérée (6 pts)</h2>
+<div class="exo">
+<p>Un métreur calcule le coût moyen des matériaux utilisés dans 3 projets d'agencement :</p>
+<table class="full">
+  <tr><th>Projet</th><th>Coût moyen/m² (€)</th><th>Surface (m²)</th></tr>
+  <tr><td>Bureau</td><td>45</td><td>30</td></tr>
+  <tr><td>Couloir</td><td>38</td><td>12</td></tr>
+  <tr><td>Salon</td><td>52</td><td>48</td></tr>
+</table>
+
+<p><strong>1. (2 pts)</strong> Calcule le coût total de chaque projet.</p>
+<p><strong>2. (2 pts)</strong> Calcule le coût moyen au m² sur l'ensemble des 3 projets (moyenne pondérée par la surface).</p>
+<p><strong>3. (2 pts)</strong> Si le métreur avait simplement calculé la moyenne arithmétique des 3 coûts unitaires (sans pondération), quel résultat aurait-il obtenu ? Pourquoi ce résultat est-il moins pertinent ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Bureau : 45×30 = 1 350 € | Couloir : 38×12 = 456 € | Salon : 52×48 = 2 496 €</p>
+  <p>2. Total surface = 30+12+48 = 90 m² | Total coût = 1350+456+2496 = 4 302 € → coût moyen = 4302/90 = 47,8 €/m²</p>
+  <p>3. Moyenne simple = (45+38+52)/3 = 135/3 = 45 €/m² — moins pertinent car ne tient pas compte des surfaces différentes (le salon qui coûte le plus représente 48/90 ≈ 53 % de la surface)</p>
+</div>
+</div>
+</div><!-- fin diff-appro -->
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

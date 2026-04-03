@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch06 – Thermique – DS – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-weight:700;font-size:1.05em">Devoir surveillé — Ch06 · Thermique</span>
+    <span style="font-size:.9em;opacity:.9">CAP · Durée : 1h · /20</span>
+  </div>
+</header>
+
+<!-- SOCLE -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <h2>Exercice 1 — Températures et changements d'état (6 points)</h2>
+  <ol>
+    <li>(2 pts) Convertissez les températures suivantes :<br>
+      20 °C = ___ K &nbsp;&nbsp; 100 °C = ___ K &nbsp;&nbsp; 373 K = ___ °C &nbsp;&nbsp; 0 K = ___ °C
+    </li>
+    <li>(2 pts) Complétez le tableau des changements d'état :<br>
+      <table>
+        <thead><tr><th>Changement d'état</th><th>Transition</th></tr></thead>
+        <tbody>
+          <tr><td>Fusion</td><td></td></tr>
+          <tr><td>Vaporisation</td><td></td></tr>
+          <tr><td>Solidification</td><td></td></tr>
+        </tbody>
+      </table>
+    </li>
+    <li>(2 pts) Vrai ou faux ?<br>
+      a) Pendant la fusion d'un corps pur, la température reste constante. V / F<br>
+      b) La chaleur est la même chose que la température. V / F<br>
+      c) Le corps chaud cède de l'énergie au corps froid. V / F<br>
+      d) Pour un mélange, il y a un palier net pendant le changement d'état. V / F
+    </li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>20 °C → 293 K / 100 °C → 373 K / 373 K → 100 °C / 0 K → −273 °C.</li>
+      <li>Fusion : solide → liquide / Vaporisation : liquide → gaz / Solidification : liquide → solide.</li>
+      <li>a) V — b) F — c) V — d) F.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- STANDARD -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <h2>Exercice 1 — Capteurs et équilibre thermique (8 points)</h2>
+  <ol>
+    <li>(2 pts) Un four de séchage de vernis est réglé à 65 °C. Quelle température cela représente-t-il en kelvins ? Quelle sonde est la plus adaptée (CTN, Pt100 ou thermocouple) pour mesurer cette température ? Justifiez.</li>
+    <li>(2 pts) Une pièce métallique à 180 °C est plongée dans un bac d'eau à 20 °C. Expliquez ce qu'il se passe (équilibre thermique). Si la température finale est 26 °C, qui a perdu de l'énergie et qui en a gagné ?</li>
+    <li>(2 pts) Un artisan braise de l'étain (température de fusion = 232 °C). Il observe que la température reste stable à 232 °C pendant quelques secondes. Comment appelle-t-on cette phase ? Pourquoi la température ne change-t-elle pas ?</li>
+    <li>(2 pts) Donnez les trois modes de transfert thermique et un exemple en atelier pour chacun.</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>65 °C = 338 K. Sonde Pt100 adaptée : plage −200 à +850 °C, précision pour thermostat de four. CTN aussi possible (−40 à +150 °C) mais moins précise.</li>
+      <li>La pièce cède de l'énergie (chaleur), l'eau en reçoit → équilibre à 26 °C. La pièce a perdu de l'énergie, l'eau en a gagné.</li>
+      <li>Palier de fusion (solidification lors du refroidissement). La chaleur fournie est utilisée pour le changement d'état, pas pour augmenter la température.</li>
+      <li>Conduction : manche métallique d'un fer à souder / Convection : air chaud au-dessus d'un radiateur / Rayonnement : chaleur d'un chalumeau à distance.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- APPRO -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <h2>Exercice 1 — Analyse d'une courbe de changement d'état (6 points)</h2>
+  <p>Un alliage de brasure (étain 60 % / plomb 40 %) est chauffé depuis 20 °C. La courbe température = f(temps) montre : montée rapide de 20 à 183 °C, zone de transition progressive de 183 à 212 °C (pas de palier net), puis montée au-delà de 212 °C (état liquide).</p>
+  <ol>
+    <li>(2 pts) Pourquoi n'y a-t-il pas de palier net entre 183 et 212 °C ? Comparez avec la fusion de l'étain pur (232 °C, palier net).</li>
+    <li>(2 pts) La soudure refroidit en dessous de 183 °C, elle redevient solide. Quel changement d'état se produit ? L'alliage cède-t-il ou reçoit-il de la chaleur ?</li>
+    <li>(2 pts) Un thermocouple est utilisé pour surveiller la température pendant la brasure. Il mesure 198 °C. L'alliage est-il solide, en cours de fusion ou entièrement liquide à cette température ? Justifiez.</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>L'alliage est un mélange (deux composants). Pour un mélange, il n'y a pas de température de fusion fixe mais une plage de transition. L'étain pur a un palier net à 232 °C car c'est un corps pur (transition à température constante).</li>
+      <li>Solidification (liquide → solide). L'alliage cède de la chaleur à son environnement (il refroidit).</li>
+      <li>198 °C est dans la plage de transition (183–212 °C) : l'alliage est partiellement en cours de fusion (mélange liquide-solide). Il n'est ni entièrement solide ni entièrement liquide.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- COMMUN -->
+<div class="exo">
+  <h2>Exercice 2 commun — Étuve à vernis (6 points)</h2>
+  <p>Un ébéniste utilise une étuve électrique réglée à 60 °C pour sécher des pièces vernies. Une sonde Pt100 mesure la température interne.</p>
+  <ol>
+    <li>(2 pts) Convertissez 60 °C en kelvins. La sonde Pt100 convient-elle pour cette plage de température ?</li>
+    <li>(2 pts) La résistance de la sonde Pt100 est de 100 Ω à 0 °C et augmente de 0,385 Ω par degré. Quelle est la résistance à 60 °C ?</li>
+    <li>(2 pts) En ouvrant la porte de l'étuve, de l'air froid entre et de l'air chaud sort. Quel mode de transfert thermique explique ce phénomène ? Qu'observe-t-on sur la courbe de température ?</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>60 + 273 = 333 K. Oui, la Pt100 est adaptée (plage −200 à +850 °C).</li>
+      <li>\(R = 100 + 60 × 0{,}385 = 100 + 23{,}1 = 123{,}1\) Ω.</li>
+      <li>Convection : le fluide (air) se déplace en transportant l'énergie. La courbe montre une chute de température à l'ouverture de la porte, puis une remontée quand l'étuve se régule.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

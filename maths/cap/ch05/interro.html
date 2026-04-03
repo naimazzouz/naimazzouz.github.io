@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch05 – Fonctions – Interrogation – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:8px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-size:1.05em;font-weight:700">Interrogation — Ch05 · Fonctions</span>
+    <span style="font-size:.9em;opacity:.9">CAP · 20 min · /10</span>
+  </div>
+</header>
+
+<!-- ══════════════ SOCLE ══════════════ -->
+<div class="diff-socle">
+<div class="exo">
+<h2><span class="tag-socle">Socle</span></h2>
+<p>Soit la fonction \(f(x) = 4x + 6\)</p>
+
+<p><strong>1. (4 pts)</strong> Calcule :</p>
+<ul class="styled">
+  <li>\(f(0) = 4 \times … + 6 = …\)</li>
+  <li>\(f(3) = 4 \times … + 6 = …\)</li>
+  <li>\(f(5) = 4 \times … + 6 = …\)</li>
+</ul>
+
+<p><strong>2. (3 pts)</strong> Complète le tableau et place les points dans un repère :</p>
+<table class="full">
+  <tr><th>\(x\)</th><td>0</td><td>2</td><td>4</td></tr>
+  <tr><th>\(f(x)\)</th><td>…</td><td>…</td><td>…</td></tr>
+</table>
+
+<p><strong>3. (3 pts)</strong> La fonction est-elle croissante ou décroissante ? Justifie avec les valeurs du tableau.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. f(0)=6, f(3)=18, f(5)=26</p>
+  <p>2. f(0)=6, f(2)=14, f(4)=22</p>
+  <p>3. Croissante — les images augmentent quand x augmente (6 &lt; 14 &lt; 22)</p>
+</div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ══════════════ STANDARD ══════════════ -->
+<div class="diff-standard">
+<div class="exo">
+<h2><span class="tag-standard">Standard</span></h2>
+<p>Le coût de location d'une ponceuse est modélisé par \(C(h) = 18h + 35\) (€, h = heures).</p>
+
+<p><strong>1. (3 pts)</strong> Calcule C(0), C(3) et C(8). Que représente C(0) ?</p>
+<p><strong>2. (3 pts)</strong> Trace la courbe de C sur [0;8]. Nommer et graduer les axes.</p>
+<p><strong>3. (2 pts)</strong> Quel est le coût pour 5 h de location ?</p>
+<p><strong>4. (2 pts)</strong> Pour quel nombre d'heures la location coûte-t-elle exactement 107 € ? (Résoudre C(h) = 107)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. C(0)=35 € (frais fixes) | C(3)=54+35=89 € | C(8)=144+35=179 €</p>
+  <p>2. Droite croissante passant par (0;35)</p>
+  <p>3. C(5) = 90+35 = 125 €</p>
+  <p>4. 18h+35 = 107 → 18h = 72 → h = 4 heures</p>
+</div>
+</div>
+</div><!-- fin diff-standard -->
+
+<!-- ══════════════ APPROFONDISSEMENT ══════════════ -->
+<div class="diff-appro">
+<div class="exo">
+<h2><span class="tag-appro">Approfondissement</span></h2>
+<p>Deux ateliers de menuiserie proposent :</p>
+<ul class="styled">
+  <li>Atelier A : \(f_A(x) = 32x + 60\)</li>
+  <li>Atelier B : \(f_B(x) = 40x\)</li>
+</ul>
+<p>où x est le nombre de jours de travail et f(x) le coût en €.</p>
+
+<p><strong>1. (3 pts)</strong> Pour chaque atelier, construis un tableau de valeurs pour x = 0, 2, 4, 6, 8.</p>
+<p><strong>2. (3 pts)</strong> Représente les deux fonctions sur un même repère.</p>
+<p><strong>3. (4 pts)</strong> À partir de combien de jours l'atelier A est-il moins cher ? (Résoudre \(f_A(x) = f_B(x)\), puis conclure)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. A : 60, 124, 188, 252, 316 | B : 0, 80, 160, 240, 320</p>
+  <p>2. Deux droites se croisant</p>
+  <p>3. 32x+60 = 40x → 60 = 8x → x = 7,5. Pour x &gt; 7,5 jours, A est moins cher (à partir de 8 jours de travail).</p>
+</div>
+</div>
+</div><!-- fin diff-appro -->
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

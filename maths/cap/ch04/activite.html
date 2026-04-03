@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch04 – Équations du premier degré – Activité – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch04 : Équations du premier degré</h1>
+  <p class="sous-titre">CAP | Mathématiques | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Calculer une durée de travail inconnue</h3>
+  <p>
+    Un menuisier facture ses prestations 35 € de l'heure.
+    Pour un chantier donné, il ajoute 80 € de frais fixes (déplacement, matériel).
+    À la fin du chantier, le client reçoit une facture de 290 €.
+    Combien d'heures le menuisier a-t-il travaillé ?
+  </p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment trouver une valeur inconnue à partir d'une situation décrite par une égalité ?
+</div>
+
+<h2>Partie 1 — Mettre en place le problème</h2>
+
+<div class="exo">
+<p><strong>Question 1 :</strong> On note \(h\) le nombre d'heures travaillées. Remplis le tableau :</p>
+<table class="full">
+  <tr><th>Nombre d'heures \(h\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+  <tr><th>Coût main d'œuvre (35×h)</th><td>35</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+  <tr><th>Frais fixes</th><td>80</td><td>80</td><td>80</td><td>80</td><td>80</td></tr>
+  <tr><th>Total facturé (€)</th><td>115</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+</table>
+<p>Pour quelle valeur de h le total est-il 290 € ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Coûts MO : 70, 105, 140, 175 | Totaux : 150, 185, 220, 255. On n'atteint pas 290 avec h=5... il faut h=6 : 35×6+80=290 ✓
+</div>
+</div>
+
+<h2>Partie 2 — L'équation</h2>
+
+<div class="exo">
+<p><strong>Question 2 :</strong> En utilisant la variable \(h\), écris l'équation qui traduit « le total facturé est 290 € ».</p>
+<p>35 × h + 80 = …</p>
+<p>Cette écriture est une <strong>équation</strong>. La valeur de h que l'on cherche s'appelle la <strong>solution</strong>.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  35h + 80 = 290
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 3 :</strong> Pour résoudre cette équation, on « isole » h en effectuant les opérations inverses. Complète les étapes :</p>
+<p>\(35h + 80 = 290\)</p>
+<p>Étape 1 : je soustrais 80 des deux membres → \(35h = 290 - 80 = …\)</p>
+<p>Étape 2 : je divise les deux membres par 35 → \(h = \dfrac{…}{35} = …\)</p>
+<p>Vérification : \(35 \times … + 80 = … + 80 = …\) ✓ ou ✗</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  35h = 210 | h = 6 | Vérification : 35×6+80 = 210+80 = 290 ✓
+</div>
+</div>
+
+<h2>Partie 3 — Entraînement</h2>
+
+<div class="exo">
+<p><strong>Question 4 :</strong> Résous de la même façon :</p>
+<p>a) Un signalétiste loue une machine 12 € de l'heure plus 25 € de forfait. La location coûte 121 €. Combien d'heures a-t-il loué ? Équation : \(12h + 25 = 121\)</p>
+<p>b) \(4x - 6 = 18\) (résous par étapes)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  a) 12h = 96 → h = 8 heures | b) 4x = 24 → x = 6
+</div>
+</div>
+
+<h2>Partie 4 — Inéquation (pour aller plus loin)</h2>
+
+<div class="exo">
+<p><strong>Question 5 :</strong> Le menuisier veut facturer <em>au maximum</em> 200 €. Quelle est la durée maximale de travail ?</p>
+<p>Traduis par une inéquation : 35h + 80 ≤ 200</p>
+<p>Résous-la (même méthode que l'équation) :</p>
+<p>\(35h \leq 200 - 80 = …\)</p>
+<p>\(h \leq \dfrac{…}{35} = …\)</p>
+<p>Interprète : le menuisier peut travailler au maximum … heures (arrondi à l'heure entière inférieure).</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  35h ≤ 120 → h ≤ 120/35 ≈ 3,43 → au maximum 3 heures entières.
+</div>
+</div>
+
+<h2>Bilan — Ce que j'ai appris</h2>
+
+<div class="retenir">
+  <ul class="styled">
+    <li>Une <strong>équation</strong> est une égalité contenant une inconnue à trouver.</li>
+    <li>Résoudre : on isole l'inconnue en effectuant les opérations inverses des deux côtés.</li>
+    <li>Toujours <strong>vérifier</strong> la solution dans l'équation de départ.</li>
+    <li>Une <strong>inéquation</strong> traduit une contrainte (&lt; ou ≤) : même méthode, mais attention si on divise par un nombre négatif (le sens change).</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

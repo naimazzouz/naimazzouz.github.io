@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch05 – Fonctions – Activité – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch05 : Fonctions</h1>
+  <p class="sous-titre">CAP | Mathématiques | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Coût de production dans un atelier de signalétique</h3>
+  <p>
+    Un atelier de signalétique produit des panneaux publicitaires.
+    Les charges fixes (loyer, électricité, amortissement des machines) s'élèvent à 400 € par mois.
+    Le coût variable est de 25 € par panneau (matières premières + main d'œuvre).
+    Le gérant veut prévoir le coût total de production selon le nombre de panneaux fabriqués.
+  </p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment prévoir le coût total pour n'importe quel nombre de panneaux ? Peut-on représenter graphiquement cette relation ?
+</div>
+
+<h2>Partie 1 — Tableau de valeurs</h2>
+
+<div class="exo">
+<p><strong>Question 1 :</strong> Complète le tableau du coût total \(C(n)\) en fonction du nombre de panneaux \(n\) :</p>
+<table class="full">
+  <tr><th>n (panneaux)</th><td>0</td><td>2</td><td>5</td><td>8</td><td>10</td><td>15</td></tr>
+  <tr><th>C(n) (€)</th><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+</table>
+<p>Calcul pour n=5 : C(5) = 25×5 + 400 = … + 400 = … €</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  400, 450, 525, 600, 650, 775
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 2 :</strong> On appelle cette relation une <strong>fonction</strong>. On la note :</p>
+<p style="text-align:center">\[C(n) = 25n + 400\]</p>
+<p>Que représente le 25 ? Que représente le 400 ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la réponse</button>
+<div class="corr" style="display:none">
+  25 = coût par panneau (coût variable) | 400 = charges fixes (même si on produit 0 panneau)
+</div>
+</div>
+
+<h2>Partie 2 — Représentation graphique</h2>
+
+<div class="exo">
+<p><strong>Question 3 :</strong> Place les points du tableau dans le repère ci-dessous. Relie les points pour tracer la courbe.</p>
+<svg viewBox="0 0 350 280" style="max-width:480px;display:block;margin:12px auto;border:1px solid #ddd;background:#fff">
+  <!-- Axes -->
+  <line x1="40" y1="240" x2="330" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#333" stroke-width="1.5"/>
+  <!-- Graduation x -->
+  <text x="40" y="256" font-size="10" text-anchor="middle" fill="#555">0</text>
+  <text x="90" y="256" font-size="10" text-anchor="middle" fill="#555">2</text>
+  <text x="165" y="256" font-size="10" text-anchor="middle" fill="#555">5</text>
+  <text x="240" y="256" font-size="10" text-anchor="middle" fill="#555">8</text>
+  <text x="290" y="256" font-size="10" text-anchor="middle" fill="#555">10</text>
+  <!-- Graduation y -->
+  <text x="32" y="240" font-size="9" text-anchor="end" fill="#555">400</text>
+  <text x="32" y="200" font-size="9" text-anchor="end" fill="#555">450</text>
+  <text x="32" y="140" font-size="9" text-anchor="end" fill="#555">525</text>
+  <!-- Labels axes -->
+  <text x="185" y="270" font-size="11" text-anchor="middle" fill="#444">n (panneaux)</text>
+  <text x="15" y="140" font-size="11" text-anchor="middle" fill="#444" transform="rotate(-90,15,140)">C(n) (€)</text>
+</svg>
+<p><em>Décrire la forme de la courbe : est-ce une droite ou une courbe ?</em></p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la réponse</button>
+<div class="corr" style="display:none">
+  La représentation est une <strong>droite</strong>. C'est toujours le cas pour une fonction affine (ax+b).
+</div>
+</div>
+
+<h2>Partie 3 — Sens de variation</h2>
+
+<div class="exo">
+<p><strong>Question 4 :</strong> Quand n augmente, C(n) augmente-t-elle ou diminue-t-elle ? Justifie à partir du tableau ou de la formule.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la réponse</button>
+<div class="corr" style="display:none">
+  C(n) est <strong>croissante</strong> : quand n augmente, le terme 25n augmente, donc C(n) augmente.
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 5 :</strong> Pour quel nombre de panneaux le coût total atteint-il 650 € ? Résoudre \(C(n) = 650\).</p>
+<p>\(25n + 400 = 650\) → \(25n = …\) → \(n = …\) panneaux</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  25n = 250 → n = 10 panneaux
+</div>
+</div>
+
+<h2>Partie 4 — Comparer deux offres</h2>
+
+<div class="exo">
+<p><strong>Question 6 :</strong> Un second atelier propose ses services au tarif \(D(n) = 35n + 200\). Pour de petites commandes, quel atelier est le moins cher ? Et pour les grandes commandes ?</p>
+<p>Remplis le tableau comparatif :</p>
+<table class="full">
+  <tr><th>n</th><td>0</td><td>5</td><td>10</td><td>15</td><td>20</td></tr>
+  <tr><th>C(n) = 25n+400</th><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+  <tr><th>D(n) = 35n+200</th><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+</table>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  C : 400, 525, 650, 775, 900 | D : 200, 375, 550, 725, 900 | Pour les petites commandes (n&lt;20), D est moins cher. Pour n=20 les deux sont égaux (900€). Au-delà, C est moins cher.
+</div>
+</div>
+
+<h2>Bilan — Ce que j'ai appris</h2>
+
+<div class="retenir">
+  <ul class="styled">
+    <li>Une <strong>fonction</strong> associe à chaque valeur x une valeur f(x) (l'image).</li>
+    <li>Une <strong>fonction affine</strong> s'écrit \(f(x) = ax + b\) : sa représentation est une droite.</li>
+    <li>La <strong>constante b</strong> est l'ordonnée à l'origine (valeur pour x=0).</li>
+    <li>Une fonction est <strong>croissante</strong> si les images augmentent quand x augmente.</li>
+    <li>Pour trouver x tel que f(x) = valeur donnée, on résout une équation.</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

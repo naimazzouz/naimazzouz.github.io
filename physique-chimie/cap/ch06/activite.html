@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch06 – Thermique – Activité – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch06 : Thermique</h1>
+  <p class="sous-titre">CAP | Physique-Chimie | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Séchage de pièces vernies en ébénisterie</h3>
+  <p>Un ébéniste utilise une étuve pour accélérer le séchage de pièces vernies. Il branche un capteur de température (sonde Pt100) pour surveiller la montée en température, observe la courbe obtenue sur un enregistreur et ajuste les réglages de l'étuve. Il réalise également une brasure à l'étain pour assembler deux pièces métalliques.</p>
+</div>
+
+<div style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment mesurer la température avec un capteur électrique et analyser les changements d'état lors d'une opération de brasure ?
+</div>
+
+<h2>Document 1 — Courbe de l'étuve</h2>
+<div class="ex">
+  <p>L'enregistreur trace la température en fonction du temps lors de la mise en chauffe de l'étuve :</p>
+  <ul>
+    <li>De 0 à 5 min : montée de 20 °C à 60 °C</li>
+    <li>De 5 à 20 min : stabilisation à 60 °C (thermostat en action)</li>
+    <li>À t = 10 min : ouverture de la porte → chute à 45 °C puis remontée à 60 °C</li>
+  </ul>
+</div>
+
+<h2>Document 2 — Données de la sonde Pt100</h2>
+<div class="ex">
+  <p>Sonde platine Pt100 :</p>
+  <ul>
+    <li>Résistance à 0 °C : R₀ = 100 Ω</li>
+    <li>Variation : +0,385 Ω par degré Celsius</li>
+    <li>Plage : −200 °C à +850 °C</li>
+  </ul>
+</div>
+
+<h2>Document 3 — Brasure à l'étain</h2>
+<div class="ex">
+  <p>Courbe de refroidissement d'un fil d'étain pur fondu :</p>
+  <ul>
+    <li>De 300 °C à 232 °C : refroidissement régulier (état liquide)</li>
+    <li>À 232 °C : palier de 3 min (température constante)</li>
+    <li>Sous 232 °C : refroidissement régulier (état solide)</li>
+  </ul>
+</div>
+
+<h2>Questions</h2>
+<div class="exo">
+  <h3>Partie A — Analyse de la courbe de l'étuve</h3>
+  <ol>
+    <li>Identifiez les deux phases de la courbe de 0 à 20 min (document 1). Pour chaque phase, décrivez le comportement de la température.</li>
+    <li>À t = 10 min, la température chute quand on ouvre la porte. Quel mode de transfert thermique explique l'entrée de l'air froid ? Justifiez.</li>
+    <li>Convertissez 60 °C en kelvins. Cette température est-elle dans la plage d'utilisation de la sonde Pt100 ?</li>
+  </ol>
+
+  <h3>Partie B — Capteur Pt100</h3>
+  <ol start="4">
+    <li>Calculez la résistance de la sonde Pt100 à 60 °C en utilisant les données du document 2.</li>
+    <li>L'enregistreur lit R = 107,7 Ω. Calculez la température mesurée.</li>
+    <li>Comparez la Pt100 et la CTN : pour laquelle la résistance augmente-t-elle avec la température ?</li>
+  </ol>
+
+  <h3>Partie C — Analyse de la brasure</h3>
+  <ol start="7">
+    <li>Sur la courbe du document 3, identifiez le palier et expliquez ce qu'il représente physiquement.</li>
+    <li>Pendant le palier, l'étain reçoit-il ou cède-t-il de la chaleur ? (indice : il refroidit, donc…)</li>
+    <li>Ce résultat est-il caractéristique d'un corps pur ou d'un mélange ? Justifiez.</li>
+    <li>La brasure terminée, l'assemblage est plongé dans l'eau à 20 °C. Expliquez le phénomène d'équilibre thermique qui s'ensuit.</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    <strong>A1.</strong> Phase 1 (0–5 min) : montée en température (chauffage). Phase 2 (5–20 min) : stabilisation à 60 °C (le thermostat régule).<br>
+    <strong>A2.</strong> Convection : l'air froid (plus dense) pénètre par le bas et l'air chaud sort par le haut. Le déplacement du fluide transporte l'énergie thermique.<br>
+    <strong>A3.</strong> 60 + 273 = 333 K. Oui, très largement dans la plage (−200 à +850 °C).<br>
+    <strong>B4.</strong> \(R = 100 + 60 × 0{,}385 = 123{,}1\) Ω.<br>
+    <strong>B5.</strong> \(107{,}7 = 100 + \theta × 0{,}385\) → \(\theta = 7{,}7/0{,}385 = 20\) °C.<br>
+    <strong>B6.</strong> La Pt100 : la résistance augmente (coefficient positif). La CTN : la résistance diminue (coefficient négatif).<br>
+    <strong>C7.</strong> Le palier à 232 °C correspond à la solidification : l'étain passe de liquide à solide à température constante.<br>
+    <strong>C8.</strong> L'étain cède de la chaleur à l'environnement (il refroidit). La chaleur libérée maintient la température constante pendant la solidification.<br>
+    <strong>C9.</strong> Corps pur (étain pur) : palier net à température constante. Un mélange n'aurait pas de palier.<br>
+    <strong>C10.</strong> L'assemblage chaud (> 232 °C au départ) cède de la chaleur à l'eau froide (20 °C). L'eau se réchauffe, l'assemblage refroidit, jusqu'à équilibre thermique à une température intermédiaire.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

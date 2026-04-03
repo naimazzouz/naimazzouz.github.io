@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch06 – Géométrie – Activité – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch06 : Géométrie</h1>
+  <p class="sous-titre">CAP | Mathématiques | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Métré d'un local commercial pour une pose de signalétique</h3>
+  <p>
+    Un signalétiste est chargé d'habiller les murs d'une boutique avec du vinyle adhésif.
+    Avant de commander le vinyle, il doit effectuer le métré précis du local.
+    La boutique a un plan rectangulaire de 8 m sur 5 m, avec deux portes (2 m × 1 m chacune)
+    et trois fenêtres (1,2 m × 0,9 m chacune) à déduire.
+    Le plafond est à 3 m.
+  </p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Quelle surface utile de vinyle le signalétiste doit-il commander pour couvrir tous les murs ?
+</div>
+
+<h2>Partie 1 — Surfaces simples</h2>
+
+<div class="exo">
+<p><strong>Question 1 :</strong> Le local est un parallélépipède (boîte rectangulaire). Identifie les 4 murs et calcule l'aire brute de chacun (avant déduction des ouvertures) :</p>
+<ul class="styled">
+  <li>Mur A (longueur 8 m, hauteur 3 m) : A = … × … = … m²</li>
+  <li>Mur B (face opposée, même dimension) : A = … m²</li>
+  <li>Mur C (longueur 5 m, hauteur 3 m) : A = … × … = … m²</li>
+  <li>Mur D (face opposée) : A = … m²</li>
+</ul>
+<p>Surface brute totale = … + … + … + … = … m²</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  A=B=8×3=24 m² | C=D=5×3=15 m² | Total brut = 24+24+15+15 = 78 m²
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 2 :</strong> Calcule la surface des ouvertures à déduire :</p>
+<ul class="styled">
+  <li>2 portes : 2 × (2 × 1) = … m²</li>
+  <li>3 fenêtres : 3 × (1,2 × 0,9) = 3 × … = … m²</li>
+</ul>
+<p>Total des ouvertures = … + … = … m²</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Portes = 4 m² | Fenêtres = 3 × 1,08 = 3,24 m² | Total ouvertures = 7,24 m²
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 3 :</strong> Calcule la surface utile de vinyle nécessaire :</p>
+<p>Surface utile = Surface brute − Ouvertures = … − … = … m²</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  78 − 7,24 = 70,76 m²
+</div>
+</div>
+
+<h2>Partie 2 — Volume et périmètre</h2>
+
+<div class="exo">
+<p><strong>Question 4 :</strong> Calcule le périmètre du local au sol. Rappel : P = 2(L+l). À quoi peut servir ce périmètre pour le signalétiste ?</p>
+<p>P = 2 × (8 + 5) = 2 × … = … m</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  P = 2×13 = 26 m | Utile pour poser une frise décorative en bas des murs (= périmètre).
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 5 :</strong> Calcule le volume du local. Ce volume peut servir à calculer la ventilation nécessaire.</p>
+<p>V = L × l × h = … × … × … = … m³</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  V = 8 × 5 × 3 = 120 m³
+</div>
+</div>
+
+<h2>Partie 3 — Vérification angulaire (Pythagore)</h2>
+
+<div class="exo">
+<p><strong>Question 6 :</strong> Pour vérifier que le local est bien rectangulaire (angles droits), l'artisan mesure une diagonale du sol : il obtient 9,43 m.</p>
+<p>Calcule la diagonale théorique par le théorème de Pythagore :</p>
+<p>\(d = \sqrt{L^2 + l^2} = \sqrt{8^2 + 5^2} = \sqrt{… + …} = \sqrt{…} \approx …\) m</p>
+<p>La mesure de 9,43 m est-elle cohérente ? Conclure.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  d = √(64+25) = √89 ≈ 9,43 m ✓ La mesure est cohérente, le local est bien rectangulaire.
+</div>
+</div>
+
+<h2>Bilan — Ce que j'ai appris</h2>
+
+<div class="retenir">
+  <ul class="styled">
+    <li><strong>Aire rectangle</strong> : A = L × l</li>
+    <li><strong>Périmètre rectangle</strong> : P = 2(L + l)</li>
+    <li><strong>Volume parallélépipède</strong> : V = L × l × h</li>
+    <li><strong>Théorème de Pythagore</strong> : dans un triangle rectangle, hypoténuse² = côté²+ côté²</li>
+    <li>En métré, on calcule la surface brute puis on <strong>déduit les ouvertures</strong> (portes, fenêtres).</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

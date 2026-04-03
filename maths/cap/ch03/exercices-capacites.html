@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch03 – Proportionnalité et pourcentages – Exercices par capacités – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.cap-badge{display:inline-block;background:var(--p);color:#fff;font-size:.75em;font-weight:700;padding:2px 10px;border-radius:12px;margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Ch03 – Proportionnalité et pourcentages — Exercices par capacités</h1>
+  <p class="sous-titre">CAP | Mathématiques</p>
+</header>
+
+<div style="background:var(--p-bg);border:1px solid var(--p-border);border-radius:8px;padding:14px 18px;margin:16px 0">
+  <strong>Capacités travaillées dans ce chapitre :</strong>
+  <ul class="styled" style="margin:8px 0 0">
+    <li><strong>C1</strong> — Reconnaître une situation de proportionnalité</li>
+    <li><strong>C2</strong> — Compléter un tableau de proportionnalité (4e proportionnelle, règle de trois)</li>
+    <li><strong>C3</strong> — Calculer un pourcentage d'une quantité</li>
+    <li><strong>C4</strong> — Calculer un prix après remise ou TVA (coefficient multiplicateur)</li>
+    <li><strong>C5</strong> — Calculer un taux d'évolution et l'interpréter</li>
+  </ul>
+</div>
+
+<!-- C1 -->
+<h2>Capacité C1 — Reconnaître la proportionnalité</h2>
+
+<div class="exo">
+<span class="cap-badge">C1</span>
+<p>Pour chaque tableau, dis si les deux suites sont proportionnelles (vérifier les quotients) :</p>
+<p>a) Planches : 2, 4, 6, 8 — Prix : 14, 28, 42, 56</p>
+<p>b) Heures : 1, 2, 3, 4 — Salaire : 12, 26, 36, 48</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  a) 14/2=7, 28/4=7, 42/6=7, 56/8=7 → OUI proportionnelles (coeff=7) | b) 12/1=12, 26/2=13 → quotients différents → NON
+</div>
+</div>
+
+<!-- C2 -->
+<h2>Capacité C2 — Règle de trois et tableau de proportionnalité</h2>
+
+<div class="exo">
+<span class="cap-badge">C2</span>
+<p>Du bois de chêne coûte 45 €/m². Complète le tableau :</p>
+<table class="full">
+  <tr><th>Surface (m²)</th><td>1</td><td>3</td><td>7</td><td>12</td></tr>
+  <tr><th>Prix (€)</th><td>45</td><td>…</td><td>…</td><td>…</td></tr>
+</table>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  135 — 315 — 540
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C2</span>
+<p>Pour teindre 4 m² de bois, il faut 0,8 L de teinture. Combien de litres faut-il pour 7 m² ?</p>
+<p>\(x = \dfrac{7 \times 0{,}8}{4} = \) …</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  x = 5,6/4 = 1,4 L
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C2</span>
+<p>Une machine produit 120 pièces en 3 h. Combien de pièces produit-elle en 5 h ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  (120×5)/3 = 200 pièces
+</div>
+</div>
+
+<!-- C3 -->
+<h2>Capacité C3 — Calcul de pourcentage</h2>
+
+<div class="exo">
+<span class="cap-badge">C3</span>
+<p>Calcule :</p>
+<ul class="styled">
+  <li>30 % de 240 €</li>
+  <li>7,5 % de 1 600 €</li>
+  <li>12 % de 85 €</li>
+</ul>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  72 € — 120 € — 10,20 €
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C3</span>
+<p>Sur 80 panneaux produits, 12 présentent un défaut. Quel pourcentage représentent les panneaux défectueux ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  12/80 × 100 = 15 %
+</div>
+</div>
+
+<!-- C4 -->
+<h2>Capacité C4 — Remise, TVA, coefficient multiplicateur</h2>
+
+<div class="exo">
+<span class="cap-badge">C4</span>
+<p>Un rouleau de vinyle coûte 68 € HT. Une remise de 15 % est accordée. Calcule le prix après remise par deux méthodes.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Méthode 1 : 15%×68 = 10,20 → 68−10,20 = 57,80 € | Méthode 2 : 68×0,85 = 57,80 €
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C4</span>
+<p>Un artisan reçoit une facture HT de 240 €. La TVA est 20 %. Calcule le montant TTC.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  TVA = 48 € | TTC = 288 € — ou : 240 × 1,20 = 288 €
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C4</span>
+<p>Un prix TTC est de 360 €. La TVA est à 20 %. Retrouve le prix HT.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  HT = TTC / 1,20 = 360/1,20 = 300 €
+</div>
+</div>
+
+<!-- C5 -->
+<h2>Capacité C5 — Taux d'évolution</h2>
+
+<div class="exo">
+<span class="cap-badge">C5</span>
+<p>Le prix d'un bois rare passe de 85 € à 97,75 €. Calcule le taux d'évolution en %.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  t = (97,75−85)/85 × 100 = 12,75/85 × 100 = 15 %
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C5</span>
+<p>Le CA d'un atelier était de 48 000 € et a baissé de 8 %. Quel est le nouveau CA ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  48000 × 0,92 = 44 160 €
+</div>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch01 – Statistiques à une variable – Activité – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch01 : Statistiques à une variable</h1>
+  <p class="sous-titre">CAP | Mathématiques | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Contrôle qualité dans un atelier de menuiserie</h3>
+  <p>
+    Vous travaillez dans un atelier de menuiserie qui fabrique des tasseaux de bois pour des escaliers.
+    Après découpe, vous devez mesurer l'épaisseur de chaque tasseau pour vérifier que la machine est bien réglée.
+    Vous prélevez 15 tasseaux au hasard et mesurez leur épaisseur en mm :
+  </p>
+  <p style="text-align:center;font-size:1.1em;font-weight:600">
+    42 — 44 — 43 — 44 — 42 — 43 — 44 — 42 — 45 — 43 — 44 — 42 — 43 — 44 — 43
+  </p>
+</div>
+
+<div class="objectifs" style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> La machine est-elle bien réglée ? Quelle est l'épaisseur la plus fréquente produite ?
+</div>
+
+<h2>Partie 1 — Organiser les données</h2>
+
+<div class="exo">
+<p><strong>Question 1 :</strong> Compte combien de fois chaque épaisseur apparaît. Complète le tableau :</p>
+<table class="full">
+  <tr><th>Épaisseur (mm)</th><td>42</td><td>43</td><td>44</td><td>45</td><td><strong>Total</strong></td></tr>
+  <tr><th>Effectif (nombre de tasseaux)</th><td>…</td><td>…</td><td>…</td><td>…</td><td><strong>15</strong></td></tr>
+</table>
+<p><em>Astuce : barre chaque valeur au fur et à mesure pour ne pas en oublier.</em></p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong> 42→4, 43→5, 44→5, 45→1 | Total = 15 ✓
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 2 :</strong> Calcule la fréquence de chaque épaisseur (en %). Rappel : fréquence = effectif ÷ 15.</p>
+<table class="full">
+  <tr><th>Épaisseur (mm)</th><td>42</td><td>43</td><td>44</td><td>45</td><td><strong>Total</strong></td></tr>
+  <tr><th>Fréquence (%)</th><td>…%</td><td>…%</td><td>…%</td><td>…%</td><td><strong>100%</strong></td></tr>
+</table>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong> 42 → 4/15 ≈ 26,7 % | 43 → 5/15 ≈ 33,3 % | 44 → 5/15 ≈ 33,3 % | 45 → 1/15 ≈ 6,7 %
+</div>
+</div>
+
+<h2>Partie 2 — Calculer la moyenne</h2>
+
+<div class="exo">
+<p><strong>Question 3 :</strong> On veut calculer l'épaisseur moyenne de la série. Deux méthodes s'offrent à nous.</p>
+<p><strong>Méthode A (addition directe) :</strong> Additionne toutes les 15 valeurs et divise par 15.</p>
+<p>Somme = ……………</p>
+<p>\(\bar{x} = \dfrac{…}{15} = …\) mm</p>
+
+<p><strong>Méthode B (avec le tableau d'effectifs) :</strong> Multiplie chaque valeur par son effectif, additionne, divise par 15.</p>
+<p>\(\bar{x} = \dfrac{42 \times 4 + 43 \times 5 + 44 \times 5 + 45 \times 1}{15} = \dfrac{…}{15} = …\) mm</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>Méthode A : somme = 42×4+43×5+44×5+45 = 168+215+220+45 = 648 | 648/15 = 43,2 mm</p>
+  <p>Méthode B : même résultat, 43,2 mm. Les deux méthodes donnent le même résultat.</p>
+</div>
+</div>
+
+<h2>Partie 3 — Interpréter</h2>
+
+<div class="exo">
+<p><strong>Question 4 :</strong> Le mode est la valeur la plus fréquente. Quelle est-elle ? (attention, il peut y en avoir plusieurs)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong> Mode = 43 mm et 44 mm (ex-aequo, 5 fois chacun).
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 5 :</strong> La machine est censée produire des tasseaux de 43 mm d'épaisseur (la valeur cible). La moyenne calculée est-elle proche de cette valeur ? Que peut-on dire du réglage ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong> La moyenne est 43,2 mm, très proche de 43 mm. Le réglage est globalement satisfaisant. On note cependant que 45 mm (1 tasseau) s'écarte légèrement — à surveiller.
+</div>
+</div>
+
+<div class="exo">
+<p><strong>Question 6 (pour aller plus loin) :</strong> La tolérance admise est ±1 mm autour de 43 mm (soit entre 42 et 44 mm). Combien de tasseaux sont hors tolérance ? Quelle est leur fréquence ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong> Hors tolérance : 45 mm → 1 tasseau → fréquence = 1/15 ≈ 6,7 %. Un tasseau sur 15 est hors tolérance.
+</div>
+</div>
+
+<h2>Bilan — Ce que j'ai appris</h2>
+
+<div class="retenir">
+  <ul class="styled">
+    <li>Un <strong>tableau d'effectifs</strong> organise les données en comptant les répétitions.</li>
+    <li>La <strong>fréquence</strong> = effectif ÷ effectif total (en % : ×100). La somme vaut 100 %.</li>
+    <li>La <strong>moyenne</strong> = somme des valeurs ÷ effectif total (ou utiliser le tableau).</li>
+    <li>Le <strong>mode</strong> est la valeur la plus fréquente (celle avec le plus grand effectif).</li>
+    <li>En contrôle qualité, la moyenne permet d'évaluer le réglage d'une machine.</li>
+  </ul>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

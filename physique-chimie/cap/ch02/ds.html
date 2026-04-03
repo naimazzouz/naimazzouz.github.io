@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch02 – Électricité – DS – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-weight:700;font-size:1.05em">Devoir surveillé — Ch02 · Électricité</span>
+    <span style="font-size:.9em;opacity:.9">CAP · Durée : 1h · /20</span>
+  </div>
+</header>
+
+<!-- ========= SOCLE ========= -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <h2>Exercice 1 — Loi d'Ohm et lecture de schéma (6 points)</h2>
+  <p>Un circuit simple comprend une pile de 9 V et une résistance de 45 Ω.</p>
+  <ol>
+    <li>(2 pts) Complétez :<br>
+      La tension se note ___ et s'exprime en ___.<br>
+      L'intensité se note ___ et s'exprime en ___.<br>
+      La résistance se note ___ et s'exprime en ___.
+    </li>
+    <li>(2 pts) La loi d'Ohm s'écrit \(U = R \times I\). Complétez le tableau :<br>
+      <table><thead><tr><th>\(U\) (V)</th><th>\(R\) (Ω)</th><th>\(I\) (A)</th></tr></thead>
+      <tbody>
+        <tr><td>9</td><td>45</td><td>?</td></tr>
+        <tr><td>12</td><td>?</td><td>0,4</td></tr>
+        <tr><td>?</td><td>100</td><td>0,05</td></tr>
+      </tbody></table>
+    </li>
+    <li>(2 pts) L'ampèremètre se branche (entourez) : en <strong>série / dérivation</strong>.<br>
+      Le voltmètre se branche (entourez) : en <strong>série / dérivation</strong>.
+    </li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>\(U\) en volts (V) / \(I\) en ampères (A) / \(R\) en ohms (Ω).</li>
+      <li>Ligne 1 : \(I = 9/45 = 0{,}2\) A / Ligne 2 : \(R = 12/0{,}4 = 30\) Ω / Ligne 3 : \(U = 100 × 0{,}05 = 5\) V.</li>
+      <li>Ampèremètre : en série. Voltmètre : en dérivation.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- ========= STANDARD ========= -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <h2>Exercice 1 — Circuit et capteurs (8 points)</h2>
+  <p>Un thermostat d'atelier contient une thermistance CTN de résistance \(R = 3{,}3\) kΩ à 20 °C. Elle est alimentée par une tension \(U = 5\) V.</p>
+  <ol>
+    <li>(2 pts) Calculez l'intensité du courant qui traverse la thermistance à 20 °C.</li>
+    <li>(2 pts) Quand la température augmente, la résistance d'une CTN augmente ou diminue ? Quelle conséquence sur l'intensité (loi d'Ohm) ?</li>
+    <li>(2 pts) La plaque signalétique d'un radiateur indique 230 V~ 50 Hz — 1 200 W. Calculez l'intensité du courant consommé (relation \(P = U \times I\)).</li>
+    <li>(2 pts) La tension du secteur est 230 V efficace. Calculez la tension maximale \(U_{\max}\) sachant que \(U_{\max} = U_{\text{eff}} \times \sqrt{2}\) avec \(\sqrt{2} \approx 1{,}41\).</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>\(I = U/R = 5/(3300) \approx 1{,}5 \times 10^{-3}\) A = 1,5 mA.</li>
+      <li>La résistance d'une CTN diminue quand la température augmente. L'intensité \(I = U/R\) augmente donc.</li>
+      <li>\(I = P/U = 1200/230 \approx 5{,}2\) A.</li>
+      <li>\(U_{\max} = 230 × 1{,}41 \approx 325\) V.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- ========= APPROFONDISSEMENT ========= -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <h2>Exercice 1 — Signal sinusoïdal et analyse d'oscillogramme (6 points)</h2>
+  <p>Un oscilloscope affiche la tension du secteur. Les réglages sont : base de temps 5 ms/div, sensibilité 100 V/div. On mesure une hauteur de 3,25 divisions de la ligne de zéro au sommet du signal, et une période de 4 divisions horizontales.</p>
+  <ol>
+    <li>(2 pts) Calculez la tension maximale \(U_{\max}\).</li>
+    <li>(2 pts) Calculez la période \(T\) puis la fréquence \(f\).</li>
+    <li>(2 pts) Calculez \(U_{\text{eff}} = U_{\max}/\sqrt{2}\). Ce résultat est-il cohérent avec la tension du secteur en France ?</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>\(U_{\max} = 3{,}25 × 100 = 325\) V.</li>
+      <li>\(T = 4 × 5 = 20\) ms = 0,02 s. \(f = 1/T = 1/0{,}02 = 50\) Hz.</li>
+      <li>\(U_{\text{eff}} = 325/1{,}414 \approx 230\) V. Oui, cohérent avec le secteur français (230 V / 50 Hz).</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- COMMUN -->
+<div class="exo">
+  <h2>Exercice 2 commun — Capteur de luminosité (6 points)</h2>
+  <p>Une photorésistance (LDR) est utilisée pour contrôler l'éclairage d'un atelier. Sa résistance vaut \(R = 500\) Ω à la lumière et \(R = 50\) kΩ dans l'obscurité. Elle est alimentée par \(U = 5\) V.</p>
+  <ol>
+    <li>(2 pts) Calculez l'intensité dans la LDR en pleine lumière et dans l'obscurité.</li>
+    <li>(2 pts) Une LDR est-elle un dipôle ohmique ? Justifiez (la résistance varie-t-elle selon les conditions ?).</li>
+    <li>(2 pts) La grandeur d'entrée de ce capteur est ___ et la grandeur de sortie est ___.</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>Lumière : \(I = 5/500 = 0{,}01\) A = 10 mA. Obscurité : \(I = 5/50\,000 = 10^{-4}\) A = 0,1 mA.</li>
+      <li>Non, la résistance d'une LDR dépend de l'éclairement : elle n'est pas constante. Ce n'est pas un dipôle ohmique.</li>
+      <li>Grandeur d'entrée : éclairement (lux). Grandeur de sortie : résistance (Ω).</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

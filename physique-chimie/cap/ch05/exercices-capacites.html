@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch05 – Acoustique – Exercices par capacités – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Ch05 — Exercices par capacités · Acoustique</h1>
+  <p class="sous-titre">CAP | Physique-Chimie | Exercices organisés par capacités du programme</p>
+</header>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 1 — Déterminer la période et la fréquence d'un son pur</h2>
+
+<div class="exo">
+  <p><strong>Exercice 1.1 — Lecture d'oscillogramme</strong></p>
+  <p>Pour chacun des oscillogrammes décrits ci-dessous, calculez la période puis la fréquence :</p>
+  <table>
+    <thead><tr><th>Signal</th><th>Base de temps</th><th>Période (div)</th><th>T (ms)</th><th>f (Hz)</th></tr></thead>
+    <tbody>
+      <tr><td>Diapason</td><td>0,5 ms/div</td><td>4,5</td><td></td><td></td></tr>
+      <tr><td>Alarme atelier</td><td>0,2 ms/div</td><td>2,0</td><td></td><td></td></tr>
+      <tr><td>Bruit toupie</td><td>0,1 ms/div</td><td>1,5</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="corr">
+    <strong>Correction :</strong> Diapason : T = 4,5 × 0,5 = 2,25 ms → f = 1/0,00225 ≈ 444 Hz (proche du La 440 Hz) / Alarme : T = 2 × 0,2 = 0,4 ms → f = 2500 Hz / Toupie : T = 1,5 × 0,1 = 0,15 ms → f ≈ 6667 Hz.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<div class="exo">
+  <p><strong>Exercice 1.2 — Classement grave/aigu</strong></p>
+  <p>Classez ces sons du plus grave au plus aigu et identifiez ceux qui sont hors du domaine audible :</p>
+  <table>
+    <thead><tr><th>Source</th><th>Fréquence (Hz)</th><th>Rang (grave → aigu)</th><th>Domaine</th></tr></thead>
+    <tbody>
+      <tr><td>Vibration d'une poutre</td><td>8</td><td></td><td></td></tr>
+      <tr><td>Voix masculine basse</td><td>100</td><td></td><td></td></tr>
+      <tr><td>Sifflement de scie</td><td>3000</td><td></td><td></td></tr>
+      <tr><td>Contrôle ultrasonique</td><td>40 000</td><td></td><td></td></tr>
+      <tr><td>Alarme haute fréquence</td><td>8000</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="corr">
+    <strong>Correction :</strong> 8 Hz → infrasون (non audible) / 100 Hz → grave (audible) / 3000 Hz → aigu (audible) / 8000 Hz → très aigu (audible) / 40 000 Hz → ultrason (non audible). Classement audibles : 100 Hz < 3000 Hz < 8000 Hz.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 2 — Caractériser par le niveau d'intensité acoustique (dB)</h2>
+
+<div class="exo">
+  <p><strong>Exercice 2.1 — Seuils et protections</strong></p>
+  <ol>
+    <li>Complétez le tableau des niveaux sonores en atelier :</li>
+  </ol>
+  <table>
+    <thead><tr><th>Machine</th><th>Niveau (dB)</th><th>Protection obligatoire ?</th><th>Niveau avec bouchons (-30 dB)</th></tr></thead>
+    <tbody>
+      <tr><td>Scie à onglet</td><td>96</td><td></td><td></td></tr>
+      <tr><td>Raboteuse</td><td>104</td><td></td><td></td></tr>
+      <tr><td>Marteau sur établi</td><td>78</td><td></td><td></td></tr>
+      <tr><td>Compresseur</td><td>86</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="corr">
+    <strong>Correction :</strong> Scie : oui (96 > 85), 66 dB / Raboteuse : oui (104 > 85), 74 dB / Marteau : non (78 < 85), 48 dB / Compresseur : oui (86 > 85), 56 dB.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 3 — Comparer les atténuations phoniques</h2>
+
+<div class="exo">
+  <p><strong>Exercice 3.1 — Choix du matériau isolant</strong></p>
+  <p>On cherche à réduire le bruit d'une scie circulaire (102 dB) en dessous de 75 dB dans la salle adjacente. Quatre matériaux sont disponibles :</p>
+  <table>
+    <thead><tr><th>Matériau</th><th>Atténuation</th><th>Niveau résiduel</th><th>Suffisant ?</th></tr></thead>
+    <tbody>
+      <tr><td>Mousse fine (2 cm)</td><td>10 dB</td><td></td><td></td></tr>
+      <tr><td>Laine de verre (8 cm)</td><td>22 dB</td><td></td><td></td></tr>
+      <tr><td>Laine de roche (12 cm)</td><td>30 dB</td><td></td><td></td></tr>
+      <tr><td>Double paroi (béton + air + béton)</td><td>38 dB</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="corr">
+    <strong>Correction :</strong> Mousse : 92 dB, non / Laine de verre : 80 dB, non / Laine de roche : 72 dB, oui / Double paroi : 64 dB, oui. Il faut au moins 27 dB d'atténuation.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 4 — Capteurs piézoélectriques</h2>
+
+<div class="exo">
+  <p><strong>Exercice 4.1 — Applications industrielles</strong></p>
+  <p>Pour chaque application, indiquez si le capteur piézoélectrique fonctionne en mode émetteur ou récepteur :</p>
+  <table>
+    <thead><tr><th>Application</th><th>Mode (émetteur/récepteur)</th></tr></thead>
+    <tbody>
+      <tr><td>Microphone d'un sonomètre</td><td></td></tr>
+      <tr><td>Buzzer d'alarme d'une machine</td><td></td></tr>
+      <tr><td>Contrôle ultrasonique des soudures</td><td></td></tr>
+      <tr><td>Détecteur de chocs sur un meuble</td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="corr">
+    <strong>Correction :</strong> Microphone sonomètre → récepteur / Buzzer → émetteur / Contrôle ultrasonique → les deux (émetteur ET récepteur) / Détecteur de chocs → récepteur.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../comp.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch02 – Électricité – Activité – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch02 : Électricité</h1>
+  <p class="sous-titre">CAP | Physique-Chimie | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Diagnostic d'un circuit de chauffage</h3>
+  <p>Un technicien de maintenance est appelé dans un atelier de menuiserie : le radiateur électrique d'appoint ne chauffe plus normalement. Il dispose d'un multimètre et doit identifier la cause du problème en mesurant les grandeurs électriques du circuit.</p>
+</div>
+
+<div style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment utiliser la loi d'Ohm et les appareils de mesure pour diagnostiquer un circuit électrique ?
+</div>
+
+<h2>Document 1 — Plaque signalétique du radiateur</h2>
+<div class="ex">
+  <p>Radiateur à inertie — Réf. RAD-1500<br>
+  Alimentation : <strong>230 V ~ 50 Hz</strong><br>
+  Puissance nominale : <strong>1500 W</strong><br>
+  Intensité nominale : <strong>6,5 A</strong><br>
+  Résistance de l'élément chauffant (à froid) : <strong>35,4 Ω</strong>
+  </p>
+</div>
+
+<h2>Document 2 — Mesures effectuées par le technicien</h2>
+<div class="ex">
+  <table>
+    <thead><tr><th>Mesure</th><th>Instrument</th><th>Valeur mesurée</th></tr></thead>
+    <tbody>
+      <tr><td>Tension aux bornes du radiateur</td><td>Voltmètre (mode AC)</td><td>228 V</td></tr>
+      <tr><td>Intensité dans le circuit</td><td>Ampèremètre (mode AC)</td><td>3,2 A</td></tr>
+      <tr><td>Résistance de l'élément (hors tension)</td><td>Ohmmètre</td><td>71 Ω</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Questions</h2>
+<div class="exo">
+  <h3>Partie A — Vérification des caractéristiques nominales</h3>
+  <ol>
+    <li>D'après la plaque signalétique, vérifiez par le calcul que l'intensité nominale est bien 6,5 A. (Utilisez \(I = U/R\) avec les valeurs nominales.)</li>
+    <li>Vérifiez aussi avec la relation \(P = U \times I\) : trouvez-vous bien 1500 W ?</li>
+  </ol>
+
+  <h3>Partie B — Analyse du problème</h3>
+  <ol start="3">
+    <li>Comparez la résistance mesurée (71 Ω) à la résistance nominale (35,4 Ω). Que constatez-vous ?</li>
+    <li>Utilisez la loi d'Ohm avec la résistance mesurée et la tension mesurée pour calculer l'intensité réelle. Comparez à la valeur mesurée (3,2 A).</li>
+    <li>Le radiateur chauffe-t-il normalement ? Quel est le problème probable ? (l'élément chauffant est-il en bon état ?)</li>
+  </ol>
+
+  <h3>Partie C — Tension continue et alternative</h3>
+  <ol start="6">
+    <li>Le technicien passe le multimètre en mode DC (continu) au lieu de AC (alternatif) pour mesurer la tension du secteur. Quelle valeur affichera-t-il ? Expliquez.</li>
+    <li>La fréquence du secteur est 50 Hz. Quelle est la période \(T\) du signal ?</li>
+    <li>Calculez la tension maximale du secteur sachant que \(U_{\text{eff}} = 228\) V.</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    <strong>A1.</strong> \(I = U/R = 230/35{,}4 \approx 6{,}5\) A. Cohérent avec la plaque.<br>
+    <strong>A2.</strong> \(P = 230 × 6{,}5 = 1495 \approx 1500\) W. Cohérent.<br>
+    <strong>B3.</strong> La résistance mesurée (71 Ω) est environ le double de la valeur nominale (35,4 Ω). L'élément chauffant est dégradé.<br>
+    <strong>B4.</strong> \(I = U/R = 228/71 \approx 3{,}2\) A. Cohérent avec la mesure.<br>
+    <strong>B5.</strong> Non, le radiateur ne chauffe pas normalement. Sa résistance a augmenté (dégradation partielle de l'élément chauffant), réduisant l'intensité et donc la puissance dissipée. L'élément chauffant doit être remplacé.<br>
+    <strong>C6.</strong> En mode DC, le multimètre afficherait une valeur proche de 0 V car la tension du secteur est alternative (valeur moyenne nulle sur un cycle).<br>
+    <strong>C7.</strong> \(T = 1/f = 1/50 = 0{,}02\) s = 20 ms.<br>
+    <strong>C8.</strong> \(U_{\max} = 228 × 1{,}41 \approx 322\) V.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

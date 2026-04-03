@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch06 – Thermique – Exercices par capacités – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Ch06 — Exercices par capacités · Thermique</h1>
+  <p class="sous-titre">CAP | Physique-Chimie | Exercices organisés par capacités du programme</p>
+</header>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 1 — Mesurer des températures, conversions Celsius/Kelvin</h2>
+
+<div class="exo">
+  <p><strong>Exercice 1.1 — Conversions en contexte professionnel</strong></p>
+  <table>
+    <thead><tr><th>Situation</th><th>Celsius</th><th>Kelvin</th></tr></thead>
+    <tbody>
+      <tr><td>Étuve de séchage vernis</td><td>65</td><td></td></tr>
+      <tr><td>Brasure à l'étain</td><td>250</td><td></td></tr>
+      <tr><td>Eau bouillante (rinçage)</td><td>100</td><td></td></tr>
+      <tr><td>Chambre froide stockage colles</td><td>4</td><td></td></tr>
+      <tr><td>Zéro absolu</td><td></td><td>0</td></tr>
+      <tr><td>Congélateur</td><td>−18</td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="corr">
+    <strong>Correction :</strong> 65 → 338 K / 250 → 523 K / 100 → 373 K / 4 → 277 K / 0 K → −273 °C / −18 → 255 K.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 2 — Identifier et choisir un capteur de température</h2>
+
+<div class="exo">
+  <p><strong>Exercice 2.1 — Choix du bon capteur</strong></p>
+  <p>Pour chaque application, indiquez le capteur le plus adapté (CTN, Pt100, thermocouple) et justifiez :</p>
+  <table>
+    <thead><tr><th>Application</th><th>Température</th><th>Capteur choisi</th><th>Justification</th></tr></thead>
+    <tbody>
+      <tr><td>Thermostat d'ambiance (local atelier)</td><td>15 à 25 °C</td><td></td><td></td></tr>
+      <tr><td>Contrôle brasure haute température</td><td>350 à 500 °C</td><td></td><td></td></tr>
+      <tr><td>Mesure précise four industriel</td><td>200 à 600 °C</td><td></td><td></td></tr>
+      <tr><td>Vérification température eau rinçage</td><td>20 à 60 °C</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="corr">
+    <strong>Correction :</strong> Thermostat atelier → CTN (plage adaptée, simple) / Brasure haute T → thermocouple (plage jusqu'à 2000 °C) / Four industriel → Pt100 ou thermocouple (précision + plage) / Eau rinçage → CTN ou Pt100 (températures modérées).
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 3 — Équilibre thermique, chaleur et température</h2>
+
+<div class="exo">
+  <p><strong>Exercice 3.1 — Équilibres thermiques en atelier</strong></p>
+  <ol>
+    <li>Un panneau de bois sorti d'un four à 80 °C est posé dans un atelier à 20 °C. Décrivez qualitativement l'évolution des températures. Vers quelle valeur finale tend-on ?</li>
+    <li>Une pièce de métal à 450 °C est trempée dans l'eau à 15 °C. La température finale est 22 °C. Qui a cédé de la chaleur ? Qui en a reçu ? Y a-t-il eu transfert de matière ?</li>
+    <li>Expliquez en une phrase la différence entre chaleur (Q, en joules) et température (θ, en °C).</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>Le panneau se refroidit, l'air de l'atelier se réchauffe légèrement. Température finale intermédiaire (proche de 20 °C car l'air est en grande quantité).</li>
+      <li>La pièce métallique a cédé de la chaleur, l'eau en a reçu. Il n'y a pas eu transfert de matière, seulement d'énergie.</li>
+      <li>La température mesure l'état thermique d'un corps (°C ou K) ; la chaleur est l'énergie transférée d'un corps chaud vers un corps froid (J).</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 4 — Changements d'état corps pur et mélange</h2>
+
+<div class="exo">
+  <p><strong>Exercice 4.1 — Courbes de changement d'état</strong></p>
+  <ol>
+    <li>Décrivez la forme de la courbe température = f(temps) lors de la fusion d'un corps pur. Qu'observe-t-on à la température de fusion ?</li>
+    <li>Décrivez la différence pour un alliage (mélange). Pourquoi n'y a-t-il pas de palier net ?</li>
+    <li>Identifiez le changement d'état dans chaque situation :<br>
+      a) L'eau d'un bac de refroidissement se transforme en vapeur.<br>
+      b) L'étain en fusion se solidifie après brasure.<br>
+      c) La glace fond dans un bac de refroidissement de machine.<br>
+      d) La vapeur d'eau se condense sur la vitre froide de l'atelier.</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>Palier horizontal à la température de fusion : la température reste constante pendant tout le changement d'état.</li>
+      <li>Pour un mélange : pas de palier net, la température varie progressivement. Les composants ont des températures de fusion différentes, le changement se fait sur une plage de températures.</li>
+      <li>a) Vaporisation / b) Solidification / c) Fusion / d) Liquéfaction.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../comp.js"></script>
+</body>
+</html>

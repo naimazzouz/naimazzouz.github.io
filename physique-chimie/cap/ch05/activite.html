@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch05 – Acoustique – Activité – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch05 : Acoustique</h1>
+  <p class="sous-titre">CAP | Physique-Chimie | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Évaluation du bruit en atelier de menuiserie</h3>
+  <p>La responsable de l'atelier doit rédiger le document unique d'évaluation des risques (DUER). Elle mesure les niveaux sonores de chaque machine et cherche à identifier les postes qui nécessitent des protections auditives obligatoires. Elle dispose d'un sonomètre et d'un oscilloscope.</p>
+</div>
+
+<div style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment caractériser les sons produits en atelier et décider des mesures de prévention adaptées ?
+</div>
+
+<h2>Document 1 — Mesures sonomètre</h2>
+<div class="ex">
+  <table>
+    <thead><tr><th>Machine</th><th>Niveau mesuré (dB)</th><th>Durée quotidienne</th></tr></thead>
+    <tbody>
+      <tr><td>Scie à ruban</td><td>88</td><td>3 h</td></tr>
+      <tr><td>Ponceuse orbitale</td><td>82</td><td>4 h</td></tr>
+      <tr><td>Scie circulaire</td><td>103</td><td>2 h</td></tr>
+      <tr><td>Toupie</td><td>97</td><td>1 h</td></tr>
+      <tr><td>Travail manuel (ciseau, maillet)</td><td>65</td><td>2 h</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Document 2 — Oscillogramme d'un son de la scie circulaire</h2>
+<div class="ex">
+  <p>Réglages oscilloscope : base de temps 0,5 ms/div.</p>
+  <p>Sur l'écran, on mesure une période de 2,4 divisions horizontales.</p>
+</div>
+
+<h2>Document 3 — Données matériaux d'isolation</h2>
+<div class="ex">
+  <table>
+    <thead><tr><th>Matériau</th><th>Atténuation</th></tr></thead>
+    <tbody>
+      <tr><td>Panneau de mousse acoustique (5 cm)</td><td>18 dB</td></tr>
+      <tr><td>Laine de roche (10 cm)</td><td>30 dB</td></tr>
+      <tr><td>Plots anti-vibrations (caoutchouc)</td><td>12 dB</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Questions</h2>
+<div class="exo">
+  <h3>Partie A — Analyse des niveaux sonores</h3>
+  <ol>
+    <li>Pour chaque machine du document 1, indiquez si la protection auditive est obligatoire (> 85 dB), recommandée (80 à 85 dB) ou non nécessaire (< 80 dB).</li>
+    <li>Quelle machine présente le risque le plus élevé ? Justifiez.</li>
+    <li>Seuil de douleur = 120 dB. La scie circulaire (103 dB) peut-elle provoquer des lésions immédiates ?</li>
+  </ol>
+
+  <h3>Partie B — Caractérisation du son de la scie</h3>
+  <ol start="4">
+    <li>Calculez la période \(T\) du son de la scie circulaire à partir des données du document 2.</li>
+    <li>Calculez la fréquence \(f\) de ce son. Ce son est-il grave ou aigu ?</li>
+    <li>Ce son appartient-il au domaine audible ? Ou aux infrasons/ultrasons ?</li>
+  </ol>
+
+  <h3>Partie C — Solutions d'isolation</h3>
+  <ol start="7">
+    <li>La scie circulaire est placée dans une cabine insonorisée avec de la laine de roche (30 dB). Quel niveau sonore sort de la cabine ?</li>
+    <li>Des plots anti-vibrations (12 dB) sont ajoutés sous la machine. Quel niveau total est atténué si les deux solutions sont combinées ?</li>
+    <li>Comparez les solutions collectives (isolation cabine) et la solution individuelle (bouchons d'oreilles, 30 dB). Quelle est la différence fondamentale dans la démarche de prévention ?</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    <strong>A1.</strong> Scie à ruban (88 dB) : obligatoire / Ponceuse (82 dB) : recommandée / Scie circulaire (103 dB) : obligatoire / Toupie (97 dB) : obligatoire / Manuel (65 dB) : non nécessaire.<br>
+    <strong>A2.</strong> Scie circulaire (103 dB) : niveau le plus élevé, donc risque le plus fort.<br>
+    <strong>A3.</strong> Non, 103 dB < 120 dB (seuil de douleur). Mais l'exposition prolongée est dangereuse sans protection.<br>
+    <strong>B4.</strong> \(T = 2{,}4 × 0{,}5 = 1{,}2\) ms = 0,0012 s.<br>
+    <strong>B5.</strong> \(f = 1/0{,}0012 \approx 833\) Hz. Son médium (ni très grave ni très aigu).<br>
+    <strong>B6.</strong> 833 Hz est entre 20 et 20 000 Hz → domaine audible.<br>
+    <strong>C7.</strong> 103 − 30 = 73 dB (< 85 dB : sécuritaire).<br>
+    <strong>C8.</strong> 30 + 12 = 42 dB d'atténuation totale → 103 − 42 = 61 dB (très confortable).<br>
+    <strong>C9.</strong> Solutions collectives : réduisent le niveau pour TOUS les travailleurs sans action individuelle. Solution individuelle : dépend du port correct de l'EPI. La hiérarchie des mesures de prévention privilégie la réduction à la source.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch03 – Proportionnalité et pourcentages – DS – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:8px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-size:1.1em;font-weight:700">Devoir surveillé — Ch03 · Proportionnalité et pourcentages</span>
+    <span style="font-size:.95em;opacity:.9">CAP · Durée : 1 h · /20</span>
+  </div>
+</header>
+
+<!-- ══════════════ SOCLE ══════════════ -->
+<div class="diff-socle">
+<h2><span class="tag-socle">Socle</span> Exercice 1 — Prix de matériaux (7 pts)</h2>
+<div class="exo">
+<p>Un menuisier achète des lames de parquet à 8 € le mètre linéaire.</p>
+<p><strong>1. (3 pts)</strong> Complète le tableau (les suites sont proportionnelles) :</p>
+<table class="full">
+  <tr><th>Longueur (m)</th><td>1</td><td>5</td><td>10</td><td>20</td></tr>
+  <tr><th>Prix (€)</th><td>8</td><td>…</td><td>…</td><td>…</td></tr>
+</table>
+
+<p><strong>2. (2 pts)</strong> Quel est le coefficient de proportionnalité ? À quoi correspond-il ?</p>
+<p><strong>3. (2 pts)</strong> Le menuisier a besoin de 15 m de lames. Calcule le coût.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 5 m → 40 € | 10 m → 80 € | 20 m → 160 €</p>
+  <p>2. Coefficient = 8. Il représente le prix par mètre (€/m).</p>
+  <p>3. 15 × 8 = 120 €</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 2 — Calculs de pourcentages (7 pts)</h2>
+<div class="exo">
+<p><strong>1. (3 pts)</strong> Calcule (montre le calcul) :</p>
+<ul class="styled">
+  <li>20 % de 150 € = …</li>
+  <li>15 % de 240 € = …</li>
+  <li>5 % de 80 € = …</li>
+</ul>
+
+<p><strong>2. (4 pts)</strong> Une planche de chêne coûte 45 €. Le menuisier bénéficie d'une remise de 10 %.</p>
+<ul class="styled">
+  <li>Montant de la remise = 10 % de 45 € = …</li>
+  <li>Prix après remise = 45 − … = …</li>
+</ul>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 20% de 150 = 0,20 × 150 = 30 € | 15% de 240 = 0,15 × 240 = 36 € | 5% de 80 = 0,05 × 80 = 4 €</p>
+  <p>2. Remise = 10% de 45 = 4,50 € | Prix après remise = 45 − 4,50 = 40,50 €</p>
+</div>
+</div>
+
+<h2><span class="tag-socle">Socle</span> Exercice 3 — Règle de trois (6 pts)</h2>
+<div class="exo">
+<p>Pour peindre 12 m² de panneau, il faut 0,6 L de peinture.</p>
+<p>Combien faut-il de peinture pour 20 m² ?</p>
+<p>Complète :</p>
+<p>12 m² ………… 0,6 L</p>
+<p>20 m² ………… ? L</p>
+<p>\(? = \dfrac{20 \times 0{,}6}{12} = \dfrac{…}{12} = … \text{ L}\)</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>\(? = \dfrac{20 \times 0{,}6}{12} = \dfrac{12}{12} = 1\) L</p>
+</div>
+</div>
+</div><!-- fin diff-socle -->
+
+<!-- ══════════════ STANDARD ══════════════ -->
+<div class="diff-standard">
+<h2><span class="tag-standard">Standard</span> Exercice 1 — Devis d'agencement (8 pts)</h2>
+<div class="exo">
+<p>Un menuisier agenceur doit poser des plinthes dans un appartement. Le prix est de 6,50 € le mètre linéaire.</p>
+
+<p><strong>1. (2 pts)</strong> Construis un tableau de proportionnalité pour 5, 10, 15, 20 et 25 m de plinthe.</p>
+<p><strong>2. (2 pts)</strong> Le client demande 28 m de plinthe. Calcule le coût total HT.</p>
+<p><strong>3. (2 pts)</strong> Le menuisier accorde une remise de 8 % pour les commandes supérieures à 150 €. Calcule le prix TTC après remise.</p>
+<p><strong>4. (2 pts)</strong> La TVA est de 10 %. Calcule le prix TTC.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. 5m→32,50€ | 10m→65€ | 15m→97,50€ | 20m→130€ | 25m→162,50€</p>
+  <p>2. 28 × 6,50 = 182 € HT</p>
+  <p>3. Remise = 8% de 182 = 0,08 × 182 = 14,56 € → Prix après remise = 182 − 14,56 = 167,44 € HT</p>
+  <p>4. TVA = 10% de 167,44 = 16,744 € → TTC = 167,44 + 16,74 ≈ 184,18 €</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 2 — Pourcentages et évolutions (7 pts)</h2>
+<div class="exo">
+<p>Un signalétiste achète un logiciel de création graphique à 480 €. Son prix a augmenté de 12 % depuis l'année dernière.</p>
+
+<p><strong>1. (2 pts)</strong> Quel était le prix l'année dernière ?</p>
+<p><strong>2. (2 pts)</strong> Calcule le coefficient multiplicateur correspondant à une augmentation de 12 %.</p>
+<p><strong>3. (3 pts)</strong> Le signalétiste négocie une remise de 15 % sur le renouvellement de sa licence. Calcule le prix après remise de deux façons différentes (méthode directe et coefficient multiplicateur).</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Prix actuel = prix ancien × 1,12 → prix ancien = 480/1,12 ≈ 428,57 €</p>
+  <p>2. Coefficient = 1 + 12/100 = 1,12</p>
+  <p>3. Méthode directe : remise = 15% de 480 = 72 € → prix = 480 − 72 = 408 € | Coefficient : 480 × 0,85 = 408 €</p>
+</div>
+</div>
+
+<h2><span class="tag-standard">Standard</span> Exercice 3 — Règle de trois et mélanges (5 pts)</h2>
+<div class="exo">
+<p>Pour préparer une teinture à bois, un ébéniste mélange 3 volumes de teinte pour 7 volumes d'essence.</p>
+
+<p><strong>1. (2 pts)</strong> Pour préparer 500 mL de mélange, quelle quantité de teinte et d'essence faut-il ?</p>
+<p><strong>2. (3 pts)</strong> Le mélange coûte en moyenne 8 € pour 100 mL. Pour 350 mL, quel est le coût ? Donnez aussi le résultat en utilisant la règle de trois.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Total = 3+7 = 10 parts. Teinte : (3/10)×500 = 150 mL | Essence : (7/10)×500 = 350 mL</p>
+  <p>2. Règle de trois : 100 mL → 8 € donc 350 mL → (350×8)/100 = 28 €</p>
+</div>
+</div>
+</div><!-- fin diff-standard -->
+
+<!-- ══════════════ APPROFONDISSEMENT ══════════════ -->
+<div class="diff-appro">
+<h2><span class="tag-appro">Approfondissement</span> Exercice 1 — Devis complet (7 pts)</h2>
+<div class="exo">
+<p>Un métreur établit un devis pour l'agencement d'une cuisine professionnelle :</p>
+<table class="full">
+  <tr><th>Poste</th><th>Quantité</th><th>Prix unitaire HT</th></tr>
+  <tr><td>Panneaux MDF</td><td>24 m²</td><td>18,50 €/m²</td></tr>
+  <tr><td>Charnières</td><td>60 pièces</td><td>2,80 €/pièce</td></tr>
+  <tr><td>Main d'œuvre</td><td>14 h</td><td>35 €/h</td></tr>
+</table>
+
+<p><strong>1. (3 pts)</strong> Calcule le total HT de chaque poste, puis le total HT global.</p>
+<p><strong>2. (2 pts)</strong> Applique une remise commerciale de 5 % sur la fourniture (MDF + charnières).</p>
+<p><strong>3. (2 pts)</strong> Ajoute la TVA à 20 % sur l'ensemble (après remise). Calcule le montant TTC.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. MDF : 24×18,50 = 444 € | Charnières : 60×2,80 = 168 € | MO : 14×35 = 490 € | Total HT = 444+168+490 = 1 102 €</p>
+  <p>2. Fourniture = 444+168 = 612 € | Remise = 5%×612 = 30,60 € | Fourniture après remise = 581,40 € | Nouveau total HT = 581,40+490 = 1 071,40 €</p>
+  <p>3. TVA = 20%×1071,40 = 214,28 € | TTC = 1071,40+214,28 = 1 285,68 €</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 2 — Taux d'évolution (7 pts)</h2>
+<div class="exo">
+<p>Le chiffre d'affaires d'un atelier de signalétique passe de 48 000 € à 55 200 € en un an.</p>
+
+<p><strong>1. (2 pts)</strong> Calcule le taux d'évolution en pourcentage. Rappel : \(t = \dfrac{\text{valeur finale} - \text{valeur initiale}}{\text{valeur initiale}} \times 100\)</p>
+<p><strong>2. (2 pts)</strong> L'année suivante, le CA baisse de 10 %. Quel est le nouveau CA ?</p>
+<p><strong>3. (3 pts)</strong> Compare le CA final au CA initial (48 000 €). Le CA est-il globalement en hausse ou en baisse ? Calcule le taux d'évolution global sur les deux années.</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. t = (55200−48000)/48000 × 100 = 7200/48000 × 100 = 15 %</p>
+  <p>2. Baisse de 10% : 55200 × 0,90 = 49 680 €</p>
+  <p>3. Évolution globale : (49680−48000)/48000 × 100 = 1680/48000 × 100 = 3,5 % → Globalement en hausse de 3,5 % (même si la 2e année est négative, l'effet de la hausse de 15% l'emporte sur la baisse de 10%).</p>
+</div>
+</div>
+
+<h2><span class="tag-appro">Approfondissement</span> Exercice 3 — Partage proportionnel (6 pts)</h2>
+<div class="exo">
+<p>Deux artisans associés — un menuisier et un ébéniste — réalisent ensemble un chantier d'agencement pour 9 600 €. Ils se partagent le bénéfice proportionnellement au nombre d'heures travaillées : le menuisier a travaillé 30 h et l'ébéniste 45 h.</p>
+
+<p><strong>1. (2 pts)</strong> Calcule le nombre total d'heures travaillées, puis la part (en fraction) de chaque artisan.</p>
+<p><strong>2. (2 pts)</strong> Calcule la somme que chacun reçoit.</p>
+<p><strong>3. (2 pts)</strong> Le menuisier achète pour sa part du matériel à 1 200 €. Quel pourcentage de sa part représente cet achat ?</p>
+
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  <strong>Correction :</strong>
+  <p>1. Total = 30+45 = 75 h | Menuisier : 30/75 = 2/5 | Ébéniste : 45/75 = 3/5</p>
+  <p>2. Menuisier : (2/5)×9600 = 3 840 € | Ébéniste : (3/5)×9600 = 5 760 €</p>
+  <p>3. 1200/3840 × 100 = 31,25 %</p>
+</div>
+</div>
+</div><!-- fin diff-appro -->
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

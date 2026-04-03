@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch02 – Probabilités – Exercices par capacités – CAP Maths</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>
+:root{--p:#b45309;--p-bg:#fffbeb;--p-border:#fde68a}
+.cap-badge{display:inline-block;background:var(--p);color:#fff;font-size:.75em;font-weight:700;padding:2px 10px;border-radius:12px;margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../maths-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Ch02 – Probabilités — Exercices par capacités</h1>
+  <p class="sous-titre">CAP | Mathématiques</p>
+</header>
+
+<div style="background:var(--p-bg);border:1px solid var(--p-border);border-radius:8px;padding:14px 18px;margin:16px 0">
+  <strong>Capacités travaillées dans ce chapitre :</strong>
+  <ul class="styled" style="margin:8px 0 0">
+    <li><strong>C1</strong> — Identifier les issues d'une expérience aléatoire</li>
+    <li><strong>C2</strong> — Calculer la probabilité d'un événement simple</li>
+    <li><strong>C3</strong> — Utiliser la propriété de complémentarité</li>
+    <li><strong>C4</strong> — Calculer la probabilité de la réunion de deux événements incompatibles</li>
+    <li><strong>C5</strong> — Estimer un nombre de résultats attendus à partir d'une probabilité</li>
+  </ul>
+</div>
+
+<!-- C1 -->
+<h2>Capacité C1 — Issues d'une expérience aléatoire</h2>
+
+<div class="exo">
+<span class="cap-badge">C1</span>
+<p>Un menuisier tire au hasard une cheville dans un sac contenant 5 cheville de chêne, 3 de hêtre et 2 de pin.</p>
+<p>Quelles sont les issues possibles ? Quel est l'univers de l'expérience ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Issues : {chêne, hêtre, pin} | Univers = {chêne, hêtre, pin} avec effectifs 5, 3, 2.
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C1</span>
+<p>On contrôle une pièce usinée. Les issues sont : conforme (C), défaut mineur (M), rebut (R).</p>
+<p>Liste toutes les issues. Décris deux événements A et B basés sur ces issues.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Issues = {C, M, R} | Ex A = « pièce utilisable » = {C, M} | Ex B = « pièce à rejeter » = {R}
+</div>
+</div>
+
+<!-- C2 -->
+<h2>Capacité C2 — Probabilité d'un événement</h2>
+
+<div class="exo">
+<span class="cap-badge">C2</span>
+<p>Dans un stock de 25 rouleaux de vinyle, 4 sont défectueux. On tire un rouleau au hasard. Calcule la probabilité d'obtenir un rouleau défectueux.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  P(défectueux) = 4/25 = 0,16 = 16%
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C2</span>
+<p>On lance un dé à 6 faces. Quelle est la probabilité d'obtenir un résultat supérieur ou égal à 4 ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Issues favorables : {4, 5, 6} → 3 issues | P = 3/6 = 1/2 = 0,5
+</div>
+</div>
+
+<!-- C3 -->
+<h2>Capacité C3 — Complémentarité</h2>
+
+<div class="exo">
+<span class="cap-badge">C3</span>
+<p>La probabilité qu'une porte d'armoire soit conforme est 0,92. Quelle est la probabilité qu'elle soit non conforme ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  P(non conforme) = 1 − 0,92 = 0,08
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C3</span>
+<p>Dans un lot de 30 ferrures : 12 sont dorées, 10 sont argentées, 8 sont noires. On tire une ferrure au hasard.</p>
+<p>a) Calcule P(dorée) et P(argentée). b) Calcule P(non noire) de deux façons différentes.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  P(dorée)=12/30=0,4 | P(argentée)=10/30≈0,333 | P(non noire) = (12+10)/30 = 22/30 = 11/15 ≈ 0,733 — ou 1−8/30 = 22/30 ✓
+</div>
+</div>
+
+<!-- C4 -->
+<h2>Capacité C4 — Événements incompatibles</h2>
+
+<div class="exo">
+<span class="cap-badge">C4</span>
+<p>On tire une carte dans un jeu de 32 cartes. Événement A = « obtenir un as » (4 as), Événement B = « obtenir un roi » (4 rois). A et B sont-ils incompatibles ? Calcule P(A ou B).</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Oui, incompatibles (une carte ne peut pas être à la fois as et roi). P(A ou B) = P(A)+P(B) = 4/32+4/32 = 8/32 = 1/4
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C4</span>
+<p>Sur un lot de 50 panneaux, 5 ont un défaut de couleur (DC) et 8 ont un défaut de découpe (DD). Aucun n'a les deux défauts. Calcule la probabilité d'un défaut quelconque.</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  P(DC ou DD) = P(DC)+P(DD) = 5/50+8/50 = 13/50 = 0,26 = 26%
+</div>
+</div>
+
+<!-- C5 -->
+<h2>Capacité C5 — Estimation d'un nombre de résultats</h2>
+
+<div class="exo">
+<span class="cap-badge">C5</span>
+<p>La probabilité qu'une vis soit défectueuse est 0,03. Sur une commande de 500 vis, combien peut-on espérer de vis défectueuses ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  500 × 0,03 = 15 vis défectueuses attendues
+</div>
+</div>
+
+<div class="exo">
+<span class="cap-badge">C5</span>
+<p>Un atelier produit 1 200 pièces par mois. Le taux de rebut est de 2,5 %. Combien de pièces seront à rejeter par mois ? Combien cela représente-t-il par an ?</p>
+<button class="bc" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">Voir la correction</button>
+<div class="corr" style="display:none">
+  Mensuel = 1200 × 0,025 = 30 rebuts/mois | Annuel = 30 × 12 = 360 rebuts/an
+</div>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

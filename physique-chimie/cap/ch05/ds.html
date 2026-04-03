@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch05 – Acoustique – DS – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <div style="background:var(--p);color:#fff;border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span style="font-weight:700;font-size:1.05em">Devoir surveillé — Ch05 · Acoustique</span>
+    <span style="font-size:.9em;opacity:.9">CAP · Durée : 1h · /20</span>
+  </div>
+</header>
+
+<!-- SOCLE -->
+<div class="exo diff-socle">
+  <span class="tag-socle">Socle</span>
+  <h2>Exercice 1 — Sons et niveaux sonores (6 points)</h2>
+  <ol>
+    <li>(2 pts) Vrai ou faux ?<br>
+      a) Un son se propage dans le vide. &nbsp;V / F<br>
+      b) Plus la fréquence est élevée, plus le son est aigu. &nbsp;V / F<br>
+      c) Le seuil de danger auditif est 85 dB. &nbsp;V / F<br>
+      d) Un son à 100 Hz est plus aigu qu'un son à 800 Hz. &nbsp;V / F
+    </li>
+    <li>(2 pts) Classez du plus grave au plus aigu : voix grave (100 Hz), scie circulaire (2000 Hz), alarme (4000 Hz), diapason (440 Hz).</li>
+    <li>(2 pts) Complétez :<br>
+      — Au-delà de ___ dB, le port de protections auditives est obligatoire.<br>
+      — Les bouchons d'oreilles atténuent de ___ à ___ dB.<br>
+      — Un son est une vibration _______________ qui se propage dans un milieu _______________.
+    </li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>a) F — b) V — c) V — d) F.</li>
+      <li>Voix grave (100 Hz) → Diapason (440 Hz) → Scie circulaire (2000 Hz) → Alarme (4000 Hz).</li>
+      <li>85 dB / 25 à 37 dB / mécanique / matériel.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- STANDARD -->
+<div class="exo diff-standard">
+  <span class="tag-standard">Standard</span>
+  <h2>Exercice 1 — Fréquence, période et atténuation (8 points)</h2>
+  <ol>
+    <li>(2 pts) Sur un oscillogramme d'un son pur, on mesure la période \(T = 2{,}5\) ms. Calculez la fréquence \(f\). Ce son est-il audible par l'oreille humaine ?</li>
+    <li>(2 pts) Un artisan menuisier travaille 4 h avec une ponceuse à bande (95 dB). Il utilise des bouchons d'oreilles qui atténuent de 30 dB. Quel niveau sonore perçoit-il ? Est-ce sécuritaire ?</li>
+    <li>(2 pts) On teste deux matériaux isolants pour une paroi d'atelier : la laine de roche réduit le bruit de 28 dB et le panneau de mousse de 18 dB. Lequel est plus efficace ? Si le bruit initial est 100 dB, quel niveau passe à travers chaque matériau ?</li>
+    <li>(2 pts) Un capteur piézoélectrique est utilisé pour détecter des vibrations dans une machine. En mode récepteur, que convertit-il ? Donnez une application concrète en atelier.</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>\(f = 1/T = 1/0{,}0025 = 400\) Hz. Oui : 20 Hz ≤ 400 Hz ≤ 20 000 Hz, donc audible.</li>
+      <li>Niveau perçu : 95 − 30 = 65 dB. Oui, c'est sécuritaire (< 85 dB).</li>
+      <li>Laine de roche plus efficace (28 dB > 18 dB). À travers : laine → 100 − 28 = 72 dB / mousse → 100 − 18 = 82 dB (toujours dangereux sans protection).</li>
+      <li>En mode récepteur : convertit une vibration mécanique en signal électrique. Application : détection de chocs sur une machine, buzzer d'alarme.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- APPRO -->
+<div class="exo diff-appro">
+  <span class="tag-appro">Approfondissement</span>
+  <h2>Exercice 1 — Analyse acoustique d'un atelier (6 points)</h2>
+  <p>Un atelier de menuiserie comporte plusieurs machines en fonctionnement simultané : scie circulaire (102 dB), toupie (98 dB), ponceuse (95 dB). La durée quotidienne est 8 h/poste.</p>
+  <ol>
+    <li>(2 pts) La réglementation impose une valeur limite d'exposition de 87 dB(A) sur 8 h. Toutes les machines dépassent-elles cette limite ? Quelle action l'employeur doit-il entreprendre au-delà de 80 dB(A) ?</li>
+    <li>(2 pts) Un casque antibruit atténue de 26 dB. Pour chaque machine, calculez le niveau perçu avec le casque. Le résultat est-il en deçà de la valeur limite ?</li>
+    <li>(2 pts) Pour la scie circulaire : proposez deux solutions collectives (réduction à la source) et une solution individuelle (EPI). Expliquez pourquoi les solutions collectives sont prioritaires selon le principe de prévention.</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>Oui, toutes dépassent 87 dB. Au-delà de 80 dB(A) : l'employeur doit mettre des protections à disposition. Au-delà de 85 dB(A) : port obligatoire.</li>
+      <li>Scie : 102 − 26 = 76 dB / Toupie : 98 − 26 = 72 dB / Ponceuse : 95 − 26 = 69 dB. Tous < 87 dB : correct.</li>
+      <li>Solutions collectives : encoffrement des machines bruyantes (cabine insonorisée), plots anti-vibrations sous les machines. Solution individuelle : casque ou bouchons. Priorité collective : réduire le risque à la source est plus fiable que de compter sur le port correct de l'EPI.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+<!-- COMMUN -->
+<div class="exo">
+  <h2>Exercice 2 commun — Chaîne sonore (6 points)</h2>
+  <p>Un peintre en lettres utilise un appareil de mesure acoustique pour vérifier le bruit dans son atelier. L'appareil contient un microphone piézoélectrique et affiche 88 dB.</p>
+  <ol>
+    <li>(2 pts) Identifiez l'émetteur, le milieu de propagation et le récepteur dans cette chaîne sonore.</li>
+    <li>(2 pts) 88 dB : est-ce au-dessus ou en dessous du seuil de dangerosité ? Quelle mesure de protection s'impose ?</li>
+    <li>(2 pts) Le peintre ferme une porte (atténuation : 20 dB). Le niveau passe-t-il en dessous du seuil de danger ? Quel niveau reste-t-il ?</li>
+  </ol>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>Émetteur : machine bruyante de l'atelier / Milieu : air / Récepteur : microphone piézoélectrique.</li>
+      <li>88 dB > 85 dB → au-dessus du seuil de dangerosité. Port de protections auditives obligatoire.</li>
+      <li>88 − 20 = 68 dB < 85 dB → oui, en dessous. Niveau résiduel : 68 dB.</li>
+    </ol>
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+<script src="../../../diff.js"></script>
+</body>
+</html>

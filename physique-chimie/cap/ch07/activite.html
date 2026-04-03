@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch07 – Optique – Activité – CAP PC</title>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch07 : Optique</h1>
+  <p class="sous-titre">CAP | Physique-Chimie | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Mise en lumière d'un atelier de signalétique</h3>
+  <p>Un atelier de signalétique doit être réaménagé. Le responsable doit choisir les luminaires adaptés au travail de précision sur les couleurs (impression, découpe, pose de vinyle) et installer un laser de niveau pour l'alignement des panneaux. Il doit aussi former l'équipe aux risques optiques liés aux outils utilisés.</p>
+</div>
+
+<div style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment les lois de l'optique (réflexion, réfraction, spectre de la lumière) s'appliquent-elles dans les outils et la sécurité d'un atelier de signalétique ?
+</div>
+
+<h2>Document 1 — Catalogue luminaires</h2>
+<div class="ex">
+  <table>
+    <thead><tr><th>Luminaire</th><th>Type</th><th>Température de couleur</th><th>Spectre</th></tr></thead>
+    <tbody>
+      <tr><td>Tube fluorescent standard</td><td>Continu</td><td>3000 K (blanc chaud)</td><td>Manque de bleu et vert</td></tr>
+      <tr><td>LED blanc froid</td><td>Continu</td><td>5000 K (blanc froid)</td><td>Proche lumière du jour</td></tr>
+      <tr><td>LED RGB variable</td><td>Continu</td><td>Variable (1800–6500 K)</td><td>Synthèse additive RVB</td></tr>
+      <tr><td>Lampe UV 365 nm</td><td>Quasi-monochromatique</td><td>Invisible</td><td>Ultraviolets</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Document 2 — Données techniques laser de niveau</h2>
+<div class="ex">
+  <p>Laser de niveau rotatif, classe 2, longueur d'onde 650 nm (rouge visible).<br>
+  Fonctionnement : un miroir tournant à 45° réfléchit le faisceau horizontal pour créer un plan à 360°.<br>
+  Précision angulaire : ±0,3 mm sur 10 m.</p>
+</div>
+
+<h2>Document 3 — Indice de réfraction du plexiglas</h2>
+<div class="ex">
+  <p>Le plexiglas (PMMA) a un indice de réfraction n = 1,49. Un panneau de signalétique en plexiglas est éclairé avec un angle d'incidence de 50° par rapport à la normale.</p>
+</div>
+
+<h2>Questions</h2>
+<div class="exo">
+  <h3>Partie A — Choix de l'éclairage</h3>
+  <ol>
+    <li>D'après le document 1, quel luminaire est le plus adapté pour travailler les couleurs en signalétique ? Justifiez en lien avec le spectre de la lumière blanche.</li>
+    <li>Pourquoi un éclairage à 3000 K (blanc chaud) est-il déconseillé pour choisir les teintes d'une encre d'impression ?</li>
+    <li>L'éclairage LED RGB est réglé sur 100 % Rouge, 100 % Vert, 0 % Bleu. Quelle couleur perçoit-on ? D'où vient ce résultat (loi de synthèse additive) ?</li>
+  </ol>
+
+  <h3>Partie B — Laser de niveau</h3>
+  <ol start="4">
+    <li>D'après le document 2, le faisceau laser horizontal frappe un miroir à 45°. Quel est l'angle de réflexion ? Dans quelle direction repart le faisceau ?</li>
+    <li>Le faisceau laser de 650 nm est-il dans le spectre visible ? De quelle couleur est-il ?</li>
+    <li>Citez deux règles de sécurité spécifiques au laser de niveau sur chantier.</li>
+  </ol>
+
+  <h3>Partie C — Réfraction dans le plexiglas</h3>
+  <ol start="7">
+    <li>Le rayon lumineux passe de l'air (n = 1,00) dans le plexiglas (n = 1,49). Le rayon se rapproche-t-il ou s'éloigne-t-il de la normale ? Justifiez.</li>
+    <li>Un peintre en lettres travaille au dos d'un panneau en plexiglas : le rayon lumineux issu de la peinture sort du plexiglas vers l'air. Que se passe-t-il à l'angle par rapport à la normale (plus grand ou plus petit qu'à l'intérieur) ?</li>
+    <li>La signalétique lumineuse utilise des fibres optiques. Le principe repose sur la réflexion totale interne (le rayon ne sort pas du matériau). Ce phénomène se produit-il quand la lumière passe d'un milieu très réfringent vers un milieu moins réfringent ? Oui/Non, et pourquoi ?</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    <strong>A1.</strong> LED blanc froid (5000 K, proche lumière du jour) : spectre complet qui restitue fidèlement toutes les couleurs des encres.<br>
+    <strong>A2.</strong> Un éclairage à 3000 K est trop jaune (pauvre en bleu et vert) : il fausse la perception des teintes, notamment les bleus et verts des encres d'impression.<br>
+    <strong>A3.</strong> Rouge + Vert = Jaune (synthèse additive). Sans bleu, on obtient la couleur jaune.<br>
+    <strong>B4.</strong> Angle de réflexion = angle d'incidence = 45°. Le faisceau repart perpendiculairement à sa direction initiale (90° de déviation au total) → plan vertical.<br>
+    <strong>B5.</strong> 650 nm est entre 620 et 780 nm → rouge visible.<br>
+    <strong>B6.</strong> Ne jamais regarder dans le faisceau / ne jamais pointer vers des personnes (même classe 2).<br>
+    <strong>C7.</strong> Air → plexiglas (n plus élevé) : le rayon se rapproche de la normale. L'angle de réfraction est plus petit que 50°.<br>
+    <strong>C8.</strong> Plexiglas → air (n plus faible) : le rayon s'éloigne de la normale. L'angle de réfraction est plus grand que dans le plexiglas.<br>
+    <strong>C9.</strong> Oui : quand la lumière va d'un milieu très réfringent vers un milieu moins réfringent (ex. verre → air), l'angle de réfraction augmente. Au-delà d'un angle critique, il n'y a plus de réfraction → réflexion totale interne. C'est le principe des fibres optiques.
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>

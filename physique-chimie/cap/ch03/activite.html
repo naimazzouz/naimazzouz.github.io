@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch03 – Mécanique – Activité – CAP PC</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../print.css" media="print">
+<style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}</style>
+</head>
+<body>
+<div class="c">
+<a href="../../../pc-cap.html" class="nb">← Retour au sommaire</a>
+<header>
+  <h1>Activité — Ch03 : Mécanique</h1>
+  <p class="sous-titre">CAP | Physique-Chimie | Activité de découverte</p>
+</header>
+
+<div class="situation">
+  <h3>Situation professionnelle — Transport de matériaux sur chantier</h3>
+  <p>Un artisan menuisier agenceur doit transporter des panneaux de bois de son camion à l'intérieur du chantier à l'aide d'un chariot élévateur. Il doit organiser les déplacements en tenant compte des distances, des charges et des contraintes de sécurité (levage, équilibre).</p>
+</div>
+
+<div style="border-left:4px solid var(--p);background:var(--p-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0">
+  <strong>Problématique :</strong> Comment décrire et analyser le mouvement d'un objet, et comment représenter les forces qui agissent sur lui ?
+</div>
+
+<h2>Document 1 — Plan du chantier</h2>
+<div class="ex">
+  <p>Distance camion → entrée bâtiment : 24 m<br>
+  Distance entrée → zone de stockage A : 15 m (couloir droit)<br>
+  Distance entrée → zone B : 30 m (couloir avec virage)<br>
+  Le chariot se déplace à 0,8 m/s en ligne droite et ralentit dans les virages.</p>
+</div>
+
+<h2>Document 2 — Chronophotographie du chariot</h2>
+<div class="ex">
+  <p>Une caméra prend une photo toutes les 2 s. Les positions successives du chariot dans le couloir droit sont :</p>
+  <table>
+    <thead><tr><th>Photo</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+    <tbody>
+      <tr><td>Position (m)</td><td>0</td><td>1,6</td><td>3,2</td><td>4,8</td><td>6,4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Document 3 — Données des matériaux</h2>
+<div class="ex">
+  <table>
+    <thead><tr><th>Panneau</th><th>Masse (kg)</th><th>Poids (N)</th></tr></thead>
+    <tbody>
+      <tr><td>Contreplaqué 18 mm (2,5 × 1,2 m)</td><td>22</td><td>à calculer</td></tr>
+      <tr><td>MDF 25 mm (2,5 × 1,2 m)</td><td>35</td><td>à calculer</td></tr>
+      <tr><td>Panneau massif chêne</td><td>48</td><td>à calculer</td></tr>
+    </tbody>
+  </table>
+  <p>On prend \(g = 9{,}8\) N/kg.</p>
+</div>
+
+<h2>Questions</h2>
+<div class="exo">
+  <h3>Partie A — Analyse du mouvement</h3>
+  <ol>
+    <li>D'après le document 2, calculez les distances parcourues entre chaque photo consécutive. Que constatez-vous ?</li>
+    <li>Calculez la vitesse du chariot à partir des données de la chronophotographie.</li>
+    <li>Quelle est la nature du mouvement du chariot dans le couloir droit ? Justifiez.</li>
+    <li>Dans un virage, la vitesse diminue régulièrement. Quel type de mouvement est-ce ? Que verrait-on sur une chronophotographie ?</li>
+  </ol>
+
+  <h3>Partie B — Forces et poids</h3>
+  <ol start="5">
+    <li>Calculez le poids de chacun des trois panneaux.</li>
+    <li>Tous les panneaux sont empilés sur le chariot, qui ne bouge pas. Quelle est la charge totale en newtons ?</li>
+    <li>Le chariot soulève les panneaux verticalement à vitesse constante. Représentez schématiquement les forces exercées sur l'ensemble des panneaux (poids et force de levage). Ces deux forces sont-elles en équilibre ? Justifiez.</li>
+  </ol>
+
+  <h3>Partie C — Référentiel</h3>
+  <ol start="8">
+    <li>Pendant le transport, par rapport au sol de l'atelier : le panneau est-il en mouvement ? Et par rapport au chariot ?</li>
+    <li>Choisir un référentiel adapté est essentiel. Proposez un référentiel pour étudier le mouvement du chariot dans l'atelier.</li>
+  </ol>
+
+  <div class="corr">
+    <strong>Correction :</strong><br>
+    <strong>A1.</strong> Distances : 1,6 − 0 = 1,6 m ; 3,2 − 1,6 = 1,6 m ; etc. Les distances sont constantes (1,6 m à chaque intervalle).<br>
+    <strong>A2.</strong> \(v = 1{,}6/2 = 0{,}8\) m/s. Cohérent avec le document 1.<br>
+    <strong>A3.</strong> Mouvement rectiligne uniforme : trajectoire droite et vitesse constante.<br>
+    <strong>A4.</strong> Mouvement uniformément ralenti. Chronophotographie : points de plus en plus rapprochés.<br>
+    <strong>B5.</strong> Contreplaqué : \(22 × 9{,}8 = 215{,}6\) N / MDF : \(35 × 9{,}8 = 343\) N / Chêne : \(48 × 9{,}8 = 470{,}4\) N.<br>
+    <strong>B6.</strong> Total : \(215{,}6 + 343 + 470{,}4 = 1029\) N.<br>
+    <strong>B7.</strong> Poids : 1029 N vertical vers le bas. Force de levage : 1029 N vertical vers le haut. Même droite d'action, sens opposés, même valeur → équilibre.<br>
+    <strong>C8.</strong> Par rapport au sol : en mouvement. Par rapport au chariot : immobile.<br>
+    <strong>C9.</strong> Référentiel terrestre (le sol de l'atelier).
+  </div>
+  <button class="bc">Voir la correction</button>
+</div>
+
+</div>
+<script src="../../../nav.js"></script>
+</body>
+</html>
