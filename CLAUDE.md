@@ -24,15 +24,25 @@ Ce fichier est lu automatiquement par Claude Code à chaque session.
 │   ├── seconde/ch01..ch14/
 │   ├── premiere/ch01..ch09/
 │   ├── terminale/ch01..ch11/
-│   └── bts/ch01..ch25/         ← Cours BTS (maths uniquement)
+│   ├── lgt-terminale/ch01..ch15/   ← Terminale LGT (voie générale/technologique)
+│   ├── cap/ch01..ch07/             ← CAP (groupement 1 : MIT, Ébéniste, SDG)
+│   └── bts/ch01..ch25/             ← Cours BTS (maths uniquement)
 ├── physique-chimie/
 │   ├── seconde/ch01..ch14/
 │   ├── premiere-iccer/ch01..ch10/  ← groupement 1 (ICCER)
 │   ├── premiere-era/ch01..ch10/    ← groupement 3 (ERA-MA)
+│   ├── premiere-gpt2/ch01../       ← groupement 2 (en construction)
+│   ├── premiere-gpt4/ch01../       ← groupement 4 (en construction)
+│   ├── premiere-gpt6/ch01../       ← groupement 6 (en construction)
 │   ├── terminale-iccer/ch01..ch08/
-│   └── terminale-era/ch01..ch08/
-├── simulations/                ← Pages interactives (Canvas/SVG/JS) — 64 simulations
+│   ├── terminale-era/ch01..ch08/
+│   ├── terminale-gpt2/ch01../      ← groupement 2 (en construction)
+│   ├── terminale-gpt4/ch01../      ← groupement 4 (en construction)
+│   ├── terminale-gpt5/ch01../      ← groupement 5 (en construction)
+│   └── cap/ch01..ch07/             ← CAP physique-chimie (programme commun)
+├── simulations/                ← Pages interactives (Canvas/SVG/JS) — 70 simulations
 ├── automatismes/               ← Exercices d'entraînement rapide par thème — 22 pages
+├── co-intervention/            ← Séances de co-intervention maths/sciences (38 pages, ICCER/ERA-MA)
 ├── prompts/                    ← Prompts pédagogiques de référence
 ├── pdf/                        ← Programmes officiels Bac Pro & BTS
 ├── audits/                     ← Audits qualité (documents vivants)
@@ -66,6 +76,23 @@ Chaque dossier de chapitre peut contenir les fichiers suivants :
 ### Pages sommaire (racine)
 
 Les pages de type `maths-2nde-mama.html`, `pc-1ere-iccer.html`, etc. servent de sommaire par matière/niveau. Elles listent les chapitres avec liens vers leçons, exercices, DS, etc.
+
+Les pages sommaire existantes :
+- `maths-2nde-mama.html` — Maths Seconde Pro (MAMA)
+- `maths-1ere-pro.html` — Maths Première Pro
+- `maths-term-iccer.html` — Maths Terminale ICCER
+- `maths-term-erama.html` — Maths Terminale ERA-MA
+- `maths-lgt-terminale.html` — Maths Terminale LGT
+- `maths-cap.html` — Maths CAP
+- `maths-bts.html` — Maths BTS
+- `pc-2nde-pro.html` — PC Seconde Pro
+- `pc-1ere-iccer.html` — PC Première ICCER
+- `pc-1ere-erama.html` — PC Première ERA-MA
+- `pc-1ere-gpt2.html` / `pc-1ere-gpt4.html` / `pc-1ere-gpt6.html` — PC Première Gpts 2/4/6
+- `pc-term-iccer.html` — PC Terminale ICCER
+- `pc-term-erama.html` — PC Terminale ERA-MA
+- `pc-term-gpt2.html` / `pc-term-gpt4.html` / `pc-term-gpt5.html` — PC Terminale Gpts 2/4/5
+- `pc-cap.html` — PC CAP
 
 Autres pages utilitaires à la racine :
 - `simulations.html` — Index des simulations interactives
@@ -103,11 +130,17 @@ Chaque page de cours utilise :
 | `maths/seconde` | `#0056b3` | `#ebf5ff` | `#bee3f8` |
 | `maths/premiere` | `#0969da` | `#dbeafe` | `#93c5fd` |
 | `maths/terminale` | `#0969da` | `#dbeafe` | `#93c5fd` |
+| `maths/lgt-terminale` | `#4f46e5` | `#eef2ff` | `#a5b4fc` |
+| `maths/cap` | `#b45309` | `#fffbeb` | `#fde68a` |
 | `physique-chimie/seconde` | `#6f42c1` | `#f5f0ff` | `#c4b5fd` |
 | `physique-chimie/premiere-iccer` | `#0969da` | `#dbeafe` | `#93c5fd` |
 | `physique-chimie/premiere-era` | `#2da44e` | `#f0fff4` | `#86efac` + `--s:#0ea5e9` |
+| `physique-chimie/premiere-gpt2/4/6` | `#0969da` | `#dbeafe` | `#93c5fd` |
 | `physique-chimie/terminale-iccer` | `#0969da` | `#dbeafe` | `#93c5fd` |
 | `physique-chimie/terminale-era` | `#2da44e` | `#f0fff4` | `#86efac` + `--s:#0ea5e9` |
+| `physique-chimie/terminale-gpt2/4` | `#0969da` | `#dbeafe` | `#93c5fd` |
+| `physique-chimie/terminale-gpt5` | `#059669` | `#ecfdf5` | `#86efac` |
+| `physique-chimie/cap` | `#6f42c1` | `#f5f0ff` | `#c4b5fd` |
 
 ### Classes pédagogiques disponibles dans styles.css
 
@@ -133,6 +166,7 @@ Chaque page de cours utilise :
 | `.anim-wrap` | Conteneur animation/Canvas |
 | `.grid2` / `.deux-col` | Grille 2 colonnes |
 | `.badge-green/blue/yellow/red` | Badges colorés |
+| `.erreur-item` | Bloc "Erreur fréquente" (icône ❌ + texte + conseil) dans les sections `.att` |
 
 **Ne jamais redéfinir ces classes dans un `<style>` inline** — elles sont déjà dans styles.css.
 Seules les classes vraiment spécifiques à une page peuvent rester inline.
