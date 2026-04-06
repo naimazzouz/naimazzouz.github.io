@@ -56,8 +56,9 @@ NEW_TOGGLE = (
     '}'
 )
 
+# Matche le bloc <script> contenant toggle() pour le remplacer entièrement
 OLD_TOGGLE = re.compile(
-    r'function toggle\(btn\)\{[^}]*\}',
+    r'<script>\s*function toggle\(btn\)\{.*?\}\s*</script>',
     re.DOTALL
 )
 
@@ -186,8 +187,11 @@ def process_file(path):
     result.append(content[pos:])
     new_content = ''.join(result)
 
-    # Mettre à jour toggle()
-    new_content = OLD_TOGGLE.sub(NEW_TOGGLE, new_content)
+    # Mettre à jour le bloc <script> contenant toggle()
+    new_content = OLD_TOGGLE.sub(
+        f'<script>\n{NEW_TOGGLE}\n</script>',
+        new_content
+    )
 
     if new_content == content:
         print(f'[WARN] aucun changement dans {path}')
