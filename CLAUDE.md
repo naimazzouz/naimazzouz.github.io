@@ -417,19 +417,49 @@ Une simulation doit toujours servir à :
 
 Les fichiers dans `.claude/commands/` définissent des skills invocables via `/nom-commande` :
 
+#### Génération de contenu
+
 | Commande | Usage |
 |---|---|
 | `/new-chapter` | Créer la structure d'un nouveau chapitre |
+| `/generate-lecon` | Générer un cours (`lecon.html`) |
+| `/generate-exercices` | Générer des exercices (`exercices.html`) |
+| `/generate-exercices-capacites` | Générer des exercices par capacités (`exercices-capacites.html`) |
+| `/generate-ds` | Générer un devoir surveillé (`ds.html`) |
 | `/generate-qcm` | Générer un QCM (`qcm.html`) |
 | `/generate-interro` | Générer une interrogation (`interro.html`) |
 | `/generate-fiche` | Générer une fiche résumé (`fiche.html`) |
-| `/audit-chapter` | Auditer un chapitre (complétude, technique, pédagogie) |
-| `/check-quality` | Vérification qualité complète selon les règles des prompts (visuels, données, différenciation) |
+| `/generate-activite` | Générer une activité de découverte (`activite.html`) |
+| `/generate-simulation` | Générer une simulation interactive (`simulation.html`) |
+
+#### Audit et qualité
+
+Les skills d'audit s'utilisent en chaîne, du plus large au plus précis :
+
+```
+/section-audit <section>          →  tableau de bord macro (tous les chapitres)
+      ↓ identifie les chapitres prioritaires
+/audit-chapter <chapitre>         →  complétude + sigles (1 chapitre)
+      ↓ fichiers OK → on entre dans le détail
+/check-quality <chapitre>         →  qualité technique et contenu (1 chapitre)
+      ↓ lecon.html signalée
+/scientific-audit <lecon.html>    →  rigueur scientifique (1 page)
+```
+
+| Commande | Portée | Ce qu'il vérifie | Modèle conseillé |
+|---|---|---|---|
+| `/section-audit` | Section entière | Complétude, visuels, différenciation, sigles — vue macro | Opus |
+| `/audit-chapter` | 1 chapitre | Fichiers manquants, contenu vide, sigles interdits | Sonnet |
+| `/check-quality` | 1 chapitre | Technique (nav.js, CSS…), données, refs orphelines, mini-exo, visuels, QCM | Sonnet |
+| `/scientific-audit` | 1 page | Valeurs numériques, calculs, formules, modèles, réglementation | Sonnet |
+| `/check-sigles` | 1 chapitre | Sigles de filière utilisés comme noms de métiers | Sonnet |
+
+#### Maintenance
+
+| Commande | Usage |
+|---|---|
 | `/update-audit` | Mettre à jour un fichier d'audit |
 | `/css-cleanup` | Nettoyer les styles CSS inline |
-| `/check-sigles` | Vérifier les sigles de filière interdits |
-| `/scientific-audit` | Audit scientifique d'une page : valeurs numériques, formules, ordres de grandeur, modèles, réglementation |
-| `/section-audit` | Tableau de bord rapide de tous les chapitres d'une section (complétude, visuels, différenciation, sigles) |
 
 ---
 
