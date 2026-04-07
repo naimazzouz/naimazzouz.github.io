@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ch10 – Température et capteurs thermiques – 2nde Bac Pro</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
 <link rel="stylesheet" href="../../../print.css" media="print">
 <style>:root{--p:#6f42c1;--p-bg:#f5f0ff;--p-border:#c4b5fd}
@@ -133,16 +133,16 @@
       <td>Référence</td>
     </tr>
     <tr>
-      <td>Température du corps humain</td>
-      <td>37</td>
-      <td>310</td>
-      <td>Biologie</td>
-    </tr>
-    <tr>
       <td>Atelier confortable</td>
       <td>20</td>
       <td>293</td>
       <td>Quotidien</td>
+    </tr>
+    <tr>
+      <td>Température du corps humain</td>
+      <td>37</td>
+      <td>310</td>
+      <td>Biologie</td>
     </tr>
     <tr>
       <td>Eau bouillante (P = 1 atm)</td>
@@ -177,7 +177,7 @@
     <tr>
       <td>Surface du Soleil</td>
       <td>5&nbsp;500</td>
-      <td>5&nbsp;778</td>
+      <td>5&nbsp;773</td>
       <td>Astrophysique</td>
     </tr>
     <tr>
@@ -196,7 +196,7 @@
       <li>La température de sublimation de la glace carbonique est 194&nbsp;K — combien est-ce en °C&nbsp;?</li>
       <li>Combien vaut une différence de 40&nbsp;°C exprimée en Kelvin&nbsp;?</li>
     </ol>
-    <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
       <ol type="a">
         <li>\(T = 85 + 273 = \mathbf{358\,\text{K}}\)</li>
@@ -534,7 +534,7 @@
           y: {
             title: { display: true, text: 'Résistance (kΩ)', color: '#888', font: { size: 12 } },
             ticks: { color: '#888', font: { size: 11 },
-              callback: function(v){ return v >= 1000 ? (v/1000).toFixed(0)+'M' : v >= 1 ? v.toFixed(0)+'k' : v+'k'; }
+              callback: function(v){ return v >= 1000 ? (v/1000).toFixed(0)+' MΩ' : v.toFixed(0); }
             },
             grid: { color: 'rgba(128,128,128,0.15)' }
           }
@@ -566,7 +566,7 @@
       <li>Mesurer la température d’une lame de scie à ruban en rotation, sans la toucher.</li>
     </ol>
     <button class="bc" onclick="toggle(this)">Voir la correction</button>
-    <div class="corr" style="display:none">
+    <div class="corr">
       <ol type="a">
         <li><strong>Thermocouple</strong> : seul capteur couvrant une plage jusqu’à 900&nbsp;°C.</li>
         <li><strong>CTP</strong> : dès que la température dépasse un seuil, la résistance monte en flèche et coupe le circuit → protection automatique du moteur.</li>
@@ -581,7 +581,7 @@
 
   <p>
     La courbe ci-dessous représente l’évolution de la résistance d’une CTN typique en fonction de la température.
-    La résistance décroît fortement et de manière non linéaire : de près de <strong>100&nbsp;kΩ</strong> à 0&nbsp;°C à moins de <strong>1&nbsp;kΩ</strong> à 80&nbsp;°C.
+    La résistance décroît fortement et de manière non linéaire : de près de <strong>33&nbsp;kΩ</strong> à 0&nbsp;°C à moins de <strong>1&nbsp;kΩ</strong> à 80&nbsp;°C.
   </p>
 
   <div class="chart-container">
@@ -616,7 +616,7 @@
       <li>La résistance augmente ou diminue quand la température monte&nbsp;? Quel type de thermistance est-ce&nbsp;?</li>
       <li>On mesure 2,2&nbsp;kΩ dans l'étuve. Faut-il augmenter ou réduire la température pour atteindre la consigne de 40&nbsp;°C&nbsp;?</li>
     </ol>
-    <button class="bc" onclick="this.nextElementSibling.style.display='block'">Voir la correction</button>
+    <button class="bc" onclick="toggle(this)">Voir la correction</button>
     <div class="corr">
       <ol type="a">
         <li>R = 4,9&nbsp;kΩ correspond à <strong>T = 40&nbsp;°C</strong> d'après le tableau.</li>
@@ -777,8 +777,8 @@
 (function(){
   var labels = [];
   var data   = [];
-  var R0 = 10000; // 10 kOhm a T0 = 25 degC
-  var T0 = 298;   // en K
+  var R0 = 32700; // 32,7 kOhm a T0 = 0 degC
+  var T0 = 273;   // en K
   var B  = 3950;  // constante en K
   for(var t = 0; t <= 80; t += 5){
     var T = t + 273;
