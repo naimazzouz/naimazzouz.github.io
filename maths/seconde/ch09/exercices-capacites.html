@@ -579,9 +579,7 @@
       <!-- Clip pour garder dans zone -->
       <defs><clipPath id="clip1"><rect x="20" y="0" width="250" height="200"/></clipPath></defs>
       <line x1="30" y1="150" x2="170" y2="10" stroke="#0056b3" stroke-width="2.5"/>
-      <!-- Point d'intersection (2,3) → (110, 70) -->
-      <circle cx="110" cy="70" r="5" fill="#2f855a" stroke="#fff" stroke-width="1.5"/>
-      <text x="118" y="65" font-size="12" fill="#2f855a" font-weight="bold">(2 ; 3)</text>
+      <!-- Point d'intersection masqué — l'élève doit le trouver -->
       <!-- Labels droites -->
       <text x="148" y="22" font-size="11" fill="#0056b3" font-style="italic">y = x + 1</text>
       <text x="180" y="170" font-size="11" fill="#c53030" font-style="italic">y = −x + 5</text>
@@ -655,23 +653,15 @@
       <line x1="30" y1="162" x2="300" y2="27" stroke="#0056b3" stroke-width="2.5"/>
       <!-- C_B(x) = 20x + 30 : x=0→30→px 192, x=5→130→px 132, x=10→230→px 72, x=15→330→px 12 -->
       <line x1="30" y1="192" x2="300" y2="12" stroke="#c53030" stroke-width="2.5"/>
-      <!-- Point d'intersection x=10 : C_A=C_B=230 → px (210, 72) -->
-      <circle cx="210" cy="72" r="5" fill="#2f855a" stroke="#fff" stroke-width="1.5"/>
-      <text x="218" y="68" font-size="10" fill="#2f855a" font-weight="bold">(10 ; 230)</text>
-      <!-- Pointillés d'intersection -->
-      <line x1="210" y1="210" x2="210" y2="72" stroke="#2f855a" stroke-width="1" stroke-dasharray="4,3"/>
-      <line x1="30" y1="72" x2="210" y2="72" stroke="#2f855a" stroke-width="1" stroke-dasharray="4,3"/>
-      <!-- Zone B moins cher (x<10) -->
-      <text x="90" y="175" font-size="9" fill="#c53030">B moins cher</text>
-      <!-- Zone A moins cher (x>10) -->
-      <text x="240" y="55" font-size="9" fill="#0056b3">A moins cher</text>
+      <!-- Point d'intersection et zones masqués — l'élève doit les trouver -->
+      <!-- Zones masquées — l'élève doit déterminer -->
       <!-- Légende -->
       <line x1="50" y1="238" x2="75" y2="238" stroke="#0056b3" stroke-width="2"/>
       <text x="78" y="242" font-size="9" fill="#333">Artisan A : 15x + 80</text>
       <line x1="190" y1="238" x2="215" y2="238" stroke="#c53030" stroke-width="2"/>
       <text x="218" y="242" font-size="9" fill="#333">Artisan B : 20x + 30</text>
     </svg>
-    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Les deux tarifs se croisent en \(x = 10\) m² : en dessous, B est moins cher ; au-dessus, A est moins cher.</figcaption>
+    <figcaption style="font-size:0.88em;color:#555;margin-top:4px">Tarifs des artisans A et B en fonction de la surface</figcaption>
   </figure>
   <ol type="a">
     <li>Pour quelle surface les deux artisans pratiquent-ils le même tarif ?</li>
