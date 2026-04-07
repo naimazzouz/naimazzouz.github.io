@@ -562,7 +562,7 @@ ol.steps{list-style:none;counter-reset:step;padding:0;margin:10px 0}
       {txt:`Équation : ${a}x ${fmtN(b)} = ${c}`, bg:'#ebf5ff',bd:'#0056b3'},
       {txt:`On isole les x : ${a}x = ${c} − (${b}) = ${c-b}`, bg:'#fffbeb',bd:'#d97706'},
       {txt:`On divise par ${a} : x = ${c-b} ÷ ${a} = ${solStr}`, bg:'#f0fff4',bd:'#2f855a'},
-      {txt:`✔ Vérification : ${a}×(${solStr}) ${fmtN(b)} = ${Math.round(a*sol+b*10)/10}`, bg:'#dbeafe',bd:'#1e40af'}
+      {txt:`✔ Vérification : ${a}×(${solStr}) ${fmtN(b)} = ${Math.round((a*sol+b)*10)/10}`, bg:'#dbeafe',bd:'#1e40af'}
     ];
     const boxH=38,pad=8,startY=12;
     steps.forEach((s,i)=>{
