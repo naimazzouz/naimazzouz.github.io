@@ -11,7 +11,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{geometry}
-\geometry{left=2cm,right=2cm,top=1.8cm,bottom=2cm}
+\geometry{left=1.8cm,right=1.8cm,top=1.6cm,bottom=1.8cm}
 \usepackage{amsmath,amssymb}
 \usepackage{enumitem}
 \usepackage{array}
@@ -185,26 +185,41 @@ $R\ (\Omega)$ & $10\,000$ & $5\,000$ & $2\,000$ & $1\,000$ & $500$ \\
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
-  width=13.5cm, height=7.5cm,
-  xlabel={Température $\theta$ (en $^\circ$C)},
-  ylabel={Résistance $R$ (en $\Omega$)},
+  width=17cm, height=12cm,
+  xlabel={\textbf{Température $\theta$ (en $^\circ$C)}},
+  ylabel={\textbf{Résistance $R$ (en $\Omega$)}},
+  xlabel style={font=\small},
+  ylabel style={font=\small},
   xmin=10, xmax=110,
   ymin=0, ymax=11000,
-  xtick={20,30,40,50,60,70,80,90,100},
-  ytick={0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000},
+  xtick={10,20,30,40,50,60,70,80,90,100,110},
+  minor x tick num=4,
+  ytick={0,500,1000,1500,2000,2500,3000,3500,4000,4500,5000,5500,6000,6500,7000,7500,8000,8500,9000,9500,10000,10500,11000},
+  yticklabel style={font=\footnotesize},
+  xticklabel style={font=\footnotesize},
+  scaled y ticks=false,
+  y tick label style={/pgf/number format/fixed,/pgf/number format/use comma},
+  minor y tick num=4,
   grid=both,
-  major grid style={line width=.4pt,draw=gray!40},
-  minor grid style={line width=.2pt,draw=gray!20},
-  title={\textbf{Courbe d'étalonnage de la CTN}},
-  every axis plot/.append style={thick},
+  major grid style={line width=.5pt,draw=gray!55},
+  minor grid style={line width=.25pt,draw=gray!25},
+  title={\textbf{Courbe d'étalonnage de la CTN du séchoir à bois}},
+  title style={font=\small},
+  every axis plot/.append style={very thick},
 ]
-\addplot[violet,mark=*,mark size=2.2pt,mark options={fill=violet}]
+\addplot[violet,smooth,mark=*,mark size=2.6pt,mark options={fill=violet}]
   coordinates {(20,10000) (40,5000) (60,2000) (80,1000) (100,500)};
 \end{axis}
 \end{tikzpicture}
 \end{center}
 
 \vspace{2pt}
+\begin{center}\small\itshape Utiliser la courbe ci-dessus pour répondre aux questions suivantes (lecture graphique).\end{center}
+
+\newpage
+\noindent{\bfseries\color{violet}Exercice 2 (suite) — Questions}
+
+\vspace{4pt}
 \begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*,itemsep=4pt]
 
 \item Comment évolue la résistance $R$ de la CTN lorsque la température $\theta$ augmente ? En déduire la signification du sigle \textbf{CTN}. \pt{1,5}
@@ -266,59 +281,5 @@ L'atelier de menuiserie est chauffé par une \textbf{chaudière à copeaux de bo
 \vspace{4pt}
 \hrulefill\\[2pt]
 \hfill\textit{\small Fin du sujet — Vérifier ses réponses avant de rendre la copie.}
-
-%===============================================================
-% CORRECTION (page séparée)
-%===============================================================
-\newpage
-\begin{center}
-{\Large\bfseries\color{violet} Correction — DS Chapitre 10}\\[2pt]
-{\small Température et capteurs thermiques}
-\end{center}
-
-\vspace{4pt}
-\noindent{\bfseries\color{violet}Exercice 1 — Conversions} \hfill\textit{\small(/6 pt)}
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*,itemsep=2pt]
-\item $T = 65 + 273 = \mathbf{338\ \text{K}}$
-\item $T = 18 + 273 = \mathbf{291\ \text{K}}$
-\item $\theta = 313 - 273 = \mathbf{40\ ^\circ\text{C}}$
-\item $\theta = 268 - 273 = \mathbf{-5\ ^\circ\text{C}}$ (stockage au froid des colles vinyliques).
-\item Tableau complété :
-\begin{center}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{|>{\columncolor{violetclair}}c|c|c|c|c|c|}
-\hline
-\rowcolor{violetclair}
-$\theta\ (^\circ$C) & $-273$ & $0$ & $\mathbf{20}$ & $100$ & $\mathbf{300}$ \\
-\hline
-$T\ $(K) & $\mathbf{0}$ & $\mathbf{273}$ & $293$ & $\mathbf{373}$ & $573$ \\
-\hline
-\end{tabular}
-\end{center}
-\item Le zéro absolu vaut $0$\,K : il est impossible d'atteindre une température négative en Kelvin. $-10$\,K n'a donc pas de sens physique.
-\end{enumerate}
-
-\vspace{6pt}
-\noindent{\bfseries\color{violet}Exercice 2 — Courbe d'étalonnage de la CTN} \hfill\textit{\small(/9 pt)}
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*,itemsep=2pt]
-\item Lorsque $\theta$ augmente, $R$ \textbf{diminue} (de $10\,000\ \Omega$ à $500\ \Omega$). D'où le nom \textbf{CTN} : Coefficient de Température \textbf{Négatif}.
-\item Lecture graphique ou dans le tableau : $R = 5\,000\ \Omega \Rightarrow \mathbf{\theta = 40\ ^\circ\text{C}}$.
-\item Pour $\theta = 80\ ^\circ$C : $\mathbf{R = 1\,000\ \Omega}$.
-\item $T = 80 + 273 = \mathbf{353\ \text{K}}$.
-\item \textbf{a.} $R = 3\,500\ \Omega$ est compris entre $R_1 = 5\,000\ \Omega$ ($40\ ^\circ$C) et $R_2 = 2\,000\ \Omega$ ($60\ ^\circ$C), donc $\theta$ est entre $\mathbf{40\ ^\circ\text{C}}$ et $\mathbf{60\ ^\circ\text{C}}$.\par
-\textbf{b.} Interpolation linéaire :
-\[ \theta = \theta_1 + \frac{R - R_1}{R_2 - R_1}(\theta_2 - \theta_1)
-  = 40 + \frac{3\,500 - 5\,000}{2\,000 - 5\,000}\times(60 - 40) \]
-\[ \theta = 40 + \frac{-1\,500}{-3\,000}\times 20 = 40 + 0{,}5\times 20 = \mathbf{50\ ^\circ\text{C}}. \]
-\end{enumerate}
-
-\vspace{6pt}
-\noindent{\bfseries\color{violet}Exercice 3 — Thermocouple type K} \hfill\textit{\small(/5 pt)}
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*,itemsep=2pt]
-\item $U = 0{,}04 \times 250 = \mathbf{10\ \text{mV}}$.
-\item $\theta = \dfrac{U}{0{,}04} = \dfrac{16}{0{,}04} = \mathbf{400\ ^\circ\text{C}}$.
-\item $T = 400 + 273 = \mathbf{673\ \text{K}}$.
-\item Le \textbf{thermocouple type K} : seul capteur de la liste capable de mesurer des températures aussi élevées (plage jusqu'à environ $1\,000\ ^\circ$C). La CTN ($\leq 150\ ^\circ$C) serait détruite, et la Pt100 ($\sim 850\ ^\circ$C) arriverait en limite de plage. Le thermocouple est bien adapté à la chambre de combustion d'une chaudière à copeaux.
-\end{enumerate}
 
 \end{document}
