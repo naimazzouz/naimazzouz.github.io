@@ -82,14 +82,6 @@
     <li>Un câble de grue supporte une caisse de 500 N. Représentez (schéma simple, non coté) et listez les 4 caractéristiques de la force exercée par le câble sur la caisse.</li>
     <li>Une étagère est fixée au mur et supporte 3 éléments de 12 kg, 8 kg et 5 kg. Quelle est la réaction totale des fixations ?</li>
   </ol>
-  <div class="corr">
-    <strong>Correction :</strong>
-    <ol>
-      <li>\(P_a = 245\) N / \(P_b = 176{,}4\) N / \(P_c = 607{,}6\) N.</li>
-      <li>Force de tension du câble : point d'application = point d'accrochage de la caisse, direction = verticale, sens = vers le haut, valeur = 500 N.</li>
-      <li>\(P_{total} = (12+8+5) × 9{,}8 = 25 × 9{,}8 = 245\) N. Réaction des fixations = 245 N vers le haut.</li>
-    </ol>
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -98,7 +90,15 @@
     <span class="answer-line"></span>
   </div>
 
-  <button class="bc">Voir la correction</button>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>\(P_a = 245\) N / \(P_b = 176{,}4\) N / \(P_c = 607{,}6\) N.</li>
+      <li>Force de tension du câble : point d'application = point d'accrochage de la caisse, direction = verticale, sens = vers le haut, valeur = 500 N.</li>
+      <li>\(P_{total} = (12+8+5) × 9{,}8 = 25 × 9{,}8 = 245\) N. Réaction des fixations = 245 N vers le haut.</li>
+    </ol>
+  </div>
 </div>
 
 <h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 4 — Vérifier l'équilibre sous deux forces</h2>
@@ -111,14 +111,6 @@
     <li>Un panneau de 200 N est appuyé contre un mur, maintenu par une force horizontale de 200 N. Est-il en équilibre ?</li>
     <li>Un sac de 30 kg est posé sur une balance. Calculez le poids et la réaction de la balance. Sont-ils en équilibre ?</li>
   </ol>
-  <div class="corr">
-    <strong>Correction :</strong>
-    <ol>
-      <li>Deux câbles → deux forces de 40 N chacun : la somme vaut 80 N vers le haut = poids 80 N vers le bas. Mais c'est la somme de deux forces, pas deux forces. Il faudrait un seul câble de 80 N pour un équilibre strict sous deux forces. Ici on parle d'équilibre des forces (2 tensions = 1 poids).</li>
-      <li>Non : les forces ne sont pas de même droite d'action (l'une est verticale, l'autre horizontale). Il n'est pas en équilibre sous deux forces.</li>
-      <li>\(P = 30 × 9{,}8 = 294\) N vertical vers le bas. Réaction balance = 294 N vertical vers le haut. Même droite d'action, sens opposés, même valeur → équilibre.</li>
-    </ol>
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -127,11 +119,26 @@
     <span class="answer-line"></span>
   </div>
 
-  <button class="bc">Voir la correction</button>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>Deux câbles → deux forces de 40 N chacun : la somme vaut 80 N vers le haut = poids 80 N vers le bas. Mais c'est la somme de deux forces, pas deux forces. Il faudrait un seul câble de 80 N pour un équilibre strict sous deux forces. Ici on parle d'équilibre des forces (2 tensions = 1 poids).</li>
+      <li>Non : les forces ne sont pas de même droite d'action (l'une est verticale, l'autre horizontale). Il n'est pas en équilibre sous deux forces.</li>
+      <li>\(P = 30 × 9{,}8 = 294\) N vertical vers le bas. Réaction balance = 294 N vertical vers le haut. Même droite d'action, sens opposés, même valeur → équilibre.</li>
+    </ol>
+  </div>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </body>
 </html>
