@@ -3,25 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<figure class="schema" style="text-align:center;margin:10px 0">
-      <svg width="280" height="90" viewBox="0 0 280 90">
-        <rect width="280" height="90" fill="#f8fafc" rx="6"/>
-        <!-- Zone chaude -->
-        <rect x="10" y="10" width="80" height="70" fill="#fee2e2" rx="4"/>
-        <text x="30" y="50" font-size="10" fill="#c53030" font-weight="bold">T₁ chaud</text>
-        <!-- Paroi -->
-        <rect x="100" y="10" width="30" height="70" fill="#d1d5db" stroke="#6b7280" stroke-width="1.5"/>
-        <text x="105" y="50" font-size="8" fill="#333">paroi</text>
-        <!-- Zone froide -->
-        <rect x="140" y="10" width="80" height="70" fill="#dbeafe" rx="4"/>
-        <text x="155" y="50" font-size="10" fill="#0056b3" font-weight="bold">T₂ froid</text>
-        <!-- Flèche flux -->
-        <line x1="230" y1="45" x2="260" y2="45" stroke="#d97706" stroke-width="2"/>
-        <polygon points="260,42 268,45 260,48" fill="#d97706"/>
-        <text x="232" y="38" font-size="8" fill="#d97706">flux Φ</text>
-      </svg>
-      <figcaption style="font-size:.85em;color:#555;margin-top:2px">Transfert thermique : le flux Φ va du chaud vers le froid</figcaption>
-    </figure>
 <title>Ch04 – Exercices – Transferts thermiques | Première ERA-MA (Grpt 3)</title>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../../../styles.css">
@@ -48,6 +29,26 @@
   </ul>
 </div>
 
+<figure class="schema" style="text-align:center;margin:10px 0">
+      <svg width="280" height="90" viewBox="0 0 280 90">
+        <rect width="280" height="90" fill="#f8fafc" rx="6"/>
+        <!-- Zone chaude -->
+        <rect x="10" y="10" width="80" height="70" fill="#fee2e2" rx="4"/>
+        <text x="30" y="50" font-size="10" fill="#c53030" font-weight="bold">T₁ chaud</text>
+        <!-- Paroi -->
+        <rect x="100" y="10" width="30" height="70" fill="#d1d5db" stroke="#6b7280" stroke-width="1.5"/>
+        <text x="105" y="50" font-size="8" fill="#333">paroi</text>
+        <!-- Zone froide -->
+        <rect x="140" y="10" width="80" height="70" fill="#dbeafe" rx="4"/>
+        <text x="155" y="50" font-size="10" fill="#0056b3" font-weight="bold">T₂ froid</text>
+        <!-- Flèche flux -->
+        <line x1="230" y1="45" x2="260" y2="45" stroke="#d97706" stroke-width="2"/>
+        <polygon points="260,42 268,45 260,48" fill="#d97706"/>
+        <text x="232" y="38" font-size="8" fill="#d97706">flux Φ</text>
+      </svg>
+      <figcaption style="font-size:.85em;color:#555;margin-top:2px">Transfert thermique : le flux Φ va du chaud vers le froid</figcaption>
+    </figure>
+
 <!-- ==================== SOCLE ==================== -->
 
 <h2>Exercices guidés pas à pas</h2>
@@ -69,7 +70,15 @@
     <tr><td>Un four chauffant à infrarouge</td><td>☐</td><td>☐</td><td>☐</td></tr>
   </table>
 
-  <div class="corr">
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
     <strong>Correction :</strong>
     <table>
       <tr><th>Situation</th><th>Mode</th></tr>
@@ -81,14 +90,6 @@
       <tr><td>Four infrarouge</td><td>Rayonnement</td></tr>
     </table>
   </div>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
 <div class="exo diff-socle">
@@ -108,11 +109,6 @@
   <strong>Rappel :</strong> Plus \(\lambda\) est petit, meilleur est l'isolant.<br>
   Classement : 1. …… 2. …… 3. …… 4. ……
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. Polystyrène (0,035) → 2. Bois (0,15) → 3. Béton (1,7) → 4. Aluminium (237)<br>
-    Le polystyrène est le meilleur isolant, l'aluminium le meilleur conducteur.
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -121,6 +117,11 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. Polystyrène (0,035) → 2. Bois (0,15) → 3. Béton (1,7) → 4. Aluminium (237)<br>
+    Le polystyrène est le meilleur isolant, l'aluminium le meilleur conducteur.
+  </div>
 </div>
 
 <div class="exo diff-socle">
@@ -137,12 +138,6 @@
   c) Un glaçon fond dans un verre d'eau tiède.<br>
   Sens : du …… vers le ……
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    a) Du chaud (maison 20 °C) vers le froid (extérieur 5 °C).<br>
-    b) Du chaud (extérieur 35 °C) vers le froid (maison 22 °C).<br>
-    c) Du chaud (eau tiède) vers le froid (glaçon). C'est l'eau tiède qui donne de la chaleur au glaçon, pas le glaçon qui « donne du froid ».
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -151,6 +146,12 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    a) Du chaud (maison 20 °C) vers le froid (extérieur 5 °C).<br>
+    b) Du chaud (extérieur 35 °C) vers le froid (maison 22 °C).<br>
+    c) Du chaud (eau tiède) vers le froid (glaçon). C'est l'eau tiède qui donne de la chaleur au glaçon, pas le glaçon qui « donne du froid ».
+  </div>
 </div>
 
 <div class="exo diff-socle">
@@ -168,7 +169,15 @@
     <li>La chaleur peut aller spontanément du froid vers le chaud.</li>
   </ol>
 
-  <div class="corr">
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
     <strong>Correction :</strong>
     <ol>
       <li>FAUX – La conduction se fait principalement dans les <strong>solides</strong>.</li>
@@ -178,14 +187,6 @@
       <li>FAUX – La chaleur va spontanément du chaud vers le froid uniquement.</li>
     </ol>
   </div>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
 
@@ -211,12 +212,6 @@
     <li>Quel sens prend le transfert thermique dans chaque cas ?</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. Mur froid : <strong>conduction</strong> à travers la pierre. Air chaud au plafond : <strong>convection</strong> naturelle. Rayonnement froid de la vitre : <strong>rayonnement</strong>.<br><br>
-    2. Mur : poser un isolant intérieur (laine de verre + placo). Air : installer un destratificateur ou un ventilateur de plafond. Vitre : passer au double vitrage Low-E.<br><br>
-    3. Dans les trois cas : du chaud (intérieur 20 °C) vers le froid (extérieur 2 °C).
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -227,6 +222,12 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. Mur froid : <strong>conduction</strong> à travers la pierre. Air chaud au plafond : <strong>convection</strong> naturelle. Rayonnement froid de la vitre : <strong>rayonnement</strong>.<br><br>
+    2. Mur : poser un isolant intérieur (laine de verre + placo). Air : installer un destratificateur ou un ventilateur de plafond. Vitre : passer au double vitrage Low-E.<br><br>
+    3. Dans les trois cas : du chaud (intérieur 20 °C) vers le froid (extérieur 2 °C).
+  </div>
 </div>
 
 <div class="exo diff-standard">
@@ -250,13 +251,6 @@
     <li>Le client souhaite un plan de travail « agréable au toucher, naturel et abordable ». Que recommander ?</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. Stratifié (0,13) → Bois (0,16) → Granit (2,8) → Inox (15)<br><br>
-    2. L'inox (\(\lambda = 15\)) : c'est le meilleur conducteur, il évacue rapidement la chaleur de la main → sensation froide.<br><br>
-    3. Le stratifié (\(\lambda = 0{,}13\)) : c'est le meilleur isolant, il évacue lentement la chaleur → sensation chaude.<br><br>
-    4. Le bois massif de hêtre : naturel, sensation chaude (\(\lambda\) faible), prix raisonnable (120 €/m²).
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -267,6 +261,13 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. Stratifié (0,13) → Bois (0,16) → Granit (2,8) → Inox (15)<br><br>
+    2. L'inox (\(\lambda = 15\)) : c'est le meilleur conducteur, il évacue rapidement la chaleur de la main → sensation froide.<br><br>
+    3. Le stratifié (\(\lambda = 0{,}13\)) : c'est le meilleur isolant, il évacue lentement la chaleur → sensation chaude.<br><br>
+    4. Le bois massif de hêtre : naturel, sensation chaude (\(\lambda\) faible), prix raisonnable (120 €/m²).
+  </div>
 </div>
 
 <div class="exo diff-standard">
@@ -288,12 +289,6 @@
     <li>Le triple vitrage est-il toujours justifié ? Citer un avantage et un inconvénient.</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. <strong>Conduction :</strong> L'air (\(\lambda = 0{,}025\)) est 40 fois plus isolant que le verre (\(\lambda = 1{,}0\)), il freine le transfert. <strong>Convection :</strong> L'épaisseur de 16 mm est suffisamment fine pour limiter la circulation de l'air (pas de courant de convection significatif). <strong>Rayonnement :</strong> Un traitement Low-E sur l'une des vitres internes renvoie le rayonnement infrarouge.<br><br>
-    2. L'argon (\(\lambda = 0{,}018\)) est encore meilleur isolant que l'air (\(\lambda = 0{,}025\)), car c'est un gaz plus lourd et plus inerte, qui conduit et convecte encore moins.<br><br>
-    3. Avantage : isolation renforcée (idéal pour les régions très froides, maisons passives). Inconvénient : plus lourd (poids sur les châssis), plus cher, et réduit les apports solaires gratuits en hiver (le soleil passe moins à travers).
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -304,6 +299,12 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. <strong>Conduction :</strong> L'air (\(\lambda = 0{,}025\)) est 40 fois plus isolant que le verre (\(\lambda = 1{,}0\)), il freine le transfert. <strong>Convection :</strong> L'épaisseur de 16 mm est suffisamment fine pour limiter la circulation de l'air (pas de courant de convection significatif). <strong>Rayonnement :</strong> Un traitement Low-E sur l'une des vitres internes renvoie le rayonnement infrarouge.<br><br>
+    2. L'argon (\(\lambda = 0{,}018\)) est encore meilleur isolant que l'air (\(\lambda = 0{,}025\)), car c'est un gaz plus lourd et plus inerte, qui conduit et convecte encore moins.<br><br>
+    3. Avantage : isolation renforcée (idéal pour les régions très froides, maisons passives). Inconvénient : plus lourd (poids sur les châssis), plus cher, et réduit les apports solaires gratuits en hiver (le soleil passe moins à travers).
+  </div>
 </div>
 
 <div class="exo diff-standard">
@@ -325,15 +326,6 @@
     <li>Pourquoi les radiateurs soufflants ne sont-ils pas idéaux pour un grand volume ?</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. Toit en tôle : <strong>conduction</strong> (métal très conducteur) + <strong>rayonnement</strong> (la tôle rayonne vers le ciel).<br>
-    Murs en parpaing : <strong>conduction</strong> à travers le béton.<br>
-    Porte ouverte : <strong>convection</strong> (l'air chaud s'échappe, l'air froid entre).<br>
-    Radiateurs soufflants : <strong>convection forcée</strong>.<br><br>
-    2. Toit : poser un isolant sous la tôle (laine de verre, panneaux sandwich). Murs : isoler par l'intérieur ou l'extérieur. Porte : installer un rideau d'air chaud ou des bandes plastiques souples. Chauffage : compléter par un chauffage radiant (infrarouge) qui chauffe les personnes directement.<br><br>
-    3. L'air chaud soufflé monte au plafond (convection) et se perd dans un grand volume. Le sol reste froid. Un chauffage radiant (infrarouge) chauffe directement les personnes et les objets, ce qui est plus efficace dans un grand atelier.
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -344,6 +336,15 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. Toit en tôle : <strong>conduction</strong> (métal très conducteur) + <strong>rayonnement</strong> (la tôle rayonne vers le ciel).<br>
+    Murs en parpaing : <strong>conduction</strong> à travers le béton.<br>
+    Porte ouverte : <strong>convection</strong> (l'air chaud s'échappe, l'air froid entre).<br>
+    Radiateurs soufflants : <strong>convection forcée</strong>.<br><br>
+    2. Toit : poser un isolant sous la tôle (laine de verre, panneaux sandwich). Murs : isoler par l'intérieur ou l'extérieur. Porte : installer un rideau d'air chaud ou des bandes plastiques souples. Chauffage : compléter par un chauffage radiant (infrarouge) qui chauffe les personnes directement.<br><br>
+    3. L'air chaud soufflé monte au plafond (convection) et se perd dans un grand volume. Le sol reste froid. Un chauffage radiant (infrarouge) chauffe directement les personnes et les objets, ce qui est plus efficace dans un grand atelier.
+  </div>
 </div>
 
 
@@ -375,18 +376,6 @@
     <li>Quel pourcentage d'économie cela représente-t-il sur les déperditions totales ?</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. Murs : \(2{,}5 \times 80 \times 15 = 3\,000\) W<br>
-    Toit : \(0{,}35 \times 100 \times 15 = 525\) W<br>
-    Fenêtres : \(2{,}8 \times 20 \times 15 = 840\) W<br>
-    Sol : \(0{,}9 \times 100 \times 15 = 1\,350\) W<br>
-    Air : \(300 \times 15 = 4\,500\) W<br><br>
-    2. Total : \(3\,000 + 525 + 840 + 1\,350 + 4\,500 = 10\,215\) W ≈ 10,2 kW<br><br>
-    3. Puissance de chauffage : environ 10,2 kW (+ marge de sécurité : 12-13 kW).<br><br>
-    4. Nouveaux murs : \(0{,}4 \times 80 \times 15 = 480\) W. Économie : \(3\,000 - 480 = 2\,520\) W<br><br>
-    5. \(\dfrac{2\,520}{10\,215} \times 100 = 24{,}7\) % d'économie sur les déperditions totales.
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -398,6 +387,18 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. Murs : \(2{,}5 \times 80 \times 15 = 3\,000\) W<br>
+    Toit : \(0{,}35 \times 100 \times 15 = 525\) W<br>
+    Fenêtres : \(2{,}8 \times 20 \times 15 = 840\) W<br>
+    Sol : \(0{,}9 \times 100 \times 15 = 1\,350\) W<br>
+    Air : \(300 \times 15 = 4\,500\) W<br><br>
+    2. Total : \(3\,000 + 525 + 840 + 1\,350 + 4\,500 = 10\,215\) W ≈ 10,2 kW<br><br>
+    3. Puissance de chauffage : environ 10,2 kW (+ marge de sécurité : 12-13 kW).<br><br>
+    4. Nouveaux murs : \(0{,}4 \times 80 \times 15 = 480\) W. Économie : \(3\,000 - 480 = 2\,520\) W<br><br>
+    5. \(\dfrac{2\,520}{10\,215} \times 100 = 24{,}7\) % d'économie sur les déperditions totales.
+  </div>
 </div>
 
 <div class="exo diff-appro">
@@ -423,7 +424,18 @@
     <li>Calculer le retour sur investissement de la solution C par rapport à la solution A.</li>
   </ol>
 
-  <div class="corr">
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
     <strong>Correction :</strong><br>
     1. \(\Delta T = 20 - 5 = 15\) K<br>
     A : \(3{,}5 \times 12 \times 15 = 630\) W<br>
@@ -443,17 +455,6 @@
     Économie annuelle : \(226{,}80 - 20{,}74 = 206{,}06\) €<br>
     Retour : \(420 / 206{,}06 = 2{,}04\) ans ≈ <strong>2 ans</strong>.
   </div>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
 <div class="exo diff-appro">
@@ -471,14 +472,6 @@
     <li>Comparer deux solutions : radiateurs soufflants (convection forcée) vs panneaux radiants (rayonnement). Laquelle est la plus adaptée et pourquoi ?</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. \(E = 1\,200 \times 300 \times (18 - 5) = 1\,200 \times 300 \times 13 = 4\,680\,000\) J = 4 680 kJ<br>
-    En kWh : \(4\,680\,000 / 3\,600\,000 = 1{,}3\) kWh<br><br>
-    2. \(P = E / t = 4\,680\,000 / 3\,600 = 1\,300\) W = 1,3 kW<br><br>
-    3. Avec pertes : \(P = 1{,}3 + 5 = 6{,}3\) kW → il faut environ <strong>7 kW</strong> de chauffage.<br><br>
-    4. Radiateurs soufflants : chauffent l'air → l'air chaud monte au plafond → pieds froids, gaspillage dans le grand volume. Panneaux radiants (infrarouge) : chauffent directement les personnes et les objets → sensation de confort immédiate, pas besoin de chauffer tout le volume d'air. <strong>Les panneaux radiants sont plus adaptés</strong> pour un grand atelier avec un plafond haut et un toit mal isolé.
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -490,6 +483,14 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(E = 1\,200 \times 300 \times (18 - 5) = 1\,200 \times 300 \times 13 = 4\,680\,000\) J = 4 680 kJ<br>
+    En kWh : \(4\,680\,000 / 3\,600\,000 = 1{,}3\) kWh<br><br>
+    2. \(P = E / t = 4\,680\,000 / 3\,600 = 1\,300\) W = 1,3 kW<br><br>
+    3. Avec pertes : \(P = 1{,}3 + 5 = 6{,}3\) kW → il faut environ <strong>7 kW</strong> de chauffage.<br><br>
+    4. Radiateurs soufflants : chauffent l'air → l'air chaud monte au plafond → pieds froids, gaspillage dans le grand volume. Panneaux radiants (infrarouge) : chauffent directement les personnes et les objets → sensation de confort immédiate, pas besoin de chauffer tout le volume d'air. <strong>Les panneaux radiants sont plus adaptés</strong> pour un grand atelier avec un plafond haut et un toit mal isolé.
+  </div>
 </div>
 
 

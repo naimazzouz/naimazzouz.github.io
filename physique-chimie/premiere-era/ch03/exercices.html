@@ -48,7 +48,15 @@
     <tr><td>Cheminée qui fume noir</td><td>…</td><td>…</td></tr>
   </table>
 
-  <div class="corr">
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
     <strong>Correction :</strong>
     <table>
       <tr><th>Situation</th><th>Type</th><th>Justification</th></tr>
@@ -58,14 +66,6 @@
       <tr><td>Cheminée qui fume noir</td><td>Incomplète</td><td>Fumée noire = particules de carbone</td></tr>
     </table>
   </div>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
 <div class="exo diff-socle">
@@ -80,13 +80,6 @@
   <strong>Étape 2 (H) :</strong> Il y a … atomes de H à gauche → il faut … H<sub>2</sub>O à droite.<br><br>
   <strong>Étape 3 (O) :</strong> À droite : … O dans CO<sub>2</sub> + … O dans H<sub>2</sub>O = … O au total → il faut … O<sub>2</sub> à gauche.
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    Étape 1 : 3 C → 3 CO<sub>2</sub><br>
-    Étape 2 : 8 H → 4 H<sub>2</sub>O<br>
-    Étape 3 : 3×2 + 4×1 = 10 O → 5 O<sub>2</sub><br>
-    \[\text{C}_3\text{H}_8 + 5\,\text{O}_2 \longrightarrow 3\,\text{CO}_2 + 4\,\text{H}_2\text{O}\]
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -95,6 +88,13 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    Étape 1 : 3 C → 3 CO<sub>2</sub><br>
+    Étape 2 : 8 H → 4 H<sub>2</sub>O<br>
+    Étape 3 : 3×2 + 4×1 = 10 O → 5 O<sub>2</sub><br>
+    \[\text{C}_3\text{H}_8 + 5\,\text{O}_2 \longrightarrow 3\,\text{CO}_2 + 4\,\text{H}_2\text{O}\]
+  </div>
 </div>
 
 <div class="exo diff-socle">
@@ -111,12 +111,6 @@
   <strong>Étape 3 :</strong> Convertir en kWh (diviser par 3 600).<br>
   \(E = \ldots\) kWh
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    Étape 1 : \(E = m \times \text{PC}\)<br>
-    Étape 2 : \(E = 6 \times 15\,000 = 90\,000\) kJ = 90 MJ<br>
-    Étape 3 : \(E = 90\,000 / 3\,600 = 25\) kWh
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -125,6 +119,12 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    Étape 1 : \(E = m \times \text{PC}\)<br>
+    Étape 2 : \(E = 6 \times 15\,000 = 90\,000\) kJ = 90 MJ<br>
+    Étape 3 : \(E = 90\,000 / 3\,600 = 25\) kWh
+  </div>
 </div>
 
 <div class="exo diff-socle">
@@ -141,10 +141,6 @@
     <tr><td>3. Manque d'O<sub>2</sub></td><td>c. Ventiler le local</td></tr>
   </table>
 
-  <div class="corr">
-    <strong>Correction :</strong> 1-b, 2-a, 3-c<br>
-    (La production de CO se détecte par un détecteur ; les solvants inflammables imposent d'éteindre toute flamme ; le manque d'O<sub>2</sub> se prévient par la ventilation.)
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -153,6 +149,10 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong> 1-b, 2-a, 3-c<br>
+    (La production de CO se détecte par un détecteur ; les solvants inflammables imposent d'éteindre toute flamme ; le manque d'O<sub>2</sub> se prévient par la ventilation.)
+  </div>
 </div>
 
 
@@ -173,12 +173,6 @@
     <li>Éthane : C<sub>2</sub>H<sub>6</sub> + … O<sub>2</sub> → … CO<sub>2</sub> + … H<sub>2</sub>O</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. \(\text{CH}_4 + 2\,\text{O}_2 \to \text{CO}_2 + 2\,\text{H}_2\text{O}\)<br>
-    2. \(2\,\text{C}_4\text{H}_{10} + 13\,\text{O}_2 \to 8\,\text{CO}_2 + 10\,\text{H}_2\text{O}\)<br>
-    3. \(2\,\text{C}_2\text{H}_6 + 7\,\text{O}_2 \to 4\,\text{CO}_2 + 6\,\text{H}_2\text{O}\)
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -189,6 +183,12 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(\text{CH}_4 + 2\,\text{O}_2 \to \text{CO}_2 + 2\,\text{H}_2\text{O}\)<br>
+    2. \(2\,\text{C}_4\text{H}_{10} + 13\,\text{O}_2 \to 8\,\text{CO}_2 + 10\,\text{H}_2\text{O}\)<br>
+    3. \(2\,\text{C}_2\text{H}_6 + 7\,\text{O}_2 \to 4\,\text{CO}_2 + 6\,\text{H}_2\text{O}\)
+  </div>
 </div>
 
 <div class="exo diff-standard">
@@ -207,15 +207,6 @@
     <li>Proposer une alternative moins polluante pour le chauffage de l'atelier.</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. \(\text{C}_3\text{H}_8 + 5\,\text{O}_2 \to 3\,\text{CO}_2 + 4\,\text{H}_2\text{O}\)<br><br>
-    2. \(E = 13 \times 46\,300 = 601\,900\) kJ ≈ 602 MJ<br>
-    En kWh : \(601\,900 / 3\,600 = 167{,}2\) kWh<br><br>
-    3. \(m = 13 \times 3{,}0 = 39\) kg de CO<sub>2</sub><br><br>
-    4. \(39 \times 20 = 780\) kg = 0,78 tonne de CO<sub>2</sub> par hiver<br><br>
-    5. Alternatives : pompe à chaleur, chauffage électrique avec électricité renouvelable, poêle à granulés de bois (neutre en carbone si bois issu de forêts gérées durablement).
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -226,6 +217,15 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(\text{C}_3\text{H}_8 + 5\,\text{O}_2 \to 3\,\text{CO}_2 + 4\,\text{H}_2\text{O}\)<br><br>
+    2. \(E = 13 \times 46\,300 = 601\,900\) kJ ≈ 602 MJ<br>
+    En kWh : \(601\,900 / 3\,600 = 167{,}2\) kWh<br><br>
+    3. \(m = 13 \times 3{,}0 = 39\) kg de CO<sub>2</sub><br><br>
+    4. \(39 \times 20 = 780\) kg = 0,78 tonne de CO<sub>2</sub> par hiver<br><br>
+    5. Alternatives : pompe à chaleur, chauffage électrique avec électricité renouvelable, poêle à granulés de bois (neutre en carbone si bois issu de forêts gérées durablement).
+  </div>
 </div>
 
 <div class="exo diff-standard">
@@ -242,14 +242,6 @@
     <li>Calculer la masse de CO<sub>2</sub> produite par la combustion de 1 kg de méthane.</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. \(M(\text{CH}_4) = 12 + 4 \times 1 = 16\) g/mol<br><br>
-    2. \(M(\text{CO}_2) = 12 + 2 \times 16 = 44\) g/mol<br><br>
-    3. 1 mol de CH<sub>4</sub> → 1 mol de CO<sub>2</sub> (rapport 1:1)<br><br>
-    4. 16 g de CH<sub>4</sub> → 44 g de CO<sub>2</sub><br>
-    1 000 g de CH<sub>4</sub> → \(\dfrac{1\,000 \times 44}{16} = 2\,750\) g = 2,75 kg de CO<sub>2</sub>
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -260,6 +252,14 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(M(\text{CH}_4) = 12 + 4 \times 1 = 16\) g/mol<br><br>
+    2. \(M(\text{CO}_2) = 12 + 2 \times 16 = 44\) g/mol<br><br>
+    3. 1 mol de CH<sub>4</sub> → 1 mol de CO<sub>2</sub> (rapport 1:1)<br><br>
+    4. 16 g de CH<sub>4</sub> → 44 g de CO<sub>2</sub><br>
+    1 000 g de CH<sub>4</sub> → \(\dfrac{1\,000 \times 44}{16} = 2\,750\) g = 2,75 kg de CO<sub>2</sub>
+  </div>
 </div>
 
 <div class="exo diff-standard">
@@ -276,13 +276,6 @@
     <li>Comment prévenir ce risque à l'avenir ?</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. Le <strong>monoxyde de carbone (CO)</strong>.<br><br>
-    2. La pièce étant fermée, le dioxygène de l'air a été progressivement consommé par la combustion. Le manque d'O<sub>2</sub> a entraîné une <strong>combustion incomplète</strong> du butane, produisant du CO.<br><br>
-    3. Il doit immédiatement : ouvrir les fenêtres, éteindre le chauffage, sortir de la pièce, appeler les secours (15 ou 112).<br><br>
-    4. Prévention : ventiler le local en permanence, ne jamais utiliser de chauffage à flamme dans un espace confiné, utiliser un chauffage électrique, installer un détecteur de CO.
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -293,6 +286,13 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. Le <strong>monoxyde de carbone (CO)</strong>.<br><br>
+    2. La pièce étant fermée, le dioxygène de l'air a été progressivement consommé par la combustion. Le manque d'O<sub>2</sub> a entraîné une <strong>combustion incomplète</strong> du butane, produisant du CO.<br><br>
+    3. Il doit immédiatement : ouvrir les fenêtres, éteindre le chauffage, sortir de la pièce, appeler les secours (15 ou 112).<br><br>
+    4. Prévention : ventiler le local en permanence, ne jamais utiliser de chauffage à flamme dans un espace confiné, utiliser un chauffage électrique, installer un détecteur de CO.
+  </div>
 </div>
 
 
@@ -321,16 +321,6 @@
     <li>En France, l'objectif est de 2 tonnes de CO<sub>2</sub>/personne/an. Cet atelier emploie 3 personnes. L'activité respecte-t-elle cet objectif ?</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. Propane : \(260 \times 3{,}0 = 780\) kg CO<sub>2</sub><br>
-    Électricité : \(8\,500 \times 0{,}057 = 484{,}5\) kg CO<sub>2</sub><br>
-    Déplacements : \(3\,000 \times 2{,}64 = 7\,920\) kg CO<sub>2</sub><br><br>
-    2. Total : \(780 + 484{,}5 + 7\,920 = 9\,184{,}5\) kg ≈ <strong>9,2 tonnes</strong> CO<sub>2</sub>/an<br><br>
-    3. Les déplacements (86 % du total). Solutions : optimiser les tournées, passer au véhicule électrique, grouper les livraisons, choisir des fournisseurs locaux.<br><br>
-    4. Sans propane : \(484{,}5 + 7\,920 = 8\,404{,}5\) kg ≈ 8,4 tonnes (économie de 780 kg).<br><br>
-    5. Objectif : \(2 \times 3 = 6\) tonnes. Bilan actuel : 9,2 tonnes → non respecté. Même avec le poêle à granulés (8,4 t), l'objectif n'est pas atteint. Il faut agir principalement sur les déplacements.
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -342,6 +332,16 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. Propane : \(260 \times 3{,}0 = 780\) kg CO<sub>2</sub><br>
+    Électricité : \(8\,500 \times 0{,}057 = 484{,}5\) kg CO<sub>2</sub><br>
+    Déplacements : \(3\,000 \times 2{,}64 = 7\,920\) kg CO<sub>2</sub><br><br>
+    2. Total : \(780 + 484{,}5 + 7\,920 = 9\,184{,}5\) kg ≈ <strong>9,2 tonnes</strong> CO<sub>2</sub>/an<br><br>
+    3. Les déplacements (86 % du total). Solutions : optimiser les tournées, passer au véhicule électrique, grouper les livraisons, choisir des fournisseurs locaux.<br><br>
+    4. Sans propane : \(484{,}5 + 7\,920 = 8\,404{,}5\) kg ≈ 8,4 tonnes (économie de 780 kg).<br><br>
+    5. Objectif : \(2 \times 3 = 6\) tonnes. Bilan actuel : 9,2 tonnes → non respecté. Même avec le poêle à granulés (8,4 t), l'objectif n'est pas atteint. Il faut agir principalement sur les déplacements.
+  </div>
 </div>
 
 <div class="exo diff-appro">
@@ -365,7 +365,18 @@
     <li>Classer les solutions par coût croissant et par émissions croissantes. Quelle solution recommander ?</li>
   </ol>
 
-  <div class="corr">
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
     <strong>Correction :</strong><br>
     1. Énergie utile par kg :<br>
     Propane : \(46\,300 \times 0{,}90 / 3\,600 = 11{,}58\) kWh/kg<br>
@@ -387,17 +398,6 @@
     Par émissions : Granulés (0) < Propane (10,4 t) < Fioul (12,7 t).<br>
     <strong>Recommandation : les granulés de bois</strong>, les moins chers ET les moins polluants.
   </div>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
 </div>
 
 <div class="exo diff-appro">
@@ -417,16 +417,6 @@
     <li>Calculer le volume de CO<sub>2</sub> produit (dans les conditions normales : 1 mol de gaz = 24 L).</li>
   </ol>
 
-  <div class="corr">
-    <strong>Correction :</strong><br>
-    1. \(2\,\text{C}_8\text{H}_{18} + 25\,\text{O}_2 \to 16\,\text{CO}_2 + 18\,\text{H}_2\text{O}\)<br><br>
-    2. \(M = 8 \times 12 + 18 \times 1 = 96 + 18 = 114\) g/mol<br><br>
-    3. \(n = 500 / 114 = 4{,}39\) mol<br><br>
-    4. D'après l'équation : 2 mol octane → 16 mol CO<sub>2</sub>, soit 1 mol → 8 mol.<br>
-    \(n(\text{CO}_2) = 4{,}39 \times 8 = 35{,}1\) mol<br><br>
-    5. \(m(\text{CO}_2) = 35{,}1 \times 44 = 1\,544\) g ≈ <strong>1,54 kg</strong><br><br>
-    6. \(V = 35{,}1 \times 24 = 842\) L ≈ <strong>0,84 m³</strong> de CO<sub>2</sub>
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -438,6 +428,16 @@
   </div>
 
   <button class="bc" onclick="toggle(this)">Voir la correction</button>
+<div class="corr">
+    <strong>Correction :</strong><br>
+    1. \(2\,\text{C}_8\text{H}_{18} + 25\,\text{O}_2 \to 16\,\text{CO}_2 + 18\,\text{H}_2\text{O}\)<br><br>
+    2. \(M = 8 \times 12 + 18 \times 1 = 96 + 18 = 114\) g/mol<br><br>
+    3. \(n = 500 / 114 = 4{,}39\) mol<br><br>
+    4. D'après l'équation : 2 mol octane → 16 mol CO<sub>2</sub>, soit 1 mol → 8 mol.<br>
+    \(n(\text{CO}_2) = 4{,}39 \times 8 = 35{,}1\) mol<br><br>
+    5. \(m(\text{CO}_2) = 35{,}1 \times 44 = 1\,544\) g ≈ <strong>1,54 kg</strong><br><br>
+    6. \(V = 35{,}1 \times 24 = 842\) L ≈ <strong>0,84 m³</strong> de CO<sub>2</sub>
+  </div>
 </div>
 
 
