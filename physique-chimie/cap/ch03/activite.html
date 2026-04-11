@@ -81,6 +81,7 @@
     <li>Choisir un référentiel adapté est essentiel. Proposez un référentiel pour étudier le mouvement du chariot dans l'atelier.</li>
   </ol>
 
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong><br>
     <strong>A1.</strong> Distances : 1,6 − 0 = 1,6 m ; 3,2 − 1,6 = 1,6 m ; etc. Les distances sont constantes (1,6 m à chaque intervalle).<br>
@@ -93,10 +94,12 @@
     <strong>C8.</strong> Par rapport au sol : en mouvement. Par rapport au chariot : immobile.<br>
     <strong>C9.</strong> Référentiel terrestre (le sol de l'atelier).
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>

@@ -70,6 +70,7 @@
     <li>Calculez la tension maximale du secteur sachant que \(U_{\text{eff}} = 228\) V.</li>
   </ol>
 
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong><br>
     <strong>A1.</strong> \(I = U/R = 230/35{,}4 \approx 6{,}5\) A. Cohérent avec la plaque.<br>
@@ -81,10 +82,12 @@
     <strong>C7.</strong> \(T = 1/f = 1/50 = 0{,}02\) s = 20 ms.<br>
     <strong>C8.</strong> \(U_{\max} = 228 × 1{,}41 \approx 322\) V.
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>

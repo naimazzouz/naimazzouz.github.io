@@ -81,6 +81,7 @@
     <li>Comparez les solutions collectives (isolation cabine) et la solution individuelle (bouchons d'oreilles, 30 dB). Quelle est la différence fondamentale dans la démarche de prévention ?</li>
   </ol>
 
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong><br>
     <strong>A1.</strong> Scie à ruban (88 dB) : obligatoire / Ponceuse (82 dB) : recommandée / Scie circulaire (103 dB) : obligatoire / Toupie (97 dB) : obligatoire / Manuel (65 dB) : non nécessaire.<br>
@@ -93,10 +94,12 @@
     <strong>C8.</strong> 30 + 12 = 42 dB d'atténuation totale → 103 − 42 = 61 dB (très confortable).<br>
     <strong>C9.</strong> Solutions collectives : réduisent le niveau pour TOUS les travailleurs sans action individuelle. Solution individuelle : dépend du port correct de l'EPI. La hiérarchie des mesures de prévention privilégie la réduction à la source.
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>

@@ -73,6 +73,7 @@
     <li>Cette solution de travail (pH 9) peut-elle être utilisée pour nettoyer le bois sans risque d'abîmer la surface ? Comparez avec le décapant (pH 1,5).</li>
   </ol>
 
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong><br>
     <strong>A1.</strong> Décapant (1,5) < Vinaigre (3) < Eau (7) < Nettoyant alcalin (12).<br>
@@ -85,10 +86,12 @@
     <strong>C8.</strong> La dilution réduit la concentration en OH⁻ → le pH diminue (se rapproche de 7).<br>
     <strong>C9.</strong> Oui : pH 9 est légèrement basique et nettoyant, sans être corrosif. Le décapant (pH 1,5) est trop agressif pour le bois brut (attaque les fibres).
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>

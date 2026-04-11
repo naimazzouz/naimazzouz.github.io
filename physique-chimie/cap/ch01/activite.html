@@ -72,6 +72,7 @@
     <li>La phrase P501 indique « éliminer le contenu selon la réglementation ». Qu'est-ce que cela implique concrètement pour le pot de vernis vide ?</li>
   </ol>
 
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong><br>
     <strong>A1.</strong> Flamme → inflammable (le produit peut prendre feu facilement). Point d'exclamation → nocif/irritant (peut provoquer des effets sur la santé).
@@ -83,10 +84,12 @@
     <br><strong>C7.</strong> Chiffon imprégné → collecte DDS (risque d'auto-inflammation et produit dangereux) / Pot vide → collecte DDS (emballage souillé).
     <br><strong>C8.</strong> Le pot doit être déposé dans un container de collecte DDS, jamais dans la poubelle ordinaire ni à l'évier.
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>

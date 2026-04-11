@@ -80,6 +80,7 @@
     <li>La brasure terminée, l'assemblage est plongé dans l'eau à 20 °C. Expliquez le phénomène d'équilibre thermique qui s'ensuit.</li>
   </ol>
 
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong><br>
     <strong>A1.</strong> Phase 1 (0–5 min) : montée en température (chauffage). Phase 2 (5–20 min) : stabilisation à 60 °C (le thermostat régule).<br>
@@ -93,10 +94,12 @@
     <strong>C9.</strong> Corps pur (étain pur) : palier net à température constante. Un mélange n'aurait pas de palier.<br>
     <strong>C10.</strong> L'assemblage chaud (> 232 °C au départ) cède de la chaleur à l'eau froide (20 °C). L'eau se réchauffe, l'assemblage refroidit, jusqu'à équilibre thermique à une température intermédiaire.
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>

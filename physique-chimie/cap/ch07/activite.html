@@ -73,6 +73,7 @@
     <li>La signalétique lumineuse utilise des fibres optiques. Le principe repose sur la réflexion totale interne (le rayon ne sort pas du matériau). Ce phénomène se produit-il quand la lumière passe d'un milieu très réfringent vers un milieu moins réfringent ? Oui/Non, et pourquoi ?</li>
   </ol>
 
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong><br>
     <strong>A1.</strong> LED blanc froid (5000 K, proche lumière du jour) : spectre complet qui restitue fidèlement toutes les couleurs des encres.<br>
@@ -85,10 +86,12 @@
     <strong>C8.</strong> Plexiglas → air (n plus faible) : le rayon s'éloigne de la normale. L'angle de réfraction est plus grand que dans le plexiglas.<br>
     <strong>C9.</strong> Oui : quand la lumière va d'un milieu très réfringent vers un milieu moins réfringent (ex. verre → air), l'angle de réfraction augmente. Au-delà d'un angle critique, il n'y a plus de réfraction → réflexion totale interne. C'est le principe des fibres optiques.
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>
