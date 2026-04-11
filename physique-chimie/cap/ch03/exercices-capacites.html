@@ -31,9 +31,6 @@
       <tr><td>Lame d'une scie circulaire en rotation</td><td></td><td></td></tr>
     </tbody>
   </table>
-  <div class="corr">
-    <strong>Correction :</strong> Ponceuse → référentiel atelier, trajectoire circulaire (mouvement orbital) / Chariot → référentiel atelier, rectiligne / Scie sauteuse → référentiel pièce, quelconque / Lame scie → référentiel atelier, circulaire.
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -42,7 +39,10 @@
     <span class="answer-line"></span>
   </div>
 
-  <button class="bc">Voir la correction</button>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <strong>Correction :</strong> Ponceuse → référentiel atelier, trajectoire circulaire (mouvement orbital) / Chariot → référentiel atelier, rectiligne / Scie sauteuse → référentiel pièce, quelconque / Lame scie → référentiel atelier, circulaire.
+  </div>
 </div>
 
 <h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 2 — Calculer la vitesse moyenne \(v = d/t\)</h2>
@@ -54,14 +54,6 @@
     <li>Un convoyeur à bandes transporte des chutes de bois à 0,5 m/s. En combien de temps parcourt-il 12 m ?</li>
     <li>Une fraiseuse numérique déplace sa tête à 120 mm/min. Convertissez en m/s. En combien de temps parcourt-elle 0,3 m ?</li>
   </ol>
-  <div class="corr">
-    <strong>Correction :</strong>
-    <ol>
-      <li>\(t = 1{,}33\) h. \(v = 96/1{,}33 \approx 72\) km/h. \(72/3{,}6 = 20\) m/s.</li>
-      <li>\(t = d/v = 12/0{,}5 = 24\) s.</li>
-      <li>\(120\) mm/min = \(0{,}12\) m / 60 s = \(0{,}002\) m/s. \(t = 0{,}3/0{,}002 = 150\) s.</li>
-    </ol>
-  </div>
   <div class="zone-rep">
     <label>Mes calculs :</label>
     <span class="answer-line"></span>
@@ -70,7 +62,15 @@
     <span class="answer-line"></span>
   </div>
 
-  <button class="bc">Voir la correction</button>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <strong>Correction :</strong>
+    <ol>
+      <li>\(t = 1{,}33\) h. \(v = 96/1{,}33 \approx 72\) km/h. \(72/3{,}6 = 20\) m/s.</li>
+      <li>\(t = d/v = 12/0{,}5 = 24\) s.</li>
+      <li>\(120\) mm/min = \(0{,}12\) m / 60 s = \(0{,}002\) m/s. \(t = 0{,}3/0{,}002 = 150\) s.</li>
+    </ol>
+  </div>
 </div>
 
 <h2 style="border-left:4px solid var(--p);padding-left:12px">Capacité 3 — Caractériser une force, calculer \(P = m \times g\)</h2>

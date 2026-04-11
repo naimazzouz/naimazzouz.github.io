@@ -114,6 +114,15 @@
     <li>Calculez \(U_{\text{eff}} = U_{\max}/\sqrt{2}\). Résultat attendu ?</li>
     <li>Un technicien voit son multimètre afficher 232 V sur la prise. S'agit-il de \(U_{\max}\) ou \(U_{\text{eff}}\) ?</li>
   </ol>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
     <strong>Correction :</strong>
     <ol>
@@ -123,19 +132,17 @@
       <li>Il s'agit de \(U_{\text{eff}}\) : c'est la valeur qu'affiche un voltmètre en mode AC.</li>
     </ol>
   </div>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
 <script src="../../../comp.js"></script>
+<script>
+function toggle(btn){
+  var c=btn.nextElementSibling;
+  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
+  else{c.style.display='block';btn.textContent='Masquer la correction';}
+}
+</script>
 </body>
 </html>
