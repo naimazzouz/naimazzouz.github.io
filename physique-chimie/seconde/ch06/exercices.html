@@ -999,6 +999,60 @@
 </div>
 <!-- EXO A9 -->
 
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 34</span>
+    <span class="exo-title">Alpinisme — tension dans une corde</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un alpiniste de masse \( m = 75\,\text{kg} \) est suspendu à mi-chemin entre deux pitons par une corde horizontale. La corde forme un angle de \( \theta = 15° \) de chaque côté par rapport à l'horizontale sous l'effet du poids.</p>
+  <p class="q"><strong>1.</strong> Calculez le poids de l'alpiniste (on prend \( g = 9{,}8\,\text{N/kg} \)).</p>
+  <p class="q"><strong>2.</strong> Pour que l'alpiniste soit en équilibre, les deux tensions \( T \) (égales par symétrie) dans la corde doivent vérifier : \( 2T \sin\theta = P \). Calculez \( T \) avec \( \sin(15°) \approx 0{,}259 \).</p>
+  <p class="q"><strong>3.</strong> Si l'angle passe à 5° (corde plus tendue), recalculez \( T \). Que constatez-vous ?</p>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P = m \times g = 75 \times 9{,}8 = 735\,\text{N} \)</p>
+    <p><strong>2.</strong> \( T = \dfrac{P}{2\sin\theta} = \dfrac{735}{2 \times 0{,}259} \approx \dfrac{735}{0{,}518} \approx 1\,418\,\text{N} \)</p>
+    <p><strong>3.</strong> \( \sin(5°) \approx 0{,}087 \). \( T = \dfrac{735}{2 \times 0{,}087} \approx 4\,224\,\text{N} \). La tension devient très grande quand l'angle est petit : une corde horizontale ne peut pas être en équilibre — il faudrait une tension infinie !</p>
+  </div>
+</div>
+
+<div class="exo diff-standard">
+  <div class="exo-header">
+    <span class="exo-num">Exercice 35</span>
+    <span class="exo-title">Sport — force exercée par un athlète</span>
+    <span class="tag-standard">Standard</span>
+  </div>
+  <p>Un haltérophile soulève une barre de masse \( m = 120\,\text{kg} \) et la maintient à bout de bras, immobile au-dessus de sa tête.</p>
+  <p class="q"><strong>1.</strong> Calculez le poids de la barre.</p>
+  <p class="q"><strong>2.</strong> La barre est en équilibre. D'après la condition d'équilibre, quelle est la valeur de la force exercée par l'athlète sur la barre ? Dans quel sens est-elle dirigée ?</p>
+  <p class="q"><strong>3.</strong> En compétition, la barre tombe si la force exercée devient inférieure au poids. Quelle force minimale l'athlète doit-il maintenir ?</p>
+  <div class="zone-rep">
+    <label>Mes calculs :</label>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+    <span class="answer-line"></span>
+  </div>
+
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
+  <div class="corr">
+    <p><strong>1.</strong> \( P = m \times g = 120 \times 9{,}8 = 1\,176\,\text{N} \)</p>
+    <p><strong>2.</strong> Pour l'équilibre, la somme des forces est nulle : \( \vec{F}_{athlète} + \vec{P} = \vec{0} \). Donc \( F_{athlète} = 1\,176\,\text{N} \), dirigée vers le haut.</p>
+    <p><strong>3.</strong> La force minimale est exactement égale au poids : \( F_{min} = 1\,176\,\text{N} \). En dessous, la résultante n'est plus nulle et la barre accélère vers le bas.</p>
+  </div>
+</div>
+
 <h2 style="color:#7c3aed;border-left:4px solid #7c3aed;padding-left:10px">Exercices d'approfondissement</h2>
 
 <div class="exo diff-appro">
@@ -1291,75 +1345,6 @@
     <p><strong>4.</strong> L’entrait reprend cette poussée horizontale (il travaille en <strong>traction</strong> : 4 000 N). Sans entrait, les murs subiraient cette poussée latérale et risqueraient de s’écarter, provoquant l’effondrement de la charpente.</p>
   </div>
 </div>
-<div style="background:#f5f0ff;border-radius:10px;padding:18px 22px;margin:32px 0;border:1px solid #c4b5fd">
-  <strong style="color:#4a1d96">Bilan des compétences travaillées</strong>
-  <table style="margin:12px 0">
-    <tr><th>Compétence</th><th>Exercices</th></tr>
-    <tr><td>Calculer un poids et retrouver une masse</td><td>Ex 1, S6, S7, S8, S11</td></tr>
-    <tr><td>Identifier les forces sur un objet</td><td>Ex 2, S4, S9, S10, S13, ST10, ST11</td></tr>
-    <tr><td>Appliquer la 3<sup>e</sup> loi de Newton</td><td>Ex 3, S5, S12, ST10</td></tr>
-    <tr><td>Équilibre sur un plan incliné</td><td>ST7, ST12, ST13, A13</td></tr>
-    <tr><td>Tensions dans câble / élingue</td><td>ST6, ST8, ST11, ST14, A15</td></tr>
-    <tr><td>Répartition des charges (appuis, chevilles)</td><td>ST9, ST15, A11, A14</td></tr>
-    <tr><td>Moments de forces / équilibre en rotation</td><td>A9, A10, A11, A12, A15, A16</td></tr>
-    <tr><td>Frottement statique</td><td>A13</td></tr>
-  </table>
-</div>
-
-<div class="exo diff-standard">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 34</span>
-    <span class="exo-title">Alpinisme — tension dans une corde</span>
-    <span class="tag-standard">Standard</span>
-  </div>
-  <p>Un alpiniste de masse \( m = 75\,\text{kg} \) est suspendu à mi-chemin entre deux pitons par une corde horizontale. La corde forme un angle de \( \theta = 15° \) de chaque côté par rapport à l'horizontale sous l'effet du poids.</p>
-  <p class="q"><strong>1.</strong> Calculez le poids de l'alpiniste (on prend \( g = 9{,}8\,\text{N/kg} \)).</p>
-  <p class="q"><strong>2.</strong> Pour que l'alpiniste soit en équilibre, les deux tensions \( T \) (égales par symétrie) dans la corde doivent vérifier : \( 2T \sin\theta = P \). Calculez \( T \) avec \( \sin(15°) \approx 0{,}259 \).</p>
-  <p class="q"><strong>3.</strong> Si l'angle passe à 5° (corde plus tendue), recalculez \( T \). Que constatez-vous ?</p>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \( P = m \times g = 75 \times 9{,}8 = 735\,\text{N} \)</p>
-    <p><strong>2.</strong> \( T = \dfrac{P}{2\sin\theta} = \dfrac{735}{2 \times 0{,}259} \approx \dfrac{735}{0{,}518} \approx 1\,418\,\text{N} \)</p>
-    <p><strong>3.</strong> \( \sin(5°) \approx 0{,}087 \). \( T = \dfrac{735}{2 \times 0{,}087} \approx 4\,224\,\text{N} \). La tension devient très grande quand l'angle est petit : une corde horizontale ne peut pas être en équilibre — il faudrait une tension infinie !</p>
-  </div>
-</div>
-
-<div class="exo diff-standard">
-  <div class="exo-header">
-    <span class="exo-num">Exercice 35</span>
-    <span class="exo-title">Sport — force exercée par un athlète</span>
-    <span class="tag-standard">Standard</span>
-  </div>
-  <p>Un haltérophile soulève une barre de masse \( m = 120\,\text{kg} \) et la maintient à bout de bras, immobile au-dessus de sa tête.</p>
-  <p class="q"><strong>1.</strong> Calculez le poids de la barre.</p>
-  <p class="q"><strong>2.</strong> La barre est en équilibre. D'après la condition d'équilibre, quelle est la valeur de la force exercée par l'athlète sur la barre ? Dans quel sens est-elle dirigée ?</p>
-  <p class="q"><strong>3.</strong> En compétition, la barre tombe si la force exercée devient inférieure au poids. Quelle force minimale l'athlète doit-il maintenir ?</p>
-  <div class="zone-rep">
-    <label>Mes calculs :</label>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-    <span class="answer-line"></span>
-  </div>
-
-  <button class="bc" onclick="toggle(this)">Voir la correction</button>
-  <div class="corr">
-    <p><strong>1.</strong> \( P = m \times g = 120 \times 9{,}8 = 1\,176\,\text{N} \)</p>
-    <p><strong>2.</strong> Pour l'équilibre, la somme des forces est nulle : \( \vec{F}_{athlète} + \vec{P} = \vec{0} \). Donc \( F_{athlète} = 1\,176\,\text{N} \), dirigée vers le haut.</p>
-    <p><strong>3.</strong> La force minimale est exactement égale au poids : \( F_{min} = 1\,176\,\text{N} \). En dessous, la résultante n'est plus nulle et la barre accélère vers le bas.</p>
-  </div>
-</div>
-
 <div class="exo diff-appro">
   <div class="exo-header">
     <span class="exo-num">Exercice 36</span>
@@ -1389,6 +1374,21 @@
     <p><strong>3.</strong> \( R_A = (P_1 + P_2) - R_B = (7\,840 + 2\,940) - 4\,655 = 10\,780 - 4\,655 = 6\,125\,\text{N} \)<br>
     Vérification : \( 6\,125 + 4\,655 = 10\,780\,\text{N} = P_1 + P_2 \) ✓. L'appui A supporte plus de charge car les randonneurs sont plus proches de A.</p>
   </div>
+</div>
+
+<div style="background:#f5f0ff;border-radius:10px;padding:18px 22px;margin:32px 0;border:1px solid #c4b5fd">
+  <strong style="color:#4a1d96">Bilan des compétences travaillées</strong>
+  <table style="margin:12px 0">
+    <tr><th>Compétence</th><th>Exercices</th></tr>
+    <tr><td>Calculer un poids et retrouver une masse</td><td>Ex 1, S6, S7, S8, S11</td></tr>
+    <tr><td>Identifier les forces sur un objet</td><td>Ex 2, S4, S9, S10, S13, ST10, ST11</td></tr>
+    <tr><td>Appliquer la 3<sup>e</sup> loi de Newton</td><td>Ex 3, S5, S12, ST10</td></tr>
+    <tr><td>Équilibre sur un plan incliné</td><td>ST7, ST12, ST13, A13</td></tr>
+    <tr><td>Tensions dans câble / élingue</td><td>ST6, ST8, ST11, ST14, A15</td></tr>
+    <tr><td>Répartition des charges (appuis, chevilles)</td><td>ST9, ST15, A11, A14</td></tr>
+    <tr><td>Moments de forces / équilibre en rotation</td><td>A9, A10, A11, A12, A15, A16</td></tr>
+    <tr><td>Frottement statique</td><td>A13</td></tr>
+  </table>
 </div>
 
 <script>
