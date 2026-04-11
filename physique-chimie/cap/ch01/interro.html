@@ -56,17 +56,20 @@
   <div class="zone-reponse-moyenne"></div>
 
   <hr style="margin:24px 0;border:none;border-top:2px dashed #c4b5fd">
-  <h3 style="color:var(--p)">Correction</h3>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
+    <h3 style="color:var(--p)">Correction</h3>
     <p><strong>Q1 :</strong> Flamme → inflammable / Crâne → toxique / Arbre mort + poisson → danger pour l'environnement / Main rongée → corrosif.</p>
     <p><strong>Q2 :</strong> Lunettes anti-laser ✓ — Bouchons si bruit > 85 dB ✓ — Blouse ✓. Classe <strong>3 et 4</strong>.</p>
     <p><strong>Q3 :</strong> Fusible → fond si dépassement de seuil / Disjoncteur → coupe automatiquement (réarmable) / Différentiel → protège contre l'électrocution.</p>
     <p><strong>Q4 :</strong> a) Oui, 103 dB > 85 dB (seuil de danger). b) 103 − 30 = 73 dB (en dessous du seuil de danger).</p>
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>

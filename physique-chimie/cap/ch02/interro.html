@@ -49,17 +49,20 @@
   Complétez : le voltmètre se branche en _______________, l'ampèremètre se branche en _______________.</p>
 
   <hr style="margin:24px 0;border:none;border-top:2px dashed #c4b5fd">
-  <h3 style="color:var(--p)">Correction</h3>
+  <button class="bc" onclick="toggle(this)">Voir la correction</button>
   <div class="corr">
+    <h3 style="color:var(--p)">Correction</h3>
     <p><strong>Q1a :</strong> \(R = U/I = 230/4{,}6 = 50\) Ω. <strong>Q1b :</strong> \(I = 200/50 = 4\) A.</p>
     <p><strong>Q2a :</strong> 230 V efficace, 50 Hz. <strong>Q2b :</strong> \(U_{\max} = 230 × 1{,}41 \approx 325\) V. <strong>Q2c :</strong> La tension maximale atteint 325 V, bien au-dessus du seuil de danger (50 V en alternatif).</p>
     <p><strong>Q3a :</strong> La résistance augmente. <strong>Q3b :</strong> Température (°C).</p>
     <p><strong>Q4 :</strong> voltmètre en dérivation, ampèremètre en série.</p>
   </div>
-  <button class="bc">Voir la correction</button>
 </div>
 
 </div>
 <script src="../../../nav.js"></script>
+<script>
+function toggle(btn){var c=btn.nextElementSibling;if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}else{c.style.display='block';btn.textContent='Masquer la correction';}}
+</script>
 </body>
 </html>
