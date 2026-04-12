@@ -1,0 +1,280 @@
+% ============================================================
+% Fiche de révision — Ch05 Équations du premier degré
+% 2nde Bac Pro MAMA — Mathématiques
+% Compilable : pdflatex (Overleaf)
+% ============================================================
+\documentclass[a4paper,10pt]{article}
+
+% --- Encodage et langue ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% --- Mise en page compacte (1 page A4) ---
+\usepackage[margin=1.2cm,top=1cm,bottom=1cm]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+% --- Colonnes ---
+\usepackage{multicol}
+\setlength{\columnsep}{14pt}
+
+% --- Couleurs et boîtes ---
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+
+% Palette cohérente avec le site (maths/seconde)
+\definecolor{prim}{HTML}{0056b3}
+\definecolor{primbg}{HTML}{ebf5ff}
+\definecolor{primborder}{HTML}{bee3f8}
+\definecolor{greenbox}{HTML}{dcfce7}
+\definecolor{greenborder}{HTML}{22c55e}
+\definecolor{redbox}{HTML}{fee2e2}
+\definecolor{redborder}{HTML}{ef4444}
+\definecolor{orangebox}{HTML}{fff7ed}
+\definecolor{orangeborder}{HTML}{f97316}
+\definecolor{graybg}{HTML}{f8fafc}
+
+% --- Mathématiques ---
+\usepackage{amsmath,amssymb}
+
+% --- Divers ---
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=14pt}
+
+% ============================================================
+% Styles tcolorbox
+% ============================================================
+
+% En-tête titre
+\newtcolorbox{fichetitre}{
+  colback=prim,colframe=prim,
+  colupper=white,fontupper=\bfseries\large,
+  boxrule=0pt,arc=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt
+}
+
+% Définition
+\newtcolorbox{defbox}[1][Définition]{
+  colback=primbg,colframe=primborder,
+  fonttitle=\bfseries\small,title=#1,
+  boxrule=0.8pt,arc=3pt,
+  left=5pt,right=5pt,top=3pt,bottom=3pt,
+  toptitle=2pt,bottomtitle=2pt
+}
+
+% Formule
+\newtcolorbox{formulebox}[1][Formule]{
+  colback=primbg,colframe=prim,
+  fonttitle=\bfseries\small,title=#1,
+  boxrule=1pt,arc=3pt,
+  left=5pt,right=5pt,top=3pt,bottom=3pt,
+  toptitle=2pt,bottomtitle=2pt
+}
+
+% Méthode
+\newtcolorbox{methbox}[1][Méthode]{
+  colback=orangebox,colframe=orangeborder,
+  fonttitle=\bfseries\small,title=#1,
+  boxrule=0.8pt,arc=3pt,
+  left=5pt,right=5pt,top=3pt,bottom=3pt,
+  toptitle=2pt,bottomtitle=2pt
+}
+
+% Piège (attention)
+\newtcolorbox{piegebox}[1][Piège]{
+  colback=redbox,colframe=redborder,
+  fonttitle=\bfseries\small,title={\color{redborder}$\boldsymbol{\times}$ #1},
+  boxrule=0.8pt,arc=3pt,
+  left=5pt,right=5pt,top=2pt,bottom=2pt,
+  toptitle=2pt,bottomtitle=2pt
+}
+
+% Astuce (conseil)
+\newtcolorbox{astucebox}[1][Astuce]{
+  colback=greenbox,colframe=greenborder,
+  fonttitle=\bfseries\small,title={\color{greenborder}$\checkmark$ #1},
+  boxrule=0.8pt,arc=3pt,
+  left=5pt,right=5pt,top=2pt,bottom=2pt,
+  toptitle=2pt,bottomtitle=2pt
+}
+
+% Résumé express
+\newtcolorbox{resumebox}{
+  colback=graybg,colframe=prim,
+  boxrule=1.2pt,arc=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt
+}
+
+% ============================================================
+\begin{document}
+
+% --- TITRE ---
+\begin{fichetitre}
+\centering Fiche de révision — Ch05 — Équations du premier degré\\[1pt]
+{\normalsize\normalfont\color{white} Seconde Bac Pro \,$\vert$\, Mathématiques}
+\end{fichetitre}
+
+\vspace{4pt}
+
+% ============================================================
+% DEUX COLONNES : Définition + Formules
+% ============================================================
+\begin{multicols}{2}
+
+% --- DÉFINITION ---
+\begin{defbox}[Définition]
+Une \textbf{équation du premier degré} à une inconnue est une égalité contenant une inconnue $x$ qui n'apparaît qu'au \textbf{degré~1}.
+
+\smallskip
+\textbf{Formes courantes :}
+\begin{itemize}
+  \item $ax = b$
+  \item $ax + b = c$
+  \item $ax + b = cx + d$
+\end{itemize}
+
+\smallskip
+{\small $a, b, c, d$ : nombres connus \quad $x$ : inconnue à trouver.}
+\end{defbox}
+
+\vspace{4pt}
+
+% --- VOCABULAIRE ---
+\begin{defbox}[Vocabulaire]
+\begin{itemize}
+  \item \textbf{Inconnue} : quantité cherchée ($x$)
+  \item \textbf{Solution} : valeur de $x$ qui vérifie l'égalité
+  \item \textbf{Membre gauche / droit} : à gauche / droite du signe $=$
+\end{itemize}
+\end{defbox}
+
+\columnbreak
+
+% --- FORMULES ---
+\begin{formulebox}[Formules de résolution]
+\[
+  ax = b \;\Longrightarrow\; x = \frac{b}{a} \quad (a \neq 0)
+\]
+\[
+  ax + b = c \;\Longrightarrow\; x = \frac{c - b}{a}
+\]
+
+\smallskip
+\textbf{Règles d'équivalence :}
+\begin{itemize}
+  \item On peut \textbf{ajouter} ou \textbf{soustraire} le même nombre des deux côtés.
+  \item On peut \textbf{multiplier} ou \textbf{diviser} les deux côtés par un nombre \textbf{non nul}.
+  \item Un terme qui \textbf{change de côté} change de \textbf{signe}.
+\end{itemize}
+\end{formulebox}
+
+\end{multicols}
+
+\vspace{2pt}
+
+% ============================================================
+% MÉTHODE : 5 étapes
+% ============================================================
+\begin{methbox}[Méthode — Les 5 étapes de résolution d'un problème]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=18pt]
+  \item \textbf{Choisir l'inconnue} : nommer $x$, préciser son unité.
+  \item \textbf{Traduire l'énoncé} : écrire l'équation à partir des conditions du problème.
+  \item \textbf{Résoudre} : isoler $x$ étape par étape (soustraire, puis diviser).
+  \item \textbf{Vérifier} : remplacer $x$ par la valeur trouvée dans l'\textbf{équation de départ}.
+  \item \textbf{Conclure} : répondre en phrase avec l'unité et interpréter dans le contexte.
+\end{enumerate}
+\end{methbox}
+
+\vspace{2pt}
+
+% ============================================================
+% PIÈGES (3 boîtes rouges)
+% ============================================================
+\begin{multicols}{3}
+
+\begin{piegebox}[Piège 1 — Mauvaise traduction]
+{\small Bien identifier \textbf{ce qui est égal à quoi}. Ne pas confondre somme et produit.
+
+\medskip
+\textit{Ex :} « 3 planches et 10\,€ de frais = 55\,€ »
+
+$\rightarrow\; 3x + 10 = 55$
+
+$\not\rightarrow\; 3x \times 10 = 55$}
+\end{piegebox}
+
+\columnbreak
+
+\begin{piegebox}[Piège 2 — Signe moins perdu]
+{\small Quand on déplace un terme, il \textbf{change de signe}.
+
+\medskip
+$5x + 3 = -12$
+
+$5x = -12 \mathbf{-\,3} = -15$
+
+\textbf{et non pas :}
+
+$5x = -12 + 3 = -9$~\rlap{$\;\boldsymbol{\times}$}}
+\end{piegebox}
+
+\columnbreak
+
+\begin{piegebox}[Piège 3 — Pas de conclusion]
+{\small Ne pas s'arrêter à $x = 4{,}7$.
+
+\medskip
+\textit{Ex :} $x = 4{,}7$ planches $\rightarrow$ on ne peut pas couper 4,7~planches !
+
+$\rightarrow$ \textbf{Arrondir} (4 ou 5) et \textbf{interpréter} dans le contexte.}
+\end{piegebox}
+
+\end{multicols}
+
+\vspace{2pt}
+
+% ============================================================
+% ASTUCES (2 boîtes vertes)
+% ============================================================
+\begin{multicols}{2}
+
+\begin{astucebox}[Astuce 1 — Vérification]
+Toujours vérifier dans l'\textbf{équation de départ}, jamais dans une étape intermédiaire (qui pourrait contenir une erreur).
+
+\smallskip
+{\small\textit{Ex :} si $3x + 5 = 20$ donne $x = 5$, vérifier $3 \times 5 + 5 = 20$~\checkmark}
+\end{astucebox}
+
+\columnbreak
+
+\begin{astucebox}[Astuce 2 — Résolution graphique]
+La solution de $ax + b = c$ est l'\textbf{abscisse du point d'intersection} des droites $y = ax + b$ et $y = c$.
+
+\smallskip
+{\small Utile pour vérifier avec la calculatrice graphique ou GeoGebra.}
+\end{astucebox}
+
+\end{multicols}
+
+\vspace{4pt}
+
+% ============================================================
+% RÉSUMÉ EXPRESS
+% ============================================================
+\begin{resumebox}
+\centering
+\textbf{Résumé express}\\[4pt]
+\fbox{\strut\textbf{Poser $x$}}
+$\;\longrightarrow\;$
+\fbox{\strut\textbf{Écrire l'équation}}
+$\;\longrightarrow\;$
+\fbox{\strut\textbf{Regrouper les termes}}
+$\;\longrightarrow\;$
+\fbox{\strut\textbf{Diviser par le coefficient}}
+$\;\longrightarrow\;$
+\fbox{\strut\textbf{Vérifier \& Conclure}}
+\end{resumebox}
+
+\end{document}

@@ -1,0 +1,432 @@
+% ============================================================
+% Activité de découverte — Ch05 Équations du premier degré
+% 2nde Bac Pro MAMA — Mathématiques — Durée : 35 min
+% Compilable : pdflatex (Overleaf)
+% ============================================================
+\documentclass[a4paper,11pt]{article}
+
+% --- Encodage et langue ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% --- Mise en page ---
+\usepackage[margin=1.8cm,top=1.5cm,bottom=1.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% --- Couleurs et boîtes ---
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+
+% Palette (maths/seconde)
+\definecolor{prim}{HTML}{0056b3}
+\definecolor{primbg}{HTML}{ebf5ff}
+\definecolor{primborder}{HTML}{bee3f8}
+\definecolor{greenbox}{HTML}{dcfce7}
+\definecolor{greenborder}{HTML}{16a34a}
+\definecolor{redborder}{HTML}{ef4444}
+\definecolor{orangebg}{HTML}{fff7ed}
+\definecolor{orangeborder}{HTML}{f97316}
+\definecolor{purplebg}{HTML}{f5f0ff}
+\definecolor{purpleborder}{HTML}{7c3aed}
+\definecolor{yellowbg}{HTML}{fefce8}
+\definecolor{yellowborder}{HTML}{ca8a04}
+\definecolor{graybg}{HTML}{f3f4f6}
+\definecolor{grayborder}{HTML}{9ca3af}
+\definecolor{situationbg}{HTML}{faf5ff}
+\definecolor{situationborder}{HTML}{a78bfa}
+\definecolor{retenirbg}{HTML}{f0fdf4}
+\definecolor{retenirborder}{HTML}{22c55e}
+
+% --- Mathématiques ---
+\usepackage{amsmath,amssymb}
+
+% --- Tableaux ---
+\usepackage{array,booktabs}
+
+% --- Listes ---
+\usepackage{enumitem}
+\setlist{nosep}
+
+% --- Divers ---
+\usepackage{graphicx}
+
+% ============================================================
+% Badges de compétences
+% ============================================================
+\newtcbox{\badgeAPP}{
+  on line,colback=primbg,colframe=prim,
+  boxrule=0.6pt,arc=3pt,
+  left=3pt,right=3pt,top=1pt,bottom=1pt,
+  fontupper=\scriptsize\bfseries\color{prim}
+}
+\newtcbox{\badgeANA}{
+  on line,colback=purplebg,colframe=purpleborder,
+  boxrule=0.6pt,arc=3pt,
+  left=3pt,right=3pt,top=1pt,bottom=1pt,
+  fontupper=\scriptsize\bfseries\color{purpleborder}
+}
+\newtcbox{\badgeREA}{
+  on line,colback=greenbox,colframe=greenborder,
+  boxrule=0.6pt,arc=3pt,
+  left=3pt,right=3pt,top=1pt,bottom=1pt,
+  fontupper=\scriptsize\bfseries\color{greenborder}
+}
+\newtcbox{\badgeVAL}{
+  on line,colback=orangebg,colframe=orangeborder,
+  boxrule=0.6pt,arc=3pt,
+  left=3pt,right=3pt,top=1pt,bottom=1pt,
+  fontupper=\scriptsize\bfseries\color{orangeborder}
+}
+\newtcbox{\badgeCOM}{
+  on line,colback=yellowbg,colframe=yellowborder,
+  boxrule=0.6pt,arc=3pt,
+  left=3pt,right=3pt,top=1pt,bottom=1pt,
+  fontupper=\scriptsize\bfseries\color{yellowborder}
+}
+
+% ============================================================
+% Boîtes tcolorbox
+% ============================================================
+
+% Situation professionnelle
+\newtcolorbox{situation}{
+  colback=situationbg,colframe=situationborder,
+  fonttitle=\bfseries,title=Situation professionnelle — Atelier de menuiserie,
+  boxrule=1pt,arc=4pt,
+  left=8pt,right=8pt,top=6pt,bottom=6pt,
+  toptitle=4pt,bottomtitle=4pt,
+  borderline west={3pt}{0pt}{situationborder}
+}
+
+% Problématique
+\newtcolorbox{problematique}{
+  colback=primbg,colframe=prim,
+  fonttitle=\bfseries,title=Problématique,
+  boxrule=1pt,arc=4pt,
+  left=8pt,right=8pt,top=4pt,bottom=4pt,
+  toptitle=3pt,bottomtitle=3pt,
+  borderline west={4pt}{0pt}{prim}
+}
+
+% Question
+\newtcolorbox{question}[1][]{
+  colback=white,colframe=prim,
+  boxrule=0.8pt,arc=3pt,
+  left=8pt,right=8pt,top=5pt,bottom=5pt,
+  toptitle=3pt,bottomtitle=3pt,
+  fonttitle=\bfseries,
+  title={#1}
+}
+
+% Correction
+\newtcolorbox{correction}{
+  colback=graybg,colframe=grayborder,
+  boxrule=0.5pt,arc=3pt,
+  left=8pt,right=8pt,top=4pt,bottom=4pt,
+  fontupper=\small
+}
+
+% À retenir
+\newtcolorbox{retenir}{
+  colback=retenirbg,colframe=retenirborder,
+  fonttitle=\bfseries\large,title=À retenir,
+  boxrule=1.2pt,arc=4pt,
+  left=8pt,right=8pt,top=6pt,bottom=6pt,
+  toptitle=4pt,bottomtitle=4pt,
+  borderline west={4pt}{0pt}{retenirborder}
+}
+
+% Objectifs
+\newtcolorbox{objectifs}{
+  colback=primbg,colframe=primborder,
+  boxrule=0.8pt,arc=3pt,
+  left=8pt,right=8pt,top=4pt,bottom=4pt
+}
+
+% ============================================================
+\begin{document}
+
+% --- EN-TÊTE ---
+{\centering
+  {\LARGE\bfseries\color{prim} Activité de découverte — Équations du premier degré}\\[6pt]
+  {\normalsize Chapitre 5 \;$\vert$\; Seconde Bac Pro \;$\vert$\; Mathématiques \;$\vert$\; \raisebox{-0.5pt}{\large$\circlearrowleft$}\;35 min}\\[10pt]
+}
+
+% --- OBJECTIFS ---
+\begin{objectifs}
+\textbf{Objectifs :}
+\begin{itemize}[leftmargin=14pt]
+  \item Découvrir la notion d'équation du premier degré à partir d'une situation concrète
+  \item Apprendre à traduire un problème professionnel en équation
+  \item Construire la méthode de résolution étape par étape
+\end{itemize}
+\end{objectifs}
+
+\vspace{6pt}
+
+% ============================================================
+% SITUATION PROFESSIONNELLE
+% ============================================================
+\begin{situation}
+\textbf{Théo Rimbaud} est artisan menuisier dans l'entreprise \textbf{Bois \& Agencement\,33}, à Bordeaux.
+
+\medskip
+Il dispose d'une \textbf{planche de chêne brut} de \textbf{240\,cm} de longueur.
+Il doit y découper les pièces suivantes :
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Pièce} & \textbf{Quantité} & \textbf{Longueur}\\
+\hline
+Étagères identiques & 4 & \textbf{? cm}\\
+\hline
+Tasseau de renfort & 1 & 30 cm\\
+\hline
+Chute (incompressible) & — & 18 cm\\
+\hline
+\textbf{Total} & — & \textbf{240 cm}\\
+\hline
+\end{tabular}
+\end{center}
+\end{situation}
+
+\vspace{4pt}
+
+% --- PROBLÉMATIQUE ---
+\begin{problematique}
+\textit{Quelle longueur doit avoir chaque étagère pour utiliser toute la planche~?}
+\end{problematique}
+
+\vspace{8pt}
+
+% ============================================================
+% QUESTIONS
+% ============================================================
+
+% ---- Q1 ----
+\begin{question}[Question 1 \quad \badgeAPP{APP}]
+En lisant la situation, identifier :
+\begin{enumerate}[label=\alph*)]
+  \item la longueur totale de la planche~;
+  \item le nombre d'étagères à découper~;
+  \item les longueurs connues et la longueur inconnue.
+\end{enumerate}
+\end{question}
+
+\begin{correction}
+\textbf{a)} La planche mesure \textbf{240\,cm} au total.\\
+\textbf{b)} Il faut découper \textbf{4 étagères} identiques.\\
+\textbf{c)} Longueurs connues : tasseau = 30\,cm, chute = 18\,cm. Longueur inconnue : la longueur d'une étagère.
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q2 ----
+\begin{question}[Question 2 \quad \badgeAPP{APP}]
+On note $x$ la longueur (en cm) d'une étagère.
+\begin{enumerate}[label=\alph*)]
+  \item Pourquoi $x$ est-elle une \textbf{inconnue}~?
+  \item Exprimer en fonction de $x$ la longueur totale occupée par les 4~étagères.
+\end{enumerate}
+\end{question}
+
+\begin{correction}
+\textbf{a)} $x$ est une inconnue car on ne connaît pas (encore) sa valeur : c'est la grandeur à déterminer.\\
+\textbf{b)} Les 4 étagères mesurent chacune $x$\,cm, donc la longueur totale des étagères est $4 \times x = 4x$\;cm.
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q3 ----
+\begin{question}[Question 3 \quad \badgeANA{ANA}]
+En utilisant le fait que la somme de toutes les pièces donne la longueur totale de la planche, écrire une \textbf{égalité} reliant $x$ aux longueurs connues.
+\end{question}
+
+\begin{correction}
+La planche est découpée en : 4 étagères ($4x$) + 1 tasseau (30\,cm) + 1 chute (18\,cm) = 240\,cm.
+
+\medskip
+L'égalité obtenue est :
+\[ 4x + 30 + 18 = 240 \]
+
+C'est une \textbf{équation du premier degré} d'inconnue $x$.
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q4 ----
+\begin{question}[Question 4 \quad \badgeANA{ANA}]
+Simplifier le membre de gauche en regroupant les termes \textbf{sans $x$} (les nombres connus).
+\end{question}
+
+\begin{correction}
+On additionne les constantes : $30 + 18 = 48$.
+
+L'équation devient :
+\[ 4x + 48 = 240 \]
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q5 ----
+\begin{question}[Question 5 \quad \badgeREA{REA}]
+\begin{enumerate}[label=\alph*)]
+  \item Pour isoler le terme $4x$, soustraire 48 des \textbf{deux côtés} de l'équation. Écrire le résultat.
+  \item Pour trouver $x$, diviser les deux côtés par 4. Quelle est la valeur de $x$~?
+\end{enumerate}
+\end{question}
+
+\begin{correction}
+\textbf{a)} On soustrait 48 de chaque côté :
+\[ 4x + 48 - 48 = 240 - 48 \]
+\[ 4x = 192 \]
+
+\textbf{b)} On divise chaque côté par 4 :
+\[ x = \frac{192}{4} = 48 \]
+
+Chaque étagère mesure \textbf{48\,cm}.
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q6 ----
+\begin{question}[Question 6 \quad \badgeVAL{VAL}]
+\begin{enumerate}[label=\alph*)]
+  \item Vérifier en remplaçant $x$ par 48 dans l'équation de départ : calculer $4 \times 48 + 30 + 18$.
+  \item Le résultat obtenu est-il bien égal à 240~?
+  \item Rédiger une phrase de conclusion répondant à la problématique.
+\end{enumerate}
+\end{question}
+
+\begin{correction}
+\textbf{a)} $4 \times 48 + 30 + 18 = 192 + 30 + 18 = 240$.\\
+\textbf{b)} Oui, on obtient bien 240. La solution est donc correcte.\\
+\textbf{c)} Chaque étagère doit mesurer \textbf{48\,cm} pour utiliser toute la planche de 240\,cm.
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q7 ----
+\begin{question}[Question 7 \quad \badgeREA{REA}]
+\textbf{Nouveau problème.} Théo dispose maintenant d'une planche de \textbf{3\,m}. Il doit découper \textbf{5 étagères identiques}, un tasseau de \textbf{40\,cm} et il y aura une chute de \textbf{20\,cm}.
+
+\medskip
+En utilisant la même méthode, trouver la longueur de chaque étagère.
+\end{question}
+
+\begin{correction}
+Convertir : 3\,m = 300\,cm.
+
+Inconnue : $x$ = longueur d'une étagère (en cm).
+
+Équation : $5x + 40 + 20 = 300$, soit $5x + 60 = 300$.
+
+Résolution :
+\[ 5x = 300 - 60 = 240 \]
+\[ x = \frac{240}{5} = 48 \text{\;cm} \]
+
+Vérification : $5 \times 48 + 40 + 20 = 240 + 60 = 300$\;\checkmark
+
+Chaque étagère mesure \textbf{48\,cm}.
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q8 ----
+\begin{question}[Question 8 \quad \badgeREA{REA}]
+\textbf{Autre contexte.} Théo commande des poignées de tiroir à \textbf{3{,}50\,\texteuro{}} pièce. Les frais de port sont de \textbf{8\,\texteuro{}}. Le total de la facture est de \textbf{57\,\texteuro{}}.
+
+\medskip
+Combien de poignées a-t-il commandées~? {\small(Poser l'équation, résoudre, vérifier et conclure.)}
+\end{question}
+
+\begin{correction}
+Inconnue : $x$ = nombre de poignées commandées.
+
+Équation : $3{,}50\,x + 8 = 57$.
+
+Résolution :
+\[ 3{,}50\,x = 57 - 8 = 49 \]
+\[ x = \frac{49}{3{,}50} = 14 \]
+
+Vérification : $3{,}50 \times 14 + 8 = 49 + 8 = 57$\;\checkmark
+
+Théo a commandé \textbf{14 poignées}.
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q9 ----
+\begin{question}[Question 9 \quad \badgeANA{ANA}]
+Parmi les expressions suivantes, lesquelles sont des \textbf{équations du premier degré} en~$x$~? Justifier.
+
+\medskip
+\begin{enumerate*}[label=\textbf{\arabic*.}\;,itemjoin=\qquad]
+  \item $3x + 5 = 14$
+  \item $x^2 = 9$
+  \item $2x - 7 = x + 1$
+  \item $\dfrac{1}{x} = 4$
+  \item $5x = 0$
+  \item $x^2 + x = 3$
+\end{enumerate*}
+\end{question}
+
+\begin{correction}
+\textbf{1.} $3x + 5 = 14$ \;\checkmark\; Oui — $x$ au degré 1.\\
+\textbf{2.} $x^2 = 9$ \;$\boldsymbol{\times}$\; Non — $x$ au degré 2 (équation du second degré).\\
+\textbf{3.} $2x - 7 = x + 1$ \;\checkmark\; Oui — $x$ au degré 1 des deux côtés.\\
+\textbf{4.} $\frac{1}{x} = 4$ \;$\boldsymbol{\times}$\; Non — $x$ est au dénominateur, ce n'est pas du degré 1.\\
+\textbf{5.} $5x = 0$ \;\checkmark\; Oui — de la forme $ax = b$ avec $b = 0$.\\
+\textbf{6.} $x^2 + x = 3$ \;$\boldsymbol{\times}$\; Non — présence de $x^2$ (degré 2).
+\end{correction}
+
+\vspace{6pt}
+
+% ---- Q10 ----
+\begin{question}[Question 10 \quad \badgeCOM{COM}]
+Compléter le texte suivant avec les mots : \textit{premier degré}, \textit{inconnue}, \textit{solution}, \textit{vérifier}, \textit{isoler}.
+
+\medskip
+\begin{quote}
+\og Une équation du \rule{2.5cm}{0.4pt} est une égalité contenant une \rule{2.5cm}{0.4pt} (souvent notée $x$) qui apparaît au degré 1. Résoudre une équation, c'est chercher la valeur de $x$ — appelée \rule{2.5cm}{0.4pt} — qui rend l'égalité vraie. Pour cela, on effectue des opérations des deux côtés de l'égalité afin d'\rule{2.5cm}{0.4pt} $x$. Il faut ensuite \rule{2.5cm}{0.4pt} le résultat en remplaçant $x$ dans l'équation de départ. \fg
+\end{quote}
+\end{question}
+
+\begin{correction}
+\og Une équation du \textbf{premier degré} est une égalité contenant une \textbf{inconnue} (souvent notée $x$) qui apparaît au degré 1. Résoudre une équation, c'est chercher la valeur de $x$ — appelée \textbf{solution} — qui rend l'égalité vraie. Pour cela, on effectue des opérations des deux côtés de l'égalité afin d'\textbf{isoler} $x$. Il faut ensuite \textbf{vérifier} le résultat en remplaçant $x$ dans l'équation de départ. \fg
+\end{correction}
+
+\vspace{10pt}
+
+% ============================================================
+% SYNTHÈSE — À RETENIR
+% ============================================================
+\begin{retenir}
+\textbf{Réponse à la problématique :} Chaque étagère doit mesurer \textbf{48\,cm}. On a trouvé cette valeur en traduisant la situation par une équation ($4x + 48 = 240$) puis en isolant $x$.
+
+\bigskip
+\textbf{Ce qu'il faut retenir :}
+\begin{itemize}[leftmargin=14pt]
+  \item Une \textbf{équation du premier degré} est une égalité contenant une inconnue $x$ au degré 1.
+  \item \textbf{Résoudre} une équation, c'est trouver la valeur de $x$ (la \textbf{solution}) qui vérifie l'égalité.
+  \item Pour résoudre, on effectue la \textbf{même opération des deux côtés} du signe $=$ pour isoler $x$.
+  \item On doit toujours \textbf{vérifier} la solution dans l'équation de départ et \textbf{conclure en phrase} dans le contexte du problème.
+\end{itemize}
+
+\bigskip
+\textbf{Méthode en 5 étapes :}
+\begin{enumerate}[leftmargin=18pt]
+  \item Choisir l'inconnue $x$ et préciser l'unité.
+  \item Traduire le problème en équation.
+  \item Résoudre : regrouper les termes, diviser par le coefficient.
+  \item Vérifier dans l'équation de départ.
+  \item Conclure en phrase avec l'unité.
+\end{enumerate}
+\end{retenir}
+
+\end{document}

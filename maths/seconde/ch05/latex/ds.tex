@@ -1,0 +1,521 @@
+% =============================================================================
+% DS – Chapitre 5 : Résolution d'équations du 1er degré
+% 2de Bac Pro | 3 versions : Socle – Standard – Approfondissement
+% Compilable avec pdflatex (Overleaf compatible)
+% =============================================================================
+\documentclass[a4paper,11pt]{article}
+
+% --- Encodage et langue ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% --- Mise en page ---
+\usepackage[margin=2cm]{geometry}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+% --- Maths ---
+\usepackage{amsmath,amssymb}
+
+% --- Tableaux ---
+\usepackage{booktabs}
+\usepackage{array}
+
+% --- Couleurs et boîtes ---
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+
+% --- En-têtes ---
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% --- Divers ---
+\usepackage{tikz}
+\usepackage{eurosym}
+
+% =============================================================================
+% Couleurs des compétences
+% =============================================================================
+\definecolor{appblue}{HTML}{3B82F6}
+\definecolor{anapurple}{HTML}{8B5CF6}
+\definecolor{reagreen}{HTML}{22C55E}
+\definecolor{valorange}{HTML}{F59E0B}
+\definecolor{comyellow}{HTML}{EAB308}
+\definecolor{corrgray}{HTML}{F3F4F6}
+\definecolor{corrgreen}{HTML}{166534}
+\definecolor{soclecol}{HTML}{22C55E}
+\definecolor{stdcol}{HTML}{3B82F6}
+\definecolor{approcol}{HTML}{8B5CF6}
+
+% =============================================================================
+% Badges de compétences
+% =============================================================================
+\newtcbox{\badgeAPP}{on line, colback=appblue!15, colframe=appblue!60,
+  fontupper=\scriptsize\bfseries\color{appblue}, boxrule=0.5pt,
+  arc=3pt, boxsep=1pt, left=3pt, right=3pt, top=1pt, bottom=1pt}
+\newtcbox{\badgeANA}{on line, colback=anapurple!15, colframe=anapurple!60,
+  fontupper=\scriptsize\bfseries\color{anapurple}, boxrule=0.5pt,
+  arc=3pt, boxsep=1pt, left=3pt, right=3pt, top=1pt, bottom=1pt}
+\newtcbox{\badgeREA}{on line, colback=reagreen!15, colframe=reagreen!60,
+  fontupper=\scriptsize\bfseries\color{reagreen}, boxrule=0.5pt,
+  arc=3pt, boxsep=1pt, left=3pt, right=3pt, top=1pt, bottom=1pt}
+\newtcbox{\badgeVAL}{on line, colback=valorange!15, colframe=valorange!60,
+  fontupper=\scriptsize\bfseries\color{valorange}, boxrule=0.5pt,
+  arc=3pt, boxsep=1pt, left=3pt, right=3pt, top=1pt, bottom=1pt}
+\newtcbox{\badgeCOM}{on line, colback=comyellow!15, colframe=comyellow!60,
+  fontupper=\scriptsize\bfseries\color{comyellow!80!black}, boxrule=0.5pt,
+  arc=3pt, boxsep=1pt, left=3pt, right=3pt, top=1pt, bottom=1pt}
+
+% =============================================================================
+% Boîte de correction
+% =============================================================================
+\newtcolorbox{correction}{
+  colback=corrgray,
+  colframe=corrgreen!70!black,
+  coltitle=white,
+  fonttitle=\bfseries,
+  title=Correction,
+  arc=4pt,
+  boxrule=0.8pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=8pt, after skip=8pt
+}
+
+% =============================================================================
+% Badge de version
+% =============================================================================
+\newcommand{\versionsocle}{%
+  \begin{tcolorbox}[colback=soclecol!10, colframe=soclecol, arc=4pt,
+    boxrule=1pt, left=4pt, right=4pt, top=2pt, bottom=2pt, width=3.5cm]
+    \centering\bfseries\color{soclecol} Socle
+  \end{tcolorbox}}
+\newcommand{\versionstandard}{%
+  \begin{tcolorbox}[colback=stdcol!10, colframe=stdcol, arc=4pt,
+    boxrule=1pt, left=4pt, right=4pt, top=2pt, bottom=2pt, width=3.5cm]
+    \centering\bfseries\color{stdcol} Standard
+  \end{tcolorbox}}
+\newcommand{\versionappro}{%
+  \begin{tcolorbox}[colback=approcol!10, colframe=approcol, arc=4pt,
+    boxrule=1pt, left=4pt, right=4pt, top=2pt, bottom=2pt, width=4.5cm]
+    \centering\bfseries\color{approcol} Approfondissement
+  \end{tcolorbox}}
+
+% =============================================================================
+% Commandes utilitaires
+% =============================================================================
+\newcommand{\pts}[1]{\hfill\textit{(#1~pts)}}
+\newcommand{\ptss}[1]{\hfill\textit{(#1~pt)}}
+\newcommand{\reponse}{\par\noindent\dotfill\par}
+\newcommand{\reponselong}{%
+  \par\noindent\dotfill\par\noindent\dotfill\par}
+\newcommand{\espacereponse}[1]{\vspace{#1}}
+
+% Décimale française
+\DeclareMathOperator{\e}{}
+
+% =============================================================================
+% En-tête / pied de page
+% =============================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\footnotesize DS -- Ch.\,5 : Équations du 1\textsuperscript{er} degré}
+\rhead{\footnotesize 2\textsuperscript{de} Bac Pro}
+\cfoot{\footnotesize Page \thepage/\pageref{LastPage}}
+
+% =============================================================================
+% Titre du DS (réutilisable pour chaque version)
+% =============================================================================
+\newcommand{\dsheader}{%
+  \begin{center}
+    {\LARGE\bfseries Devoir Surveillé -- Chapitre 5}\\[6pt]
+    {\large Résolution d'équations du 1\textsuperscript{er} degré
+      \;\textbar\; 2\textsuperscript{de} Bac Pro}\\[10pt]
+    \begin{tabular}{@{}p{5.5cm}p{5.5cm}@{}}
+      \toprule
+      \textbf{Durée :} 1 heure & \textbf{Calculatrice :} autorisée \\
+      \textbf{Barème :} 20 points & \textbf{Documents :} non autorisés \\
+      \bottomrule
+    \end{tabular}\\[8pt]
+    \badgeAPP{APP} \quad \badgeANA{ANA} \quad
+    \badgeREA{REA} \quad \badgeVAL{VAL} \quad \badgeCOM{COM}
+  \end{center}
+  \vspace{4pt}
+  \noindent\textbf{Nom :} \dotfill\quad
+  \textbf{Prénom :} \dotfill\quad
+  \textbf{Classe :} \dotfill
+  \vspace{8pt}
+  \hrule height 0.5pt
+  \vspace{10pt}
+}
+
+% =============================================================================
+\begin{document}
+
+% ╔═══════════════════════════════════════════════════════════════════════════╗
+% ║                         VERSION SOCLE                                    ║
+% ╚═══════════════════════════════════════════════════════════════════════════╝
+\dsheader
+\begin{center}\versionsocle\end{center}
+\vspace{6pt}
+
+% ----- Exercice 1 -----
+\subsection*{Exercice 1 -- Résoudre des équations (guidé) \hfill 10 points}
+\textit{Détailler les étapes en suivant le modèle.}
+
+\medskip
+
+\textbf{1.} \badgeREA{REA} Résoudre $4x - 6 = 10$ en complétant :\pts{3}
+
+\begin{quote}
+Étape 1 : On isole $4x$ \quad $\longrightarrow$ \quad $4x = 10 + 6 = $ \dotfill
+
+Étape 2 : On divise par 4 \quad $\longrightarrow$ \quad $x = \dfrac{\ldots}{4} = $ \dotfill
+\end{quote}
+
+\vspace{6pt}
+
+\textbf{2.} \badgeREA{REA} Résoudre $5x + 3 = 28$ en complétant :\pts{3}
+
+\begin{quote}
+Étape 1 : $5x = 28 - $ \ldots\ $= $ \dotfill
+
+Étape 2 : $x = \dfrac{\ldots}{\ldots} = $ \dotfill
+\end{quote}
+
+\vspace{6pt}
+
+\textbf{3.} \badgeREA{REA} Résoudre $2x = 9$. \textit{(Le résultat n'est pas entier, donner la valeur exacte.)}\pts{2}
+
+\reponse
+
+\vspace{6pt}
+
+\textbf{4.} \badgeVAL{VAL} Vérification : remplacer $x$ par ta réponse dans $4x - 6 = 10$ (question 1). Retrouves-tu bien 10 ?\pts{2}
+
+\begin{quote}
+$4 \times$ \ldots\ $- 6 = $ \ldots\ $- 6 = $ \ldots \quad $\checkmark$ ou $\times$
+\end{quote}
+
+\vspace{8pt}
+
+% ----- Exercice 2 -----
+\subsection*{Exercice 2 -- Problème guidé \hfill 10 points}
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!40, arc=4pt, boxrule=0.6pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt]
+\textbf{Situation :} Un menuisier achète des panneaux de bois à \textbf{8\,\euro{} pièce}.
+La \textbf{livraison} coûte \textbf{12\,\euro{}}. Il paie \textbf{60\,\euro{}} au total.
+\end{tcolorbox}
+
+\medskip
+
+\textbf{1.} \badgeAPP{APP} Compléter l'équation qui traduit la situation :\pts{2}
+
+\begin{quote}
+\ldots\ $\times\; x \;+$ \ldots\ $=$ \ldots
+\end{quote}
+
+\vspace{4pt}
+
+\textbf{2.} \badgeREA{REA} Résoudre cette équation.\pts{3}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{3.} \badgeCOM{COM} Écrire une phrase de réponse.\pts{2}
+
+\reponse
+
+\vspace{4pt}
+
+\textbf{4.} \badgeANA{ANA} Le prix du panneau augmente à \textbf{10\,\euro{}}. Avec le même budget de 60\,\euro{}, combien de panneaux \textbf{entiers} peut-il acheter ?\pts{3}
+
+\reponselong
+
+% ----- Corrections Socle -----
+\vspace{12pt}
+\begin{correction}
+\textbf{Exercice 1}
+
+\textbf{1.} $4x = 10 + 6 = 16$ \quad puis \quad $x = \dfrac{16}{4} = 4$
+
+\textbf{2.} $5x = 28 - 3 = 25$ \quad puis \quad $x = \dfrac{25}{5} = 5$
+
+\textbf{3.} $x = \dfrac{9}{2} = 4{,}5$
+
+\textbf{4.} $4 \times 4 - 6 = 16 - 6 = 10$ \quad $\checkmark$
+
+\bigskip
+\textbf{Exercice 2}
+
+\textbf{1.} $8 \times x + 12 = 60$, soit $8x + 12 = 60$
+
+\textbf{2.} $8x = 60 - 12 = 48$ \quad donc \quad $x = \dfrac{48}{8} = 6$
+
+\textbf{3.} Le menuisier peut acheter \textbf{6 panneaux}.
+
+\textbf{4.} Nouvelle équation : $10x + 12 = 60$
+
+$10x = 48$ \quad donc \quad $x = \dfrac{48}{10} = 4{,}8$
+
+On ne peut pas acheter $4{,}8$ panneaux : il peut acheter \textbf{4 panneaux entiers}.
+\end{correction}
+
+% ╔═══════════════════════════════════════════════════════════════════════════╗
+% ║                         VERSION STANDARD                                 ║
+% ╚═══════════════════════════════════════════════════════════════════════════╝
+\newpage
+\dsheader
+\begin{center}\versionstandard\end{center}
+\vspace{6pt}
+
+% ----- Exercice 1 -----
+\subsection*{Exercice 1 -- Résolution d'équations \hfill 8 points}
+
+\textbf{1.} \badgeREA{REA} Résoudre $4x - 6 = 10$.\pts{2}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{2.} \badgeREA{REA} Résoudre $3(x + 2) = 2x + 11$.\pts{3}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{3.} \badgeREA{REA} Résoudre $\dfrac{2x + 1}{3} = 5$.\pts{3}
+
+\reponselong
+
+\vspace{8pt}
+
+% ----- Exercice 2 -----
+\subsection*{Exercice 2 -- Mise en équation \hfill 6 points}
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!40, arc=4pt, boxrule=0.6pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt]
+\textbf{Situation :} Un artisan loue du matériel. La location coûte un \textbf{forfait de 15\,\euro{} par jour} plus \textbf{2,50\,\euro{} par outil} loué. Il dispose d'un budget de \textbf{40\,\euro{}}.
+\end{tcolorbox}
+
+\medskip
+
+\textbf{1.} \badgeAPP{APP} Exprimer le coût $C$ en fonction du nombre d'outils $n$.\pts{2}
+
+\reponse
+
+\vspace{4pt}
+
+\textbf{2.} \badgeREA{REA} Combien d'outils peut-il louer avec exactement 40\,\euro{} ? Résoudre l'équation.\pts{2}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{3.} \badgeVAL{VAL} Vérifier le résultat en remplaçant $n$ dans l'expression de $C$.\pts{2}
+
+\reponse
+
+\vspace{8pt}
+
+% ----- Exercice 3 -----
+\subsection*{Exercice 3 -- Problème professionnel \hfill 6 points}
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!40, arc=4pt, boxrule=0.6pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt]
+\textbf{Situation :} Un menuisier découpe une planche de \textbf{2,40\,m} en \textbf{6 planches} de même longueur $x$ (en cm). Chaque coupe entraîne une \textbf{perte de 0,5\,cm} (épaisseur de la lame).
+\end{tcolorbox}
+
+\medskip
+
+\textbf{1.} \badgeAPP{APP} Écrire l'équation traduisant la situation. \textit{(Attention : combien de coupes pour 6 planches ?)}\pts{2}
+
+\reponse
+
+\vspace{4pt}
+
+\textbf{2.} \badgeREA{REA} Résoudre l'équation. Donner la longueur de chaque planche arrondie au centième.\pts{2}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{3.} \badgeANA{ANA} Si l'on arrondit la longueur à 40\,cm, est-ce réalisable ? Justifier.\pts{2}
+
+\reponselong
+
+% ----- Corrections Standard -----
+\vspace{12pt}
+\begin{correction}
+\textbf{Exercice 1}
+
+\textbf{1.} $4x - 6 = 10 \;\Longrightarrow\; 4x = 16 \;\Longrightarrow\; x = 4$
+
+\textbf{2.} $3(x + 2) = 2x + 11 \;\Longrightarrow\; 3x + 6 = 2x + 11
+  \;\Longrightarrow\; 3x - 2x = 11 - 6 \;\Longrightarrow\; x = 5$
+
+\textbf{3.} $\dfrac{2x + 1}{3} = 5 \;\Longrightarrow\; 2x + 1 = 15
+  \;\Longrightarrow\; 2x = 14 \;\Longrightarrow\; x = 7$
+
+\bigskip
+\textbf{Exercice 2}
+
+\textbf{1.} $C = 15 + 2{,}5\,n$
+
+\textbf{2.} $15 + 2{,}5\,n = 40 \;\Longrightarrow\; 2{,}5\,n = 25
+  \;\Longrightarrow\; n = \dfrac{25}{2{,}5} = 10$
+
+Il peut louer \textbf{10 outils}.
+
+\textbf{3.} Vérification : $C = 15 + 2{,}5 \times 10 = 15 + 25 = 40$\,\euro{} \quad $\checkmark$
+
+\bigskip
+\textbf{Exercice 3}
+
+\textbf{1.} 6 planches $\Rightarrow$ 5 coupes. Équation : $6x + 5 \times 0{,}5 = 240$, soit $6x + 2{,}5 = 240$.
+
+\textbf{2.} $6x = 240 - 2{,}5 = 237{,}5 \;\Longrightarrow\; x = \dfrac{237{,}5}{6} \approx 39{,}58$\,cm.
+
+\textbf{3.} Si $x = 40$ : $6 \times 40 + 2{,}5 = 242{,}5 > 240$. La planche est trop courte : c'est \textbf{impossible}.
+\end{correction}
+
+% ╔═══════════════════════════════════════════════════════════════════════════╗
+% ║                       VERSION APPROFONDISSEMENT                          ║
+% ╚═══════════════════════════════════════════════════════════════════════════╝
+\newpage
+\dsheader
+\begin{center}\versionappro\end{center}
+\vspace{6pt}
+
+% ----- Exercice 1 -----
+\subsection*{Exercice 1 -- Équations variées \hfill 8 points}
+
+\textbf{1.} \badgeREA{REA} Résoudre $3(2x - 1) = 4(x + 3) - 5$.\pts{2}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{2.} \badgeREA{REA} Résoudre $\dfrac{5x - 2}{4} = \dfrac{x + 6}{2}$.\pts{2}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{3.} \badgeANA{ANA} Résoudre $7x - 3 = 7x + 5$. Que constate-t-on ? Conclure.\pts{2}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{4.} \badgeANA{ANA} Résoudre $2(3x + 1) = 6x + 2$. Que constate-t-on ? Conclure.\pts{2}
+
+\reponselong
+
+\vspace{8pt}
+
+% ----- Exercice 2 -----
+\subsection*{Exercice 2 -- Problème ouvert : comparaison de devis \hfill 12 points}
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!40, arc=4pt, boxrule=0.6pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt]
+\textbf{Situation :} Un artisan menuisier compare deux fournisseurs pour l'achat de planches.
+
+\medskip
+\begin{tabular}{@{}lcc@{}}
+  \toprule
+  & \textbf{Fournisseur A} & \textbf{Fournisseur B} \\
+  \midrule
+  Prix par planche & 12\,\euro{} & 9\,\euro{} \\
+  Frais de livraison & 30\,\euro{} & 60\,\euro{} \\
+  \bottomrule
+\end{tabular}
+\end{tcolorbox}
+
+\medskip
+
+\textbf{1.} \badgeAPP{APP} Exprimer le coût total $C_A$ et $C_B$ en fonction du nombre $n$ de planches.\pts{2}
+
+\reponse
+\reponse
+
+\vspace{4pt}
+
+\textbf{2.} \badgeREA{REA} Pour quelle valeur de $n$ les deux fournisseurs proposent-ils le même prix ? À partir de combien de planches le fournisseur B devient-il moins cher ?\pts{3}
+
+\reponselong
+\reponse
+
+\vspace{4pt}
+
+\textbf{3.} \badgeVAL{VAL} Vérifier en calculant $C_A$ et $C_B$ pour $n = 9$ puis $n = 11$.\pts{2}
+
+\reponselong
+
+\vspace{4pt}
+
+\textbf{4.} \badgeREA{REA} L'artisan dispose d'un budget de \textbf{200\,\euro{}}. Combien de planches peut-il acheter au maximum chez chaque fournisseur ?\pts{3}
+
+\reponselong
+\reponse
+
+\vspace{4pt}
+
+\textbf{5.} \badgeCOM{COM} Rédiger un conseil argumenté pour l'artisan.\pts{2}
+
+\reponse
+\reponselong
+
+% ----- Corrections Approfondissement -----
+\vspace{12pt}
+\begin{correction}
+\textbf{Exercice 1}
+
+\textbf{1.} $3(2x - 1) = 4(x + 3) - 5$
+
+$6x - 3 = 4x + 12 - 5 \;\Longrightarrow\; 6x - 3 = 4x + 7
+  \;\Longrightarrow\; 2x = 10 \;\Longrightarrow\; x = 5$
+
+\textbf{2.} $\dfrac{5x - 2}{4} = \dfrac{x + 6}{2}$
+
+On multiplie par 4 : $5x - 2 = 2(x + 6) = 2x + 12$
+
+$3x = 14 \;\Longrightarrow\; x = \dfrac{14}{3}$
+
+\textbf{3.} $7x - 3 = 7x + 5 \;\Longrightarrow\; -3 = 5$
+
+C'est une \textbf{contradiction} : l'équation n'a \textbf{aucune solution}.
+
+\textbf{4.} $2(3x + 1) = 6x + 2 \;\Longrightarrow\; 6x + 2 = 6x + 2 \;\Longrightarrow\; 0 = 0$
+
+C'est une \textbf{identité} : l'équation est vérifiée pour \textbf{tout réel $x$} (infinité de solutions).
+
+\bigskip
+\textbf{Exercice 2}
+
+\textbf{1.} $C_A = 12n + 30$ \qquad $C_B = 9n + 60$
+
+\textbf{2.} $12n + 30 = 9n + 60 \;\Longrightarrow\; 3n = 30 \;\Longrightarrow\; n = 10$
+
+Les deux coûts sont égaux pour $n = 10$ planches. Le fournisseur B devient moins cher \textbf{à partir de 11 planches}.
+
+\textbf{3.}
+\begin{itemize}[nosep]
+  \item $n = 9$ : $C_A = 12 \times 9 + 30 = 138$\,\euro{} \quad $C_B = 9 \times 9 + 60 = 141$\,\euro{} \quad ($A < B$)
+  \item $n = 11$ : $C_A = 12 \times 11 + 30 = 162$\,\euro{} \quad $C_B = 9 \times 11 + 60 = 159$\,\euro{} \quad ($B < A$) \quad $\checkmark$
+\end{itemize}
+
+\textbf{4.} Budget de 200\,\euro{} :
+\begin{itemize}[nosep]
+  \item Fournisseur A : $12n + 30 \leq 200 \;\Longrightarrow\; 12n \leq 170 \;\Longrightarrow\; n \leq 14{,}1\overline{6}$ \quad $\Rightarrow$ \textbf{14 planches}
+  \item Fournisseur B : $9n + 60 \leq 200 \;\Longrightarrow\; 9n \leq 140 \;\Longrightarrow\; n \leq 15{,}5\overline{5}$ \quad $\Rightarrow$ \textbf{15 planches}
+\end{itemize}
+
+\textbf{5.} Conseil : pour moins de 10 planches, choisir le fournisseur A (livraison moins chère). À partir de 10 planches, choisir le fournisseur B (prix unitaire plus avantageux). Avec un budget de 200\,\euro{}, le fournisseur B permet d'acheter \textbf{1 planche de plus} (15 contre 14).
+\end{correction}
+
+\end{document}
