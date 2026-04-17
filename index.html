@@ -393,10 +393,11 @@
     <div class="hero-stats">
       <span class="hero-stat">📘 Maths &mdash; 2nde · 1ère · Tle · CAP · BTS</span>
       <span class="hero-stat">⚗️ PC &mdash; 6 groupements</span>
-      <span class="hero-stat">🧪 69 simulations</span>
+      <span class="hero-stat">🧪 72 simulations</span>
       <span class="hero-stat">⚡ 22 automatismes</span>
       <span class="hero-stat">🔓 Accès libre &amp; gratuit</span>
     </div>
+    <p class="maj" style="margin-top:14px;font-size:.78rem;opacity:.75;font-style:italic">Dernière mise à jour : 17 avril 2026, 11:34</p>
   </header>
 
   <main>
@@ -585,7 +586,7 @@
             <span class="card-icon">🧪</span>
             <div>
               <div class="card-title">Simulations interactives</div>
-              <div class="card-desc">69 simulations · Laboratoire virtuel</div>
+              <div class="card-desc">72 simulations · Laboratoire virtuel</div>
             </div>
           </div>
           <div class="card-body">
@@ -808,8 +809,12 @@
         });
     })();
 
-    // Date chapitres en cours — mettre à jour manuellement quand les chapitres changent
-    document.getElementById('encours-date').textContent = 'Avril 2026';
+    // Date chapitres en cours — calculée automatiquement (mois/année courants)
+    (function() {
+      var MOIS_LONG = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+      var now = new Date();
+      document.getElementById('encours-date').textContent = MOIS_LONG[now.getMonth()] + ' ' + now.getFullYear();
+    })();
   </script>
   <script src="nav.js"></script>
 
