@@ -40,8 +40,9 @@ Ce fichier est lu automatiquement par Claude Code à chaque session.
 │   ├── terminale-gpt4/ch01../      ← groupement 4 (en construction)
 │   ├── terminale-gpt5/ch01../      ← groupement 5 (en construction)
 │   └── cap/ch01..ch07/             ← CAP physique-chimie (programme commun)
-├── simulations/                ← Pages interactives (Canvas/SVG/JS) — 70 simulations
+├── simulations/                ← Pages interactives (Canvas/SVG/JS) — 72 simulations
 ├── automatismes/               ← Exercices d'entraînement rapide par thème — 22 pages
+│   └── qcm-auto.js             ← Fonction qcm() partagée (feedback immédiat)
 ├── co-intervention/            ← Séances de co-intervention maths/sciences (38 pages, ICCER/ERA-MA)
 ├── prompts/                    ← Prompts pédagogiques de référence
 ├── pdf/                        ← Programmes officiels Bac Pro & BTS
@@ -49,9 +50,13 @@ Ce fichier est lu automatiquement par Claude Code à chaque session.
 ├── scripts/                    ← Outils de maintenance
 │   ├── extract_css.py          ← Nettoyage CSS doublons
 │   ├── add_print_css.py        ← Ajout automatique de print.css aux pages
-│   ├── generate-pdf.js         ← Génération PDF des cours
+│   ├── add_answer_lines.py     ← Ajout de lignes de réponse sur les interros
+│   ├── check_chapters.py       ← Vérification complétude des chapitres
+│   ├── check_exo_numbering.py  ← Vérification numérotation des exercices
+│   ├── fix_qcm_pc.py           ← Correction QCM PC
+│   ├── harmonize_terminale.py  ← Harmonisation des pages Terminale
 │   ├── link_simulations.py     ← Liaison simulations ↔ chapitres
-│   └── check_chapters.py       ← Vérification complétude des chapitres
+│   └── generate-pdf.js         ← Génération PDF des cours
 └── .claude/commands/           ← Commandes personnalisées Claude Code (skills)
 ```
 
@@ -321,8 +326,13 @@ Avant de générer du contenu, consulter les fichiers dans `/prompts/` :
 | `prompts/prompt-filiere-eeb-tgt.md` | Contextes pro EEB / TGT (bâtiment, géomètre) |
 | `prompts/prompt-filiere-mee.md` | Contextes pro MEE (maintenance énergétique) |
 | `prompts/prompt-bts.md` | Structure et règles pour les pages BTS maths |
+| `prompts/prompt-caplp-cours.md` | Structure des cours pour la formation des professeurs CAPLP |
+| `prompts/prompt-filiere-2tne.md` | Contextes pro Seconde TNE (transition numérique énergétique) |
 | `prompts/prompt-cours-universel.md` | Prompt LaTeX universel pour générer un livret de cours (Overleaf) |
 | `prompts/prompt-exercices-universel.md` | Prompt LaTeX universel pour générer un livret d'exercices avec corrections (Overleaf) |
+| `prompts/instructions-co-intervention-ICCER.md` | Instructions pour les séances de co-intervention ICCER |
+| `prompts/instructions-co-intervention-ERA.md` | Instructions pour les séances de co-intervention ERA |
+| `prompts/instructions-co-intervention-MA.md` | Instructions pour les séances de co-intervention MA |
 
 ### Règles contextes professionnels
 
