@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Presse hydraulique – Simulation</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#2d3748;line-height:1.6;padding:20px}
+
+header{background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff;padding:28px 20px 22px;border-radius:10px 10px 0 0;text-align:center;position:relative}
+header h1{font-size:1.6em;margin-bottom:4px}
+header .sous-titre{opacity:.85;font-size:.92em}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+
+.container{max-width:860px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.body-content{padding:24px}
+
+/* Canvas */
+.canvas-wrap{background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin:16px 0;text-align:center;overflow-x:auto}
+canvas{display:block;margin:0 auto;max-width:100%}
+
+/* Sliders */
+.sliders-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0}
+.slider-group{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px}
+.slider-group label{font-weight:600;font-size:.88em;display:block;margin-bottom:6px;color:#475569}
+.slider-group input[type=range]{width:100%;accent-color:#7c3aed}
+.val-badge{display:inline-block;background:#7c3aed;color:#fff;border-radius:5px;padding:2px 10px;font-size:.85em;font-weight:700;min-width:40px;text-align:center;margin-left:6px}
+
+/* Formula box */
+.formula-box{background:#f5f0ff;border:2px solid #7c3aed;border-radius:10px;padding:16px 24px;margin:16px 0}
+.formula-box h3{color:#7c3aed;font-size:.95em;margin-bottom:10px}
+.formula-line{font-size:.95em;color:#334155;margin:4px 0;line-height:1.8}
+
+/* Result box */
+.result-box{background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:18px 20px;text-align:center;margin:16px 0}
+.result-big{font-size:1.6em;font-weight:700;color:#166534}
+.result-detail{font-size:.95em;color:#475569;margin-top:6px}
+.result-equiv{font-size:.88em;color:#6b7280;margin-top:4px}
+
+/* Application box */
+.appli-box{background:#fff8f0;border-left:4px solid #d97706;border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-size:.9em;color:#92400e}
+.appli-box strong{color:#b45309}
+.appli-box .appli-title{font-weight:700;font-size:1em;margin-bottom:8px;color:#b45309}
+.appli-result{margin-top:8px;font-weight:700;padding:6px 12px;border-radius:6px;display:inline-block}
+.appli-ok{background:#d1fae5;color:#065f46}
+.appli-ko{background:#fee2e2;color:#991b1b}
+
+/* Context pro */
+.context-pro{background:#f5f0ff;border-left:4px solid #7c3aed;border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:.9em;color:#581c87}
+.context-pro strong{color:#7c3aed}
+
+@media(max-width:600px){
+  .sliders-grid{grid-template-columns:1fr}
+  header h1{font-size:1.25em}
+  .body-content{padding:16px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">&larr; Retour</a>
+    <h1>Presse hydraulique &mdash; Principe de Pascal</h1>
+    <p class="sous-titre">Multiplier les forces grace aux fluides</p>
+  </header>
+
+  <div class="body-content">
+
+    <!-- Canvas -->
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="700" height="400"></canvas>
+    </div>
+
+    <!-- Sliders -->
+    <div class="sliders-grid">
+      <div class="slider-group">
+        <label>Force F<sub>1</sub> <span class="val-badge" id="valF1">150 N</span></label>
+        <input type="range" id="sliderF1" min="10" max="500" step="5" value="150" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Diametre d<sub>1</sub> <span class="val-badge" id="valD1">30 mm</span></label>
+        <input type="range" id="sliderD1" min="10" max="80" step="1" value="30" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Diametre d<sub>2</sub> <span class="val-badge" id="valD2">200 mm</span></label>
+        <input type="range" id="sliderD2" min="50" max="300" step="5" value="200" oninput="update()">
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="result-box">
+      <div class="result-big" id="resultF2">F<sub>2</sub> = 6 667 N</div>
+      <div class="result-detail" id="resultMult">La force est multipliee par 44,4</div>
+      <div class="result-equiv" id="resultEquiv">C'est comme soulever 680 kg</div>
+      <div class="result-equiv" id="resultPression">Pression : 212,2 bar</div>
+    </div>
+
+    <!-- Formula box -->
+    <div class="formula-box">
+      <h3>Calculs detailles</h3>
+      <div id="formulaContent">
+        <div class="formula-line" id="fS1"></div>
+        <div class="formula-line" id="fS2"></div>
+        <div class="formula-line" id="fPression"></div>
+        <div class="formula-line" id="fF2"></div>
+        <div class="formula-line" id="fFacteur"></div>
+      </div>
+    </div>
+
+    <!-- Application menuiserie -->
+    <div class="appli-box">
+      <div class="appli-title">Application en menuiserie — Collage de placage</div>
+      <p>Pour coller du placage a <strong>8 bar</strong> sur une surface de <strong>600 &times; 400 mm</strong> :</p>
+      <p id="appliCalc" style="margin-top:6px"></p>
+      <div id="appliResult" class="appli-result"></div>
+    </div>
+
+    <!-- Context -->
+    <div class="context-pro">
+      <strong>Contexte professionnel :</strong> Le principe de Pascal est utilise dans de nombreux outils :
+      presses hydrauliques pour le collage de panneaux, verins de levage en atelier,
+      freins hydrauliques des engins de chantier, crics pour soulever des charges lourdes.
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const W = 700, H = 400;
+
+// Animation state
+let animOffset = 0;
+let targetOffset = 0;
+let animId = null;
+
+function update() {
+  const F1 = parseFloat(document.getElementById('sliderF1').value);
+  const d1 = parseFloat(document.getElementById('sliderD1').value);
+  const d2 = parseFloat(document.getElementById('sliderD2').value);
+
+  // Update badges
+  document.getElementById('valF1').textContent = F1 + ' N';
+  document.getElementById('valD1').textContent = d1 + ' mm';
+  document.getElementById('valD2').textContent = d2 + ' mm';
+
+  // Calculations (in mm then convert)
+  const r1 = d1 / 2; // mm
+  const r2 = d2 / 2; // mm
+  const S1_mm2 = Math.PI * r1 * r1;
+  const S2_mm2 = Math.PI * r2 * r2;
+  const S1_cm2 = S1_mm2 / 100;
+  const S2_cm2 = S2_mm2 / 100;
+  const S1_m2 = S1_mm2 / 1e6;
+  const S2_m2 = S2_mm2 / 1e6;
+
+  // Pressure in Pa (F1 in N, S1 in m²)
+  const pPa = F1 / S1_m2;
+  const pBar = pPa / 1e5;
+
+  // F2
+  const F2 = pPa * S2_m2;
+  const facteur = F2 / F1; // = S2/S1 = (d2/d1)²
+  const equivKg = F2 / 9.81;
+
+  // Result box
+  document.getElementById('resultF2').innerHTML = 'F<sub>2</sub> = ' + formatN(F2) + ' N';
+  document.getElementById('resultMult').textContent = 'La force est multipliee par ' + fmt(facteur, 1);
+  document.getElementById('resultEquiv').textContent = "C'est comme soulever " + formatN(Math.round(equivKg)) + ' kg';
+  document.getElementById('resultPression').textContent = 'Pression : ' + fmt(pBar, 1) + ' bar';
+
+  // Formula box
+  document.getElementById('fS1').innerHTML =
+    '\\(S_1 = \\pi \\left(\\dfrac{d_1}{2}\\right)^2 = \\pi \\times ' + fmt(r1,1) + '^2 = ' + fmt(S1_mm2, 1) + '\\text{ mm}^2 = ' + fmt(S1_cm2, 2) + '\\text{ cm}^2\\)';
+  document.getElementById('fS2').innerHTML =
+    '\\(S_2 = \\pi \\left(\\dfrac{d_2}{2}\\right)^2 = \\pi \\times ' + fmt(r2,1) + '^2 = ' + fmt(S2_mm2, 0) + '\\text{ mm}^2 = ' + fmt(S2_cm2, 1) + '\\text{ cm}^2\\)';
+  document.getElementById('fPression').innerHTML =
+    '\\(p = \\dfrac{F_1}{S_1} = \\dfrac{' + F1 + '}{' + fmt(S1_m2, 6) + '} = ' + formatN(Math.round(pPa)) + '\\text{ Pa} = ' + fmt(pBar, 1) + '\\text{ bar}\\)';
+  document.getElementById('fF2').innerHTML =
+    '\\(F_2 = p \\times S_2 = ' + formatN(Math.round(pPa)) + ' \\times ' + fmt(S2_m2, 6) + ' = ' + formatN(Math.round(F2)) + '\\text{ N}\\)';
+  document.getElementById('fFacteur').innerHTML =
+    '\\(\\text{Facteur} = \\dfrac{F_2}{F_1} = \\dfrac{S_2}{S_1} = \\left(\\dfrac{d_2}{d_1}\\right)^2 = \\left(\\dfrac{' + d2 + '}{' + d1 + '}\\right)^2 = ' + fmt(facteur, 1) + '\\)';
+
+  // Application menuiserie
+  const surfacePlacage_mm2 = 600 * 400;
+  const surfacePlacage_m2 = surfacePlacage_mm2 / 1e6;
+  const pressionCollage = 8e5; // 8 bar in Pa
+  const forceNecessaire = pressionCollage * surfacePlacage_m2;
+  const peutLeFaire = F2 >= forceNecessaire;
+
+  document.getElementById('appliCalc').innerHTML =
+    'Force necessaire = p &times; S = 8 &times; 10<sup>5</sup> &times; ' + surfacePlacage_m2 + ' = <strong>' + formatN(forceNecessaire) + ' N</strong>';
+  const appliEl = document.getElementById('appliResult');
+  if (peutLeFaire) {
+    appliEl.className = 'appli-result appli-ok';
+    appliEl.innerHTML = 'Oui, cette presse peut le faire (F<sub>2</sub> = ' + formatN(Math.round(F2)) + ' N &ge; ' + formatN(forceNecessaire) + ' N)';
+  } else {
+    appliEl.className = 'appli-result appli-ko';
+    appliEl.innerHTML = 'Non, force insuffisante (F<sub>2</sub> = ' + formatN(Math.round(F2)) + ' N &lt; ' + formatN(forceNecessaire) + ' N)';
+  }
+
+  // MathJax re-render
+  if (window.MathJax && MathJax.typeset) {
+    MathJax.typeset([document.getElementById('formulaContent')]);
+  }
+
+  // Animation target based on F1
+  targetOffset = (F1 - 10) / 490 * 30; // 0 to 30 px
+
+  draw(F1, d1, d2, F2, pBar, facteur);
+}
+
+function fmt(n, dec) {
+  if (dec === undefined) dec = 2;
+  return (Math.round(n * Math.pow(10, dec)) / Math.pow(10, dec)).toFixed(dec);
+}
+
+function formatN(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+function draw(F1, d1, d2, F2, pBar, facteur) {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#fafbfc';
+  ctx.fillRect(0, 0, W, H);
+
+  // Proportional sizes
+  const maxDiam = 300;
+  const minDrawW = 30;
+  const maxDrawW = 120;
+  const scale = (maxDrawW - minDrawW) / (maxDiam - 10);
+
+  const w1 = minDrawW + (d1 - 10) * scale;
+  const w2 = minDrawW + (d2 - 10) * scale;
+
+  // Positions
+  const cy = 200; // center Y of cylinders
+  const cylH = 140; // cylinder height
+  const tubeH = 30; // connecting tube height
+  const tubeY = cy + cylH / 2; // top of tube
+
+  // Left cylinder (small piston)
+  const x1 = 170; // center X
+  // Right cylinder (large piston)
+  const x2 = 530;
+
+  // Piston displacement
+  const pistonOffset = targetOffset;
+  const smallPistonY = cy - cylH / 2 + 20 + pistonOffset;
+  // Large piston moves inversely proportional to area ratio
+  const largePistonOffset = pistonOffset * (d1 * d1) / (d2 * d2);
+  const largePistonY = cy - cylH / 2 + 20 - largePistonOffset;
+
+  // --- Draw connecting tube ---
+  const tubeTop = tubeY;
+  const tubeBot = tubeY + tubeH;
+  // Horizontal tube connecting the two cylinders at the bottom
+  ctx.fillStyle = '#bfdbfe';
+  ctx.fillRect(x1 - w1/2, tubeTop, (x2 + w2/2) - (x1 - w1/2), tubeH);
+  ctx.strokeStyle = '#475569';
+  ctx.lineWidth = 2;
+  // Top line of tube
+  ctx.beginPath();
+  ctx.moveTo(x1 - w1/2, tubeTop);
+  ctx.lineTo(x2 + w2/2, tubeTop);
+  ctx.stroke();
+  // Bottom line of tube
+  ctx.beginPath();
+  ctx.moveTo(x1 - w1/2, tubeBot);
+  ctx.lineTo(x2 + w2/2, tubeBot);
+  ctx.stroke();
+
+  // --- Draw left cylinder (small) ---
+  drawCylinder(x1, cy, w1, cylH, smallPistonY, tubeTop);
+
+  // --- Draw right cylinder (large) ---
+  drawCylinder(x2, cy, w2, cylH, largePistonY, tubeTop);
+
+  // --- Draw force arrows ---
+  // F1 arrow (pushing down on small piston)
+  const arrowTopSmall = smallPistonY - 60;
+  drawArrow(x1, arrowTopSmall, x1, smallPistonY - 2, '#dc2626', 3);
+  // F1 label
+  ctx.font = 'bold 14px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = '#dc2626';
+  ctx.textAlign = 'center';
+  ctx.fillText('F\u2081 = ' + F1 + ' N', x1, arrowTopSmall - 8);
+
+  // F2 arrow (pushing up on large piston)
+  const maxArrowLen = 80;
+  const f2ArrowLen = Math.min(maxArrowLen, 20 + (F2 / F1) * 3);
+  const arrowBotLarge = largePistonY + f2ArrowLen;
+  drawArrow(x2, arrowBotLarge, x2, largePistonY + 2, '#16a34a', 3);
+  // F2 label
+  ctx.fillStyle = '#16a34a';
+  ctx.textAlign = 'center';
+  ctx.fillText('F\u2082 = ' + formatN(Math.round(F2)) + ' N', x2, arrowBotLarge + 18);
+
+  // --- Labels on cylinders ---
+  ctx.font = '13px Segoe UI, system-ui, sans-serif';
+  // d1 label with dimension line
+  ctx.fillStyle = '#475569';
+  ctx.textAlign = 'center';
+  const d1LabelY = cy + cylH / 2 + tubeH + 22;
+  ctx.fillText('d\u2081 = ' + d1 + ' mm', x1, d1LabelY);
+  // Dimension line for d1
+  drawDimLine(x1 - w1/2, d1LabelY - 14, x1 + w1/2, d1LabelY - 14, '#475569');
+
+  // d2 label with dimension line
+  const d2LabelY = cy + cylH / 2 + tubeH + 22;
+  ctx.fillText('d\u2082 = ' + d2 + ' mm', x2, d2LabelY);
+  drawDimLine(x2 - w2/2, d2LabelY - 14, x2 + w2/2, d2LabelY - 14, '#475569');
+
+  // S1 and S2 labels inside cylinders
+  ctx.font = 'bold 11px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = '#1e40af';
+  ctx.textAlign = 'center';
+  ctx.fillText('S\u2081', x1, smallPistonY + 14);
+
+  ctx.fillText('S\u2082', x2, largePistonY + 14);
+
+  // Pressure label in tube
+  ctx.font = 'bold 12px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = '#1e3a8a';
+  ctx.textAlign = 'center';
+  ctx.fillText('p = ' + fmt(pBar, 1) + ' bar', (x1 + x2) / 2, tubeTop + tubeH / 2 + 4);
+
+  // Title labels
+  ctx.font = '12px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = '#64748b';
+  ctx.textAlign = 'center';
+  ctx.fillText('Petit piston', x1, cy - cylH / 2 - 70);
+  ctx.fillText('Grand piston', x2, cy - cylH / 2 - 70);
+
+  // Multiplication factor
+  ctx.font = 'bold 14px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = '#7c3aed';
+  ctx.textAlign = 'center';
+  ctx.fillText('\u00d7 ' + fmt(facteur, 1), (x1 + x2) / 2, cy - 30);
+  // Arrow from left to right
+  drawArrow((x1 + x2) / 2 - 40, cy - 20, (x1 + x2) / 2 + 40, cy - 20, '#7c3aed', 2);
+}
+
+function drawCylinder(cx, cy, w, h, pistonY, tubeTop) {
+  const left = cx - w / 2;
+  const top = cy - h / 2;
+  const bot = tubeTop; // cylinder bottom connects to tube
+
+  // Cylinder walls
+  ctx.strokeStyle = '#475569';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(left, top);
+  ctx.lineTo(left, bot);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(left + w, top);
+  ctx.lineTo(left + w, bot);
+  ctx.stroke();
+
+  // Fluid (below piston)
+  const fluidGrad = ctx.createLinearGradient(left, pistonY, left, bot);
+  fluidGrad.addColorStop(0, '#93c5fd');
+  fluidGrad.addColorStop(1, '#bfdbfe');
+  ctx.fillStyle = fluidGrad;
+  ctx.fillRect(left + 1, pistonY, w - 2, bot - pistonY);
+
+  // Piston (horizontal bar)
+  const pistonH = 10;
+  ctx.fillStyle = '#64748b';
+  ctx.fillRect(left - 8, pistonY - pistonH / 2, w + 16, pistonH);
+  ctx.strokeStyle = '#334155';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(left - 8, pistonY - pistonH / 2, w + 16, pistonH);
+
+  // Piston rod
+  ctx.fillStyle = '#94a3b8';
+  ctx.fillRect(cx - 4, pistonY - pistonH / 2 - 50, 8, 50);
+  ctx.strokeStyle = '#475569';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(cx - 4, pistonY - pistonH / 2 - 50, 8, 50);
+}
+
+function drawArrow(x1, y1, x2, y2, color, lineW) {
+  const dx = x2 - x1, dy = y2 - y1;
+  const len = Math.sqrt(dx * dx + dy * dy);
+  if (len < 2) return;
+  const ux = dx / len, uy = dy / len;
+  const headLen = Math.min(12, len * 0.3);
+
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+  ctx.lineWidth = lineW;
+
+  // Line
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2 - ux * headLen, y2 - uy * headLen);
+  ctx.stroke();
+
+  // Arrowhead
+  ctx.beginPath();
+  ctx.moveTo(x2, y2);
+  ctx.lineTo(x2 - ux * headLen - uy * headLen * 0.5, y2 - uy * headLen + ux * headLen * 0.5);
+  ctx.lineTo(x2 - ux * headLen + uy * headLen * 0.5, y2 - uy * headLen - ux * headLen * 0.5);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function drawDimLine(x1, y, x2, y2, color) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1;
+  // Ticks
+  ctx.beginPath();
+  ctx.moveTo(x1, y - 4); ctx.lineTo(x1, y + 4);
+  ctx.moveTo(x2, y - 4); ctx.lineTo(x2, y + 4);
+  // Line
+  ctx.moveTo(x1, y); ctx.lineTo(x2, y);
+  ctx.stroke();
+}
+
+update();
+</script>
+</body>
+</html>

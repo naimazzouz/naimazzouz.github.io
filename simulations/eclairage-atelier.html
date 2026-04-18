@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Eclairage d'un atelier – Simulation</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#2d3748;line-height:1.6;padding:20px}
+
+header{background:linear-gradient(135deg,#ca8a04,#d97706);color:#fff;padding:28px 20px 22px;border-radius:10px 10px 0 0;text-align:center;position:relative}
+header h1{font-size:1.6em;margin-bottom:4px}
+header .sous-titre{opacity:.85;font-size:.92em}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+
+.container{max-width:860px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.body-content{padding:24px}
+
+/* Canvas */
+.canvas-wrap{background:#1a1a2e;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin:16px 0;text-align:center;overflow-x:auto}
+canvas{display:block;margin:0 auto;max-width:100%}
+
+/* Sliders */
+.sliders-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.slider-group{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px}
+.slider-group label{font-weight:600;font-size:.88em;display:block;margin-bottom:6px;color:#475569}
+.slider-group input[type=range]{width:100%;accent-color:#d97706}
+.slider-group select{width:100%;padding:8px;border:2px solid #cbd5e1;border-radius:6px;font-size:.95em;outline:none;background:#fff}
+.slider-group select:focus{border-color:#d97706}
+.val-badge{display:inline-block;background:#d97706;color:#fff;border-radius:5px;padding:2px 10px;font-size:.85em;font-weight:700;min-width:40px;text-align:center;margin-left:6px}
+
+/* Formula box */
+.formula-box{background:#fffbeb;border:2px solid #d97706;border-radius:10px;padding:16px 24px;margin:16px 0}
+.formula-box .formula-line{font-size:1.05em;color:#334155;margin:4px 0}
+
+/* Result */
+.result-box{border-radius:10px;padding:16px 20px;text-align:center;margin:14px 0}
+.result-box .result-big{font-size:2em;font-weight:700}
+.result-box .result-unit{font-size:1em;font-weight:400;opacity:.8}
+.result-box .result-detail{font-size:.92em;color:#475569;margin-top:6px}
+
+.result-conforme{background:#d1fae5;border:2px solid #16a34a}
+.result-conforme .result-big{color:#166534}
+.result-non-conforme{background:#fee2e2;border:2px solid #dc2626}
+.result-non-conforme .result-big{color:#991b1b}
+
+.badge{display:inline-block;padding:6px 18px;border-radius:20px;font-weight:700;font-size:1.1em;margin:8px 0}
+.badge-green{background:#16a34a;color:#fff}
+.badge-red{background:#dc2626;color:#fff}
+
+.info-line{text-align:center;font-size:.95em;color:#475569;margin:6px 0}
+.info-line strong{color:#334155}
+
+/* Cost section */
+.cost-section{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin:16px 0}
+.cost-section h3{font-size:1em;color:#475569;margin-bottom:12px;border-bottom:1px solid #e2e8f0;padding-bottom:8px}
+.cost-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+.cost-input{text-align:center}
+.cost-input label{display:block;font-size:.82em;font-weight:600;color:#64748b;margin-bottom:4px}
+.cost-input input{width:90px;padding:6px;border:2px solid #cbd5e1;border-radius:6px;text-align:center;font-size:.95em;outline:none}
+.cost-input input:focus{border-color:#d97706}
+.cost-results{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:center}
+.cost-card{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px}
+.cost-card .cost-label{font-size:.78em;color:#64748b;font-weight:600;text-transform:uppercase}
+.cost-card .cost-value{font-size:1.2em;font-weight:700;color:#d97706;margin-top:2px}
+
+/* Context */
+.context-pro{background:#fffbeb;border-left:4px solid #d97706;border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:.9em;color:#92400e}
+.context-pro strong{color:#b45309}
+
+@media(max-width:600px){
+  .sliders-grid{grid-template-columns:1fr}
+  .cost-grid,.cost-results{grid-template-columns:1fr}
+  header h1{font-size:1.25em}
+  .body-content{padding:16px}
+  .result-box .result-big{font-size:1.5em}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">&larr; Retour</a>
+    <h1>Eclairage d'un atelier</h1>
+    <p class="sous-titre">Normes et calculs &middot; \(E = \dfrac{\Phi}{S}\)</p>
+  </header>
+
+  <div class="body-content">
+
+    <!-- Canvas -->
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="600" height="400"></canvas>
+    </div>
+
+    <!-- Sliders -->
+    <div class="sliders-grid">
+      <div class="slider-group">
+        <label>Longueur de la piece <span class="val-badge" id="valL">12</span> m</label>
+        <input type="range" id="sliderL" min="4" max="20" step="1" value="12" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Largeur de la piece <span class="val-badge" id="valW">8</span> m</label>
+        <input type="range" id="sliderW" min="3" max="12" step="1" value="8" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Flux par luminaire <span class="val-badge" id="valPhi">3400</span> lm</label>
+        <input type="range" id="sliderPhi" min="1000" max="5000" step="100" value="3400" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Nombre de luminaires <span class="val-badge" id="valN">10</span></label>
+        <input type="range" id="sliderN" min="1" max="30" step="1" value="10" oninput="update()">
+      </div>
+    </div>
+
+    <!-- Dropdown -->
+    <div class="sliders-grid" style="grid-template-columns:1fr">
+      <div class="slider-group">
+        <label>Type de zone</label>
+        <select id="selectZone" onchange="update()">
+          <option value="500">Atelier (500 lux)</option>
+          <option value="750">Finition (750 lux)</option>
+          <option value="150">Stockage (150 lux)</option>
+          <option value="400">Bureau (400 lux)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Formula box -->
+    <div class="formula-box">
+      <div class="formula-line" id="fSurface">\(S = L \times l = 12 \times 8 = 96 \text{ m}^2\)</div>
+      <div class="formula-line" id="fFlux">\(\Phi_{\text{total}} = n \times \Phi_{\text{luminaire}} = 10 \times 3\,400 = 34\,000 \text{ lm}\)</div>
+      <div class="formula-line" id="fEcl">\(E = \dfrac{\Phi_{\text{total}}}{S} = \dfrac{34\,000}{96} \approx 354 \text{ lux}\)</div>
+      <div class="formula-line" id="fNorme">\(E_{\text{norme}} = 500 \text{ lux}\)</div>
+    </div>
+
+    <!-- Result -->
+    <div class="result-box result-non-conforme" id="resultBox">
+      <div class="result-big" id="resultE">354 <span class="result-unit">lux</span></div>
+      <div id="badgeWrap"><span class="badge badge-red" id="badgeConf">NON CONFORME</span></div>
+      <div class="info-line" id="infoManque">Il manque 5 luminaires</div>
+      <div class="info-line" id="infoMin">Nombre minimum de luminaires : <strong id="nMin">15</strong></div>
+    </div>
+
+    <!-- Cost section -->
+    <div class="cost-section">
+      <h3>Estimation du cout energetique</h3>
+      <div class="cost-grid">
+        <div class="cost-input">
+          <label>Puissance / luminaire (W)</label>
+          <input type="number" id="inputPower" value="18" min="1" max="200" oninput="update()">
+        </div>
+        <div class="cost-input">
+          <label>Heures / jour</label>
+          <input type="number" id="inputHours" value="10" min="1" max="24" oninput="update()">
+        </div>
+        <div class="cost-input">
+          <label>Prix kWh (euros)</label>
+          <input type="number" id="inputPrice" value="0.22" min="0.01" max="1" step="0.01" oninput="update()">
+        </div>
+      </div>
+      <div class="cost-results">
+        <div class="cost-card">
+          <div class="cost-label">Cout / jour</div>
+          <div class="cost-value" id="costDay">0,40 &euro;</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-label">Cout / mois (22 j)</div>
+          <div class="cost-value" id="costMonth">8,71 &euro;</div>
+        </div>
+        <div class="cost-card">
+          <div class="cost-label">Cout / an (250 j)</div>
+          <div class="cost-value" id="costYear">99,00 &euro;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Context -->
+    <div class="context-pro">
+      <strong>Contexte professionnel :</strong> La norme NF EN 12464-1 fixe les niveaux d'eclairement minimum selon le type d'activite. Un installateur thermique ou un menuisier agenceur doit verifier que l'eclairage de l'atelier respecte ces normes pour garantir la securite et le confort visuel.
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const W = 600, H = 400;
+
+function update() {
+  const L = parseFloat(document.getElementById('sliderL').value);
+  const l = parseFloat(document.getElementById('sliderW').value);
+  const phi = parseFloat(document.getElementById('sliderPhi').value);
+  const n = parseInt(document.getElementById('sliderN').value);
+  const eNorme = parseInt(document.getElementById('selectZone').value);
+
+  // Badge values
+  document.getElementById('valL').textContent = L;
+  document.getElementById('valW').textContent = l;
+  document.getElementById('valPhi').textContent = phi;
+  document.getElementById('valN').textContent = n;
+
+  // Calculations
+  const S = L * l;
+  const phiTotal = n * phi;
+  const E = phiTotal / S;
+  const eRound = Math.round(E);
+  const nMin = Math.ceil((eNorme * S) / phi);
+  const conforme = E >= eNorme;
+
+  // Format numbers with spaces for thousands
+  function fmtN(v) {
+    return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\\,');
+  }
+  function fmtDisp(v) {
+    return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
+  // Formula box
+  document.getElementById('fSurface').innerHTML =
+    '\\(S = L \\times l = ' + L + ' \\times ' + l + ' = ' + S + ' \\text{ m}^2\\)';
+  document.getElementById('fFlux').innerHTML =
+    '\\(\\Phi_{\\text{total}} = n \\times \\Phi_{\\text{luminaire}} = ' + n + ' \\times ' + fmtN(phi) + ' = ' + fmtN(phiTotal) + ' \\text{ lm}\\)';
+  document.getElementById('fEcl').innerHTML =
+    '\\(E = \\dfrac{\\Phi_{\\text{total}}}{S} = \\dfrac{' + fmtN(phiTotal) + '}{' + S + '} \\approx ' + eRound + ' \\text{ lux}\\)';
+  document.getElementById('fNorme').innerHTML =
+    '\\(E_{\\text{norme}} = ' + eNorme + ' \\text{ lux}\\)';
+
+  if (window.MathJax && MathJax.typeset) {
+    MathJax.typeset([
+      document.getElementById('fSurface'),
+      document.getElementById('fFlux'),
+      document.getElementById('fEcl'),
+      document.getElementById('fNorme')
+    ]);
+  }
+
+  // Result box
+  const rb = document.getElementById('resultBox');
+  rb.className = 'result-box ' + (conforme ? 'result-conforme' : 'result-non-conforme');
+  document.getElementById('resultE').innerHTML = eRound + ' <span class="result-unit">lux</span>';
+
+  const badge = document.getElementById('badgeConf');
+  if (conforme) {
+    badge.className = 'badge badge-green';
+    badge.textContent = 'CONFORME';
+  } else {
+    badge.className = 'badge badge-red';
+    badge.textContent = 'NON CONFORME';
+  }
+
+  // Info lines
+  const diff = nMin - n;
+  const infoManque = document.getElementById('infoManque');
+  if (diff > 0) {
+    infoManque.textContent = 'Il manque ' + diff + ' luminaire' + (diff > 1 ? 's' : '');
+  } else if (diff < 0) {
+    infoManque.textContent = Math.abs(diff) + ' luminaire' + (Math.abs(diff) > 1 ? 's' : '') + ' en trop';
+  } else {
+    infoManque.textContent = 'Nombre exact de luminaires';
+  }
+  document.getElementById('nMin').textContent = nMin;
+
+  // Cost
+  const power = parseFloat(document.getElementById('inputPower').value) || 18;
+  const hours = parseFloat(document.getElementById('inputHours').value) || 10;
+  const price = parseFloat(document.getElementById('inputPrice').value) || 0.22;
+
+  const dailyKwh = (n * power * hours) / 1000;
+  const dailyCost = dailyKwh * price;
+  const monthlyCost = dailyCost * 22;
+  const yearlyCost = dailyCost * 250;
+
+  function fmtEuro(v) { return v.toFixed(2).replace('.', ','); }
+  document.getElementById('costDay').innerHTML = fmtEuro(dailyCost) + ' &euro;';
+  document.getElementById('costMonth').innerHTML = fmtEuro(monthlyCost) + ' &euro;';
+  document.getElementById('costYear').innerHTML = fmtEuro(yearlyCost) + ' &euro;';
+
+  // Draw
+  draw(L, l, n, E, eNorme);
+}
+
+function draw(L, l, n, E, eNorme) {
+  ctx.clearRect(0, 0, W, H);
+
+  // Background
+  ctx.fillStyle = '#1a1a2e';
+  ctx.fillRect(0, 0, W, H);
+
+  // Room dimensions on canvas
+  const margin = 50;
+  const maxRoomW = W - 2 * margin;
+  const maxRoomH = H - 2 * margin;
+  const scale = Math.min(maxRoomW / L, maxRoomH / l);
+  const roomW = L * scale;
+  const roomH = l * scale;
+  const roomX = (W - roomW) / 2;
+  const roomY = (H - roomH) / 2;
+
+  // Room background color based on eclairement
+  const ratio = Math.min(E / (eNorme * 1.5), 1);
+  let roomColor;
+  if (ratio < 0.3) {
+    roomColor = 'rgb(40,40,60)';
+  } else if (ratio < 0.7) {
+    const t = (ratio - 0.3) / 0.4;
+    const r = Math.round(40 + t * 140);
+    const g = Math.round(40 + t * 120);
+    const b = Math.round(60 - t * 20);
+    roomColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+  } else {
+    const t = (ratio - 0.7) / 0.3;
+    const r = Math.round(180 + t * 75);
+    const g = Math.round(160 + t * 75);
+    const b = Math.round(40 + t * 100);
+    roomColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+  ctx.fillStyle = roomColor;
+  ctx.fillRect(roomX, roomY, roomW, roomH);
+
+  // Room border
+  ctx.strokeStyle = '#94a3b8';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(roomX, roomY, roomW, roomH);
+
+  // Grid layout for luminaires
+  const cols = Math.round(Math.sqrt(n * (L / l)));
+  const rows = Math.max(1, Math.round(n / Math.max(1, cols)));
+  const actualCols = Math.max(1, cols);
+
+  // Place luminaires in a grid
+  let placed = 0;
+  const positions = [];
+  const effectiveRows = Math.ceil(n / actualCols);
+
+  for (let r = 0; r < effectiveRows && placed < n; r++) {
+    const colsThisRow = Math.min(actualCols, n - placed);
+    for (let c = 0; c < colsThisRow && placed < n; c++) {
+      const px = roomX + (c + 0.5) * (roomW / colsThisRow);
+      const py = roomY + (r + 0.5) * (roomH / effectiveRows);
+      positions.push({ x: px, y: py });
+      placed++;
+    }
+  }
+
+  // Draw light circles (glow effect)
+  const glowRadius = Math.min(roomW, roomH) / (Math.sqrt(n) * 1.2);
+  for (const pos of positions) {
+    const grad = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, glowRadius);
+    const alpha = Math.min(0.35, 0.15 + ratio * 0.2);
+    grad.addColorStop(0, 'rgba(255,220,100,' + alpha + ')');
+    grad.addColorStop(0.6, 'rgba(255,200,50,' + (alpha * 0.4) + ')');
+    grad.addColorStop(1, 'rgba(255,180,0,0)');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, glowRadius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Draw luminaire symbols
+  for (const pos of positions) {
+    ctx.fillStyle = '#fbbf24';
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#b45309';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  // Dimension labels
+  ctx.font = 'bold 13px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = '#e2e8f0';
+  ctx.textAlign = 'center';
+  ctx.fillText(L + ' m', W / 2, roomY - 10);
+  ctx.save();
+  ctx.translate(roomX - 14, H / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText(l + ' m', 0, 0);
+  ctx.restore();
+
+  // Norm label
+  ctx.font = '12px Segoe UI, system-ui, sans-serif';
+  ctx.fillStyle = '#94a3b8';
+  ctx.textAlign = 'right';
+  ctx.fillText('Norme : ' + eNorme + ' lux', W - 20, H - 12);
+
+  // Eclairement on canvas
+  ctx.font = 'bold 16px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillStyle = E >= eNorme ? '#4ade80' : '#f87171';
+  ctx.fillText('E = ' + Math.round(E) + ' lux', 20, H - 12);
+}
+
+update();
+</script>
+</body>
+</html>

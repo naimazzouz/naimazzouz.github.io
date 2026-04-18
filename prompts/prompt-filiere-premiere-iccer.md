@@ -2,7 +2,7 @@
 
 Ce prompt décrit les contextes professionnels à utiliser lorsque tu génères du contenu pour les classes de Première Bac Professionnel ICCER.
 
-**Source :** Référentiel Bac Pro ICCER — `pdf/referentiel-bcp-iccer.pdf`
+**Source :** Référentiel Bac Pro ICCER — `pdf/referentiels/referentiel-bcp-iccer.pdf`
 
 ICCER signifie : Installateur en Chauffage, Climatisation et Énergies Renouvelables.
 

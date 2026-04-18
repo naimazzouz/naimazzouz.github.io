@@ -3,10 +3,10 @@
 ## Filière : BMA Arts Graphiques option A (Signalétique)
 
 **Source :** BO n°28 du 15 juillet 2021 — Programme de mathématiques et physique-chimie BMA (NOR : MENE2115720A)
-- `pdf/programme-bma-maths-2021.pdf` (Annexe 1 — Mathématiques)
-- `pdf/programme-bma-physique-chimie-2021.pdf` (Annexe 2 — Physique-Chimie)
-- `pdf/epreuve-bma-maths-pc-2021.pdf` (Annexe 3 — Définition de l'épreuve)
-- `pdf/referentiel-bma-arts-graphiques.pdf` (Référentiel professionnel)
+- `pdf/programmes/programme-bma-maths-2021.pdf` (Annexe 1 — Mathématiques)
+- `pdf/programmes/programme-bma-physique-chimie-2021.pdf` (Annexe 2 — Physique-Chimie)
+- `pdf/programmes/epreuve-bma-maths-pc-2021.pdf` (Annexe 3 — Définition de l'épreuve)
+- `pdf/referentiels/referentiel-bma-arts-graphiques.pdf` (Référentiel professionnel)
 
 **Programme maths :** Spécifique BMA (continuité du programme CAP, niveau consolidé)
 **Programme PC :** Spécifique BMA (contextualisation dans le domaine professionnel de la spécialité)

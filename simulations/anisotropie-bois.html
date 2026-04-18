@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Anisotropie du bois — Simulation</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#2d3748;line-height:1.6;padding:20px}
+header{background:linear-gradient(135deg,#92400e,#b45309);color:#fff;padding:28px 20px 22px;border-radius:10px 10px 0 0;text-align:center;position:relative}
+header h1{font-size:1.6em;margin-bottom:4px}
+header .sous-titre{opacity:.85;font-size:.92em}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+.container{max-width:940px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.body-content{padding:24px}
+.canvas-wrap{background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin:16px 0;text-align:center;overflow-x:auto}
+canvas{display:block;margin:0 auto;max-width:100%}
+.sliders-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.slider-group{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px}
+.slider-group label{font-weight:600;font-size:.88em;display:block;margin-bottom:6px;color:#475569}
+.slider-group input[type=range]{width:100%;accent-color:#92400e}
+.slider-group select{width:100%;padding:8px 10px;border:2px solid #e2e8f0;border-radius:6px;font-size:.95em;background:#fff}
+.val-badge{display:inline-block;background:#92400e;color:#fff;border-radius:5px;padding:2px 10px;font-size:.85em;font-weight:700;min-width:40px;text-align:center;margin-left:6px}
+.debit-btns{display:flex;gap:0;border-radius:8px;overflow:hidden;border:2px solid #92400e;margin-top:6px}
+.debit-btns button{flex:1;padding:8px;border:none;background:#fff;color:#92400e;font-weight:700;font-size:.9em;cursor:pointer;transition:all .2s}
+.debit-btns button.active{background:#92400e;color:#fff}
+.debit-btns button:hover:not(.active){background:#fef3c7}
+.formula-box{background:#fef3c7;border:2px solid #d97706;border-radius:10px;padding:16px 24px;margin:16px 0}
+.formula-box h3{font-size:.95em;color:#92400e;margin-bottom:10px}
+.formula-line{font-size:.95em;color:#334155;margin:4px 0;line-height:1.8}
+.result-box{background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:14px 20px;text-align:center;margin:14px 0}
+.result-box .r-main{font-size:1.1em;font-weight:700;color:#166534}
+.result-box .r-detail{font-size:.88em;color:#475569;margin-top:4px}
+.chart-wrap{background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin:16px 0}
+.chart-wrap h3{font-size:.95em;color:#475569;margin-bottom:10px;text-align:center}
+.legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:8px 0;font-size:.85em}
+.legend-item{display:flex;align-items:center;gap:5px}
+.legend-sq{width:14px;height:14px;border-radius:2px}
+.context-pro{background:#fdf2f8;border-left:4px solid #92400e;border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:.9em;color:#78350f}
+.context-pro strong{color:#92400e}
+.tbl-section{margin:18px 0}
+.tbl-section table{width:100%;border-collapse:collapse;font-size:.85em;text-align:center}
+.tbl-section th{background:#ebf5ff;padding:6px 8px;border:1px solid #cbd5e1;font-weight:600}
+.tbl-section td{padding:5px 6px;border:1px solid #cbd5e1}
+.ctrls-row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0;align-items:center}
+.ctrls-row .slider-group{flex:1;min-width:180px;padding:10px 14px}
+.btn-action{border:none;padding:10px 20px;border-radius:8px;font-size:.92em;font-weight:700;cursor:pointer;white-space:nowrap}
+@media(max-width:600px){
+  .sliders-grid{grid-template-columns:1fr}
+  header h1{font-size:1.25em}
+  .body-content{padding:16px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">&larr; Retour</a>
+    <h1>Anisotropie du bois</h1>
+    <p class="sous-titre">Pourquoi le bois bouge-t-il plus en largeur qu'en longueur ?</p>
+  </header>
+
+  <div class="body-content">
+
+    <div class="canvas-wrap">
+      <canvas id="cv" width="880" height="460"></canvas>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-sq" style="background:#16a34a"></div> Longitudinale (L) — fil du bois</div>
+      <div class="legend-item"><div class="legend-sq" style="background:#dc2626"></div> Tangentielle (T) — le long des cernes</div>
+      <div class="legend-item"><div class="legend-sq" style="background:#2563eb"></div> Radiale (R) — du centre vers l'écorce</div>
+    </div>
+
+    <div class="sliders-grid">
+      <div class="slider-group">
+        <label>Humidité du bois H <span class="val-badge" id="vH">9</span> %</label>
+        <input type="range" id="sH" min="5" max="25" step="0.5" value="9" oninput="upd()">
+      </div>
+      <div class="slider-group">
+        <label>Humidité de référence H₀ <span class="val-badge" id="vH0">9</span> %</label>
+        <input type="range" id="sH0" min="5" max="15" step="0.5" value="9" oninput="upd()">
+      </div>
+      <div class="slider-group">
+        <label>Essence de bois</label>
+        <select id="selEss" onchange="upd()">
+          <option value="chene" selected>Chêne</option>
+          <option value="hetre">Hêtre</option>
+          <option value="pin">Pin sylvestre</option>
+          <option value="noyer">Noyer</option>
+        </select>
+      </div>
+      <div class="slider-group">
+        <label>Type de débit</label>
+        <div class="debit-btns">
+          <button id="btnDosse" class="active" onclick="setDebit('dosse')">Sur dosse</button>
+          <button id="btnQuartier" onclick="setDebit('quartier')">Sur quartier</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ctrls-row">
+      <div class="slider-group" style="flex:1;min-width:180px;padding:10px 14px">
+        <label>Exagération visuelle <span class="val-badge" id="vExag">80</span> x</label>
+        <input type="range" id="sExag" min="20" max="200" step="5" value="80" oninput="upd()">
+      </div>
+      <button class="btn-action" id="btnAnim" onclick="toggleAnim()" style="background:#16a34a;color:#fff">▶ Animation</button>
+    </div>
+
+    <div class="formula-box">
+      <h3>Calculs des mouvements hygroscopiques</h3>
+      <div class="formula-line" id="fDH">\(\Delta H = H - H_0 = 0\,\%\)</div>
+      <div class="formula-line" id="fL" style="color:#16a34a">\(\Delta L_L = 2000 \times 0{,}00009 \times 0 = 0{,}000\;\text{mm}\)</div>
+      <div class="formula-line" id="fT" style="color:#dc2626">\(\Delta L_T = 150 \times 0{,}0028 \times 0 = 0{,}000\;\text{mm}\)</div>
+      <div class="formula-line" id="fR" style="color:#2563eb">\(\Delta L_R = 22 \times 0{,}0015 \times 0 = 0{,}000\;\text{mm}\)</div>
+    </div>
+
+    <div class="chart-wrap">
+      <h3>Comparaison des mouvements (mm)</h3>
+      <canvas id="chartCv" height="160"></canvas>
+    </div>
+
+    <div class="result-box" id="resBox">
+      <div class="r-main" id="resMain">Déplacez le curseur d'humidité pour observer les mouvements</div>
+      <div class="r-detail" id="resDetail"></div>
+    </div>
+
+    <div class="tbl-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3 style="font-size:.95em;color:#475569;margin:0">Tableau de mesures</h3>
+        <div style="display:flex;gap:8px">
+          <button onclick="addMeas()" class="btn-action" style="background:#1976d2;color:#fff;padding:6px 14px;font-size:.85em">+ Mesure</button>
+          <button onclick="clrMeas()" class="btn-action" style="background:#e2e8f0;color:#475569;padding:6px 12px;font-size:.85em">Effacer</button>
+        </div>
+      </div>
+      <table>
+        <thead><tr>
+          <th>N°</th><th>Essence</th><th>Débit</th><th>H</th><th>H₀</th><th>ΔH</th>
+          <th style="color:#16a34a">ΔL<sub>L</sub></th><th style="color:#dc2626">ΔL<sub>T</sub></th><th style="color:#2563eb">ΔL<sub>R</sub></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="context-pro">
+      <strong>Contexte professionnel :</strong> Le menuisier choisit le débit de ses planches selon l'usage.
+      <strong>Sur dosse</strong> (largeur = tangentielle) : économique mais le bois bouge beaucoup en largeur.
+      <strong>Sur quartier</strong> (largeur = radiale) : plus stable, idéal pour les portes et parquets haut de gamme,
+      mais plus coûteux car le rendement matière est plus faible.
+    </div>
+
+  </div>
+</div>
+
+<script>
+const cv = document.getElementById('cv');
+const c = cv.getContext('2d');
+const W = 880, H = 460;
+
+const ESS = {
+  chene: {nom:'Chêne', aT:0.0028, aR:0.0015, aL:0.00009},
+  hetre: {nom:'Hêtre', aT:0.0040, aR:0.0020, aL:0.00012},
+  pin:   {nom:'Pin',   aT:0.0024, aR:0.0013, aL:0.00008},
+  noyer: {nom:'Noyer', aT:0.0022, aR:0.0012, aL:0.00007}
+};
+const DL=2000, DT=150, DR=22;
+let debit='dosse', animOn=false, animId=null, animDir=1, measN=0;
+
+// Chart
+const chart = new Chart(document.getElementById('chartCv').getContext('2d'), {
+  type:'bar',
+  data:{labels:['Longitudinale (L)','Tangentielle (T)','Radiale (R)'],
+    datasets:[{data:[0,0,0],backgroundColor:['#16a34a','#dc2626','#2563eb'],borderRadius:4}]},
+  options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},
+    tooltip:{callbacks:{label:function(ctx){return ctx.raw.toFixed(3)+' mm'}}}},
+    scales:{x:{title:{display:true,text:'Mouvement (mm)',font:{weight:'bold'}},beginAtZero:true},
+    y:{ticks:{font:{weight:'bold'}}}}}
+});
+
+function setDebit(d){
+  debit=d;
+  document.getElementById('btnDosse').className = d==='dosse'?'active':'';
+  document.getElementById('btnQuartier').className = d==='quartier'?'active':'';
+  upd();
+}
+
+function toggleAnim(){
+  animOn=!animOn;
+  document.getElementById('btnAnim').textContent = animOn?'⏸ Pause':'▶ Animation';
+  document.getElementById('btnAnim').style.background = animOn?'#dc2626':'#16a34a';
+  if(animOn) animStep(); else if(animId){cancelAnimationFrame(animId);animId=null;}
+}
+function animStep(){
+  if(!animOn) return;
+  var s=document.getElementById('sH'), v=parseFloat(s.value)+animDir*0.12;
+  if(v>=25){v=25;animDir=-1;} if(v<=5){v=5;animDir=1;}
+  s.value=v; upd(); animId=requestAnimationFrame(animStep);
+}
+
+function f2(n){return (Math.round(n*100)/100).toString();}
+function f3(n){return (Math.round(n*1000)/1000).toFixed(3);}
+
+function upd(){
+  var Hv=parseFloat(document.getElementById('sH').value);
+  var H0=parseFloat(document.getElementById('sH0').value);
+  var ess=ESS[document.getElementById('selEss').value];
+  var exag=parseInt(document.getElementById('sExag').value);
+  var dH=Hv-H0;
+  document.getElementById('vH').textContent=Hv;
+  document.getElementById('vH0').textContent=H0;
+  document.getElementById('vExag').textContent=exag;
+
+  var dLL=DL*ess.aL*dH, dLT=DT*ess.aT*dH, dLR=DR*ess.aR*dH;
+
+  // Formulas
+  document.getElementById('fDH').innerHTML='\\(\\Delta H = '+f2(Hv)+' - '+f2(H0)+' = '+f2(dH)+'\\,\\%\\)';
+  document.getElementById('fL').innerHTML='\\(\\Delta L_L = 2000 \\times '+ess.aL+' \\times '+f2(dH)+' = '+f3(dLL)+'\\;\\text{mm}\\)';
+  document.getElementById('fT').innerHTML='\\(\\Delta L_T = 150 \\times '+ess.aT+' \\times '+f2(dH)+' = '+f3(dLT)+'\\;\\text{mm}\\)';
+  document.getElementById('fR').innerHTML='\\(\\Delta L_R = 22 \\times '+ess.aR+' \\times '+f2(dH)+' = '+f3(dLR)+'\\;\\text{mm}\\)';
+  if(window.MathJax&&MathJax.typeset&&!animOn) MathJax.typeset([document.getElementById('fDH'),document.getElementById('fL'),document.getElementById('fT'),document.getElementById('fR')]);
+
+  // Chart
+  chart.data.datasets[0].data=[Math.abs(dLL),Math.abs(dLT),Math.abs(dLR)]; chart.update();
+
+  // Result
+  if(Math.abs(dH)<0.01){
+    document.getElementById('resMain').textContent='Aucun mouvement (humidité = référence)';
+    document.getElementById('resDetail').textContent='';
+  } else {
+    var widthDir = debit==='dosse'?'T':'R';
+    var widthMvt = debit==='dosse'?Math.abs(dLT):Math.abs(dLR);
+    document.getElementById('resMain').textContent='Direction dominante : Tangentielle (T) — rapport T/L = '+(Math.abs(dLT/dLL)).toFixed(1)+'x';
+    document.getElementById('resDetail').textContent='Mouvement en largeur ('+widthDir+') : '+f3(widthMvt)+' mm — '+(debit==='dosse'?'Dosse = mouvement maximal en largeur':'Quartier = plus stable en largeur');
+  }
+
+  draw(dH, dLL, dLT, dLR, exag, ess);
+}
+
+function draw(dH, dLL, dLT, dLR, exag, ess){
+  c.clearRect(0,0,W,H);
+
+  // Background
+  c.fillStyle='#fafbfc'; c.fillRect(0,0,W,H);
+
+  // ========== LEFT PANEL: CROSS SECTION ==========
+  var LX=200, LY=H/2, LR=130; // center and radius of the log section
+
+  // Title
+  c.font='bold 15px Segoe UI,system-ui,sans-serif';
+  c.fillStyle='#92400e'; c.textAlign='center';
+  c.fillText('Coupe du tronc', LX, 28);
+
+  // Log circle
+  c.beginPath(); c.arc(LX,LY,LR,0,Math.PI*2);
+  c.fillStyle='#f5e6cc'; c.fill();
+
+  // Annual rings
+  for(var i=1;i<=8;i++){
+    c.beginPath(); c.arc(LX,LY,LR*i/9,0,Math.PI*2);
+    c.strokeStyle='rgba(120,53,15,'+(0.08+i*0.025)+')'; c.lineWidth=1.2; c.stroke();
+  }
+
+  // Bark
+  c.beginPath(); c.arc(LX,LY,LR,0,Math.PI*2);
+  c.strokeStyle='#5c3310'; c.lineWidth=4; c.stroke();
+
+  // Pith (moelle)
+  c.beginPath(); c.arc(LX,LY,4,0,Math.PI*2);
+  c.fillStyle='#78350f'; c.fill();
+  c.font='9px Segoe UI,system-ui,sans-serif'; c.fillStyle='#78350f'; c.textAlign='center';
+  c.fillText('moelle',LX,LY+14);
+
+  // === PLANK RECTANGLE inside the cross-section ===
+  if(debit==='dosse'){
+    // Horizontal rectangle near the edge (tangential to rings)
+    var pw=LR*1.5, ph=LR*0.25;
+    var px=LX-pw/2, py=LY+LR*0.35;
+    c.fillStyle='rgba(220,38,38,0.25)';
+    c.fillRect(px,py,pw,ph);
+    c.strokeStyle='#dc2626'; c.lineWidth=2.5;
+    c.strokeRect(px,py,pw,ph);
+    c.font='bold 11px Segoe UI,system-ui,sans-serif'; c.fillStyle='#dc2626'; c.textAlign='center';
+    c.fillText('PLANCHE',LX,py+ph/2+4);
+    // Arrow showing width direction = T
+    c.strokeStyle='#dc2626'; c.lineWidth=2;
+    c.beginPath(); c.moveTo(px+8,py+ph+8); c.lineTo(px+pw-8,py+ph+8); c.stroke();
+    // arrowheads
+    c.fillStyle='#dc2626';
+    c.beginPath(); c.moveTo(px+8,py+ph+8); c.lineTo(px+14,py+ph+4); c.lineTo(px+14,py+ph+12); c.closePath(); c.fill();
+    c.beginPath(); c.moveTo(px+pw-8,py+ph+8); c.lineTo(px+pw-14,py+ph+4); c.lineTo(px+pw-14,py+ph+12); c.closePath(); c.fill();
+    c.font='bold 10px Segoe UI,system-ui,sans-serif';
+    c.fillText('largeur = T',LX,py+ph+22);
+  } else {
+    // Vertical rectangle from center outward (radial)
+    var pw=LR*0.25, ph=LR*0.9;
+    var px=LX-pw/2+LR*0.15, py=LY-ph*0.3;
+    c.fillStyle='rgba(37,99,235,0.25)';
+    c.fillRect(px,py,pw,ph);
+    c.strokeStyle='#2563eb'; c.lineWidth=2.5;
+    c.strokeRect(px,py,pw,ph);
+    c.font='bold 11px Segoe UI,system-ui,sans-serif'; c.fillStyle='#2563eb'; c.textAlign='center';
+    c.save(); c.translate(px+pw/2,py+ph/2); c.rotate(-Math.PI/2);
+    c.fillText('PLANCHE',0,4); c.restore();
+    // Arrow showing width direction = R
+    c.strokeStyle='#2563eb'; c.lineWidth=2;
+    c.beginPath(); c.moveTo(px+pw+8,py+8); c.lineTo(px+pw+8,py+ph-8); c.stroke();
+    c.fillStyle='#2563eb';
+    c.beginPath(); c.moveTo(px+pw+8,py+8); c.lineTo(px+pw+4,py+14); c.lineTo(px+pw+12,py+14); c.closePath(); c.fill();
+    c.beginPath(); c.moveTo(px+pw+8,py+ph-8); c.lineTo(px+pw+4,py+ph-14); c.lineTo(px+pw+12,py+ph-14); c.closePath(); c.fill();
+    c.font='bold 10px Segoe UI,system-ui,sans-serif'; c.textAlign='left';
+    c.fillText('largeur = R',px+pw+16,LY+4);
+  }
+
+  // === DIRECTION ARROWS on the cross-section ===
+  // R (blue) — radial from center
+  c.strokeStyle='#2563eb'; c.lineWidth=2.5;
+  c.beginPath(); c.moveTo(LX+8,LY); c.lineTo(LX+LR*0.7,LY); c.stroke();
+  c.fillStyle='#2563eb';
+  c.beginPath(); c.moveTo(LX+LR*0.7+3,LY); c.lineTo(LX+LR*0.7-6,LY-4); c.lineTo(LX+LR*0.7-6,LY+4); c.closePath(); c.fill();
+  c.font='bold 13px Segoe UI,system-ui,sans-serif'; c.textAlign='left';
+  c.fillText('R',LX+LR*0.7+8,LY+4);
+
+  // T (red) — arc tangential along a ring
+  c.strokeStyle='#dc2626'; c.lineWidth=3;
+  c.beginPath(); c.arc(LX,LY,LR*0.6,-0.9,-0.15); c.stroke();
+  var tAng=-0.15, tR=LR*0.6;
+  var tax=LX+tR*Math.cos(tAng), tay=LY+tR*Math.sin(tAng);
+  c.fillStyle='#dc2626';
+  c.beginPath(); c.moveTo(tax+5,tay-5); c.lineTo(tax-7,tay-7); c.lineTo(tax-3,tay+5); c.closePath(); c.fill();
+  c.font='bold 13px Segoe UI,system-ui,sans-serif'; c.textAlign='left';
+  c.fillText('T',tax+8,tay-2);
+
+  // L (green) — dot-in-circle (perpendicular to page)
+  c.strokeStyle='#16a34a'; c.lineWidth=2;
+  c.beginPath(); c.arc(LX,LY-LR-22,10,0,Math.PI*2); c.stroke();
+  c.fillStyle='#16a34a';
+  c.beginPath(); c.arc(LX,LY-LR-22,3,0,Math.PI*2); c.fill();
+  c.font='bold 13px Segoe UI,system-ui,sans-serif'; c.textAlign='center';
+  c.fillText('L (fil du bois)',LX,LY-LR-40);
+
+  // Debit label below
+  c.font='bold 13px Segoe UI,system-ui,sans-serif'; c.textAlign='center';
+  c.fillStyle=debit==='dosse'?'#dc2626':'#2563eb';
+  c.fillText(debit==='dosse'?'Débit sur dosse':'Débit sur quartier',LX,H-20);
+  c.font='11px Segoe UI,system-ui,sans-serif'; c.fillStyle='#64748b';
+  c.fillText(debit==='dosse'?'La largeur de la planche suit la direction T':'La largeur de la planche suit la direction R',LX,H-5);
+
+  // ========== SEPARATOR ==========
+  // Vertical line
+  c.strokeStyle='#e2e8f0'; c.lineWidth=1;
+  c.beginPath(); c.moveTo(395,30); c.lineTo(395,H-30); c.stroke();
+  // Arrow
+  c.fillStyle='#92400e'; c.font='bold 24px Segoe UI,system-ui,sans-serif'; c.textAlign='center';
+  c.fillText('→',395,H/2);
+  c.font='italic 11px Segoe UI,system-ui,sans-serif'; c.fillStyle='#92400e';
+  c.fillText('vue de face',395,H/2+20);
+
+  // ========== RIGHT PANEL: PLANK FACE VIEW ==========
+  var RX=640, RY=H/2; // center of the plank view
+
+  // Title
+  c.font='bold 15px Segoe UI,system-ui,sans-serif';
+  c.fillStyle='#92400e'; c.textAlign='center';
+  c.fillText('Face de la planche (vue de bout)',RX,28);
+
+  // Scale: 1mm = 1.6px for the plank face
+  var sc=1.6;
+  var baseW=DT*sc, baseH_=DR*sc; // base width and height in pixels
+  var dW=dLT*sc*exag, dHt=dLR*sc*exag; // deformation in pixels
+  var curW=baseW+dW, curH_=baseH_+dHt;
+
+  // Reference rectangle (dashed)
+  if(Math.abs(dH)>0.1){
+    c.setLineDash([5,4]); c.strokeStyle='rgba(150,100,50,0.4)'; c.lineWidth=1.5;
+    c.strokeRect(RX-baseW/2, RY-baseH_/2, baseW, baseH_);
+    c.setLineDash([]);
+  }
+
+  // Current plank rectangle
+  var hum=Math.max(0,Math.min(1,(dH+20)/40));
+  var wr=Math.round(212-hum*50), wg=Math.round(169-hum*40), wb=Math.round(106-hum*30);
+  c.fillStyle='rgb('+wr+','+wg+','+wb+')';
+  c.fillRect(RX-curW/2, RY-curH_/2, curW, curH_);
+  c.strokeStyle='#78350f'; c.lineWidth=2;
+  c.strokeRect(RX-curW/2, RY-curH_/2, curW, curH_);
+
+  // Grain lines (horizontal, along the plank width)
+  c.strokeStyle='rgba(120,53,15,0.12)'; c.lineWidth=1;
+  for(var i=1;i<=4;i++){
+    var yy=RY-curH_/2+curH_*i/5;
+    c.beginPath(); c.moveTo(RX-curW/2+3,yy); c.lineTo(RX+curW/2-3,yy); c.stroke();
+  }
+
+  // Annual ring curves on the face (for dosse: curved lines; for quartier: vertical lines)
+  c.strokeStyle='rgba(120,53,15,0.18)'; c.lineWidth=1.2;
+  if(debit==='dosse'){
+    for(var i=1;i<=3;i++){
+      var yOff=curH_*0.15*i;
+      c.beginPath();
+      c.moveTo(RX-curW/2+5, RY+yOff);
+      c.quadraticCurveTo(RX, RY+yOff-curH_*0.3, RX+curW/2-5, RY+yOff);
+      c.stroke();
+    }
+  } else {
+    for(var i=1;i<=5;i++){
+      var xOff=RX-curW/2+curW*i/6;
+      c.beginPath(); c.moveTo(xOff,RY-curH_/2+3); c.lineTo(xOff,RY+curH_/2-3); c.stroke();
+    }
+  }
+
+  // === WIDTH ARROW (T or R) ===
+  var widthCol = debit==='dosse'?'#dc2626':'#2563eb';
+  var widthLabel = debit==='dosse'?'T':'R';
+  var widthVal = debit==='dosse'?dLT:dLR;
+  // Below the plank
+  var ay=RY+curH_/2+25;
+  c.strokeStyle=widthCol; c.lineWidth=2.5;
+  c.beginPath(); c.moveTo(RX-curW/2,ay); c.lineTo(RX+curW/2,ay); c.stroke();
+  // arrowheads
+  c.fillStyle=widthCol;
+  c.beginPath(); c.moveTo(RX-curW/2,ay); c.lineTo(RX-curW/2+8,ay-4); c.lineTo(RX-curW/2+8,ay+4); c.closePath(); c.fill();
+  c.beginPath(); c.moveTo(RX+curW/2,ay); c.lineTo(RX+curW/2-8,ay-4); c.lineTo(RX+curW/2-8,ay+4); c.closePath(); c.fill();
+  c.font='bold 13px Segoe UI,system-ui,sans-serif'; c.textAlign='center';
+  c.fillText('Largeur = '+DT+' mm (direction '+widthLabel+')',RX,ay+18);
+  if(Math.abs(widthVal)>0.001){
+    c.fillText('Δ'+widthLabel+' = '+f3(Math.abs(widthVal))+' mm',RX,ay+34);
+  }
+
+  // === HEIGHT ARROW (R or T) ===
+  var htCol = debit==='dosse'?'#2563eb':'#dc2626';
+  var htLabel = debit==='dosse'?'R':'T';
+  var htVal = debit==='dosse'?dLR:dLT;
+  // Right of the plank
+  var ax=RX+curW/2+20;
+  c.strokeStyle=htCol; c.lineWidth=2;
+  c.beginPath(); c.moveTo(ax,RY-curH_/2); c.lineTo(ax,RY+curH_/2); c.stroke();
+  c.fillStyle=htCol;
+  c.beginPath(); c.moveTo(ax,RY-curH_/2); c.lineTo(ax-4,RY-curH_/2+8); c.lineTo(ax+4,RY-curH_/2+8); c.closePath(); c.fill();
+  c.beginPath(); c.moveTo(ax,RY+curH_/2); c.lineTo(ax-4,RY+curH_/2-8); c.lineTo(ax+4,RY+curH_/2-8); c.closePath(); c.fill();
+  c.font='bold 11px Segoe UI,system-ui,sans-serif'; c.textAlign='left';
+  c.fillText(DR+'mm ('+htLabel+')',ax+8,RY+4);
+  if(Math.abs(htVal)>0.001){
+    c.fillText('Δ'+htLabel+'='+f3(Math.abs(htVal))+'mm',ax+8,RY+18);
+  }
+
+  // === L note (perpendicular) ===
+  c.font='12px Segoe UI,system-ui,sans-serif'; c.fillStyle='#16a34a'; c.textAlign='center';
+  c.fillText('L = 2000 mm (perpendiculaire à l\'écran)',RX,RY-curH_/2-20);
+  if(Math.abs(dLL)>0.001){
+    c.fillText('ΔL = '+f3(Math.abs(dLL))+' mm',RX,RY-curH_/2-6);
+  }
+
+  // === GONFLEMENT / RETRAIT label ===
+  if(Math.abs(dH)>0.01){
+    c.font='bold 16px Segoe UI,system-ui,sans-serif';
+    c.fillStyle=dH>0?'#16a34a':'#dc2626';
+    c.textAlign='center';
+    c.fillText(dH>0?'▲ GONFLEMENT':'▼ RETRAIT',RX,H-12);
+  }
+
+  // Essence + ΔH info
+  c.font='bold 12px Segoe UI,system-ui,sans-serif'; c.fillStyle='#92400e'; c.textAlign='right';
+  c.fillText(ess.nom+' | ΔH = '+(dH>=0?'+':'')+f2(dH)+' %',W-15,H-8);
+}
+
+// Measurement table
+function addMeas(){
+  measN++;
+  var Hv=parseFloat(document.getElementById('sH').value);
+  var H0=parseFloat(document.getElementById('sH0').value);
+  var ess=ESS[document.getElementById('selEss').value];
+  var dH=Hv-H0;
+  var tr=document.createElement('tr');
+  tr.style.background=measN%2===0?'#f8fafc':'#fff';
+  tr.innerHTML='<td>'+measN+'</td><td>'+ess.nom+'</td><td>'+(debit==='dosse'?'Dosse':'Quartier')+'</td><td>'+f2(Hv)+'</td><td>'+f2(H0)+'</td><td style="font-weight:700">'+f2(dH)+'</td><td style="color:#16a34a;font-weight:600">'+f3(Math.abs(DL*ess.aL*dH))+'</td><td style="color:#dc2626;font-weight:600">'+f3(Math.abs(DT*ess.aT*dH))+'</td><td style="color:#2563eb;font-weight:600">'+f3(Math.abs(DR*ess.aR*dH))+'</td>';
+  document.getElementById('tbody').appendChild(tr);
+}
+function clrMeas(){document.getElementById('tbody').innerHTML='';measN=0;}
+
+upd();
+</script>
+</body>
+</html>

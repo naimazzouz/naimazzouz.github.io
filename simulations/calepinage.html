@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Calepinage — Optimisation de decoupe – Simulation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#2d3748;line-height:1.6;padding:20px}
+
+header{background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;padding:28px 20px 22px;border-radius:10px 10px 0 0;text-align:center;position:relative}
+header h1{font-size:1.6em;margin-bottom:4px}
+header .sous-titre{opacity:.85;font-size:.92em}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+
+.container{max-width:860px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.body-content{padding:24px}
+
+/* Canvas */
+.canvas-wrap{background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin:16px 0;text-align:center;overflow-x:auto}
+canvas{display:block;margin:0 auto;max-width:100%}
+
+/* Inputs grid */
+.inputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.input-group{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px}
+.input-group label{font-weight:600;font-size:.88em;display:block;margin-bottom:6px;color:#475569}
+.input-group input[type=number]{width:100%;padding:8px 10px;border:2px solid #cbd5e1;border-radius:6px;font-size:1em;outline:none;text-align:center}
+.input-group input[type=number]:focus{border-color:#0d9488}
+.input-group .unit{font-size:.82em;color:#64748b;margin-top:4px;text-align:center}
+
+/* Slider */
+.slider-group{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;margin:16px 0}
+.slider-group label{font-weight:600;font-size:.88em;display:block;margin-bottom:6px;color:#475569}
+.slider-group input[type=range]{width:100%;accent-color:#0d9488}
+.val-badge{display:inline-block;background:#0d9488;color:#fff;border-radius:5px;padding:2px 10px;font-size:.85em;font-weight:700;min-width:40px;text-align:center;margin-left:6px}
+
+/* Buttons */
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.btn-calc{background:#0d9488;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:1em;font-weight:600;cursor:pointer;transition:background .2s}
+.btn-calc:hover{background:#0f766e}
+
+/* Results */
+.result-box{background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:16px 20px;margin:16px 0}
+.result-title{font-size:1.1em;font-weight:700;color:#166534;margin-bottom:10px;text-align:center}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.result-item{display:flex;justify-content:space-between;padding:6px 10px;background:#fff;border-radius:6px;border:1px solid #e2e8f0;font-size:.92em}
+.result-item .r-label{color:#475569;font-weight:500}
+.result-item .r-value{font-weight:700;color:#334155}
+
+.waste-bar{margin-top:12px;text-align:center}
+.waste-bar .waste-pct{font-size:1.4em;font-weight:700}
+.waste-bar .waste-label{font-size:.88em;color:#475569}
+.waste-green{color:#16a34a}
+.waste-orange{color:#d97706}
+.waste-red{color:#dc2626}
+
+/* Comparison table */
+.compare-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92em}
+.compare-table th,.compare-table td{padding:10px 12px;text-align:center;border:1px solid #e2e8f0}
+.compare-table th{background:#f0fdfa;color:#0d9488;font-weight:700}
+.compare-table .winner{background:#d1fae5;font-weight:700}
+.compare-table .col-label{background:#f8fafc;font-weight:600;color:#475569;text-align:left}
+
+/* Legend */
+.legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:8px 0;font-size:.85em}
+.legend-item{display:flex;align-items:center;gap:5px}
+.legend-sq{width:14px;height:14px;border-radius:2px}
+
+/* Context */
+.context-pro{background:#f0fdfa;border-left:4px solid #0d9488;border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:.9em;color:#134e4a}
+.context-pro strong{color:#0d9488}
+
+@media(max-width:600px){
+  .inputs-grid,.result-grid{grid-template-columns:1fr}
+  header h1{font-size:1.25em}
+  .body-content{padding:16px}
+  .btn-row{flex-direction:column;align-items:stretch}
+  .btn-calc{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">&larr; Retour</a>
+    <h1>Calepinage &mdash; Optimisation de decoupe</h1>
+    <p class="sous-titre">2nde Bac Pro &middot; Minimiser les chutes de panneaux</p>
+  </header>
+
+  <div class="body-content">
+
+    <!-- Panel dimensions -->
+    <div class="inputs-grid">
+      <div class="input-group">
+        <label>Largeur du panneau</label>
+        <input type="number" id="panelW" value="2500" min="100" max="10000" step="10" oninput="calculate()">
+        <div class="unit">mm</div>
+      </div>
+      <div class="input-group">
+        <label>Hauteur du panneau</label>
+        <input type="number" id="panelH" value="1220" min="100" max="10000" step="10" oninput="calculate()">
+        <div class="unit">mm</div>
+      </div>
+    </div>
+
+    <!-- Piece dimensions -->
+    <div class="inputs-grid">
+      <div class="input-group">
+        <label>Largeur de la piece</label>
+        <input type="number" id="pieceW" value="600" min="10" max="5000" step="5" oninput="calculate()">
+        <div class="unit">mm</div>
+      </div>
+      <div class="input-group">
+        <label>Hauteur de la piece</label>
+        <input type="number" id="pieceH" value="400" min="10" max="5000" step="5" oninput="calculate()">
+        <div class="unit">mm</div>
+      </div>
+    </div>
+
+    <!-- Saw kerf slider -->
+    <div class="slider-group">
+      <label>Trait de scie <span class="val-badge" id="valKerf">3</span> mm</label>
+      <input type="range" id="sliderKerf" min="0" max="5" step="0.5" value="3" oninput="calculate()">
+    </div>
+
+    <!-- Orientation buttons -->
+    <div class="btn-row">
+      <button class="btn-calc" id="btnA" onclick="setOrientation('A')" style="background:#0d9488">Orientation A (normal)</button>
+      <button class="btn-calc" id="btnB" onclick="setOrientation('B')" style="background:#64748b">Orientation B (piece pivotee 90&deg;)</button>
+    </div>
+
+    <!-- Canvas -->
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="720" height="420"></canvas>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item"><div class="legend-sq" style="background:rgba(14,165,233,.25);border:1px solid #0ea5e9"></div> Pieces decoupees</div>
+      <div class="legend-item"><div class="legend-sq" style="background:rgba(239,68,68,.15);border:1px solid #ef4444"></div> Chutes</div>
+      <div class="legend-item"><div class="legend-sq" style="background:none;border:1px dashed #ef4444"></div> Traits de scie</div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-box" id="resultBox">
+      <div class="result-title" id="resultTitle">Resultats — Orientation A</div>
+      <div class="result-grid" id="resultGrid"></div>
+      <div class="waste-bar" id="wasteBar"></div>
+    </div>
+
+    <!-- Comparison table -->
+    <table class="compare-table" id="compareTable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Orientation A</th>
+          <th>Orientation B (90&deg;)</th>
+        </tr>
+      </thead>
+      <tbody id="compareBody"></tbody>
+    </table>
+
+    <!-- Context -->
+    <div class="context-pro">
+      <strong>Contexte professionnel :</strong> En menuiserie et agencement, le calepinage consiste a planifier la decoupe des panneaux (melamine, MDF, contreplaque) pour minimiser les chutes et reduire les couts matieres. Un menuisier agenceur optimise toujours l'orientation des pieces sur le panneau.
+    </div>
+
+  </div>
+</div>
+
+<script>
+let currentOrientation = 'A';
+
+function setOrientation(o) {
+  currentOrientation = o;
+  document.getElementById('btnA').style.background = o === 'A' ? '#0d9488' : '#64748b';
+  document.getElementById('btnB').style.background = o === 'B' ? '#0d9488' : '#64748b';
+  calculate();
+}
+
+function getValues() {
+  const panelW = parseFloat(document.getElementById('panelW').value) || 0;
+  const panelH = parseFloat(document.getElementById('panelH').value) || 0;
+  const pieceW = parseFloat(document.getElementById('pieceW').value) || 0;
+  const pieceH = parseFloat(document.getElementById('pieceH').value) || 0;
+  const kerf = parseFloat(document.getElementById('sliderKerf').value);
+  return { panelW, panelH, pieceW, pieceH, kerf };
+}
+
+function computeLayout(panelW, panelH, pw, ph, kerf) {
+  if (pw <= 0 || ph <= 0 || panelW <= 0 || panelH <= 0) return { cols: 0, rows: 0, total: 0, usedArea: 0, wasteArea: 0, wastePct: 100 };
+
+  // Pieces fit: first piece has no kerf before it
+  const cols = Math.max(0, Math.floor((panelW + kerf) / (pw + kerf)));
+  const rows = Math.max(0, Math.floor((panelH + kerf) / (ph + kerf)));
+  const total = cols * rows;
+  const panelArea = panelW * panelH;
+  const usedArea = total * pw * ph;
+  const wasteArea = panelArea - usedArea;
+  const wastePct = panelArea > 0 ? (wasteArea / panelArea) * 100 : 100;
+  return { cols, rows, total, usedArea, wasteArea, wastePct };
+}
+
+function calculate() {
+  const { panelW, panelH, pieceW, pieceH, kerf } = getValues();
+  document.getElementById('valKerf').textContent = kerf;
+
+  // Orientation A: piece as-is
+  const layoutA = computeLayout(panelW, panelH, pieceW, pieceH, kerf);
+  // Orientation B: piece rotated 90 degrees
+  const layoutB = computeLayout(panelW, panelH, pieceH, pieceW, kerf);
+
+  const current = currentOrientation === 'A' ? layoutA : layoutB;
+  const pw = currentOrientation === 'A' ? pieceW : pieceH;
+  const ph = currentOrientation === 'A' ? pieceH : pieceW;
+
+  // Update result box
+  document.getElementById('resultTitle').textContent = 'Resultats — Orientation ' + currentOrientation;
+  const grid = document.getElementById('resultGrid');
+  grid.innerHTML =
+    item('Pieces par rangee', current.cols) +
+    item('Nombre de rangees', current.rows) +
+    item('Total de pieces', current.total) +
+    item('Surface utile', fmt(current.usedArea / 1e6) + ' m\u00b2') +
+    item('Surface panneau', fmt((panelW * panelH) / 1e6) + ' m\u00b2') +
+    item('Surface chutes', fmt(current.wasteArea / 1e6) + ' m\u00b2');
+
+  const wasteBar = document.getElementById('wasteBar');
+  let wClass = 'waste-green';
+  if (current.wastePct >= 30) wClass = 'waste-red';
+  else if (current.wastePct >= 15) wClass = 'waste-orange';
+  wasteBar.innerHTML = '<div class="waste-pct ' + wClass + '">' + current.wastePct.toFixed(1) + ' % de chutes</div>' +
+    '<div class="waste-label">' + (current.wastePct < 15 ? 'Excellent rendement' : current.wastePct < 30 ? 'Rendement acceptable' : 'Rendement faible — optimiser l\'orientation') + '</div>';
+
+  // Comparison table
+  const best = layoutA.total >= layoutB.total ? (layoutA.total > layoutB.total ? 'A' : 'AB') : 'B';
+  const tbody = document.getElementById('compareBody');
+  tbody.innerHTML =
+    compRow('Pieces / rangee', layoutA.cols, layoutB.cols) +
+    compRow('Rangees', layoutA.rows, layoutB.rows) +
+    compRow('Total pieces', layoutA.total, layoutB.total, true) +
+    compRow('Chutes', layoutA.wastePct.toFixed(1) + ' %', layoutB.wastePct.toFixed(1) + ' %') +
+    '<tr>' +
+      '<td class="col-label">Meilleure orientation</td>' +
+      '<td class="' + (best === 'A' || best === 'AB' ? 'winner' : '') + '">' + (best === 'A' || best === 'AB' ? '\u2705 Meilleur' : '') + '</td>' +
+      '<td class="' + (best === 'B' || best === 'AB' ? 'winner' : '') + '">' + (best === 'B' || best === 'AB' ? '\u2705 Meilleur' : '') + '</td>' +
+    '</tr>';
+
+  // Draw
+  draw(panelW, panelH, pw, ph, kerf, current);
+}
+
+function item(label, value) {
+  return '<div class="result-item"><span class="r-label">' + label + '</span><span class="r-value">' + value + '</span></div>';
+}
+
+function compRow(label, vA, vB, highlight) {
+  const hA = highlight && (parseFloat(vA) > parseFloat(vB)) ? ' winner' : '';
+  const hB = highlight && (parseFloat(vB) > parseFloat(vA)) ? ' winner' : '';
+  const hEq = highlight && vA === vB ? ' winner' : '';
+  return '<tr><td class="col-label">' + label + '</td><td class="' + (hA || hEq) + '">' + vA + '</td><td class="' + (hB || hEq) + '">' + vB + '</td></tr>';
+}
+
+function fmt(n) {
+  return Number.isInteger(n) ? n.toString() : (Math.round(n * 10000) / 10000).toFixed(4).replace(/0+$/, '').replace(/\.$/, '');
+}
+
+// Drawing
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+function draw(panelW, panelH, pw, ph, kerf, layout) {
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#fafbfc';
+  ctx.fillRect(0, 0, W, H);
+
+  if (panelW <= 0 || panelH <= 0) return;
+
+  // Margins for labels
+  const margin = { left: 50, top: 30, right: 30, bottom: 40 };
+  const drawW = W - margin.left - margin.right;
+  const drawH = H - margin.top - margin.bottom;
+
+  // Scale panel to fit
+  const scale = Math.min(drawW / panelW, drawH / panelH);
+  const pxW = panelW * scale;
+  const pxH = panelH * scale;
+  const ox = margin.left + (drawW - pxW) / 2;
+  const oy = margin.top + (drawH - pxH) / 2;
+
+  // Draw panel background (waste color)
+  ctx.fillStyle = 'rgba(239,68,68,0.1)';
+  ctx.fillRect(ox, oy, pxW, pxH);
+  ctx.strokeStyle = '#334155';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(ox, oy, pxW, pxH);
+
+  // Draw pieces
+  const { cols, rows } = layout;
+  const piecePxW = pw * scale;
+  const piecePxH = ph * scale;
+  const kerfPx = kerf * scale;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const x = ox + c * (piecePxW + kerfPx);
+      const y = oy + r * (piecePxH + kerfPx);
+
+      // Piece
+      ctx.fillStyle = 'rgba(14,165,233,0.25)';
+      ctx.fillRect(x, y, piecePxW, piecePxH);
+      ctx.strokeStyle = '#0ea5e9';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(x, y, piecePxW, piecePxH);
+
+      // Piece number (only if enough space)
+      if (piecePxW > 20 && piecePxH > 16) {
+        ctx.fillStyle = '#0369a1';
+        ctx.font = Math.min(14, piecePxW / 3, piecePxH / 2) + 'px Segoe UI, system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText((r * cols + c + 1).toString(), x + piecePxW / 2, y + piecePxH / 2);
+      }
+    }
+  }
+
+  // Draw kerf lines (dashed red) — vertical lines between columns
+  ctx.strokeStyle = '#ef4444';
+  ctx.lineWidth = Math.max(1, kerfPx);
+  ctx.setLineDash([4, 3]);
+  for (let c = 1; c < cols; c++) {
+    const x = ox + c * (piecePxW + kerfPx) - kerfPx / 2;
+    const yEnd = oy + rows * (piecePxH + kerfPx) - kerfPx;
+    ctx.beginPath();
+    ctx.moveTo(x, oy);
+    ctx.lineTo(x, yEnd);
+    ctx.stroke();
+  }
+  // Horizontal kerf lines between rows
+  for (let r = 1; r < rows; r++) {
+    const y = oy + r * (piecePxH + kerfPx) - kerfPx / 2;
+    const xEnd = ox + cols * (piecePxW + kerfPx) - kerfPx;
+    ctx.beginPath();
+    ctx.moveTo(ox, y);
+    ctx.lineTo(xEnd, y);
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+
+  // Dimension labels — panel width (top)
+  ctx.fillStyle = '#334155';
+  ctx.font = 'bold 13px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'bottom';
+  ctx.fillText(panelW + ' mm', ox + pxW / 2, oy - 8);
+
+  // Panel height (left)
+  ctx.save();
+  ctx.translate(ox - 12, oy + pxH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'bottom';
+  ctx.fillText(panelH + ' mm', 0, 0);
+  ctx.restore();
+
+  // Piece count summary (bottom)
+  ctx.textBaseline = 'top';
+  ctx.fillStyle = '#0d9488';
+  ctx.font = 'bold 14px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(cols + ' x ' + rows + ' = ' + layout.total + ' pieces  |  Piece : ' + pw + ' x ' + ph + ' mm', ox + pxW / 2, oy + pxH + 10);
+}
+
+calculate();
+</script>
+</body>
+</html>

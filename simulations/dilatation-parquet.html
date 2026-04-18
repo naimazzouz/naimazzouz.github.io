@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dilatation thermique du parquet – Simulation</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f4f9;color:#2d3748;line-height:1.6;padding:20px}
+
+header{background:linear-gradient(135deg,#6f42c1,#7c3aed);color:#fff;padding:28px 20px 22px;border-radius:10px 10px 0 0;text-align:center;position:relative}
+header h1{font-size:1.6em;margin-bottom:4px}
+header .sous-titre{opacity:.85;font-size:.92em}
+.btn-back{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:5px 12px;border-radius:5px;font-size:.85em;transition:background .2s}
+.btn-back:hover{background:rgba(255,255,255,.35)}
+
+.container{max-width:860px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden}
+.body-content{padding:24px}
+
+/* Canvas */
+.canvas-wrap{background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin:16px 0;text-align:center;overflow-x:auto}
+canvas{display:block;margin:0 auto;max-width:100%}
+
+/* Sliders */
+.sliders-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.slider-group{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px}
+.slider-group label{font-weight:600;font-size:.88em;display:block;margin-bottom:6px;color:#475569}
+.slider-group input[type=range]{width:100%;accent-color:#7c3aed}
+.val-badge{display:inline-block;background:#7c3aed;color:#fff;border-radius:5px;padding:2px 10px;font-size:.85em;font-weight:700;min-width:40px;text-align:center;margin-left:6px}
+
+/* Formula box */
+.formula-box{background:#f5f0ff;border:2px solid #7c3aed;border-radius:10px;padding:16px 24px;text-align:center;margin:16px 0}
+.formula-box .formula-line{font-size:1em;color:#334155;margin:4px 0}
+
+/* Alert box */
+.alert-box{border-radius:10px;padding:14px 20px;text-align:center;margin:14px 0;font-weight:700;font-size:1.05em}
+.alert-ok{background:#d1fae5;border:2px solid #16a34a;color:#065f46}
+.alert-warn{background:#fef3c7;border:2px solid #f59e0b;color:#92400e}
+.alert-danger{background:#fee2e2;border:2px solid #dc2626;color:#991b1b}
+
+/* Context */
+.context-pro{background:#f5f0ff;border-left:4px solid #7c3aed;border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:.9em;color:#581c87}
+.context-pro strong{color:#7c3aed}
+
+/* Fixed values */
+.fixed-values{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:8px 0;font-size:.85em;color:#475569}
+.fixed-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:6px 12px}
+.fixed-item strong{color:#6f42c1}
+
+@media(max-width:600px){
+  .sliders-grid{grid-template-columns:1fr}
+  header h1{font-size:1.25em}
+  .body-content{padding:16px}
+  .fixed-values{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="../simulations.html" class="btn-back">&larr; Retour</a>
+    <h1>Dilatation thermique du parquet</h1>
+    <p class="sous-titre">Voir les lames gonfler avec la temperature</p>
+  </header>
+
+  <div class="body-content">
+
+    <!-- Canvas -->
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="700" height="340"></canvas>
+    </div>
+
+    <!-- Fixed values -->
+    <div class="fixed-values">
+      <div class="fixed-item"><strong>Largeur piece :</strong> 3 000 mm</div>
+      <div class="fixed-item"><strong>&alpha; (chene, largeur) :</strong> 0,04 mm/m/&deg;C</div>
+    </div>
+
+    <!-- Sliders -->
+    <div class="sliders-grid">
+      <div class="slider-group">
+        <label>Temperature actuelle <span class="val-badge" id="valT">10</span> &deg;C</label>
+        <input type="range" id="sliderT" min="0" max="45" step="1" value="10" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Temperature de pose <span class="val-badge" id="valT0">15</span> &deg;C</label>
+        <input type="range" id="sliderT0" min="10" max="25" step="1" value="15" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Largeur d'une lame <span class="val-badge" id="valL">150</span> mm</label>
+        <input type="range" id="sliderL" min="80" max="200" step="5" value="150" oninput="update()">
+      </div>
+      <div class="slider-group">
+        <label>Jeu initial (chaque cote) <span class="val-badge" id="valJ">8</span> mm</label>
+        <input type="range" id="sliderJ" min="2" max="15" step="0.5" value="8" oninput="update()">
+      </div>
+    </div>
+
+    <!-- Formula box -->
+    <div class="formula-box" id="formulaBox">
+      <div class="formula-line" id="fDeltaT"></div>
+      <div class="formula-line" id="fDeltaL"></div>
+      <div class="formula-line" id="fDeltaLtot"></div>
+      <div class="formula-line" id="fJeu"></div>
+    </div>
+
+    <!-- Alert -->
+    <div class="alert-box" id="alertBox"></div>
+
+    <!-- Context -->
+    <div class="context-pro">
+      <strong>Contexte professionnel :</strong> Un menuisier agenceur doit toujours prevoir un jeu de dilatation entre le parquet et les murs.
+      Sans ce jeu, la dilatation thermique du bois provoque un gondolage qui deforme le sol. La norme recommande environ 8 mm de jeu par cote.
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const W = 700, H = 340;
+const ROOM_WIDTH = 3000; // mm
+const ALPHA = 0.04; // mm/m/°C
+
+function update() {
+  const T = parseFloat(document.getElementById('sliderT').value);
+  const T0 = parseFloat(document.getElementById('sliderT0').value);
+  const lameW = parseFloat(document.getElementById('sliderL').value);
+  const jeuInit = parseFloat(document.getElementById('sliderJ').value);
+
+  document.getElementById('valT').textContent = T;
+  document.getElementById('valT0').textContent = T0;
+  document.getElementById('valL').textContent = lameW;
+  document.getElementById('valJ').textContent = jeuInit;
+
+  // Calculations
+  const n = Math.floor(ROOM_WIDTH / lameW);
+  const deltaT = T - T0;
+  const deltaLPerLame = (lameW / 1000) * ALPHA * deltaT; // mm
+  const deltaLTotal = n * deltaLPerLame; // mm
+  const jeuRestant = jeuInit - deltaLTotal / 2; // mm each side
+
+  // Update formulas
+  document.getElementById('fDeltaT').innerHTML =
+    '\\(\\Delta T = T - T_0 = ' + T + ' - ' + T0 + ' = ' + deltaT + '\\;\\degree\\text{C}\\)';
+  document.getElementById('fDeltaL').innerHTML =
+    '\\(\\Delta L_{\\text{lame}} = \\frac{L_0}{1000} \\times \\alpha \\times \\Delta T = \\frac{' + lameW + '}{1000} \\times 0{,}04 \\times ' + (deltaT >= 0 ? deltaT : '(' + deltaT + ')') + ' = ' + deltaLPerLame.toFixed(3) + '\\;\\text{mm}\\)';
+  document.getElementById('fDeltaLtot').innerHTML =
+    '\\(\\Delta L_{\\text{total}} = n \\times \\Delta L_{\\text{lame}} = ' + n + ' \\times ' + deltaLPerLame.toFixed(3) + ' = ' + deltaLTotal.toFixed(2) + '\\;\\text{mm}\\)';
+  document.getElementById('fJeu').innerHTML =
+    '\\(\\text{Jeu restant} = ' + jeuInit + ' - \\frac{' + deltaLTotal.toFixed(2) + '}{2} = ' + jeuRestant.toFixed(2) + '\\;\\text{mm (chaque cote)}\\)';
+
+  if (window.MathJax && MathJax.typeset) {
+    MathJax.typeset([document.getElementById('formulaBox')]);
+  }
+
+  // Alert
+  const alertBox = document.getElementById('alertBox');
+  if (jeuRestant <= 0) {
+    alertBox.className = 'alert-box alert-danger';
+    alertBox.innerHTML = 'GONDOLAGE ! Le parquet se deforme (depassement de ' + Math.abs(jeuRestant).toFixed(1) + ' mm)';
+  } else if (jeuRestant < 2) {
+    alertBox.className = 'alert-box alert-warn';
+    alertBox.innerHTML = 'Attention — jeu faible (' + jeuRestant.toFixed(1) + ' mm restant de chaque cote)';
+  } else {
+    alertBox.className = 'alert-box alert-ok';
+    alertBox.innerHTML = 'Jeu suffisant (' + jeuRestant.toFixed(1) + ' mm restant de chaque cote)';
+  }
+
+  draw(T, T0, n, lameW, jeuInit, deltaT, deltaLPerLame, deltaLTotal, jeuRestant);
+}
+
+function tempColor(T) {
+  // blue (0°C) → orange (25°C) → red (45°C)
+  if (T <= 15) {
+    const t = Math.max(0, T) / 15;
+    const r = Math.round(50 + t * 150);
+    const g = Math.round(100 + t * 80);
+    const b = Math.round(220 - t * 80);
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  } else {
+    const t = Math.min(1, (T - 15) / 30);
+    const r = Math.round(200 + t * 55);
+    const g = Math.round(180 - t * 140);
+    const b = Math.round(140 - t * 110);
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+}
+
+function draw(T, T0, n, lameW, jeuInit, deltaT, deltaLPerLame, deltaLTotal, jeuRestant) {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#fafbfc';
+  ctx.fillRect(0, 0, W, H);
+
+  // Layout
+  const wallW = 35;
+  const floorY = 220; // top of floor line
+  const lameH = 50;   // height of lame cross-section
+  const areaLeft = wallW;
+  const areaRight = W - wallW;
+  const areaW = areaRight - areaLeft; // pixel width for room
+
+  // Scale: map ROOM_WIDTH (3000mm) to areaW pixels
+  const pxPerMm = areaW / ROOM_WIDTH;
+
+  // Exaggeration factor for dilatation visibility
+  const EXAG = 50;
+
+  // Draw walls
+  ctx.fillStyle = '#94a3b8';
+  ctx.fillRect(0, floorY - 40, wallW, lameH + 80);
+  ctx.fillRect(W - wallW, floorY - 40, wallW, lameH + 80);
+
+  // Wall labels
+  ctx.save();
+  ctx.fillStyle = '#475569';
+  ctx.font = 'bold 11px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Mur', wallW / 2, floorY - 48);
+  ctx.fillText('Mur', W - wallW / 2, floorY - 48);
+  ctx.restore();
+
+  // Floor line
+  ctx.fillStyle = '#e2e8f0';
+  ctx.fillRect(areaLeft, floorY + lameH, areaW, 8);
+
+  // Calculate lame pixel sizes
+  const lamePixelBase = lameW * pxPerMm;
+  const deltaPixelPerLame = deltaLPerLame * EXAG * pxPerMm;
+  const lamePixelActual = lamePixelBase + deltaPixelPerLame;
+  const gapBetween = 1; // visual gap between lames (pixels)
+
+  const gondolage = jeuRestant <= 0;
+  const jeuPixelBase = jeuInit * pxPerMm * EXAG;
+
+  // Actual total expansion in pixels (exaggerated)
+  const totalExpansionPx = deltaLTotal * EXAG * pxPerMm;
+  const jeuRestantPx = Math.max(0, jeuPixelBase - totalExpansionPx / 2);
+
+  // Start drawing lames
+  const startX = areaLeft + jeuRestantPx;
+  const tc = tempColor(T);
+
+  // Wood color varies with temperature
+  const woodBaseR = 180, woodBaseG = 130, woodBaseB = 70;
+  const tFactor = Math.max(0, Math.min(1, (T - 0) / 45));
+
+  for (let i = 0; i < n; i++) {
+    const x = startX + i * (lamePixelActual + gapBetween);
+    const w = lamePixelActual;
+
+    if (gondolage) {
+      // Draw buckled lame — sinusoidal displacement
+      const excess = -jeuRestant; // mm of excess
+      const maxRise = Math.min(30, excess * 3); // pixel rise
+      // Middle lames buckle more
+      const centerFactor = 1 - Math.abs(i - n / 2) / (n / 2);
+      const rise = maxRise * centerFactor * centerFactor;
+
+      ctx.save();
+      ctx.beginPath();
+      // Draw a curved lame
+      const cx = x + w / 2;
+      const y0 = floorY;
+      const yTop = floorY - rise;
+
+      // Lame body as a curved shape
+      ctx.moveTo(x, y0 + lameH);
+      ctx.lineTo(x, y0 + lameH - rise * 0.3);
+      ctx.quadraticCurveTo(cx, yTop - lameH * 0.2, x + w, y0 + lameH - rise * 0.3);
+      ctx.lineTo(x + w, y0 + lameH);
+      ctx.lineTo(x + w, y0 + lameH - rise * 0.3);
+      ctx.quadraticCurveTo(cx, yTop, x, y0 + lameH - rise * 0.3);
+      ctx.closePath();
+
+      // Simpler approach: draw lame as a filled curved rectangle
+      ctx.restore();
+      ctx.save();
+
+      ctx.beginPath();
+      ctx.moveTo(x, floorY + lameH);
+      ctx.quadraticCurveTo(cx, floorY + lameH - rise * 0.5, x + w, floorY + lameH);
+      ctx.quadraticCurveTo(cx, floorY - rise, x, floorY + lameH);
+      ctx.closePath();
+
+      const lameR = Math.round(woodBaseR + tFactor * 40);
+      const lameG = Math.round(woodBaseG - tFactor * 30);
+      const lameB = Math.round(woodBaseB - tFactor * 20);
+      ctx.fillStyle = 'rgb(' + lameR + ',' + lameG + ',' + lameB + ')';
+      ctx.fill();
+      ctx.strokeStyle = '#8B6914';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+
+    } else {
+      // Normal flat lame
+      const lameR = Math.round(woodBaseR + tFactor * 40);
+      const lameG = Math.round(woodBaseG - tFactor * 30);
+      const lameB = Math.round(woodBaseB - tFactor * 20);
+      ctx.fillStyle = 'rgb(' + lameR + ',' + lameG + ',' + lameB + ')';
+      ctx.fillRect(x, floorY, w, lameH);
+      ctx.strokeStyle = '#8B6914';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(x, floorY, w, lameH);
+
+      // Wood grain lines
+      ctx.strokeStyle = 'rgba(139,105,20,0.2)';
+      ctx.lineWidth = 0.5;
+      for (let g = 0.2; g < 0.9; g += 0.25) {
+        ctx.beginPath();
+        ctx.moveTo(x + 2, floorY + lameH * g);
+        ctx.lineTo(x + w - 2, floorY + lameH * g);
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Draw gap zones (jeu) in red/green
+  if (!gondolage) {
+    // Left gap
+    const gapColor = jeuRestant < 2 ? 'rgba(245,158,11,0.3)' : 'rgba(34,197,94,0.3)';
+    const gapBorder = jeuRestant < 2 ? '#f59e0b' : '#16a34a';
+    ctx.fillStyle = gapColor;
+    ctx.fillRect(areaLeft, floorY, jeuRestantPx, lameH);
+    ctx.strokeStyle = gapBorder;
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 3]);
+    ctx.strokeRect(areaLeft, floorY, jeuRestantPx, lameH);
+    ctx.setLineDash([]);
+
+    // Right gap
+    const rightGapX = startX + n * (lamePixelActual + gapBetween) - gapBetween;
+    const rightGapW = areaRight - rightGapX;
+    if (rightGapW > 0) {
+      ctx.fillStyle = gapColor;
+      ctx.fillRect(rightGapX, floorY, rightGapW, lameH);
+      ctx.strokeStyle = gapBorder;
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 3]);
+      ctx.strokeRect(rightGapX, floorY, rightGapW, lameH);
+      ctx.setLineDash([]);
+    }
+
+    // Gap dimension arrows
+    if (jeuRestantPx > 15) {
+      ctx.fillStyle = gapBorder;
+      ctx.font = 'bold 10px Segoe UI, system-ui, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(jeuRestant.toFixed(1) + ' mm', areaLeft + jeuRestantPx / 2, floorY + lameH / 2 + 4);
+    }
+  }
+
+  // Thermometer on the right side
+  drawThermometer(W - 20, 30, T);
+
+  // Delta T indicator
+  if (deltaT !== 0) {
+    ctx.fillStyle = '#475569';
+    ctx.font = 'bold 12px Segoe UI, system-ui, sans-serif';
+    ctx.textAlign = 'left';
+    const dtLabel = deltaT > 0 ? '+' + deltaT + ' °C' : deltaT + ' °C';
+    ctx.fillText('\u0394T = ' + dtLabel, areaLeft + 10, floorY - 55);
+  }
+
+  // Number of lames label
+  ctx.fillStyle = '#475569';
+  ctx.font = '11px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(n + ' lames de ' + lameW + ' mm', W / 2, floorY + lameH + 30);
+
+  // Room width dimension line
+  const dimY = floorY + lameH + 50;
+  ctx.strokeStyle = '#94a3b8';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(areaLeft, dimY);
+  ctx.lineTo(areaRight, dimY);
+  ctx.stroke();
+  // End ticks
+  ctx.beginPath();
+  ctx.moveTo(areaLeft, dimY - 5);
+  ctx.lineTo(areaLeft, dimY + 5);
+  ctx.moveTo(areaRight, dimY - 5);
+  ctx.lineTo(areaRight, dimY + 5);
+  ctx.stroke();
+  ctx.fillStyle = '#64748b';
+  ctx.font = '11px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('3 000 mm', W / 2, dimY + 16);
+
+  // Gondolage warning on canvas
+  if (gondolage) {
+    ctx.save();
+    ctx.fillStyle = 'rgba(220,38,38,0.12)';
+    ctx.fillRect(areaLeft, floorY - 60, areaW, lameH + 60);
+    ctx.fillStyle = '#dc2626';
+    ctx.font = 'bold 16px Segoe UI, system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('GONDOLAGE', W / 2, floorY - 10);
+    ctx.restore();
+  }
+}
+
+function drawThermometer(x, y, T) {
+  const thermH = 120;
+  const thermW = 12;
+  const bulbR = 10;
+
+  // Background tube
+  ctx.fillStyle = '#e2e8f0';
+  ctx.beginPath();
+  ctx.roundRect(x - thermW / 2, y, thermW, thermH, 6);
+  ctx.fill();
+  ctx.strokeStyle = '#94a3b8';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Bulb
+  ctx.beginPath();
+  ctx.arc(x, y + thermH + bulbR - 2, bulbR, 0, Math.PI * 2);
+  ctx.fillStyle = tempColor(T);
+  ctx.fill();
+  ctx.strokeStyle = '#94a3b8';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Fill level
+  const fillRatio = T / 45;
+  const fillH = fillRatio * (thermH - 10);
+  ctx.fillStyle = tempColor(T);
+  ctx.beginPath();
+  ctx.roundRect(x - thermW / 2 + 2, y + thermH - fillH - 2, thermW - 4, fillH + 2, 3);
+  ctx.fill();
+
+  // Temperature label
+  ctx.fillStyle = '#475569';
+  ctx.font = 'bold 11px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText(T + ' °C', x - thermW / 2 - 4, y + thermH - fillH + 4);
+
+  // Scale ticks
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '9px Segoe UI, system-ui, sans-serif';
+  ctx.textAlign = 'right';
+  for (let t = 0; t <= 45; t += 15) {
+    const ty = y + thermH - (t / 45) * (thermH - 10) - 2;
+    ctx.fillText(t + '°', x - thermW / 2 - 16, ty + 3);
+    ctx.beginPath();
+    ctx.moveTo(x - thermW / 2 - 2, ty);
+    ctx.lineTo(x - thermW / 2 + 3, ty);
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+  }
+}
+
+update();
+</script>
+</body>
+</html>

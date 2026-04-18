@@ -113,9 +113,9 @@ Le contenu doit rester **lisible, clair et structuré** — la différenciation 
 ## VÉRIFICATION PROGRAMME OFFICIEL
 
 Avant de générer, lire OBLIGATOIREMENT le fichier programme (.md) correspondant :
-- `pdf/programme-maths-2nde-bac-pro.md`, `pdf/programme-maths-terminale-bac-pro.md`
-- `pdf/programme-physique-chimie-2nde-bac-pro.md`, `pdf/programme-physique-chimie-terminale-bac-pro.md`
-- `pdf/programme_maths_premiere_bacpro.md`, `pdf/programme_pc_premiere_bacpro.md`
+- `pdf/programmes/programme-maths-2nde-bac-pro.md`, `pdf/programmes/programme-maths-terminale-bac-pro.md`
+- `pdf/programmes/programme-physique-chimie-2nde-bac-pro.md`, `pdf/programmes/programme-physique-chimie-terminale-bac-pro.md`
+- `pdf/programmes/programme_maths_premiere_bacpro.md`, `pdf/programmes/programme_pc_premiere_bacpro.md`
 
 **Chaque capacité du programme** doit être couverte par au moins un exercice dans la page. Si une capacité est absente, ajouter un exercice.
 

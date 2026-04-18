@@ -2,7 +2,7 @@
 
 Ce prompt décrit les contextes professionnels à utiliser lorsque tu génères du contenu pour les classes de Première Bac Professionnel ERA et MA.
 
-**Source :** Référentiel Bac Pro ERA (`pdf/referentiel-bcp-era-reglement-examen.pdf`) + Référentiel Bac Pro TMA (`pdf/referentiel-bcp-tma.pdf`)
+**Source :** Référentiel Bac Pro ERA (`pdf/referentiels/referentiel-bcp-era-reglement-examen.pdf`) + Référentiel Bac Pro TMA (`pdf/referentiels/referentiel-bcp-tma.pdf`)
 
 ERA signifie : Étude et Réalisation d'Agencement
 MA signifie : Menuiserie Agencement

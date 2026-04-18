@@ -2,7 +2,7 @@
 
 ## Filière : CAP SDG (Signalétique et Décors Graphiques)
 
-**Source :** Référentiel CAP SDG — `pdf/referentiel-cap-sdg.pdf`
+**Source :** Référentiel CAP SDG — `pdf/referentiels/referentiel-cap-sdg.pdf`
 
 **Groupement maths :** 1 (a Géométrie)
 **Programme sciences :** commun à tous les CAP

@@ -45,7 +45,10 @@ Ce fichier est lu automatiquement par Claude Code à chaque session.
 ├── automatismes/               ← Exercices d'entraînement rapide par thème — 22 pages
 ├── co-intervention/            ← Séances de co-intervention maths/sciences (38 pages, ICCER/ERA-MA)
 ├── prompts/                    ← Prompts pédagogiques de référence
-├── pdf/                        ← Programmes officiels, référentiels, extractions .md
+├── pdf/                        ← Documents officiels
+│   ├── programmes/             ← Programmes scolaires (PDF + extractions .md)
+│   ├── referentiels/           ← Référentiels professionnels par filière
+│   └── vademecums/             ← Vademecums 2nde (familles de métiers)
 ├── audits/                     ← Audits qualité (documents vivants)
 ├── latex/                      ← Sources LaTeX (local, gitignored) — livrets, DS, co-intervention
 │   ├── seconde/                ← Livrets, DS, co-intervention Seconde
@@ -377,18 +380,18 @@ Ces sigles sont des noms de formations scolaires, pas des métiers réels. Ils n
 
 ## PROGRAMMES OFFICIELS ET RÉFÉRENTIELS
 
-Le dossier `/pdf/` contient les programmes scolaires, référentiels de filières et documents officiels. Voir `pdf/README.md` pour l'inventaire complet.
+Le dossier `/pdf/` est organisé en 3 sous-dossiers. Voir `pdf/README.md` pour l'inventaire complet.
 
-### Programmes scolaires (maths & sciences)
+### Programmes scolaires (`pdf/programmes/`)
 
 - Maths Bac Pro : Seconde (2019), Première (2020), Terminale (2020)
 - PC Bac Pro : Seconde (2019), Première (2020), Terminale (2020)
 - CAP : maths (2019) + sciences (2019)
 - BMA : maths (2021) + PC (2021)
 - BTS : maths
-- Extractions `.md` exploitables : CAP, BMA, BTS, PC Seconde/Première/Terminale (6 groupements)
+- Extractions `.md` exploitables : maths + PC Bac Pro (3 niveaux), CAP, BMA, BTS, PC 6 groupements
 
-### Référentiels de filières
+### Référentiels de filières (`pdf/referentiels/`)
 
 | Pôle | Filière | Fichier |
 |---|---|---|
@@ -401,10 +404,10 @@ Le dossier `/pdf/` contient les programmes scolaires, référentiels de filière
 | | BMA Ébéniste | `referentiel-bma-ebeniste-annexe-*.pdf` (6 annexes) |
 | **Arts graphiques** | CAP SDG | `referentiel-cap-sdg.pdf` |
 | | BMA Arts Graphiques | `referentiel-bma-arts-graphiques.pdf` |
-| **Bâtiment** | Bac Pro EEB | `referentiel-bcp-eeb.pdf` (complet) + détails dans `eeb-activites.pdf` / `eeb-certification.pdf` |
+| **Bâtiment** | Bac Pro EEB | `referentiel-bcp-eeb.pdf` (complet) + `eeb-activites.pdf` / `eeb-certification.pdf` |
 | | Bac Pro Géomètre (TGT) | `referentiel-bcp-geometre.pdf` |
 
-### Vademecums Seconde (familles de métiers)
+### Vademecums Seconde (`pdf/vademecums/`)
 
 | Famille | Fichier | Débouchés |
 |---|---|---|
