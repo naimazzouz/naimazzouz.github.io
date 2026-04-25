@@ -1,7 +1,7 @@
 # Audit Technique
 
 **Date** : 2026-03-16
-**Derniere mise a jour** : 2026-04-25 (audit pages sommaire + chapitres PC seconde)
+**Derniere mise a jour** : 2026-04-25 (audit lecons PC seconde + corrections systemiques)
 **Perimetre** : HTML, CSS, JavaScript, chemins, accessibilite, simulations, performances
 **Nombre total de fichiers HTML audites** : 477 (191 maths, 180 physique-chimie, 63 simulations, 43 autres)
 
@@ -257,6 +257,11 @@ Le site repose sur des liens `<a>` et boutons `<button>` standards, naturellemen
 - **2026-04-25** : Correction couleur fil d'Ariane sur `pc-2nde-pro.html` (#2da44e vert -> var(--primary) violet — coherence avec le theme PC Seconde).
 - **2026-04-25** : Suppression de la redefinition `function toggle()` en doublon dans 5 `activite.html` PC seconde (deja defini dans nav.js).
 - **2026-04-25** : Correction lien casse `pc-2nde-mama.html` (fichier inexistant) -> `pc-2nde-pro.html` dans 13 `interro.html` PC seconde (ch01-ch10, ch12-ch14). Le ch11 etait deja correct. nav.js masquait le lien `.nb` automatiquement, le bug etait latent.
+- **2026-04-25** : Audit complet des 14 lecon.html PC seconde — corrections appliquees :
+  * 8 typos corriges : `jointîves`/`poncçage`/`forméaldéhyde`/`charnires` (ch07), `Un lasure concentré` (ch08), `fraichément` (ch12), `poncçage` (ch13), `excéllente` (ch14)
+  * 6 redefinitions de `function toggle(btn)` en doublon supprimees (ch08, ch09, ch10, ch11, ch13, ch14). NB: ch14 avait des apostrophes courbes invalides en JS.
+  * 9 blocs `<div class="retenir">...Simulation...</div>` deplaces de hors `.c` vers l'interieur du conteneur (ch03, ch04, ch05, ch06, ch08, ch09, ch11, ch12, ch13)
+  * 2 `<header>` reorganises : `<h1>` avant `<p class="sous-titre">` (ch08, ch14 — ordre standard CLAUDE.md)
 - **2026-04-25** : Correction HTML invalide `<div class="svg-wrap">` imbrique dans `<span class="partie-title">` (block dans inline) sur 5 `ds.html` PC seconde (ch01, ch03, ch04, ch13, ch14). Restructuration : SVG sorti hors du span, place avant le `<div class="partie-header">`.
 
 ---

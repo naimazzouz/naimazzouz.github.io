@@ -185,7 +185,7 @@ MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
 
 <div class="ex">
   <span class="label label-ex">Applications en atelier</span><br>
-  • <strong>Bois poli / verni</strong> : la surface lisse crée une réflexion spéculaire (angle sortant = angle entrant) → aspect brillant. Plus le poncçage est fin, plus la réflexion est miroir.<br>
+  • <strong>Bois poli / verni</strong> : la surface lisse crée une réflexion spéculaire (angle sortant = angle entrant) → aspect brillant. Plus le ponçage est fin, plus la réflexion est miroir.<br>
   • <strong>Bois mat</strong> : surface rugueuse → réflexion diffuse (les rayons repartent dans toutes les directions) → aspect mat sans reflet.<br>
   • <strong>Surface vitrée</strong> (vitrine, huisserie) : réflexion partielle et transmission simultanées.
 </div>
@@ -521,6 +521,14 @@ MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
 </div>
 
 <!-- ===== SECTION 9 ===== -->
+<!-- Simulations interactives -->
+<div class="retenir" style="border-color:var(--p);background:var(--p-bg)">
+  <h3>Simulation interactive</h3>
+  <ul style="list-style:none;padding:0;margin:0">
+    <li style="margin:.4em 0"><a href="../../../simulations/refraction.html" target="_blank" style="color:var(--p);font-weight:600;text-decoration:underline">Réflexion et réfraction de la lumière</a></li>
+  </ul>
+</div>
+
 </div><!-- .c -->
 
 <!-- ===== SECTION 10 ===== -->
@@ -769,22 +777,8 @@ MathJax = {tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};
 
   drawScene();
 })();
-
-function toggle(btn){
-  var c=btn.nextElementSibling;
-  if(c.style.display==='block'){c.style.display='none';btn.textContent='Voir la correction';}
-  else{c.style.display='block';btn.textContent='Masquer la correction';}
-}
 </script>
 <script src="../../../nav.js"></script>
-
-<!-- Simulations interactives -->
-<div class="retenir" style="border-color:var(--p);background:var(--p-bg)">
-  <h3>Simulation interactive</h3>
-  <ul style="list-style:none;padding:0;margin:0">
-    <li style="margin:.4em 0"><a href="../../../simulations/refraction.html" target="_blank" style="color:var(--p);font-weight:600;text-decoration:underline">Réflexion et réfraction de la lumière</a></li>
-  </ul>
-</div>
 
 </body>
 </html>
