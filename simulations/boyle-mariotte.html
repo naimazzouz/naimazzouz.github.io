@@ -79,7 +79,7 @@
   <!-- Visualisation cylindre -->
   <div class="card">
     <h3>Cylindre avec piston mobile</h3>
-    <canvas id="canvasCylindre" width="740" height="280"></canvas>
+    <canvas aria-label="Cylindre avec piston illustrant la compression d'un gaz à température constante" id="canvasCylindre" width="740" height="280"></canvas>
   </div>
 
   <!-- Tableau de mesures -->
@@ -113,11 +113,11 @@
       <button class="tab" onclick="showGraph('pinv', this)">P = f(1/V)</button>
     </div>
     <div id="graph-pv" class="graph-panel active">
-      <canvas id="canvasGraphPV" width="740" height="300"></canvas>
+      <canvas aria-label="Graphique de la pression en fonction du volume (loi de Boyle-Mariotte)" id="canvasGraphPV" width="740" height="300"></canvas>
       <p style="font-size:0.85em;color:#666;margin-top:8px;">La courbe P = f(V) est une <strong>hyperbole</strong> : P et V sont inversement proportionnels.</p>
     </div>
     <div id="graph-pinv" class="graph-panel">
-      <canvas id="canvasGraphInv" width="740" height="300"></canvas>
+      <canvas aria-label="Graphique de la pression en fonction de l'inverse du volume" id="canvasGraphInv" width="740" height="300"></canvas>
       <p style="font-size:0.85em;color:#666;margin-top:8px;">La courbe P = f(1/V) est une <strong>droite passant par l'origine</strong> : cela confirme que P est proportionnel a 1/V.</p>
     </div>
   </div>

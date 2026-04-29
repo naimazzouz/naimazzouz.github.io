@@ -82,21 +82,21 @@
   <div class="card">
     <h3 style="margin-top:0;">Visualisation thermique</h3>
     <div class="thermometre-wrap">
-      <canvas id="canvasThermo" width="120" height="260"></canvas>
-      <canvas id="canvasRecipient" width="380" height="260"></canvas>
+      <canvas aria-label="Thermomètre indiquant la température du corps chauffé" id="canvasThermo" width="120" height="260"></canvas>
+      <canvas aria-label="Récipient contenant le corps en cours de chauffage" id="canvasRecipient" width="380" height="260"></canvas>
     </div>
   </div>
 
   <div class="card">
     <h3 style="margin-top:0;">📈 Température en fonction de l'énergie apportée</h3>
-    <canvas id="graphe" width="760" height="200"></canvas>
+    <canvas aria-label="Graphique de la température en fonction de l'énergie reçue" id="graphe" width="760" height="200"></canvas>
     <p style="text-align:center;font-size:0.85em;color:#888;margin-top:4px;">T₂ = T₁ + Q / (m · c) — droite de chauffe</p>
   </div>
 
   <div class="card">
     <h3 style="margin-top:0;">🔍 Comparaison des matériaux</h3>
     <p style="font-size:0.9em;color:#666;">Pour Q = 10 kJ, m = 1 kg, T₁ = 20 °C — combien chaque matériau se réchauffe-t-il ?</p>
-    <canvas id="barChart" width="760" height="200"></canvas>
+    <canvas aria-label="Comparaison des chaleurs massiques de différents matériaux" id="barChart" width="760" height="200"></canvas>
   </div>
 </div>
 

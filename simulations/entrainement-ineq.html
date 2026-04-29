@@ -192,7 +192,7 @@ canvas { display:block; margin:0 auto; max-width:100%; }
   </div>
 
   <!-- Droite graduée réponse -->
-  <div class="canvas-wrap"><canvas id="lCanvas" width="700" height="90"></canvas></div>
+  <div class="canvas-wrap"><canvas aria-label="Droite graduée représentant l'ensemble solution de l'inéquation linéaire" id="lCanvas" width="700" height="90"></canvas></div>
 
   <div class="btn-row">
     <button class="btn btn-check" id="lBtnCheck" onclick="libreCheck()">✔ Vérifier</button>
@@ -253,7 +253,7 @@ canvas { display:block; margin:0 auto; max-width:100%; }
              onkeydown="if(event.key==='Enter') quizCheck()">
     </div>
 
-    <div class="canvas-wrap"><canvas id="qCanvas" width="700" height="90"></canvas></div>
+    <div class="canvas-wrap"><canvas aria-label="Représentation graphique de l'inéquation du second degré" id="qCanvas" width="700" height="90"></canvas></div>
 
     <div class="btn-row">
       <button class="btn btn-check" id="qBtnCheck" onclick="quizCheck()">✔ Vérifier</button>

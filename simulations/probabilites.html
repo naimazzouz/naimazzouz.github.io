@@ -77,8 +77,8 @@ canvas#dieCanvas,canvas#coinCanvas{display:block;margin:0 auto 15px}
 <div class="grid2">
   <div>
     <div class="section-title">Résultat visuel</div>
-    <canvas id="dieCanvas" width="120" height="120"></canvas>
-    <canvas id="coinCanvas" width="120" height="120" style="display:none"></canvas>
+    <canvas aria-label="Animation du lancer d'un dé" id="dieCanvas" width="120" height="120"></canvas>
+    <canvas aria-label="Animation du lancer d'une pièce de monnaie" id="coinCanvas" width="120" height="120" style="display:none"></canvas>
     <div class="indicators" id="indicators"></div>
   </div>
   <div>
@@ -89,7 +89,7 @@ canvas#dieCanvas,canvas#coinCanvas{display:block;margin:0 auto 15px}
 
 <div class="section-title">Fréquences observées vs probabilité théorique</div>
 <div class="chart-container">
-  <canvas id="chartFreq"></canvas>
+  <canvas aria-label="Graphique de la fréquence d'apparition convergeant vers la probabilité théorique" id="chartFreq"></canvas>
 </div>
 
 <div class="insight">

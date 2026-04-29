@@ -546,3 +546,35 @@ Vérification : le `<script>` est bien à la ligne 133, **après** le `<canvas i
 | **TOTAL** | **124** | **5** | **5** |
 
 Total : **5 bugs corrigés**, 0 erreur scientifique restante détectée.
+
+---
+
+## Phase 2 — Accessibilité (2026-04-29)
+
+**Action** : ajout de `aria-label` descriptifs sur tous les `<canvas>` et `<svg>` graphiques des simulations.
+
+**Méthode** :
+- Inventaire automatique : 73 fichiers concernés, 106 canvas + 8 SVG sans `aria-label` (114 éléments au total)
+- Curation manuelle : un `aria-label` distinct par élément, décrivant ce que l'utilisateur visualise (et pas le nom technique de la balise)
+- Application via `scripts/add_aria_labels.py` (idempotent, ne modifie pas si déjà présent)
+
+**Exemples de labels curés** :
+- `archimede.html / canvas#cv` → "Animation d'un objet plongé dans un fluide montrant la poussée d'Archimède"
+- `atome.html / svg#atom-svg` → "Représentation interactive d'un atome avec protons, neutrons et électrons"
+- `boyle-mariotte.html / canvas#canvasGraphPV` → "Graphique de la pression en fonction du volume (loi de Boyle-Mariotte)"
+- `transferts-thermiques.html / canvas#cvConduction` → "Animation de la conduction thermique à travers une barre"
+- `polynome3.html / canvas#graphCanvas` → "Courbe d'une fonction polynôme de degré 3 avec points clés (racines, extremums, inflexion)"
+
+**Résultat** :
+
+| Avant | Après |
+|---|---|
+| 73 / 78 simulations sans aria-label sur canvas/SVG | **0 / 78** |
+| 114 éléments graphiques sans description | **0** |
+
+**Vérification** : grep automatique confirme qu'il ne reste aucun `<canvas>` ou `<svg>` sans `aria-label` dans le dossier `simulations/`.
+
+**Impact pédagogique** :
+- Les élèves utilisant un lecteur d'écran ou une aide à la lecture entendent maintenant une description du contenu de la simulation
+- Conforme aux recommandations WCAG 2.1 (critère 1.1.1 — Contenu non textuel)
+- Conforme au RGAA (Référentiel général d'amélioration de l'accessibilité, France)

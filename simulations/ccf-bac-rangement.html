@@ -76,7 +76,7 @@ canvas{display:block;border-radius:8px;border:1px solid #e2e8f0}
   <div>
     <div class="card">
       <h2>Schéma de la plaque (vue de dessus)</h2>
-      <canvas id="plaque" width="320" height="320" style="width:100%;max-width:320px"></canvas>
+      <canvas aria-label="Plaque rectangulaire avec carrés découpés aux quatre coins pour former un bac" id="plaque" width="320" height="320" style="width:100%;max-width:320px"></canvas>
 
       <div class="slider-wrap" style="margin-top:14px">
         <label>Côté du carré découpé x (cm) <span id="xVal">2</span></label>
@@ -97,7 +97,7 @@ canvas{display:block;border-radius:8px;border:1px solid #e2e8f0}
   <div>
     <div class="card">
       <h2>Courbe de V(x) = x(30 − 2x)²</h2>
-      <canvas id="graph" width="400" height="300" style="width:100%"></canvas>
+      <canvas aria-label="Graphique du volume du bac en fonction de la taille des carrés découpés" id="graph" width="400" height="300" style="width:100%"></canvas>
 
       <div class="toggle-row">
         <label><input type="checkbox" id="showDeriv" onchange="update()"> Afficher V'(x)</label>

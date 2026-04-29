@@ -152,7 +152,7 @@
         <div class="card">
             <h2>Circuit & Réglages</h2>
             <div class="schematic-container">
-                <svg viewBox="0 0 300 200" width="100%">
+                <svg aria-label="Schéma du circuit électrique avec résistance, ampèremètre et voltmètre" viewBox="0 0 300 200" width="100%">
                     <path id="electron-path" d="M 50 100 L 50 50 L 250 50 L 250 150 L 50 150 L 50 100" fill="none" />
                     <path d="M 50 150 L 50 50 L 250 50 L 250 150 L 50 150" stroke="var(--wire)" stroke-width="2" fill="none" />
                     
@@ -201,7 +201,7 @@
         <!-- Panneau de Droite : Graphique & Table -->
         <div class="card" style="border-top-color: var(--secondary);">
             <h2>Graphique dynamique</h2>
-            <canvas id="ohmChart" height="180"></canvas>
+            <canvas aria-label="Caractéristiques U = f(I) tracées pour différentes résistances" id="ohmChart" height="180"></canvas>
             
             <h2 style="margin-top:20px; font-size: 1.1rem;">Registre des mesures</h2>
             <div class="table-container">

@@ -79,7 +79,7 @@ select{width:100%;padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;fo
   <div id="singlePanel">
     <div class="row">
       <div class="col">
-        <canvas id="cvSingle" width="400" height="300"></canvas>
+        <canvas aria-label="Coupe d'une paroi simple avec gradient de température" id="cvSingle" width="400" height="300"></canvas>
       </div>
       <div class="col">
         <label>Matériau</label>
@@ -109,7 +109,7 @@ select{width:100%;padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;fo
   <div id="compositePanel" style="display:none">
     <div class="row">
       <div class="col">
-        <canvas id="cvComposite" width="400" height="300"></canvas>
+        <canvas aria-label="Coupe d'une paroi multicouche avec gradient de température" id="cvComposite" width="400" height="300"></canvas>
       </div>
       <div class="col">
         <label>Surface S <span class="val" id="sValC">10 m²</span></label>
@@ -162,7 +162,7 @@ select{width:100%;padding:7px 10px;border:1px solid #cbd5e1;border-radius:6px;fo
 <div class="card">
   <h2>Comparaison des matériaux (Φ pour e = épaisseur choisie)</h2>
   <div class="chart-container">
-    <canvas id="chartCompare"></canvas>
+    <canvas aria-label="Comparaison de la conductance thermique des matériaux d'isolation" id="chartCompare"></canvas>
   </div>
 </div>
 
