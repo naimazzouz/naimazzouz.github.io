@@ -7,7 +7,7 @@
 <style>
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
   .container { max-width: 880px; margin: 0 auto; }
-  header { background: #0284c7; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  header { background: linear-gradient(135deg, #0284c7, #016395); color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
   .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
   .btn-back:hover { background: rgba(255,255,255,0.35); }
   .card { background: white; border-radius: 10px; padding: 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
@@ -79,7 +79,7 @@
   <!-- Visualisation cylindre -->
   <div class="card">
     <h3>Cylindre avec piston mobile</h3>
-    <canvas id="canvasCylindre" width="740" height="280"></canvas>
+    <canvas aria-label="Cylindre avec piston illustrant la compression d'un gaz à température constante" id="canvasCylindre" width="740" height="280"></canvas>
   </div>
 
   <!-- Tableau de mesures -->
@@ -113,11 +113,11 @@
       <button class="tab" onclick="showGraph('pinv', this)">P = f(1/V)</button>
     </div>
     <div id="graph-pv" class="graph-panel active">
-      <canvas id="canvasGraphPV" width="740" height="300"></canvas>
+      <canvas aria-label="Graphique de la pression en fonction du volume (loi de Boyle-Mariotte)" id="canvasGraphPV" width="740" height="300"></canvas>
       <p style="font-size:0.85em;color:#666;margin-top:8px;">La courbe P = f(V) est une <strong>hyperbole</strong> : P et V sont inversement proportionnels.</p>
     </div>
     <div id="graph-pinv" class="graph-panel">
-      <canvas id="canvasGraphInv" width="740" height="300"></canvas>
+      <canvas aria-label="Graphique de la pression en fonction de l'inverse du volume" id="canvasGraphInv" width="740" height="300"></canvas>
       <p style="font-size:0.85em;color:#666;margin-top:8px;">La courbe P = f(1/V) est une <strong>droite passant par l'origine</strong> : cela confirme que P est proportionnel a 1/V.</p>
     </div>
   </div>

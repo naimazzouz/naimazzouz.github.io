@@ -57,6 +57,13 @@ canvas#graphCanvas{display:block;margin:0 auto;border:1px solid #e2e8f0;border-r
 </header>
 
 <div class="container">
+  <div class="card" style="background:#e3f2fd;border-left:4px solid #1976d2;margin-bottom:18px">
+    <p style="margin:0;font-size:.95em;line-height:1.55">
+      <strong style="color:#1565c0">À explorer :</strong> change la base \(a\) et observe les courbes \(f(x)=a^x\) et \(g(x)=\log_a(x)\). Les deux fonctions sont <em>réciproques</em> l'une de l'autre, leurs courbes sont symétriques par rapport à la droite \(y=x\).
+      <em>Applications professionnelles :</em> décroissance radioactive, refroidissement (loi de Newton), niveaux sonores en décibels (\(L = 10\log\frac{I}{I_0}\)), atténuation d'un signal, capitalisation à intérêts composés.
+    </p>
+  </div>
+
   <div class="tabs">
     <div class="tab active" onclick="switchTab('exp')">Exponentielle</div>
     <div class="tab" onclick="switchTab('log')">Logarithme</div>
@@ -81,7 +88,7 @@ canvas#graphCanvas{display:block;margin:0 auto;border:1px solid #e2e8f0;border-r
     <div class="toggle-row">
       <label><input type="checkbox" id="showBoth" onchange="draw()"> Superposer exp et log (sym&eacute;trie / y = x)</label>
     </div>
-    <canvas id="graphCanvas" width="800" height="550"></canvas>
+    <canvas aria-label="Courbes de la fonction exponentielle et de la fonction logarithme" id="graphCanvas" width="800" height="550"></canvas>
     <div class="legend">
       <span><span class="dot" style="background:#1976d2"></span> f(x) = a<sup>x</sup></span>
       <span><span class="dot" style="background:#e53e3e"></span> g(x) = log<sub>a</sub>(x)</span>
@@ -271,7 +278,6 @@ function draw() {
     propsHTML += `<div class="prop-box"><div class="label">Image de 1</div><div class="value">g(1) = 0</div></div>`;
     propsHTML += `<div class="prop-box"><div class="label">Asymptote</div><div class="value">x = 0 (axe des ordonn\u00e9es)</div></div>`;
     propsHTML += `<div class="prop-box"><div class="label">Ensemble de d\u00e9finition</div><div class="value">]0 ; +\u221e[</div></div>`;
-    const ga = (Math.log(a) / Math.log(a));
     propsHTML += `<div class="prop-box"><div class="label">Image de a</div><div class="value">g(${a.toFixed(2)}) = 1</div></div>`;
   }
   pg.innerHTML = propsHTML;

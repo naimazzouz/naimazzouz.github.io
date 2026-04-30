@@ -8,7 +8,7 @@
 <style>
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
   .container { max-width: 860px; margin: 0 auto; }
-  header { background: #6f42c1; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  header { background: linear-gradient(135deg, #6f42c1, #533190); color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
   header h1 { margin: 0 0 5px 0; font-size: 1.5em; }
   header p { margin: 0; opacity: 0.85; font-size: 0.95em; }
   .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
@@ -31,6 +31,7 @@
   .badge-eq { background: #e0f2fe; color: #0369a1; }
   .info { font-size: 0.88em; color: #6b7280; margin-top: 4px; }
   .warn { background: #fef3c7; border-left: 4px solid #d97706; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 0.92em; margin-top: 15px; }
+canvas{max-width:100%;height:auto}
 </style>
 <body>
 <div class="container">
@@ -48,7 +49,7 @@
   <!-- TRANSFORMER VISUALIZATION -->
   <div class="card">
     <h2>1. Le Transformateur</h2>
-    <canvas id="cvTransfo" width="820" height="320"></canvas>
+    <canvas aria-label="Schéma d'un transformateur avec deux bobinages enroulés autour d'un noyau" id="cvTransfo" width="820" height="320"></canvas>
 
     <div class="row3" style="margin-top:18px;">
       <div>
@@ -89,7 +90,7 @@
     <div class="result" id="resTransport">
     </div>
 
-    <canvas id="cvTransport" width="820" height="260" style="margin-top:15px;"></canvas>
+    <canvas aria-label="Schéma du transport de l'énergie électrique en haute tension" id="cvTransport" width="820" height="260" style="margin-top:15px;"></canvas>
 
     <div class="warn">
       <strong>Conclusion :</strong> Plus la tension de transport est élevée, plus le courant est faible (car P = U &times; I), et donc plus les pertes \( P_{\text{pertes}} = R \times I^2 \) sont faibles. C'est pourquoi on transporte l'électricité en haute tension !

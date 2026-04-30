@@ -7,7 +7,7 @@
 <style>
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
   .container { max-width: 860px; margin: 0 auto; }
-  header { background: #e67e22; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  header { background: linear-gradient(135deg, #e67e22, #ac5e19); color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
   header h1 { margin: 0 0 5px 0; font-size: 1.5em; }
   header p { margin: 0; opacity: 0.9; font-size: 0.95em; }
   .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
@@ -58,7 +58,7 @@
       <h3>Conduction thermique</h3>
       <div class="row">
         <div>
-          <canvas id="cvConduction" height="220"></canvas>
+          <canvas aria-label="Animation de la conduction thermique à travers une barre" id="cvConduction" height="220"></canvas>
           <div class="info-box">
             La <strong>conduction</strong> est le transfert de chaleur de proche en proche dans un solide, sans d&eacute;placement de mati&egrave;re.
             Plus la conductivit&eacute; thermique &lambda; est grande, plus le transfert est rapide.
@@ -94,7 +94,7 @@
       <h3>Convection thermique</h3>
       <div class="row">
         <div>
-          <canvas id="cvConvection" height="300"></canvas>
+          <canvas aria-label="Animation de la convection dans un fluide chauffé" id="cvConvection" height="300"></canvas>
         </div>
         <div>
           <label>Puissance du radiateur : <span id="vPrad">1500</span> W</label>
@@ -118,7 +118,7 @@
       <h3>Rayonnement thermique</h3>
       <div class="row">
         <div>
-          <canvas id="cvRayonnement" height="280"></canvas>
+          <canvas aria-label="Animation du rayonnement thermique d'un corps chaud" id="cvRayonnement" height="280"></canvas>
         </div>
         <div>
           <label>Temp&eacute;rature de l'objet : <span id="vTray">500</span> &deg;C</label>
@@ -145,7 +145,7 @@
     <p style="font-size:0.9em;color:#64748b;margin-top:0;">Deux objets &agrave; temp&eacute;ratures diff&eacute;rentes &eacute;voluent vers une temp&eacute;rature d'&eacute;quilibre.</p>
     <div class="row">
       <div>
-        <canvas id="cvEquilibre" height="250"></canvas>
+        <canvas aria-label="Mise en équilibre thermique de deux corps en contact" id="cvEquilibre" height="250"></canvas>
       </div>
       <div>
         <label>Temp. objet A : <span id="vTA">90</span> &deg;C</label>

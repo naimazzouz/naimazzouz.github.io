@@ -7,7 +7,7 @@
 <style>
   body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
   .container { max-width: 820px; margin: 0 auto; }
-  header { background: #6f42c1; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  header { background: linear-gradient(135deg, #6f42c1, #533190); color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
   .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
   .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
   canvas { display: block; width: 100%; border: 1px solid #eee; border-radius: 6px; }
@@ -37,7 +37,7 @@
     <label>Amplitude U<sub>max</sub> : <span id="vAmp">325</span> V &nbsp;|&nbsp; Fréquence : <span id="vFreq">50</span> Hz</label>
     <input type="range" id="amp" min="50" max="400" value="325" oninput="draw()">
 
-    <canvas id="canvas" height="240"></canvas>
+    <canvas aria-label="Signal alternatif et son redressement à travers le pont de Graetz et le condensateur" id="canvas" height="240"></canvas>
 
     <div class="legende">
       <span><span class="dot" style="background:#3b82f6;"></span>Signal AC entrant</span>

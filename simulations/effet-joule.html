@@ -7,7 +7,7 @@
 <style>
   body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
   .container { max-width: 800px; margin: 0 auto; }
-  header { background: #e67e22; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  header { background: linear-gradient(135deg, #e67e22, #ac5e19); color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
   .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
   .card { background: white; border-radius: 10px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
   label { font-weight: 600; display: block; margin-bottom: 5px; }
@@ -20,6 +20,7 @@
   .formule { background: #eee; border-radius: 6px; padding: 10px 15px; font-family: monospace; font-size: 0.95em; margin-top: 15px; }
   canvas { display: block; margin: 0 auto; }
   .explication { background: #fff8f0; border-left: 4px solid #e67e22; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; font-size: 0.95em; line-height: 1.6; }
+canvas{max-width:100%;height:auto}
 </style>
 <body>
 <div class="container">
@@ -62,13 +63,13 @@
 
   <div class="card">
     <h3 style="margin-top:0;">Visualisation de l'échauffement</h3>
-    <canvas id="canvas" width="700" height="220"></canvas>
+    <canvas aria-label="Conducteur électrique avec dissipation de chaleur par effet Joule" id="canvas" width="700" height="220"></canvas>
     <p style="text-align:center;font-size:0.85em;color:#888;margin-top:8px;">La couleur du conducteur représente sa température relative</p>
   </div>
 
   <div class="card">
     <h3 style="margin-top:0;">📈 Puissance en fonction de l'intensité</h3>
-    <canvas id="graphe" width="700" height="200"></canvas>
+    <canvas aria-label="Graphique de la puissance dissipée en fonction de l'intensité" id="graphe" width="700" height="200"></canvas>
     <p style="text-align:center;font-size:0.85em;color:#888;margin-top:4px;">P = R × I² — la puissance croît avec le carré de l'intensité</p>
   </div>
 </div>

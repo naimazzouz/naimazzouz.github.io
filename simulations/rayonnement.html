@@ -7,7 +7,7 @@
 <style>
   body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
   .container { max-width: 820px; margin: 0 auto; }
-  header { background: #e67e22; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  header { background: linear-gradient(135deg, #e67e22, #ac5e19); color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
   .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
   .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
   label { font-weight: 600; display: block; margin-bottom: 4px; }
@@ -55,7 +55,7 @@
 
   <div class="card">
     <h3>Effet de serre atmosphérique</h3>
-    <canvas id="canvasSerre" height="220"></canvas>
+    <canvas aria-label="Échanges de rayonnement entre la Terre, l'atmosphère et l'espace" id="canvasSerre" height="220"></canvas>
     <label style="margin-top:12px;">Concentration en GES : <span id="vGES">50</span>%</label>
     <input type="range" id="ges" min="0" max="100" step="1" value="50" oninput="drawSerre()">
     <div class="info" id="infoSerre"></div>

@@ -9,7 +9,7 @@
 <style>
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; color: #333; }
   .container { max-width: 860px; margin: 0 auto; }
-  header { background: #0f766e; color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
+  header { background: linear-gradient(135deg, #0f766e, #0b5852); color: white; padding: 20px 25px; border-radius: 10px; margin-bottom: 25px; position: relative; }
   header h1 { margin: 0 0 5px 0; font-size: 1.5em; }
   header p { margin: 0; opacity: 0.85; font-size: 0.95em; }
   .btn-back { position: absolute; left: 15px; top: 15px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 5px 12px; border-radius: 5px; font-size: 0.85em; }
@@ -51,17 +51,17 @@
     <div class="row3">
       <div style="text-align:center;">
         <strong>Incandescence</strong>
-        <canvas id="cvSpecInc" width="240" height="120"></canvas>
+        <canvas aria-label="Spectre continu d'une lampe à incandescence" id="cvSpecInc" width="240" height="120"></canvas>
         <p style="font-size:0.82em;color:#6b7280;">Spectre continu</p>
       </div>
       <div style="text-align:center;">
         <strong>Fluocompacte</strong>
-        <canvas id="cvSpecFluo" width="240" height="120"></canvas>
+        <canvas aria-label="Spectre de raies d'une lampe fluorescente" id="cvSpecFluo" width="240" height="120"></canvas>
         <p style="font-size:0.82em;color:#6b7280;">Raies discrètes</p>
       </div>
       <div style="text-align:center;">
         <strong>LED blanche</strong>
-        <canvas id="cvSpecLED" width="240" height="120"></canvas>
+        <canvas aria-label="Spectre d'une LED blanche" id="cvSpecLED" width="240" height="120"></canvas>
         <p style="font-size:0.82em;color:#6b7280;">Pic bleu + phosphore</p>
       </div>
     </div>
@@ -120,7 +120,7 @@
       </div>
     </div>
 
-    <canvas id="chartCost" height="280" style="margin-top:15px;"></canvas>
+    <canvas aria-label="Graphique de la consommation et du coût des différentes sources lumineuses" id="chartCost" height="280" style="margin-top:15px;"></canvas>
 
     <div class="result" id="resCost"></div>
   </div>
